@@ -201,5 +201,5 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
   \ 'ext': '.md',
   \ 'custom_wiki2html': '~/convert.sh'}]
 
-source ~/.vim/simplenoterc
+"source ~/.vim/simplenoterc
 
