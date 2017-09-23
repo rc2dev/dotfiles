@@ -64,7 +64,7 @@ if [ "$color_prompt" = yes ]; then
 #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 # [RC modified] Linhas antes do else
 	if [ -f /usr/local/bin/git-prompt.sh ]; then
-		. /usr/local/local/bin/git-prompt.sh
+		. /usr/local/bin/git-prompt.sh
 	fi
 	export GIT_PS1_SHOWDIRTYSTATE=1
 		PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] \w\[\033[00m\] (\j)$(__git_ps1)\n\$ '
