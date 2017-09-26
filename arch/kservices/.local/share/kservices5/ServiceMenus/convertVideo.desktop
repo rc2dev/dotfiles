@@ -1,6 +1,6 @@
 # Dependencies: ffmpeg, HandBrakeCLI
 #
-# Rafael Cavalcanti
+# Rafael Cavalcanti <rc.cavalcanti at gmail dot com>
 #
 
 [Desktop Entry]
@@ -16,7 +16,6 @@ Encoding=UTF-8
 [Desktop Action toMp4]
 Name=To MP4 (ffmpeg)
 Name[pt_BR]=Para MP4 (ffmpeg)
-#Icon=convert
 Exec=ffmpeg -i "%u" "%u.mp4"
 
 #[Desktop Action toAndroid480]
@@ -28,6 +27,5 @@ Exec=ffmpeg -i "%u" "%u.mp4"
 [Desktop Action toSmall]
 Name=To small file for mobile
 Name[pt_BR]=Para arquivo pequeno para celular
-#Icon=convert
 Exec=ffmpeg -i "%u" -vcodec libx264 -s 720x480 -crf 24 -acodec aac -b:a 64k "%u_small.mp4"
 

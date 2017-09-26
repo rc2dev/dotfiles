@@ -1,6 +1,6 @@
 # Dependencies: vlc
 #
-# Rafael Cavalcanti
+# Rafael Cavalcanti <rc.cavalcanti at gmail dot com>
 #
 
 [Desktop Entry]
@@ -9,11 +9,9 @@ ServiceTypes=KonqPopupMenu/Plugin
 MimeType=audio/*;video/*;
 Actions=addToVlc;
 X-KDE-Priority=TopLevel
-#X-KDE-Submenu=
 Encoding=UTF-8
 
 [Desktop Action addToVlc]
 Name=Add to VLC playlist
 Name[pt_BR]=Adicionar à playlist do VLC
-#Icon=convert
 Exec=vlc --one-instance --playlist-enqueue "%u"

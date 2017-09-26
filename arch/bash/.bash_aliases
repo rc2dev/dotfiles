@@ -104,6 +104,8 @@ ycut() {
 	youtube-dl --exec "ffmpeg -i {} -ss $2 -t $3 {}_cut.mp4" "$1"
 }
 
+# Stop and play MPC
+alias mr="mpc stop && mpc play"
 
 # ========== UNUSED ============
 # Workaround for WiFi dongle not working after hibernation/suspension
