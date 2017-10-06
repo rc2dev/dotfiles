@@ -85,27 +85,13 @@ alias ger2="cat /dev/urandom | tr -dc "[:lower:]" | head -c64 && echo"
 alias gitlog='git log --graph --oneline --all --decorate --pretty="%C(bold)%ad%C(reset) %C(yellow)%h%C(reset) %an %C(blue)%s" --date=format:"%y/%m/%d"'
 alias gitl="git log --name-only"
 
-# Copy stdin to clipboard
-alias clip="xsel -ib"
-
 # HTTP server
 alias hs="python -m http.server"
 
 # YouTube
 # Baixar áudio em mp3 para Play Music
 alias yp="youtube-dl --extract-audio --audio-format mp3"
-# Baixar vídeo compatível com iPhone
-alias yi="youtube-dl -f '(mp4)[height<480]'"
-ycut() {
-	if [[ $# != 3 ]]; then
-		echo "Usage: ycut URL START-TIME DURATION"
-		return
-	fi
-	youtube-dl --exec "ffmpeg -i {} -ss $2 -t $3 {}_cut.mp4" "$1"
-}
 
-# Stop and play MPC
-alias mr="mpc stop && mpc play"
 
 # ========== UNUSED ============
 # Workaround for WiFi dongle not working after hibernation/suspension
