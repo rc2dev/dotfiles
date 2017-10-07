@@ -34,15 +34,6 @@ alias x="exit"
 alias :q="exit"
 alias u="unset HISTFILE && export PS1='\n(incognito) $PS1' && echo History unset."
 
-# Apt - quick usage
-if  [ -e /usr/bin/apt ]; then
-	alias sai="sudo apt install"
-	alias sap="sudo aptitude purge"
-	alias ash="apt show"
-	alias ase="apt search"
-	alias sau="sudo apt update"
-fi
-
 # Arch's Pacman
 if [ -e /usr/bin/pacman ]; then
 	alias pu="sudo pacman -Syu && pacaur -u"
@@ -66,16 +57,12 @@ function snap() {
 }
 #LVM: alias snap="sudo lvcreate -s /dev/ssd/arch -n snap -L 5G && sudo lvcreate -s /dev/hdd/arch -n snap -L 5G"
 
-# Quicker systemd
-alias ssc="sudo systemctl"
-alias sc="systemctl"
-
 # R509
 alias sr9="ssh -t rafael-r509.local sudo "
 [ -e /usr/bin/samsung-tools ] && alias si="samsung-tools -c silent"
 
-# Backup
-alias jb="journalctl -b -f -u backup"
+# Systemd
+alias jf="journalctl -b -f -u"
 
 # Gerar string a partir de /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias ger="cat /dev/urandom | tr -dc "[:alnum:]" | head -c64 && echo"
@@ -89,7 +76,7 @@ alias gitl="git log --name-only"
 alias hs="python -m http.server"
 
 # YouTube
-# Baixar áudio em mp3 para Play Music
+# Baixar áudio em MP3 para Play Music
 alias yp="youtube-dl --extract-audio --audio-format mp3"
 
 
