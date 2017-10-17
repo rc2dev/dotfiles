@@ -12,8 +12,6 @@ set nocompatible				" Don't try to mimic Vi
 call plug#begin('~/.vim/plugged')		" Specify a directory for plugins
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }	" option needed
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" load only on demand
-Plug 'vimwiki/vimwiki'
-Plug 'mrtazz/simplenote.vim'
 " Syntax
 Plug 'joanrivera/vim-zimwiki-syntax'
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -106,8 +104,14 @@ set hidden                          " Allow buffers to be hidden without saving
 set mouse=r                         " (Não sei por quẽ) Fazer copia/cola do mouse funcionar
 "set clipboard=unnamedplus							" Use clipboard as default register
 set spelllang=pt_br,en_us           " Set spellcheck languages
-autocmd BufWrite * :%s/\s\+$//e     " When saving, remove trailing whitespace in every line
-autocmd BufWrite * :%s/^\n\+\%$//e  " When saving, remove blank lines at the end of the file
+
+function AutoTrim()
+	if !&binary && &filetype != 'diff'
+		:%s/\s\+$//e 											" remove trailing whitespace in every line
+		:%s/^\n\+\%$//e 									" remove blank lines at the end of the file
+	endif
+endfunction
+autocmd BufWrite * call AutoTrim()	  " call AutoTrim when saving
 
 " Turn on spell check for Git commits and use English
 autocmd Filetype gitcommit setlocal spelllang=en_us spell
@@ -117,9 +121,6 @@ autocmd Filetype gitcommit setlocal spelllang=en_us spell
 "=======================================================================
 " vim-closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"	"enable it in erb files
-
-" teste
-"let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 
 " SEARCH ON BUFFER
@@ -174,6 +175,7 @@ command! MakeTags !ctags -R .
 
 " ABBREVIATIONS
 "=======================================================================
+iab rcc [RC]
 iab rca [RC added]
 iab rcr [RC removed]
 iab rcm [RC modified]
@@ -194,12 +196,8 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-  \ 'path_html': '~/vimwiki_html/',
-  \ 'syntax': 'markdown',
-  \ 'ext': '.md',
-  \ 'custom_wiki2html': '~/convert.sh'}]
-
-"source ~/.vim/simplenoterc
-
+" Teste - truecolors no tmux
+if &term =~# '^screen'
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
