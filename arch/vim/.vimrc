@@ -6,6 +6,14 @@
 set nocompatible				" Don't try to mimic Vi
 
 
+" vim-plug automatic instalation (copied from vim-plug's github)
+"======================================================================
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " vim-plug
 "=======================================================================
 " Note: needs single quotes
@@ -105,7 +113,7 @@ set mouse=r                         " (Não sei por quẽ) Fazer copia/cola do m
 "set clipboard=unnamedplus							" Use clipboard as default register
 set spelllang=pt_br,en_us           " Set spellcheck languages
 
-function AutoTrim()
+function! AutoTrim()
 	if !&binary && &filetype != 'diff'
 		:%s/\s\+$//e 											" remove trailing whitespace in every line
 		:%s/^\n\+\%$//e 									" remove blank lines at the end of the file
