@@ -20,7 +20,7 @@
 	title="\e]2;\w\a"
 	. /usr/share/git/completion/git-prompt.sh
 	GIT_PS1_SHOWDIRTYSTATE=1
-	PS1="${title}\n${GREEN}\u: ${YELLOW}\w${GREY} (\j)\$(__git_ps1) \$(~/.rvm/bin/rvm-prompt p g)${RESET} \n\$ "
+	PS1="${title}\n${GREEN}\u: ${YELLOW}\w${GREY} \$(__git_ps1) \$(~/.rvm/bin/rvm-prompt p g)${RESET} \n\$ "
 #fi
 
 # History completion with arrow keys
@@ -48,7 +48,7 @@ shopt -s checkwinsize
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+	. ~/.bash_aliases
 fi
 
 # Command not found - pkgfile (Arch Wiki)
@@ -60,3 +60,10 @@ fi
 
 # RVM (Arch Wiki)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+## Start tmux (Arch Wiki)
+#if which tmux >/dev/null 2>&1; then
+	##if not inside a tmux session, and if no session is started, start a new session
+	#test -z "$TMUX" && (tmux attach || tmux new-session)
+#fi
+
