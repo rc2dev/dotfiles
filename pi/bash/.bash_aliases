@@ -16,10 +16,12 @@ alias df="df -h"
 alias free="free -h"
 
 # Services
-alias kt="echo 'Iniciando Kodi e VNC...' && tvservice -p && sudo systemctl start mediacenter && \
-	sudo systemctl start vnc"
-alias kr="echo 'Reiniciando Kodi...' && tvservice -p && sudo systemctl restart mediacenter"
-alias ks="echo 'Parando Kodi...' && sudo systemctl stop mediacenter"
+#alias kt="echo 'Iniciando Kodi e VNC...' && tvservice -p && sudo systemctl start mediacenter && \
+#	sudo systemctl start vnc"
+#alias kr="echo 'Reiniciando Kodi...' && tvservice -p && sudo systemctl restart mediacenter"
+#alias ks="echo 'Parando Kodi...' && sudo systemctl stop mediacenter"
+alias kt="sudo -b -u kodi kodi"
+alias ks="sudo killall -u kodi"
 alias vt="echo 'Iniciando VNC...' && sudo systemctl start vnc"
 alias tt="echo 'Iniciando Thin...' && sudo /etc/init.d/thin start"
 alias tr="echo 'Reiniciando Thin...' && sudo /etc/init.d/thin restart"

@@ -1,4 +1,4 @@
-# [RC] Do OSMC, apenas modifiquei
+# [RC] Do Raspbian, apenas modifiquei
 #
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -18,8 +18,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-# [RC modified] HISTFILESIZE: 2000->3000
 HISTSIZE=1000
+# [RC modified] HISTFILESIZE: 2000->3000
 HISTFILESIZE=3000
 
 # check the window size after each command and, if necessary,
@@ -40,13 +40,12 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-# [RC modified] Uncommented
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -61,13 +60,12 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-# [RC modified] Linhas antes do else
-	if [ -f /usr/local/bin/git-prompt.sh ]; then
-		. /usr/local/bin/git-prompt.sh
-	fi
+	# [RC added] As duas linhas
 	export GIT_PS1_SHOWDIRTYSTATE=1
-		PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] \w\[\033[00m\] (\j)$(__git_ps1)\n\$ '
+	PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] \w\[\033[00m\] $(__git_ps1)\n\$ '
+e
+# [RC modified] Comentado original
+	#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -89,9 +87,9 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
