@@ -4,7 +4,7 @@
 # System
 alias t="/opt/vc/bin/vcgencmd measure_temp"
 alias m="sudo mount /airport"
-alias reb="systemctl reboot -i"
+alias reb="sudo reboot"
 alias wel="/etc/profile.d/999-rcwelcome.sh"
 
 # Console
