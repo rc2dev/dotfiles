@@ -20,6 +20,7 @@ endif
 call plug#begin('~/.vim/plugged')		" Specify a directory for plugins
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }	" option needed
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" load only on demand
+Plug 'junegunn/goyo.vim'
 " Syntax
 Plug 'joanrivera/vim-zimwiki-syntax'
 Plug 'PotatoesMaster/i3-vim-syntax'
