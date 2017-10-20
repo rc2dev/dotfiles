@@ -63,8 +63,7 @@ if [ "$color_prompt" = yes ]; then
 	# [RC added] As duas linhas
 	export GIT_PS1_SHOWDIRTYSTATE=1
 	PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] \w\[\033[00m\] $(__git_ps1)\n\$ '
-e
-# [RC modified] Comentado original
+  # [RC modified] Comentado original
 	#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -127,5 +126,3 @@ export HISTTIMEFORMAT="%h/%d - %H:%M:%S "
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
-# [RVM script] Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-#export PATH="$PATH:$HOME/.rvm/bin"
