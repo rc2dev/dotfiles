@@ -38,14 +38,14 @@ call plug#end()
 
 " APPEARANCE
 "=========================================================================
-if $COLORTERM == "truecolor"    " If terminal supports truecolor
+"if $COLORTERM == "truecolor"    " If terminal supports truecolor
 	set termguicolors             " Use truecolors
 	colorscheme vim-material      " This colorscheme needs truecolor
 "	colorscheme hybrid
-else
-	set bg=dark
-	colorscheme industry
-endif
+"else
+	"set bg=dark
+	"colorscheme industry
+"endif
 
 set nu
 set relativenumber
