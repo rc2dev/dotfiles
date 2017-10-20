@@ -39,7 +39,8 @@ call plug#end()
 
 " APPEARANCE
 "=========================================================================
-if $COLORTERM == "truecolor"    " If terminal supports truecolor
+" If both terminal and VIM support truecolor
+if $COLORTERM == "truecolor" && has("termguicolors")
 	set termguicolors             " Use truecolors
 	colorscheme vim-material      " This colorscheme needs truecolor
 "	colorscheme hybrid
