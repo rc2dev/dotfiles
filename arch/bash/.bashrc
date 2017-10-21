@@ -20,7 +20,7 @@
 	title="\e]2;\w\a"
 	. /usr/share/git/completion/git-prompt.sh
 	GIT_PS1_SHOWDIRTYSTATE=1
-	PS1="${title}\n${GREEN}\u: ${YELLOW}\w${GREY} \$(__git_ps1) \$(~/.rvm/bin/rvm-prompt p g)${RESET} \n\$ "
+	PS1="${title}\n${GREEN}\u@\h: ${YELLOW}\w${GREY} \$(__git_ps1) \$(~/.rvm/bin/rvm-prompt p g)${RESET} \n\$ "
 #fi
 
 # History completion with arrow keys
