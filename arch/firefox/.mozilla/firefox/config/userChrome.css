@@ -1,0 +1,10 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+
+/*#personal-bookmarks .bookmark-item > .toolbarbutton-text {*/
+	/*display: none !important;*/
+/*}*/
+
+#tabbrowser-tabs .tabbrowser-tab .tab-close-button {
+	display: none !important;
+}
+
