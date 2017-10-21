@@ -31,7 +31,6 @@ alias ll="ls -lh"
 # Bash commands
 alias c="clear"
 alias x="exit"
-alias :q="exit"
 alias u="unset HISTFILE && export PS1='\n(incognito) $PS1' && echo History unset."
 
 # Arch's Pacman
@@ -57,12 +56,11 @@ function snap() {
 }
 #LVM: alias snap="sudo lvcreate -s /dev/ssd/arch -n snap -L 5G && sudo lvcreate -s /dev/hdd/arch -n snap -L 5G"
 
-# R509
-alias sr9="ssh -t rafael-r509.local sudo "
-[ -e /usr/bin/samsung-tools ] && alias si="samsung-tools -c silent"
-
 # Systemd
 alias jf="journalctl -b -f -u"
+
+# R509
+[ -e /usr/bin/samsung-tools ] && alias si="samsung-tools -c silent"
 
 # Gerar string a partir de /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias ger="cat /dev/urandom | tr -dc "[:alnum:]" | head -c64 && echo"
@@ -79,6 +77,13 @@ alias hs="python -m http.server"
 # Baixar áudio em MP3 para Play Music
 alias yp="youtube-dl --extract-audio --audio-format mp3"
 
+# Misc utils
+alias sync_streams="rsync -a --delete /home/rafael/Code/data/streams/ pi.lan:/opt/rc/data/streams/"
+alias zim-fav="vim /home/rafael/Private/Notebooks/Notes/.zim/state.conf"
+
+function mkdirr() {
+	mkdir -p -- "$1" && cd -P -- "$1"
+}
 
 # ========== UNUSED ============
 # Workaround for WiFi dongle not working after hibernation/suspension
