@@ -31,14 +31,21 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 // Abrir "Buscar no Google" do menu de contexto em segundo plano
 user_pref("browser.search.context.loadInBackground", true);
 
-// Daqui pra baixo, o que mexi pela GUI e achei no pref.js
-////Restaurar sessão ao iniciar (fiz pela GUI)
-//user_pref("browser.startup.page", 3);
+// Abrir favoritos em segundo plano
+user_pref("browser.tabs.loadBookmarksInBackground", true);
 
-////Trocar fontes em para as usadas no Chrome (fiz pela GUI em "Advanced")
-//user_pref("font.name.monospace.x-western", "monospace");
-//user_pref("font.name.sans-serif.x-western", "Arial");
-//user_pref("font.name.serif.x-western", "Times New Roman");
+
+// Daqui pra baixo, o que mexi pela GUI e achei no pref.js
+// Restaurar sessão ao iniciar
+user_pref("browser.startup.page", 3);
+
+// Não aceitar third-party cookies
+user_pref("network.cookie.cookieBehavior", 1);
+
+// Trocar fontes para as usadas no Chrome (na GUI em "Advanced")
+user_pref("font.name.monospace.x-western", "monospace");
+user_pref("font.name.sans-serif.x-western", "Arial");
+user_pref("font.name.serif.x-western", "Times New Roman");
 
 //// Adicionar Blogtrotrr como feed reader (aparente resultado de ter clicado no link
 //// para tal no site deles)
