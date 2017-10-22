@@ -19,8 +19,9 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
+# [RC modified] Adicionei ~/.local/bin ao PATH
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 fi
 
 # [RC added] Editor
