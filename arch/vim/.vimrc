@@ -161,7 +161,8 @@ nnoremap <Leader>l :bn<CR>|                      " Go to next buffer
 " Maps useful for when working in split windows. Current buffer in full window.
 nnoremap <Leader>to :tabedit %<CR>|              " Open current buffer on tab
 nnoremap <Leader>tc :tabclose %<CR>|             " Close current tab
-cmap w!! w !sudo tee > /dev/null %							 " Save as root
+" Save as root
+cmap w!! w !sudo tee % > /dev/null
 
 " Panels operations
 nmap <silent> <A-Up> :wincmd k<CR>
