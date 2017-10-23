@@ -39,8 +39,8 @@ call plug#end()
 
 " APPEARANCE
 "=========================================================================
-" If both terminal and VIM support truecolor
-if $COLORTERM == "truecolor" && has("termguicolors")
+" If both terminal and VIM support truecolor and not using of tmux
+if $COLORTERM == "truecolor" && $TERM != "screen" && has("termguicolors")
 	set termguicolors             " Use truecolors
 	colorscheme vim-material      " This colorscheme needs truecolor
 "	colorscheme hybrid
@@ -206,8 +206,3 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-" Teste - truecolors no tmux
-if &term =~# '^screen'
-	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
