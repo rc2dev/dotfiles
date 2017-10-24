@@ -3,7 +3,6 @@
 
 # System
 alias t="/opt/vc/bin/vcgencmd measure_temp"
-alias m="sudo mount /airport"
 alias reb="sudo reboot"
 alias wel="/etc/profile.d/999-rcwelcome.sh"
 
@@ -47,4 +46,5 @@ alias hl="tvservice -p"
 # Misc
 alias d="mpc pause && sleep 4 && mpc play"
 #alias add="sudo ip address add 192.168.0.89/24 dev wlan0"
-
+alias yd="cd /airport/Downloads && youtube-dl"
+alias yda="cd /airport/Downloads && youtube-dl --extract-audio"
