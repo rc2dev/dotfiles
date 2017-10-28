@@ -9,7 +9,7 @@ user_pref("security.ssl3.dhe_rsa_aes_128_sha", false);
 user_pref("geo.enabled", false);
 user_pref("webgl.disabled", true);
 
-// Ativado pela GUI no Nightly: Tracking protection - always
+// Tracking protection (ativado pela GUI no 57+)
 user_pref("privacy.trackingprotection.enabled", true);
 
 // Desativar Pocket
@@ -26,13 +26,16 @@ user_pref("full-screen-api.warning.timeout", 0);
 user_pref("general.warnOnAboutConfig", false);
 
 // Não fechar navegador ao fechar última aba
-user_pref("browser.tabs.closeWindowWithLastTab", false);
+//user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // Abrir "Buscar no Google" do menu de contexto em segundo plano
 user_pref("browser.search.context.loadInBackground", true);
 
-// Abrir favoritos em segundo plano
-user_pref("browser.tabs.loadBookmarksInBackground", true);
+// Quando abrir favoritos em nova aba, fazê-lo em segundo plano
+//user_pref("browser.tabs.loadBookmarksInBackground", true);
+
+// Quando abrir favoritos em nova aba, não fechar menu de favoritos (57+)
+user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 
 // Daqui pra baixo, o que mexi pela GUI e achei no pref.js
