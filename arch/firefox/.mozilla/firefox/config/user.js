@@ -9,15 +9,28 @@ user_pref("security.ssl3.dhe_rsa_aes_128_sha", false);
 user_pref("geo.enabled", false);
 user_pref("webgl.disabled", true);
 
-// Tracking protection (ativado pela GUI no 57+)
-user_pref("privacy.trackingprotection.enabled", true);
-
-// Desativar Pocket
-user_pref("extensions.pocket.enabled", false);
-
 // Pra aparecer OpenGL no about:support - Graphics (OpenGL Off-Main-Thread
 // Compositing - OMTC - Arch Wiki). Acho que ajudou com tearing.
 user_pref("layers.acceleration.force-enabled", true);
+
+
+// ==================================================================
+// Privacy, security
+// ==================================================================
+
+// Tracking protection (ativado pela GUI no 57+)
+user_pref("privacy.trackingprotection.enabled", true);
+
+
+// ==================================================================
+// Annoyances, workflow
+// ==================================================================
+
+// Não verificar se é navegador padrão
+user_pref("browser.shell.checkDefaultBrowser", false);
+
+// Desativar Pocket
+user_pref("extensions.pocket.enabled", false);
 
 // Não mostrar aviso de tela cheia
 user_pref("full-screen-api.warning.timeout", 0);
@@ -38,7 +51,10 @@ user_pref("browser.search.context.loadInBackground", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 
+// ==================================================================
 // Daqui pra baixo, o que mexi pela GUI e achei no pref.js
+// ==================================================================
+
 // Restaurar sessão ao iniciar
 user_pref("browser.startup.page", 3);
 
