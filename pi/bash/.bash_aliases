@@ -43,8 +43,12 @@ alias tl='echo "on 0" | cec-client -s'
 alias hd="tvservice -o"
 alias hl="tvservice -p"
 
+# Videos
+alias yd="cd /airport/Downloads && youtube-dl"
+alias yda="cd /airport/Downloads && youtube-dl --extract-audio"
+alias cs="convert-video --to-small"
+alias c4="convert-video --to-mp4"
+
 # Misc
 alias d="mpc pause && sleep 4 && mpc play"
 #alias add="sudo ip address add 192.168.0.89/24 dev wlan0"
-alias yd="cd /airport/Downloads && youtube-dl"
-alias yda="cd /airport/Downloads && youtube-dl --extract-audio"

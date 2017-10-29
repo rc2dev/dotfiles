@@ -73,9 +73,10 @@ alias gitl="git log --name-only"
 # HTTP server
 alias hs="python -m http.server"
 
-# YouTube
-# Baixar áudio em MP3 para Play Music
+# Vídeos
 alias yp="youtube-dl --extract-audio --audio-format mp3"
+alias cs="convert-video --to-small"
+alias c4="convert-video --to-mp4"
 
 # Misc utils
 alias sync_streams="rsync -a --delete /home/rafael/Code/data/streams/ pi.lan:/opt/rc/data/streams/"
