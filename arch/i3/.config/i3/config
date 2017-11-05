@@ -106,10 +106,9 @@ set $ws3 "3: Three"
 set $ws4 "4: Four"
 set $ws5 "5: Five"
 set $ws6 "6: Six"
-set $ws7 "7: Office "
-set $ws8 "8: Terminals  "
+set $ws7 "7: Seven"
+set $ws8 "8: Eight"
 set $ws9 "9: Notes  "
-#set $ws9 "9: IM "
 set $ws10 "10: Music  "
 
 # switch to workspace
@@ -216,8 +215,9 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bar {
 #	[RC modified]
 #   status_command i3status
-	font pango:Source Code Pro, FontAwesome 10
-	position top
+	font pango:System San Francisco Display, FontAwesome 10
+	#font pango:Source Code Pro, FontAwesome 10
+	position bottom
 	status_command bumblebee-status -m getcrypto spotify pasink memory cpu datetime -p getcrypto.geteth=0 getcrypto.getltc=0 memory.usedonly=true datetime.format='%a %d/%m/%y %H:%M:%S' -t default
 	colors {
 		background $bg-color
@@ -338,10 +338,9 @@ exec --no-startup-id /usr/lib/polkit-kde/polkit-kde-authentication-agent-1
 exec --no-startup-id redshift-gtk
 exec --no-startup-id dropbox
 exec --no-startup-id unsplash
-exec --no-startup-id transwrap.sh
+#exec --no-startup-id transwrap.sh
 # Applications
-#exec --no-startup-id firefox-nightly
-exec --no-startup-id firefox
+exec --no-startup-id firefox-beta
 #exec --no-startup-id spotify
 exec --no-startup-id keepassxc
 exec --no-startup-id i3-msg "workspace $ws8; exec i3-sensible-terminal"
