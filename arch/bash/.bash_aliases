@@ -57,6 +57,8 @@ function snap() {
 #LVM: alias snap="sudo lvcreate -s /dev/ssd/arch -n snap -L 5G && sudo lvcreate -s /dev/hdd/arch -n snap -L 5G"
 
 # Systemd
+alias ju="journalctl -u"
+alias jb="journalctl -b -u"
 alias jf="journalctl -b -f -u"
 
 # R509
