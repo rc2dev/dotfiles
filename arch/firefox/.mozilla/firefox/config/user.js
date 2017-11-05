@@ -38,6 +38,9 @@ user_pref("full-screen-api.warning.timeout", 0);
 // Desativar aviso do about:config
 user_pref("general.warnOnAboutConfig", false);
 
+// Abrir nova janela em nova aba
+user_pref("browser.link.open_newwindow.restriction", 0);
+
 // Não fechar navegador ao fechar última aba
 //user_pref("browser.tabs.closeWindowWithLastTab", false);
 

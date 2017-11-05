@@ -1,9 +1,11 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
 
+/* Ocultar nomes na barra de favoritos */
 /*#personal-bookmarks .bookmark-item > .toolbarbutton-text {*/
 	/*display: none !important;*/
 /*}*/
 
+/* Não mostrar botão de fechar aba */
 #tabbrowser-tabs .tabbrowser-tab .tab-close-button {
 	display: none !important;
 }
