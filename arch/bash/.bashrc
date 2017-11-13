@@ -7,21 +7,20 @@
 # If not running interactively, don't do anything (veio do Arch)
 [[ $- != *i* ]] && return
 
-#powerline="/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh"
-#if [ -f $powerline ]; then
-#	# Powerline
-#	powerline-daemon -q
-#	POWERLINE_BASH_CONTINUATION=1
-#	POWERLINE_BASH_SELECT=1
-#	. $powerline
-#else
-	# Meu PS1 (estilo Cygwin + Git + RVM)
-	RESET="\e[0m"; GREEN="\e[32m"; YELLOW="\e[33m"; GREY="\e[90m"
-	title="\e]2;\w\a"
+# Meu PS1 (estilo Cygwin + Git + RVM)
+RESET="\e[0m"; GREEN="\e[32m"; YELLOW="\e[33m"; GREY="\e[90m"
+title="\e]2;\w\a"
+if [ -f /usr/share/git/completion/git-prompt.sh ]
+then
 	. /usr/share/git/completion/git-prompt.sh
+	git=$(__git_ps1)
 	GIT_PS1_SHOWDIRTYSTATE=1
-	PS1="${title}\n${GREEN}\u@\h: ${YELLOW}\w${GREY} \$(__git_ps1) \$(~/.rvm/bin/rvm-prompt p g)${RESET} \n\$ "
-#fi
+fi
+if [ -f ~/.rvm/bin/rvm-prompt ]
+then
+	rvm=$(~/.rvm/bin/rvm-prompt p g)
+fi
+PS1="${title}\n${GREEN}\u@\h: ${YELLOW}\w${GREY} $git $rvm${RESET} \n\$ "
 
 # History completion with arrow keys
 bind '"\e[A": history-search-backward'
@@ -52,7 +51,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Command not found - pkgfile (Arch Wiki)
-. /usr/share/doc/pkgfile/command-not-found.bash
+nf="/usr/share/doc/pkgfile/command-not-found.bash"
+[ -f "$nf" ] && . "$nf"
 
 # [RVM installation script] Add RVM to PATH for scripting. Make sure
 # this is the last PATH variable change.
