@@ -13,12 +13,12 @@ title="\e]2;\w\a"
 if [ -f /usr/share/git/completion/git-prompt.sh ]
 then
 	. /usr/share/git/completion/git-prompt.sh
-	git=$(__git_ps1)
+	git="\$(__git_ps1)"
 	GIT_PS1_SHOWDIRTYSTATE=1
 fi
 if [ -f ~/.rvm/bin/rvm-prompt ]
 then
-	rvm=$(~/.rvm/bin/rvm-prompt p g)
+	rvm="\$(~/.rvm/bin/rvm-prompt p g)"
 fi
 PS1="${title}\n${GREEN}\u@\h: ${YELLOW}\w${GREY} $git $rvm${RESET} \n\$ "
 
