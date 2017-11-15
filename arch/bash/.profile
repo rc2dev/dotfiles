@@ -13,9 +13,11 @@ fi
 #    PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"
 #fi
 
-# [RVM installation script] Add RVM to PATH for scripting. Make sure
-# this is the last PATH variable change.
-PATH="$PATH:$HOME/.rvm/bin"
+# [RVM installation script - condicionado] Add RVM to PATH for scripting
+# Make sure this is the last PATH variable change.
+if [ -d "$HOME/.rvm/bin" ]; then
+	PATH="$PATH:$HOME/.rvm/bin"
+fi
 
 # [RVM installation script]
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
