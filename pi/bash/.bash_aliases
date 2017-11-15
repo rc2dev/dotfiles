@@ -44,6 +44,7 @@ alias hd="tvservice -o"
 alias hl="tvservice -p"
 
 # Videos
+alias ca="cd /airport/Downloads"
 alias yd="cd /airport/Downloads && youtube-dl"
 alias yda="cd /airport/Downloads && youtube-dl --extract-audio"
 alias cs="convert-video --to-small"
