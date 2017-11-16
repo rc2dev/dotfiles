@@ -8,12 +8,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Add Ruby gems to PATH
-#if [ -d "$HOME/.gem/ruby/2.3.0/bin" ] ; then
-#    PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"
-#fi
-
-# [RVM installation script - condicionado] Add RVM to PATH for scripting
+# [RVM installation script - RC condicionado] Add RVM to PATH for scripting
 # Make sure this is the last PATH variable change.
 if [ -d "$HOME/.rvm/bin" ]; then
 	PATH="$PATH:$HOME/.rvm/bin"
@@ -31,7 +26,9 @@ fi
 export VISUAL="vim"
 
 # Pacaur - don't use ~/.cache/pacaur
-export AURDEST="$HOME/.pacaur"
+if command -v pacaur >/dev/null; then
+	export AURDEST="$HOME/.pacaur"
+fi
 
 # MPC: control Pi
 export MPD_HOST="pi.lan"
@@ -40,6 +37,7 @@ export MPD_HOST="pi.lan"
 export ELECTRON_TRASH=kioclient5
 
 # KDE Plasma - SSH
+# TODO Condicionar a KDE?
 # Run ssh-agent if it's not running (Arch Wiki)
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > ~/.ssh-agent-thing
