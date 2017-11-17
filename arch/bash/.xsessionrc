@@ -1,3 +1,11 @@
+#!/bin/sh
+#
+# Debian specific file.
+#
+# Rafael Cavalcanti
+#
+
+# LightDM doesn't source ~/.profile
 if [ -f ~/.profile ]; then
 	. ~/.profile
 fi
