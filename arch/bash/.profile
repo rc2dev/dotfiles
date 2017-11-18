@@ -30,26 +30,25 @@ if command -v pacaur >/dev/null; then
 	export AURDEST="$HOME/.pacaur"
 fi
 
-# MPC: control Pi
-export MPD_HOST="pi.lan"
+# MPC - control Pi
+if command -v mpc >/dev/null; then
+	export MPD_HOST="pi.lan"
+fi
 
 # Atom - file deletion
-export ELECTRON_TRASH=kioclient5
+#export ELECTRON_TRASH=kioclient5
 
-# KDE Plasma - SSH
-# TODO Condicionar a KDE?
-# Run ssh-agent if it's not running (Arch Wiki)
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > ~/.ssh-agent-thing
-fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(<~/.ssh-agent-thing)"
-fi
-export SSH_ASKPASS="/usr/bin/ksshaskpass"
-
-# Copiado do .bash_profile que removi - necessário para tty
-# (é somente um source do bashrc)
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+# Plasma or i3 - SSH
+if [[ "$XDG_SESSION_DESKTOP" == "KDE" || "$XDG_SESSION_DESKTOP" == "i3" ]]; then
+	# Run ssh-agent if it's not running (Arch Wiki)
+	if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+		ssh-agent > ~/.ssh-agent-thing
+	fi
+	if [[ "$SSH_AGENT_PID" == "" ]]; then
+		eval "$(<~/.ssh-agent-thing)"
+	fi
+	export SSH_ASKPASS="/usr/bin/ksshaskpass"
+]]
 
 # i3
 if [[ "$XDG_SESSION_DESKTOP" == "i3" ]]; then
@@ -60,3 +59,7 @@ if [[ "$XDG_SESSION_DESKTOP" == "i3" ]]; then
 	export KDE_SESSION_VERSION=5
 fi
 
+
+# Copiado do .bash_profile que removi - necessário para tty
+# (é somente um source do bashrc)
+[[ -f ~/.bashrc ]] && . ~/.bashrc
