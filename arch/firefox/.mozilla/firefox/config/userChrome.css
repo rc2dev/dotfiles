@@ -10,3 +10,15 @@
 	display: none !important;
 }
 
+/* Abas abaixo */
+#PersonalToolbar { /* [> bookmarks toolbar <] */
+		-moz-box-ordinal-group: 2 !important;
+}
+#TabsToolbar { /*  [> tab bar <] */
+		-moz-box-ordinal-group: 3 !important;
+		background-color: var(--toolbar-non-lwt-bgcolor);
+}
+#navigator-toolbox::after {
+		-moz-box-ordinal-group: 4;
+}
+
