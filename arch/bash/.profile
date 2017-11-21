@@ -48,7 +48,7 @@ if [[ "$XDG_SESSION_DESKTOP" == "KDE" || "$XDG_SESSION_DESKTOP" == "i3" ]]; then
 		eval "$(<~/.ssh-agent-thing)"
 	fi
 	export SSH_ASKPASS="/usr/bin/ksshaskpass"
-]]
+fi
 
 # i3
 if [[ "$XDG_SESSION_DESKTOP" == "i3" ]]; then
