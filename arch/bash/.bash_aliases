@@ -43,7 +43,7 @@ fi
 
 # Apt
 if [ -e /usr/bin/apt ]; then
-	alias update="sudo apt update && sudo apt upgrade"
+	alias update="sudo apt update && sudo apt upgrade && sudo apt clean"
 fi
 
 # Energy in remote connections
