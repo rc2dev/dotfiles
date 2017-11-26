@@ -51,5 +51,5 @@ alias cs="convert-video --to-small"
 alias c4="convert-video --to-mp4"
 
 # Misc
-alias d="mpc pause && sleep 4 && mpc play"
+alias d="mpc pause && sleep 1 && mpc play"
 #alias add="sudo ip address add 192.168.0.89/24 dev wlan0"
