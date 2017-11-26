@@ -127,5 +127,5 @@ alias ll="ls -lh"
 alias la="ls -a"
 alias df="df -h"
 alias x="exit"
-alias u="sudo apt update && sudo apt upgrade"
+alias update="sudo apt update && sudo apt upgrade && sudo apt clean"
 

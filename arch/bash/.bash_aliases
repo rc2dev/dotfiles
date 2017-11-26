@@ -41,6 +41,11 @@ if [ -e /usr/bin/pacman ]; then
 		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
 fi
 
+# Apt
+if [ -e /usr/bin/apt ]; then
+	alias update="sudo apt update && sudo apt upgrade && sudo apt clean"
+fi
+
 # Energy in remote connections
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	alias poweroff="sudo poweroff"
