@@ -3,9 +3,10 @@
 #
 # Autor: Rafael Cavalcanti
 
-# set PATH so it includes user's private bin if it exists (copiado do Ubuntu)
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+# set PATH so it includes user's private bin if it exists (copiado do Ubuntu
+# e local modificado)
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
 fi
 
 # [RVM installation script - RC condicionado] Add RVM to PATH for scripting
