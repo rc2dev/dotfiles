@@ -329,8 +329,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 # Wallet, SSH, encfs
 exec --no-startup-id /usr/lib/pam_kwallet_init
-exec --no-startup-id $HOME/bin/encfs.sh zim clipit
-exec --no-startup-id $HOME/bin/ssh-add.sh
+exec --no-startup-id $HOME/.local/bin/encfs.sh zim clipit
+exec --no-startup-id $HOME/.local/bin/ssh-add.sh
 # Allows (in KDE software), for instance, saving stuff as root
 exec --no-startup-id /usr/lib/polkit-kde/polkit-kde-authentication-agent-1
 # Services
@@ -340,7 +340,7 @@ exec --no-startup-id dropbox
 exec --no-startup-id unsplash
 #exec --no-startup-id transwrap.sh
 # Applications
-exec --no-startup-id firefox-beta
+exec --no-startup-id $HOME/.local/opt/firefox-nightly/firefox
 #exec --no-startup-id spotify
 exec --no-startup-id keepassxc
 exec --no-startup-id i3-msg "workspace $ws8; exec i3-sensible-terminal"
