@@ -213,22 +213,22 @@ hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-#	[RC modified]
-#   status_command i3status
-	font pango:System San Francisco Display, FontAwesome 10
-	#font pango:Source Code Pro, FontAwesome 10
-	position bottom
-	status_command bumblebee-status -m getcrypto spotify pasink memory cpu datetime -p getcrypto.geteth=0 getcrypto.getltc=0 memory.usedonly=true datetime.format='%a %d/%m/%y %H:%M:%S' -t default
-	colors {
-		background $bg-color
-		separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
-}
+#bar {
+##	[RC modified]
+##   status_command i3status
+	#font pango:System San Francisco Display, FontAwesome 10
+	##font pango:Source Code Pro, FontAwesome 10
+	#position bottom
+	#status_command bumblebee-status -m getcrypto spotify pasink memory cpu datetime -p getcrypto.geteth=0 getcrypto.getltc=0 memory.usedonly=true datetime.format='%a %d/%m/%y %H:%M:%S' -t default
+	#colors {
+		#background $bg-color
+		#separator #757575
+		##                  border             background         text
+		#focused_workspace  $bg-color          $bg-color          $text-color
+		#inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		#urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	#}
+#}
 
 
 # ===== [RC added] TUDO DAQUI PRA BAIXO ====
@@ -328,6 +328,7 @@ bindsym $mod+End mode "$mode_system"
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
+exec_always --no-startup-id polybar.sh
 # Wallet, SSH, encfs
 exec --no-startup-id /usr/lib/pam_kwallet_init
 exec --no-startup-id encfs.sh zim clipit
