@@ -142,6 +142,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 assign [class="Chromium" instance="crx_bpocngoedbjmnmkngoohaccdmidcjjhm"] → $ws9
 #assign [class="Chromium"] → $ws1
 assign [class="Firefox" window_type="normal"] → $ws1
+assign [class="Nightly" window_type="normal"] → $ws1
 assign [class="Zim" window_type="normal"] → $ws9
 assign [class="Simplenote"] → $ws9
 assign [class="VirtualBox"] → $ws6
@@ -198,7 +199,7 @@ set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-set $indicator-color     #00ffff
+#set $indicator-color     #00ffff
 
 # [RC added] window colors
 #                       border              background         text                 indicator
@@ -208,7 +209,7 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator-color
 
 # [RC added] borders for new tiling
-#hide_edge_borders both
+hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -241,7 +242,7 @@ exec --no-startup-id wallpaper set-random
 #exec --no-startup-id setxkbmap br
 #exec --no-startup-id xcape -e Control_L=Escape
 exec --no-startup-id setxkbmap us -variant intl -option eurosign:e
-exec --no-startup-id xmodmap $HOME/.Xmodmap
+exec --no-startup-id xmodmap.sh
 
 # Workspaces back and forth
 #workspace_auto_back_and_forth yes
@@ -329,22 +330,18 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 # Wallet, SSH, encfs
 exec --no-startup-id /usr/lib/pam_kwallet_init
-exec --no-startup-id $HOME/.local/bin/encfs.sh zim clipit
-exec --no-startup-id $HOME/.local/bin/ssh-add.sh
+exec --no-startup-id encfs.sh zim clipit
+exec --no-startup-id ssh-add.sh
 # Allows (in KDE software), for instance, saving stuff as root
 exec --no-startup-id /usr/lib/polkit-kde/polkit-kde-authentication-agent-1
 # Services
-#exec --no-startup-id $HOME/.config/autostart-scripts/xmodmap.sh
 exec --no-startup-id redshift-gtk
 exec --no-startup-id dropbox
 exec --no-startup-id unsplash
-#exec --no-startup-id transwrap.sh
 # Applications
-exec --no-startup-id $HOME/.local/opt/firefox-nightly/firefox
-#exec --no-startup-id spotify
+exec --no-startup-id firefox-nightly
 exec --no-startup-id keepassxc
 exec --no-startup-id i3-msg "workspace $ws8; exec i3-sensible-terminal"
-#exec --no-startup-id localc "/home/rafael/Finanças/Moedas.ods"
 
 
 # i3-gaps
@@ -354,11 +351,11 @@ for_window [class="^.*"] border pixel 3
 
 set $gaps_inner 30
 set $gaps_outer 5
-#gaps inner $gaps_inner
-#gaps outer $gaps_outer
+gaps inner $gaps_inner
+gaps outer $gaps_outer
 
 # Disable when one window
-smart_gaps on
+#smart_gaps on
 
 # Keybind for changing gaps size (adapted from documentation)
 set $mode_gaps Gaps: (U/D) outer, (L/R) inner, (n) none, (d) default
@@ -390,7 +387,7 @@ mode "$mode_gaps_all" {
 }
 
 # Set custom gaps for some workspaces
-exec i3-msg "workspace $ws9; gaps outer current set 0; gaps inner current set 50; workspace back_and_forth"
+#exec i3-msg "workspace $ws9; gaps outer current set 0; gaps inner current set 50; workspace back_and_forth"
 
 
 #  vim: filetype=i3 sw=2 ts=4
