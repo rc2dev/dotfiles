@@ -29,9 +29,9 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    #geometry = "300x5-30+35"
+    geometry = "300x5-30+35"
     #geometry = "300x5-30+20"
-		geometry = "320x7-30-40"
+    #geometry = "320x7-30-40"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -43,7 +43,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-		# [RC modified] 0->5
+    # [RC modified] 0->5
     transparency = 5
 
     # The height of the entire notification.  If the height is smaller
