@@ -86,7 +86,6 @@ alias cs="convert-video --to-small"
 alias c4="convert-video --to-mp4"
 
 # Misc utils
-alias sync_streams="rsync -a --delete /home/rafael/Code/data/streams/ pi.lan:/opt/rc/data/streams/"
 alias zim-fav="vim /home/rafael/Private/Notebooks/Notes/.zim/state.conf"
 
 function mkdirr() {
