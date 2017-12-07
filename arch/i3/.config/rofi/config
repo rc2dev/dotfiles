@@ -1,3 +1,4 @@
 # Rafael Cavalcanti
 
 rofi.theme: android_notification
+rofi.modi: drun,ssh,window,run,keys
