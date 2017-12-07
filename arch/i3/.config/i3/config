@@ -146,7 +146,6 @@ assign [class="Nightly" window_type="normal"] → $ws1
 assign [class="Zim" window_type="normal"] → $ws9
 assign [class="Simplenote"] → $ws9
 assign [class="VirtualBox"] → $ws6
-assign [class="libreoffice-calc"] → $ws7
 for_window [class="Spotify"] move to workspace $ws10
 assign [class="cantata"] → $ws10
 assign [class="Amarok"] → $ws10
@@ -253,8 +252,8 @@ bindsym $mod+Shift+z move container to workspace back_and_forth
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
-# Call Rofi with list of windows in alt+tab
-bindsym Mod1+Tab exec --no-startup-id rofi -show window
+## Call Rofi with list of windows in alt+tab
+#bindsym Mod1+Tab exec --no-startup-id rofi -show window
 
 # Jump to urgent window (Arch Wiki)
 bindsym $mod+x [urgent=latest] focus
