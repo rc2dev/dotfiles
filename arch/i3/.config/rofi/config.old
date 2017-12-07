@@ -1,0 +1,26 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #da2f343f, #da2f343f, #da2f343f
+rofi.color-normal: #00000000, #f3f4f5, #00000000, #00000000, #9575cd
+rofi.color-active: #00000000, #f3f4f5, #00000000, #00000000, #9575cd
+rofi.color-urgent: #00000000, #f3f4f5, #00000000, #00000000, #9575cd
+
+# Window Style
+#rofi.lines: 3
+rofi.lines: 5
+rofi.eh: 2
+rofi.width: 100
+rofi.padding: 800
+rofi.bw: 0
+#rofi.font: System San Francisco Desktop 18
+rofi.font: Ubuntu 18
+
+# Misc
+rofi.terminal: konsole
+
+# Modis
+rofi.modi: files:/home/rafael/.local/share/rofi/rofi-file-browser.sh,run,ssh,window
+
+#workspaces:/home/rafael/.local/share/rofi/i3_switch_workspaces.sh
