@@ -328,7 +328,7 @@ format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
-label = %temperature%
+label =  %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
@@ -368,15 +368,14 @@ menu-2-1-exec = menu-open-0
 
 [module/spotify]
 type = custom/script
-format-label = Teste
-exec = ~/.local/bin/spotify.sh
+exec = spotify-status
 exec-if = pgrep spotify > /dev/null
 interval = 0.3
 format-padding = 1
 click-left = wmctrl -a spotify -x
-# playerctl -p spotify previous
 click-middle = playerctl -p spotify play-pause
 click-right = playerctl -p spotify next
+label-maxlen = 50
 
 
 [settings]
