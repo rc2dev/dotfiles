@@ -49,6 +49,7 @@ module-margin-right = 2
 ;font-0 = SFNS Display:pixelsize=10;1
 font-0 = Ubuntu:pixelsize=10;1
 font-1 = Font Awesome:pixelsize=10;1
+font-2 = Arial:pixelsize=10;1
 
 modules-left = bspwm i3 xwindow
 modules-center = mpd spotify
@@ -67,15 +68,16 @@ tray-padding = 2
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-cursor-scroll = ns-resize
+;cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:40:...%
+click-middle = i3-msg kill
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -249,11 +251,11 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "%a, %d/%m/%Y"
-date-alt = "%a, %d/%m/%Y"
+date = " %a, %d %b "
+date-alt = " %a, %d %b "
 
-time = %H:%M
-time-alt = %H:%M:%S
+time =  %H:%M
+time-alt =  %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
@@ -364,15 +366,12 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-[module/title]
-type = internal/xwindow
-
 [module/spotify]
 type = custom/script
 format-label = Teste
 exec = ~/.local/bin/spotify.sh
 exec-if = pgrep spotify > /dev/null
-interval = 0.2
+interval = 0.3
 format-padding = 1
 click-left = wmctrl -a spotify -x
 # playerctl -p spotify previous
