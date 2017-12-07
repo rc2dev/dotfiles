@@ -29,7 +29,8 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-30+35"
+    #geometry = "300x5-30+35"
+    geometry = "300x5-35+50"
     #geometry = "300x5-30+20"
     #geometry = "320x7-30-40"
 
@@ -89,7 +90,8 @@
     ### Text ###
 
 		# [RC modified] Monospace 8
-    font = Source Code Pro 10
+    #font = Source Code Pro 10
+    font = Ubuntu 10
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
