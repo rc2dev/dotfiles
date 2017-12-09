@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# Print Spotify metadata - for Polybar
+# Rafael Cavalcanti
+
+artist="$(playerctl -p spotify metadata xesam:artist)"
+title="$(playerctl -p spotify metadata xesam:title)"
+stat="$(playerctl -p spotify status)"
+
+case "$stat" in
+	Paused)
+		symb=""
+		;;
+	Playing)
+		symb=""
+		;;
+esac
+
+if [[ "$artist" == "" || "$title" == "" ]]
+then
+	printf "No song."
+else
+	printf "%s %s - %s\n" "$symb" "$artist" "$title"
+fi

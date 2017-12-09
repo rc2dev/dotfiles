@@ -51,9 +51,9 @@ font-0 = Ubuntu:pixelsize=10;1
 font-1 = Font Awesome:pixelsize=10;1
 font-2 = Arial:pixelsize=10;1
 
-modules-left = i3 xwindow
-modules-center = mpd spotify
-modules-right = xbacklight volume xkeyboard memory cpu wlan battery temperature date powermenu
+modules-left = i3 i3close xwindow
+modules-center = mpd spotify cmus
+modules-right = bitcoin xbacklight volume xkeyboard memory cpu wlan battery temperature date powermenu dolphin
 
 tray-position = right
 tray-padding = 2
@@ -138,6 +138,7 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
+;label-focused = %index%
 label-focused = %index%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
@@ -368,7 +369,7 @@ menu-2-1-exec = menu-open-0
 
 [module/spotify]
 type = custom/script
-exec = spotify-status
+exec = ~/.config/polybar/spotify
 exec-if = pgrep spotify > /dev/null
 interval = 0.3
 format-padding = 1
@@ -377,6 +378,32 @@ click-middle = playerctl -p spotify play-pause
 click-right = playerctl -p spotify next
 label-maxlen = 50
 
+[module/bitcoin]
+type = custom/script
+interval = 120
+format = <label>
+format-prefix = " "
+tail = true
+format-prefix-foreground = ${colors.foreground-alt}
+exec = ~/.config/polybar/bitcoin
+click-left = xdg-open https://www.mercadobitcoin.com.br/api-doc/
+
+[module/cmus]
+type = custom/script
+
+exec = sh ~/.config/polybar/cmus.sh
+exec-if = pgrep -x cmus
+interval = 1
+label-maxlen = 50
+
+click-left = i3-msg workspace 10
+click-middle = cmus-remote --pause
+click-right = cmus-remote --next
+
+[module/dolphin]
+type = custom/text
+content = " "
+click-left = dolphin
 
 [settings]
 screenchange-reload = true
