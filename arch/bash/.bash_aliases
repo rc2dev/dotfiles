@@ -66,8 +66,8 @@ alias ju="journalctl -u"
 alias jb="journalctl -b -u"
 alias jf="journalctl -b -f -u"
 
-# R509
-[ -e /usr/bin/samsung-tools ] && alias si="samsung-tools -c silent"
+## R509
+#[ -e /usr/bin/samsung-tools ] && alias si="samsung-tools -c silent"
 
 # Gerar string a partir de /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias ger="cat /dev/urandom | tr -dc "[:alnum:]" | head -c64 && echo"
@@ -81,11 +81,14 @@ alias gitl="git log --name-only"
 alias hs="python -m http.server"
 
 # Vídeos
-alias yp="youtube-dl --extract-audio --audio-format mp3"
+alias ym="youtube-dl --extract-audio --audio-format mp3"
+alias yd480="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
 alias cs="convert-video --to-small"
 alias c4="convert-video --to-mp4"
 
 # Misc utils
+alias mr="sudo mount /mnt/airport/rafael"
+alias ms="sudo mount /mnt/airport/shared"
 alias zim-fav="vim /home/rafael/Private/Notebooks/Notes/.zim/state.conf"
 
 function mkdirr() {

@@ -57,7 +57,7 @@ if [[ "$XDG_SESSION_DESKTOP" == "i3" ]]; then
 	# Workaround for QT5 applications to use correct theme
 	export XDG_CURRENT_DESKTOP=KDE
 	# For xdg-open to work (isto ou instalar Konqueror)
-	export KDE_SESSION_VERSION=5
+mexport KDE_SESSION_VERSION=5
 fi
 
 
