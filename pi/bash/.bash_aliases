@@ -47,7 +47,8 @@ alias hl="tvservice -p"
 # Videos
 alias ca="cd /airport/Downloads"
 alias yd="cd /airport/Downloads && youtube-dl"
-alias yda="cd /airport/Downloads && youtube-dl --extract-audio"
+alias yd480="cd /airport/Downloads && youtube-dl \
+	-f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
 alias cs="convert-video --to-small"
 alias c4="convert-video --to-mp4"
 
