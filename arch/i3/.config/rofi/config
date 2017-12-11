@@ -1,4 +1,4 @@
 # Rafael Cavalcanti
 
 rofi.theme: android_notification
-rofi.modi: drun,ssh,window,run,keys
+rofi.modi: drun,ssh,vbox:~/.local/share/rofi/vbox.sh,window,run,keys
