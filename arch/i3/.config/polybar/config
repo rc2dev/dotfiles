@@ -51,7 +51,7 @@ font-0 = Ubuntu:pixelsize=10;1
 font-1 = Font Awesome:pixelsize=10;1
 font-2 = Arial:pixelsize=10;1
 
-modules-left = i3 i3close xwindow
+modules-left = i3 xwindow
 modules-center = mpd spotify cmus
 modules-right = bitcoin xbacklight volume xkeyboard memory cpu wlan battery temperature date powermenu dolphin
 
@@ -403,7 +403,7 @@ click-right = cmus-remote --next
 [module/dolphin]
 type = custom/text
 content = " "
-click-left = dolphin
+click-left = ~/.config/polybar/dolphin.sh
 
 [settings]
 screenchange-reload = true

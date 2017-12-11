@@ -141,12 +141,12 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # [RC added] assign workspaces to some applications
 ## WhatsApp Web (tem que estar acima da linha do Chromium principal)
 #assign [class="Chromium" instance="crx_bpocngoedbjmnmkngoohaccdmidcjjhm"] → $ws9
-assign [class="Firefox" window_type="normal"] → $ws1
-assign [class="Nightly" window_type="normal"] → $ws1
+assign [class="Firefox" instance="Navigator"] → $ws1
+assign [class="Nightly" instance="Navigator"] → $ws1
+assign [class="VirtualBox"] → $ws8
 assign [class="Zim" window_type="normal"] → $ws9
 assign [class="Simplenote"] → $ws9
 assign [class="Emacs"] → $ws9
-assign [class="VirtualBox"] → $ws6
 for_window [class="Spotify"] move to workspace $ws10
 assign [class="cantata"] → $ws10
 assign [class="Amarok"] → $ws10
@@ -337,7 +337,7 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id dropbox
 exec --no-startup-id unsplash
 # Applications
-exec --no-startup-id firefox-nightly
+exec --no-startup-id firefox
 exec --no-startup-id keepassxc
 #exec --no-startup-id i3-msg "workspace $ws8; exec i3-sensible-terminal"
 
@@ -352,7 +352,7 @@ set $gaps_outer 5
 gaps inner $gaps_inner
 gaps outer $gaps_outer
 
-# Disable when one window
+## Disable when one window
 #smart_gaps on
 
 # Keybind for changing gaps size (adapted from documentation)
@@ -384,7 +384,7 @@ mode "$mode_gaps_all" {
 	bindsym Escape mode "default"
 }
 
-# Set custom gaps for some workspaces
+## Set custom gaps for some workspaces
 #exec i3-msg "workspace $ws9; gaps outer current set 0; gaps inner current set 50; workspace back_and_forth"
 
 
