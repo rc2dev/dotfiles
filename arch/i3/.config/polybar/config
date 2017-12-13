@@ -52,8 +52,8 @@ font-1 = Font Awesome:pixelsize=10;1
 font-2 = Arial:pixelsize=10;1
 
 modules-left = i3 xwindow
-modules-center = mpd spotify cmus
-modules-right = bitcoin xbacklight volume xkeyboard memory cpu wlan battery temperature date dolphin
+modules-center = date
+modules-right = mpd cmus spotify volume bitcoin xbacklight xkeyboard memory cpu wlan battery dolphin
 
 tray-position = right
 tray-padding = 2
@@ -252,15 +252,15 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = " %a, %d %b "
-date-alt = " %a, %d %b "
+date = "%a, %b %d "
+date-alt = "%a, %b %d "
 
-time =  %H:%M
+time = "%H:%M"
 time-alt =  %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+;format-underline = #0a6cf5
 
 label = %date% %time%
 
