@@ -53,7 +53,7 @@ font-2 = Arial:pixelsize=10;1
 
 modules-left = i3 xwindow
 modules-center = mpd spotify cmus
-modules-right = bitcoin xbacklight volume xkeyboard memory cpu wlan battery temperature date powermenu dolphin
+modules-right = bitcoin xbacklight volume xkeyboard memory cpu wlan battery temperature date dolphin
 
 tray-position = right
 tray-padding = 2
@@ -380,7 +380,7 @@ label-maxlen = 50
 
 [module/bitcoin]
 type = custom/script
-interval = 120
+interval = 300
 format = <label>
 format-prefix = " "
 tail = true

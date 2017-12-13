@@ -14,7 +14,8 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # [RC modified]
-font pango:System San Francisco Display 10
+#font pango:System San Francisco Display 10
+font pango:Ubuntu 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -347,7 +348,7 @@ exec --no-startup-id keepassxc
 # Disable windows titlebars (necessary)
 for_window [class="^.*"] border pixel 3
 
-set $gaps_inner 30
+set $gaps_inner 20
 set $gaps_outer 5
 gaps inner $gaps_inner
 gaps outer $gaps_outer
