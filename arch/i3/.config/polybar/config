@@ -52,8 +52,8 @@ font-1 = Font Awesome:pixelsize=10;1
 font-2 = Arial:pixelsize=10;1
 
 modules-left = i3 xwindow
-modules-center = date
-modules-right = mpd cmus spotify volume bitcoin xbacklight xkeyboard memory cpu wlan battery dolphin
+modules-center = date bitcoin
+modules-right = mpd cmus spotify volume xbacklight xkeyboard memory cpu wlan battery dolphin
 
 tray-position = right
 tray-padding = 2
