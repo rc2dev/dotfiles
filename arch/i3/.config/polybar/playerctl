@@ -1,11 +1,11 @@
 #!/bin/bash
 #
-# Print Spotify metadata - for Polybar
+# Print Playerctl metadata - for Polybar
 # Rafael Cavalcanti
 
-artist="$(playerctl -p spotify metadata xesam:artist)"
-title="$(playerctl -p spotify metadata xesam:title)"
-stat="$(playerctl -p spotify status)"
+artist="$(playerctl metadata xesam:artist)"
+title="$(playerctl metadata xesam:title)"
+stat="$(playerctl status)"
 
 case "$stat" in
 	Paused)

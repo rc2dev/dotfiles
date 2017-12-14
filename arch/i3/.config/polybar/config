@@ -53,7 +53,7 @@ font-2 = Arial:pixelsize=10;1
 
 modules-left = i3 xwindow
 modules-center = date bitcoin
-modules-right = mpd cmus spotify volume xbacklight xkeyboard memory cpu wlan battery dolphin
+modules-right = mpd cmus playerctl volume xbacklight xkeyboard memory cpu wlan battery dolphin
 
 tray-position = right
 tray-padding = 2
@@ -367,16 +367,16 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-[module/spotify]
+[module/playerctl]
 type = custom/script
-exec = ~/.config/polybar/spotify
-exec-if = pgrep spotify > /dev/null
+exec = ~/.config/polybar/playerctl
+exec-if = playerctl status
 interval = 0.3
 format-padding = 1
-click-left = wmctrl -a spotify -x
-click-middle = playerctl -p spotify play-pause
-click-right = playerctl -p spotify next
-label-maxlen = 50
+click-left = i3-msg workspace 10
+click-middle = playerctl play-pause
+click-right = playerctl next
+label-maxlen = 40
 
 [module/bitcoin]
 type = custom/script
