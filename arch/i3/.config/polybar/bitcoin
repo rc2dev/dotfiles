@@ -4,7 +4,10 @@
 
 import requests
 
-r = requests.get('https://www.mercadobitcoin.net/api/BTC/ticker/')
-ticker = r.json()
+try:
+    r = requests.get('https://www.mercadobitcoin.net/api/BTC/ticker/')
+    ticker = r.json()
 
-print('R$ %.2f' % float(ticker['ticker']['last']))
+    print('R$ %.2f' % float(ticker['ticker']['last']))
+except:
+    print('Error')
