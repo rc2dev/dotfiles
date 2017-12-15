@@ -156,10 +156,19 @@ assign [class="Amarok"] → $ws10
 for_window [class="keepassxc" window_type="normal"] move to scratchpad
 for_window [class="transmission" window_type="normal"] move to scratchpad
 
+# [RC added] Scratchpad - quick terminal
+exec --no-startup-id konsole --name quickterm
+for_window [class="konsole" instance="quickterm"] move to scratchpad
+for_window [class="konsole" instance="quickterm"] resize set 800 500
+bindsym $mod+t [class="konsole" instance="quickterm"] scratchpad show
+
 # MPV
 for_window [class="mpv"] floating enable, sticky enable, resize set 600 400, move window to position 1300 660
 # Firefox - Min Vid experiment
 for_window [class="Firefox" instance="Toplevel"] floating enable, sticky enable, resize set 600 400, move window to position 1300 660
+
+# SimpleScreenRecorder
+for_window [class="Simplescreenrecorder"] floating enable, move window to position 1330 460
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
