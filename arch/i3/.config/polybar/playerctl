@@ -18,7 +18,7 @@ esac
 
 if [[ "$artist" == "" || "$title" == "" ]]
 then
-	printf "No song."
+	printf "%s No info" "$symb"
 else
 	printf "%s %s - %s\n" "$symb" "$artist" "$title"
 fi
