@@ -10,6 +10,7 @@ set $browser firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker ~/.config/i3/lock.sh
+set $encfs_wrap ~/.config/i3/encfs.sh
 set $rofi_wrap ~/.config/i3/rofi.sh
 set $flash_win ~/.config/i3/flash_win.sh
 
@@ -320,7 +321,7 @@ exec --no-startup-id unsplash
 # Swap capslock and control. Set it as esc too.
 #exec --no-startup-id xcape -e Control_L=Escape
 exec --no-startup-id setxkbmap us -variant intl -option eurosign:e
-exec --no-startup-id xmodmap.sh
+exec --no-startup-id xmodmap $HOME/.Xmodmap
 
 # Auto lock if idle
 exec --no-startup-id xautolock -time 3 -locker $locker
@@ -331,10 +332,10 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
 
-# Wallet, SSH, encfs
+# KDE Wallet, SSH, encfs
 exec --no-startup-id /usr/lib/pam_kwallet_init
-exec --no-startup-id encfs.sh zim clipit "emacs ~/Private/Orgmode/TODO.org"
-exec --no-startup-id ssh-add.sh
+exec --no-startup-id $encfs_wrap clipit zim "emacs ~/Private/Orgmode/TODO.org"
+exec --no-startup-id ~/.config/autostart-scripts/ssh-add.sh
 
 # Allows (in KDE software), for instance, saving stuff as root
 exec --no-startup-id /usr/lib/polkit-kde/polkit-kde-authentication-agent-1
