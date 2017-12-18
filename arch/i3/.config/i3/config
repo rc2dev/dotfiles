@@ -169,7 +169,7 @@ bindsym $mod+minus scratchpad show
 
 
 # Lock screen
-bindsym $mod+shift+x exec --no-startup-id lock.sh --now
+bindsym $mod+shift+x exec --no-startup-id $locker --now
 
 # Exit mode
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -397,8 +397,9 @@ mode "$mode_gaps_all" {
 
 
 # Testes
-set $truemute --no-startup-id pamixer -m
-bindsym $mod+x exec $truemute; exec $truepause; workspace lmao; exec $term -e htop; exec $term -e ranger
+set $mute --no-startup-id pactl set-sink-mute 0 1
+set $pause --no-startup-id playerctl pause
+bindsym $mod+x exec $mute; exec $pause; workspace lmao; exec $term -e htop; exec $term -e ranger
 
 bindsym $mod+y resize shrink width 10 px or 10ppt
 bindsym $mod+u resize shrink height 10 px or 10 ppt

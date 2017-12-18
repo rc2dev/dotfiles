@@ -6,8 +6,7 @@
 # Rafael Cavalcanti
 #
 
-ICON=$HOME/.local/share/lock.png
-LOCK_BG=$HOME/.config/i3/lock_bg.png
+LOCK_BG=$HOME/.cache/lock_bg.png
 
 
 info() { printf '%s\t%s\n' "$(date)" "$*"; }
