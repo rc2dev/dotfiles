@@ -33,11 +33,9 @@ set $ws10 "10"
 
 
 # ================================
-# Shortcuts
+# Keyboard
 # ================================
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
 
 # change focus
 bindsym $mod+j focus left
@@ -120,16 +118,8 @@ bindsym $mod+backslash exec --no-startup-id $flash_win
 bindsym $mod+m exec --no-startup-id transset-df -a --dec .05
 bindsym $mod+n exec --no-startup-id transset-df -a --inc .05
 
-# Wallpaper operations
-bindsym $mod+comma exec --no-startup-id $wallpaper set-random
-bindsym $mod+Shift+comma exec --no-startup-id $wallpaper rm
-
 # kill focused window
 bindsym $mod+q kill
-# The middle button over a titlebar kills the window
-bindsym --release button2 kill
-# The middle button and a modifer over any part of the window kills the window
-bindsym --whole-window $mod+button2 kill
 
 
 # switch to workspace
@@ -168,6 +158,10 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+
+# Wallpaper operations
+bindsym $mod+comma exec --no-startup-id $wallpaper set-random
+bindsym $mod+Shift+comma exec --no-startup-id $wallpaper rm
 
 # Lock screen
 bindsym $mod+shift+x exec --no-startup-id $locker --now
@@ -218,6 +212,20 @@ bindsym XF86Calculator exec --no-startup-id kcalc
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+
+
+# ====================
+# Mouse
+# ====================
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# The middle button over a titlebar kills the window
+bindsym --release button2 kill
+# The middle button and a modifer over any part of the window kills the window
+bindsym --whole-window $mod+button2 kill
 
 
 
