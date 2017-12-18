@@ -186,7 +186,9 @@ bindsym Alt Print exec --no-startup-id spectacle -a -b
 bindsym Shift Print exec --no-startup-id spectacle -rdunst -b
 
 # Launch software
-bindsym $mod+d exec --no-startup-id rofi -show drun
+#bindsym $mod+d exec --no-startup-id rofi -show drun -modi drun,vbox:~/.local/share/rofi/vbox.sh,window,keys
+bindsym $mod+d exec --no-startup-id rofi.sh --launcher
+bindsym $mod+s exec --no-startup-id rofi.sh --ssh
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+slash exec --no-startup-id dolphin
 bindsym XF86Tools exec --no-startup-id spotify
