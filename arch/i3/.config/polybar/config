@@ -403,7 +403,7 @@ click-right = cmus-remote --next
 [module/dolphin]
 type = custom/text
 content = " "
-click-left = ~/.config/polybar/dolphin.sh
+click-left = ~/.config/polybar/dolphin
 
 [settings]
 screenchange-reload = true
