@@ -3,9 +3,37 @@
 
 
 # ================================
-# Shortcuts
+# Variables
 # ================================
 set $mod Mod4
+set $browser firefox
+set $term i3-sensible-terminal
+set $wallpaper ~/.config/i3/wallpaper.sh
+set $locker ~/.config/i3/lock.sh
+set $rofi_wrap ~/.config/i3/rofi.sh
+set $flash_win ~/.config/i3/flash_win.sh
+
+# Default gaps
+set $gaps_inner 20
+set $gaps_outer 5
+
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+
+
+# ================================
+# Shortcuts
+# ================================
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -85,11 +113,15 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
 # Flash focused window
-bindsym $mod+backslash exec --no-startup-id flash_win.sh
+bindsym $mod+backslash exec --no-startup-id $flash_win
 
 # Change window opacity
 bindsym $mod+m exec --no-startup-id transset-df -a --dec .05
 bindsym $mod+n exec --no-startup-id transset-df -a --inc .05
+
+# Wallpaper operations
+bindsym $mod+comma exec --no-startup-id $wallpaper set-random
+bindsym $mod+Shift+comma exec --no-startup-id $wallpaper rm
 
 # kill focused window
 bindsym $mod+q kill
@@ -98,18 +130,6 @@ bindsym --release button2 kill
 # The middle button and a modifer over any part of the window kills the window
 bindsym --whole-window $mod+button2 kill
 
-
-# Conveniently define workspaces names
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9 "
-set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -152,7 +172,6 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+shift+x exec --no-startup-id lock.sh --now
 
 # Exit mode
-set $locker lock.sh
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $locker, mode "default"
@@ -186,10 +205,9 @@ bindsym Alt Print exec --no-startup-id spectacle -a -b
 bindsym Shift Print exec --no-startup-id spectacle -rdunst -b
 
 # Launch software
-#bindsym $mod+d exec --no-startup-id rofi -show drun -modi drun,vbox:~/.local/share/rofi/vbox.sh,window,keys
-bindsym $mod+d exec --no-startup-id rofi.sh --launcher
-bindsym $mod+s exec --no-startup-id rofi.sh --ssh
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+d exec --no-startup-id $rofi_wrap --launcher
+bindsym $mod+s exec --no-startup-id $rofi_wrap --ssh
+bindsym $mod+Return exec $term
 bindsym $mod+slash exec --no-startup-id dolphin
 bindsym XF86Tools exec --no-startup-id spotify
 bindsym XF86Calculator exec --no-startup-id kcalc
@@ -224,7 +242,7 @@ for_window [class="keepassxc" window_type="normal"] move to scratchpad
 #bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
 for_window [class="transmission" window_type="normal"] move to scratchpad
 # Quick terminal
-exec --no-startup-id i3-sensible-terminal --name quickterm
+exec --no-startup-id $term --name quickterm
 for_window [instance="quickterm"] move to scratchpad
 for_window [instance="quickterm"] resize set 800 500
 bindsym $mod+t [class="konsole" instance="quickterm"] scratchpad show
@@ -294,7 +312,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # ================================
 
 # Set wallpaper
-exec --no-startup-id wallpaper set-random
+exec --no-startup-id $wallpaper set-random
 # Download more wallpapers
 exec --no-startup-id unsplash
 
@@ -305,13 +323,13 @@ exec --no-startup-id setxkbmap us -variant intl -option eurosign:e
 exec --no-startup-id xmodmap.sh
 
 # Auto lock if idle
-exec --no-startup-id xautolock -time 3 -locker lock.sh
+exec --no-startup-id xautolock -time 3 -locker $locker
 
 # WM stuff
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec_always --no-startup-id polybar.sh
+exec_always --no-startup-id ~/.config/polybar/polybar.sh
 
 # Wallet, SSH, encfs
 exec --no-startup-id /usr/lib/pam_kwallet_init
@@ -326,7 +344,7 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id dropbox
 
 # Applications
-exec --no-startup-id firefox
+exec --no-startup-id $browser
 exec --no-startup-id keepassxc
 #exec --no-startup-id i3-msg "workspace $ws8; exec i3-sensible-terminal"
 
@@ -339,8 +357,6 @@ exec --no-startup-id keepassxc
 # Disable windows titlebars (necessary)
 for_window [class="^.*"] border pixel 3
 
-set $gaps_inner 20
-set $gaps_outer 5
 gaps inner $gaps_inner
 gaps outer $gaps_outer
 
@@ -382,13 +398,13 @@ mode "$mode_gaps_all" {
 
 # Testes
 set $truemute --no-startup-id pamixer -m
-set $term i3-sensible-terminal
 bindsym $mod+x exec $truemute; exec $truepause; workspace lmao; exec $term -e htop; exec $term -e ranger
 
 bindsym $mod+y resize shrink width 10 px or 10ppt
 bindsym $mod+u resize shrink height 10 px or 10 ppt
 bindsym $mod+i resize grow height 10 px or 10 ppt
 bindsym $mod+o resize grow width 10 px or 10 ppt
+
 
 
 #  vim: filetype=i3 sw=2 ts=4
