@@ -369,7 +369,7 @@ menu-2-1-exec = menu-open-0
 
 [module/playerctl]
 type = custom/script
-exec = ~/.config/polybar/playerctl
+exec = ~/.config/polybar/playerctl.sh
 exec-if = playerctl status
 interval = 0.3
 format-padding = 1
@@ -385,13 +385,13 @@ format = <label>
 format-prefix = " "
 tail = true
 format-prefix-foreground = ${colors.foreground-alt}
-exec = ~/.config/polybar/bitcoin
+exec = ~/.config/polybar/bitcoin.py
 click-left = xdg-open https://www.mercadobitcoin.com.br/api-doc/
 
 [module/cmus]
 type = custom/script
 
-exec = sh ~/.config/polybar/cmus.sh
+exec = ~/.config/polybar/cmus.sh
 exec-if = pgrep -x cmus
 interval = 1
 label-maxlen = 50
@@ -403,7 +403,7 @@ click-right = cmus-remote --next
 [module/dolphin]
 type = custom/text
 content = " "
-click-left = ~/.config/polybar/dolphin
+click-left = ~/.config/polybar/dolphin.sh
 
 [settings]
 screenchange-reload = true
