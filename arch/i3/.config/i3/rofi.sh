@@ -18,7 +18,7 @@ case "$1" in
 		rofi -show ssh -modi ssh,vnc:$vnc
 		;;
 	--launcher)
-		rofi -combi-modi window,drun,vbox:$vbox,run -show combi -modi combi,vbox:$vbox
+		rofi -combi-modi window,drun,vbox:$vbox,run,ssh,vnc:$vnc -show combi -modi combi,vbox:$vbox,ssh,vnc:$vnc
 		;;
 	*)
 		usage

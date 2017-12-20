@@ -1,11 +1,13 @@
 # ~/.xprofile
 # Rafael Cavalcanti
 
-# Keyboard
+# Set keyboard layout
+## Swap capslock and control. Set it as esc too.
+#exec --no-startup-id xcape -e Control_L=Escape
 setxkbmap us -variant intl -option eurosign:e
 xmodmap $HOME/.Xmodmap
 
-# Atom - file deletion
+## Atom - file deletion
 #export ELECTRON_TRASH=kioclient5
 
 # Plasma or i3 - SSH
