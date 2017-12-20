@@ -7,7 +7,7 @@
 #
 
 #SRC="/mnt/hdd-data/encrypted"
-#DEST="$HOME/Private"
+DEST="$HOME/Private"
 MOUNT_SCRIPT=$HOME/.config/autostart-scripts/kdeencfs.sh
 
 # Mount encfs
