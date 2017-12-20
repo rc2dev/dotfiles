@@ -10,7 +10,7 @@ set $browser ~/.local/opt/firefox-nightly/firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker ~/.config/i3/lock.sh
-set $encfs_wrap ~/.config/i3/encfs.sh
+set $kwallet ~/.config/i3/kwallet.sh
 set $rofi_wrap ~/.config/i3/rofi.sh
 set $flash_win ~/.config/i3/flash_win.sh
 
@@ -324,12 +324,6 @@ exec --no-startup-id $wallpaper set-random
 # Download more wallpapers
 exec --no-startup-id unsplash
 
-# Set keyboard layout
-# Swap capslock and control. Set it as esc too.
-#exec --no-startup-id xcape -e Control_L=Escape
-#exec --no-startup-id setxkbmap us -variant intl -option eurosign:e
-#exec --no-startup-id xmodmap $HOME/.Xmodmap
-
 # Auto lock if idle
 exec --no-startup-id xautolock -time 3 -locker $locker
 
@@ -340,24 +334,19 @@ exec --no-startup-id dunst
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
 
 # KDE Wallet, SSH, encfs
-exec --no-startup-id /usr/lib/pam_kwallet_init
-exec --no-startup-id $encfs_wrap clipit zim "emacs ~/Private/Orgmode/TODO.org"
-exec --no-startup-id ~/.config/autostart-scripts/ssh-add.sh
+exec --no-startup-id $kwallet clipit zim "emacs ~/Private/Orgmode/TODO.org"
 
 # Allows (in KDE software), for instance, saving stuff as root
 exec --no-startup-id /usr/lib/polkit-kde/polkit-kde-authentication-agent-1
 
 # Services
 exec --no-startup-id redshift-gtk
-exec --no-startup-id dropbox
 
 # Applications
 exec --no-startup-id $browser
 exec --no-startup-id keepassxc
 #exec --no-startup-id i3-msg "workspace $ws8; exec i3-sensible-terminal"
 
-# i3-msg
-exec --no-startup-id i3-msg "workspace 9; layout tabbed; workspace back_and_forth"
 
 
 # ================================
