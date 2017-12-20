@@ -6,7 +6,7 @@
 # Variables
 # ================================
 set $mod Mod4
-set $browser firefox
+set $browser ~/.local/opt/firefox-nightly/firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker ~/.config/i3/lock.sh
@@ -36,12 +36,11 @@ set $ws10 "10"
 # Keyboard
 # ================================
 
-
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -84,7 +83,7 @@ bindsym $mod+r mode "resize"
 
 
 # split in horizontal/vertical orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -248,7 +247,7 @@ assign [class="Amarok"] → $ws10
 
 # Scratchpad
 for_window [class="keepassxc" window_type="normal"] move to scratchpad
-#bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
+bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
 for_window [class="transmission" window_type="normal"] move to scratchpad
 # Quick terminal
 exec --no-startup-id $term --name quickterm
@@ -328,8 +327,8 @@ exec --no-startup-id unsplash
 # Set keyboard layout
 # Swap capslock and control. Set it as esc too.
 #exec --no-startup-id xcape -e Control_L=Escape
-exec --no-startup-id setxkbmap us -variant intl -option eurosign:e
-exec --no-startup-id xmodmap $HOME/.Xmodmap
+#exec --no-startup-id setxkbmap us -variant intl -option eurosign:e
+#exec --no-startup-id xmodmap $HOME/.Xmodmap
 
 # Auto lock if idle
 exec --no-startup-id xautolock -time 3 -locker $locker
@@ -357,6 +356,8 @@ exec --no-startup-id $browser
 exec --no-startup-id keepassxc
 #exec --no-startup-id i3-msg "workspace $ws8; exec i3-sensible-terminal"
 
+# i3-msg
+exec --no-startup-id i3-msg "workspace 9; layout tabbed; workspace back_and_forth"
 
 
 # ================================
