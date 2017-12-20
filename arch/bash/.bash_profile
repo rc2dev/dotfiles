@@ -1,4 +1,4 @@
 # ~/.bash_profile
 
-# Necessário para tty (SSH tb?)
+# [RC] Necessary for login shells
 [[ -f ~/.bashrc ]] && . ~/.bashrc
