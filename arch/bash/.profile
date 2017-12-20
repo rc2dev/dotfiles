@@ -36,30 +36,3 @@ if command -v mpc >/dev/null; then
 	export MPD_HOST="pi.lan"
 fi
 
-# Atom - file deletion
-#export ELECTRON_TRASH=kioclient5
-
-# Plasma or i3 - SSH
-if [[ "$XDG_SESSION_DESKTOP" == "KDE" || "$XDG_SESSION_DESKTOP" == "i3" ]]; then
-	# Run ssh-agent if it's not running (Arch Wiki)
-	if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-		ssh-agent > ~/.ssh-agent-thing
-	fi
-	if [[ "$SSH_AGENT_PID" == "" ]]; then
-		eval "$(<~/.ssh-agent-thing)"
-	fi
-	export SSH_ASKPASS="/usr/bin/ksshaskpass"
-fi
-
-# i3
-if [[ "$XDG_SESSION_DESKTOP" == "i3" ]]; then
-	# Workaround for QT5 applications to use correct theme
-	export XDG_CURRENT_DESKTOP=KDE
-	# For xdg-open to work (isto ou instalar Konqueror)
-	export KDE_SESSION_VERSION=5
-fi
-
-
-# Copiado do .bash_profile que removi - necessário para tty
-# (é somente um source do bashrc)
-[[ -f ~/.bashrc ]] && . ~/.bashrc
