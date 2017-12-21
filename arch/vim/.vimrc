@@ -194,13 +194,19 @@ iab rcm [RC modified]
 
 " SWAP
 "=======================================================================
-" Set a safe directory for swapfiles, so my SSD or memory card isn't
-" destroyed.
+" Set a safe directory for swapfiles, so my SSD isn't destroyed.
 " Note: "Using double trailing slashes in the path tells vim to enable a feature
 " where it avoids name collisions."
-"silent !mkdir -p ~/.cache/vim_swap > /dev/null 2>&1
+silent !mkdir -p ~/.cache/vim_swap > /dev/null 2>&1
 set directory=$HOME/.cache/vim_swap//,/tmp//
 
+
+" Colors for spellchecking...
+" Workaround for the highlight to work under this configuration.
+hi SpellBad term=reverse ctermbg=52 gui=undercurl guifg=#FF0000
+hi SpellCap term=reverse ctermbg=17 gui=undercurl guifg=#7070F0
+hi SpellLocal term=underline ctermbg=17 gui=undercurl guifg=#70F0F0
+hi SpellRare term=reverse cterm=reverse gui=undercurl guifg=#FFFFFF
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
