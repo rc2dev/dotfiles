@@ -114,8 +114,8 @@ bindsym $mod+Shift+a focus child
 bindsym $mod+backslash exec --no-startup-id $flash_win
 
 # Change window opacity
-bindsym $mod+m exec --no-startup-id transset-df -a --dec .05
-bindsym $mod+n exec --no-startup-id transset-df -a --inc .05
+bindsym $mod+n exec --no-startup-id transset-df -a --dec .05
+bindsym $mod+m exec --no-startup-id transset-df -a --inc .05
 
 # kill focused window
 bindsym $mod+q kill
@@ -252,7 +252,7 @@ for_window [class="keepassxc" window_type="normal"] move to scratchpad
 bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
 for_window [class="transmission" window_type="normal"] move to scratchpad
 # Quick terminal
-exec --no-startup-id $term --name quickterm
+exec --no-startup-id "$term --name quickterm"
 for_window [instance="quickterm"] move to scratchpad
 for_window [instance="quickterm"] resize set 800 500
 bindsym $mod+t [class="konsole" instance="quickterm"] scratchpad show

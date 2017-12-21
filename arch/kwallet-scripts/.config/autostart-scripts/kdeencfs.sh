@@ -5,6 +5,7 @@
 #
 # Original script by Taboom (version 1.2) found at http://www.kde-apps.org/content/show.php/Truecrypt+mount+and+unmount+scripts?content=53634
 
+# [RC modified] Comentado
 #SOURCE=$1
 #DESTINATION=$2
 
@@ -37,7 +38,9 @@ fi
 
 #Is this Encfs partiton mounted?
 if [ "$(mount | grep $DESTINATION)" != "" ]; then
-  $(/usr/bin/kdialog --passivepopup "Encfs: $DESTINATION is already mounted")
+	# [RC modified] Comentado, para não surgir popup toda vez que relogar.
+  #$(/usr/bin/kdialog --passivepopup "Encfs: $DESTINATION is already mounted")
+	printf
 else
   # Ensure kwallet is running on KDE startup
   while [ "$(qdbus org.kde.kwalletd5 /modules/kwalletd5 org.kde.KWallet.isEnabled)" != "true" ]

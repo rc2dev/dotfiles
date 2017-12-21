@@ -54,16 +54,6 @@ fi
 log "Telling dunst to queue notifications..."
 killall -USR1 dunst
 
-# TODO: Posso colocar uma opção pra usar print em vez do lock_bg, com o código abaixo.
-#if [[ -f "$ICON" ]]; then
-	#log "Taking a printscreen..."
-  #import -window root $LOCK_BG
-
-	#log "Calling imagemagick to create i3lock background..."
-	## Original: 10%, 1000%
-  #convert "$LOCK_BG" -scale 10% -scale 1000% "$LOCK_BG"
-	#convert "$LOCK_BG" "$ICON" -gravity center -composite -matte "$LOCK_BG"
-	#param="-i $LOCK_BG"
 if [[ -f "$LOCK_BG" ]]; then
 	param="-i $LOCK_BG"
 else
