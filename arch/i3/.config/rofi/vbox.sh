@@ -4,11 +4,11 @@
 # Rafael Cavalcanti
 #
 
-txt="$HOME/.config/rofi/vbox.txt"
+VBDIR="$HOME/VirtualBox VMs/"
 
 if [ -z $@ ]
 then
-	cat "$txt"
+	ls "$VBDIR"
 else
 	VM=$@
 	VBoxManage startvm "${VM}" >/dev/null &
