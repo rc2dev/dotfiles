@@ -95,6 +95,16 @@ function mkdirr() {
 	mkdir -p -- "$1" && cd -P -- "$1"
 }
 
+# Directories
+alias g.="cd ~/Code/dotfiles"
+alias gs="cd ~/Code/scripts"
+alias gc="cd ~/Code"
+alias gd="cd ~/Downloads"
+alias ge="cd ~/Downloads/Enviar"
+alias gv="cd ~/Vídeos"
+alias gh="cd"
+alias gr="cd /"
+
 # ========== UNUSED ============
 # Workaround for WiFi dongle not working after hibernation/suspension
 #alias fix_wifi="sudo modprobe -r r8712u && sudo modprobe r8712u && sudo systemctl restart NetworkManager.service"
