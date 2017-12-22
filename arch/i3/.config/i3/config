@@ -10,6 +10,7 @@ set $browser ~/.local/opt/firefox-nightly/firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker i3lock -n -i ~/.cache/lock_bg.png
+set $locker_now playerctl pause && i3lock -n -i ~/.cache/lock_bg.png
 set $kwallet ~/.config/i3/kwallet.sh
 set $rofi_wrap ~/.config/i3/rofi.sh
 set $flash_win ~/.config/i3/flash_win.sh
@@ -165,12 +166,12 @@ bindsym $mod+comma exec --no-startup-id $wallpaper set-random
 bindsym $mod+Shift+comma exec --no-startup-id $wallpaper rm
 
 # Lock screen
-bindsym $mod+shift+x exec --no-startup-id $locker
+bindsym $mod+shift+x exec --no-startup-id $locker_now
 
 # Exit mode
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $locker, mode "default"
+    bindsym l exec --no-startup-id $locker_now, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
