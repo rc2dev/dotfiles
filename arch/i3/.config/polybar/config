@@ -380,7 +380,7 @@ label-maxlen = 40
 
 [module/bitcoin]
 type = custom/script
-interval = 300
+interval = 120
 format = <label>
 format-prefix = " "
 tail = true
