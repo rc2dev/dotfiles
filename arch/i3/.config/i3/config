@@ -9,8 +9,8 @@ set $mod Mod4
 set $browser ~/.local/opt/firefox-nightly/firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
-set $locker i3lock -n -i ~/.cache/lock_bg.png
-set $locker_now "playerctl pause; i3lock -n -i ~/.cache/lock_bg.png"
+set $locker locker.sh
+set $locker_now locker.sh --now
 set $kwallet ~/.config/i3/kwallet.sh
 set $rofi_wrap ~/.config/i3/rofi.sh
 set $flash_win ~/.config/i3/flash_win.sh
@@ -247,16 +247,10 @@ for_window [class="Spotify"] move to workspace $ws10
 assign [class="cantata"] → $ws10
 assign [class="Amarok"] → $ws10
 
-
 # Scratchpad
 for_window [class="keepassxc" window_type="normal"] move to scratchpad
 bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
 for_window [class="transmission" window_type="normal"] move to scratchpad
-# Quick terminal
-exec --no-startup-id "$term --name quickterm"
-for_window [instance="quickterm"] resize set 850 550, move window to position 550 280, move to scratchpad
-bindsym $mod+t [class="konsole" instance="quickterm"] scratchpad show
-
 
 # Floating windows
 # MPV
