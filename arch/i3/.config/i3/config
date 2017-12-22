@@ -9,7 +9,7 @@ set $mod Mod4
 set $browser ~/.local/opt/firefox-nightly/firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
-set $locker ~/.config/i3/lock.sh
+set $locker i3lock -n -i ~/.cache/lock_bg.png
 set $kwallet ~/.config/i3/kwallet.sh
 set $rofi_wrap ~/.config/i3/rofi.sh
 set $flash_win ~/.config/i3/flash_win.sh
@@ -165,15 +165,15 @@ bindsym $mod+comma exec --no-startup-id $wallpaper set-random
 bindsym $mod+Shift+comma exec --no-startup-id $wallpaper rm
 
 # Lock screen
-bindsym $mod+shift+x exec --no-startup-id $locker --now
+bindsym $mod+shift+x exec --no-startup-id $locker
 
 # Exit mode
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $locker && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -253,8 +253,9 @@ bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
 for_window [class="transmission" window_type="normal"] move to scratchpad
 # Quick terminal
 exec --no-startup-id "$term --name quickterm"
-for_window [instance="quickterm"] move to scratchpad
 for_window [instance="quickterm"] resize set 800 500
+for_window [instance="quickterm"] move window to position 570 300
+for_window [instance="quickterm"] move to scratchpad
 bindsym $mod+t [class="konsole" instance="quickterm"] scratchpad show
 
 
@@ -326,14 +327,18 @@ exec --no-startup-id $wallpaper set-random
 # Download more wallpapers
 exec --no-startup-id unsplash
 
-# Auto lock if idle
-exec --no-startup-id xautolock -time 3 -locker $locker
+# Set screensaver timeout
+exec --no-startup-id xset s 180 180
+# Set monitor off timeout
+exec --no-startup-id xset dpms 300 300 300
+# Hook i3lock as X screensaver
+exec --no-startup-id xss-lock -- $locker &
 
 # WM stuff
 exec --no-startup-id compton -b
-exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
+exec --no-startup-id nm-applet
 
 # KDE Wallet, SSH, encfs
 exec --no-startup-id $kwallet clipit zim "emacs ~/Private/Orgmode/TODO.org"
