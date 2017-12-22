@@ -10,7 +10,7 @@ set $browser ~/.local/opt/firefox-nightly/firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker i3lock -n -i ~/.cache/lock_bg.png
-set $locker_now playerctl pause && i3lock -n -i ~/.cache/lock_bg.png
+set $locker_now "playerctl pause; i3lock -n -i ~/.cache/lock_bg.png"
 set $kwallet ~/.config/i3/kwallet.sh
 set $rofi_wrap ~/.config/i3/rofi.sh
 set $flash_win ~/.config/i3/flash_win.sh
@@ -410,7 +410,5 @@ bindsym $mod+y resize shrink width 10 px or 10ppt
 bindsym $mod+u resize shrink height 10 px or 10 ppt
 bindsym $mod+i resize grow height 10 px or 10 ppt
 bindsym $mod+o resize grow width 10 px or 10 ppt
-
-
 
 #  vim: filetype=i3 sw=2 ts=4
