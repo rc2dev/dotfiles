@@ -9,8 +9,8 @@ set $mod Mod4
 set $browser ~/.local/opt/firefox-nightly/firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
-set $locker locker.sh
-set $locker_now locker.sh --now
+set $locker ~/.config/i3/lock.sh
+set $locker_now ~/.config/i3/lock.sh --now
 set $kwallet ~/.config/i3/kwallet.sh
 set $rofi_wrap ~/.config/i3/rofi.sh
 set $flash_win ~/.config/i3/flash_win.sh
