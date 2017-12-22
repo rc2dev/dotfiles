@@ -96,13 +96,13 @@ function mkdirr() {
 }
 
 # Directories
+alias gh="cd"
 alias g.="cd ~/Code/dotfiles"
 alias gs="cd ~/Code/scripts"
 alias gc="cd ~/Code"
 alias gd="cd ~/Downloads"
 alias ge="cd ~/Downloads/Enviar"
 alias gv="cd ~/Vídeos"
-alias gh="cd"
 alias gr="cd /"
 
 # ========== UNUSED ============
