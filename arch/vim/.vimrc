@@ -113,7 +113,7 @@ set modeline                        " Enable modeline
 set hidden                          " Allow buffers to be hidden without saving
 set mouse=r                         " (Não sei por quẽ) Fazer copia/cola do mouse funcionar
 "set clipboard=unnamedplus							" Use clipboard as default register
-set spelllang=pt_br,en_us           " Set spellcheck languages
+set spelllang=pt_br,en_us,es_es     " Set spellcheck languages
 
 function! AutoTrim()
 	if !&binary && &filetype != 'diff'
