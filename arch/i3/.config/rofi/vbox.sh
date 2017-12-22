@@ -4,9 +4,11 @@
 # Rafael Cavalcanti
 #
 
+txt="$HOME/.config/rofi/vbox.txt"
+
 if [ -z $@ ]
 then
-	VBoxManage list vms -s | awk -F'"' '{print $2}'
+	cat "$txt"
 else
 	VM=$@
 	VBoxManage startvm "${VM}" >/dev/null &
