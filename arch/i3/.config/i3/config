@@ -253,9 +253,7 @@ bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
 for_window [class="transmission" window_type="normal"] move to scratchpad
 # Quick terminal
 exec --no-startup-id "$term --name quickterm"
-for_window [instance="quickterm"] resize set 800 500
-for_window [instance="quickterm"] move window to position 570 300
-for_window [instance="quickterm"] move to scratchpad
+for_window [instance="quickterm"] resize set 850 550, move window to position 550 280, move to scratchpad
 bindsym $mod+t [class="konsole" instance="quickterm"] scratchpad show
 
 
