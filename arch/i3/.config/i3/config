@@ -6,12 +6,12 @@
 # Variables
 # ================================
 set $mod Mod4
-set $browser ~/.local/opt/firefox-nightly/firefox
+set $browser firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
-set $locker ~/.config/i3/lock.sh
+set $locker_auto ~/.config/i3/lock.sh
 set $locker_now ~/.config/i3/lock.sh --now
-set $kwallet ~/.config/i3/kwallet.sh
+set $kwallet_start ~/.config/i3/kwallet_start.sh
 set $rofi_wrap ~/.config/i3/rofi.sh
 set $flash_win ~/.config/i3/flash_win.sh
 
@@ -173,8 +173,8 @@ set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) re
 mode "$mode_system" {
     bindsym l exec --no-startup-id $locker_now, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id $locker_now && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $locker_now && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -320,12 +320,8 @@ exec --no-startup-id $wallpaper set-random
 # Download more wallpapers
 exec --no-startup-id unsplash
 
-# Set screensaver timeout
-exec --no-startup-id xset s 180 180
-# Set monitor off timeout
-exec --no-startup-id xset dpms 300 300 300
-# Hook i3lock as X screensaver
-exec --no-startup-id xss-lock -- $locker &
+# Auto lock if idle
+exec --no-startup-id xautolock -time 3 -locker $locker
 
 # WM stuff
 exec --no-startup-id compton -b
@@ -334,7 +330,7 @@ exec_always --no-startup-id ~/.config/polybar/polybar.sh
 exec --no-startup-id nm-applet
 
 # KDE Wallet, SSH, encfs
-exec --no-startup-id $kwallet clipit zim "emacs ~/Private/Orgmode/TODO.org"
+exec --no-startup-id $kwallet_start clipit zim "emacs ~/Private/Orgmode/TODO.org"
 
 # Allows (in KDE software), for instance, saving stuff as root
 exec --no-startup-id /usr/lib/polkit-kde/polkit-kde-authentication-agent-1
