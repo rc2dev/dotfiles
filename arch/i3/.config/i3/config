@@ -11,7 +11,7 @@ set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker ~/.config/i3/lock.sh
 set $locker_now ~/.config/i3/lock.sh --now
-set $kwallet ~/.config/i3/kwallet.sh
+set $kwallet_start ~/.config/i3/kwallet.sh
 set $rofi_wrap ~/.config/i3/rofi.sh
 set $flash_win ~/.config/i3/flash_win.sh
 
@@ -334,7 +334,7 @@ exec_always --no-startup-id ~/.config/polybar/polybar.sh
 exec --no-startup-id nm-applet
 
 # KDE Wallet, SSH, encfs
-exec --no-startup-id $kwallet clipit zim "emacs ~/Private/Orgmode/TODO.org"
+exec --no-startup-id $kwallet_start clipit zim "emacs ~/Private/Orgmode/TODO.org"
 
 # Allows (in KDE software), for instance, saving stuff as root
 exec --no-startup-id /usr/lib/polkit-kde/polkit-kde-authentication-agent-1
