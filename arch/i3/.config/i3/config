@@ -250,7 +250,6 @@ assign [class="Amarok"] → $ws10
 # Scratchpad
 for_window [class="keepassxc" window_type="normal"] move to scratchpad
 bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
-for_window [class="transmission" window_type="normal"] move to scratchpad
 
 # Floating windows
 # MPV
