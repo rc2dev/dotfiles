@@ -35,8 +35,7 @@ alias u="unset HISTFILE && export PS1='\n(incognito) $PS1' && echo History unset
 
 # Arch's Pacman
 if [ -e /usr/bin/pacman ]; then
-	alias pu="sudo pacman -Syu && pacaur -u"
-	alias pud="sudo pacman -Syu && pacaur -u --devel --needed"
+	alias update="sudo pacman -Syu && pacaur -u --devel --needed"
 	alias pm="sudo reflector --country Brazil -l 5 --sort rate \
 		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
 fi
@@ -88,7 +87,7 @@ alias c4="convert-video --to-mp4"
 
 # Misc utils
 alias mr="sudo mount /mnt/airport/rafael"
-alias ms="sudo mount /mnt/airport/shared"
+alias md="sudo mount /mnt/airport/Data"
 alias zim-fav="vim /home/rafael/Private/Notebooks/Notes/.zim/state.conf"
 
 function mkdirr() {
@@ -104,6 +103,9 @@ alias gd="cd ~/Downloads"
 alias ge="cd ~/Downloads/Enviar"
 alias gv="cd ~/Vídeos"
 alias gr="cd /"
+alias ga="cd /mnt/airport"
+alias gar="cd /mnt/airport/rafael"
+alias gad="cd /mnt/airport/Data"
 
 # ========== UNUSED ============
 # Workaround for WiFi dongle not working after hibernation/suspension
