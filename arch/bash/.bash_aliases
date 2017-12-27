@@ -97,8 +97,8 @@ function mkdirr() {
 
 # Directories
 alias gh="cd"
-alias g.="cd ~/Code/dotfiles"
-alias gs="cd ~/Code/scripts"
+alias g.="cd ~/Code/dotfiles/arch"
+alias gs="cd ~/Code/scripts/arch"
 alias gc="cd ~/Code"
 alias gd="cd ~/Downloads"
 alias ge="cd ~/Downloads/Enviar"
