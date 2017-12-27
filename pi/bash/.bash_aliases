@@ -35,9 +35,6 @@ alias tr="sudo systemctl restart thin"
 #alias lt="echo 'Iniciando Lighthttpd...' && sudo systemctl start lighttpd"
 #alias lr="echo 'Reiniciando Lighttpd...' && sudo systemctl restart lighttpd"
 
-# rcradio
-alias rcradio-update="cd /srv/http/rcradio/ && ts && git pull && tt"
-
 # TV and HDMI output
 alias td='tvservice --off && echo "standby 0" | cec-client -s'
 alias tl='echo "on 0" | cec-client -s'
@@ -45,12 +42,18 @@ alias hd="tvservice -o"
 alias hl="tvservice -p"
 
 # Videos
-alias ca="cd /airport/Downloads"
 alias yd="cd /airport/Downloads && youtube-dl"
 alias yd480="cd /airport/Downloads && youtube-dl \
 	-f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
 alias cs="convert-video --to-small"
 alias c4="convert-video --to-mp4"
+
+# Browsing
+alias ga="cd /airport"
+alias gd="cd /airport/Downloads"
+alias gs="cd /opt/rc/scripts/pi"
+alias g.="cd /opt/rc/dotfiles/pi"
+alias gh="cd /srv/http"
 
 # Misc
 alias d="mpc pause && sleep 1 && mpc play"
