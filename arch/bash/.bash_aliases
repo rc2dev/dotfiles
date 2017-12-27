@@ -95,10 +95,10 @@ function mkdirr() {
 	mkdir -p -- "$1" && cd -P -- "$1"
 }
 
-# Directories
+# Browsing
 alias gh="cd"
 alias g.="cd ~/Code/dotfiles/arch"
-alias gs="cd ~/Code/scripts/arch"
+alias gs="cd ~/Code/scripts"
 alias gc="cd ~/Code"
 alias gd="cd ~/Downloads"
 alias ge="cd ~/Downloads/Enviar"
