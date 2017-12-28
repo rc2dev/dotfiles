@@ -95,10 +95,10 @@ function mkdirr() {
 }
 
 # Browsing
-alias gh="cd"
+alias gc="cd ~/Code"
 alias g.="cd ~/Code/dotfiles/arch"
 alias gs="cd ~/Code/scripts"
-alias gc="cd ~/Code"
+alias gt="cd ~/Code/data"
 alias gd="cd ~/Downloads"
 alias ge="cd ~/Downloads/Enviar"
 alias gv="cd ~/Vídeos"
