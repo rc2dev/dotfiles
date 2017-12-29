@@ -103,6 +103,9 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# toggle sticky
+bindsym $mod+Shift+y sticky toggle
+
 # Make window float and sticky (for videos)
 bindsym $mod+Shift+v fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1300 660
 
