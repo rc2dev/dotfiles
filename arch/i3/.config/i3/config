@@ -328,7 +328,7 @@ exec --no-startup-id xautolock -time 3 -locker $locker
 # WM stuff
 exec --no-startup-id compton -b
 exec --no-startup-id dunst
-exec_always --no-startup-id ~/.config/polybar/polybar.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 
 # KDE Wallet, SSH, encfs

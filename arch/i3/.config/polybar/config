@@ -46,10 +46,9 @@ module-margin-right = 2
 ;font-0 = fixed:pixelsize=10;1
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-2 = siji:pixelsize=10;1
-;font-0 = SFNS Display:pixelsize=10;1
 font-0 = Ubuntu:pixelsize=10;1
-font-1 = Font Awesome:pixelsize=10;1
-font-2 = Arial:pixelsize=10;1
+font-1 = Arial:pixelsize=10;1
+font-2 = fa-regular-400.ttf:pixelsize=10;1
 
 modules-left = i3 xwindow
 modules-center = date bitcoin
@@ -268,7 +267,7 @@ label = %date% %time%
 type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+label-volume =
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
