@@ -7,7 +7,8 @@
 user_pref("security.ssl3.dhe_rsa_aes_256_sha", false);
 user_pref("security.ssl3.dhe_rsa_aes_128_sha", false);
 user_pref("geo.enabled", false);
-user_pref("webgl.disabled", true);
+// This option breaks 360 videos
+//user_pref("webgl.disabled", true);
 
 // Pra aparecer OpenGL no about:support - Graphics (OpenGL Off-Main-Thread
 // Compositing - OMTC - Arch Wiki). Acho que ajudou com tearing.
