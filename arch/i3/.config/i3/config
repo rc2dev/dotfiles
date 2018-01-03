@@ -325,6 +325,9 @@ exec --no-startup-id unsplash
 # Auto lock if idle
 exec --no-startup-id xautolock -time 3 -locker $locker
 
+# Use Super as Super+d
+exec --no-startup-id xcape -e 'Super_L=Super_L|D'
+
 # WM stuff
 exec --no-startup-id compton -b
 exec --no-startup-id dunst
