@@ -1,7 +1,6 @@
 # Rafael Cavalcanti
 
 
-
 # ================================
 # Variables
 # ================================
@@ -14,6 +13,7 @@ set $locker_now ~/.config/i3/lock.sh --now
 set $kwallet_start ~/.config/i3/kwallet_start.sh
 set $rofi_wrap ~/.config/i3/rofi.sh
 set $flash_win ~/.config/i3/flash_win.sh
+set $vol ~/.config/i3/vol.sh
 
 # Default gaps
 set $gaps_inner 20
@@ -58,30 +58,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
-	# These bindings trigger as soon as you enter the resize mode
-
-	# Pressing left will shrink the window’s width.
-	# Pressing right will grow the window’s width.
-	# Pressing up will shrink the window’s height.
-	# Pressing down will grow the window’s height.
-	bindsym j resize shrink width 10 px or 10 ppt
-	bindsym k resize grow height 10 px or 10 ppt
-	bindsym l resize shrink height 10 px or 10 ppt
-	bindsym semicolon resize grow width 10 px or 10 ppt
-
-	# same bindings, but for the arrow keys
-	bindsym Left resize shrink width 10 px or 10 ppt
-	bindsym Down resize grow height 10 px or 10 ppt
-	bindsym Up resize shrink height 10 px or 10 ppt
-	bindsym Right resize grow width 10 px or 10 ppt
-
-	# back to normal: Enter or Escape
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
-
+bindsym $mod+i resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
+bindsym $mod+o resize grow width 10 px or 10 ppt
+bindsym $mod+Shift+o  resize shrink width 10 px or 10 ppt
 
 # split in horizontal/vertical orientation
 bindsym $mod+b split h
@@ -189,9 +169,9 @@ bindsym $mod+End mode "$mode_system"
 
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id $vol -u
+bindsym XF86AudioLowerVolume exec --no-startup-id $vol -d
+bindsym XF86AudioMute exec --no-startup-id $vol -m
 
 # Media player controls
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
@@ -261,6 +241,8 @@ for_window [class="mpv"] floating enable, sticky enable, resize set 600 400, mov
 for_window [class="Firefox" instance="Toplevel"] floating enable, sticky enable, resize set 600 400, move window to position 1300 660
 # SimpleScreenRecorder
 for_window [class="Simplescreenrecorder"] floating enable, move window to position 1330 460
+# Pavucontrol
+for_window [class="Pavucontrol"] floating enable, resize set 730 600, move window to position 600 10
 
 
 
@@ -325,12 +307,10 @@ exec --no-startup-id unsplash
 # Auto lock if idle
 exec --no-startup-id xautolock -time 3 -locker $locker
 
-# Use Super as Super+d
-exec --no-startup-id xcape -e 'Super_L=Super_L|D'
-
 # WM stuff
 exec --no-startup-id compton -b
 exec --no-startup-id dunst
+exec --no-startup-id volnoti
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 
@@ -342,11 +322,11 @@ exec --no-startup-id /usr/lib/polkit-kde/polkit-kde-authentication-agent-1
 
 # Services
 exec --no-startup-id redshift-gtk
+exec --no-startup-id dropbox
 
 # Applications
 exec --no-startup-id $browser
 exec --no-startup-id keepassxc
-#exec --no-startup-id i3-msg "workspace $ws8; exec i3-sensible-terminal"
 
 
 
@@ -355,10 +335,10 @@ exec --no-startup-id keepassxc
 # ================================
 
 # Disable windows titlebars (necessary)
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 1
 
-gaps inner $gaps_inner
-gaps outer $gaps_outer
+#gaps inner $gaps_inner
+#gaps outer $gaps_outer
 
 ## Disable when one window
 #smart_gaps on
@@ -401,9 +381,5 @@ set $mute --no-startup-id pactl set-sink-mute 0 1
 set $pause --no-startup-id playerctl pause
 bindsym $mod+x exec $mute; exec $pause; workspace lmao; exec $term -e htop; exec $term -e ranger
 
-bindsym $mod+y resize shrink width 10 px or 10ppt
-bindsym $mod+u resize shrink height 10 px or 10 ppt
-bindsym $mod+i resize grow height 10 px or 10 ppt
-bindsym $mod+o resize grow width 10 px or 10 ppt
 
 #  vim: filetype=i3 sw=2 ts=4
