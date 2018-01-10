@@ -1,4 +1,5 @@
 .directory
+arch/mpv/.config/mpv/watch_later
 arch/vim/.vim/.netrwhist
 arch/vim/.vim/autoload/plug.vim*
 arch/vim/.vim/plugged
