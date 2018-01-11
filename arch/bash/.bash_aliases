@@ -31,7 +31,6 @@ alias ll="ls -lh"
 # Bash commands
 alias c="clear"
 alias x="exit"
-alias u="unset HISTFILE && export PS1='\n(incognito) $PS1' && echo History unset."
 
 # Arch's Pacman
 if [ -e /usr/bin/pacman ]; then
@@ -86,13 +85,7 @@ alias cs="convert-video --to-small"
 alias c4="convert-video --to-mp4"
 
 # Misc utils
-alias mr="sudo mount /mnt/airport/rafael"
-alias md="sudo mount /mnt/airport/Data"
 alias zim-fav="vim /home/rafael/Private/Notebooks/Notes/.zim/state.conf"
-
-function mkdirr() {
-	mkdir -p -- "$1" && cd -P -- "$1"
-}
 
 # Browsing
 alias gc="cd ~/Code"
@@ -104,14 +97,23 @@ alias ge="cd ~/Downloads/Enviar"
 alias gv="cd ~/Vídeos"
 alias gr="cd /"
 alias ga="cd /mnt/airport"
-alias gar="cd /mnt/airport/rafael"
-alias gad="cd /mnt/airport/Data"
+alias gar="mount_and_cd /mnt/airport/rafael"
+alias gad="mount_and_cd /mnt/airport/Data"
 
-# ========== UNUSED ============
-# Workaround for WiFi dongle not working after hibernation/suspension
-#alias fix_wifi="sudo modprobe -r r8712u && sudo modprobe r8712u && sudo systemctl restart NetworkManager.service"
 
-# C/C++ compilation flags
-#alias gcc="gcc -ansi -Wall"
-#alias g++="g++ -ansi -Wall"
+
+# ========================================
+# FUNCTIONS
+# ========================================
+
+# Mkdir and cd to it
+mkdirr() {
+	mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+# Aux - mount if not, and cd
+mount_and_cd() {
+	[ $# -ne 1 ] && printf "Provide exactly one argument.\n" && return
+	mount | grep "$1" > /dev/null || mount "$1" && cd "$1"
+}
 

@@ -192,13 +192,16 @@ iab rcr [RC removed]
 iab rcm [RC modified]
 
 
-" SWAP
+" PATHS
 "=======================================================================
 " Set a safe directory for swapfiles, so my SSD isn't destroyed.
 " Note: "Using double trailing slashes in the path tells vim to enable a feature
 " where it avoids name collisions."
-silent !mkdir -p ~/.cache/vim_swap > /dev/null 2>&1
-set directory=$HOME/.cache/vim_swap//,/tmp//
+silent !mkdir -p ~/.cache/vim/swap > /dev/null 2>&1
+set directory=$HOME/.cache/vim/swap//,/tmp//
+
+" Change viminfo path
+set viminfo+=n~/.cache/vim/viminfo
 
 
 " Colors for spellchecking...

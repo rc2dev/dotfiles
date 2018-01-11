@@ -1,10 +1,7 @@
 # ~/.xprofile
 # Rafael Cavalcanti
 
-# Set keyboard layout
-## Swap capslock and control. Set it as esc too.
-#exec --no-startup-id xcape -e Control_L=Escape
-setxkbmap us -variant intl -option eurosign:e
+# Keyboard map changes
 xmodmap $HOME/.Xmodmap
 
 ## Atom - file deletion

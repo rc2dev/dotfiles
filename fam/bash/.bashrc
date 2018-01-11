@@ -127,6 +127,6 @@ alias ll="ls -lh"
 alias la="ls -a"
 alias df="df -h"
 alias x="exit"
-alias update="sudo apt update && sudo apt upgrade && sudo apt clean && sudo apt autoremove"
 alias g.="cd ~/.dotfiles"
+alias update="sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt clean"
 
