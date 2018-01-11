@@ -51,6 +51,7 @@ alias c4="convert-video --to-mp4"
 # Browsing
 alias ga="cd /airport"
 alias gd="cd /airport/Downloads"
+alias gm="cd /airport/Músicas"
 alias gr="cd /opt/rc"
 alias gs="cd /opt/rc/scripts/pi"
 alias g.="cd /opt/rc/dotfiles/pi"
