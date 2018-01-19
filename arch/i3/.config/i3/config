@@ -17,7 +17,7 @@ set $vol ~/.config/i3/vol.sh
 
 # Default gaps
 set $gaps_inner 20
-set $gaps_outer 5
+set $gaps_outer 0
 
 # Workspaces
 set $ws1 "1"
@@ -317,12 +317,13 @@ exec --no-startup-id nm-applet
 # KDE Wallet, SSH, encfs
 exec --no-startup-id $kwallet_start clipit zim "emacs ~/Private/Orgmode/TODO.org"
 
-# Allows (in KDE software), for instance, saving stuff as root
-exec --no-startup-id /usr/lib/polkit-kde/polkit-kde-authentication-agent-1
+# Authentication agent (Polkit)
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # Services
 exec --no-startup-id redshift-gtk
-exec --no-startup-id dropbox
+#exec --no-startup-id dropbox
+exec --no-startup-id indicator-kdeconnect
 
 # Applications
 exec --no-startup-id $browser
@@ -337,8 +338,8 @@ exec --no-startup-id keepassxc
 # Disable windows titlebars (necessary)
 for_window [class="^.*"] border pixel 1
 
-#gaps inner $gaps_inner
-#gaps outer $gaps_outer
+gaps inner $gaps_inner
+gaps outer $gaps_outer
 
 ## Disable when one window
 #smart_gaps on
