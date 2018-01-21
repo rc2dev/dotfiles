@@ -53,7 +53,7 @@ font-3 = FontAwesome5Brands:style=Solid:pixelsize=10
 
 modules-left = i3 xwindow
 modules-center = date bitcoin
-modules-right = mpd cmus playerctl volume xbacklight xkeyboard memory cpu wlan battery dolphin
+modules-right = mpd cmus playerctl volume xbacklight xkeyboard memory cpu wlan battery
 
 tray-position = right
 tray-padding = 2
@@ -399,11 +399,6 @@ label-maxlen = 50
 click-left = i3-msg workspace 10
 click-middle = cmus-remote --pause
 click-right = cmus-remote --next
-
-[module/dolphin]
-type = custom/text
-content = " "
-click-left = ~/.config/polybar/dolphin.sh
 
 [settings]
 screenchange-reload = true
