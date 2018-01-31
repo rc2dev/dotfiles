@@ -30,9 +30,6 @@ user_pref("privacy.trackingprotection.enabled", true);
 // Não verificar se é navegador padrão
 user_pref("browser.shell.checkDefaultBrowser", false);
 
-// Desativar Pocket
-user_pref("extensions.pocket.enabled", false);
-
 // Não tocar vídeo até estar em primeiro plano
 // (padrão em 56+)
 user_pref("media.block-autoplay-until-in-foreground", true);

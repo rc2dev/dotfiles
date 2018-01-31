@@ -32,7 +32,24 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 
-export XDG_SESSION_DESKTOP="i3"
-[ -f ~/.xprofile ] && source ~/.xprofile
 
-exec i3
+# Set default session
+session=${2:-i3}
+
+case $session in
+	i3)
+		export XDG_SESSION_DESKTOP="i3"
+		[ -f ~/.xprofile ] && source ~/.xprofile
+		exec i3
+		;;
+	kde)
+		export XDG_SESSION_DESKTOP="KDE"
+		[ -f ~/.xprofile ] && source ~/.xprofile
+		exec startkde
+		;;
+		# No known session, try to run it as command
+	*)
+		exec "$session"
+		;;
+esac
+

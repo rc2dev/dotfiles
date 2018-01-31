@@ -17,7 +17,7 @@ set $vol ~/.config/i3/vol.sh
 
 # Default gaps
 set $gaps_inner 20
-set $gaps_outer 5
+set $gaps_outer 0
 
 # Workspaces
 set $ws1 "1"
@@ -239,6 +239,8 @@ bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
 for_window [class="mpv"] floating enable, sticky enable, resize set 600 400, move window to position 1300 660
 # Firefox - Min Vid experiment
 for_window [class="Firefox" instance="Toplevel"] floating enable, sticky enable, resize set 600 400, move window to position 1300 660
+# VLC
+for_window [class="Vlc"] floating enable, sticky enable
 # SimpleScreenRecorder
 for_window [class="Simplescreenrecorder"] floating enable, move window to position 1330 460
 # Pavucontrol
@@ -317,16 +319,18 @@ exec --no-startup-id nm-applet
 # KDE Wallet, SSH, encfs
 exec --no-startup-id $kwallet_start clipit zim "emacs ~/Private/Orgmode/TODO.org"
 
-# Allows (in KDE software), for instance, saving stuff as root
-exec --no-startup-id /usr/lib/polkit-kde/polkit-kde-authentication-agent-1
+# Authentication agent (Polkit)
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # Services
 exec --no-startup-id redshift-gtk
-exec --no-startup-id dropbox
+exec --no-startup-id syncthing-gtk --minimized
+exec --no-startup-id indicator-kdeconnect
 
 # Applications
 exec --no-startup-id $browser
 exec --no-startup-id keepassxc
+exec --no-startup-id simplenote
 
 
 
@@ -337,8 +341,8 @@ exec --no-startup-id keepassxc
 # Disable windows titlebars (necessary)
 for_window [class="^.*"] border pixel 1
 
-#gaps inner $gaps_inner
-#gaps outer $gaps_outer
+gaps inner $gaps_inner
+gaps outer $gaps_outer
 
 ## Disable when one window
 #smart_gaps on
