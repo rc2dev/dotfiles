@@ -260,40 +260,33 @@ font pango:Ubuntu 10
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+# From Manjaro
 # color variables
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-set $indicator-color	 #666666
+set_from_resource $darkred     color1  #000000
+set_from_resource $red         color9  #000000
+set_from_resource $darkgreen   color2  #000000
+set_from_resource $green       color10 #000000
+set_from_resource $darkyellow  color3  #000000
+set_from_resource $yellow      color11 #000000
+set_from_resource $darkblue    color4  #000000
+set_from_resource $blue        color12 #000000
+set_from_resource $darkmagenta color5  #000000
+set_from_resource $magenta     color13 #000000
+set_from_resource $darkcyan    color6  #000000
+set_from_resource $cyan        color14 #000000
+set_from_resource $darkwhite   color7  #000000
+set_from_resource $white color15 #000000
 
-# window colors
-#                       border              background         text                 indicator		child_border
-client.focused          $bg-color           $bg-color          $text-color          $indicator-color	$bg-color
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  $indicator-color	$inactive-bg-color
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  $indicator-color	$inactive-bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator-color	$urgent-bg-color
-
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-##	[RC modified]
-##   status_command i3status
-	#font pango:System San Francisco Display, FontAwesome 10
-	##font pango:Source Code Pro, FontAwesome 10
-	#position bottom
-	#status_command bumblebee-status -m getcrypto spotify pasink memory cpu datetime -p getcrypto.geteth=0 getcrypto.getltc=0 memory.usedonly=true datetime.format='%a %d/%m/%y %H:%M:%S' -t default
-	#colors {
-		#background $bg-color
-		#separator #757575
-		##                  border             background         text
-		#focused_workspace  $bg-color          $bg-color          $text-color
-		#inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		#urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	#}
-#}
+# Use custom colors for black
+set $black       #282828
+set $darkblack   #1d2021
+set $transparent #00000000
+#                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
+client.unfocused        $black      $black      $white      $darkblack  $darkblack
+client.focused_inactive $black      $black      $white      $darkblack  $darkblack
+client.urgent           $darkred    $darkred    $black      $darkred    $darkred
+client.background $black
 
 
 
