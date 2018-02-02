@@ -344,8 +344,8 @@ for_window [class="^.*"] border pixel 1
 gaps inner $gaps_inner
 gaps outer $gaps_outer
 
-## Disable when one window
-#smart_gaps on
+# Disable when one window
+smart_gaps on
 
 # Keybind for changing gaps size (adapted from documentation)
 set $mode_gaps Gaps: (o/l) outer, (i/k) inner, (n) none, (d) default
