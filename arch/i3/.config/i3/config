@@ -282,9 +282,9 @@ set $black       #282828
 set $darkblack   #1d2021
 set $transparent #00000000
 #                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
-client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
-client.unfocused        $black      $black      $white      $darkblack  $darkblack
-client.focused_inactive $black      $black      $white      $darkblack  $darkblack
+client.focused          $black      $black      $white      $darkblack  $darkblack
+client.unfocused        $black      $black      $darkwhite  $darkblack  $darkblack
+client.focused_inactive $black      $black      $darkwhite  $darkblack  $darkblack
 client.urgent           $darkred    $darkred    $black      $darkred    $darkred
 client.background $black
 
