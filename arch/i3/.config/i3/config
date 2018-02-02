@@ -348,29 +348,29 @@ gaps outer $gaps_outer
 smart_gaps on
 
 # Keybind for changing gaps size (adapted from documentation)
-set $mode_gaps Gaps: (o/l) outer, (i/k) inner, (n) none, (d) default
-set $mode_gaps_all Gaps (all): (o/l) outer, (i/k) inner, (n) none, (d) default
+set $mode_gaps Gaps: (o/O) outer, (i/I) inner, (n) none, (d) default
+set $mode_gaps_all Gaps (all): (o/O) outer, (i/I) inner, (n) none, (d) default
 bindsym $mod+g mode "$mode_gaps"
 bindsym $mod+Shift+g mode "$mode_gaps_all"
 
 mode "$mode_gaps" {
-	bindsym n      gaps inner current set 0; gaps outer current set 0
-	bindsym d      gaps inner current set $gaps_inner; gaps outer current set $gaps_outer
-	bindsym i      gaps inner current plus 5
-	bindsym k      gaps inner current minus 5
-	bindsym o      gaps outer current plus 5
-	bindsym l      gaps outer current minus 5
+	bindsym n        gaps inner current set 0; gaps outer current set 0
+	bindsym d        gaps inner current set $gaps_inner; gaps outer current set $gaps_outer
+	bindsym i        gaps inner current plus 5
+	bindsym shift+i  gaps inner current minus 5
+	bindsym o        gaps outer current plus 5
+	bindsym shift+o  gaps outer current minus 5
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
 mode "$mode_gaps_all" {
-	bindsym n      gaps inner all set 0; gaps outer all set 0
-	bindsym d      gaps inner all set $gaps_inner; gaps outer all set $gaps_outer
-	bindsym i      gaps inner all plus 5
-	bindsym k      gaps inner all minus 5
-	bindsym o      gaps outer all plus 5
-	bindsym l      gaps outer all minus 5
+	bindsym n        gaps inner all set 0; gaps outer all set 0
+	bindsym d        gaps inner all set $gaps_inner; gaps outer all set $gaps_outer
+	bindsym i        gaps inner all plus 5
+	bindsym shift+i  gaps inner all minus 5
+	bindsym o        gaps outer all plus 5
+	bindsym shift+o  gaps outer all minus 5
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
