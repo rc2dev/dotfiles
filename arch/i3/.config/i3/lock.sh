@@ -44,10 +44,7 @@ check_args() {
 
 check_args "$@"
 
-if [[ "$1" == "--now" ]]; then
-	playerctl -p spotify pause
-	log "Pausing music..."
-else
+if [[ "$1" != "--now" ]]; then
 	check_fullscreen
 fi
 

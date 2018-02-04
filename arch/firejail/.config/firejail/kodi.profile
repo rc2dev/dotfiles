@@ -20,8 +20,12 @@ whitelist ${HOME}/Música
 read-only ${HOME}/Música
 whitelist ${HOME}/Vídeos
 read-only ${HOME}/Vídeos
-whitelist ${HOME}/Admin/streams
-read-only ${HOME}/Admin/streams
+
+# Só ver Code/data
+whitelist ${HOME}/Code
+noblacklist ${HOME}/Code/data
+blacklist ${HOME}/Code/*
+read-only ${HOME}/Code
 
 caps.drop all
 netfilter

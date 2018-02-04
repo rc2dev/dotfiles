@@ -25,7 +25,7 @@ width = 100%
 height = 27
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
+radius = 0
 fixed-center = true
 
 background = ${colors.background}
@@ -34,7 +34,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -46,10 +46,10 @@ module-margin-right = 2
 ;font-0 = fixed:pixelsize=10;1
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-2 = siji:pixelsize=10;1
-font-0 = Ubuntu:pixelsize=10;1
+font-0 = SFNS Display:size=9;1
 font-1 = Arial:pixelsize=10;1
-font-2 = FontAwesome5Free:style=Solid:pixelsize=10
-font-3 = FontAwesome5Brands:style=Solid:pixelsize=10
+font-2 = FontAwesome5Free:style=Solid:pixelsize=10;1
+font-3 = FontAwesome5Brands:style=Solid:pixelsize=10;1
 
 modules-left = i3 xwindow
 modules-center = date bitcoin
@@ -291,6 +291,7 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
 
 [module/battery]
 type = internal/battery

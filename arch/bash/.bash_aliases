@@ -87,6 +87,9 @@ alias c4="convert-video --to-mp4"
 # Misc utils
 alias zim-fav="vim /home/rafael/Private/Notebooks/Notes/.zim/state.conf"
 
+# Mobile
+alias send="kdeconnect-cli -d 'd161511559e94818' --share"
+
 # Browsing
 alias gc="cd ~/Code"
 alias g.="cd ~/Code/dotfiles/arch"
@@ -94,6 +97,7 @@ alias gs="cd ~/Code/scripts"
 alias gt="cd ~/Code/data"
 alias gd="cd ~/Downloads"
 alias ge="cd ~/Downloads/Para\ enviar"
+alias gS="cd ~/Sync"
 alias gv="cd ~/Vídeos"
 alias gr="cd /"
 alias ga="cd /mnt/airport"
