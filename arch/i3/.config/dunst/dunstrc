@@ -186,7 +186,7 @@
 
     # Browser for opening urls in context menu.
     # [RC modified]
-    browser = /usr/bin/env firefox -new-tab
+    browser = /usr/bin/env firefox --new-tab
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
