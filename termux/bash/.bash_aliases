@@ -43,6 +43,7 @@ alias ge="cd /sdcard/Sync/Para\ enviar"
 alias gr="cd $PREFIX"
 
 # Multimedia
+alias yu="youtube-dl --get-url"
 alias ym="youtube-dl --extract-audio --audio-format mp3"
 alias yd480="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
 cv_path="bash ~/bin/convert-video"
