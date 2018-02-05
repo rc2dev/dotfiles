@@ -189,6 +189,7 @@ bindsym $mod+d exec --no-startup-id $rofi_wrap --launcher
 bindsym $mod+s exec --no-startup-id $rofi_wrap --ssh
 bindsym $mod+Return exec $term
 bindsym $mod+slash exec --no-startup-id dolphin
+bindsym $mod+c exec --no-startup-id pavucontrol
 bindsym XF86Tools exec --no-startup-id spotify
 bindsym XF86Calculator exec --no-startup-id kcalc
 
@@ -323,6 +324,9 @@ exec --no-startup-id indicator-kdeconnect
 exec --no-startup-id $browser
 exec --no-startup-id keepassxc
 exec --no-startup-id simplenote
+
+# Workaround for setting different layout for workspace
+exec --no-startup-id sh -c 'sleep 5; i3-msg "workspace $ws9; layout tabbed; workspace back_and_forth"'
 
 
 
