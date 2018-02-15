@@ -3,16 +3,18 @@
 # Print Playerctl metadata - for Polybar
 # Rafael Cavalcanti
 
-artist="$(playerctl metadata xesam:artist)"
-title="$(playerctl metadata xesam:title)"
-stat="$(playerctl status)"
+player="-p spotify"
+
+artist="$(playerctl $player metadata xesam:artist)"
+title="$(playerctl $player metadata xesam:title)"
+stat="$(playerctl $player status)"
 
 case "$stat" in
 	Paused)
-		symb=""
+		symb=" "
 		;;
 	Playing)
-		symb=""
+		symb=" "
 		;;
 esac
 
