@@ -15,14 +15,8 @@ alias df="df -h"
 alias free="free -h"
 
 # Services
-#alias kt="echo 'Iniciando Kodi e VNC...' && tvservice -p && sudo systemctl start mediacenter && \
-#	sudo systemctl start vnc"
-#alias kr="echo 'Reiniciando Kodi...' && tvservice -p && sudo systemctl restart mediacenter"
-#alias ks="echo 'Parando Kodi...' && sudo systemctl stop mediacenter"
-#alias kt="tvservice -p && sudo -b -u kodi kodi"
-#alias ks="sudo killall -u kodi"
-alias kt="tvservice -p; sudo systemctl start kodi"
-alias kr="tvservice -p; sudo systemctl restart kodi"
+alias kt="sudo systemctl start kodi"
+alias kr="sudo systemctl restart kodi"
 alias ks="sudo systemctl stop kodi"
 alias lt="sudo systemctl start lightdm"
 alias lst="sudo systemctl stop lightdm"
@@ -30,10 +24,6 @@ alias tr="sudo systemctl restart thin"
 #alias tt="echo 'Iniciando Thin...' && sudo /etc/init.d/thin start"
 #alias tr="echo 'Reiniciando Thin...' && sudo /etc/init.d/thin restart"
 #alias ts="echo 'Parando Thin...' && sudo /etc/init.d/thin stop"
-#alias nt="echo 'Iniciando Nginx...' && sudo systemctl start nginx"
-#alias nr="echo 'Reiniciando Nginx...' && sudo systemctl restart nginx"
-#alias lt="echo 'Iniciando Lighthttpd...' && sudo systemctl start lighttpd"
-#alias lr="echo 'Reiniciando Lighttpd...' && sudo systemctl restart lighttpd"
 
 # TV and HDMI output
 alias td='tvservice --off && echo "standby 0" | cec-client -s'
