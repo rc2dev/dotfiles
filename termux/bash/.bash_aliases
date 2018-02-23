@@ -44,8 +44,9 @@ alias gr="cd $PREFIX"
 
 # Multimedia
 alias yu="youtube-dl --get-url"
+alias ya="youtube-dl --extract-audio"
 alias ym="youtube-dl --extract-audio --audio-format mp3"
-alias yd480="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
+alias y480="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
 cv_path="bash ~/bin/convert-video"
 alias convert-video="$cv_path"
 alias cs="$cv_path --to-small"
