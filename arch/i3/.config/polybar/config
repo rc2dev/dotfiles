@@ -378,8 +378,8 @@ exec-if = pgrep spotify
 interval = 0.3
 format-padding = 1
 click-left = i3-msg workspace 10
-click-middle = playerctl play-pause
-click-right = playerctl next
+click-middle = playerctl -p spotify play-pause
+click-right = playerctl -p spotify next
 label-maxlen = 40
 
 [module/bitcoin]
