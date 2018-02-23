@@ -79,8 +79,9 @@ alias gitl="git log --name-only"
 alias hs="python -m http.server"
 
 # Vídeos
+alias ya="youtube-dl --extract-audio"
 alias ym="youtube-dl --extract-audio --audio-format mp3"
-alias yd480="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
+alias y480="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
 alias cs="convert-video --to-small"
 alias c4="convert-video --to-mp4"
 
