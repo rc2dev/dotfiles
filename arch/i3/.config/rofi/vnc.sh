@@ -6,7 +6,7 @@
 # Rafael Cavalcanti
 #
 
-hosts="romildo.lan\nrosa.lan\nrafael-r509.lan\npi.lan\nvpi"
+hosts="pi.lan\nrafael-r509.lan\nromildo.lan\nrosa.lan\nvcc.lan"
 
 if [ -z $@ ]
 then
