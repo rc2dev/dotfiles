@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 #
 # Junta os comandos de atualização para meu Termux.
 #
@@ -9,6 +9,6 @@ n=2
 printf "[1/%s] Atualizando pacotes do APT...\n" $n
 pkg update
 
-printf "\n\n[3/%s] Atualizando pacotes do PIP...\n"  $n
+printf "\n\n[2/%s] Atualizando pacotes do PIP...\n"  $n
 pip freeze | awk 'BEGIN{FS="=="}{print $1}' | xargs pip install --upgrade
 
