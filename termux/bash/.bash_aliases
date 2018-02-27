@@ -32,7 +32,7 @@ alias c="clear"
 alias x="exit"
 
 # Update
-alias update="pkg upgrade"
+alias update="~/bin/update"
 
 # Browsing
 alias g.="cd ~/.dotfiles/termux"
