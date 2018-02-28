@@ -12,15 +12,8 @@ user_pref("geo.enabled", false);
 
 // Pra aparecer OpenGL no about:support - Graphics (OpenGL Off-Main-Thread
 // Compositing - OMTC - Arch Wiki). Acho que ajudou com tearing.
-user_pref("layers.acceleration.force-enabled", true);
-
-
-// ==================================================================
-// Privacy, security
-// ==================================================================
-
-// Tracking protection (ativado pela GUI no 57+)
-user_pref("privacy.trackingprotection.enabled", true);
+// Desabilitei para ver se é causa do memory leak
+//user_pref("layers.acceleration.force-enabled", true);
 
 
 // ==================================================================
@@ -29,6 +22,9 @@ user_pref("privacy.trackingprotection.enabled", true);
 
 // Não verificar se é navegador padrão
 user_pref("browser.shell.checkDefaultBrowser", false);
+
+// Não mostrar "one-click search engines" na barra de endereços
+user_pref("browser.urlbar.oneOffSearches", false);
 
 // Não tocar vídeo até estar em primeiro plano
 // (padrão em 56+)
@@ -40,23 +36,17 @@ user_pref("full-screen-api.warning.timeout", 0);
 // Não auto-esconder barras de ferramentas em modo de tela cheia
 user_pref("browser.fullscreen.autohide", false);
 
-// Desativar aviso do about:config
-user_pref("general.warnOnAboutConfig", false);
-
 // Abrir nova janela em nova aba
 user_pref("browser.link.open_newwindow.restriction", 0);
-
-// Não fechar navegador ao fechar última aba
-//user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // Abrir "Buscar no Google" do menu de contexto em segundo plano
 user_pref("browser.search.context.loadInBackground", true);
 
-// Quando abrir favoritos em nova aba, fazê-lo em segundo plano
-//user_pref("browser.tabs.loadBookmarksInBackground", true);
-
 // Quando abrir favoritos em nova aba, não fechar menu de favoritos (57+)
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
+
+// Não fechar navegador ao fechar última aba
+//user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 
 // ==================================================================
