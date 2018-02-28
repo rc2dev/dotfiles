@@ -31,9 +31,6 @@ alias ll="ls -lh"
 alias c="clear"
 alias x="exit"
 
-# Update
-alias update="~/bin/update"
-
 # Browsing
 alias g.="cd ~/.dotfiles/termux"
 alias gs="cd ~/.scripts"
@@ -47,10 +44,8 @@ alias yu="youtube-dl --get-url"
 alias ya="youtube-dl --extract-audio"
 alias ym="youtube-dl --extract-audio --audio-format mp3"
 alias y480="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
-cv_path="bash ~/bin/convert-video"
-alias convert-video="$cv_path"
-alias cs="$cv_path --to-small"
-alias c4="$cv_path --to-mp4"
+alias cs="convert-video --to-small"
+alias c4="convert-video --to-mp4"
 c3() {
  ffmpeg -i "$1" "${1%.*}.mp3"
 }
