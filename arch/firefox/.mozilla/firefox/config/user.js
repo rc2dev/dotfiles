@@ -10,11 +10,6 @@ user_pref("geo.enabled", false);
 // This option breaks 360 videos
 //user_pref("webgl.disabled", true);
 
-// Pra aparecer OpenGL no about:support - Graphics (OpenGL Off-Main-Thread
-// Compositing - OMTC - Arch Wiki). Acho que ajudou com tearing.
-// Desabilitei para ver se é causa do memory leak
-//user_pref("layers.acceleration.force-enabled", true);
-
 
 // ==================================================================
 // Annoyances, workflow
@@ -41,12 +36,6 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 
 // Abrir "Buscar no Google" do menu de contexto em segundo plano
 user_pref("browser.search.context.loadInBackground", true);
-
-// Quando abrir favoritos em nova aba, não fechar menu de favoritos (57+)
-user_pref("browser.bookmarks.openInTabClosesMenu", false);
-
-// Não fechar navegador ao fechar última aba
-//user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 
 // ==================================================================
