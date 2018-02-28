@@ -64,6 +64,9 @@ user_pref("font.name.monospace.x-western", "monospace");
 user_pref("font.name.sans-serif.x-western", "Arial");
 user_pref("font.name.serif.x-western", "Times New Roman");
 
+// Habilitar autorolagem
+user_pref("general.autoScroll", true);
+
 //// Adicionar Blogtrotrr como feed reader (aparente resultado de ter clicado no link
 //// para tal no site deles)
 //user_pref("browser.contentHandlers.types.6.title", "Blogtrottr");
