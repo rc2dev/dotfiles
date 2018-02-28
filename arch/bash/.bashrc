@@ -8,11 +8,11 @@
 [[ $- != *i* ]] && return
 
 # Meu PS1 (estilo Cygwin + Git + RVM)
-RESET="\e[0m"; GREEN="\e[32m"; YELLOW="\e[33m"; GREY="\e[90m"
+RESET="\e[0m"; GREEN="\e[32m"; YELLOW="\e[33m"; GREY="\e[90m"; LGREY="\e[37m"
 title="\e]2;\w\a"
-if [ -f /usr/share/git/completion/git-prompt.sh ]
+if [ -f ~/.local/share/git-prompt.sh ]
 then
-	. /usr/share/git/completion/git-prompt.sh
+	. ~/.local/share/git-prompt.sh
 	git="\$(__git_ps1)"
 	GIT_PS1_SHOWDIRTYSTATE=1
 fi
@@ -20,7 +20,7 @@ if [ -f ~/.rvm/bin/rvm-prompt ]
 then
 	rvm="\$(~/.rvm/bin/rvm-prompt p g)"
 fi
-PS1="${title}\n${GREEN}\u@\h: ${YELLOW}\w${GREY} $git $rvm${RESET} \n\$ "
+PS1="${title}\n${GREEN}\u@\h: ${YELLOW}\w${LGREY} \$(__git_ps1) $rvm${RESET} \n\$ "
 
 # History completion with arrow keys
 bind '"\e[A": history-search-backward'
