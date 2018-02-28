@@ -53,7 +53,7 @@ font-3 = FontAwesome5Brands:style=Solid:pixelsize=8;2
 
 modules-left = i3 xwindow
 modules-center = date bitcoin
-modules-right = mpd cmus playerctl volume xbacklight xkeyboard memory cpu temperature wlan battery
+modules-right = mpd cmus playerctl volume xbacklight xkeyboard memory cpu wlan battery
 
 tray-position = right
 tray-padding = 3
