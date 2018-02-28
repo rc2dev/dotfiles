@@ -26,11 +26,6 @@ fi
 #export EDITOR="vim"
 export VISUAL="vim"
 
-# Pacaur - don't use ~/.cache/pacaur
-if command -v pacaur >/dev/null; then
-	export AURDEST="$HOME/.pacaur"
-fi
-
 # MPC - control Pi
 if command -v mpc >/dev/null; then
 	export MPD_HOST="pi.lan"
