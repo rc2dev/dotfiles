@@ -1,4 +1,3 @@
 # Rafael Cavalcanti
 
-rofi.theme: android_notification2
-rofi.font: IBM Plex Mono 10
+rofi.theme: solarized_alternate
