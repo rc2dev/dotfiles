@@ -189,6 +189,7 @@ bindsym $mod+d exec --no-startup-id $rofi_wrap --launcher
 bindsym $mod+s exec --no-startup-id $rofi_wrap --ssh
 bindsym $mod+Return exec $term
 bindsym $mod+slash exec --no-startup-id dolphin
+bindsym $mod+Shift+slash exec --no-startup-id $term -e ranger
 bindsym $mod+c exec --no-startup-id pavucontrol
 bindsym XF86Tools exec --no-startup-id spotify
 bindsym XF86Calculator exec --no-startup-id kcalc
@@ -241,7 +242,7 @@ for_window [class="mpv"] floating enable, sticky enable, resize set 600 400, mov
 # Firefox - Min Vid experiment
 for_window [class="Firefox" instance="Toplevel"] floating enable, sticky enable, resize set 600 400, move window to position 1300 660
 # VLC
-for_window [class="Vlc"] floating enable, sticky enable
+for_window [class="Vlc"] floating enable
 # SimpleScreenRecorder
 for_window [class="Simplescreenrecorder"] floating enable, move window to position 1330 460
 # Pavucontrol
@@ -383,5 +384,22 @@ set $mute --no-startup-id pactl set-sink-mute 0 1
 set $pause --no-startup-id playerctl pause
 bindsym $mod+x exec $mute; exec $pause; workspace lmao; exec $term -e htop; exec $term -e ranger
 
+## Teste 2
+#for_window [instance="dropdown"] floating enable
+#for_window [instance="dropdown"] resize set 625 400
+#for_window [instance="dropdown"] move scratchpad
+#for_window [instance="dropdown"] border pixel 5
+## Runs the tmuxinit script, which searches for an earlier tmux instance,
+## otherwise starts a new one (to prevent multiple dropdown sessions).
+#exec --no-startup-id $term --name dropdown -e tmux
+#bindsym $mod+t [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+
+# Teste 3
+for_window [instance="math"] floating enable
+for_window [instance="math"] resize set 800 300
+for_window [instance="math"] move scratchpad
+for_window [instance="math"] border pixel 5
+exec --no-startup-id $term --name math -e ipython --no-banner
+bindsym $mod+u [instance="math"] scratchpad show; [instance="math"] move position center
 
 #  vim: filetype=i3 sw=2 ts=4
