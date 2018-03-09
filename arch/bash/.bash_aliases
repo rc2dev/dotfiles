@@ -34,7 +34,7 @@ alias x="exit"
 
 # Arch's Pacman
 if [ -e /usr/bin/pacman ]; then
-	alias update="sudo pacman -Syu && pacaur -u --devel --needed"
+	alias update="sudo pacman -Syu && trizen -Syua --devel --needed"
 	alias pm="sudo reflector --country Brazil -l 5 --sort rate \
 		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
 fi
@@ -89,7 +89,7 @@ alias c4="convert-video --to-mp4"
 alias zim-fav="vim /home/rafael/Private/Notebooks/Notes/.zim/state.conf"
 
 # Mobile
-alias send="kdeconnect-cli -d 'd161511559e94818' --share"
+alias send="kdeconnect-cli -d 59213639780e1ca9 --share"
 
 # Browsing
 alias gc="cd ~/Code"
