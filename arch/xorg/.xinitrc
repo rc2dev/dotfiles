@@ -42,12 +42,14 @@ case $session in
 		[ -f ~/.xprofile ] && source ~/.xprofile
 		exec i3
 		;;
+
 	kde)
 		export XDG_CURRENT_DESKTOP="KDE"
 		[ -f ~/.xprofile ] && source ~/.xprofile
 		exec startkde
 		;;
-		# No known session, try to run it as command
+
+	# No known session, try to run it as command
 	*)
 		exec "$session"
 		;;
