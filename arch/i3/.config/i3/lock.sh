@@ -6,7 +6,7 @@
 # Rafael Cavalcanti
 #
 
-LOCK_BG=$HOME/.cache/lock_bg.png
+export LOCK_BG=$HOME/.cache/lock_bg.png
 
 
 info() { printf '%s\t%s\n' "$(date)" "$*"; }
@@ -29,41 +29,74 @@ check_fullscreen() {
 	log "Didn't detect current window as fullscreen. Going on..."
 }
 
+lock() {
+	log "Telling dunst to queue notifications..."
+	killall -USR1 dunst
+
+	if [[ -f "$LOCK_BG" ]]; then
+		param="-i $LOCK_BG"
+	else
+		log "Background not found. Using solid color."
+		param="-c 2f343f"
+	fi
+
+	log "Calling i3lock..."
+	i3lock --nofork $param &
+
+	log "Waiting for unlock..."
+	wait
+
+	log "Resuming dunst..."
+	killall -USR2 dunst
+}
+
+susp() {
+	systemctl suspend
+}
+
 usage() {
-	printf "$0 [--now]\n"
-	printf "\t--now: lock now, ignoring inhibitors\n"
+	cat <<-EOF
+	Usage: $0 [options] command
+
+	Commands:
+	  -l: lock
+	  -s: suspend
+	Options:
+	  -n: now (ignore inhibitors)
+	EOF
 	exit 0
 }
 
-check_args() {
-	if [[ $# > 1 || ( $# == 1 && "$1" != "--now") ]]; then
+check_argc() {
+	if [[ $# < 1 || $# > 2 ]]; then
+		printf "Wrong number of arguments.\n"
 		usage
 	fi
 }
 
 
-check_args "$@"
+check_argc "$@"
 
-if [[ "$1" != "--now" ]]; then
-	check_fullscreen
-fi
+# Get options
+now=0
+lock=0
+susp=0
+while getopts "nls" opt; do
+	echo $opt
+	case $opt in
+		n) now=1 ;;
+		l) lock=1 ;;
+		s) susp=1 ;;
+	esac
+done
 
-log "Telling dunst to queue notifications..."
-killall -USR1 dunst
+# Argument error
+[[ $lock == $susp ]] && usage
 
-if [[ -f "$LOCK_BG" ]]; then
-	param="-i $LOCK_BG"
-else
-	log "Background not found. Using solid color."
-	param="-c 2f343f"
-fi
+# Check fullscreen if not "now"
+[[ $now != 1 ]] && check_fullscreen
 
-log "Calling i3lock..."
-i3lock --nofork $param &
-
-log "Waiting for unlock..."
-wait
-
-log "Resuming dunst..."
-killall -USR2 dunst
+# Execute command
+[[ $lock == 1 ]]  && lock
+[[ $susp == 1 ]]  && susp
 
