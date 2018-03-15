@@ -28,7 +28,7 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'scrooloose/nerdcommenter'
- "Colorschemes
+"Colorschemes
 Plug 'hzchirs/vim-material'
 Plug 'jakwings/vim-colors'
 Plug 'lu-ren/SerialExperimentsLain'
@@ -173,8 +173,8 @@ nmap <silent> <A-Right> :wincmd l<CR>
 map <F6> :setlocal spell!<CR>|                   " Toggle spellcheck
 
 " Edit preset files
-nnoremap <Leader>ev :e ~/.vimrc<CR>|             " Open ~/.vimrc
-nnoremap <Leader>e3 :e ~/.config/i3/config<CR>|  " Open i3 config
+nnoremap <Leader>ev :e ~/.vimrc<CR>
+nnoremap <Leader>e3 :e ~/.config/i3/config<CR>
 
 " Addons
 nnoremap <Leader>f :NERDTreeToggle<CR>|          " Nerdtree (original: <C-n>)
