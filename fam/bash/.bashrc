@@ -128,5 +128,5 @@ alias la="ls -a"
 alias df="df -h"
 alias x="exit"
 alias g.="cd ~/.dotfiles/fam"
-alias update="sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt clean"
+alias update="sudo apt update && sudo apt full-upgrade && sudo apt autoremove && sudo apt clean"
 
