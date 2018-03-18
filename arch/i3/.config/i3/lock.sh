@@ -51,7 +51,7 @@ lock() {
 }
 
 susp() {
-	systemctl suspend
+	systemctl hybrid-sleep
 }
 
 usage() {

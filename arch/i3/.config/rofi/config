@@ -1,3 +1,13 @@
 # Rafael Cavalcanti
 
+
 rofi.theme: solarized_alternate
+
+# Shortcuts
+rofi.kb-cancel: Alt+F1,Escape
+# unset "Tab" shortcut
+rofi.kb-row-tab:
+rofi.kb-mode-previous: Shift+Tab
+rofi.kb-mode-next: Tab
+rofi.kb-move-word-back: Control+Left
+rofi.kb-move-word-forward: Control+Right

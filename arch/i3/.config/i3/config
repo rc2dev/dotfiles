@@ -168,12 +168,12 @@ bindsym Alt Print exec --no-startup-id spectacle -a -b
 bindsym Shift Print exec --no-startup-id spectacle -rdunst -b
 
 # Launch software
-bindsym $mod+d exec --no-startup-id $rofi_wrap --launcher
-bindsym $mod+s exec --no-startup-id $rofi_wrap --ssh
+bindsym Mod1+F1 exec --no-startup-id $rofi_wrap
 bindsym $mod+Return exec $term
-bindsym $mod+slash exec --no-startup-id dolphin
-bindsym $mod+Shift+slash exec --no-startup-id $term -e ranger
+bindsym $mod+e exec --no-startup-id dolphin
+bindsym $mod+Shift+e exec --no-startup-id $term -e ranger
 bindsym $mod+c exec --no-startup-id pavucontrol
+bindsym Ctrl+Shift+Escape exec --no-startup-id ksysguard
 bindsym XF86Tools exec --no-startup-id spotify
 bindsym XF86Calculator exec --no-startup-id kcalc
 
@@ -204,8 +204,6 @@ bindsym --whole-window $mod+button2 kill
 # =====================
 
 # Workspace assignments
-## WhatsApp Web (tem que estar acima da linha do Chromium principal)
-#assign [class="Chromium" instance="crx_bpocngoedbjmnmkngoohaccdmidcjjhm"] → $ws9
 assign [class="Firefox|Nightly" instance="Navigator"] → $ws1
 assign [class="VirtualBox"] → $ws8
 assign [class="Zim" window_type="normal"] → $ws9
@@ -227,11 +225,13 @@ for_window [class="Firefox" instance="Toplevel"] floating enable, sticky enable,
 # VLC
 for_window [class="Vlc"] floating enable
 # SimpleScreenRecorder
-for_window [class="Simplescreenrecorder"] floating enable, move window to position 1330 460
+for_window [class="SimpleScreenRecorder"] floating enable, move window to position 1330 460
 # Pavucontrol
 for_window [class="Pavucontrol"] floating enable, resize set 730 600, move window to position 600 10
 # Pulseaudio equalizer
 for_window [class="Pulseaudio-equalizer.py"] floating enable
+# KSysguard
+for_window [class="ksysguard"] floating enable; move window to center
 
 
 
@@ -286,7 +286,11 @@ exec --no-startup-id $wallpaper set-random
 exec --no-startup-id unsplash
 
 # Auto lock if idle
-exec --no-startup-id xautolock -time 15 -locker $locker
+exec --no-startup-id xautolock -time 15 -locker "$locker_auto"
+#exec --no-startup-id xautolock -time 1 -locker "$locker_now" -killtime 10 -killer "$locker_auto"
+
+# Set Super to Alt+F1
+exec --no-startup-id xcape -e "Super_L=Alt_L|F1"
 
 # WM stuff
 exec --no-startup-id compton -b
@@ -358,31 +362,27 @@ mode "$mode_gaps_all" {
 	bindsym Escape mode "default"
 }
 
-## Set custom gaps for some workspaces
-#exec i3-msg "workspace $ws9; gaps outer current set 0; gaps inner current set 50; workspace back_and_forth"
 
+# Teste 1
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 625 400
+for_window [instance="dropdown"] move scratchpad
+for_window [instance="dropdown"] border pixel 5
+# Runs the tmuxinit script, which searches for an earlier tmux instance,
+# otherwise starts a new one (to prevent multiple dropdown sessions).
+exec_always --no-startup-id $term --name dropdown -e tmux
+bindsym $mod+t [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
-# Testes
-set $mute --no-startup-id pactl set-sink-mute 0 1
-set $pause --no-startup-id playerctl pause
-bindsym $mod+x exec $mute; exec $pause; workspace lmao; exec $term -e htop; exec $term -e ranger
-
-## Teste 2
-#for_window [instance="dropdown"] floating enable
-#for_window [instance="dropdown"] resize set 625 400
-#for_window [instance="dropdown"] move scratchpad
-#for_window [instance="dropdown"] border pixel 5
-## Runs the tmuxinit script, which searches for an earlier tmux instance,
-## otherwise starts a new one (to prevent multiple dropdown sessions).
-#exec --no-startup-id $term --name dropdown -e tmux
-#bindsym $mod+t [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
-
-# Teste 3
+# Teste 2
 for_window [instance="math"] floating enable
 for_window [instance="math"] resize set 800 300
 for_window [instance="math"] move scratchpad
 for_window [instance="math"] border pixel 5
 exec --no-startup-id $term --name math -e ipython --no-banner
 bindsym $mod+u [instance="math"] scratchpad show; [instance="math"] move position center
+
+# Teste 3
+for_window [class="dolphin"] floating enable
+
 
 #  vim: filetype=i3 sw=2 ts=4

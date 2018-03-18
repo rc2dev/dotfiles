@@ -5,22 +5,5 @@
 vbox="~/.config/rofi/vbox.sh"
 vnc="~/.config/rofi/vnc.sh"
 
-usage() {
-	cat <<-EOF
-	Usage: $0 <options>
-
-	Options: --launcher, --ssh
-	EOF
-}
-
-case "$1" in
-	--ssh)
-		rofi -show ssh -modi ssh,vnc:$vnc
-		;;
-	--launcher)
-		rofi -combi-modi window,drun,vbox:$vbox,run,ssh,vnc:$vnc -show combi -modi combi,vbox:$vbox,ssh,vnc:$vnc
-		;;
-	*)
-		usage
-		;;
-esac
+rofi -no-lazy-grab -combi-modi window,drun,vbox:$vbox,run,ssh,vnc:$vnc -show combi \
+	-modi combi,vbox:$vbox,ssh,vnc:$vnc
