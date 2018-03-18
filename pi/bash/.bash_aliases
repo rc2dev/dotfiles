@@ -25,6 +25,11 @@ alias tr="sudo systemctl restart thin"
 #alias tr="echo 'Reiniciando Thin...' && sudo /etc/init.d/thin restart"
 #alias ts="echo 'Parando Thin...' && sudo /etc/init.d/thin stop"
 
+# Kodi - backup aliases
+if [[ $(cat /etc/issue) != *"OSMC"* ]]; then
+	alias backup-kodi="kodi-send --host=127.0.0.1 --action='RunScript(script.xbmcbackup, mode=backup)'"
+fi
+
 # TV and HDMI output
 alias td='tvservice --off && echo "standby 0" | cec-client -s'
 alias tl='echo "on 0" | cec-client -s'
@@ -51,4 +56,9 @@ alias gh="cd /srv/http"
 
 # Misc
 alias d="mpc pause && sleep 1 && mpc play"
+alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
+	true && echo Muted."
+alias um="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
+	false && echo Unmuted."
+
 #alias add="sudo ip address add 192.168.0.89/24 dev wlan0"
