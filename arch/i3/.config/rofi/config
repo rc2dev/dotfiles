@@ -1,4 +1,15 @@
+# Rofi config
+#
 # Rafael Cavalcanti
+#
+
+# Modi
+rofi.combi-modi: window,drun,ssh,vnc:~/.config/rofi/vnc.sh,vbox:~/.config/rofi/vbox.sh,run
+rofi.display-combi:
+rofi.modi: combi,run,ssh,vnc:~/.config/rofi/vnc.sh,vbox:~/.config/rofi/vbox.sh
+
+# SSH modi
+rofi.parse-known-hosts: false
 
 # Apperance
 rofi.theme: solarized_alternate
@@ -7,9 +18,6 @@ rofi.width: 25
 rofi.lines: 20
 rofi.show-icons: true
 rofi.sidebar-mode: true
-
-# SSH
-rofi.parse-known-hosts: false
 
 # Shortcuts
 rofi.kb-cancel: Alt+F1,Escape
