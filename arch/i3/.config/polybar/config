@@ -8,16 +8,23 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-;background = #222
 background = #c0222626
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+orange1 = #AA6E39
+orange2 = #FFD2AA
+orange3 = #D49C6A
+orange4 = #804715
+orange5 = #552800
+green1 = #236167
+green2 = #68979B
+green3 = #0E494E
+green4 =
+green5 =
 
 [bar/mybar]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -43,9 +50,6 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-;font-0 = fixed:pixelsize=10;1
-;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-;font-2 = siji:pixelsize=10;1
 font-0 = SFNS Display:size=9;1
 font-1 = Arial:pixelsize=9;1
 font-2 = FontAwesome5Free:style=Solid:pixelsize=8;2
@@ -56,7 +60,7 @@ modules-center = date
 modules-right = mpd cmus playerctl volume memory cpu wlan battery
 
 tray-position = right
-tray-padding = 3
+tray-padding = 4
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -64,9 +68,6 @@ tray-padding = 3
 ;wm-restack = i3
 
 ;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -80,6 +81,7 @@ locale = pt_BR.utf-8
 type = internal/xwindow
 label = %title:0:40:...%
 click-middle = i3-msg kill
+format-padding = 1
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -107,25 +109,6 @@ label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -142,13 +125,14 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 ;label-focused = %index%
 label-focused = %index%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-background = ${colors.background-alt}
+;label-focused-underline = ${colors.primary}
+label-focused-underline = ${colors.orange1}
+label-focused-padding = 3
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-padding = 3
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -158,8 +142,8 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 3
 
 [module/mpd]
 type = internal/mpd
@@ -201,7 +185,8 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+;format-overline = #f90000
+format-overline = ${colors.green1}
 label = %percentage:2%%
 
 [module/memory]
@@ -209,7 +194,8 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+;format-overline = #4bffdc
+format-overline = ${colors.green2}
 label = %gb_used%
 
 [module/wlan]
@@ -257,7 +243,7 @@ interval = 5
 date = "%a, %b %d "
 date-alt = "%a, %b %d "
 
-time = "%H:%M"
+time = " %H:%M"
 time-alt = "%H:%M:%S"
 
 format-prefix = 
@@ -270,6 +256,7 @@ label = %date% %time%
 type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
+format-volume-padding = 3
 label-volume =
 label-volume-foreground = ${root.foreground}
 
@@ -293,7 +280,6 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
-
 
 [module/battery]
 type = internal/battery
@@ -375,12 +361,13 @@ type = custom/script
 exec = ~/.config/polybar/playerctl.sh
 ;exec-if = playerctl status
 exec-if = pgrep spotify
-interval = 0.3
-format-padding = 1
+interval = 0.5
+format-padding = 5
 click-left = i3-msg workspace 10
 click-middle = playerctl -p spotify play-pause
 click-right = playerctl -p spotify next
 label-maxlen = 40
+format-background = ${colors.orange4}
 
 [module/bitcoin]
 type = custom/script
