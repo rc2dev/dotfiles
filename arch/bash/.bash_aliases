@@ -8,6 +8,18 @@
 # FUNCTIONS
 # ========================================
 
+# Make Btrfs snapshot
+if command -v snapper >/dev/null; then
+	snap() {
+		echo "Criaremos um snapshot do sistema. Home e data não estão inclusos."
+		read -p "Descrição: " desc
+		echo $desc
+		sudo snapper -c @ create --description "$desc" --userdata "important=yes"
+		sudo snapper -c @var create --description "$desc" --userdata "important=yes"
+	}
+fi
+#LVM: alias snap="sudo lvcreate -s /dev/ssd/arch -n snap -L 5G && sudo lvcreate -s /dev/hdd/arch -n snap -L 5G"
+
 # Mkdir and cd to it
 mkdirr() {
 	mkdir -p -- "$1" && cd -P -- "$1"
@@ -77,16 +89,6 @@ fi
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	alias poweroff="sudo poweroff"
 fi
-
-# Criar snapshot Btrfs
-function snap() {
-	echo "Criaremos um snapshot do sistema. Home e data não estão inclusos."
-	read -p "Descrição: " desc
-	echo $desc
-	sudo snapper -c @ create --description "$desc" --userdata "important=yes"
-	sudo snapper -c @var create --description "$desc" --userdata "important=yes"
-}
-#LVM: alias snap="sudo lvcreate -s /dev/ssd/arch -n snap -L 5G && sudo lvcreate -s /dev/hdd/arch -n snap -L 5G"
 
 # Systemd
 alias ju="journalctl -u"
