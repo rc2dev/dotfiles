@@ -49,9 +49,9 @@ alias gd="cd /airport/Downloads"
 alias gm="cd /airport/Músicas"
 alias gk="cd /var/lib/kodi/.kodi"
 alias gr="cd /opt/rc"
-alias gs="cd /opt/rc/scripts/pi"
-alias g.="cd /opt/rc/dotfiles/pi"
 alias gt="cd /opt/rc/data"
+alias g.="cd /opt/rc/dotfiles/pi"
+alias gp="cd /opt/rc/pi-scripts"
 alias gh="cd /srv/http"
 
 # Misc
