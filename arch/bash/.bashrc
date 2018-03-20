@@ -39,7 +39,6 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # For setting history length
-# [RC modified] HISTSIZE=1000->2000, HISTFILESIZE: 2000->3000
 HISTSIZE=2000
 HISTFILESIZE=3000
 
