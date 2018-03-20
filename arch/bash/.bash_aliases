@@ -3,6 +3,32 @@
 #
 # Autor: Rafael Cavalcanti
 
+
+# ========================================
+# FUNCTIONS
+# ========================================
+
+# Mkdir and cd to it
+mkdirr() {
+	mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+# Aux - mount if not, and cd
+mount_and_cd() {
+	[ $# -ne 1 ] && printf "Wrong number of arguments.\n" && return
+	mount | grep "$1" > /dev/null || mount "$1" && cd "$1"
+}
+
+# Aux - set alias if path exists
+# Args: alias_name command path
+alias_if() {
+	[ $# -ne 3 ] && printf "Wrong number of arguments.\n" && return
+	[ -e "$3" ] && alias $1="$2 $3"
+}
+
+# ========================================
+
+
 # Also check command after sudo for alias (see man bash)
 alias sudo="sudo "
 alias watch="watch "
@@ -67,9 +93,6 @@ alias ju="journalctl -u"
 alias jb="journalctl -b -u"
 alias jf="journalctl -b -f -u"
 
-## R509
-#[ -e /usr/bin/samsung-tools ] && alias si="samsung-tools -c silent"
-
 # Gerar string a partir de /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias ger="cat /dev/urandom | tr -dc "[:alnum:]" | head -c64 && echo"
 alias ger2="cat /dev/urandom | tr -dc "[:lower:]" | head -c64 && echo"
@@ -89,40 +112,24 @@ alias cs="convert-video --to-small"
 alias c4="convert-video --to-mp4"
 
 # Misc utils
-alias zim-fav="vim /home/rafael/Private/Notebooks/Notes/.zim/state.conf"
+alias_if zim-fav vim "/home/rafael/Private/Notebooks/Notes/.zim/state.conf"
 
 # Mobile
 alias send="kdeconnect-cli -d 59213639780e1ca9 --share"
 
 # Browsing
-alias gc="cd ~/Code"
-alias g.="cd ~/Code/dotfiles/arch"
-alias gs="cd ~/Code/scripts"
-alias gp="cd ~/Code/pi-scripts"
-alias gt="cd ~/Code/data"
+alias_if gc cd ~/Code
+alias_if g. cd ~/.dotfiles/fam
+alias_if g. cd ~/Code/dotfiles/arch
+alias_if gs cd ~/Code/scripts
+alias_if gp cd ~/Code/pi-scripts
+alias_if gt cd ~/Code/data
 alias gd="cd ~/Downloads"
-alias ge="cd ~/Sync/Para\ enviar"
-alias gS="cd ~/Sync"
+alias_if ge cd ~/Sync/Para\ enviar
+alias_if gS cd ~/Sync
 alias gv="cd ~/Vídeos"
 alias gr="cd /"
 alias ga="cd /mnt/airport"
-alias gar="mount_and_cd /mnt/airport/rafael"
-alias gad="mount_and_cd /mnt/airport/Data"
-
-
-
-# ========================================
-# FUNCTIONS
-# ========================================
-
-# Mkdir and cd to it
-mkdirr() {
-	mkdir -p -- "$1" && cd -P -- "$1"
-}
-
-# Aux - mount if not, and cd
-mount_and_cd() {
-	[ $# -ne 1 ] && printf "Provide exactly one argument.\n" && return
-	mount | grep "$1" > /dev/null || mount "$1" && cd "$1"
-}
+alias_if gar mount_and_cd /mnt/airport/rafael
+alias_if gad mount_and_cd /mnt/airport/Data
 
