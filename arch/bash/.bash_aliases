@@ -34,7 +34,8 @@ alias x="exit"
 
 # Arch's Pacman
 if [ -e /usr/bin/pacman ]; then
-	alias update="sudo pacman -Syu && trizen -Syua --devel --needed"
+	alias update="sudo pacman -Syu && trizen -Syua --devel --needed \
+		&& vim +PlugUpgrade +PlugUpdate +qa!"
 	alias pm="sudo reflector --country Brazil -l 5 --sort rate \
 		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
 fi
@@ -95,6 +96,7 @@ alias send="kdeconnect-cli -d 59213639780e1ca9 --share"
 alias gc="cd ~/Code"
 alias g.="cd ~/Code/dotfiles/arch"
 alias gs="cd ~/Code/scripts"
+alias gp="cd ~/Code/pi-scripts"
 alias gt="cd ~/Code/data"
 alias gd="cd ~/Downloads"
 alias ge="cd ~/Sync/Para\ enviar"
