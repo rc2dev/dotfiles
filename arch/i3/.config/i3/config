@@ -286,7 +286,7 @@ client.background $black
 # Set wallpaper
 exec --no-startup-id $wallpaper set-random
 # Download more wallpapers
-exec --no-startup-id unsplash
+exec --no-startup-id unsplash 10
 
 # Auto lock if idle
 exec --no-startup-id xautolock -time 15 -locker "$locker_auto"
@@ -310,7 +310,7 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # Services
 exec --no-startup-id redshift-gtk
-exec --no-startup-id syncthing-gtk --minimized
+exec_always --no-startup-id env LANG=en_US.utf-8 syncthing-gtk --minimized
 exec --no-startup-id indicator-kdeconnect
 
 # Applications
