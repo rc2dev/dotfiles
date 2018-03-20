@@ -1,6 +1,9 @@
 # Autor: Rafael Cavalcanti
 # Aliases para facilitar minha vida
 
+# Check if we are on OSMC
+[[ $(cat /etc/issue) = *"OSMC"* ]] && osmc=1 || osmc=0
+
 # System
 alias t="/opt/vc/bin/vcgencmd measure_temp"
 alias reb="sudo reboot"
@@ -21,12 +24,9 @@ alias ks="sudo systemctl stop kodi"
 alias lt="sudo systemctl start lightdm"
 alias lst="sudo systemctl stop lightdm"
 alias tr="sudo systemctl restart thin"
-#alias tt="echo 'Iniciando Thin...' && sudo /etc/init.d/thin start"
-#alias tr="echo 'Reiniciando Thin...' && sudo /etc/init.d/thin restart"
-#alias ts="echo 'Parando Thin...' && sudo /etc/init.d/thin stop"
 
 # Kodi - backup aliases
-if [[ $(cat /etc/issue) != *"OSMC"* ]]; then
+if [[ $osmc == 0 ]]; then
 	alias backup-kodi="kodi-send --host=127.0.0.1 --action='RunScript(script.xbmcbackup, mode=backup)'"
 fi
 
