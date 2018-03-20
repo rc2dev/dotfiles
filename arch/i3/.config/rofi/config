@@ -4,7 +4,7 @@
 #
 
 # Modi
-rofi.combi-modi: window,drun,ssh,vnc:~/.config/rofi/vnc.sh,vbox:~/.config/rofi/vbox.sh,run
+rofi.combi-modi: window,drun,vbox:~/.config/rofi/vbox.sh
 rofi.display-combi:
 rofi.modi: combi,run,ssh,vnc:~/.config/rofi/vnc.sh,vbox:~/.config/rofi/vbox.sh
 
@@ -12,10 +12,11 @@ rofi.modi: combi,run,ssh,vnc:~/.config/rofi/vnc.sh,vbox:~/.config/rofi/vbox.sh
 rofi.parse-known-hosts: false
 
 # Apperance
-rofi.theme: solarized_alternate
-rofi.font: SFNS Display 12
-rofi.width: 25
-rofi.lines: 20
+#rofi.theme: Adapta-Nokto
+rofi.theme: sidebar
+rofi.font: SFNS Display 11
+#rofi.width: 25
+#rofi.lines: 20
 rofi.show-icons: true
 rofi.sidebar-mode: true
 
