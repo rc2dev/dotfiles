@@ -45,6 +45,7 @@ alias c4="convert-video --to-mp4"
 
 # Browsing
 alias ga="cd /airport"
+alias gap="cd /airport_pi"
 alias gd="cd /airport/Downloads"
 alias gm="cd /airport/Músicas"
 alias gk="cd /var/lib/kodi/.kodi"
