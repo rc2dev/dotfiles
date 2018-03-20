@@ -42,7 +42,9 @@ fi
 
 # Apt
 if [ -e /usr/bin/apt ]; then
-	alias update="sudo apt update && sudo apt upgrade && sudo apt clean"
+	alias update="sudo apt update && sudo apt full-upgrade && sudo apt clean \
+		&& sudo apt autoremove \
+		&& vim +PlugUpgrade +PlugUpdate +qa!"
 fi
 
 # Energy in remote connections
