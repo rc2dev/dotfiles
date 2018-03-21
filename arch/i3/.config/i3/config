@@ -221,8 +221,6 @@ bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
 for_window [class="mpv"] floating enable, sticky enable, resize set 600 400, move window to position 1300 660
 # Firefox - Min Vid experiment
 for_window [class="Firefox" instance="Toplevel"] floating enable, sticky enable, resize set 600 400, move window to position 1300 660
-# VLC
-for_window [class="Vlc"] floating enable
 # SimpleScreenRecorder
 for_window [class="SimpleScreenRecorder"] floating enable, move window to position 1330 460
 # Pavucontrol
@@ -310,7 +308,7 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # Services
 exec --no-startup-id redshift-gtk
-exec_always --no-startup-id env LANG=en_US.utf-8 syncthing-gtk --minimized
+exec --no-startup-id env LANG=en_US.utf-8 syncthing-gtk --minimized
 exec --no-startup-id indicator-kdeconnect
 
 # Applications
