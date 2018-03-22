@@ -21,7 +21,7 @@ rofi.show-icons: true
 rofi.sidebar-mode: true
 
 # Shortcuts
-rofi.kb-cancel: Alt+F1,Escape
+rofi.kb-cancel: Super+d,Escape
 # unset "Tab" shortcut
 rofi.kb-row-tab:
 rofi.kb-mode-previous: Shift+Tab,Control+Shift+Tab
@@ -29,5 +29,3 @@ rofi.kb-mode-next: Tab,Control+Tab
 rofi.kb-move-word-back: Control+Left
 rofi.kb-move-word-forward: Control+Right
 
-# Misc
-rofi.lazy-grab: false
