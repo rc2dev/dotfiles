@@ -35,7 +35,7 @@ mount_and_cd() {
 # Args: alias_name command path
 alias_if() {
 	[ $# -ne 3 ] && printf "Wrong number of arguments.\n" && return
-	[ -e "$3" ] && alias $1="$2 $3"
+	[ -e "$3" ] && alias $1="$2 '$3'"
 }
 
 # ========================================
