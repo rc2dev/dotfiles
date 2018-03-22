@@ -167,7 +167,7 @@ bindsym Alt Print exec --no-startup-id spectacle -a -b
 bindsym Shift Print exec --no-startup-id spectacle -rdunst -b
 
 # Launch software
-bindsym Mod1+F1 exec --no-startup-id rofi -show combi
+bindsym $mod+d exec --no-startup-id rofi -show combi
 bindsym $mod+Return exec $term
 bindsym $mod+e exec --no-startup-id dolphin
 bindsym $mod+Shift+e exec --no-startup-id $term -e ranger
@@ -232,7 +232,7 @@ for_window [class="ksysguard"] floating enable, move window to center
 # KCalc
 for_window [class="kcalc"] sticky enable, move window to position 1520 20
 # Dolphin
-for_window [class="dolphin"] floating enable
+for_window [class="dolphin"] floating enable, resize set 850 650, move window to center
 
 
 
@@ -291,7 +291,7 @@ exec --no-startup-id xautolock -time 15 -locker "$locker_auto"
 #exec --no-startup-id xautolock -time 1 -locker "$locker_now" -killtime 10 -killer "$locker_auto"
 
 # Set Super to Alt+F1
-exec --no-startup-id xcape -e "Super_L=Alt_L|F1"
+exec --no-startup-id xcape -e "Super_L=Super_L|d"
 
 # WM stuff
 exec --no-startup-id compton -b
