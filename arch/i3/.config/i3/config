@@ -5,7 +5,7 @@
 # Variables
 # ================================
 set $mod Mod4
-set $browser firefox
+set $browser env GTK_THEME=Breeze firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker_auto ~/.config/i3/lock.sh -ns
@@ -232,7 +232,7 @@ for_window [class="ksysguard"] floating enable, move window to center
 # KCalc
 for_window [class="kcalc"] sticky enable, move window to position 1520 20
 # Dolphin
-for_window [class="dolphin"] floating enable, resize set 850 650, move window to center
+for_window [class="dolphin" window_role="Dolphin#1"] floating enable, resize set 850 650, move window to center
 
 
 
