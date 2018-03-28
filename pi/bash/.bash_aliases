@@ -1,5 +1,6 @@
-# Autor: Rafael Cavalcanti
-# Aliases para facilitar minha vida
+# Pi aliases
+#
+# Rafael Cavalcanti
 
 # Check if we are on OSMC
 [[ $(cat /etc/issue) = *"OSMC"* ]] && osmc=1 || osmc=0
