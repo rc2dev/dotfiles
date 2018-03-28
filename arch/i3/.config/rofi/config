@@ -22,10 +22,14 @@ rofi.sidebar-mode: true
 
 # Shortcuts
 rofi.kb-cancel: Super+d,Escape
-# unset "Tab" shortcut
+# unset "Tab"
 rofi.kb-row-tab:
 rofi.kb-mode-previous: Shift+Tab,Control+Shift+Tab
 rofi.kb-mode-next: Tab,Control+Tab
 rofi.kb-move-word-back: Control+Left
 rofi.kb-move-word-forward: Control+Right
 
+# Mouse
+# unset "MousePrimary"
+rofi.me-select-entry:
+rofi.me-accept-entry: MousePrimary
