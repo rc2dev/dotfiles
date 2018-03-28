@@ -126,6 +126,7 @@ alias_if g. cd ~/Code/dotfiles/arch
 alias_if gs cd ~/Code/scripts
 alias_if gp cd ~/Code/pi-scripts
 alias_if gt cd ~/Code/data
+alias gb="cd ~/.local/bin"
 alias gd="cd ~/Downloads"
 alias_if ge cd ~/Sync/Para\ enviar
 alias_if gS cd ~/Sync
@@ -135,3 +136,5 @@ alias ga="cd /mnt/airport"
 alias_if gar mount_and_cd /mnt/airport/rafael
 alias_if gad mount_and_cd /mnt/airport/Data
 
+# Unset internal functions
+unset alias_if
