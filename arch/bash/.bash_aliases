@@ -117,7 +117,7 @@ alias c4="convert-video --to-mp4"
 alias_if zim-fav vim "/home/rafael/Private/Notebooks/Notes/.zim/state.conf"
 
 # Mobile
-alias send="kdeconnect-cli -d 59213639780e1ca9 --share"
+alias send="kdeconnect-cli -d 09d00a426bbad24a --share"
 
 # Browsing
 alias_if gc cd ~/Code
