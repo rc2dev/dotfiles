@@ -5,7 +5,7 @@
 # Variables
 # ================================
 set $mod Mod4
-set $browser env GTK_THEME=Breeze firefox
+set $browser env GTK_THEME=Breeze firefox-nightly
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker_auto ~/.config/i3/lock.sh -ns
@@ -219,8 +219,6 @@ bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
 # Floating windows
 # MPV
 for_window [class="mpv"] floating enable, sticky enable, resize set 600 400, move window to position 1300 660
-# Firefox - Min Vid experiment
-for_window [class="Firefox" instance="Toplevel"] floating enable, sticky enable, resize set 600 400, move window to position 1300 660
 # SimpleScreenRecorder
 for_window [class="SimpleScreenRecorder"] floating enable, move window to position 1330 460
 # Pavucontrol
@@ -284,7 +282,7 @@ client.background $black
 # Set wallpaper
 exec --no-startup-id $wallpaper set-random
 # Download more wallpapers
-exec --no-startup-id unsplash 10
+exec --no-startup-id unsplash 5
 
 # Auto lock if idle
 exec --no-startup-id xautolock -time 15 -locker "$locker_auto"
@@ -308,6 +306,7 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # Services
 exec --no-startup-id redshift-gtk
+exec --no-startup-id conky
 exec --no-startup-id env LANG=en_US.utf-8 syncthing-gtk --minimized
 exec --no-startup-id indicator-kdeconnect
 
