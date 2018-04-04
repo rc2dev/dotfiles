@@ -1,2 +1,2 @@
 cd /sdcard/Download/
-youtube-dl $1
+youtube-dl --netrc $1
