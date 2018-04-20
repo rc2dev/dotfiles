@@ -58,6 +58,12 @@ fi
 nf="/usr/share/doc/pkgfile/command-not-found.bash"
 [ -f "$nf" ] && . "$nf"
 
+# Jump directories with z
+z="$HOME/.local/opt/z/z.sh"
+[ -f "$z" ] && . "$z"
+export _Z_DATA="$HOME/.cache/z"
+#export _Z_NO_RESOLVE_SYMLINKS=1
+
 # [RVM installation script] Add RVM to PATH for scripting. Make sure
 # this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
