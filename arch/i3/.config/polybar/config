@@ -359,8 +359,8 @@ menu-2-1-exec = menu-open-0
 [module/playerctl]
 type = custom/script
 exec = ~/.config/polybar/playerctl.sh
-;exec-if = playerctl status
-exec-if = pgrep spotify
+;exec-if = playerctl -p spotify status
+exec-if = pidof -x spotify &> /dev/null
 interval = 0.5
 format-padding = 4
 click-left = i3-msg workspace 10

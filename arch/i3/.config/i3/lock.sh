@@ -51,7 +51,7 @@ lock() {
 }
 
 susp() {
-	systemctl hybrid-sleep
+	systemctl suspend
 }
 
 usage() {
@@ -94,7 +94,8 @@ done
 [[ $lock == $susp ]] && usage
 
 # Check fullscreen if not "now"
-[[ $now != 1 ]] && check_fullscreen
+# Pause song if "now"
+[[ $now != 1 ]] && check_fullscreen || playerctl pause
 
 # Execute command
 [[ $lock == 1 ]]  && lock
