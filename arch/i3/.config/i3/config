@@ -82,6 +82,9 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# Reorder current workspace
+bindsym $mod+r [tiling workspace="__focused__"] move workspace "reorder"; [workspace="reorder"] move workspace current
+
 # toggle sticky
 bindsym $mod+Shift+y sticky toggle
 
@@ -332,7 +335,7 @@ gaps inner $gaps_inner
 gaps outer $gaps_outer
 
 # Disable when one window
-smart_gaps on
+#smart_gaps on
 
 # Keybind for changing gaps size (adapted from documentation)
 set $mode_gaps Gaps: (o/O) outer, (i/I) inner, (n) none, (d) default
