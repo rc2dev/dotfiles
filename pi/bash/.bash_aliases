@@ -15,6 +15,7 @@ alias watch="watch "
 alias x="exit"
 alias la="ls -a"
 alias ll="ls -lh"
+alias lr="ls -lR"
 alias df="df -h"
 alias free="free -h"
 
