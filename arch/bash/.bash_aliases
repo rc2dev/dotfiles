@@ -65,6 +65,7 @@ alias grep="grep --color=auto"
 # Easy access to ls options
 alias la="ls -a"
 alias ll="ls -lh"
+alias lr="ls -R"
 
 # Bash commands
 alias c="clear"
