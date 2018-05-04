@@ -12,11 +12,10 @@ rofi.modi: combi,run,ssh,vnc:~/.config/rofi/vnc.sh,virtualbox:~/.config/rofi/vbo
 rofi.parse-known-hosts: false
 
 # Apperance
-#rofi.theme: Adapta-Nokto
-rofi.theme: sidebar
+rofi.theme: Arc-Dark
 rofi.font: SFNS Display 11
-#rofi.width: 25
-#rofi.lines: 20
+rofi.width: 40
+rofi.lines: 20
 rofi.show-icons: true
 rofi.sidebar-mode: true
 
