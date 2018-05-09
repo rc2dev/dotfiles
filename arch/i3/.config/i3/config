@@ -106,7 +106,7 @@ bindsym $mod+shift+m exec --no-startup-id transset-df -a --inc .05
 # kill focused window
 bindsym $mod+q kill
 # Run xkill
-bindsym --release $mod+Shift+q exec xkill
+bindsym --release $mod+Shift+q exec --no-startup-id xkill
 
 
 # switch to workspace
