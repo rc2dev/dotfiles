@@ -301,7 +301,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 
 # KDE Wallet, SSH, encfs
-exec --no-startup-id $kwallet_start clipit zim
+exec --no-startup-id $kwallet_start clipit zim-all
 
 # Authentication agent (Polkit)
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
@@ -315,6 +315,9 @@ exec --no-startup-id indicator-kdeconnect
 # Applications
 exec --no-startup-id $browser
 exec --no-startup-id keepassxc
+
+# Workaround for setting different layout for workspace
+exec_always --no-startup-id sh -c 'sleep 5; i3-msg "workspace $ws9; layout tabbed; workspace back_and_forth"'
 
 
 
