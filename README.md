@@ -27,3 +27,8 @@ Or if you want to install my whole Pi configs:
 cd pi
 stow -t ~ *
 ```
+
+
+## License
+
+Released under [GNU GPL v3](LICENSE).
