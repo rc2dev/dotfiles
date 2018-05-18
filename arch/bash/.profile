@@ -15,10 +15,7 @@ if [ -d "$HOME/.rvm/bin" ]; then
 	PATH="$PATH:$HOME/.rvm/bin"
 fi
 
-# [RVM installation script]
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# Adicionar meu diretório à busca de módulos do Python
+# Add my directory to Python search path for module files
 # (https://docs.python.org/2/using/cmdline.html#envvar-PYTHONPATH)
 #export PYTHONPATH="$HOME/code/python"
 

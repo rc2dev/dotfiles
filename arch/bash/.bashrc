@@ -64,7 +64,5 @@ z="$HOME/.local/opt/z/z.sh"
 export _Z_DATA="$HOME/.cache/z"
 #export _Z_NO_RESOLVE_SYMLINKS=1
 
-# [RVM installation script] Add RVM to PATH for scripting. Make sure
-# this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
+# RVM: To work, moved from ~/.profile (RVM installation script added there)
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
