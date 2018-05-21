@@ -362,11 +362,11 @@ exec = ~/.config/polybar/playerctl.sh
 ;exec-if = playerctl -p spotify status
 exec-if = pidof -x spotify &> /dev/null
 interval = 0.5
-format-padding = 4
 click-left = i3-msg workspace 10
 click-middle = playerctl -p spotify play-pause
 click-right = playerctl -p spotify next
 label-maxlen = 40
+format-padding = 4
 format-background = ${colors.orange4}
 
 [module/bitcoin]
@@ -385,6 +385,8 @@ exec = ~/.config/polybar/cmus.sh
 exec-if = pgrep -x cmus
 interval = 1
 label-maxlen = 50
+format-padding = 4
+format-background = ${colors.orange4}
 
 click-left = i3-msg workspace 10
 click-middle = cmus-remote --pause
