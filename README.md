@@ -32,3 +32,5 @@ stow -t ~ *
 ## License
 
 Released under [GNU GPL v3](LICENSE).
+
+Copyright 2018 Rafael Cavalcanti
