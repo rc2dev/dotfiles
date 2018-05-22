@@ -3,6 +3,8 @@
 # Do volume operations with notifications
 # Rafael Cavalcanti
 
+SINK="@DEFAULT_SINK@"
+
 usage() {
 	cat << EOF
 Usage: $0 [option]
@@ -17,19 +19,19 @@ EOF
 
 # Increase volume
 increase() {
-	pactl set-sink-volume 0 +5%
+	pactl set-sink-volume "$SINK" +5%
 	volnoti-show "$(amixer get Master | grep -Po "[0-9]+(?=%)" | tail -1)"
 }
 
 # Decrease volume
 decrease() {
-	pactl set-sink-volume 0 -5%
+	pactl set-sink-volume "$SINK" -5%
 	volnoti-show "$(amixer get Master | grep -Po "[0-9]+(?=%)" | tail -1)"
 }
 
 # Toggle mute
 mute() {
-	pactl set-sink-mute 0 toggle
+	pactl set-sink-mute "$SINK" toggle
 	if amixer get Master | grep -Fq "[off]"
 	then
 		volnoti-show -m
