@@ -208,6 +208,8 @@ bindsym --whole-window $mod+button2 kill
 
 # Workspace assignments
 assign [class="Firefox|Nightly" instance="Navigator"] → $ws1
+assign [class="Tor Browser"] → $ws2
+assign [class="Eclipse"] → $ws7
 assign [class="VirtualBox"] → $ws8
 assign [class="Zim" window_type="normal"] → $ws9
 for_window [class="Spotify"] move to workspace $ws10
@@ -233,6 +235,8 @@ for_window [class="ksysguard"] floating enable, move window to center
 for_window [class="kcalc"] sticky enable, move window to position 1520 20
 # Dolphin
 for_window [class="dolphin" window_role="Dolphin#1"] floating enable, resize set 850 650, move window to center
+# Tor
+for_window [class="Tor Browser"] floating enable
 
 
 
@@ -364,24 +368,6 @@ mode "$mode_gaps_all" {
 	bindsym Escape mode "default"
 }
 
-
-# Teste 1
-for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 625 400
-for_window [instance="dropdown"] move scratchpad
-for_window [instance="dropdown"] border pixel 5
-# Runs the tmuxinit script, which searches for an earlier tmux instance,
-# otherwise starts a new one (to prevent multiple dropdown sessions).
-exec --no-startup-id $term --name dropdown -e tmux
-bindsym $mod+t [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
-
-# Teste 2
-for_window [instance="math"] floating enable
-for_window [instance="math"] resize set 800 300
-for_window [instance="math"] move scratchpad
-for_window [instance="math"] border pixel 5
-exec --no-startup-id $term --name math -e ipython --no-banner
-bindsym $mod+u [instance="math"] scratchpad show; [instance="math"] move position center
 
 
 #  vim: filetype=i3 sw=2 ts=4
