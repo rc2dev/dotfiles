@@ -38,6 +38,9 @@ HISTCONTROL=ignoreboth
 # Append to the history file, don't overwrite it
 shopt -s histappend
 
+# cd without cd
+shopt -s autocd
+
 # For setting history length
 HISTSIZE=2000
 HISTFILESIZE=3000
