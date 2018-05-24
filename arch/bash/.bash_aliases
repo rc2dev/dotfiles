@@ -73,7 +73,7 @@ alias x="exit"
 
 # Arch's Pacman
 if [ -e /usr/bin/pacman ]; then
-	alias update="sudo pacman -Syu && trizen -Syua --devel --needed \
+	alias update="sudo pacman -Syu && aurman -Syu --aur --devel --needed \
 		&& vim +PlugUpgrade +PlugUpdate +qa!"
 	alias pm="sudo reflector --country Brazil -l 5 --sort rate \
 		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
@@ -92,6 +92,7 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 fi
 
 # Systemd
+alias reb="reboot"
 alias ju="journalctl -u"
 alias jb="journalctl -b -u"
 alias jf="journalctl -b -f -u"
