@@ -1,5 +1,5 @@
 # dotfiles
-This repository holds user-level dotfiles for my machines.
+This repository holds user-level configurations and related scripts for my machines.
 
 
 ## Directory structure
