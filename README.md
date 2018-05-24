@@ -1,5 +1,5 @@
 # dotfiles
-This repository holds user-level dotfiles for my machines.
+This repository holds user-level configurations and related scripts for my machines.
 
 
 ## Directory structure
@@ -32,3 +32,5 @@ stow -t ~ *
 ## License
 
 Released under [GNU GPL v3](LICENSE).
+
+Copyright 2018 Rafael Cavalcanti
