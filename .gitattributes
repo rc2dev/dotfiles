@@ -1,0 +1,2 @@
+arch/conky/.conkyrc filter=secrets_conky
+arch/darkice/.config/darkice.cfg filter=secrets_darkice

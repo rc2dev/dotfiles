@@ -4,3 +4,7 @@
 # Para em conflitos ver tb texto original (Udacity)
 [merge]
 	conflictstyle = diff3
+[filter "secrets_conky"]
+	clean = "sed -e 's/template6=.*/template6=\"\",/'"
+[filter "secrets_darkice"]
+	clean = "sed -e 's/password[[:space:]]*=[[:space:]]*.*/password =/'"
