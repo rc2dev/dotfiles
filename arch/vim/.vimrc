@@ -51,7 +51,6 @@ endif
 
 set nu
 set relativenumber
-"set colorcolumn=80																				" Show vertical line
 "highlight ColorColumn ctermbg=lightgrey guibg=lightgrey 	" Line colour
 set linebreak                   " More inteligent wrapping (don't break words)
 set scrolloff=10                " Minimum lines below cursor
@@ -203,13 +202,10 @@ set directory=$HOME/.cache/vim/swap//,/tmp//
 " Change viminfo path
 set viminfo+=n~/.cache/vim/viminfo
 
+" Set transparency
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
 
-" Colors for spellchecking...
-" Workaround for the highlight to work under this configuration.
-hi SpellBad term=reverse ctermbg=52 gui=undercurl guifg=#FF0000
-hi SpellCap term=reverse ctermbg=17 gui=undercurl guifg=#7070F0
-hi SpellLocal term=underline ctermbg=17 gui=undercurl guifg=#70F0F0
-hi SpellRare term=reverse cterm=reverse gui=undercurl guifg=#FFFFFF
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
