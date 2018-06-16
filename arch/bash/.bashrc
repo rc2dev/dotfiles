@@ -61,11 +61,5 @@ fi
 nf="/usr/share/doc/pkgfile/command-not-found.bash"
 [ -f "$nf" ] && . "$nf"
 
-# Jump directories with z
-z="$HOME/.local/opt/z/z.sh"
-[ -f "$z" ] && . "$z"
-export _Z_DATA="$HOME/.cache/z"
-#export _Z_NO_RESOLVE_SYMLINKS=1
-
 # RVM: To work, moved from ~/.profile (RVM installation script added there)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
