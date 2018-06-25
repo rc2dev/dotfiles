@@ -5,7 +5,7 @@
 # Variables
 # ================================
 set $mod Mod4
-set $browser firefox-beta
+set $browser firefox
 set $term i3-sensible-terminal
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker_auto ~/.config/i3/lock.sh -ns
@@ -209,8 +209,9 @@ bindsym --whole-window $mod+button2 kill
 # Workspace assignments
 assign [class="Firefox|Nightly" instance="Navigator"] → $ws1
 assign [class="Tor Browser"] → $ws2
-assign [class="Eclipse"] → $ws7
-assign [class="VirtualBox"] → $ws8
+assign [class="Eclipse"] → $ws6
+assign [class="VirtualBox"] → $ws7
+assign [class="TelegramDesktop"] → $ws8
 assign [class="Zim" window_type="normal"] → $ws9
 for_window [class="Spotify"] move to workspace $ws10
 assign [class="cantata"] → $ws10

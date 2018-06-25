@@ -73,7 +73,7 @@ alias x="exit"
 
 # Arch's Pacman
 if [ -e /usr/bin/pacman ]; then
-	alias update="sudo pacman -Syu && aurman -Syu --aur --devel --needed \
+	alias update="sudo pacman -Syu && trizen -Syu --aur --devel --needed \
 		&& vim +PlugUpgrade +PlugUpdate +qa!"
 	alias pm="sudo reflector --country Brazil -l 5 --sort rate \
 		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
