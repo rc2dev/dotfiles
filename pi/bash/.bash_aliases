@@ -10,6 +10,12 @@ alias t="/opt/vc/bin/vcgencmd measure_temp"
 alias reb="sudo reboot"
 alias wel="/etc/profile.d/999-rcwelcome.sh"
 
+# Coloured output
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+#alias fgrep='fgrep --color=auto'
+#alias egrep='egrep --color=auto'
+
 # Console
 alias watch="watch "
 alias x="exit"
