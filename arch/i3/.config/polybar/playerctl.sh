@@ -3,7 +3,7 @@
 # Print Playerctl metadata - for Polybar
 # Rafael Cavalcanti
 
-player="-p spotify"
+#player="-p spotify"
 
 artist="$(playerctl $player metadata xesam:artist)"
 title="$(playerctl $player metadata xesam:title)"
