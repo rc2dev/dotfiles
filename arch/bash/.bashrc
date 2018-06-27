@@ -26,7 +26,7 @@ if [ -f ~/.rvm/bin/rvm-prompt ]
 then
 	rvm="\$(~/.rvm/bin/rvm-prompt p g)"
 fi
-PS1="${title}\n${chroot}${GREEN}\u@\h: ${YELLOW}\w${LGREY} \$(__git_ps1) $rvm${RESET} \n\$ "
+PS1="${title}\n${chroot}${GREEN}\u@\h: ${YELLOW}\w${LGREY} $git $rvm${RESET} \n\$ "
 
 # History completion with arrow keys
 bind '"\e[A": history-search-backward'
