@@ -4,3 +4,4 @@ arch/vim/.vim/.netrwhist
 arch/vim/.vim/autoload/plug.vim*
 arch/vim/.vim/plugged
 arch/vim/.vim/spell
+termux/termux/.shortcuts/wol
