@@ -8,3 +8,5 @@
 	clean = "sed -e 's/template6=.*/template6=\"\",/'"
 [filter "secrets_darkice"]
 	clean = "sed -e 's/password[[:space:]]*=[[:space:]]*.*/password =/'"
+[color]
+	ui = auto
