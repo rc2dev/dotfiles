@@ -125,6 +125,13 @@ autocmd BufWrite * call AutoTrim()	  " call AutoTrim when saving
 " Turn on spell check for Git commits and use English
 autocmd Filetype gitcommit,markdown setlocal spelllang=en_us spell
 
+" Use friendlier line navigation on prose files
+autocmd Filetype markdown noremap j gj
+autocmd Filetype markdown noremap k gk
+autocmd Filetype markdown noremap <Down> gj
+autocmd Filetype markdown noremap <Up> gk
+autocmd Filetype markdown noremap <Home> g<Home>
+autocmd Filetype markdown noremap <End> g<End>
 
 " PLUGINS CONFIGURATION
 "=======================================================================
