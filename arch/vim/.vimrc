@@ -123,7 +123,7 @@ endfunction
 autocmd BufWrite * call AutoTrim()	  " call AutoTrim when saving
 
 " Turn on spell check for Git commits and use English
-autocmd Filetype gitcommit setlocal spelllang=en_us spell
+autocmd Filetype gitcommit,markdown setlocal spelllang=en_us spell
 
 
 " PLUGINS CONFIGURATION
