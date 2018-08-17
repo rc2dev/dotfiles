@@ -27,3 +27,11 @@ fi
 #export EDITOR="vim"
 export VISUAL="vim"
 
+# Start SSH agent if not running and make use of it
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+	ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+	eval "$(<~/.ssh-agent-thing)"
+fi
+
