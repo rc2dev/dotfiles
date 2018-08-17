@@ -1,7 +1,6 @@
 {
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "workbench.colorTheme": "Default Light+",
     "editor.tabSize": 2,
     "files.autoSave": "afterDelay",
 }
