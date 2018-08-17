@@ -9,14 +9,7 @@ xmodmap $HOME/.Xmodmap
 
 # Plasma or i3 - SSH
 if [[ "$XDG_CURRENT_DESKTOP" == "KDE" || "$XDG_CURRENT_DESKTOP" == "i3" ]]; then
-	# Run ssh-agent if it's not running (Arch Wiki)
-	if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-		ssh-agent > ~/.ssh-agent-thing
-	fi
-	if [[ "$SSH_AGENT_PID" == "" ]]; then
-		eval "$(<~/.ssh-agent-thing)"
-	fi
-	export SSH_ASKPASS="/usr/bin/ksshaskpass"
+		export SSH_ASKPASS="/usr/bin/ksshaskpass"
 fi
 
 # On i3 use qt5ct to set QT5 theme
