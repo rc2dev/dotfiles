@@ -28,8 +28,9 @@ fi
 export VISUAL="vim"
 
 # Start SSH agent if not running and make use of it
+# Keep keys in memory for 30 min
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-	ssh-agent > ~/.ssh-agent-thing
+	ssh-agent -t 1800 > ~/.ssh-agent-thing
 fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
 	eval "$(<~/.ssh-agent-thing)"
