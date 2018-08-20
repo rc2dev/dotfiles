@@ -83,7 +83,8 @@ fi
 if [ -e /usr/bin/apt ]; then
 	alias update="sudo apt update && sudo apt full-upgrade && sudo apt clean \
 		&& sudo apt autoremove \
-		&& vim +PlugUpgrade +PlugUpdate +qa!"
+		&& vim +PlugUpgrade +PlugUpdate +qa!
+		&& git -C ~/.dotfiles pull"
 fi
 
 # Energy in remote connections
