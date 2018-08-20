@@ -210,6 +210,7 @@ bindsym --whole-window $mod+button2 kill
 assign [class="Firefox|Nightly" instance="Navigator"] → $ws1
 assign [class="Tor Browser"] → $ws2
 assign [class="Eclipse"] → $ws6
+assign [class="jetbrains-studio"] → $ws6
 assign [class="Code - OSS"] → $ws6
 assign [class="VirtualBox"] → $ws7
 assign [class="TelegramDesktop"] → $ws8
@@ -239,6 +240,8 @@ for_window [class="kcalc"] sticky enable, move window to position 1520 20
 for_window [class="dolphin" window_role="Dolphin#1"] floating enable, resize set 850 650, move window to center
 # Tor
 for_window [class="Tor Browser"] floating enable
+# Android Studio welcome window
+for_window [title="Welcome to Android Studio"] floating enable
 
 
 
