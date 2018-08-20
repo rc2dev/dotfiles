@@ -34,11 +34,6 @@ alias tl='echo "on 0" | cec-client -s'
 alias hd="tvservice -o"
 alias hl="tvservice -p"
 
-# Videos
-alias yd="cd /airport/Downloads && youtube-dl"
-alias y480="cd /airport/Downloads && youtube-dl \
-	-f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
-
 # Browsing
 alias ga="cd /airport"
 alias gap="cd /airport_pi"
@@ -46,9 +41,7 @@ alias gd="cd /airport/Downloads"
 alias gm="cd /airport/Músicas"
 alias gk="cd /var/lib/kodi/.kodi"
 alias gr="cd /opt/rc"
-alias gt="cd /opt/rc/data"
 alias g.="cd /opt/rc/dotfiles/pi"
-alias gp="cd /opt/rc/pi-scripts"
 alias gh="cd /srv/http"
 
 # Misc

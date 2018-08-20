@@ -79,7 +79,6 @@ fi
 # Systemd
 alias reb="reboot"
 alias ju="journalctl -u"
-alias jb="journalctl -b -u"
 alias jf="journalctl -b -f -u"
 
 # Gerar string a partir de /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
@@ -114,16 +113,12 @@ alias send="kdeconnect-cli -d a59bd07ce3e12387 --share"
 alias_if gc cd ~/Code
 alias_if g. cd ~/.dotfiles/fam
 alias_if g. cd ~/Code/dotfiles/arch
-alias_if gs cd ~/Code/scripts
-alias_if gp cd ~/Code/pi-scripts
-alias_if gt cd ~/Code/data
-alias gb="cd ~/.local/bin"
 alias gd="cd ~/Downloads"
 alias_if ge cd ~/Sync/Para\ enviar
 alias_if gS cd ~/Sync
 alias gv="cd ~/Vídeos"
-alias gr="cd /"
 alias ga="cd /mnt/airport"
+alias_if gar mount_and_cd /mnt/airport/romildo
 alias_if gar mount_and_cd /mnt/airport/rafael
 alias_if gad mount_and_cd /mnt/airport/Data
 
