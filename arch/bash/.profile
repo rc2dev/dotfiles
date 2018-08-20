@@ -30,7 +30,7 @@ fi
 
 # Run ssh-agent if it's not running (Arch Wiki)
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-	ssh-agent > ~/.ssh-agent-thing
+	ssh-agent -t 1800 > ~/.ssh-agent-thing
 fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
 	eval "$(<~/.ssh-agent-thing)"

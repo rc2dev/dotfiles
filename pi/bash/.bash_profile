@@ -1,0 +1,1 @@
+../../arch/bash/.bash_profile
