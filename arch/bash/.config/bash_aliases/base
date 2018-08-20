@@ -111,8 +111,7 @@ alias send="kdeconnect-cli -d a59bd07ce3e12387 --share"
 
 # Browsing
 alias_if gc cd ~/Code
-alias_if g. cd ~/.dotfiles/fam
-alias_if g. cd ~/Code/dotfiles/arch
+alias_if g. cd ~/.dotfiles
 alias gd="cd ~/Downloads"
 alias_if ge cd ~/Sync/Para\ enviar
 alias_if gS cd ~/Sync
