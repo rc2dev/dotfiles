@@ -15,3 +15,9 @@ alias gS="cd /sdcard/Sync"
 alias ge="cd /sdcard/Sync/Para\ enviar"
 alias gr="cd $PREFIX"
 
+# Update
+alias update="pkg update \
+	&& pip freeze | awk 'BEGIN{FS="=="}{print $1}' | xargs pip install --upgrade \
+	&& vim +PlugUpgrade +PlugUpdate +qa! \
+	&& git -C ~/.dotfiles pull"
+
