@@ -1,6 +1,11 @@
+#
 # Pi aliases
 #
 # Rafael Cavalcanti
+
+
+# Source common aliases
+. ~/.config/bash_aliases/base
 
 # Check if we are on OSMC
 [[ $(cat /etc/issue) = *"OSMC"* ]] && osmc=1 || osmc=0
@@ -9,21 +14,6 @@
 alias t="/opt/vc/bin/vcgencmd measure_temp"
 alias reb="sudo reboot"
 alias wel="/etc/profile.d/999-rcwelcome.sh"
-
-# Coloured output
-alias ls="ls --color=auto"
-alias grep="grep --color=auto"
-#alias fgrep='fgrep --color=auto'
-#alias egrep='egrep --color=auto'
-
-# Console
-alias watch="watch "
-alias x="exit"
-alias la="ls -a"
-alias ll="ls -lh"
-alias lr="ls -lR"
-alias df="df -h"
-alias free="free -h"
 
 # Services
 alias kt="sudo systemctl start kodi"
@@ -48,8 +38,6 @@ alias hl="tvservice -p"
 alias yd="cd /airport/Downloads && youtube-dl"
 alias y480="cd /airport/Downloads && youtube-dl \
 	-f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
-alias cs="convert-video --to-small"
-alias c4="convert-video --to-mp4"
 
 # Browsing
 alias ga="cd /airport"
@@ -64,7 +52,6 @@ alias gp="cd /opt/rc/pi-scripts"
 alias gh="cd /srv/http"
 
 # Misc
-alias d="mpc pause && sleep 1 && mpc play"
 alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
 	true && echo Muted."
 alias um="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \

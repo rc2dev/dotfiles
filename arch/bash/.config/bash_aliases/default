@@ -1,0 +1,24 @@
+#
+# Default aliases
+#
+# Autor: Rafael Cavalcanti
+
+# Source common aliases
+. ~/.config/bash_aliases/base
+
+# Arch's Pacman
+if [ -e /usr/bin/pacman ]; then
+	alias update="sudo pacman -Syu && trizen -Syu --aur --devel --needed \
+		&& vim +PlugUpgrade +PlugUpdate +qa!"
+	alias pm="sudo reflector --country Brazil -l 5 --sort rate \
+		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
+fi
+
+# Apt
+if [ -e /usr/bin/apt ]; then
+	alias update="sudo apt update && sudo apt full-upgrade && sudo apt clean \
+		&& sudo apt autoremove \
+		&& vim +PlugUpgrade +PlugUpdate +qa!
+		&& git -C ~/.dotfiles pull"
+fi
+

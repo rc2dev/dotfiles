@@ -1,0 +1,17 @@
+#
+# Bash aliases for Termux
+#
+# Autor: Rafael Cavalcanti
+
+
+# Source common aliases
+. ~/.config/bash_aliases/base
+
+# Browsing
+alias g.="cd ~/.dotfiles/termux"
+alias gs="cd ~/.scripts"
+alias gd="cd /sdcard/Download"
+alias gS="cd /sdcard/Sync"
+alias ge="cd /sdcard/Sync/Para\ enviar"
+alias gr="cd $PREFIX"
+

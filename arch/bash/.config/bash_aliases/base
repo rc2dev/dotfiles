@@ -1,5 +1,5 @@
 #
-# ~/.bash_aliases
+# Common Bash aliases for all systems
 #
 # Autor: Rafael Cavalcanti
 
@@ -71,22 +71,6 @@ alias lr="ls -R"
 alias c="clear"
 alias x="exit"
 
-# Arch's Pacman
-if [ -e /usr/bin/pacman ]; then
-	alias update="sudo pacman -Syu && trizen -Syu --aur --devel --needed \
-		&& vim +PlugUpgrade +PlugUpdate +qa!"
-	alias pm="sudo reflector --country Brazil -l 5 --sort rate \
-		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
-fi
-
-# Apt
-if [ -e /usr/bin/apt ]; then
-	alias update="sudo apt update && sudo apt full-upgrade && sudo apt clean \
-		&& sudo apt autoremove \
-		&& vim +PlugUpgrade +PlugUpdate +qa!
-		&& git -C ~/.dotfiles pull"
-fi
-
 # Energy in remote connections
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	alias poweroff="sudo poweroff"
@@ -110,17 +94,21 @@ alias gitl="git log --name-only"
 alias hs="python -m http.server"
 
 # Vídeos
+alias yu="youtube-dl --get-url"
 alias ya="youtube-dl --extract-audio"
 alias ym="youtube-dl --extract-audio --audio-format mp3"
 alias y480="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
 alias cs="convert-video --to-small"
 alias c4="convert-video --to-mp4"
+c3() {
+ ffmpeg -i "$1" "${1%.*}.mp3"
+}
 
 # Misc utils
 alias_if zim-fav vim "/home/rafael/Private/Notebooks/Notes/.zim/state.conf"
 
 # Mobile
-alias send="kdeconnect-cli -d 09d00a426bbad24a --share"
+alias send="kdeconnect-cli -d a59bd07ce3e12387 --share"
 
 # Browsing
 alias_if gc cd ~/Code
@@ -141,3 +129,4 @@ alias_if gad mount_and_cd /mnt/airport/Data
 
 # Unset internal functions
 unset alias_if
+

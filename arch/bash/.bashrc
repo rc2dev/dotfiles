@@ -53,8 +53,10 @@ HISTTIMEFORMAT="%h/%d - %H:%M:%S "
 shopt -s checkwinsize
 
 # Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
+if [ -f ~/.config/bash_aliases/$HOSTNAME ]; then
+	. ~/.config/bash_aliases/$HOSTNAME
+else
+	. ~/.config/bash_aliases/default
 fi
 
 # [Arch] Command not found - pkgfile (Arch Wiki)
