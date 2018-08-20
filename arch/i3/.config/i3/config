@@ -210,12 +210,13 @@ bindsym --whole-window $mod+button2 kill
 assign [class="Firefox|Nightly" instance="Navigator"] → $ws1
 assign [class="Tor Browser"] → $ws2
 assign [class="Eclipse"] → $ws6
+assign [class="Code - OSS"] → $ws6
 assign [class="VirtualBox"] → $ws7
 assign [class="TelegramDesktop"] → $ws8
-assign [class="Zim" window_type="normal"] → $ws9
-for_window [class="Spotify"] move to workspace $ws10
-assign [class="cantata"] → $ws10
-assign [class="Amarok"] → $ws10
+for_window [class="Spotify"] move to workspace $ws9
+assign [class="cantata"] → $ws9
+assign [class="Amarok"] → $ws9
+assign [class="Zim" window_type="normal"] → $ws10
 
 # Scratchpad
 for_window [class="keepassxc" window_type="normal"] move to scratchpad
@@ -323,7 +324,7 @@ exec --no-startup-id $browser
 exec --no-startup-id keepassxc
 
 # Workaround for setting different layout for workspace
-exec_always --no-startup-id sh -c 'sleep 5; i3-msg "workspace $ws9; layout tabbed; workspace back_and_forth"'
+exec_always --no-startup-id sh -c 'sleep 5; i3-msg "workspace $ws10; layout tabbed; workspace back_and_forth"'
 
 
 
