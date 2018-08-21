@@ -240,9 +240,12 @@ for_window [class="kcalc"] sticky enable, move window to position 1520 20
 for_window [class="dolphin" window_role="Dolphin#1"] floating enable, resize set 850 650, move window to center
 # Tor
 for_window [class="Tor Browser"] floating enable
-# Android Studio welcome window
+# Android Studio: welcome window
 for_window [title="Welcome to Android Studio"] floating enable
-
+# Android Studio: AVD Manager
+for_window [title="Android Virtual Device Manager"] floating enable
+# Android Studio: Android emulator
+for_window [title="Android Emulator.*"] floating enable
 
 
 # ================================
