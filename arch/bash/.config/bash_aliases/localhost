@@ -23,5 +23,6 @@ alias gr="cd $PREFIX"
 alias update="pkg update \
 	&& pip freeze | awk 'BEGIN{FS="=="}{print $1}' | xargs pip install --upgrade \
 	&& vim +PlugUpgrade +PlugUpdate +qa! \
-	&& git -C ~/.dotfiles pull"
+	&& git -C ~/.dotfiles pull \
+	&& git -C ~/.local/opt/scripts pull"
 
