@@ -47,7 +47,7 @@ font-2 = FontAwesome5Free:style=Solid:pixelsize=8;2
 font-3 = FontAwesome5Brands:style=Solid:pixelsize=8;2
 
 modules-left = i3 xwindow
-modules-center = date bitcoin
+modules-center = date
 modules-right = mpd cmus playerctl volume memory cpu wlan battery
 
 tray-position = right
