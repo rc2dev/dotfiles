@@ -3,9 +3,14 @@
 #
 # Autor: Rafael Cavalcanti
 
-# set PATH so it includes user's private bin if it exists
+# user's private bin
 if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Termux user's bin
+if [ -d "$HOME/bin" ]; then
+	PATH="$HOME/bin:$PATH"
 fi
 
 # [RVM installation script - RC condition] Add RVM to PATH for scripting
@@ -36,3 +41,10 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 	eval "$(<~/.ssh-agent-thing)"
 fi
 unset timeout
+
+# Termux: if connected via SSH, grab wake-lock
+if [[ "$HOSTNAME" == "localhost" && -n "$SSH_CLIENT" ]]; then
+	printf "Connected via SSH. Grabbing wake-lock.\n"
+	termux-wake-lock
+fi
+
