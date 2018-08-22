@@ -7,6 +7,12 @@
 # Source common aliases
 . ~/.config/bash_aliases/base
 
+# Fix aliases that don't work on Busybox
+alias rm="rm -v"
+alias ln="ln -v"
+alias free="free -m"
+unalias grep
+
 # Browsing
 alias gd="cd /sdcard/Download"
 alias gS="cd /sdcard/Sync"
