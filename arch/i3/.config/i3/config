@@ -330,7 +330,7 @@ exec --no-startup-id $browser
 exec --no-startup-id keepassxc
 
 # Workaround for setting different layout for workspace
-exec_always --no-startup-id sh -c 'sleep 5; i3-msg "workspace $ws10; layout tabbed; workspace back_and_forth"'
+exec_always --no-startup-id sh -c 'sleep 10; i3-msg "workspace $ws10; layout tabbed; workspace back_and_forth"'
 
 
 
