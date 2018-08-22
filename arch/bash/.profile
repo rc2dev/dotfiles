@@ -3,13 +3,12 @@
 #
 # Autor: Rafael Cavalcanti
 
-# set PATH so it includes user's private bin if it exists (copiado do Ubuntu
-# e local modificado)
+# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+	PATH="$HOME/.local/bin:$PATH"
 fi
 
-# [RVM installation script - RC condicionado] Add RVM to PATH for scripting
+# [RVM installation script - RC condition] Add RVM to PATH for scripting
 # Make sure this is the last PATH variable change.
 if [ -d "$HOME/.rvm/bin" ]; then
 	PATH="$PATH:$HOME/.rvm/bin"
@@ -29,10 +28,11 @@ if command -v mpc >/dev/null; then
 fi
 
 # Run ssh-agent if it's not running (Arch Wiki)
+[[ "$HOSTNAME" != "costanza" ]] && timeout="-t 1800"
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-	ssh-agent -t 1800 > ~/.ssh-agent-thing
+	ssh-agent $timeout > ~/.ssh-agent-thing
 fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
 	eval "$(<~/.ssh-agent-thing)"
 fi
-
+unset timeout
