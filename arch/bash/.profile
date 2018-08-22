@@ -33,14 +33,18 @@ if command -v mpc >/dev/null; then
 fi
 
 # Run ssh-agent if it's not running (Arch Wiki)
-[[ "$HOSTNAME" != "costanza" ]] && timeout="-t 1800"
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-	ssh-agent $timeout > ~/.ssh-agent-thing
+# Don't do it for Termux
+if [[ "$HOSTNAME" != "localhost" ]]; then
+	# Set timeout for specific hosts
+	[[ "$HOSTNAME" != "costanza" ]] && timeout="-t 1800"
+	if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+		ssh-agent $timeout > ~/.ssh-agent-thing
+	fi
+	if [[ "$SSH_AGENT_PID" == "" ]]; then
+		eval "$(<~/.ssh-agent-thing)"
+	fi
+	unset timeout
 fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-	eval "$(<~/.ssh-agent-thing)"
-fi
-unset timeout
 
 # Termux: if connected via SSH, grab wake-lock
 if [[ "$HOSTNAME" == "localhost" && -n "$SSH_CLIENT" ]]; then
