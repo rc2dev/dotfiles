@@ -12,21 +12,30 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Meu PS1 (estilo Cygwin + Git + RVM)
-RESET="\e[0m"; GREEN="\e[32m"; YELLOW="\e[33m"; GREY="\e[90m"; LGREY="\e[37m"
-title="\e]2;\w\a"
-chroot="${debian_chroot:+($debian_chroot)}"
-if [ -f ~/.local/share/git-prompt.sh ]
-then
-	. ~/.local/share/git-prompt.sh
-	git="\$(__git_ps1)"
-	GIT_PS1_SHOWDIRTYSTATE=1
+# Prepare Git prompt to PS1
+if [ -f ~/.local/share/git-prompt.sh ]; then
+		git="\$(__git_ps1)"
+		GIT_PS1_SHOWDIRTYSTATE=1
+		. ~/.local/share/git-prompt.sh
 fi
-if [ -f ~/.rvm/bin/rvm-prompt ]
-then
-	rvm="\$(~/.rvm/bin/rvm-prompt p g)"
-fi
-PS1="${title}\n${chroot}${GREEN}\u@\h: ${YELLOW}\w${LGREY} $git $rvm${RESET} \n\$ "
+
+# Set PS1
+set_prompt() {
+	local RESET="\e[0m"; local GREEN="\e[32m"; local YELLOW="\e[33m"
+	local GREY="\e[90m"; local LGREY="\e[37m"
+
+	local	title="\e]2;\w\a"
+	local chroot="${debian_chroot:+($debian_chroot)}"
+
+	if [ -f ~/.rvm/bin/rvm-prompt ]; then
+		local rvm="\$(~/.rvm/bin/rvm-prompt p g)"
+	fi
+
+	echo "${title}\n${chroot}${GREEN}\u@\h: ${YELLOW}\w${LGREY} $git $rvm${RESET} \n\$ "
+}
+PS1=$(set_prompt)
+unset set_prompt
+unset git
 
 # History completion with arrow keys
 bind '"\e[A": history-search-backward'
@@ -60,8 +69,9 @@ else
 fi
 
 # [Arch] Command not found - pkgfile (Arch Wiki)
-nf="/usr/share/doc/pkgfile/command-not-found.bash"
-[ -f "$nf" ] && . "$nf"
+if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
+	. /usr/share/doc/pkgfile/command-not-found.bash
+fi
 
 # RVM: To work, moved from ~/.profile (RVM installation script added there)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
