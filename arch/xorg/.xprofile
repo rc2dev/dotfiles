@@ -13,7 +13,11 @@ if [[ "$XDG_CURRENT_DESKTOP" == "KDE" || "$XDG_CURRENT_DESKTOP" == "i3" ]]; then
 fi
 
 # On i3 use qt5ct to set QT5 theme
-[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
+# Note: Setting QT_QPA_PLATFORMTHEME="qt5ct" instead, make audio icons
+# blank on Dolphin
+if [[ "$XDG_CURRENT_DESKTOP" == "i3" ]]; then
+	export XDG_CURRENT_DESKTOP=KDE
+fi
 
 # LightDM doesn't source ~/.profile
 if [ -f ~/.profile ]; then
