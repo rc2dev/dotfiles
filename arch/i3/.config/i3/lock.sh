@@ -34,10 +34,10 @@ lock() {
 	killall -USR1 dunst
 
 	if [[ -f "$LOCK_BG" ]]; then
-		param="-i $LOCK_BG"
+		local param="-i $LOCK_BG"
 	else
 		log "Background not found. Using solid color."
-		param="-c 2f343f"
+		local param="-c 2f343f"
 	fi
 
 	log "Calling i3lock..."
