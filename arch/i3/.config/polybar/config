@@ -48,7 +48,7 @@ font-3 = FontAwesome5Brands:style=Solid:pixelsize=8;2
 
 modules-left = i3 xwindow
 modules-center = date
-modules-right = mpd cmus playerctl volume memory cpu wlan battery
+modules-right = cmus playerctl volume memory cpu wlan battery
 
 tray-position = right
 tray-padding = 4
