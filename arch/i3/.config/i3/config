@@ -7,6 +7,7 @@
 set $mod Mod4
 set $browser firefox
 set $term i3-sensible-terminal
+set $smart_fe ~/.config/i3/smart_fe.sh
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker_auto ~/.config/i3/lock.sh -ns
 set $locker_now ~/.config/i3/lock.sh -nl
@@ -172,7 +173,7 @@ bindsym Shift Print exec --no-startup-id spectacle -rdunst -b
 # Launch software
 bindsym $mod+d exec --no-startup-id rofi -no-lazy-grab -show combi
 bindsym $mod+Return exec $term
-bindsym $mod+e exec --no-startup-id dolphin
+bindsym $mod+e exec --no-startup-id $smart_fe
 bindsym $mod+Shift+e exec --no-startup-id $term -e ranger
 bindsym $mod+c exec --no-startup-id pavucontrol
 bindsym $mod+Shift+c exec --no-startup-id pulseaudio-equalizer-gtk
@@ -214,6 +215,7 @@ for_window [title=".*Navegação privativa.*"] move to workspace $ws2
 assign [class="Firefox|Nightly" instance="Navigator"] → $ws1
 assign [class="Tor Browser"] → $ws2
 assign [class="libreoffice-startcenter|Soffice"] → $ws3
+assign [class="okular"] → $ws5
 assign [class="Eclipse"] → $ws6
 assign [class="jetbrains-studio"] → $ws6
 assign [class="Code - OSS"] → $ws6
@@ -227,6 +229,7 @@ assign [class="Zim" window_type="normal"] → $ws10
 # Scratchpad
 for_window [class="keepassxc" window_type="normal"] move to scratchpad
 bindsym $mod+p [class="keepassxc" window_type="normal"] scratchpad show
+for_window [class="dolphin" window_type="normal"] move to scratchpad
 
 # Floating windows
 # MPV
@@ -243,6 +246,8 @@ for_window [class="ksysguard"] floating enable, move window to center
 for_window [class="kcalc"] sticky enable, move window to position 1520 20
 # Dolphin
 for_window [class="dolphin" window_role="Dolphin#1"] floating enable, resize set 850 650, move window to center
+# Okular
+for_window [class="okular"] floating enable, resize set 1050 1000, move window to center
 # Tor
 for_window [class="Tor Browser"] floating enable
 # Android Studio: welcome window
