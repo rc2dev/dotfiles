@@ -26,7 +26,7 @@ height = 27
 radius = 0
 fixed-center = true
 
-background = ${colors.background-alt}
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -49,7 +49,7 @@ font-4 = Arial:size=9;1
 
 modules-left = i3 xwindow
 modules-center = date
-modules-right = cmus playerctl pulseaudio memory cpu wlan battery
+modules-right = cmus playerctl pulseaudio cpu memory wlan battery
 
 tray-position = right
 tray-padding = 4
@@ -179,7 +179,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-overline = #f90000
-format-overline = ${colors.green1}
+format-overline = ${colors.green2}
 label = %{A1:ksysguard:}%percentage:2%%%{A}
 label-foreground = #aaa
 
@@ -407,7 +407,9 @@ interval = 5
 ;   <label-volume> (default)
 ;   <ramp-volume>
 ;   <bar-volume>
-format-volume = <ramp-volume> <label-volume>
+format-volume = <ramp-volume>  <label-volume>
+format-volume-background = ${colors.green3}
+format-volume-padding = 3
 
 ; Available tags:
 ;   <label-muted> (default)
@@ -425,9 +427,9 @@ label-muted = %{A1:pavucontrol:}%{A2:pactl set-sink-mute @DEFAULT_SINK@ toggle:}
 label-muted-foreground = #666
 
 ; Only applies if <ramp-volume> is used
-ramp-volume-0 = 🔈
-ramp-volume-1 = 🔉
-ramp-volume-2 = 🔊
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 
 [settings]
