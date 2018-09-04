@@ -11,16 +11,20 @@ stat="$(playerctl $player status)"
 
 case "$stat" in
 	Paused)
-		symb=" "
+		symb1=" %{F#aaa}"
+		symb2="%{F-}"
 		;;
 	Playing)
-		symb=" "
+		symb1=" "
 		;;
+	*)
+		symb1="%{F#aaa}"
+		symb2="%{F-}"
 esac
 
 if [[ "$artist" == "" || "$title" == "" ]]
 then
-	printf "%s No info" "$symb"
+	printf "%s No info%s" "$symb1" "$symb2"
 else
-	printf "%s %s - %s\n" "$symb" "$artist" "$title"
+	printf "%s %s - %s%s\n" "$symb1" "$artist" "$title" "$symb2"
 fi
