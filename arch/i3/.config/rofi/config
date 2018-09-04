@@ -11,6 +11,9 @@ rofi.modi: combi,run,ssh,vnc:~/.config/rofi/vnc.sh,virtualbox:~/.config/rofi/vbo
 # SSH modi
 rofi.parse-known-hosts: false
 
+# Window modi
+rofi.window-format: {i} {t}
+
 # Apperance
 rofi.theme: android_notification
 rofi.font: SFNS Display 11
@@ -33,3 +36,4 @@ rofi.kb-move-word-forward: Control+Right
 # unset "MousePrimary"
 rofi.me-select-entry:
 rofi.me-accept-entry: MousePrimary
+
