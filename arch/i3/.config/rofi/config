@@ -5,19 +5,20 @@
 
 # Modi
 rofi.combi-modi: window,drun,virtualbox:~/.config/rofi/vbox.sh
-rofi.display-combi:
+rofi.display-combi: costanza
 rofi.modi: combi,run,ssh,vnc:~/.config/rofi/vnc.sh,virtualbox:~/.config/rofi/vbox.sh
 
 # SSH modi
 rofi.parse-known-hosts: false
 
 # Apperance
-rofi.theme: Arc-Dark
+rofi.theme: android_notification
 rofi.font: SFNS Display 11
-rofi.width: 40
+rofi.width: 20
 rofi.lines: 20
+rofi.columns: 1
 rofi.show-icons: true
-rofi.sidebar-mode: true
+#rofi.sidebar-mode: true
 
 # Shortcuts
 rofi.kb-cancel: Super+d,Escape
