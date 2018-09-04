@@ -16,7 +16,7 @@ fi
 # Note: Setting QT_QPA_PLATFORMTHEME="qt5ct" instead, make audio icons
 # blank on Dolphin
 if [[ "$XDG_CURRENT_DESKTOP" == "i3" ]]; then
-	export XDG_CURRENT_DESKTOP=KDE
+	export QT_QPA_PLATFORMTHEME="qt5ct"
 fi
 
 # LightDM doesn't source ~/.profile
