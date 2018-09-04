@@ -180,7 +180,8 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-overline = #f90000
 format-overline = ${colors.green1}
-label = %percentage:2%%
+label = %{A1:ksysguard:}%percentage:2%%%{A}
+label-foreground = #aaa
 
 [module/memory]
 type = internal/memory
@@ -189,7 +190,8 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-overline = #4bffdc
 format-overline = ${colors.green2}
-label = %gb_used%
+label = %{A1:ksysguard:}%gb_used%%{A}
+label-foreground = #aaa
 
 [module/wlan]
 type = internal/network
@@ -233,8 +235,8 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "%a, %b %d "
-date-alt = "%a, %b %d "
+date = "%{A1:orage:}%a, %b %d%{A}"
+date-alt = "%{A1:orage:}%a, %b %d%{A}"
 
 time = " %H:%M"
 time-alt = "%H:%M:%S"
@@ -415,11 +417,11 @@ format-volume = <ramp-volume> <label-volume>
 
 ; Available tokens:
 ;   %percentage% (default)
-;label-volume = %percentage%%
+label-volume = %{A1:pavucontrol:}%{A2:pactl set-sink-mute @DEFAULT_SINK@ toggle:}%percentage%%%{A}%{A}
 
 ; Available tokens:
 ;   %percentage% (default)
-label-muted = 🔇 muted
+label-muted = %{A1:pavucontrol:}%{A2:pactl set-sink-mute @DEFAULT_SINK@ toggle:}🔇 muted%{A}%{A}
 label-muted-foreground = #666
 
 ; Only applies if <ramp-volume> is used
