@@ -48,7 +48,7 @@ fi
 
 # Termux: if connected via SSH, grab wake-lock
 if [[ "$HOSTNAME" == "localhost" && -n "$SSH_CLIENT" ]]; then
-	printf "Connected via SSH. Grabbing wake-lock.\n"
+	printf "Connected via SSH. Grabbing wake-lock.\n" 1>&2
 	termux-wake-lock
 fi
 
