@@ -52,7 +52,7 @@ modules-center = date
 modules-right = cmus playerctl pulseaudio cpu memory wlan battery
 
 tray-position = right
-tray-padding = 4
+tray-padding = 5
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -71,8 +71,7 @@ locale = pt_BR.utf-8
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:70:...%
-click-middle = i3-msg kill
+label = %title:0:60:...%
 format-padding = 1
 
 [module/xkeyboard]
@@ -105,7 +104,7 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
+wrapping-scroll = true
 strip-wsnumbers = true
 
 ; Only show workspaces on the same output as the bar
@@ -121,11 +120,11 @@ label-focused = %name%
 label-focused-background = ${colors.background-alt}
 ;label-focused-underline = ${colors.primary}
 label-focused-underline = ${colors.orange1}
-label-focused-padding = 3
+label-focused-padding = 4
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-padding = 3
+label-unfocused-padding = 4
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
@@ -136,7 +135,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 3
+label-urgent-padding = 4
 
 [module/mpd]
 type = internal/mpd
@@ -178,20 +177,20 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-;format-overline = #f90000
 format-overline = ${colors.green2}
 label = %{A1:ksysguard:}%percentage:2%%%{A}
 label-foreground = #aaa
+label-padding = 1
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-;format-overline = #4bffdc
 format-overline = ${colors.green2}
 label = %{A1:ksysguard:}%gb_used%%{A}
 label-foreground = #aaa
+label-padding = 1
 
 [module/wlan]
 type = internal/network
@@ -361,7 +360,7 @@ click-left = i3-msg workspace "9: "
 click-middle = playerctl play-pause
 click-right = playerctl next
 label-maxlen = 40
-format-padding = 4
+format-padding = 5
 format-background = ${colors.orange4}
 
 [module/bitcoin]
@@ -409,7 +408,7 @@ interval = 5
 ;   <bar-volume>
 format-volume = <ramp-volume>  <label-volume>
 format-volume-background = ${colors.green3}
-format-volume-padding = 3
+format-volume-padding = 4
 
 ; Available tags:
 ;   <label-muted> (default)
