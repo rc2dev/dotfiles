@@ -39,13 +39,15 @@ padding-left = 0
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 3
 
 font-0 = SFNS Display:size=9;1
 font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=8;2"
 font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=8;2"
 font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=8;2"
-font-4 = Arial:size=9;1
+font-4 = SFNS Display:style=Thin:size=8;1
+font-5 = SFNS Display:style=Bold:size=8;1
+font-6 = Arial:size=9;1
 
 modules-left = i3 xwindow
 modules-center = date
@@ -179,7 +181,8 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-overline = ${colors.green2}
 label = %{A1:ksysguard:}%percentage:2%%%{A}
-label-foreground = #aaa
+;label-foreground = #aaa
+label-font = 5
 label-padding = 1
 
 [module/memory]
@@ -189,7 +192,8 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-overline = ${colors.green2}
 label = %{A1:ksysguard:}%gb_used%%{A}
-label-foreground = #aaa
+;label-foreground = #aaa
+label-font = 5
 label-padding = 1
 
 [module/wlan]
@@ -234,17 +238,16 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "%{A1:orage:}%a, %b %d%{A}"
-date-alt = "%{A1:orage:}%a, %b %d%{A}"
+date = "%{A1:orage:}%{T5}%a, %b %d%{A}%{T-}"
+date-alt = "%{A1:orage:}%{T5}%a, %b %d%{A}%{T-}"
 
-time = " %H:%M"
+time = "%H:%M%"
 time-alt = "%H:%M:%S"
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = #0a6cf5
 
-label = %date% %time%
+label = %date%   %time%
 
 [module/volume]
 type = internal/volume
@@ -360,7 +363,7 @@ click-left = i3-msg workspace "9: "
 click-middle = playerctl play-pause
 click-right = playerctl next
 label-maxlen = 40
-format-padding = 5
+format-padding = 4
 format-background = ${colors.orange4}
 
 [module/bitcoin]
