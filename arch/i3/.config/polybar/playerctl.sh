@@ -11,7 +11,7 @@ stat="$(playerctl $player status)"
 
 case "$stat" in
 	Paused)
-		symb1=" %{F#aaa}"
+		symb1="%{F#aaa}"
 		symb2="%{F-}"
 		;;
 	Playing)

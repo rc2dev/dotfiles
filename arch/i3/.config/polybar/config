@@ -71,7 +71,7 @@ locale = pt_BR.utf-8
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:80:...%
+label = %title:0:70:...%
 click-middle = i3-msg kill
 format-padding = 1
 

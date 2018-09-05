@@ -11,7 +11,7 @@
 if ! xdotool search --classname "dolphin" > /dev/null; then
 	echo "Dolphin not detected, running..."
 	dolphin &
-	sleep 0.3
+	sleep 0.4
 fi
 
 echo "Showing/hiding Dolphin..."
