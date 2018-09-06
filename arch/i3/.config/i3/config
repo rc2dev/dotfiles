@@ -8,6 +8,7 @@ set $mod Mod4
 set $browser firefox
 set $term i3-sensible-terminal
 set $smart_fe ~/.config/i3/smart_fe.sh
+set $remove_urg ~/.config/i3/remove_urgent.sh
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker_auto ~/.config/i3/lock.sh -ns
 set $locker_now ~/.config/i3/lock.sh -nl
@@ -341,7 +342,8 @@ exec --no-startup-id keepassxc
 
 # Workaround for setting different layout for workspace
 exec_always --no-startup-id sh -c 'sleep 15; i3-msg "workspace $ws10; layout tabbed; workspace back_and_forth"'
-
+# Remove urgent hints from startup
+exec --no-startup-id $remove_urg
 
 
 # ================================
