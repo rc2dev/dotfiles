@@ -5,7 +5,7 @@
 # Rafael Cavalcanti
 
 # Wait i3 start-up
-sleep 15
+sleep 30
 
 # Zim
 wins=$(wmctrl -l -x | grep zim.Zim | awk '{print $1}')
