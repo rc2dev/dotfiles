@@ -27,8 +27,11 @@ rofi.show-icons: true
 rofi.kb-cancel: Super+d,Escape
 # unset "Tab"
 rofi.kb-row-tab:
-rofi.kb-mode-previous: Shift+Tab,Control+Shift+Tab
-rofi.kb-mode-next: Tab,Control+Tab
+# unset "Shift+Tab"
+rofi.kb-row-up:
+# Note: Shift+Tab = ISO_Left_Tab
+rofi.kb-mode-previous: ISO_Left_Tab
+rofi.kb-mode-next: Tab
 rofi.kb-move-word-back: Control+Left
 rofi.kb-move-word-forward: Control+Right
 
