@@ -180,7 +180,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-overline = ${colors.green2}
-label = %{A1:ksysguard:}%percentage:2%%%{A}
+label = %{A1:sh -c 'ksysguard &':}%percentage:2%%%{A}
 ;label-foreground = #aaa
 label-font = 5
 label-padding = 1
@@ -191,7 +191,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-overline = ${colors.green2}
-label = %{A1:ksysguard:}%gb_used%%{A}
+label = %{A1:sh -c 'ksysguard &':}%gb_used%%{A}
 ;label-foreground = #aaa
 label-font = 5
 label-padding = 1
@@ -238,8 +238,8 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "%{A1:orage:}%{T5}%a, %b %d%{A}%{T-}"
-date-alt = "%{A1:orage:}%{T5}%a, %b %d%{A}%{T-}"
+date = "%{A1:sh - c 'orage &':}%{T5}%a, %b %d%{A}%{T-}"
+date-alt = "%{A1:sh - c 'orage &':}%{T5}%a, %b %d%{A}%{T-}"
 
 time = "%H:%M%"
 time-alt = "%H:%M:%S"
@@ -421,11 +421,11 @@ format-volume-padding = 4
 
 ; Available tokens:
 ;   %percentage% (default)
-label-volume = %{A1:pavucontrol:}%{A2:pactl set-sink-mute @DEFAULT_SINK@ toggle:}%percentage%%%{A}%{A}
+label-volume = %{A2:sh -c 'pavucontrol &':}%percentage%%%{A}%{A}
 
 ; Available tokens:
 ;   %percentage% (default)
-label-muted = %{A1:pavucontrol:}%{A2:pactl set-sink-mute @DEFAULT_SINK@ toggle:}🔇 muted%{A}%{A}
+label-muted = %{A2:sh -c 'pavucontrol &':}🔇 muted%{A}%{A}
 label-muted-foreground = #666
 
 ; Only applies if <ramp-volume> is used
