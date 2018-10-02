@@ -219,6 +219,7 @@ assign [class="Eclipse"] → $ws6
 assign [class="jetbrains-studio" instance="sun-awt-X11-XFramePeer"] → $ws6
 assign [class="Code - OSS"] → $ws6
 assign [class="VirtualBox"] → $ws7
+assign [class="krdc"] → $ws7
 for_window [title=".*Emulator.*"] move to workspace $ws7
 assign [class="TelegramDesktop"] → $ws8
 for_window [class="Spotify"] move to workspace $ws9
