@@ -26,7 +26,7 @@ height = 27
 radius = 0
 fixed-center = true
 
-background = ${colors.background}
+background = ${colors.background-alt}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -36,10 +36,10 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 3
 
 module-margin-left = 1
-module-margin-right = 3
+module-margin-right = 2
 
 font-0 = SFNS Display:size=9;1
 font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=8;2"
@@ -179,10 +179,10 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-overline = ${colors.green2}
+format-overline = ${colors.orange4}
 label = %{A1:sh -c 'ksysguard &':}%percentage:2%%%{A}
 ;label-foreground = #aaa
-label-font = 5
+label-font = 4
 label-padding = 1
 
 [module/memory]
@@ -190,10 +190,10 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-overline = ${colors.green2}
+format-overline = ${colors.orange4}
 label = %{A1:sh -c 'ksysguard &':}%gb_used%%{A}
 ;label-foreground = #aaa
-label-font = 5
+label-font = 4
 label-padding = 1
 
 [module/wlan]
@@ -364,7 +364,7 @@ click-middle = playerctl play-pause
 click-right = playerctl next
 label-maxlen = 40
 format-padding = 4
-format-background = ${colors.orange4}
+format-background = ${colors.orange5}
 
 [module/bitcoin]
 type = custom/script
@@ -410,7 +410,7 @@ interval = 5
 ;   <ramp-volume>
 ;   <bar-volume>
 format-volume = <ramp-volume>  <label-volume>
-format-volume-background = ${colors.green3}
+format-volume-background = ${colors.orange4}
 format-volume-padding = 4
 
 ; Available tags:
