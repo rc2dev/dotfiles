@@ -26,7 +26,7 @@ height = 27
 radius = 0
 fixed-center = true
 
-background = ${colors.background-alt}
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -55,7 +55,6 @@ modules-right = cmus playerctl pulseaudio cpu memory wlan battery
 
 tray-position = right
 tray-padding = 5
-;tray-transparent = true
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -248,6 +247,7 @@ format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 
 label = %date%   %time%
+label-padding = 2
 
 [module/volume]
 type = internal/volume
@@ -364,7 +364,7 @@ click-middle = playerctl play-pause
 click-right = playerctl next
 label-maxlen = 40
 format-padding = 4
-format-background = ${colors.orange5}
+;format-background = ${colors.orange5}
 
 [module/bitcoin]
 type = custom/script
