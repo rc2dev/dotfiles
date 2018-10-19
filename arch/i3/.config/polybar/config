@@ -14,8 +14,6 @@ orange5 = #552800
 green1 = #236167
 green2 = #68979B
 green3 = #0E494E
-green4 =
-green5 =
 
 [bar/mybar]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -135,7 +133,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.green1}
 label-urgent-padding = 4
 
 [module/mpd]
