@@ -15,12 +15,12 @@ rofi.parse-known-hosts: false
 rofi.window-format: {i} {t}
 
 # Apperance
-rofi.theme: android_notification
+rofi.theme: Adapta-Nokto
 rofi.font: SFNS Display 11
 rofi.width: 20
 rofi.lines: 20
 rofi.columns: 1
-rofi.show-icons: true
+rofi.show-icons: false
 #rofi.sidebar-mode: true
 
 # Shortcuts
