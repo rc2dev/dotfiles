@@ -339,7 +339,7 @@ exec --no-startup-id env LANG=en_US.utf-8 syncthing-gtk --minimized
 exec --no-startup-id indicator-kdeconnect
 
 # Applications
-exec --no-startup-id $browser
+#exec --no-startup-id $browser
 exec --no-startup-id keepassxc
 
 # Workaround for setting different layout for workspace
