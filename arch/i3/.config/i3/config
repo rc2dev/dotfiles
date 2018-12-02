@@ -327,7 +327,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueberry-tray
 
 # KDE Wallet, SSH, encfs
-exec --no-startup-id $kwallet_start clipit zim-all
+exec --no-startup-id $kwallet_start clipit
 
 # Authentication agent (Polkit)
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
