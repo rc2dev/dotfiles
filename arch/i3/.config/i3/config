@@ -338,7 +338,6 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id conky
 
 # Applications
-#exec --no-startup-id $browser
 exec --no-startup-id keepassxc
 
 # Workaround for setting different layout for workspace
