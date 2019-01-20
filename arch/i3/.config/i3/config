@@ -241,6 +241,7 @@ for_window [class="SimpleScreenRecorder"] floating enable, move window to positi
 for_window [class="Pavucontrol"] floating enable, move window to position 600 10
 # Pulseaudio equalizer
 for_window [class="Pulseaudio-equalizer.py"] floating enable
+for_window [class="Blueberry.py"] floating enable, resize set 650 600
 # Orage
 for_window [class="Orage"] floating enable, move window to position 845 10
 # KSysguard
