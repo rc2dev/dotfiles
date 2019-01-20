@@ -178,7 +178,7 @@ bindsym $mod+e exec --no-startup-id $smart_fm
 bindsym $mod+Shift+e exec --no-startup-id $term -e ranger
 bindsym $mod+t exec --no-startup-id simplescreenrecorder
 bindsym $mod+Shift+t exec --no-startup-id audacity
-bindsym $mod+u exec --no-startup-id localc ~/Documentos/Moedas/Moedas.ods
+bindsym $mod+u exec --no-startup-id localc ~/Documentos/Moedas/Moedas.xlsx
 bindsym Ctrl+Shift+Escape exec --no-startup-id ksysguard
 bindsym XF86Tools exec --no-startup-id spotify
 bindsym XF86Calculator exec --no-startup-id kcalc
