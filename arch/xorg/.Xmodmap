@@ -1,8 +1,9 @@
-! Swap PgUp with Home and PgDown with End
+! Keymap changes
 !
 ! Rafael Cavalcanti
 !
 
+! Swap PgUp with Home and PgDown with End
 keycode 110 = Prior NoSymbol Prior
 keycode 112 = Home NoSymbol Home
 keycode 115 = Next NoSymbol Next
