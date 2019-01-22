@@ -33,7 +33,8 @@ set-random() {
 	file=`ls $DIR | sort -R | tail -1`
 	path="${DIR}/${file}"
 	printf "$path" > $CUR
-	feh --bg-fill $path
+	DISPLAY=:0.0 feh --bg-fill $path
+	DISPLAY=:0.1 feh --bg-fill $path
 	log "Wallpaper set."
 
 	if [ "$gen_lock" -eq "1" ]; then
