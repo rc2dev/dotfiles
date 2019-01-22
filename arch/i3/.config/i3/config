@@ -15,6 +15,8 @@ set $locker_now ~/.config/i3/lock.sh -nl
 set $kwallet_start ~/.config/i3/kwallet_start.sh
 set $flash_win ~/.config/i3/flash_win.sh
 set $vol ~/.config/i3/vol.sh
+set $monitor_primary HDMI-1
+set $monitor_secondary DP-1
 
 # Default gaps
 set $gaps_inner 30
@@ -147,7 +149,6 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-
 # Wallpaper operations
 bindsym $mod+comma exec --no-startup-id $wallpaper set-random
 bindsym $mod+Shift+comma exec --no-startup-id $wallpaper rm
@@ -260,6 +261,17 @@ for_window [title="Welcome to Android Studio"] floating enable
 for_window [title="Android Virtual Device Manager"] floating enable
 # Android Studio: Android emulator
 for_window [title="Android Emulator.*"] floating enable
+
+
+# ===============================
+# Multi-monitor
+# ===============================
+
+# Set position of secondary monitor
+exec --no-startup-id xrandr --output $monitor_secondary --auto --left-of $monitor_primary
+
+# Assign workspaces to specific monitor
+workspace $ws9 output $monitor_secondary
 
 
 # ================================
