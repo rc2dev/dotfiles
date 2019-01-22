@@ -273,6 +273,9 @@ exec --no-startup-id xrandr --output $monitor_secondary --auto --left-of $monito
 # Assign workspaces to specific monitor
 workspace $ws9 output $monitor_secondary
 
+# Keybind to move current workspace to other monitor
+bindsym $mod+n move workspace to output right
+
 
 # ================================
 # Theming
