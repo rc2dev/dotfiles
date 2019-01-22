@@ -270,11 +270,15 @@ for_window [title="Android Emulator.*"] floating enable
 # Set position of secondary monitor
 exec --no-startup-id xrandr --output $monitor_secondary --auto --left-of $monitor_primary
 
-# Assign workspaces to specific monitor
-workspace $ws9 output $monitor_secondary
-
 # Keybind to move current workspace to other monitor
 bindsym $mod+n move workspace to output right
+
+# Assign workspaces to monitor
+workspace $ws9 output $monitor_secondary
+
+# Assign windows to monitor
+for_window [class="vlc"] move window to output $monitor_primary
+for_window [class="Eog"] move window to output $monitor_primary
 
 
 # ================================
