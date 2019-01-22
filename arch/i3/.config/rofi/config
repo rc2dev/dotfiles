@@ -15,6 +15,7 @@ rofi.parse-known-hosts: false
 rofi.window-format: {i} {t}
 
 # Apperance
+rofi.m: HDMI-1
 rofi.theme: Adapta-Nokto
 rofi.font: SFNS Display 11
 rofi.width: 20
