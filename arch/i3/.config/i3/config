@@ -104,8 +104,8 @@ bindsym $mod+Shift+a focus child
 bindsym $mod+backslash exec --no-startup-id $flash_win
 
 # Change window opacity
-bindsym $mod+m exec --no-startup-id transset-df -a --dec .05
-bindsym $mod+shift+m exec --no-startup-id transset-df -a --inc .05
+bindsym $mod+n exec --no-startup-id transset-df -a --dec .05
+bindsym $mod+shift+n exec --no-startup-id transset-df -a --inc .05
 
 # kill focused window
 bindsym $mod+q kill
@@ -271,7 +271,7 @@ for_window [title="Android Emulator.*"] floating enable
 exec --no-startup-id xrandr --output $monitor_secondary --auto --left-of $monitor_primary
 
 # Keybind to move current workspace to other monitor
-bindsym $mod+n move workspace to output right
+bindsym $mod+Shift+m move workspace to output right
 
 # Assign workspaces to monitor
 workspace $ws9 output $monitor_secondary
