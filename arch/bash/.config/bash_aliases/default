@@ -11,8 +11,15 @@ if [ -e /usr/bin/pacman ]; then
 	alias update="sudo pacman -Syu && trizen -Syu --aur --devel --needed \
 		&& git -C ~/.dotfiles pull \
 		&& vim +PlugUpgrade +PlugUpdate +qa!"
-	alias pm="sudo reflector -l 5 --sort rate \
-		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
+
+	# Arch's Reflector
+	if [ -e /usr/bin/reflector ]; then
+		alias pm="sudo reflector -l 5 --sort rate \
+			--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
+	# Manjaro's Pacman-Mirrors
+	elif [ -e /usr/bin/pacman-mirrors ]; then
+		alias pm="sudo pacman-mirrors -f 10"
+	fi
 fi
 
 # Apt
