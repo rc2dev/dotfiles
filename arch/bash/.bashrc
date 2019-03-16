@@ -27,9 +27,13 @@ set_prompt() {
 	local	title="\e]2;\w\a"
 	local chroot="${debian_chroot:+($debian_chroot)}"
 
-	if [ -f ~/.rvm/bin/rvm-prompt ]; then
-		local rvm="\$(~/.rvm/bin/rvm-prompt p g)"
-	fi
+	local rvm_possible=("~/.rvm" "/usr/local/rvm")
+	for rvm_path in ${rvm_possible[@]}; do
+		if [ -f ${rvm_path}/bin/rvm-prompt ]; then
+			local rvm="\$(${rvm_path}/bin/rvm-prompt g)"
+			break
+		fi
+	done
 
 	echo "${title}\n${chroot}${GREEN}\u@\h: ${YELLOW}\w${LGREY} $git $rvm${RESET} \n\$ "
 }
