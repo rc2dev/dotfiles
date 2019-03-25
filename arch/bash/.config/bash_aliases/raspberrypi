@@ -19,9 +19,7 @@ alias wel="/etc/profile.d/999-rcwelcome.sh"
 alias kt="sudo systemctl start kodi"
 alias kr="sudo systemctl restart kodi"
 alias ks="sudo systemctl stop kodi"
-alias lt="sudo systemctl start lightdm"
-alias lst="sudo systemctl stop lightdm"
-alias tr="sudo systemctl restart thin"
+alias prr="sudo systemctl restart pifi-radio"
 
 # Kodi - backup aliases
 if [[ $osmc == 0 ]]; then
@@ -50,4 +48,3 @@ alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.an
 alias um="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
 	false && echo Unmuted."
 
-#alias add="sudo ip address add 192.168.0.89/24 dev wlan0"
