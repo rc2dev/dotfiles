@@ -6,24 +6,26 @@
 # Source common aliases
 . ~/.config/bash_aliases/base
 
-# Arch's Pacman
-if [ -e /usr/bin/pacman ]; then
+# Package managers
+## Manjaro's Pamac
+if [ -e /usr/bin/pamac ]; then
+		alias update="pamac update \
+		&& git -C ~/.dotfiles pull \
+		&& vim +PlugUpgrade +PlugUpdate +qa!"
+
+		[ -e /usr/bin/pacman-mirrors ] && alias pm="sudo pacman-mirrors -f 10"
+
+## Arch's Pacman
+elif [ -e /usr/bin/pacman ]; then
 	alias update="sudo pacman -Syu && trizen -Syu --aur --devel --needed \
 		&& git -C ~/.dotfiles pull \
 		&& vim +PlugUpgrade +PlugUpdate +qa!"
 
-	# Arch's Reflector
-	if [ -e /usr/bin/reflector ]; then
-		alias pm="sudo reflector -l 5 --sort rate \
-			--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
-	# Manjaro's Pacman-Mirrors
-	elif [ -e /usr/bin/pacman-mirrors ]; then
-		alias pm="sudo pacman-mirrors -f 10"
-	fi
-fi
+	[ -e /usr/bin/reflector ] && alias pm="sudo reflector -l 5 --sort rate \
+		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
 
-# Apt
-if [ -e /usr/bin/apt ]; then
+## Apt
+elif [ -e /usr/bin/apt ]; then
 	alias update="sudo apt update && sudo apt full-upgrade && sudo apt clean \
 		&& sudo apt autoremove \
 		&& git -C ~/.dotfiles pull \
