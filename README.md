@@ -14,14 +14,14 @@ Then, the subdirectories have each software's configs.
 
 The installation is done with GNU Stow. First, `cd` to the chosen group, then apply stow to whatever software you want, targetting the home directory.
 
-For example, if you want to install my Arch's Bash configs:
+For example, if you want to install my Bash config:
 
 ```
-cd arch
+cd main
 stow -t ~ bash
 ```
 
-Or if you want to install my whole Pi configs:
+Or if you want to install my whole Pi config:
 
 ```
 cd pi
