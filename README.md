@@ -4,10 +4,7 @@ This repository holds user-level configurations and related scripts for my machi
 
 ## Directory structure
 
-Each directory holds the settings for a group of machines I admin.
-For instance, `fam` contains the dotfiles for my family members boxes, while `pi` has my Raspberry Pis'.
-
-Then, the subdirectories have each software's configs.
+Each root directory holds the settings for a group of machines. A level deeper, you find the directories for each software configuration.
 
 
 ## Installation
