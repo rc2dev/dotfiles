@@ -56,7 +56,7 @@ susp() {
 
 usage() {
 	cat <<-EOF
-	Usage: $0 [options] command
+	Usage: $(basename "$0") [options] command
 
 	Commands:
 	  -l: lock

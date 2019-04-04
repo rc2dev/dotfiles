@@ -7,7 +7,7 @@ SINK="@DEFAULT_SINK@"
 
 usage() {
 	cat << EOF
-Usage: $0 [option]
+Usage: $(basename "$0") [option]
 
 Options:
   -u      Increase volume

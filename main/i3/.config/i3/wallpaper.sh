@@ -57,7 +57,7 @@ gen-lock() {
 
 usage() {
 		cat <<-END >&2
-		Usage: $0 <command>
+		Usage: $(basename "$0") <command>
 		Commands: set-random, rm.
 		END
 		exit 1
