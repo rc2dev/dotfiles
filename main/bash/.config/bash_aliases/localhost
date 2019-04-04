@@ -13,6 +13,9 @@ alias ln="ln -v"
 alias free="free -m"
 unalias grep
 
+# Replace ssh with ssha wrapper, so we use ssh-agent
+alias ssh="ssha"
+
 # Browsing
 alias gd="cd /sdcard/Download"
 alias gS="cd /sdcard/Sync"
