@@ -96,6 +96,9 @@ set tabstop=2
 set shiftwidth=2
 set noexpandtab
 
+" Ruby: For some reason, I have to repeat my preferences for Ruby files
+autocmd Filetype ruby setlocal noexpandtab tabstop=2 shiftwidth=2
+
 " Python: 4 spaces hard tab (softtabstop=4 faz backspace/delete excluir os 4 espaços de uma vez)
 " (http://www.vex.net/~x/python_and_vim.html)
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
