@@ -12,7 +12,6 @@ set $remove_urg ~/.config/i3/remove_urgent.sh
 set $wallpaper ~/.config/i3/wallpaper.sh
 set $locker_auto ~/.config/i3/lock.sh -ns
 set $locker_now ~/.config/i3/lock.sh -nl
-set $kwallet_start ~/.config/i3/kwallet_start.sh
 set $flash_win ~/.config/i3/flash_win.sh
 set $vol ~/.config/i3/vol.sh
 set $monitor_primary HDMI-1
@@ -345,9 +344,6 @@ exec --no-startup-id volnoti
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id blueberry-tray
-
-# KDE Wallet, SSH, encfs
-exec --no-startup-id $kwallet_start clipit
 
 # Authentication agent (Polkit)
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
