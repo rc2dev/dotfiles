@@ -348,6 +348,9 @@ exec --no-startup-id blueberry-tray
 # Authentication agent (Polkit)
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
+# Mount encfs
+exec --no-startup-id gnome-encfs-manager
+
 # Services
 exec --no-startup-id redshift-gtk
 exec --no-startup-id conky
