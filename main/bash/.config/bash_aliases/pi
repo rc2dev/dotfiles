@@ -16,7 +16,6 @@ alias reb="sudo reboot"
 alias wel="/etc/profile.d/999-rcwelcome.sh"
 
 # Services
-alias kt="sudo systemctl start kodi"
 alias kr="sudo systemctl restart kodi"
 alias ks="sudo systemctl stop kodi"
 alias prr="sudo systemctl restart pifi-radio"
@@ -27,16 +26,12 @@ if [[ $osmc == 0 ]]; then
 fi
 
 # TV and HDMI output
-alias td='tvservice --off && echo "standby 0" | cec-client -s'
+alias td='echo "standby 0" | cec-client -s'
 alias tl='echo "on 0" | cec-client -s'
-alias hd="tvservice -o"
-alias hl="tvservice -p"
 
 # Browsing
 alias ga="cd /airport"
-alias gap="cd /airport_pi"
 alias gd="cd /airport/Downloads"
-alias gm="cd /airport/Músicas"
 alias gk="cd /var/lib/kodi/.kodi"
 alias gr="cd /opt/rc"
 alias g.="cd /opt/rc/dotfiles"
