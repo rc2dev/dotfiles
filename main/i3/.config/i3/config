@@ -346,7 +346,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueberry-tray
 
 # Authentication agent (Polkit)
-exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Mount encfs
 exec --no-startup-id gnome-encfs-manager
