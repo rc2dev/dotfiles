@@ -4,14 +4,6 @@
 # Keyboard map changes
 xmodmap $HOME/.Xmodmap
 
-## Atom - file deletion
-#export ELECTRON_TRASH=kioclient5
-
-# Plasma or i3 - SSH
-if [[ "$XDG_CURRENT_DESKTOP" == "KDE" || "$XDG_CURRENT_DESKTOP" == "i3" ]]; then
-		export SSH_ASKPASS="/usr/bin/ksshaskpass"
-fi
-
 # On i3 use qt5ct to set QT5 theme
 # Note: Setting QT_QPA_PLATFORMTHEME="qt5ct" instead, make audio icons
 # blank on Dolphin

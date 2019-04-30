@@ -32,18 +32,10 @@ if command -v mpc >/dev/null; then
 	export MPD_HOST="pi.lan"
 fi
 
-# Run ssh-agent if it's not running (Arch Wiki)
-# Don't do it for Termux
-if [[ "$HOSTNAME" != "localhost" ]]; then
-	# Set timeout for specific hosts
-	[[ "$HOSTNAME" != "costanza" ]] && timeout="-t 1800"
-	if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-		ssh-agent $timeout > ~/.ssh-agent-thing
-	fi
-	if [[ "$SSH_AGENT_PID" == "" ]]; then
-		eval "$(<~/.ssh-agent-thing)"
-	fi
-	unset timeout
+# Enable GNOME keyring for applications run through terminal (ArchWiki)
+if [ -n "$DESKTOP_SESSION" ]; then
+	eval $(gnome-keyring-daemon --start)
+	export SSH_AUTH_SOCK
 fi
 
 # Termux: if connected via SSH, grab wake-lock
