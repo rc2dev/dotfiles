@@ -18,8 +18,7 @@ alias ssh="ssha"
 
 # Browsing
 alias gd="cd /sdcard/Download"
-alias gS="cd /sdcard/Sync"
-alias ge="cd /sdcard/Sync/Para\ enviar"
+alias gx="cd /sdcard"
 alias gr="cd $PREFIX"
 
 # Update
