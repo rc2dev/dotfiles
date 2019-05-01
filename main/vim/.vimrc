@@ -30,9 +30,7 @@ Plug 'alvan/vim-closetag'
 Plug 'scrooloose/nerdcommenter'
 "Colorschemes
 Plug 'hzchirs/vim-material'
-Plug 'jakwings/vim-colors'
 Plug 'lu-ren/SerialExperimentsLain'
-Plug 'exitface/synthwave.vim'
 Plug 'w0ng/vim-hybrid'
 call plug#end()
 
@@ -43,7 +41,6 @@ call plug#end()
 if $COLORTERM == "truecolor" && has("termguicolors")
 	set termguicolors             " Use truecolors
 	colorscheme vim-material      " This colorscheme needs truecolor
-"	colorscheme hybrid
 else
 	set bg=dark
 	colorscheme industry
@@ -51,7 +48,6 @@ endif
 
 set nu
 set relativenumber
-"highlight ColorColumn ctermbg=lightgrey guibg=lightgrey 	" Line colour
 set linebreak                   " More inteligent wrapping (don't break words)
 set scrolloff=10                " Minimum lines below cursor
 set showmatch                   " Show matching brackets
@@ -59,11 +55,6 @@ set showmatch                   " Show matching brackets
 " Highlight current line in normal mode
 set cursorline
 autocmd InsertEnter,InsertLeave * set cursorline!
-
-" Set colors for highlighting current line
-"highlight CursorLine cterm=none ctermbg=239 ctermfg=white
-" Set colors for insert mode completion (^X)
-"highlight Pmenu ctermbg=238 ctermfg=white
 
 set showcmd                     " Show partial command
 set noshowmode                  " Don't show modes below status line (redundant to Powerline)
@@ -197,7 +188,6 @@ command! MakeTags !ctags -R .
 "=======================================================================
 iab rcc [RC]
 iab rca [RC added]
-iab rcr [RC removed]
 iab rcm [RC modified]
 
 
