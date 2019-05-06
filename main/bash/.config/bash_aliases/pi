@@ -20,9 +20,16 @@ alias kr="sudo systemctl restart kodi"
 alias ks="sudo systemctl stop kodi"
 alias prr="sudo systemctl restart pifi-radio"
 
-# Kodi - backup aliases
+# Backup aliases
 if [[ $osmc == 0 ]]; then
 	alias backup-kodi="kodi-send --host=127.0.0.1 --action='RunScript(script.xbmcbackup, mode=backup)'"
+
+elif [[ $osmc == 1 ]]; then
+	alias backup="\
+		printf '[KODI] ' \
+		&& kodi-send --host=127.0.0.1 --action='RunScript(/usr/share/kodi/addons/script.module.osmcsetting.updates/resources/lib/call_parent.py, backup)' \
+		&& printf '[SYSTEM] '
+		&& sudo tar -cf /airport/pi_backups/etc-`date +%Y-%m-%d_%H.%M.%S`.tar.gz -C / etc"
 fi
 
 # TV and HDMI output
