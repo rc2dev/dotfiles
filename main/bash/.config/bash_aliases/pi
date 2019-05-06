@@ -18,7 +18,7 @@ alias wel="/etc/profile.d/999-rcwelcome.sh"
 # Services
 alias kr="sudo systemctl restart kodi"
 alias ks="sudo systemctl stop kodi"
-alias prr="sudo systemctl restart pifi-radio"
+[[ $osmc == 0 ]] && alias prr="sudo systemctl restart pifi-radio"
 
 # Backup aliases
 if [[ $osmc == 0 ]]; then
@@ -39,14 +39,16 @@ alias tl='echo "on 0" | cec-client -s'
 # Browsing
 alias ga="cd /airport"
 alias gd="cd /airport/Downloads"
-alias gk="cd /var/lib/kodi/.kodi"
+alias_if gk cd "/var/lib/kodi/.kodi"
+alias_if gk cd "$HOME/.kodi"
 alias gr="cd /opt/rc"
 alias g.="cd /opt/rc/dotfiles"
 alias gx="cd /srv"
 
 # Misc
-alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
-	true && echo Muted."
-alias um="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
-	false && echo Unmuted."
-
+if [[ $osmc = 0 ]]; then
+	alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
+		true && echo Muted."
+	alias um="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
+		false && echo Unmuted."
+fi

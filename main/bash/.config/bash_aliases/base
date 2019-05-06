@@ -121,6 +121,3 @@ alias_if gar mount_and_cd /mnt/airport/romildo
 alias_if gar mount_and_cd /mnt/airport/rafael
 alias_if gad mount_and_cd /mnt/airport/Data
 
-# Unset internal functions
-unset alias_if
-
