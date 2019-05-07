@@ -8,7 +8,7 @@
 . ~/.config/bash_aliases/base
 
 # Check if we are on OSMC
-[[ $(cat /etc/issue) = *"OSMC"* ]] && osmc=1 || osmc=0
+[[ $(cat /etc/issue) = *"OSMC"* ]] && osmc=true || osmc=false
 
 # System
 alias t="/opt/vc/bin/vcgencmd measure_temp"
@@ -19,18 +19,18 @@ alias wel="/etc/profile.d/999-rcwelcome.sh"
 # Services
 alias kr="sudo systemctl restart kodi"
 alias ks="sudo systemctl stop kodi"
-[[ $osmc == 0 ]] && alias prr="sudo systemctl restart pifi-radio"
+$osmc || alias prr="sudo systemctl restart pifi-radio"
 
 # Backup aliases
-if [[ $osmc == 0 ]]; then
-	alias backup-kodi="kodi-send --host=127.0.0.1 --action='RunScript(script.xbmcbackup, mode=backup)'"
-
-elif [[ $osmc == 1 ]]; then
+if $osmc; then
 	alias backup="\
 		printf '[KODI] ' \
 		&& kodi-send --host=127.0.0.1 --action='RunScript(/usr/share/kodi/addons/script.module.osmcsetting.updates/resources/lib/call_parent.py, backup)' \
 		&& printf '[SYSTEM] '
 		&& sudo tar -cf /airport/pi_backups/etc-`date +%Y-%m-%d_%H.%M.%S`.tar.gz -C / etc"
+
+else
+	alias backup-kodi="kodi-send --host=127.0.0.1 --action='RunScript(script.xbmcbackup, mode=backup)'"
 fi
 
 # TV and HDMI output
@@ -46,8 +46,8 @@ alias gr="cd /opt/rc"
 alias g.="cd /opt/rc/dotfiles"
 alias gx="cd /srv"
 
-# Misc
-if [[ $osmc = 0 ]]; then
+# Pulseaudio
+if ! $osmc; then
 	alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
 		true && echo Muted."
 	alias um="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
