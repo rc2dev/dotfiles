@@ -29,3 +29,6 @@ alias update="pkg update \
 	&& git -C ~/.local/opt/scripts pull \
 	&& vim +PlugUpgrade +PlugUpdate +qa!"
 
+# Turn off TV via Pi
+alias td="ssh pi.lan -t bash -ic td"
+
