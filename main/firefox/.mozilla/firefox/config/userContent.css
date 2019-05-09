@@ -1,5 +1,0 @@
-/* Dark new tab */
-@-moz-document url("about:newtab")
-{
-    body{background-color:#23262C !important; }
-}
