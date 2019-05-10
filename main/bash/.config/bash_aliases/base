@@ -1,7 +1,7 @@
 #
 # Common Bash aliases for all systems
 #
-# Autor: Rafael Cavalcanti
+# Author: Rafael Cavalcanti
 
 
 # ========================================
@@ -71,15 +71,8 @@ alias lr="ls -R"
 alias c="clear"
 alias x="exit"
 
-# Energy in remote connections
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	alias poweroff="sudo poweroff"
-fi
-
 # Systemd
 alias reb="reboot"
-alias ju="journalctl -u"
-alias jf="journalctl -b -f -u"
 
 # Gerar string a partir de /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias ger="cat /dev/urandom | tr -dc "[:alnum:]" | head -c64 && echo"
@@ -92,29 +85,10 @@ alias gitl="git log --name-only"
 # HTTP server
 alias hs="python -m http.server"
 
-# Vídeos
-alias yu="youtube-dl --get-url"
-alias ya="youtube-dl --extract-audio"
-alias ym="youtube-dl --extract-audio --audio-format mp3"
-alias y480="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' --recode-video mp4"
-alias cs="convert-video --to-small"
-alias c4="convert-video --to-mp4"
-c3() {
- ffmpeg -i "$1" "${1%.*}.mp3"
-}
-
-# Misc utils
-alias_if zim-fav vim "/home/rafael/Private/Notebooks/Notes/.zim/state.conf"
-
-# Mobile
-alias send="kdeconnect-cli -d a59bd07ce3e12387 --share"
-
 # Browsing
 alias_if gc cd ~/Code
 alias_if g. cd ~/.dotfiles
 alias gd="cd ~/Downloads"
-alias_if ge cd ~/Sync/Para\ enviar
-alias_if gS cd ~/Sync
 alias gv="cd ~/Vídeos"
 alias ga="cd /mnt/airport"
 alias_if gar mount_and_cd /mnt/airport/romildo
