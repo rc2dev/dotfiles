@@ -40,11 +40,14 @@ fi
 
 # Start SSH agent (ArchWiki)
 # This is not needed when using GNOME Keyring.
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-	ssh-agent > ~/.ssh-agent-thing
-fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-	eval "$(<~/.ssh-agent-thing)"
+# This doesn't make sense on Termux, so we exclude it.
+if [[ "$HOSTNAME" != "localhost" ]]; then
+	if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+		ssh-agent > ~/.ssh-agent-thing
+	fi
+	if [[ ! "$SSH_AUTH_SOCK" ]]; then
+		eval "$(<~/.ssh-agent-thing)"
+	fi
 fi
 
 # Termux: if connected via SSH, grab wake-lock
