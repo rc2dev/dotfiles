@@ -11,7 +11,7 @@
 if [ -e /usr/bin/pamac ]; then
 		alias update="pamac update \
 		&& git -C ~/.dotfiles pull \
-		&& vim +PlugUpgrade +PlugUpdate +qa!"
+		&& vim +PlugUpgrade +PlugUpdate +PlugClean +qa!"
 
 		[ -e /usr/bin/pacman-mirrors ] && alias pm="sudo pacman-mirrors -f 10"
 
@@ -19,7 +19,7 @@ if [ -e /usr/bin/pamac ]; then
 elif [ -e /usr/bin/pacman ]; then
 	alias update="sudo pacman -Syu && trizen -Syu --aur --devel --needed \
 		&& git -C ~/.dotfiles pull \
-		&& vim +PlugUpgrade +PlugUpdate +qa!"
+		&& vim +PlugUpgrade +PlugUpdate +PlugClean +qa!"
 
 	[ -e /usr/bin/reflector ] && alias pm="sudo reflector -l 5 --sort rate \
 		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"

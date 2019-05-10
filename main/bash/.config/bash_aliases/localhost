@@ -27,7 +27,7 @@ alias update="pkg update \
 	&& pip freeze | awk 'BEGIN{FS=\"==\"}{print $1}' | xargs pip install --upgrade \
 	&& git -C ~/.dotfiles pull \
 	&& git -C ~/.local/opt/scripts pull \
-	&& vim +PlugUpgrade +PlugUpdate +qa!"
+	&& vim +PlugUpgrade +PlugUpdate +PlugClean +qa!"
 
 # Turn off TV via Pi
 alias td="ssh pi.lan -t bash -ic td"
