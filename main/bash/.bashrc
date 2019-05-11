@@ -69,7 +69,7 @@ shopt -s checkwinsize
 if [ -f ~/.config/bash_aliases/$HOSTNAME ]; then
 	. ~/.config/bash_aliases/$HOSTNAME
 else
-	. ~/.config/bash_aliases/default
+	. ~/.config/bash_aliases/base
 fi
 
 # [Arch] Command not found - pkgfile (Arch Wiki)
@@ -79,3 +79,4 @@ fi
 
 # RVM: To work, moved from ~/.profile (RVM installation script added there)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+

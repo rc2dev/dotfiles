@@ -1,8 +1,0 @@
-#
-# Default aliases
-#
-# Autor: Rafael Cavalcanti
-
-# Source common aliases
-. ~/.config/bash_aliases/base
-
