@@ -95,3 +95,14 @@ alias_if gar mount_and_cd /mnt/airport/romildo
 alias_if gar mount_and_cd /mnt/airport/rafael
 alias_if gad mount_and_cd /mnt/airport/Data
 
+
+# Mirrors
+## Manjaro
+if command -v pacman-mirror > /dev/null; then
+	alias pm="sudo pacman-mirrors -f 10"
+## Arch
+elif command -v reflector > /dev/null; then
+	alias pm="sudo reflector -l 5 --sort rate \
+		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
+fi
+
