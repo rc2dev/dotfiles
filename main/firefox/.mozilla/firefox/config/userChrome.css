@@ -1,24 +1,12 @@
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-/* Ocultar nomes na barra de favoritos */
-/*#personal-bookmarks .bookmark-item > .toolbarbutton-text {*/
-	/*display: none !important;*/
-/*}*/
+/* Changes for TST */
 
-/* Não mostrar botão de fechar aba */
-#tabbrowser-tabs .tabbrowser-tab .tab-close-button {
-	display: none !important;
+/* Hide tab bar (https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#hide-horizontal-tabs-at-the-top-of-the-window-1349-1672-2147) */
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+  opacity: 0;
+  pointer-events: none;
 }
-
-/* Abas abaixo */
-#PersonalToolbar { /* [> bookmarks toolbar <] */
-		-moz-box-ordinal-group: 2 !important;
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
 }
-#TabsToolbar { /*  [> tab bar <] */
-		-moz-box-ordinal-group: 3 !important;
-		background-color: var(--toolbar-non-lwt-bgcolor);
-}
-#navigator-toolbox::after {
-		-moz-box-ordinal-group: 4;
-}
-
