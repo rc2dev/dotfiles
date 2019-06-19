@@ -18,7 +18,7 @@ set $monitor_primary HDMI-1
 set $monitor_secondary DP-1
 
 # Default gaps
-set $gaps_inner 30
+set $gaps_inner 10
 set $gaps_outer 0
 
 # Workspaces
@@ -375,7 +375,7 @@ gaps inner $gaps_inner
 gaps outer $gaps_outer
 
 # Disable when one window
-smart_gaps on
+#smart_gaps on
 
 # Keybind for changing gaps size (adapted from documentation)
 set $mode_gaps Gaps: (o/O) outer, (i/I) inner, (n) none, (d) default

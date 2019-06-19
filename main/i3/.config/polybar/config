@@ -19,13 +19,11 @@ green3 = #0E494E
 monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 27
-bottom = true
-;offset-x = 1%
-;offset-y = 1%
+bottom = false
 radius = 0
 fixed-center = true
 
-background = ${colors.background}
+background = ${colors.background-alt}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -56,7 +54,6 @@ tray-position = right
 tray-padding = 5
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
@@ -74,11 +71,11 @@ locale = pt_BR.utf-8
 monitor = ${env:MONITOR:DP-1}
 width = 100%
 height = 27
-bottom = true
+bottom = false
 radius = 0
 fixed-center = true
 
-background = ${colors.background}
+background = ${colors.background-alt}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -114,7 +111,7 @@ locale = pt_BR.utf-8
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:60:...%
+label = %title:0:50:...%
 format-padding = 1
 
 [module/xkeyboard]
@@ -279,8 +276,8 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "%{A1:sh - c 'orage &':}%{T5}%a, %b %d%{A}%{T-}"
-date-alt = "%{A1:sh - c 'orage &':}%{T5}%a, %b %d%{A}%{T-}"
+date = "%{A1:sh - c 'orage &':}%a, %b %d%{A}"
+date-alt = "%{A1:sh - c 'orage &':}%a, %b %d%{A}%"
 
 time = "%H:%M%"
 time-alt = "%H:%M:%S"
