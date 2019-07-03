@@ -14,8 +14,9 @@ set $locker_auto ~/.config/i3/lock.sh -ns
 set $locker_now ~/.config/i3/lock.sh -nl
 set $flash_win ~/.config/i3/flash_win.sh
 set $vol ~/.config/i3/vol.sh
-set $monitor_primary HDMI-1
-set $monitor_secondary DP-1
+set $switch_display ~/.config/i3/switch_display.sh
+set $display_primary HDMI-1
+set $display_secondary DP-1
 
 # Default gaps
 set $gaps_inner 10
@@ -263,21 +264,24 @@ for_window [title="Android Emulator.*"] floating enable
 
 
 # ===============================
-# Multi-monitor
+# Multi-display
 # ===============================
 
-# Set position of secondary monitor
-exec --no-startup-id xrandr --output $monitor_secondary --auto --left-of $monitor_primary
+# Set position of secondary display
+exec --no-startup-id xrandr --output $display_secondary --auto --left-of $display_primary
 
 # Keybind to move current workspace to other monitor
 bindsym $mod+Shift+m move workspace to output right
 
+# Keybind to switch modes
+bindsym $mod+m exec --no-startup-id $switch_display
+
 # Assign workspaces to monitor
-workspace $ws9 output $monitor_secondary
+workspace $ws9 output $display_secondary
 
 # Assign windows to monitor
-for_window [class="vlc"] move window to output $monitor_primary
-for_window [class="Eog"] move window to output $monitor_primary
+for_window [class="vlc"] move window to output $display_primary
+for_window [class="Eog"] move window to output $display_primary
 
 
 # ================================
