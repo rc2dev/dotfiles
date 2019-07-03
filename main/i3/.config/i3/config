@@ -178,7 +178,6 @@ bindsym $mod+e exec --no-startup-id $smart_fm
 bindsym $mod+Shift+e exec --no-startup-id $term -e ranger
 bindsym $mod+t exec --no-startup-id simplescreenrecorder
 bindsym $mod+Shift+t exec --no-startup-id audacity
-bindsym $mod+u exec --no-startup-id localc ~/Documentos/Moedas/Moedas.xlsx
 bindsym Ctrl+Shift+Escape exec --no-startup-id ksysguard
 bindsym XF86Tools exec --no-startup-id spotify
 bindsym XF86Calculator exec --no-startup-id kcalc
@@ -212,6 +211,7 @@ bindsym --whole-window $mod+button2 kill
 # Workspace assignments
 assign [class="Firefox|Nightly" instance="Navigator"] → $ws1
 assign [class="Tor Browser"] → $ws1
+assign [class="konsole"] → $ws2
 assign [class="libreoffice-startcenter|Soffice"] → $ws3
 assign [class="Eclipse"] → $ws6
 assign [class="jetbrains-studio" instance="sun-awt-X11-XFramePeer"] → $ws6
@@ -242,6 +242,8 @@ for_window [class="Pulseaudio-equalizer.py"] floating enable
 for_window [class="Blueberry.py"] floating enable, resize set 650 600
 # Orage
 for_window [class="Orage"] floating enable, move window to position 845 10
+# Lightdm GTK+ Greeter
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable, move window to center
 # KSysguard
 for_window [class="ksysguard"] floating enable, move window to center
 # KCalc
