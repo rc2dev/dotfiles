@@ -274,7 +274,7 @@ exec --no-startup-id xrandr --output $display_secondary --auto --left-of $displa
 bindsym $mod+Shift+m move workspace to output right
 
 # Keybind to switch modes
-bindsym $mod+m exec --no-startup-id $switch_display
+bindsym $mod+m exec --no-startup-id $switch_display $display_primary $display_secondary
 
 # Assign workspaces to monitor
 workspace $ws9 output $display_secondary

@@ -3,10 +3,14 @@
 #
 # Rafael Cavalcanti
 
-EXTERNAL_OUTPUT="DP-1"
-INTERNAL_OUTPUT="HDMI-1"
-
 MODE_FILE="/tmp/display_mode_${USER}.dat"
+
+if [ $# -ne 2 ]; then
+	printf "Usage: $(basename "$0") primary_display secondary_display\n"
+	exit
+fi
+primary_display="$1"
+secondary_display="$2"
 
 # if we don't have a file, start at zero
 if [ ! -f "$MODE_FILE" ] ; then
@@ -19,15 +23,15 @@ fi
 
 if [ $monitor_mode = "all" ]; then
         monitor_mode="EXTERNAL"
-        xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto
+        xrandr --output $primary_display --off --output $secondary_display --auto
 elif [ $monitor_mode = "EXTERNAL" ]; then
         monitor_mode="INTERNAL"
-        xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --off
+        xrandr --output $primary_display --auto --output $secondary_display --off
 elif [ $monitor_mode = "INTERNAL" ]; then
         monitor_mode="CLONES"
-        xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --same-as $INTERNAL_OUTPUT
+        xrandr --output $primary_display --auto --output $secondary_display --auto --same-as $primary_display
 else
         monitor_mode="all"
-        xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --left-of $INTERNAL_OUTPUT
+        xrandr --output $primary_display --auto --output $secondary_display --auto --left-of $primary_display
 fi
 echo "${monitor_mode}" > $MODE_FILE
