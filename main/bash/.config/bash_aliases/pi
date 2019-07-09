@@ -12,7 +12,6 @@
 
 # System
 alias t="/opt/vc/bin/vcgencmd measure_temp"
-alias reb="sudo reboot"
 alias poweroff="printf 'Are you sure?\n'"
 alias wel="/etc/profile.d/999-rcwelcome.sh"
 
