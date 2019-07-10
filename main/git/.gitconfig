@@ -5,6 +5,8 @@
 	clean = "sed -e 's/template6=.*/template6=\"\",/'"
 [filter "secrets_darkice"]
 	clean = "sed -e 's/password[[:space:]]*=[[:space:]]*.*/password =/'"
+[filter "secrets_modem"]
+	clean = "sed -E 's#http://[^@]*@#http://USER:PASS@#'"
 [filter "vscode_theme"]
 	clean = "sed '/\"workbench.colorTheme\":/d'"
 [color]
