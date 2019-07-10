@@ -11,8 +11,8 @@ keycode 117 = End NoSymbol End
 
 ! For us-intl: single tap on " gives quotes (diaeresis on altGr)
 ! Originally, it's the opposite (diaresis directly and quotes on altGr)
-keycode 48 = dead_acute quotedbl apostrophe dead_diaeresis apostrophe dead_diaeresis dead_acute dagger dead_tilde dead_circumflex asciitilde asciicircum dead_acute dead_diaeresis braceleft braceleft
+!keycode 48 = dead_acute quotedbl apostrophe dead_diaeresis apostrophe dead_diaeresis dead_acute dagger dead_tilde dead_circumflex asciitilde asciicircum dead_acute dead_diaeresis braceleft braceleft
 
 !! For br-abnt2: Move missing keys to alt-gr
-!keycode 38 = a A a A backslash backslash
-!keycode 39 = s S s S bar bar
+keycode 38 = a A a A backslash backslash
+keycode 39 = s S s S bar bar
