@@ -11,7 +11,7 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 
-! From Manjaro to i3 windows colours
+! i3 windows colours
 ! === gruvbox color scheme ===
 *background: #1d2021
 *foreground: #ebdbb2
