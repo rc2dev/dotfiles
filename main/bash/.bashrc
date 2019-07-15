@@ -1,7 +1,7 @@
 #
 # ~/.bashrc
 #
-# Autor: Rafael Cavalcanti
+# Author: Rafael Cavalcanti
 
 # If not running interactively, don't do anything (veio do Arch)
 [[ $- != *i* ]] && return
@@ -14,9 +14,9 @@ fi
 
 # Prepare Git prompt to PS1
 if [ -f ~/.local/share/git-prompt.sh ]; then
-		git="\$(__git_ps1)"
-		GIT_PS1_SHOWDIRTYSTATE=1
-		. ~/.local/share/git-prompt.sh
+	git="\$(__git_ps1)"
+	GIT_PS1_SHOWDIRTYSTATE=1
+	. ~/.local/share/git-prompt.sh
 fi
 
 # Set PS1
@@ -24,7 +24,7 @@ set_prompt() {
 	local RESET="\e[0m"; local GREEN="\e[32m"; local YELLOW="\e[33m"
 	local GREY="\e[90m"; local LGREY="\e[37m"
 
-	local	title="\e]2;\w\a"
+	local title="\e]2;\w\a"
 	local chroot="${debian_chroot:+($debian_chroot)}"
 
 	local rvm_possible=("~/.rvm" "/usr/local/rvm")
