@@ -168,9 +168,9 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Screenshots
-bindsym Print exec --no-startup-id spectacle -f -b
-bindsym Alt Print exec --no-startup-id spectacle -a -b
-bindsym Shift Print exec --no-startup-id spectacle -rdunst -b
+bindsym Print exec --no-startup-id deepin-screenshot --fullscreen
+#bindsym Mod1+Sys_Req exec --no-startup-id deepin-screenshot --top-window
+bindsym $mod+Shift+s exec --no-startup-id deepin-screenshot
 
 # Launch software
 bindsym $mod+d exec --no-startup-id rofi -no-lazy-grab -show combi
