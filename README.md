@@ -18,10 +18,10 @@ cd main
 stow -t ~ bash
 ```
 
-Or if you want to install my whole Pi config:
+Or if you want to install my whole Termux config:
 
 ```
-cd pi
+cd termux
 stow -t ~ *
 ```
 
