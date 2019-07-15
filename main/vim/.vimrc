@@ -150,6 +150,9 @@ set wildmenu
 
 " SHORTCUTS
 "=======================================================================
+" Remap leader key
+let mapleader="\<Space>"
+
 " Clipboard operations
 noremap <Leader>y "+y
 noremap <Leader>d "+d
