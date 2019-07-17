@@ -159,21 +159,21 @@ noremap <Leader>d "+d
 noremap <Leader>p "+p
 set pastetoggle=<F2>
 
-" Buffer operations
-nnoremap <Leader>l :bn<CR>|                      " Go to next buffer
-" Maps useful for when working in split windows. Current buffer in full window.
-nnoremap <Leader>to :tabedit %<CR>|              " Open current buffer on tab
-nnoremap <Leader>tc :tabclose %<CR>|             " Close current tab
+" Go to next buffer
+nnoremap <Leader>l :bn<CR>|
+
+" Toggle spellcheck
+map <F6> :setlocal spell!<CR>|
+
 " Save as root
 cmap w!! w !sudo tee % > /dev/null
 
 " Panels operations
+nnoremap <Leader>w <C-w>
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
-
-map <F6> :setlocal spell!<CR>|                   " Toggle spellcheck
 
 " Edit preset files
 nnoremap <Leader>ev :e ~/.vimrc<CR>
@@ -185,6 +185,7 @@ nnoremap <Leader>f :NERDTreeToggle<CR>|          " Nerdtree (original: <C-n>)
 " Create the "tags" file (simply run ctags)
 " NOW WE CAN: ^] to jump to tag under cursor; g^] for ambiguous tags; ^t to jump back up the tag stack
 command! MakeTags !ctags -R .
+
 
 
 " ABBREVIATIONS
@@ -204,10 +205,6 @@ set directory=$HOME/.cache/vim/swap//,/tmp//
 
 " Change viminfo path
 set viminfo+=n~/.cache/vim/viminfo
-
-" Set transparency
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE
 
 
 " Source a global configuration file if available
