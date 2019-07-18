@@ -98,7 +98,7 @@ alias_if gad mount_and_cd /mnt/airport/Data
 
 # Mirrors
 ## Manjaro
-if command -v pacman-mirror > /dev/null; then
+if command -v pacman-mirrors > /dev/null; then
 	alias pm="sudo pacman-mirrors -f 10"
 ## Arch
 elif command -v reflector > /dev/null; then
