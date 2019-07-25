@@ -13,7 +13,7 @@
 # System
 alias t="/opt/vc/bin/vcgencmd measure_temp"
 alias poweroff="printf 'Are you sure?\n'"
-alias wel="/etc/profile.d/999-rcwelcome.sh"
+alias wel="$HOME/.config/profile/pi_welcome"
 
 # Services
 alias kr="sudo systemctl restart kodi"
