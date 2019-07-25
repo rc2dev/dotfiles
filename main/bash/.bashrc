@@ -41,6 +41,14 @@ PS1=$(set_prompt)
 unset set_prompt
 unset git
 
+# Prompt active tmux sessions
+if ! { [[ "$TERM" == "screen" ]] && [[ -n "$TMUX" ]]; } then
+	tmux_sessions="$(tmux ls 2>/dev/null | wc -l)"
+	if [[ "$tmux_sessions" != "0" ]]; then
+		printf "Sessões tmux ativas: %s\n" $tmux_sessions
+	fi
+fi
+
 # History completion with arrow keys
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
