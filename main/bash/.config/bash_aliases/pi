@@ -7,18 +7,16 @@
 # Source common aliases
 . ~/.config/bash_aliases/base
 
-# Check if we are on OSMC
-[[ $(cat /etc/issue) = *"OSMC"* ]] && osmc=true || osmc=false
-
 # System
-alias t="/opt/vc/bin/vcgencmd measure_temp"
-alias poweroff="printf 'Are you sure?\n'"
 alias wel="$HOME/.config/profile/pi_welcome"
+alias reb="sudo reboot"
+alias poweroff="printf 'Are you sure?\n'"
 
 # Services
 alias kr="sudo systemctl restart kodi"
 alias ks="sudo systemctl stop kodi"
-$osmc || alias prr="sudo systemctl restart pifi-radio"
+systemctl status pifi-radio > /dev/null 2>&1 && \
+	alias prr="sudo systemctl restart pifi-radio"
 
 # TV and HDMI output
 alias td='echo "standby 0" | cec-client -s'
@@ -27,16 +25,16 @@ alias tl='echo "on 0" | cec-client -s'
 # Browsing
 alias ga="cd /airport"
 alias gd="cd /airport/Downloads"
+alias gu="cd /srv/files/uploads"
+alias gx="cd /srv"
 alias_if gk cd "/var/lib/kodi/.kodi"
 alias_if gk cd "$HOME/.kodi"
 alias gr="cd /opt/rc"
 alias g.="cd /opt/rc/dotfiles"
-alias gx="cd /srv"
 
 # Pulseaudio
-if ! $osmc; then
-	alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
-		true && echo Muted."
-	alias um="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
-		false && echo Unmuted."
-fi
+#alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
+#		true && echo Muted."
+#	alias um="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
+#		false && echo Unmuted."
+#fi

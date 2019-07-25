@@ -88,8 +88,9 @@ alias hs="python -m http.server"
 # Browsing
 alias_if gc cd ~/Code
 alias_if g. cd ~/.local/opt/dotfiles
+alias_if gt cd ~/.local/opt/scripts
+alias_if gv cd ~/Vídeos
 alias gd="cd ~/Downloads"
-alias gv="cd ~/Vídeos"
 alias ga="cd /mnt/airport"
 alias_if gar mount_and_cd /mnt/airport/romildo
 alias_if gar mount_and_cd /mnt/airport/rafael
