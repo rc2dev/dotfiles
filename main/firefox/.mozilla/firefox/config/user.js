@@ -14,15 +14,8 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 // Não mostrar "one-click search engines" na barra de endereços
 user_pref("browser.urlbar.oneOffSearches", false);
 
-// Não tocar vídeo até estar em primeiro plano
-// (padrão em 56+)
-user_pref("media.block-autoplay-until-in-foreground", true);
-
 // Não mostrar aviso de tela cheia
 user_pref("full-screen-api.warning.timeout", 0);
-
-// Não auto-esconder barras de ferramentas em modo de tela cheia
-user_pref("browser.fullscreen.autohide", false);
 
 // Abrir nova janela em nova aba
 user_pref("browser.link.open_newwindow.restriction", 0);
