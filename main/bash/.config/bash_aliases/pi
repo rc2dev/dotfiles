@@ -31,6 +31,7 @@ alias_if gk cd "/var/lib/kodi/.kodi"
 alias_if gk cd "$HOME/.kodi"
 alias gr="cd /opt/rc"
 alias g.="cd /opt/rc/dotfiles"
+alias gt="cd /opt/rc/scripts"
 
 # Pulseaudio
 #alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
