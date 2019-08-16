@@ -3,7 +3,7 @@
 #
 # Autor: Rafael Cavalcanti
 
-# user's private bin
+# User's private bin
 if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
@@ -11,6 +11,11 @@ fi
 # Termux user's bin
 if [ -d "$HOME/bin" ]; then
 	PATH="$HOME/bin:$PATH"
+fi
+
+# User's Ruby gems
+if command -v ruby >/dev/null; then
+	PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 fi
 
 # [RVM installation script - RC condition] Add RVM to PATH for scripting
@@ -26,11 +31,6 @@ fi
 # Editor
 #export EDITOR="vim"
 export VISUAL="vim"
-
-# MPC - control Pi
-if command -v mpc >/dev/null; then
-	export MPD_HOST="pi.lan"
-fi
 
 # Enable GNOME keyring for applications run through terminal (ArchWiki)
 if [ -n "$DESKTOP_SESSION" ]; then
