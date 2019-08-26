@@ -4,9 +4,9 @@
 #
 
 # Modi
-rofi.combi-modi: window,drun,virtualbox:~/.config/rofi/vbox.sh
-rofi.display-combi: costanza
-rofi.modi: combi,run,ssh,vnc:~/.config/rofi/vnc.sh,virtualbox:~/.config/rofi/vbox.sh
+rofi.combi-modi: window,drun,virtualbox:~/.local/opt/scripts/i3/rofi/vbox.sh
+rofi.display-combi: arch
+rofi.modi: combi,run,ssh,vnc:~/.local/opt/scripts/i3/rofi/vnc.sh,virtualbox:~/.local/opt/scripts/i3/rofi/vbox.sh
 
 # SSH modi
 rofi.parse-known-hosts: false

@@ -7,13 +7,14 @@
 set $mod Mod4
 set $browser firefox
 set $term i3-sensible-terminal
-set $smart_fm ~/.config/i3/smart_fm.sh
-set $remove_urg ~/.config/i3/remove_urgent.sh
-set $wallpaper ~/.config/i3/wallpaper.sh
-set $locker_auto ~/.config/i3/lock.sh -ns
-set $locker_now ~/.config/i3/lock.sh -nl
-set $flash_win ~/.config/i3/flash_win.sh
-set $vol ~/.config/i3/vol.sh
+set $polybar ~/.local/opt/scripts/i3/polybar/launch.sh
+set $smart_fm ~/.local/opt/scripts/i3/utils/smart_fm.sh
+set $remove_urg ~/.local/opt/scripts/i3/utils/remove_urgent.sh
+set $wallpaper ~/.local/opt/scripts/i3/utils/wallpaper.sh
+set $locker_auto ~/.local/opt/scripts/i3/utils/lock.sh -ns
+set $locker_now ~/.local/opt/scripts/i3/utils/lock.sh -nl
+set $flash_win ~/.local/opt/scripts/i3/utils/flash_win.sh
+set $vol ~/.local/opt/scripts/i3/utils/vol.sh
 
 # Default gaps
 set $gaps_inner 10
@@ -181,7 +182,7 @@ bindsym XF86Tools exec --no-startup-id spotify
 bindsym XF86Calculator exec --no-startup-id kcalc
 
 
-## reload the configuration file
+## reload the.local/opt/scripts/i3/utilsuration file
 #bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -342,7 +343,7 @@ exec --no-startup-id xcape -e "Super_L=Super_L|d"
 exec --no-startup-id compton -b
 exec --no-startup-id dunst
 exec --no-startup-id volnoti
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id $polybar
 exec --no-startup-id nm-applet
 exec --no-startup-id blueberry-tray
 

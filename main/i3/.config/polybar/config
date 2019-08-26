@@ -394,7 +394,7 @@ menu-2-1-exec = menu-open-0
 
 [module/playerctl]
 type = custom/script
-exec = ~/.config/polybar/playerctl.sh
+exec = ~/.local/opt/scripts/i3/polybar/playerctl.sh
 exec-if = playerctl status
 ;exec-if = pidof -x spotify &> /dev/null
 interval = 0.5
@@ -405,24 +405,6 @@ label-maxlen = 40
 format-padding = 4
 ;format-background = ${colors.orange5}
 
-[module/bitcoin]
-type = custom/script
-interval = 60
-format = <label>
-format-prefix = " "
-tail = true
-format-prefix-foreground = ${colors.foreground-alt}
-exec = ~/.config/polybar/bitcoin.py
-
-[module/cmus]
-type = custom/script
-
-exec = ~/.config/polybar/cmus.sh
-exec-if = pgrep -x cmus
-interval = 1
-label-maxlen = 50
-format-padding = 4
-format-background = ${colors.orange4}
 
 click-left = i3-msg workspace 9
 click-middle = cmus-remote --pause
