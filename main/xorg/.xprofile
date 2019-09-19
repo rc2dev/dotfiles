@@ -4,10 +4,8 @@
 # Keyboard map changes
 xmodmap $HOME/.Xmodmap
 
-# On i3 use qt5ct to set QT5 theme
-# Note: Setting QT_QPA_PLATFORMTHEME="qt5ct" instead, make audio icons
-# blank on Dolphin
-if [[ "$XDG_CURRENT_DESKTOP" == "i3" ]]; then
+# On i3 and Xfce, use qt5ct to set QT5 theme
+if [[ "$XDG_CURRENT_DESKTOP" =~ ^(i3|XFCE)$ ]]; then
 	export QT_QPA_PLATFORMTHEME="qt5ct"
 fi
 
