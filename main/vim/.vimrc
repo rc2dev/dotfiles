@@ -28,6 +28,7 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'scrooloose/nerdcommenter'
+Plug 'vim-scripts/yaifa.vim'
 "Colorschemes
 Plug 'hzchirs/vim-material'
 Plug 'lu-ren/SerialExperimentsLain'
