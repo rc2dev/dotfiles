@@ -24,7 +24,7 @@ alias tl='echo "on 0" | cec-client -s'
 
 # Browsing
 alias ga="cd /airport"
-alias gd="cd /airport/Downloads"
+alias gd="cd /airport/data/Downloads"
 alias gu="cd /srv/files/uploads"
 alias gx="cd /srv"
 alias_if gk cd "/var/lib/kodi/.kodi"
