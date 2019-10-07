@@ -8,16 +8,6 @@
 # FUNCTIONS
 # ========================================
 
-# Make Btrfs snapshot
-if command -v snapper >/dev/null; then
-	snap() {
-		echo "Criaremos um snapshot do sistema. Home e data não estão inclusos."
-		read -p "Descrição: " desc
-		echo $desc
-		sudo snapper -c @ create --description "$desc" --userdata "important=yes"
-		sudo snapper -c @var create --description "$desc" --userdata "important=yes"
-	}
-fi
 #LVM: alias snap="sudo lvcreate -s /dev/ssd/arch -n snap -L 5G && sudo lvcreate -s /dev/hdd/arch -n snap -L 5G"
 
 # Mkdir and cd to it
@@ -87,14 +77,14 @@ alias hs="python -m http.server"
 
 # Browsing
 alias_if gc cd ~/Code
-alias_if g. cd ~/.local/opt/dotfiles
-alias_if gt cd ~/.local/opt/scripts
+alias_if g. cd ~/.opt/dotfiles
+alias_if gt cd ~/.opt/scripts
 alias_if gv cd ~/Vídeos
 alias gd="cd ~/Downloads"
-alias ga="cd /mnt/airport"
-alias_if gar mount_and_cd /mnt/airport/romildo
-alias_if gar mount_and_cd /mnt/airport/rafael
-alias_if gad mount_and_cd /mnt/airport/Data
+alias ga="cd /net/airport"
+alias_if gar mount_and_cd /net/airport/romildo
+alias_if gar mount_and_cd /net/airport/rafael
+alias_if gad mount_and_cd /net/airport/Data
 
 
 # Mirrors

@@ -8,7 +8,6 @@
 . ~/.config/bash_aliases/base
 
 # System
-alias wel="$HOME/.config/profile/pi_welcome"
 alias reb="sudo reboot"
 alias poweroff="printf 'Are you sure?\n'"
 
@@ -23,15 +22,14 @@ alias td='echo "standby 0" | cec-client -s'
 alias tl='echo "on 0" | cec-client -s'
 
 # Browsing
-alias ga="cd /airport"
 alias gd="cd /airport/data/Downloads"
 alias gu="cd /srv/files/uploads"
 alias gx="cd /srv"
 alias_if gk cd "/var/lib/kodi/.kodi"
 alias_if gk cd "$HOME/.kodi"
-alias gr="cd /opt/rc"
-alias g.="cd /opt/rc/dotfiles"
-alias gt="cd /opt/rc/scripts"
+alias go="cd /opt"
+alias g.="cd /opt/dotfiles"
+alias gt="cd /opt/scripts"
 
 # Pulseaudio
 #alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \

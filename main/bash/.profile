@@ -56,7 +56,7 @@ if [[ "$HOSTNAME" == "localhost" && -n "$SSH_CLIENT" ]]; then
 	termux-wake-lock
 fi
 
-# If on Pi, run welcome
 if [[ "$HOSTNAME" == "pi"* ]]; then
-	~/.config/profile/pi_welcome
+	/opt/scripts/pi/welcome
 fi
+
