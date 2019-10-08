@@ -5,7 +5,7 @@
 
 
 # Source common aliases
-. ~/.config/bash_aliases/base
+. ~/.bash_aliases/base
 
 # System
 alias reb="sudo reboot"
