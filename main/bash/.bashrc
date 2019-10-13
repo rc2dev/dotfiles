@@ -19,10 +19,11 @@ if [ -f ~/.local/share/git-prompt.sh ]; then
 	. ~/.local/share/git-prompt.sh
 fi
 
-# Set PS1
-set_prompt() {
-	local RESET="\e[0m"; local GREEN="\e[32m"; local YELLOW="\e[33m"
-	local GREY="\e[90m"; local LGREY="\e[37m"
+build_ps1() {
+	local RESET="\e[00m"
+	local GREEN="\e[01;32m"
+	local BLUE="\e[01;34m"
+	local LGREY="\e[37m"
 
 	local title="\e]2;\w\a"
 	local chroot="${debian_chroot:+($debian_chroot)}"
@@ -35,10 +36,10 @@ set_prompt() {
 		fi
 	done
 
-	echo "${title}\n${chroot}${GREEN}\u@\h: ${YELLOW}\w${LGREY} $git $rvm${RESET} \n\$ "
+	echo "${title}\n${chroot}${GREEN}\u@\h${RESET}: ${BLUE}\w${LGREY} $git $rvm${RESET} \n\$ "
 }
-PS1=$(set_prompt)
-unset set_prompt
+PS1=$(build_ps1)
+unset build_ps1
 unset git
 
 # Prompt active tmux sessions
