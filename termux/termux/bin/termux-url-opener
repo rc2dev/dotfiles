@@ -1,2 +1,2 @@
-cd /sdcard/Download/
-youtube-dl --netrc "$1"
+bash ~/.opt/scripts/general/ydl "$@"
+
