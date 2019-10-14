@@ -18,7 +18,7 @@ if command -v ruby >/dev/null; then
 	PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 fi
 
-# [RVM installation script - RC condition] Add RVM to PATH for scripting
+# Add RVM to PATH for scripting
 # Make sure this is the last PATH variable change.
 if [ -d "$HOME/.rvm/bin" ]; then
 	PATH="$PATH:$HOME/.rvm/bin"

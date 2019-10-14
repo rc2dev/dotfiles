@@ -3,13 +3,13 @@
 #
 # Author: Rafael Cavalcanti
 
-# If not running interactively, don't do anything (veio do Arch)
+# If not running interactively, don't do anything (Arch)
 [[ $- != *i* ]] && return
 
-# [Debian/Ubuntu] chroot variable (copied)
+# [Debian/Ubuntu] chroot variable
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # Prepare Git prompt to PS1
@@ -74,28 +74,28 @@ HISTTIMEFORMAT="%h/%d - %H:%M:%S "
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Alias definitions.
+# Alias definitions
 if [ -f ~/.bash_aliases/$HOSTNAME ]; then
 	. ~/.bash_aliases/$HOSTNAME
 else
 	. ~/.bash_aliases/base
 fi
 
-# [Arch] Command not found - pkgfile (Arch Wiki)
+# Arch's command not found - pkgfile (Arch Wiki)
 if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
 	. /usr/share/doc/pkgfile/command-not-found.bash
 fi
-
-# RVM: To work, moved from ~/.profile (RVM installation script added there)
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# NVM (added --no-use, so it isn't so slow)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Workaround for having Git autocompletion on Mint 19
 if [[ "$(cat /etc/issue 2> /dev/null)" == "Linux Mint 19."* ]]; then
 	. /usr/share/bash-completion/completions/git
 fi
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# NVM (added --no-use, so it isn't so slow)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
