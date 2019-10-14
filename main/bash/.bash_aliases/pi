@@ -1,14 +1,13 @@
 #
 # Pi aliases
 #
-# Rafael Cavalcanti
+# Author: Rafael Cavalcanti
 
 
 # Source common aliases
 . ~/.bash_aliases/base
 
 # System
-alias reb="sudo reboot"
 alias poweroff="printf 'Are you sure?\n'"
 
 # Services
@@ -22,18 +21,11 @@ alias td='echo "standby 0" | cec-client -s'
 alias tl='echo "on 0" | cec-client -s'
 
 # Browsing
-alias gd="cd /airport/data/Downloads"
+alias gd="cd /net/airport/data/Downloads"
 alias gu="cd /srv/files/uploads"
 alias gx="cd /srv"
 alias_if gk cd "/var/lib/kodi/.kodi"
 alias_if gk cd "$HOME/.kodi"
-alias go="cd /opt"
 alias g.="cd /opt/dotfiles"
 alias gt="cd /opt/scripts"
 
-# Pulseaudio
-#alias mu="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
-#		true && echo Muted."
-#	alias um="pactl set-sink-mute alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo \
-#		false && echo Unmuted."
-#fi
