@@ -1,9 +1,0 @@
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-
-/* Changes for TST */
-
-/* Hide tab bar (https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#hide-horizontal-tabs-at-the-top-of-the-window-1349-1672-2147) */
-#tabbrowser-tabs {
-  visibility: collapse !important;
-}
-
