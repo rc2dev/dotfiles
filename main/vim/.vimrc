@@ -1,11 +1,13 @@
 " ~/.vimrc
 "
-" Autor: Rafael Cavalcanti
+" Author: Rafael Cavalcanti
 "
 
-set nocompatible				" Don't try to mimic Vi
+" Don't mimic Vi
+set nocompatible
 
 
+"======================================================================
 " vim-plug automatic instalation (copied from vim-plug's github)
 "======================================================================
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -14,12 +16,14 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" vim-plug
-"=======================================================================
-" Note: needs single quotes
-call plug#begin('~/.vim/plugged')		" Specify a directory for plugins
-Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }	" option needed
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" load only on demand
+
+"======================================================================
+" vim-plug (needs single quotes)
+"======================================================================
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" only load on demand
 Plug 'junegunn/goyo.vim'
 " Syntax
 Plug 'joanrivera/vim-zimwiki-syntax'
@@ -36,8 +40,9 @@ Plug 'w0ng/vim-hybrid'
 call plug#end()
 
 
+"======================================================================
 " APPEARANCE
-"=========================================================================
+"======================================================================
 " If both terminal and VIM support truecolor
 if $COLORTERM == "truecolor" && has("termguicolors")
 	set termguicolors             " Use truecolors
@@ -64,8 +69,9 @@ set showtabline=2               " Always show tab line
 set splitbelow                  " Splitting puts new window below current
 
 
+"======================================================================
 " SYNTAX AND FILE TYPES
-"=======================================================================
+"======================================================================
 " Enable syntax highlighting
 if has("syntax")
 	syntax on
@@ -82,8 +88,9 @@ autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | s
 autocmd BufRead,BufNewFile $HOME/Private/Notebooks/* set filetype=zimwiki
 
 
+"======================================================================
 " TABS
-"=======================================================================
+"======================================================================
 set tabstop=2
 set shiftwidth=2
 set noexpandtab
@@ -91,13 +98,15 @@ set noexpandtab
 " Ruby: For some reason, I have to repeat my preferences for Ruby files
 autocmd Filetype ruby setlocal noexpandtab tabstop=2 shiftwidth=2
 
-" Python: 4 spaces hard tab (softtabstop=4 faz backspace/delete excluir os 4 espaços de uma vez)
+" Python: 4 spaces soft tab
 " (http://www.vex.net/~x/python_and_vim.html)
+" softtabstop=4 makes backspace/delete operate over the 4 spaces at once
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 
+"======================================================================
 " FEATURES
-"=======================================================================
+"======================================================================
 " Uncomment to have Vim jump to the last position when reopening a file
 "if has("autocmd")
 "  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -105,35 +114,35 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 set modeline                        " Enable modeline
 set hidden                          " Allow buffers to be hidden without saving
-set mouse=r                         " (Não sei por quẽ) Fazer copia/cola do mouse funcionar
-"set clipboard=unnamedplus							" Use clipboard as default register
+set mouse=r                         " Make mouse copy/paste work
+"set clipboard=unnamedplus          " Use clipboard as default register
 set spelllang=pt_br,en_us,es_es     " Set spellcheck languages
 
 function! AutoTrim()
 	if !&binary && &filetype != 'diff'
-		:%s/\s\+$//e 											" remove trailing whitespace in every line
-		:%s/^\n\+\%$//e 									" remove blank lines at the end of the file
+		:%s/\s\+$//e                    " Remove trailing whitespace in every line
+		:%s/^\n\+\%$//e                 " Remove blank lines at the end of the file
 	endif
 endfunction
-autocmd BufWrite * call AutoTrim()	  " call AutoTrim when saving
+autocmd BufWrite * call AutoTrim()  " Call AutoTrim when saving
 
 " Turn on spell check for Git commits and use English
 autocmd Filetype gitcommit,markdown setlocal spelllang=en_us spell
 
-" Use friendlier line navigation on prose files
-autocmd Filetype markdown noremap j gj
-autocmd Filetype markdown noremap k gk
-autocmd Filetype markdown noremap <Down> gj
-autocmd Filetype markdown noremap <Up> gk
-autocmd Filetype markdown noremap <Home> g<Home>
-autocmd Filetype markdown noremap <End> g<End>
+" Create the "tags" file (simply run ctags)
+" NOW WE CAN: ^] to jump to tag under cursor; g^] for ambiguous tags; ^t to jump back up the tag stack
+command! MakeTags !ctags -R .
 
+
+"=======================================================================
 " PLUGINS CONFIGURATION
 "=======================================================================
 " vim-closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"	"enable it in erb files
+" enable for *.erb
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
 
 
+"=======================================================================
 " SEARCH ON BUFFER
 "=======================================================================
 set ignorecase           " Do case insensitive matching
@@ -141,14 +150,15 @@ set smartcase            " Do smart case matching
 set incsearch            " Incremental search
 
 
+"=======================================================================
 " COMMAND COMPLETION
 "=======================================================================
 set history=500          " Number of command lines remembered
 set wildmode=longest,list,full
 set wildmenu
-"set path+=**											" :find to search files recursively
 
 
+"=======================================================================
 " SHORTCUTS
 "=======================================================================
 " Remap leader key
@@ -180,15 +190,19 @@ nmap <silent> <A-Right> :wincmd l<CR>
 nnoremap <Leader>ev :e ~/.vimrc<CR>
 nnoremap <Leader>e3 :e ~/.config/i3/config<CR>
 
-" Addons
-nnoremap <Leader>f :NERDTreeToggle<CR>|          " Nerdtree (original: <C-n>)
+" Use friendlier line navigation on prose files
+autocmd Filetype markdown noremap j gj
+autocmd Filetype markdown noremap k gk
+autocmd Filetype markdown noremap <Down> gj
+autocmd Filetype markdown noremap <Up> gk
+autocmd Filetype markdown noremap <Home> g<Home>
+autocmd Filetype markdown noremap <End> g<End>
 
-" Create the "tags" file (simply run ctags)
-" NOW WE CAN: ^] to jump to tag under cursor; g^] for ambiguous tags; ^t to jump back up the tag stack
-command! MakeTags !ctags -R .
+" Nerdtree (default: <C-n>)
+nnoremap <Leader>f :NERDTreeToggle<CR>
 
 
-
+"=======================================================================
 " ABBREVIATIONS
 "=======================================================================
 iab rcc [RC]
@@ -196,6 +210,7 @@ iab rca [RC added]
 iab rcm [RC modified]
 
 
+"=======================================================================
 " PATHS
 "=======================================================================
 " Set a safe directory for swapfiles, so my SSD isn't destroyed.
