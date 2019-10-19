@@ -26,7 +26,6 @@ Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" only load on demand
 Plug 'junegunn/goyo.vim'
 " Syntax
-Plug 'joanrivera/vim-zimwiki-syntax'
 Plug 'PotatoesMaster/i3-vim-syntax'
 " Editing
 Plug 'tpope/vim-surround'
@@ -84,8 +83,6 @@ endif
 
 " Nginx syntax
 autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
-" Zim Wiki syntax
-autocmd BufRead,BufNewFile $HOME/Private/Notebooks/* set filetype=zimwiki
 
 
 "======================================================================
