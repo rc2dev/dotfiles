@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" only load on demand
 Plug 'junegunn/goyo.vim'
+Plug 'tpope/vim-sleuth'
 " Syntax
 Plug 'PotatoesMaster/i3-vim-syntax'
 " Editing
@@ -83,22 +84,6 @@ endif
 
 " Nginx syntax
 autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
-
-
-"======================================================================
-" TABS
-"======================================================================
-set tabstop=2
-set shiftwidth=2
-set noexpandtab
-
-" Ruby: For some reason, I have to repeat my preferences for Ruby files
-autocmd Filetype ruby setlocal noexpandtab tabstop=2 shiftwidth=2
-
-" Python: 4 spaces soft tab
-" (http://www.vex.net/~x/python_and_vim.html)
-" softtabstop=4 makes backspace/delete operate over the 4 spaces at once
-autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 
 "======================================================================
