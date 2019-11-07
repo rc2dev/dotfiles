@@ -66,19 +66,20 @@ alias reb="reboot || sudo reboot"
 alias ger="cat /dev/urandom | tr -dc "[:alnum:]" | head -c64 && echo"
 alias ger2="cat /dev/urandom | tr -dc "[:lower:]" | head -c64 && echo"
 
-# Git log
+# Git
 alias glg='git log --graph --oneline --all --decorate --pretty="%C(bold)%ad%C(reset) %C(yellow)%h%C(reset) %an %C(blue)%s" --date=format:"%y/%m/%d"'
 alias gln="git log --name-only"
+alias gD="git diff -- ':!package-lock.json' ':!yarn.lock'"
 
 # HTTP server
-alias hs="python -m http.server"
+alias hs="python3 -m http.server"
 
 # Browsing
 alias_if gc cd ~/Code
 alias_if g. cd ~/.opt/dotfiles
 alias_if gt cd ~/.opt/scripts
 alias_if gv cd ~/Vídeos
-alias gd="cd ~/Downloads"
+alias_if gd cd ~/Downloads
 alias ga="cd /net/airport"
 alias_if gar mount_and_cd /net/airport/romildo
 alias_if gar mount_and_cd /net/airport/rafael
