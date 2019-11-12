@@ -1,7 +1,10 @@
 #
 # ~/.profile
 #
-# Autor: Rafael Cavalcanti
+# Author: Rafael Cavalcanti
+
+# Make sure HOSTNAME is set (Zsh sets HOST)
+HOSTNAME=${HOSTNAME:-$(hostname)}
 
 # User's private bin
 if [ -d "$HOME/.local/bin" ] ; then
