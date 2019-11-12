@@ -1,5 +1,5 @@
 #
-# Common Bash aliases for all systems
+# Common shell aliases for all systems
 #
 # Author: Rafael Cavalcanti
 
@@ -7,11 +7,6 @@
 # ========================================
 # FUNCTIONS
 # ========================================
-
-# Mkdir and cd to it
-mkdirr() {
-	mkdir -p -- "$1" && cd -P -- "$1"
-}
 
 # Aux - mount if not, and cd
 mount_and_cd() {
@@ -55,16 +50,18 @@ alias la="ls -a"
 alias ll="ls -lh"
 alias lr="ls -R"
 
-# Bash commands
+# Shell
 alias c="clear"
 alias x="exit"
+alias ez="vim ~/.zshrc"
+alias sz="source ~/.zshrc"
 
 # Systemd
 alias reb="reboot || sudo reboot"
 
 # Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
-alias ger="cat /dev/urandom | tr -dc "[:alnum:]" | head -c64 && echo"
-alias ger2="cat /dev/urandom | tr -dc "[:lower:]" | head -c64 && echo"
+alias ger="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
+alias ger2="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
 
 # Git
 alias glg='git log --graph --oneline --all --decorate --pretty="%C(bold)%ad%C(reset) %C(yellow)%h%C(reset) %an %C(blue)%s" --date=format:"%y/%m/%d"'
