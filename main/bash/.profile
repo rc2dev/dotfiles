@@ -27,23 +27,11 @@ if [ -d "$HOME/.rvm/bin" ]; then
 	PATH="$PATH:$HOME/.rvm/bin"
 fi
 
-# Add my directory to Python search path for module files
-# (https://docs.python.org/2/using/cmdline.html#envvar-PYTHONPATH)
-#export PYTHONPATH="$HOME/code/python"
-
 # Editor
-#export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="vim"
 
-# Enable GNOME keyring for applications run through terminal (ArchWiki)
-if [ -n "$DESKTOP_SESSION" ]; then
-	eval $(gnome-keyring-daemon --start)
-	export SSH_AUTH_SOCK
-fi
-
-# Start SSH agent (ArchWiki)
-# This is not needed when using GNOME Keyring.
-# This doesn't make sense on Termux, so we exclude it.
+# Start OpenSSH agent (ArchWiki)
+# We exclude Termux, as this doesn't make sense for it.
 if [[ "$HOSTNAME" != "localhost" ]]; then
 	if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 		ssh-agent > ~/.ssh-agent-thing
