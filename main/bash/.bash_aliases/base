@@ -8,12 +8,6 @@
 # FUNCTIONS
 # ========================================
 
-# Aux - mount if not, and cd
-mount_and_cd() {
-	[ $# -ne 1 ] && printf "Wrong number of arguments.\n" && return
-	mount | grep "$1" > /dev/null || mount "$1" && cd "$1"
-}
-
 # Aux - set alias if path exists
 # Args: alias_name command path
 alias_if() {
@@ -78,9 +72,9 @@ alias_if gt cd ~/.opt/scripts
 alias_if gv cd ~/Vídeos
 alias_if gd cd ~/Downloads
 alias ga="cd /net/airport"
-alias_if gar mount_and_cd /net/airport/romildo
-alias_if gar mount_and_cd /net/airport/rafael
-alias_if gad mount_and_cd /net/airport/data
+alias_if gar cd /net/airport/romildo
+alias_if gar cd /net/airport/rafael
+alias_if gad cd /net/airport/data
 
 
 # Mirrors
