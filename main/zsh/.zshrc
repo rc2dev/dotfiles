@@ -95,6 +95,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # ===================================================================
 
+# Show hidden files on completion
+setopt globdots
+
 # Prompt active tmux sessions
 if ! { [[ "$TERM" == "screen" ]] && [[ -n "$TMUX" ]]; } then
 	tmux_sessions="$(tmux ls 2>/dev/null | wc -l)"
