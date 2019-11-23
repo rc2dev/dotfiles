@@ -98,6 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # Show hidden files on completion
 setopt globdots
 
+# Set colors for ls
+eval $(dircolors -b)
+
 # Prompt active tmux sessions
 if ! { [[ "$TERM" == "screen" ]] && [[ -n "$TMUX" ]]; } then
 	tmux_sessions="$(tmux ls 2>/dev/null | wc -l)"
