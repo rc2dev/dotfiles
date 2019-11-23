@@ -4,20 +4,6 @@
 # Author: Rafael Cavalcanti
 
 
-# ========================================
-# FUNCTIONS
-# ========================================
-
-# Aux - set alias if path exists
-# Args: alias_name command path
-alias_if() {
-	[ $# -ne 3 ] && printf "Wrong number of arguments.\n" && return
-	[ -e "$3" ] && alias $1="$2 '$3'"
-}
-
-# ========================================
-
-
 # Also check command after sudo for alias (see man bash)
 alias sudo="sudo "
 alias watch="watch "
@@ -40,9 +26,8 @@ alias grep="grep --color=auto"
 #alias egrep='egrep --color=auto'
 
 # Easy access to ls options
-alias la="ls -a"
+alias la="ls -A"
 alias ll="ls -lh"
-alias lr="ls -R"
 
 # Shell
 alias c="clear"
@@ -66,16 +51,11 @@ alias gD="git diff -- ':!package-lock.json' ':!yarn.lock'"
 alias hs="python3 -m http.server"
 
 # Browsing
-alias_if gc cd ~/Code
-alias_if g. cd ~/.opt/dotfiles
-alias_if gt cd ~/.opt/scripts
-alias_if gv cd ~/Vídeos
-alias_if gd cd ~/Downloads
-alias ga="cd /net/airport"
-alias_if gar cd /net/airport/romildo
-alias_if gar cd /net/airport/rafael
-alias_if gad cd /net/airport/data
-
+[ -d ~/.opt/dotfiles ] && alias g.="cd ~/.opt/dotfiles"
+[ -d ~/.opt/scripts ] && alias gt="cd ~/.opt/scripts"
+[ -d ~/Code ] && alias gc="cd ~/Code"
+[ -d ~/Downloads ] && alias gd="cd ~/Downloads"
+[ -d /net/airport ] && alias ga="cd /net/airport"
 
 # Mirrors
 ## Manjaro
