@@ -1,30 +1,16 @@
 # dotfiles
+
 This repository holds user-level configurations for my machines.
-
-
-## Directory structure
-
-Each root directory holds the settings for a group of machines. A level deeper, you find the directories for each software configuration.
-
 
 ## Installation
 
-The installation is done with GNU Stow. First, `cd` to the chosen group, then apply stow to whatever software you want, targetting the home directory.
+Each directory holds the settings for a software or a specific host. The installation is done with GNU Stow.
 
-For example, if you want to install my Bash config:
+For example, to install my Bash config:
 
 ```
-cd main
 stow -t ~ bash
 ```
-
-Or if you want to install my whole Termux config:
-
-```
-cd termux
-stow -t ~ *
-```
-
 
 ## License
 
