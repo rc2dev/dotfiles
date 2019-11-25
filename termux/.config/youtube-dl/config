@@ -1,3 +1,3 @@
 # Save in /sdcard/Download
--o /sdcard/Download/%(title)s.%(ext)s
+-o /sdcard/Download/%(title)s-%(id)s.%(ext)s
 
