@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Dotfiles installation script
+# Author: Rafael Cavalcanti
+
+ONLY_CLI=("bash" "git" "tmux" "vim" "zsh")
+TERMUX=("${ONLY_CLI[@]}" "termux")
+DEFAULT=("${ONLY_CLI[@]}" "fyodor" "nemo" "xbindkeys" "xorg")
+
+
+if ! command -v stow >/dev/null; then
+  printf "Install stow before running this script.\n"
+  exit 1
+fi
+
+if [[ "$HOSTNAME" == "localhost" ]]; then
+  printf "System detected as Termux. Installing...\n"
+  stow -t ~ "${TERMUX[@]}"
+  exit
+fi
+
+select option in "Default" "Only CLI"; do
+  case $option in
+  "Default")
+    printf "Installing default...\n"
+    stow -t ~ "${DEFAULT[@]}"
+    break
+    ;;
+  "Only CLI")
+    printf "Installing only CLI...\n"
+    stow -t ~ "${ONLY_CLI[@]}"
+    break
+    ;;
+  *)
+    printf "Invalid option.\n"
+    ;;
+  esac
+done
+

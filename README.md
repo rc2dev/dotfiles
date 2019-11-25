@@ -12,6 +12,8 @@ For example, to install my Bash config:
 stow -t ~ bash
 ```
 
+As an alternative, run `./install` and pick a group of directories to stow.
+
 ## License
 
 Released under [GNU GPL v3](LICENSE).
