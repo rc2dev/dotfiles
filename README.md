@@ -2,7 +2,13 @@
 
 This repository holds user-level configurations for my machines.
 
-## Installation
+## Manual installation
+
+First, initialize the submodules:
+
+```
+git submodule update --init --recursive
+```
 
 Each directory holds the settings for a software or a specific host. The installation is done with GNU Stow.
 
@@ -12,7 +18,9 @@ For example, to install my Bash config:
 stow -t ~ bash
 ```
 
-As an alternative, run `./install` and pick a group of directories to stow.
+## Automatic installation
+
+Just run `./install` and pick a group of directories to stow.
 
 ## License
 

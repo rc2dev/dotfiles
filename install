@@ -12,6 +12,9 @@ if ! command -v stow >/dev/null; then
   exit 1
 fi
 
+# Initialize submodules
+git submodule update --init --recursive
+
 if [[ "$HOSTNAME" == "localhost" ]]; then
   printf "System detected as Termux. Installing...\n"
   stow -t ~ "${TERMUX[@]}"
