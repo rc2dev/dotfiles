@@ -33,10 +33,9 @@ alias ll="ls -lh"
 alias c="clear"
 alias x="exit"
 alias ez="vim ~/.zshrc"
-alias sz="source ~/.zshrc"
 
 # Systemd
-alias reb="reboot || sudo reboot"
+alias reb="systemctl reboot"
 
 # Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias ger="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
@@ -45,17 +44,19 @@ alias ger2="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
 # Git
 alias glg='git log --graph --oneline --all --decorate --pretty="%C(bold)%ad%C(reset) %C(yellow)%h%C(reset) %an %C(blue)%s" --date=format:"%y/%m/%d"'
 alias gln="git log --name-only"
-alias gD="git diff -- ':!package-lock.json' ':!yarn.lock'"
+alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
 
 # HTTP server
 alias hs="python3 -m http.server"
 
 # Browsing
-[ -d ~/.opt/dotfiles ] && alias g.="cd ~/.opt/dotfiles"
-[ -d ~/.opt/scripts ] && alias gt="cd ~/.opt/scripts"
-[ -d ~/Code ] && alias gc="cd ~/Code"
-[ -d ~/Downloads ] && alias gd="cd ~/Downloads"
-[ -d /net/airport ] && alias ga="cd /net/airport"
+[ -d ~/.opt/dotfiles ] && alias z.="cd ~/.opt/dotfiles"
+[ -d /opt/dotfiles ] && alias z.="cd /opt/dotfiles"
+[ -d ~/.opt/scripts ] && alias zt="cd ~/.opt/scripts"
+[ -d /opt/scripts ] && alias zt="cd /opt/scripts"
+[ -d ~/Code ] && alias zc="cd ~/Code"
+[ -d ~/Downloads ] && alias zd="cd ~/Downloads"
+[ -d /net/airport ] && alias za="cd /net/airport"
 
 # Mirrors
 ## Manjaro

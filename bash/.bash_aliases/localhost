@@ -17,9 +17,9 @@ unalias grep
 alias ssh="ssha"
 
 # Browsing
-alias gd="cd /sdcard/Download"
-alias gx="cd /sdcard"
-alias gr="cd $PREFIX"
+alias zd="cd /sdcard/Download"
+alias zs="cd /sdcard"
+alias zr="cd $PREFIX"
 
 # Turn off TV via Pi
 alias td="ssh pi.lan -t bash -ic td"

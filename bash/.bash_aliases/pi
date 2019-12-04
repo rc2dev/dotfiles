@@ -21,11 +21,9 @@ alias td='echo "standby 0" | cec-client -s'
 alias tl='echo "on 0" | cec-client -s'
 
 # Browsing
-alias gd="cd /net/airport/data/Downloads"
-alias gu="cd /srv/files/uploads"
-alias gx="cd /srv"
-[ -d /var/lib/kodi/.kodi ] && alias gk="cd /var/lib/kodi/.kodi"
-[ -d "$HOME/.kodi" ] && alias gk="cd $HOME/.kodi"
-alias g.="cd /opt/dotfiles"
-alias gt="cd /opt/scripts"
+alias zd="cd /net/airport/data/Downloads"
+alias zu="cd /srv/files/uploads"
+alias zs="cd /srv"
+[ -d /var/lib/kodi/.kodi ] && alias zk="cd /var/lib/kodi/.kodi"
+[ -d "$HOME/.kodi" ] && alias zk="cd $HOME/.kodi"
 
