@@ -97,6 +97,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Show hidden files on completion
 setopt globdots
+# Don't show '..' and '.' on completion
+zstyle ':completion:*' special-dirs false
+
+# On ambiguous completion, insert first match immediatly
+setopt menu_complete
 
 # Set colors for ls
 eval $(dircolors -b)
