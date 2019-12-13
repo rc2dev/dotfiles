@@ -38,8 +38,8 @@ alias ez="vim ~/.zshrc"
 alias reb="systemctl reboot"
 
 # Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
-alias ger="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
-alias ger2="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
+alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
+alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
 
 # Git
 alias glg='git log --graph --oneline --all --decorate --pretty="%C(bold)%ad%C(reset) %C(yellow)%h%C(reset) %an %C(blue)%s" --date=format:"%y/%m/%d"'

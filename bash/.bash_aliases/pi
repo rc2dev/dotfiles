@@ -11,8 +11,10 @@
 alias poweroff="printf 'Are you sure?\n'"
 
 # Services
-alias kr="sudo systemctl restart kodi"
-alias ks="sudo systemctl stop kodi"
+if systemctl status kodi > /dev/null 2>&1; then
+	alias kr="sudo systemctl restart kodi"
+	alias ks="sudo systemctl stop kodi"
+fi
 systemctl status pifi-radio > /dev/null 2>&1 && \
 	alias prr="sudo systemctl restart pifi-radio"
 
@@ -21,9 +23,9 @@ alias td='echo "standby 0" | cec-client -s'
 alias tl='echo "on 0" | cec-client -s'
 
 # Browsing
-alias zd="cd /net/airport/data/Downloads"
-alias zu="cd /srv/files/uploads"
 alias zs="cd /srv"
+[ -d /srv/files/Downloads ] && alias zd="cd /srv/files/Downloads"
+[ -d /net/airport/data/Downloads ] && alias zD="cd /net/airport/data/Downloads"
 [ -d /var/lib/kodi/.kodi ] && alias zk="cd /var/lib/kodi/.kodi"
 [ -d "$HOME/.kodi" ] && alias zk="cd $HOME/.kodi"
 
