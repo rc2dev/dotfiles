@@ -6,7 +6,7 @@
 # =================================================================
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$ZDOTDIR/oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -69,7 +69,7 @@ DEFAULT_USER=`whoami`
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="$HOME/.oh-my-custom"
+ZSH_CUSTOM="$ZDOTDIR/oh-my-custom"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -115,15 +115,16 @@ if ! { [[ "$TERM" == "screen" ]] && [[ -n "$TMUX" ]]; } then
 fi
 
 # Alias definitions
-if [ -f ~/.bash_aliases/$HOSTNAME ]; then
-	. ~/.bash_aliases/$HOSTNAME
+ALIASES_DIR="$HOME/.config/shell/aliases"
+if [ -f "$ALIASES_DIR/$HOSTNAME" ]; then
+	. "$ALIASES_DIR/$HOSTNAME"
 else
-	. ~/.bash_aliases/base
+	. "$ALIASES_DIR/base"
 fi
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # NVM
-. ~/.nvm_lazy.sh
+. ~/.config/shell/nvm_lazy.sh
 

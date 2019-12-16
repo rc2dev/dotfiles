@@ -5,7 +5,7 @@
 
 
 # Source common aliases
-. ~/.bash_aliases/base
+. $ALIASES_DIR/base
 
 # System
 alias poweroff="printf 'Are you sure?\n'"

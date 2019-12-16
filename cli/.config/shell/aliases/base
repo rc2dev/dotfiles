@@ -32,7 +32,7 @@ alias ll="ls -lh"
 # Shell
 alias c="clear"
 alias x="exit"
-alias ez="vim ~/.zshrc"
+alias ez="vim $ZDOTDIR/.zshrc"
 
 # Systemd
 alias reb="systemctl reboot"

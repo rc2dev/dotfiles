@@ -13,10 +13,10 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # Prepare Git prompt to PS1
-if [ -f ~/.local/share/git-prompt.sh ]; then
+if [ -f ~/.config/shell/git-prompt.sh ]; then
 	git="\$(__git_ps1)"
 	GIT_PS1_SHOWDIRTYSTATE=1
-	. ~/.local/share/git-prompt.sh
+	. ~/.config/shell/git-prompt.sh
 fi
 
 build_ps1() {
@@ -75,10 +75,11 @@ HISTTIMEFORMAT="%h/%d - %H:%M:%S "
 shopt -s checkwinsize
 
 # Alias definitions
-if [ -f ~/.bash_aliases/$HOSTNAME ]; then
-	. ~/.bash_aliases/$HOSTNAME
+ALIASES_DIR="$HOME/.config/shell/aliases"
+if [ -f "$ALIASES_DIR/$HOSTNAME" ]; then
+	. "$ALIASES_DIR/$HOSTNAME"
 else
-	. ~/.bash_aliases/base
+	. "$ALIASES_DIR/base"
 fi
 
 # Arch's command not found - pkgfile (Arch Wiki)
@@ -95,4 +96,4 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # NVM
-. ~/.nvm_lazy.sh
+. ~/.config/shell/nvm_lazy.sh

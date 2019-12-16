@@ -1,9 +1,9 @@
-[submodule "base/.oh-my-zsh"]
-	path = cli/.oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "base/.oh-my-custom/plugins/zsh-autosuggestions"]
-	path = cli/.oh-my-custom/plugins/zsh-autosuggestions
+[submodule "cli/.config/zsh/plugins/zsh-autosuggestions"]
+	path = cli/.config/zsh/oh-my-custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "base/.oh-my-custom/plugins/zsh-syntax-highlighting"]
-	path = cli/.oh-my-custom/plugins/zsh-syntax-highlighting
+[submodule "cli/.config/zsh/plugins/zsh-syntax-highlighting"]
+	path = cli/.config/zsh/oh-my-custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "cli/.config/zsh/oh-my-zsh"]
+	path = cli/.config/zsh/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
