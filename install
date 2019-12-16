@@ -2,11 +2,6 @@
 # Dotfiles installation script
 # Author: Rafael Cavalcanti
 
-ONLY_CLI=("bash" "git" "tmux" "vim" "zsh")
-TERMUX=("${ONLY_CLI[@]}" "termux")
-DEFAULT=("${ONLY_CLI[@]}" "fyodor" "nemo" "xbindkeys" "xorg")
-
-
 if ! command -v stow >/dev/null; then
   printf "Install stow before running this script.\n"
   exit 1
@@ -16,21 +11,21 @@ fi
 git submodule update --init --recursive
 
 if [[ "$HOSTNAME" == "localhost" ]]; then
-  printf "System detected as Termux. Installing...\n"
-  stow -t ~ "${TERMUX[@]}"
-  exit
+  host="termux"
+else
+  host="$(hostname)"
 fi
 
-select option in "Default" "Only CLI"; do
+select option in "CLI+GUI" "Only CLI"; do
   case $option in
-  "Default")
-    printf "Installing default...\n"
-    stow -t ~ "${DEFAULT[@]}"
+  "CLI+GUI")
+    printf "Installing CLI and GUI configs...\n"
+    stow -t ~ cli gui
     break
     ;;
   "Only CLI")
     printf "Installing only CLI...\n"
-    stow -t ~ "${ONLY_CLI[@]}"
+    stow -t ~ cli
     break
     ;;
   *)
@@ -39,3 +34,9 @@ select option in "Default" "Only CLI"; do
   esac
 done
 
+if [[ -d "hosts/${host}" ]]; then
+  printf "Host is %s. Installing host specific configs...\n" "${host}"
+
+  cd hosts
+  stow -t ~ "${host}"
+fi

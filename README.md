@@ -10,17 +10,20 @@ First, initialize the submodules:
 git submodule update --init --recursive
 ```
 
-Each directory holds the settings for a software or a specific host. The installation is done with GNU Stow.
+Each directory holds a set of cumullative settings. The installation is done with GNU Stow.
 
-For example, to install my Bash config:
+For example, to install my cli and gui configs:
 
 ```
-stow -t ~ bash
+stow -t ~ cli gui
 ```
+
+The `hosts` directory holds host specific configuration.
+
 
 ## Automatic installation
 
-Just run `./install` and pick a group of directories to stow.
+Just run `./install` and select what to stow. Any specific configurations for the machine will be installed automatically.
 
 ## License
 

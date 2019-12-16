@@ -1,4 +1,4 @@
-conky/.conkyrc filter=secrets_conky
+extras/conky/.conkyrc filter=secrets_conky
 darkice/.config/darkice.cfg filter=secrets_darkice
 vscode/.config/Code[[:space:]]-[[:space:]]OSS/User/settings.json filter=vscode_theme
 
