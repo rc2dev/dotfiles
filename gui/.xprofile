@@ -2,7 +2,9 @@
 # Rafael Cavalcanti
 
 # Keyboard map changes
-xmodmap $HOME/.Xmodmap
+if [ -f ~/.Xmodmap ]; then
+	xmodmap ~/.Xmodmap
+fi
 
 # On i3 and Xfce, use qt5ct to set QT5 theme
 if [[ "$XDG_CURRENT_DESKTOP" =~ ^(i3|XFCE)$ ]]; then
