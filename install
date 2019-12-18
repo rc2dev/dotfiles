@@ -16,7 +16,7 @@ else
   host="$(hostname)"
 fi
 
-select option in "CLI+GUI" "Only CLI"; do
+select option in "Only CLI" "CLI+GUI"; do
   case $option in
   "CLI+GUI")
     printf "Installing CLI and GUI configs...\n"
