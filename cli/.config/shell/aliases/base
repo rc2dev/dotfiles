@@ -32,6 +32,10 @@ alias ll="ls -lh"
 # Shell
 alias c="clear"
 alias x="exit"
+
+# Edit
+alias ea="vim $ALIASES_DIR"
+alias ev="vim ~/.vimrc"
 alias ez="vim $ZDOTDIR/.zshrc"
 
 # Systemd
