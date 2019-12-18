@@ -44,21 +44,24 @@ set termguicolors               " Use truecolors
 colorscheme gruvbox
 set bg=dark
 
-set nu
-set relativenumber
-set linebreak                   " More inteligent wrapping (don't break words)
-set scrolloff=10                " Minimum lines below cursor
-set showmatch                   " Show matching brackets
+" Interface
 set showcmd                     " Show partial command
 set noshowmode                  " Don't show modes below status line (redundant to Powerline)
 set laststatus=2                " Always show status line
 set showtabline=2               " Always show tab line
 set splitbelow                  " Splitting puts new window below current
 
+" Editor
+set nu
+set relativenumber
+set linebreak                   " More inteligent wrapping (don't break words)
+set scrolloff=10                " Minimum lines below cursor
+set showmatch                   " Show matching brackets
+" Show tabs and trailing spaces
+set list listchars=tab:→\ ,trail:·
 " Highlight current line in normal mode
 set cursorline
 autocmd InsertEnter,InsertLeave * set cursorline!
-
 
 "======================================================================
 " BEHAVIOUR
