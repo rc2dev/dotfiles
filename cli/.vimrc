@@ -32,22 +32,17 @@ Plug 'alvan/vim-closetag'
 Plug 'scrooloose/nerdcommenter'
 " Colorschemes
 Plug 'hzchirs/vim-material'
-Plug 'lu-ren/SerialExperimentsLain'
-Plug 'w0ng/vim-hybrid'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 
 "======================================================================
 " APPEARANCE
 "======================================================================
-" If both terminal and VIM support truecolor
-if $COLORTERM == "truecolor" && has("termguicolors")
-	set termguicolors             " Use truecolors
-	colorscheme vim-material      " This colorscheme needs truecolor
-else
-	set bg=dark
-	colorscheme industry
-endif
+" Theme
+set termguicolors               " Use truecolors
+colorscheme gruvbox
+set bg=dark
 
 set nu
 set relativenumber
