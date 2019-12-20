@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Enqueue on Celluloid
+Exec=celluloid --enqueue %F
+Icon-Name=io.github.celluloid_player.Celluloid
+Selection=notnone
+Extensions=nodirs
+Quote=double
