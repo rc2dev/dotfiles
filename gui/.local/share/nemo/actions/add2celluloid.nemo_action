@@ -1,7 +1,8 @@
 [Nemo Action]
 Name=Enqueue on Celluloid
 Exec=celluloid --enqueue %F
+Dependencies=celluloid;
 Icon-Name=io.github.celluloid_player.Celluloid
 Selection=notnone
-Extensions=nodirs
+Mimetypes=audio/*;video/*;
 Quote=double

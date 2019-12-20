@@ -1,7 +1,8 @@
 [Nemo Action]
 Name=Send to Phone
 Comment=Send file to phone via KDE Connect
-Exec=/home/rafael/.opt/scripts/general/send2phone %F
+Exec=send2phone %F
+Dependencies=send2phone;
 Icon-Name=phone
 Selection=notnone
 Extensions=nodirs

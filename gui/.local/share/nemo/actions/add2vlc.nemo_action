@@ -1,7 +1,8 @@
 [Nemo Action]
 Name=Add to VLC playlist
 Exec=vlc --one-instance --playlist-enqueue %F
+Dependencies=vlc;
 Icon-Name=vlc-panel
 Selection=notnone
-Extensions=nodirs
+Mimetypes=audio/*;video/*;
 Quote=double
