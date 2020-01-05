@@ -10,6 +10,11 @@ fi
 # Initialize submodules
 git submodule update --init --recursive
 
+# Create directories we don't want Stow to own
+mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.local/share"
+
+# Termux doesn't have a proper hostname
 if [[ "$HOSTNAME" == "localhost" ]]; then
   host="termux"
 else
