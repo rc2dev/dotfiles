@@ -46,8 +46,3 @@ if [[ "$HOSTNAME" == "localhost" && -n "$SSH_CLIENT" ]]; then
 	printf "Grabbing wake-lock...\n" 1>&2
 	termux-wake-lock
 fi
-
-if [[ "$HOSTNAME" == "pi"* ]]; then
-	/opt/scripts/pi/welcome
-fi
-
