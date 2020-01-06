@@ -15,8 +15,6 @@ if systemctl status kodi > /dev/null 2>&1; then
 	alias kr="sudo systemctl restart kodi"
 	alias ks="sudo systemctl stop kodi"
 fi
-systemctl status pifi-radio > /dev/null 2>&1 && \
-	alias prr="sudo systemctl restart pifi-radio"
 
 # TV and HDMI output
 alias td='echo "standby 0" | cec-client -s'
