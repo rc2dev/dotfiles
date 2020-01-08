@@ -103,6 +103,9 @@ zstyle ':completion:*' special-dirs false
 # On ambiguous completion, insert first match immediatly
 setopt menu_complete
 
+# Execute lines with history expansion directly
+setopt nohist_verify
+
 # Set colors for ls
 eval $(dircolors -b)
 
