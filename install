@@ -15,11 +15,10 @@ mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.local/share"
 
 # Termux doesn't have a proper hostname
-if [[ "$HOSTNAME" == "localhost" ]]; then
-  host="termux"
-else
-  host="$(hostname)"
-fi
+case "$(hostname)" in
+  localhost) host="termux" ;;
+  *) host="$(hostname)" ;;
+esac
 
 select option in "Only CLI" "CLI+GUI"; do
   case $option in
