@@ -39,7 +39,7 @@ select option in "Only CLI" "CLI+GUI"; do
   esac
 done
 
-if [[ -f "hosts/${host}" ]]; then
+if [[ -d "hosts/${host}" ]]; then
   printf "Host is %s. Installing host specific configs...\n" "${host}"
 
   cd hosts
