@@ -39,7 +39,7 @@ alias ev="vim ~/.vimrc"
 alias ez="vim $ZDOTDIR/.zshrc"
 
 # Systemd
-alias reb="systemctl reboot"
+alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 
 # Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"

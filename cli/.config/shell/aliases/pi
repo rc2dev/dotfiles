@@ -7,9 +7,6 @@
 # Source common aliases
 . $ALIASES_DIR/base
 
-# System
-alias poweroff="printf 'Are you sure?\n'"
-
 # Services
 if systemctl status kodi > /dev/null 2>&1; then
 	alias kr="sudo systemctl restart kodi"
@@ -22,7 +19,7 @@ alias tl='echo "on 0" | cec-client -s'
 
 # Browsing
 alias zs="cd /srv"
-[ -d /srv/files/Downloads ] && alias zd="cd /srv/files/Downloads"
+[ -d /srv/filedrop ] && alias zd="cd /srv/filedrop"
 [ -d /net/airport/data/Downloads ] && alias zD="cd /net/airport/data/Downloads"
 [ -d /var/lib/kodi/.kodi ] && alias zk="cd /var/lib/kodi/.kodi"
 [ -d "$HOME/.kodi" ] && alias zk="cd $HOME/.kodi"
