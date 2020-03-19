@@ -2,45 +2,81 @@
 # Dotfiles installation script
 # Author: Rafael Cavalcanti
 
-if ! command -v stow >/dev/null; then
-  printf "Install stow before running this script.\n"
-  exit 1
-fi
+main() {
+  check_cmd stow dconf
 
-# Initialize submodules
-git submodule update --init --recursive
+  # Initialize submodules.
+  git submodule update --init --recursive
 
-# Create directories we don't want Stow to own
-mkdir -p "$HOME/.config"
-mkdir -p "$HOME/.local/share"
+  # Create directories we don't want Stow to own.
+  mkdir -p "$HOME/.config"
+  mkdir -p "$HOME/.local/share"
 
-# Termux doesn't have a proper hostname
-case "$(hostname)" in
-  localhost) host="termux" ;;
-  *) host="$(hostname)" ;;
-esac
+  pick_install
 
-select option in "Only CLI" "CLI+GUI"; do
-  case $option in
-  "CLI+GUI")
-    printf "Installing CLI and GUI configs...\n"
-    stow -t ~ cli gui
-    break
-    ;;
-  "Only CLI")
-    printf "Installing only CLI...\n"
-    stow -t ~ cli
-    break
-    ;;
-  *)
-    printf "Invalid option.\n"
-    ;;
+  if $gui; then
+    do_stow cli gui
+    load_dconf
+  else
+    do_stow cli
+  fi
+
+  do_stow_host
+}
+
+log() {
+  printf "%s\n" "$*" 1>&2
+}
+
+# args: command_to_check ...
+check_cmd() {
+  for cmd in "$@"; do
+    if ! command -v $cmd >/dev/null; then
+      printf "Install %s before running this script.\n" "$cmd"
+      exit 1
+    fi
+  done
+}
+
+pick_install() {
+  select option in "Only CLI" "CLI+GUI"; do
+    case $option in
+    "CLI+GUI")
+      gui=true
+      break
+      ;;
+    "Only CLI")
+      gui=false
+      break
+      ;;
+    *)
+      printf "Invalid option.\n"
+      ;;
+    esac
+  done
+}
+
+load_dconf() {
+  log "Loading dconf settings..."
+  cat dconf/*.conf | dconf load /
+}
+
+do_stow() {
+  log "Doing stow for $@..."
+  stow -t ~ "$@"
+}
+
+do_stow_host() {
+  case "$(hostname)" in
+    localhost) local host="termux" ;;
+    *) local host="$(hostname)" ;;
   esac
-done
 
-if [[ -d "hosts/${host}" ]]; then
-  printf "Host is %s. Installing host specific configs...\n" "${host}"
+  [[ -d "hosts/${host}" ]] || return
 
+  log "Found host specific files."
   cd hosts
-  stow -t ~ "${host}"
-fi
+  do_stow "${host}"
+}
+
+main "$@"

@@ -2,31 +2,28 @@
 
 This repository holds user-level configurations for my machines.
 
-## Manual installation
+## Automatic installation
 
-First, initialize the submodules:
+Just run `./install` and select what to stow. Any specific configurations for the machine will be installed automatically.
 
-```
-git submodule update --init --recursive
-```
+## Directory structure
 
-Each directory holds a set of cumullative settings. The installation is done with GNU Stow.
-
-For example, to install my cli and gui configs:
+Each directory holds a set of cumulative settings. The installation is done with GNU Stow. For example, to install my cli and gui configs:
 
 ```
 stow -t ~ cli gui
 ```
 
-The `hosts` directory holds host specific configuration.
+Machine specific configuration is placed under `hosts`.
 
+The directory `dconf` is not _stowable_. It holds gsettings configurations in plain text, and you can run this command to load them:
 
-## Automatic installation
-
-Just run `./install` and select what to stow. Any specific configurations for the machine will be installed automatically.
+```
+cat dconf/*.conf | dconf load /
+```
 
 ## License
 
 Released under [GNU GPL v3](LICENSE).
 
-Copyright 2018 Rafael Cavalcanti
+Copyright 2018-2020 Rafael Cavalcanti
