@@ -1,18 +1,23 @@
-! Keymap changes
+! Modifications to keymap
 !
-! Rafael Cavalcanti
+! Author: Rafael Cavalcanti
 !
 
-! PgUp and PgDown - Home and End
+! Swap PgUp/PgDown with Home/End
 keycode 110 = Prior NoSymbol Prior
 keycode 112 = Home NoSymbol Home
 keycode 115 = Next NoSymbol Next
 keycode 117 = End NoSymbol End
 
+! Swap Insert with PrintScreen
+keycode 118 = Print NoSymbol Print NoSymbol Print Print
+keycode 218 = Insert NoSymbol Insert NoSymbol Insert Insert
+
+! For br-abnt2: Move missing keys to alt-gr
+keycode 38 = a A a A backslash backslash
+keycode 39 = s S s S bar bar
+
 ! For us-intl: single tap on " gives quotes (diaeresis on altGr)
 ! Originally, it's the opposite (diaresis directly and quotes on altGr)
 !keycode 48 = dead_acute quotedbl apostrophe dead_diaeresis apostrophe dead_diaeresis dead_acute dagger dead_tilde dead_circumflex asciitilde asciicircum dead_acute dead_diaeresis braceleft braceleft
 
-!! For br-abnt2: Move missing keys to alt-gr
-keycode 38 = a A a A backslash backslash
-keycode 39 = s S s S bar bar
