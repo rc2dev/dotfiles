@@ -38,13 +38,6 @@ alias ea="vim $ALIASES_DIR"
 alias ev="vim ~/.vimrc"
 alias ez="vim $ZDOTDIR/.zshrc"
 
-# Systemd
-alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
-
-# Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
-alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
-alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
-
 # Git
 alias glg='git log --graph --oneline --all --decorate --pretty="%C(bold)%ad%C(reset) %C(yellow)%h%C(reset) %an %C(blue)%s" --date=format:"%y/%m/%d"'
 alias gln="git log --name-only"
@@ -52,6 +45,15 @@ alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
 
 # HTTP server
 alias hs="python3 -m http.server"
+
+# Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
+alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
+alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
+
+# Run NPM module markdown-link-check
+mlc() {
+	find $1 -name *.md -exec markdown-link-check -p {} \;
+}
 
 # Browsing
 [ -d ~/.opt/dotfiles ] && alias z.="cd ~/.opt/dotfiles"
@@ -72,3 +74,5 @@ elif command -v reflector > /dev/null; then
 		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
 fi
 
+# System
+alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
