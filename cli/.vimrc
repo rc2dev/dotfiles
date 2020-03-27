@@ -22,7 +22,7 @@ endif
 "======================================================================
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }
+Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" only load on demand
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-sleuth'
@@ -31,8 +31,9 @@ Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'scrooloose/nerdcommenter'
 " Colorschemes
-Plug 'hzchirs/vim-material'
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 
@@ -41,7 +42,7 @@ call plug#end()
 "======================================================================
 " Theme
 set termguicolors               " Use truecolors
-colorscheme gruvbox
+colorscheme onedark
 set bg=dark
 
 " Interface
@@ -132,9 +133,12 @@ autocmd Filetype gitcommit,markdown setlocal spelllang=en_us spell
 " PLUGINS CONFIGURATION
 "=======================================================================
 " vim-closetag
-" enable for *.erb
+" Enable for *.erb
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
 
+" vim-airline
+" Show open buffers on top
+let g:airline#extensions#tabline#enabled = 1
 
 "=======================================================================
 " KEYBINDINGS
