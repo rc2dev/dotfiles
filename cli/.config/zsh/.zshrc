@@ -82,7 +82,6 @@ plugins=(
 	command-not-found
 	dircycle
 	dirpersist
-	nvm
 	z
 	zsh-autosuggestions
 	zsh-syntax-highlighting
