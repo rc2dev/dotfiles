@@ -3,8 +3,6 @@
 # Author: Rafael Cavalcanti
 
 main() {
-  check_cmd stow dconf
-
   # Initialize submodules.
   git submodule update --init --recursive
 
@@ -57,12 +55,16 @@ pick_install() {
 }
 
 load_dconf() {
+  check_cmd dconf
+
   log "Loading dconf settings..."
   cat dconf/*.conf | dconf load /
 }
 
 do_stow() {
-  log "Doing stow for $@..."
+  check_cmd stow
+
+  log "Doing stow for $*..."
   stow -t ~ "$@"
 }
 
