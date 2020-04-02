@@ -2,6 +2,8 @@
 # Dotfiles installation script
 # Author: Rafael Cavalcanti
 
+set -euo pipefail
+
 main() {
   # Initialize submodules.
   git submodule update --init --recursive
