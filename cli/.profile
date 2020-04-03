@@ -46,3 +46,8 @@ if [[ "$HOSTNAME" == "localhost" && -n "$SSH_CLIENT" ]]; then
 	printf "Grabbing wake-lock...\n" 1>&2
 	termux-wake-lock
 fi
+
+# WSL: fix umask
+if [[ "$(umask)" == "0000" ]]; then
+	umask 0027
+fi
