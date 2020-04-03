@@ -63,6 +63,7 @@ mlc() {
 [ -d ~/Code ] && alias zc="cd ~/Code"
 [ -d ~/Downloads ] && alias zd="cd ~/Downloads"
 [ -d /net/airport ] && alias za="cd /net/airport"
+[ -d /mnt/c/Users/rccav ] && alias zh="cd /mnt/c/Users/rccav"
 
 # Mirrors
 ## Manjaro
