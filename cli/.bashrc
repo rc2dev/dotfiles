@@ -50,18 +50,15 @@ if ! { [[ "$TERM" == "screen" ]] && [[ -n "$TMUX" ]]; } then
 	fi
 fi
 
+# Radline macros
 # History completion with arrow keys
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+bind "set show-all-if-ambiguous on"
+bind "set completion-ignore-case on"
 
 # Don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
-
-# Append to the history file, don't overwrite it
-shopt -s histappend
-
-# cd without cd
-shopt -s autocd
 
 # For setting history length
 HISTSIZE=2000
@@ -70,9 +67,15 @@ HISTFILESIZE=3000
 # Time stamps in history
 HISTTIMEFORMAT="%h/%d - %H:%M:%S "
 
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
 # Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# cd without cd
+shopt -s autocd
 
 # Alias definitions
 ALIASES_DIR="$HOME/.config/shell/aliases"
