@@ -11,6 +11,7 @@ main() {
   # Create directories we don't want Stow to own.
   mkdir -p "$HOME/.config"
   mkdir -p "$HOME/.local/share"
+  mkdir -p "$HOME/.vim"
 
   pick_install
 

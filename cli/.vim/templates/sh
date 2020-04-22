@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly SCRIPT_NAME=$(basename "$0")
+readonly SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+main() {
+  # check_args "${@}"
+  :
+}
+
+# Helper functions
+
+main "$@"

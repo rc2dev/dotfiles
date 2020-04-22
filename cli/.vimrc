@@ -191,6 +191,13 @@ iab rca [RC added]
 iab rcm [RC modified]
 
 
+"=======================================================================
+" TEMPLATES
+"=======================================================================
+augroup templates
+	autocmd BufNewFile *.sh 0r ~/.vim/templates/sh
+augroup END
+
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
 	source /etc/vim/vimrc.local
