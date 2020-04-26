@@ -24,6 +24,6 @@ cat dconf/*.conf | dconf load /
 
 ## License
 
-Released under [GNU GPL v3](LICENSE).
+Licensed under [GPLv3](LICENSE)
 
-Copyright 2018-2020 Rafael Cavalcanti
+Copyright (C) 2018-2020 [Rafael Cavalcanti](https://rafaelc.org/)

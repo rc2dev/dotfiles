@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-# Dotfiles installation script
-# Author: Rafael Cavalcanti
+#
+# Dotfiles installation script.
+#
+# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
 
 set -euo pipefail
 
