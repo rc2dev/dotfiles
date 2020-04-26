@@ -4,17 +4,17 @@
 
 set -euo pipefail
 
+readonly script_name=$(basename "${0}")
+readonly script_dir="$(dirname "$(readlink -f "$0")")"
+
 main() {
   # Initialize submodules.
   git submodule update --init --recursive
 
-  # Create directories we don't want Stow to own.
-  mkdir -p "$HOME/.config"
-  mkdir -p "$HOME/.local/share"
-  mkdir -p "$HOME/.vim"
+  rm_conflicts
+  make_dirs
 
   pick_install
-
   if $gui; then
     do_stow cli gui
     load_dconf
@@ -54,6 +54,28 @@ pick_install() {
       printf "Invalid option.\n"
       ;;
     esac
+  done
+}
+
+make_dirs() {
+  # Create directories we don't want Stow to own.
+  mkdir -p "$HOME/.config"
+  mkdir -p "$HOME/.local/share"
+  mkdir -p "$HOME/.vim"
+
+  # Create other directories I use.
+  mkdir -p "$HOME/.local/bin"
+  mkdir -p "$HOME/.local/opt"
+}
+
+# Remove conflicting skel files.
+rm_conflicts() {
+  local conflicts=(".bash_logout" ".bashrc" ".profile")
+
+  for file in "$conflicts"; do
+    if [[ -f "$script_dir/cli/$file" && -f "~/$file" ]]; then
+      rm -v "~/$file"
+    fi
   done
 }
 
