@@ -189,7 +189,8 @@ nnoremap <Leader>f :NERDTreeToggle<CR>
 iab rcc [RC]
 iab rca [RC added]
 iab rcm [RC modified]
-
+iab cc  Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org<CR>
+	\Licensed under GPLv3
 
 "=======================================================================
 " TEMPLATES
