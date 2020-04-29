@@ -168,16 +168,20 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
-" Edit preset files
+" Edit and source files
 nnoremap <Leader>ev :e ~/.vimrc<CR>
+nnoremap <Leader>sv :so ~/.vimrc<CR>
+
 
 " Use friendlier line navigation on prose files
-autocmd Filetype markdown noremap j gj
-autocmd Filetype markdown noremap k gk
-autocmd Filetype markdown noremap <Down> gj
-autocmd Filetype markdown noremap <Up> gk
-autocmd Filetype markdown noremap <Home> g<Home>
-autocmd Filetype markdown noremap <End> g<End>
+augroup navigation
+	autocmd Filetype markdown noremap j gj
+	autocmd Filetype markdown noremap k gk
+	autocmd Filetype markdown noremap <Down> gj
+	autocmd Filetype markdown noremap <Up> gk
+	autocmd Filetype markdown noremap <Home> g<Home>
+	autocmd Filetype markdown noremap <End> g<End>
+augroup END
 
 " Nerdtree (default: <C-n>)
 nnoremap <Leader>f :NERDTreeToggle<CR>
@@ -189,7 +193,7 @@ nnoremap <Leader>f :NERDTreeToggle<CR>
 iab rcc [RC]
 iab rca [RC added]
 iab rcm [RC modified]
-iab cc  Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org<CR>
+iab cc  Copyright (C) <C-r>=strftime("%Y")<CR> Rafael Cavalcanti - rafaelc.org<CR>
 	\Licensed under GPLv3
 
 "=======================================================================
