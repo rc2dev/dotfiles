@@ -16,15 +16,8 @@ if [ -d "$HOME/bin" ]; then
 	PATH="$HOME/bin:$PATH"
 fi
 
-# User's Ruby gems
 if command -v ruby >/dev/null; then
-	PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
-fi
-
-# Add RVM to PATH for scripting
-# Make sure this is the last PATH variable change.
-if [ -d "$HOME/.rvm/bin" ]; then
-	PATH="$PATH:$HOME/.rvm/bin"
+	PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
 # Editor

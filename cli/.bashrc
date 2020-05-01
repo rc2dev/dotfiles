@@ -94,7 +94,3 @@ fi
 if [[ "$(cat /etc/issue 2> /dev/null)" == "Linux Mint 19."* ]]; then
 	. /usr/share/bash-completion/completions/git
 fi
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
