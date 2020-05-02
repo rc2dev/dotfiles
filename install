@@ -75,9 +75,9 @@ make_dirs() {
 rm_conflicts() {
   local conflicts=(".bash_logout" ".bashrc" ".profile")
 
-  for file in "$conflicts"; do
-    if [[ -f "$script_dir/cli/$file" && -f "~/$file" ]]; then
-      rm -v "~/$file"
+  for file in "${conflicts[@]}"; do
+    if [[ -f "$script_dir/cli/$file" && -f "$HOME/$file" && ! -h "$HOME/$file" ]]; then
+      rm -v "$HOME/$file"
     fi
   done
 }
