@@ -4,19 +4,19 @@ This repository holds user-level configurations for my machines.
 
 ## Automatic installation
 
-Just run `./install` and select what to stow. Any specific configurations for the machine will be installed automatically.
+Just run `./install`. Any specific configurations for the machine will be installed automatically.
 
 ## Directory structure
 
-Each directory holds a set of cumulative settings. The installation is done with GNU Stow. For example, to install my cli and gui configs:
+The `home` directory holds my main configuration, while machine specific settings are placed under `hosts`.
+
+The installation is done with GNU Stow. For example, to install my main configuration:
 
 ```
-stow -t ~ cli gui
+stow -t ~ home
 ```
 
-Machine specific configuration is placed under `hosts`.
-
-The directory `dconf` is not _stowable_. It holds gsettings configurations in plain text, and you can run this command to load them:
+The `dconf` directory holds gsettings configurations in plain text, and they can be load with this command:
 
 ```
 cat dconf/*.conf | dconf load /

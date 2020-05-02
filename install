@@ -11,20 +11,16 @@ readonly script_name=$(basename "${0}")
 readonly script_dir="$(dirname "$(readlink -f "$0")")"
 
 main() {
+  check_cmd
+
   # Initialize submodules.
   git submodule update --init --recursive
 
   rm_conflicts
-  make_dirs
+  mk_dirs
 
-  pick_install
-  if $gui; then
-    do_stow cli gui
-    load_dconf
-  else
-    do_stow cli
-  fi
-
+  do_stow home
+  load_dconf
   do_stow_host
 }
 
@@ -32,9 +28,8 @@ log() {
   printf "%s\n" "$*" 1>&2
 }
 
-# args: command_to_check ...
 check_cmd() {
-  for cmd in "$@"; do
+  for cmd in "(git stow)"; do
     if ! command -v $cmd >/dev/null; then
       printf "Install %s before running this script.\n" "$cmd"
       exit 1
@@ -42,25 +37,7 @@ check_cmd() {
   done
 }
 
-pick_install() {
-  select option in "Only CLI" "CLI+GUI"; do
-    case $option in
-    "CLI+GUI")
-      gui=true
-      break
-      ;;
-    "Only CLI")
-      gui=false
-      break
-      ;;
-    *)
-      printf "Invalid option.\n"
-      ;;
-    esac
-  done
-}
-
-make_dirs() {
+mk_dirs() {
   # Create directories we don't want Stow to own.
   mkdir -p "$HOME/.config"
   mkdir -p "$HOME/.local/share"
@@ -76,22 +53,23 @@ rm_conflicts() {
   local conflicts=(".bash_logout" ".bashrc" ".profile")
 
   for file in "${conflicts[@]}"; do
-    if [[ -f "$script_dir/cli/$file" && -f "$HOME/$file" && ! -h "$HOME/$file" ]]; then
+    if [[ -f "$script_dir/home/$file" && -f "$HOME/$file" && ! -h "$HOME/$file" ]]; then
       rm -v "$HOME/$file"
     fi
   done
 }
 
 load_dconf() {
-  check_cmd dconf
+  if ! command -v dconf >/dev/null; then
+    log "dconf is not installed. Skipping..."
+    return 0
+  fi
 
   log "Loading dconf settings..."
   cat dconf/*.conf | dconf load /
 }
 
 do_stow() {
-  check_cmd stow
-
   log "Doing stow for $*..."
   stow -t ~ "$@"
 }
