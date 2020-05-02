@@ -11,17 +11,21 @@ if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Termux user's bin
+# Termux: User's private bin
 if [ -d "$HOME/bin" ]; then
 	PATH="$HOME/bin:$PATH"
 fi
 
+# Rubygem user's bin
 if command -v ruby >/dev/null; then
 	PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-# Editor
 export EDITOR="vim"
+
+if command -v mpc >/dev/null; then
+	export MPD_HOST="192.168.15.101"
+fi
 
 # Start OpenSSH agent (ArchWiki)
 # We exclude Termux, as this doesn't make sense for it.
