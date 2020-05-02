@@ -7,8 +7,10 @@
 
 set -euo pipefail
 
-readonly script_name=$(basename "${0}")
-readonly script_dir="$(dirname "$(readlink -f "$0")")"
+readonly SCRIPT_NAME=$(basename "${0}")
+readonly SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+readonly REQUIRED_CMDS=(git stow)
 
 main() {
   check_cmd
@@ -19,9 +21,9 @@ main() {
   rm_conflicts
   mk_dirs
 
-  do_stow home
-  load_dconf
-  do_stow_host
+  install_home
+  install_host
+  install_dconf
 }
 
 log() {
@@ -29,8 +31,8 @@ log() {
 }
 
 check_cmd() {
-  for cmd in "(git stow)"; do
-    if ! command -v $cmd >/dev/null; then
+  for cmd in "${REQUIRED_CMDS[@]}"; do
+    if ! command -v "$cmd" >/dev/null; then
       printf "Install %s before running this script.\n" "$cmd"
       exit 1
     fi
@@ -50,41 +52,41 @@ mk_dirs() {
 
 # Remove conflicting skel files.
 rm_conflicts() {
-  local conflicts=(".bash_logout" ".bashrc" ".profile")
+  local -r conflicts=(".bash_logout" ".bashrc" ".profile")
 
   for file in "${conflicts[@]}"; do
-    if [[ -f "$script_dir/home/$file" && -f "$HOME/$file" && ! -h "$HOME/$file" ]]; then
+    if [[ -f "$SCRIPT_DIR/home/$file" && -f "$HOME/$file" && ! -h "$HOME/$file" ]]; then
       rm -v "$HOME/$file"
     fi
   done
 }
 
-load_dconf() {
+install_dconf() {
+  local -r dconf_dir="${SCRIPT_DIR}/dconf"
+
   if ! command -v dconf >/dev/null; then
     log "dconf is not installed. Skipping..."
     return 0
   fi
 
   log "Loading dconf settings..."
-  cat dconf/*.conf | dconf load /
+  cat "$dconf_dir"/*.conf | dconf load /
 }
 
-do_stow() {
-  log "Doing stow for $*..."
-  stow -t ~ "$@"
+install_home() {
+  log "Doing stow..."
+  stow -t ~ home
 }
 
-do_stow_host() {
-  case "$(hostname)" in
-    localhost) local host="termux" ;;
-    *) local host="$(hostname)" ;;
-  esac
+install_host() {
+  local -r hosts_dir="${SCRIPT_DIR}/hosts"
+  local -r host="$(hostname)"
 
-  [[ -d "hosts/${host}" ]] || return
+  [[ -d "${hosts_dir}/$host" ]] || return
 
-  log "Found host specific files."
-  cd hosts
-  do_stow "${host}"
+  log "Found host specific files. Doing stow..."
+  cd "${hosts_dir}"
+  stow -t ~ "${host}"
 }
 
 main "$@"
