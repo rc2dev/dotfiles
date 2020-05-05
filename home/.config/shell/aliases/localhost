@@ -24,3 +24,9 @@ alias zr="cd $PREFIX"
 # Turn off TV via Pi
 alias td="ssh pi.lan -t bash -ic td"
 
+# Backup Termux
+alias backup="tar \
+  -C /data/data/com.termux/files \
+  -zcf /sdcard/Sync/Drop/termux-backup-$(date +"%Y-%m-%d_%H-%M-%S").tar.gz \
+  home usr"
+
