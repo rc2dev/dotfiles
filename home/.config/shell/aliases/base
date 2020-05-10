@@ -56,9 +56,9 @@ mlc() {
 }
 
 # Browsing
-[ -d ~/.opt/dotfiles ] && alias z.="cd ~/.opt/dotfiles"
+[ -d ~/.local/opt/dotfiles ] && alias z.="cd ~/.local/opt/dotfiles"
 [ -d /opt/dotfiles ] && alias z.="cd /opt/dotfiles"
-[ -d ~/.opt/scripts ] && alias zt="cd ~/.opt/scripts"
+[ -d ~/.local/opt/scripts ] && alias zt="cd ~/.local/opt/scripts"
 [ -d /opt/scripts ] && alias zt="cd /opt/scripts"
 [ -d ~/Code ] && alias zc="cd ~/Code"
 [ -d ~/Downloads ] && alias zd="cd ~/Downloads"
