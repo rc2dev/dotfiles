@@ -48,3 +48,8 @@ fi
 if [[ "$(umask)" == "0000" ]]; then
 	umask 0027
 fi
+
+# Make Qt use GTK style
+if [[ -n $DISPLAY ]]; then
+	export QT_QPA_PLATFORMTHEME=gtk2
+fi
