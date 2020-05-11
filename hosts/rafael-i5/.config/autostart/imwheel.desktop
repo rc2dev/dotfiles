@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=imwheel -b "4 5"
+Exec=imwheel --buttons "4 5"
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
