@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) %YEAR% Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
 set -euo pipefail
@@ -10,7 +10,7 @@ readonly script_dir="$(dirname "$(readlink -f "$0")")"
 
 main() {
   # check_args "${@}"
-  :
+  :%HERE%
 }
 
 # Helper functions

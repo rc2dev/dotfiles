@@ -30,6 +30,7 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'scrooloose/nerdcommenter'
+Plug 'aperezdc/vim-template'
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -140,6 +141,9 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
 " Show open buffers on top
 let g:airline#extensions#tabline#enabled = 1
 
+" vim-template
+let g:templates_directory = ["$HOME/.vim/templates"]
+
 "=======================================================================
 " KEYBINDINGS
 "=======================================================================
@@ -196,12 +200,6 @@ iab rcm [RC modified]
 iab cc  Copyright (C) <C-r>=strftime("%Y")<CR> Rafael Cavalcanti - rafaelc.org<CR>
 	\Licensed under GPLv3
 
-"=======================================================================
-" TEMPLATES
-"=======================================================================
-augroup templates
-	autocmd BufNewFile *.sh 0r ~/.vim/templates/sh
-augroup END
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
