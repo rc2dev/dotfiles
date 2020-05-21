@@ -52,7 +52,7 @@ alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
 
 # Run NPM module markdown-link-check
 mlc() {
-	find $1 -name *.md -exec markdown-link-check -p {} \;
+	find $1 -name \*.md -exec markdown-link-check -p {} \;
 }
 
 # Browsing
