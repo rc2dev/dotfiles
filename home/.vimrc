@@ -70,7 +70,7 @@ autocmd InsertEnter,InsertLeave * set cursorline!
 "======================================================================
 set modeline                    " Enable modeline
 set hidden                      " Allow buffers to be hidden without saving
-set mouse=r                     " Make mouse copy/paste work
+set mouse=a                     " Enable the use of the mouse
 
 " Create tags file (this just runs ctags). This allows:
 " ^] to jump to tag under cursor; g^] for ambiguous tags; ^t to jump back up the tag stack
@@ -83,7 +83,6 @@ set incsearch                   " Incremental search
 
 " Command completion
 set history=500                 " Number of command lines remembered
-set wildmode=longest,list,full
 set wildmenu
 
 
@@ -199,6 +198,7 @@ iab rca [RC added]
 iab rcm [RC modified]
 iab cc  Copyright (C) <C-r>=strftime("%Y")<CR> Rafael Cavalcanti - rafaelc.org<CR>
 	\Licensed under GPLv3
+
 
 
 " Source a global configuration file if available
