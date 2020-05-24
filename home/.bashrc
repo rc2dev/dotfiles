@@ -21,18 +21,10 @@ build_ps1() {
 	local -r chroot="${debian_chroot:+($debian_chroot)}"
 	local -r git="\$(__git_ps1)"
 
-	local -r rvm_paths=("$HOME/.rvm" "/usr/local/rvm")
-	for rvm_path in "${rvm_paths[@]}"; do
-		if [[ -f "${rvm_path}/bin/rvm-prompt" ]]; then
-			local -r rvm="\$(${rvm_path}/bin/rvm-prompt g)"
-			break
-		fi
-	done
-
 	GIT_PS1_SHOWDIRTYSTATE=1
 	. ~/.config/shell/git-prompt.sh
 
-	PS1="${title}\n${chroot}${green}\u@\h${reset}: ${blue}\w${light_grey} ${git} ${rvm}${reset} \n\$ "
+	PS1="${title}\n${chroot}${green}\u@\h${reset}: ${blue}\w${light_grey} ${git} ${reset} \n\$ "
 }
 build_ps1
 
