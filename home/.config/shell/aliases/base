@@ -55,6 +55,9 @@ mlc() {
 	find $1 -name \*.md -exec markdown-link-check -p {} \;
 }
 
+# Find broken links
+alias fbl="find . -xtype l"
+
 # Browsing
 [ -d ~/.local/opt/dotfiles ] && alias z.="cd ~/.local/opt/dotfiles"
 [ -d /opt/dotfiles ] && alias z.="cd /opt/dotfiles"
