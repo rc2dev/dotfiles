@@ -12,41 +12,35 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Prepare Git prompt to PS1
-if [ -f ~/.config/shell/git-prompt.sh ]; then
-	git="\$(__git_ps1)"
-	GIT_PS1_SHOWDIRTYSTATE=1
-	. ~/.config/shell/git-prompt.sh
-fi
-
 build_ps1() {
-	local RESET="\e[00m"
-	local GREEN="\e[01;32m"
-	local BLUE="\e[01;34m"
-	local LGREY="\e[37m"
+	local -r reset="\e[00m"
+	local -r green="\e[01;32m"
+	local -r blue="\e[01;34m"
+	local -r light_grey="\e[37m"
+	local -r title="\e]2;\w\a"
+	local -r chroot="${debian_chroot:+($debian_chroot)}"
+	local -r git="\$(__git_ps1)"
 
-	local title="\e]2;\w\a"
-	local chroot="${debian_chroot:+($debian_chroot)}"
-
-	local rvm_possible=("~/.rvm" "/usr/local/rvm")
-	for rvm_path in ${rvm_possible[@]}; do
-		if [ -f ${rvm_path}/bin/rvm-prompt ]; then
-			local rvm="\$(${rvm_path}/bin/rvm-prompt g)"
+	local -r rvm_paths=("$HOME/.rvm" "/usr/local/rvm")
+	for rvm_path in "${rvm_paths[@]}"; do
+		if [[ -f "${rvm_path}/bin/rvm-prompt" ]]; then
+			local -r rvm="\$(${rvm_path}/bin/rvm-prompt g)"
 			break
 		fi
 	done
 
-	echo "${title}\n${chroot}${GREEN}\u@\h${RESET}: ${BLUE}\w${LGREY} $git $rvm${RESET} \n\$ "
+	GIT_PS1_SHOWDIRTYSTATE=1
+	. ~/.config/shell/git-prompt.sh
+
+	PS1="${title}\n${chroot}${green}\u@\h${reset}: ${blue}\w${light_grey} ${git} ${rvm}${reset} \n\$ "
 }
-PS1=$(build_ps1)
-unset build_ps1
-unset git
+build_ps1
 
 # Prompt active tmux sessions
 if ! { [[ "$TERM" == "screen" ]] && [[ -n "$TMUX" ]]; } then
 	tmux_sessions="$(tmux ls 2>/dev/null | wc -l)"
 	if [[ "$tmux_sessions" != "0" ]]; then
-		printf "Sessões tmux ativas: %s\n" $tmux_sessions
+		printf "Sessões tmux ativas: %s\n" "$tmux_sessions"
 	fi
 fi
 
