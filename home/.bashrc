@@ -12,21 +12,20 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-build_ps1() {
-	local -r reset="\e[00m"
-	local -r green="\e[01;32m"
-	local -r blue="\e[01;34m"
-	local -r light_grey="\e[37m"
-	local -r title="\e]2;\w\a"
-	local -r chroot="${debian_chroot:+($debian_chroot)}"
-	local -r git="\$(__git_ps1)"
+GIT_PS1_SHOWDIRTYSTATE=1
+. ~/.config/shell/git-prompt.sh
 
-	GIT_PS1_SHOWDIRTYSTATE=1
-	. ~/.config/shell/git-prompt.sh
+_pp_reset="\e[00m"
+_pp_green="\e[01;32m"
+_pp_blue="\e[01;34m"
+_pp_light_grey="\e[37m"
+_pp_title="\e]2;\w\a"
+_pp_chroot="${debian_chroot:+($debian_chroot)}"
+_pp_git="\$(__git_ps1)"
 
-	PS1="${title}\n${chroot}${green}\u@\h${reset}: ${blue}\w${light_grey} ${git} ${reset} \n\$ "
-}
-build_ps1
+PS1="${_pp_title}\n"
+PS1+="${_pp_chroot}${_pp_green}\u@\h${_pp_reset}: ${_pp_blue}\w ${_pp_light_grey}${_pp_git}"
+PS1+="${_pp_reset}\n\$ "
 
 # Prompt active tmux sessions
 if ! { [[ "$TERM" == "screen" ]] && [[ -n "$TMUX" ]]; } then
