@@ -78,7 +78,6 @@ ZSH_CUSTOM="$ZDOTDIR/oh-my-custom"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	colored-man-pages
 	command-not-found
 	dircycle
 	dirpersist
