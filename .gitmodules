@@ -7,3 +7,6 @@
 [submodule "cli/.config/zsh/oh-my-zsh"]
 	path = home/.config/zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "home/.tmux"]
+	path = home/.tmux
+	url = https://github.com/gpakosz/.tmux.git
