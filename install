@@ -7,10 +7,10 @@
 
 set -euo pipefail
 
-readonly SCRIPT_NAME=$(basename "${0}")
-readonly SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+readonly script_name=$(basename "${0}")
+readonly script_dir="$(dirname "$(readlink -f "$0")")"
 
-readonly REQUIRED_CMDS=(git stow)
+readonly required_cmds=(git stow)
 
 main() {
   check_cmd
@@ -31,7 +31,7 @@ log() {
 }
 
 check_cmd() {
-  for cmd in "${REQUIRED_CMDS[@]}"; do
+  for cmd in "${required_cmds[@]}"; do
     if ! command -v "$cmd" >/dev/null; then
       printf "Install %s before running this script.\n" "$cmd"
       exit 1
@@ -55,14 +55,14 @@ rm_conflicts() {
   local -r conflicts=(".bash_logout" ".bashrc" ".profile")
 
   for file in "${conflicts[@]}"; do
-    if [[ -f "$SCRIPT_DIR/home/$file" && -f "$HOME/$file" && ! -h "$HOME/$file" ]]; then
+    if [[ -f "$script_dir/home/$file" && -f "$HOME/$file" && ! -h "$HOME/$file" ]]; then
       rm -v "$HOME/$file"
     fi
   done
 }
 
 install_dconf() {
-  local -r dconf_dir="${SCRIPT_DIR}/dconf"
+  local -r dconf_dir="${script_dir}/dconf"
 
   if ! command -v dconf >/dev/null; then
     log "dconf is not installed. Skipping..."
@@ -79,7 +79,7 @@ install_home() {
 }
 
 install_host() {
-  local -r hosts_dir="${SCRIPT_DIR}/hosts"
+  local -r hosts_dir="${script_dir}/hosts"
   local -r host="$(hostname)"
 
   [[ -d "${hosts_dir}/$host" ]] || return
