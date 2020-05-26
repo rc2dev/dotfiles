@@ -65,6 +65,9 @@ set list listchars=tab:→\ ,trail:·
 set cursorline
 autocmd InsertEnter,InsertLeave * set cursorline!
 
+" Enable syntax highlighting
+syntax on
+
 "======================================================================
 " BEHAVIOUR
 "======================================================================
@@ -85,16 +88,9 @@ set incsearch                   " Incremental search
 set history=500                 " Number of command lines remembered
 set wildmenu
 
-
-"======================================================================
-" SYNTAX
-"======================================================================
-" Enable syntax highlighting
-syntax on
-
-" Nginx syntax
-autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
-
+" Open quickfix automatically (for shellcheck)
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
 "======================================================================
 " CODE STYLE
@@ -117,17 +113,13 @@ endfunction
 autocmd BufWrite * call AutoTrim()
 
 "======================================================================
-" CODE LINTING
+" SPELL CHECK
 "======================================================================
-" Call shellcheck on saving sh files
-autocmd BufWritePost * if &ft == 'sh' | !shellcheck % ^@  endif
-
 " Set spell check languages
 set spelllang=pt_br,en_us,es_es
 
 " Turn on spell check for Git commits and use English
 autocmd Filetype gitcommit,markdown setlocal spelllang=en_us spell
-
 
 "=======================================================================
 " PLUGINS CONFIGURATION
@@ -174,7 +166,6 @@ nmap <silent> <A-Right> :wincmd l<CR>
 " Edit and source files
 nnoremap <Leader>ev :e ~/.vimrc<CR>
 nnoremap <Leader>sv :so ~/.vimrc<CR>
-
 
 " Use friendlier line navigation on prose files
 augroup navigation
