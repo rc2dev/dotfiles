@@ -1,2 +1,2 @@
-bash ~/.opt/scripts/general/ydl "$@"
+ydl "$@"
 
