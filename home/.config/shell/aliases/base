@@ -27,7 +27,7 @@ alias grep="grep --color=auto"
 
 # Easy access to ls options
 alias la="ls -A"
-alias ll="ls -lh"
+alias ll="ls -laFh"
 
 # Shell
 alias c="clear"
