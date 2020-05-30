@@ -1,2 +1,2 @@
 ---
-gem: --user-install
+gem: --user-install --no-doc
