@@ -59,8 +59,7 @@ mlc() {
 alias fbl="find . -xtype l"
 
 # Browsing
-[ -d ~/.local/opt/dotfiles ] && alias z.="cd ~/.local/opt/dotfiles"
-[ -d /opt/dotfiles ] && alias z.="cd /opt/dotfiles"
+alias z.="cd ~/.config/yadm"
 [ -d ~/.local/opt/scripts ] && alias zt="cd ~/.local/opt/scripts"
 [ -d /opt/scripts ] && alias zt="cd /opt/scripts"
 [ -d ~/Code ] && alias zc="cd ~/Code"
