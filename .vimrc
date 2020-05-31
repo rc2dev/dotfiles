@@ -32,6 +32,7 @@ Plug 'alvan/vim-closetag'
 Plug 'scrooloose/nerdcommenter'
 Plug 'aperezdc/vim-template'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'tpope/vim-fugitive'
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -53,6 +54,7 @@ set noshowmode                  " Don't show modes below status line (redundant 
 set laststatus=2                " Always show status line
 set showtabline=2               " Always show tab line
 set splitbelow                  " Splitting puts new window below current
+set splitright
 
 " Editor
 set nu
@@ -92,6 +94,10 @@ set wildmenu
 " Open quickfix automatically (for shellcheck)
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
+" Put swap files in one directory. Fallback to working dir.
+silent !mkdir -p ~/.vim/swap
+set directory=$HOME/.vim/swap//,.
 
 "======================================================================
 " CODE STYLE
@@ -148,17 +154,22 @@ noremap <Leader>d "+d
 noremap <Leader>p "+p
 set pastetoggle=<F2>
 
+" Run current file
+map <F5> <Esc>:w<CR>:vertical terminal %:p<CR>
 " Toggle spellcheck
-map <F6> :setlocal spell!<CR>|
+map <F6> :setlocal spell!<CR>
 " Go to next buffer
-nnoremap <Leader>l :bn<CR>|
+nnoremap <Leader>l :bn<CR>
 " Markdown preview
-nmap <Leader>p <Plug>MarkdownPreview
+nnoremap <Leader>mp :MarkdownPreview<CR>
 " Nerdtree (default: <C-n>)
 nnoremap <Leader>f :NERDTreeToggle<CR>
+" VIM Fugitive
+nnoremap <Leader>gs :Gstatus<CR>
 " Edit and source files
 nnoremap <Leader>ev :e ~/.vimrc<CR>
-nnoremap <Leader>sv :so ~/.vimrc<CR>
+command Sv :so ~/.vimrc
+
 
 " Panels operations
 nnoremap <Leader>w <C-w>
