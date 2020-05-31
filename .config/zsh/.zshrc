@@ -108,7 +108,7 @@ setopt nohist_verify
 eval $(dircolors -b)
 
 # Prompt active tmux sessions
-if ! { [[ "$TERM" == "screen" ]] && [[ -n "$TMUX" ]]; } then
+if [[ -z "$TMUX" ]]; then
 	tmux_sessions="$(tmux ls 2>/dev/null | wc -l)"
 	if [[ "$tmux_sessions" != "0" ]]; then
 		printf "Sessões tmux ativas: %s\n" $tmux_sessions

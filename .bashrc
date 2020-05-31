@@ -28,7 +28,7 @@ PS1+="${_pp_chroot}${_pp_green}\u@\h${_pp_reset}: ${_pp_blue}\w ${_pp_light_grey
 PS1+="${_pp_reset}\n\$ "
 
 # Prompt active tmux sessions
-if ! { [[ "$TERM" == "screen" ]] && [[ -n "$TMUX" ]]; } then
+if [[ -z "$TMUX" ]]; then
 	tmux_sessions="$(tmux ls 2>/dev/null | wc -l)"
 	if [[ "$tmux_sessions" != "0" ]]; then
 		printf "Sessões tmux ativas: %s\n" "$tmux_sessions"
