@@ -31,6 +31,7 @@ Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'scrooloose/nerdcommenter'
 Plug 'aperezdc/vim-template'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -147,14 +148,17 @@ noremap <Leader>d "+d
 noremap <Leader>p "+p
 set pastetoggle=<F2>
 
-" Go to next buffer
-nnoremap <Leader>l :bn<CR>|
-
 " Toggle spellcheck
 map <F6> :setlocal spell!<CR>|
-
-" Save as root
-cmap w!! w !sudo tee % > /dev/null
+" Go to next buffer
+nnoremap <Leader>l :bn<CR>|
+" Markdown preview
+nmap <Leader>p <Plug>MarkdownPreview
+" Nerdtree (default: <C-n>)
+nnoremap <Leader>f :NERDTreeToggle<CR>
+" Edit and source files
+nnoremap <Leader>ev :e ~/.vimrc<CR>
+nnoremap <Leader>sv :so ~/.vimrc<CR>
 
 " Panels operations
 nnoremap <Leader>w <C-w>
@@ -162,10 +166,6 @@ nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
-
-" Edit and source files
-nnoremap <Leader>ev :e ~/.vimrc<CR>
-nnoremap <Leader>sv :so ~/.vimrc<CR>
 
 " Use friendlier line navigation on prose files
 augroup navigation
@@ -177,8 +177,8 @@ augroup navigation
 	autocmd Filetype markdown noremap <End> g<End>
 augroup END
 
-" Nerdtree (default: <C-n>)
-nnoremap <Leader>f :NERDTreeToggle<CR>
+" Save as root
+cmap w!! w !sudo tee % > /dev/null
 
 
 "=======================================================================
