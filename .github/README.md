@@ -1,6 +1,12 @@
 # dotfiles
 
-This repository holds user-level configurations for my machines.
+User-level configuration for my machines.
+
+## Directory structure
+
+The directory structure currently follows the [yadm](https://yadm.io/) specification.
+
+Besides that, the [dconf directory](../.config/yadm/dconf) contains my gsettings configurations in plain text. Those are automatically loaded on bootstrapping.
 
 ## Installation
 
