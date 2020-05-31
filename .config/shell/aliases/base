@@ -43,6 +43,15 @@ alias glg='git log --graph --oneline --all --decorate --pretty="%C(bold)%ad%C(re
 alias gln="git log --name-only"
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
 
+# yadm
+alias ya="yadm add"
+alias yau="yadm add -u"
+alias yc="yadm commit -v"
+alias yc!="yadm commit -v --amend"
+alias yp="yadm push"
+alias ypf="yadm push --force-with-lease"
+alias yst="yadm status"
+
 # HTTP server
 alias hs="python3 -m http.server"
 
