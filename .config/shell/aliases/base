@@ -25,8 +25,7 @@ alias grep="grep --color=auto"
 #alias fgrep='fgrep --color=auto'
 #alias egrep='egrep --color=auto'
 
-# Easy access to ls options
-alias la="ls -A"
+# ls
 alias ll="ls -laFh"
 
 # Shell
@@ -38,6 +37,15 @@ alias ea="vim $ALIASES_DIR"
 alias ev="vim ~/.vimrc"
 alias ez="vim $ZDOTDIR/.zshrc"
 
+# Browsing
+alias z.="cd ~/.config/yadm"
+[ -d ~/.local/opt/scripts ] && alias zt="cd ~/.local/opt/scripts"
+[ -d /opt/scripts ] && alias zt="cd /opt/scripts"
+[ -d ~/Code ] && alias zc="cd ~/Code"
+[ -d ~/Downloads ] && alias zd="cd ~/Downloads"
+[ -d /net/airport ] && alias za="cd /net/airport"
+[ -d /mnt/c/Users/rccav ] && alias zh="cd /mnt/c/Users/rccav"
+
 # Git
 alias glg='git log --graph --oneline --all --decorate --pretty="%C(bold)%ad%C(reset) %C(yellow)%h%C(reset) %an %C(blue)%s" --date=format:"%y/%m/%d"'
 alias gln="git log --name-only"
@@ -48,16 +56,18 @@ alias ya="yadm add"
 alias yau="yadm add -u"
 alias yc="yadm commit -v"
 alias yc!="yadm commit -v --amend"
+alias yd="yadm diff"
+alias yl="yadm pull"
 alias yp="yadm push"
 alias ypf="yadm push --force-with-lease"
 alias yst="yadm status"
 
-# HTTP server
-alias hs="python3 -m http.server"
-
 # Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
 alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
+
+# HTTP server
+alias hs="python3 -m http.server"
 
 # Run NPM module markdown-link-check
 mlc() {
@@ -67,14 +77,8 @@ mlc() {
 # Find broken links
 alias fbl="find . -xtype l"
 
-# Browsing
-alias z.="cd ~/.config/yadm"
-[ -d ~/.local/opt/scripts ] && alias zt="cd ~/.local/opt/scripts"
-[ -d /opt/scripts ] && alias zt="cd /opt/scripts"
-[ -d ~/Code ] && alias zc="cd ~/Code"
-[ -d ~/Downloads ] && alias zd="cd ~/Downloads"
-[ -d /net/airport ] && alias za="cd /net/airport"
-[ -d /mnt/c/Users/rccav ] && alias zh="cd /mnt/c/Users/rccav"
+# Record audio
+alias rau="arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date +%FT%H%M%S).mp3""
 
 # Mirrors
 ## Manjaro
