@@ -59,9 +59,6 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# cd without cd
-shopt -s autocd
-
 # Alias definitions
 ALIASES_DIR="$HOME/.config/shell/aliases"
 if [ -f "$ALIASES_DIR/$HOSTNAME" ]; then

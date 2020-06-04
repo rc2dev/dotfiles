@@ -38,6 +38,9 @@ alias ev="vim ~/.vimrc"
 alias ez="vim $ZDOTDIR/.zshrc"
 
 # Browsing
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 alias z.="cd ~/.config/yadm"
 [ -d ~/.local/opt/scripts ] && alias zt="cd ~/.local/opt/scripts"
 [ -d /opt/scripts ] && alias zt="cd /opt/scripts"

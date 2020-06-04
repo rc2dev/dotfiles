@@ -104,6 +104,9 @@ setopt menu_complete
 # Execute lines with history expansion directly
 setopt nohist_verify
 
+# Disable autocd
+unsetopt auto_cd
+
 # Set colors for ls
 eval $(dircolors -b)
 
