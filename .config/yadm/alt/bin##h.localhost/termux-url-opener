@@ -1,2 +1,2 @@
-ydl "$@"
+bash ~/bin/ydl "$@"
 
