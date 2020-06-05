@@ -10,3 +10,6 @@
 [submodule "home/.tmux"]
 	path = .tmux
 	url = https://github.com/gpakosz/.tmux.git
+[submodule ".config/zsh/oh-my-custom/plugins/spaceship-prompt"]
+	path = .config/zsh/oh-my-custom/themes/spaceship-prompt
+	url = https://github.com/denysdovhan/spaceship-prompt.git
