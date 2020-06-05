@@ -65,9 +65,8 @@ alias yp="yadm push"
 alias ypf="yadm push --force-with-lease"
 alias yst="yadm status"
 
-# Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
-alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
-alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
+# Easier ssh
+alias s="ssh"
 
 # HTTP server
 alias hs="python3 -m http.server"
@@ -82,6 +81,10 @@ alias fbl="find . -xtype l"
 
 # Record audio
 alias rau="arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date +%FT%H%M%S).mp3""
+
+# Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
+alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
+alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
 
 # Mirrors
 ## Manjaro
