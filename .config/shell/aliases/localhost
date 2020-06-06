@@ -13,6 +13,9 @@ alias ln="ln -v"
 alias free="free -m"
 unalias grep
 
+# Screen is narrow, adapt ll
+alias ll="ls -laFh -og --group-directories-first"
+
 # Replace ssh with ssha wrapper, so we use ssh-agent
 alias ssh="ssha"
 
@@ -22,7 +25,7 @@ alias zs="cd /sdcard"
 alias zr="cd $PREFIX"
 
 # Turn off TV via Pi
-alias td="ssh pi.lan -t bash -ic td"
+alias td="ssh pi -t bash -ic td"
 
 # Backup Termux
 alias backup="tar \

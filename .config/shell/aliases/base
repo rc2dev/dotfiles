@@ -42,6 +42,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias z.="cd ~/.config/yadm"
+[ -d ~/.local/bin ] && alias zb="cd ~/.local/bin"
 [ -d ~/.local/opt/scripts ] && alias zt="cd ~/.local/opt/scripts"
 [ -d /opt/scripts ] && alias zt="cd /opt/scripts"
 [ -d ~/Code ] && alias zc="cd ~/Code"
@@ -50,23 +51,28 @@ alias z.="cd ~/.config/yadm"
 [ -d /mnt/c/Users/rccav ] && alias zh="cd /mnt/c/Users/rccav"
 
 # Git
-alias glg='git log --graph --oneline --all --decorate --pretty="%C(bold)%ad%C(reset) %C(yellow)%h%C(reset) %an %C(blue)%s" --date=format:"%y/%m/%d"'
-alias gln="git log --name-only"
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
+alias glo="git log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
+alias glon="glo --name-only"
 
 # yadm
 alias ya="yadm add"
 alias yau="yadm add -u"
+alias ybro="xdg-open https://github.com/rccavalcanti/dotfiles"
 alias yc="yadm commit -v"
 alias yc!="yadm commit -v --amend"
 alias yd="yadm diff"
 alias yl="yadm pull"
+alias ylo="yadm log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
+alias ylon="ylo --name-only"
 alias yp="yadm push"
 alias ypf="yadm push --force-with-lease"
 alias yst="yadm status"
 
-# Easier ssh
+# Easier commands
+alias cx="chmod +x"
 alias s="ssh"
+alias v="vnc"
 
 # HTTP server
 alias hs="python3 -m http.server"
