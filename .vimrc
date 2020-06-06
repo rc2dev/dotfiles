@@ -122,11 +122,15 @@ autocmd BufWrite * call AutoTrim()
 "======================================================================
 " SPELL CHECK
 "======================================================================
-" Set spell check languages
+" Set default languages
 set spelllang=pt_br,en_us,es_es
 
-" Turn on spell check for Git commits and use English
-autocmd Filetype gitcommit,markdown setlocal spelllang=en_us spell
+" Turn on for file types
+autocmd Filetype gitcommit,markdown setlocal spell
+
+" Set languages for specific files
+autocmd Filetype gitcommit setlocal spelllang=en_us
+autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
 
 "=======================================================================
 " PLUGINS CONFIGURATION
