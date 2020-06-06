@@ -71,6 +71,10 @@ autocmd InsertEnter,InsertLeave * set cursorline!
 " Enable syntax highlighting
 syntax on
 
+" netrw: Hide dotfiles by default
+let ghregex='\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_list_hide=ghregex
+
 "======================================================================
 " BEHAVIOUR
 "======================================================================
