@@ -1,15 +1,15 @@
 " ~/.vimrc
 "
-" Author: Rafael Cavalcanti
+" Author: Rafael Cavalcanti - rafaelc.org
 "
 
 " Don't mimic Vi
 set nocompatible
 
 
-"======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug automatic instalation (copied from vim-plug's github)
-"======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -17,16 +17,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 
-"======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug (needs single quotes)
-"======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" only load on demand
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-sleuth'
-Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'scrooloose/nerdcommenter'
@@ -41,9 +40,9 @@ Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 
-"======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE
-"======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
 set termguicolors               " Use truecolors
 colorscheme onedark
@@ -76,9 +75,10 @@ syntax on
 let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide=ghregex
 
-"======================================================================
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEHAVIOUR
-"======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set modeline                    " Enable modeline
 set hidden                      " Allow buffers to be hidden without saving
 set mouse=a                     " Enable the use of the mouse
@@ -104,9 +104,10 @@ autocmd QuickFixCmdPost    l* nested lwindow
 silent !mkdir -p ~/.vim/swap
 set directory=$HOME/.vim/swap//,.
 
-"======================================================================
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CODE STYLE
-"======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load indentation rules and plugin according to the detected filetype
 filetype plugin indent on
 
@@ -124,9 +125,10 @@ function! AutoTrim()
 endfunction
 autocmd BufWrite * call AutoTrim()
 
-"======================================================================
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SPELL CHECK
-"======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set default languages
 set spelllang=pt_br,en_us,es_es
 
@@ -137,9 +139,10 @@ autocmd Filetype gitcommit,markdown setlocal spell
 autocmd Filetype gitcommit setlocal spelllang=en_us
 autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
 
-"=======================================================================
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=
 " PLUGINS CONFIGURATION
-"=======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=
 " vim-closetag
 " Enable for *.erb
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
@@ -157,9 +160,10 @@ let g:tq_map_keys=0
 nnoremap <Leader>ts :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>ts y:ThesaurusQueryReplace <C-r>"<CR>
 
-"=======================================================================
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=
 " KEYBINDINGS
-"=======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=
 " Remap leader key
 let mapleader="\<Space>"
 
@@ -185,7 +189,6 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>ev :e ~/.vimrc<CR>
 command Sv :so ~/.vimrc
 
-
 " Panels operations
 nnoremap <Leader>w <C-w>
 nmap <silent> <A-Up> :wincmd k<CR>
@@ -207,9 +210,9 @@ augroup END
 cmap w!! w !sudo tee % > /dev/null
 
 
-"=======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ABBREVIATIONS
-"=======================================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab rcc [RC]
 iab rca [RC added]
 iab rcm [RC modified]
