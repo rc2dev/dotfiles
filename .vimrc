@@ -33,6 +33,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'aperezdc/vim-template'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'tpope/vim-fugitive'
+Plug 'ron89/thesaurus_query.vim'
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -149,6 +150,12 @@ let g:airline#extensions#tabline#enabled = 1
 
 " vim-template
 let g:templates_directory = ["$HOME/.vim/templates"]
+
+" thesaurus_query
+" Disable keymappings and set my own
+let g:tq_map_keys=0
+nnoremap <Leader>ts :ThesaurusQueryReplaceCurrentWord<CR>
+vnoremap <Leader>ts y:ThesaurusQueryReplace <C-r>"<CR>
 
 "=======================================================================
 " KEYBINDINGS
