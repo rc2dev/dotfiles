@@ -168,8 +168,8 @@ map <F5> <Esc>:w<CR>:vertical terminal %:p<CR>
 map <F6> :setlocal spell!<CR>
 " Go to next buffer
 nnoremap <Leader>l :bn<CR>
-" Markdown preview
 nnoremap <Leader>mp :MarkdownPreview<CR>
+nnoremap <Leader>g :Goyo<CR>
 " Nerdtree (default: <C-n>)
 nnoremap <Leader>f :NERDTreeToggle<CR>
 " VIM Fugitive
