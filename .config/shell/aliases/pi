@@ -20,7 +20,6 @@ alias tl='echo "on 0" | cec-client -s'
 # Browsing
 alias zs="cd /srv"
 [ -d /srv/filedrop ] && alias zd="cd /srv/filedrop"
-[ -d /net/airport/data/Downloads ] && alias zD="cd /net/airport/data/Downloads"
 [ -d "$HOME/.kodi" ] && alias zk="cd $HOME/.kodi"
 [ -d /var/lib/kodi/.kodi ] && alias zk="cd /var/lib/kodi/.kodi"
 

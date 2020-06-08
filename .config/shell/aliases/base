@@ -30,9 +30,11 @@ alias ll="ls -laFh"
 
 # Shell
 alias c="clear"
+alias q="exit"
 alias x="exit"
 
 # Edit
+alias e="vim"
 alias ea="vim $ALIASES_DIR"
 alias ev="vim ~/.vimrc"
 alias ez="vim $ZDOTDIR/.zshrc"
@@ -47,10 +49,10 @@ alias z.="cd ~/.config/yadm"
 [ -d /opt/scripts ] && alias zt="cd /opt/scripts"
 [ -d ~/Code ] && alias zc="cd ~/Code"
 [ -d ~/Downloads ] && alias zd="cd ~/Downloads"
-[ -d /net/airport ] && alias za="cd /net/airport"
 [ -d /mnt/c/Users/rccav ] && alias zh="cd /mnt/c/Users/rccav"
 
 # Git
+alias gbro="hub browse"
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
 alias glo="git log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
 alias glon="glo --name-only"
