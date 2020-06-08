@@ -33,6 +33,7 @@ Plug 'aperezdc/vim-template'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'tpope/vim-fugitive'
 Plug 'ron89/thesaurus_query.vim'
+Plug 'dkarter/bullets.vim'
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -177,10 +178,11 @@ set pastetoggle=<F2>
 map <F5> <Esc>:w<CR>:vertical terminal %:p<CR>
 " Toggle spellcheck
 map <F6> :setlocal spell!<CR>
-" Go to next buffer
-nnoremap <Leader>l :bn<CR>
+" Buffer navigation
+nnoremap <Leader>j :bp<CR>
+nnoremap <Leader>k :bn<CR>
 nnoremap <Leader>mp :MarkdownPreview<CR>
-nnoremap <Leader>g :Goyo<CR>
+noremap <F12> :Goyo<CR>
 " Nerdtree (default: <C-n>)
 nnoremap <Leader>f :NERDTreeToggle<CR>
 " VIM Fugitive
