@@ -16,7 +16,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug (needs single quotes)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -46,8 +45,12 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
 set termguicolors               " Use truecolors
-colorscheme onedark
 set bg=dark
+if hostname() == "localhost"
+	colorscheme gruvbox
+else
+	colorscheme onedark
+endif
 
 " Interface
 set showcmd                     " Show partial command
@@ -154,10 +157,11 @@ let g:airline#extensions#tabline#enabled = 1
 
 " vim-template
 let g:templates_directory = ["$HOME/.vim/templates"]
+let g:templates_no_builtin_templates = 1
 
 " thesaurus_query
 " Disable keymappings and set my own
-let g:tq_map_keys=0
+let g:tq_map_keys = 0
 nnoremap <Leader>ts :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>ts y:ThesaurusQueryReplace <C-r>"<CR>
 
@@ -175,21 +179,26 @@ noremap <Leader>p "+p
 set pastetoggle=<F2>
 
 " Run current file
-map <F5> <Esc>:w<CR>:vertical terminal %:p<CR>
+nnoremap <F5> :w<CR>:!%:p<CR>
+inoremap <F5> <C-o>:w<CR><C-o>:!%:p<CR>
+
 " Toggle spellcheck
-map <F6> :setlocal spell!<CR>
+nnoremap <F6> :setlocal spell!<CR>
+inoremap <F6> <C-o>:setlocal spell!<CR>
+
 " Buffer navigation
 nnoremap <Leader>j :bp<CR>
 nnoremap <Leader>k :bn<CR>
-nnoremap <Leader>mp :MarkdownPreview<CR>
-noremap <F12> :Goyo<CR>
-" Nerdtree (default: <C-n>)
-nnoremap <Leader>f :NERDTreeToggle<CR>
-" VIM Fugitive
-nnoremap <Leader>gs :Gstatus<CR>
-" Edit and source files
+
+" Edit files
 nnoremap <Leader>ev :e ~/.vimrc<CR>
-command Sv :so ~/.vimrc
+
+" Plugins
+nnoremap <Leader>mp :MarkdownPreview<CR>
+nnoremap <F12> :Goyo<CR>
+inoremap <F12> <C-o>:Goyo<CR>
+nnoremap <Leader>f :NERDTreeToggle<CR>
+nnoremap <Leader>gs :Gstatus<CR>
 
 " Panels operations
 nnoremap <Leader>w <C-w>
@@ -208,8 +217,9 @@ augroup navigation
 	autocmd Filetype markdown noremap <End> g<End>
 augroup END
 
-" Save as root
+" Save as root and source ~/.vimrc
 cmap w!! w !sudo tee % > /dev/null
+cmap sv :so ~/.vimrc
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
