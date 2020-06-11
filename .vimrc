@@ -57,8 +57,7 @@ set showcmd                     " Show partial command
 set noshowmode                  " Don't show modes below status line (redundant to Powerline)
 set laststatus=2                " Always show status line
 set showtabline=2               " Always show tab line
-set splitbelow                  " Splitting puts new window below current
-set splitright
+set splitbelow splitright       " Splitting puts new window right of / below current
 
 " Editor
 set nu
@@ -144,9 +143,9 @@ autocmd Filetype gitcommit setlocal spelllang=en_us
 autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS CONFIGURATION
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-closetag
 " Enable for *.erb
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
@@ -166,9 +165,9 @@ nnoremap <Leader>ts :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>ts y:ThesaurusQueryReplace <C-r>"<CR>
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap leader key
 let mapleader="\<Space>"
 
@@ -200,12 +199,21 @@ inoremap <F12> <C-o>:Goyo<CR>
 nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
-" Panels operations
-nnoremap <Leader>w <C-w>
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+" Navigate splits
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
+
+" Resize splits
+nnoremap <silent> <C-Left> :vertical resize +3<CR>
+nnoremap <silent> <C-Right> :vertical resize -3<CR>
+nnoremap <silent> <C-Up> :resize +3<CR>
+nnoremap <silent> <C-Down> :resize -3<CR>
+
+" Change 2 splits from/to vertical/horizontal
+nnoremap <Leader>th <C-w>t<C-w>H
+nnoremap <Leader>tv <C-w>t<C-w>K
 
 " Use friendlier line navigation on prose files
 augroup navigation
