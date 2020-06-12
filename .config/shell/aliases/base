@@ -32,6 +32,17 @@ alias ll="ls -laFh"
 alias c="clear"
 alias q="exit"
 alias x="exit"
+history-rank() {
+	local n=${1:-10}
+
+	history | \
+		awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | \
+		grep -v "./" | \
+		column -c3 -s " " -t | \
+		sort -nr | \
+		nl | \
+		head -n${n}
+}
 
 # Edit
 alias e="vim"
@@ -73,6 +84,7 @@ alias yst="yadm status"
 
 # Easier commands
 alias cx="chmod +x"
+alias o="xdg-open"
 alias s="ssh"
 alias v="vnc"
 
