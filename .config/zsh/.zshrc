@@ -16,6 +16,8 @@ ZSH_THEME="spaceship"
 
 # [RC added] Spaceship theme configuration
 SPACESHIP_DIR_COLOR="blue"
+SPACESHIP_VI_MODE_INSERT=""
+SPACESHIP_VI_MODE_SUFFIX=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -76,6 +78,7 @@ ZSH_CUSTOM="$ZDOTDIR/oh-my-custom"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+	vi-mode # should be before dircycle or it will reset the keybindings
 	command-not-found
 	dircycle
 	dirpersist
@@ -83,7 +86,7 @@ plugins=(
 	z
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	)
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,6 +108,12 @@ setopt nohist_verify
 
 # Disable autocd
 unsetopt auto_cd
+
+# vi-mode: Bring back search with arrow keys
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
 
 # Set colors for ls
 eval $(dircolors -b)
@@ -135,3 +144,4 @@ if [[ -f ~/Documents/quotes.md ]]; then
 	printf "From my notes:\n"
 	shuf -n 1 ~/Documents/Quotes/merged.md
 fi
+
