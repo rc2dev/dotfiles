@@ -102,6 +102,11 @@ alias fbl="find . -xtype l"
 # Record audio
 alias rau="arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date +%FT%H%M%S).mp3""
 
+# Find and stream audio
+function yta() {
+    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
+}
+
 # Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
 alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
