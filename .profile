@@ -50,6 +50,7 @@ if [[ "$(umask)" == "0000" ]]; then
 fi
 
 # Make Qt use GTK style
+# Be sure to install qt5-style-plugins
 if [[ -n $DISPLAY ]]; then
 	export QT_QPA_PLATFORMTHEME=gtk2
 fi
