@@ -100,10 +100,12 @@ mlc() {
 alias fbl="find . -xtype l"
 
 # Record audio
-alias rau="arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date +%FT%H%M%S).mp3""
+rau() {
+    arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date +%FT%H%M%S).mp3"
+}
 
 # Find and stream audio
-function yta() {
+yta() {
     mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 }
 
