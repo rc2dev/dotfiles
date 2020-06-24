@@ -16,6 +16,11 @@ if [ -d "$HOME/bin" ]; then
 	PATH="$HOME/bin:$PATH"
 fi
 
+# Scripts
+if [ -d "/opt/scripts/general" ]; then
+	PATH="/opt/scripts/general:$PATH"
+fi
+
 # Rubygem user's bin
 if command -v ruby >/dev/null; then
 	PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
