@@ -138,9 +138,3 @@ fi
 if command -v hub > /dev/null; then
 	eval "$(hub alias -s)"
 fi
-
-# Random quote of my collection
-if [[ -f ~/Documents/quotes.md ]]; then
-	shuf -n 1 ~/Documents/Quotes/merged.md
-fi
-
