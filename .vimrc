@@ -32,7 +32,6 @@ Plug 'aperezdc/vim-template'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'tpope/vim-fugitive'
 Plug 'ron89/thesaurus_query.vim'
-Plug 'dkarter/bullets.vim'
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
