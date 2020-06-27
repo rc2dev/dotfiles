@@ -135,7 +135,7 @@ autocmd BufWrite * call AutoTrim()
 set spelllang=pt_br,en_us,es_es
 
 " Turn on for file types
-autocmd Filetype gitcommit,markdown setlocal spell
+autocmd Filetype gitcommit,markdown,text setlocal spell
 
 " Set languages for specific files
 autocmd Filetype gitcommit setlocal spelllang=en_us
@@ -216,12 +216,12 @@ nnoremap <Leader>tv <C-w>t<C-w>K
 
 " Use friendlier line navigation on prose files
 augroup navigation
-	autocmd Filetype markdown nnoremap j (v:count == 0 ? 'gj' : 'j')
-	autocmd Filetype markdown nnoremap k (v:count == 0 ? 'gk' : 'k')
-	autocmd Filetype markdown nnoremap <Down> gj
-	autocmd Filetype markdown nnoremap <Up> gk
-	autocmd Filetype markdown nnoremap <Home> g<Home>
-	autocmd Filetype markdown nnoremap <End> g<End>
+	autocmd Filetype markdown,text nnoremap j (v:count == 0 ? 'gj' : 'j')
+	autocmd Filetype markdown,text nnoremap k (v:count == 0 ? 'gk' : 'k')
+	autocmd Filetype markdown,text nnoremap <Down> gj
+	autocmd Filetype markdown,text nnoremap <Up> gk
+	autocmd Filetype markdown,text nnoremap <Home> g<Home>
+	autocmd Filetype markdown,text nnoremap <End> g<End>
 augroup END
 
 " Save as root and source ~/.vimrc
