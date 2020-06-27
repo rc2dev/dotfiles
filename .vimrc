@@ -216,12 +216,12 @@ nnoremap <Leader>tv <C-w>t<C-w>K
 
 " Use friendlier line navigation on prose files
 augroup navigation
-	autocmd Filetype markdown noremap j gj
-	autocmd Filetype markdown noremap k gk
-	autocmd Filetype markdown noremap <Down> gj
-	autocmd Filetype markdown noremap <Up> gk
-	autocmd Filetype markdown noremap <Home> g<Home>
-	autocmd Filetype markdown noremap <End> g<End>
+	autocmd Filetype markdown nnoremap j (v:count == 0 ? 'gj' : 'j')
+	autocmd Filetype markdown nnoremap k (v:count == 0 ? 'gk' : 'k')
+	autocmd Filetype markdown nnoremap <Down> gj
+	autocmd Filetype markdown nnoremap <Up> gk
+	autocmd Filetype markdown nnoremap <Home> g<Home>
+	autocmd Filetype markdown nnoremap <End> g<End>
 augroup END
 
 " Save as root and source ~/.vimrc
