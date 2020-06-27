@@ -185,11 +185,17 @@ nnoremap <F6> :setlocal spell!<CR>
 inoremap <F6> <C-o>:setlocal spell!<CR>
 
 " Buffer navigation
+nnoremap <Leader><Leader> <C-^>
 nnoremap <Leader>j :bp<CR>
 nnoremap <Leader>k :bn<CR>
 
 " Edit files
 nnoremap <Leader>ev :e ~/.vimrc<CR>
+
+" Save and quit
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>x :x<CR>
 
 " Plugins
 nnoremap <Leader>mp :MarkdownPreview<CR>
@@ -213,6 +219,9 @@ nnoremap <silent> <C-Down> :resize -3<CR>
 " Change 2 splits from/to vertical/horizontal
 nnoremap <Leader>th <C-w>t<C-w>H
 nnoremap <Leader>tv <C-w>t<C-w>K
+
+" Close all splits but the current one
+nnoremap <Leader>o <C-w>o
 
 " Use friendlier line navigation on prose files
 augroup navigation
