@@ -3,3 +3,5 @@
 	email = rccavalcanti@gmail.com
 [color]
 	ui = auto
+[pull]
+	ff = only
