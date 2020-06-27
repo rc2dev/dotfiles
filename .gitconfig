@@ -1,7 +1,5 @@
 [user]
 	name = Rafael Cavalcanti
 	email = rccavalcanti@gmail.com
-[color]
-	ui = auto
 [pull]
 	ff = only
