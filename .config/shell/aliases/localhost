@@ -14,7 +14,7 @@ alias free="free -m"
 unalias grep
 
 # Screen is narrow, adapt ll
-alias ll="ls -laFh -og --group-directories-first"
+alias ll="ls -laFh --group-directories-first -og"
 
 # Replace ssh with ssha wrapper, so we use ssh-agent
 alias ssh="ssha"
