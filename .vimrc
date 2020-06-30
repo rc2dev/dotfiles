@@ -241,11 +241,10 @@ cmap sv :so ~/.vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ABBREVIATIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab rcc [RC]
 iab rca [RC added]
 iab rcm [RC modified]
-iab cc  Copyright (C) <C-r>=strftime("%Y")<CR> Rafael Cavalcanti - rafaelc.org<CR>
-	\Licensed under GPLv3
+iab arc Copyright (C) <C-r>=strftime("%Y")<CR> Rafael Cavalcanti - rafaelc.org<CR>
+iab cc Author: Rafael Cavalcanti - rafaelc.org
 
 
 

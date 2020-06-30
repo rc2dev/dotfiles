@@ -1,7 +1,7 @@
 #
 # ~/.bash_logout
 #
-# Rafael Cavalcanti
+# Author: Rafael Cavalcanti - rafaelc.org
 #
 
 # Termux: We remove the wake-lock grabbed upon SSH connection

@@ -1,5 +1,5 @@
 # ~/.zshrc
-# Author: Rafael Cavalcanti
+# Author: Rafael Cavalcanti - rafaelc.org
 
 # =================================================================
 # From oh-my-zsh

@@ -1,7 +1,7 @@
 #
 # Common shell aliases for all systems
 #
-# Author: Rafael Cavalcanti
+# Author: Rafael Cavalcanti - rafaelc.org
 
 
 # Also check command after sudo for alias (see man bash)

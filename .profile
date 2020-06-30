@@ -1,7 +1,7 @@
 #
 # ~/.profile
 #
-# Author: Rafael Cavalcanti
+# Author: Rafael Cavalcanti - rafaelc.org
 
 # Make sure HOSTNAME is set (Zsh sets HOST)
 HOSTNAME=${HOSTNAME:-$(hostname)}

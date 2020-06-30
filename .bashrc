@@ -1,7 +1,7 @@
 #
 # ~/.bashrc
 #
-# Author: Rafael Cavalcanti
+# Author: Rafael Cavalcanti - rafaelc.org
 
 # If not running interactively, don't do anything (Arch)
 [[ $- != *i* ]] && return
