@@ -225,8 +225,8 @@ nnoremap <Leader>o <C-w>o
 
 " Use friendlier line navigation on prose files
 augroup navigation
-	autocmd Filetype markdown,text nnoremap j (v:count == 0 ? 'gj' : 'j')
-	autocmd Filetype markdown,text nnoremap k (v:count == 0 ? 'gk' : 'k')
+	autocmd Filetype markdown,text nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+	autocmd Filetype markdown,text nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 	autocmd Filetype markdown,text nnoremap <Down> gj
 	autocmd Filetype markdown,text nnoremap <Up> gk
 	autocmd Filetype markdown,text nnoremap <Home> g<Home>
