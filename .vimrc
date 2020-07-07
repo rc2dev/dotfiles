@@ -243,8 +243,8 @@ cmap sv :so ~/.vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab rca [RC added]
 iab rcm [RC modified]
-iab arc Copyright (C) <C-r>=strftime("%Y")<CR> Rafael Cavalcanti - rafaelc.org<CR>
-iab cc Author: Rafael Cavalcanti - rafaelc.org
+iab rcp Copyright (C) <C-r>=strftime("%Y")<CR> Rafael Cavalcanti - rafaelc.org<CR>
+iab rct Author: Rafael Cavalcanti - rafaelc.org
 
 
 
