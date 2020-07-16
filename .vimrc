@@ -106,6 +106,9 @@ autocmd QuickFixCmdPost    l* nested lwindow
 silent !mkdir -p ~/.vim/swap
 set directory=$HOME/.vim/swap//,.
 
+" Move ~/.viminfo to ~/.vim
+set viminfo+='1000,n~/.vim/viminfo
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CODE STYLE
