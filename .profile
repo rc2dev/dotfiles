@@ -36,10 +36,10 @@ fi
 # We exclude Termux, as this doesn't make sense for it.
 if [[ "$HOSTNAME" != "localhost" ]]; then
 	if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-		ssh-agent > ~/.ssh-agent-thing
+		ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
 	fi
 	if [[ ! "$SSH_AUTH_SOCK" ]]; then
-		eval "$(<~/.ssh-agent-thing)"
+		source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 	fi
 fi
 
