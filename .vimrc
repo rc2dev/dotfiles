@@ -23,6 +23,8 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" only load on demand
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
@@ -206,6 +208,8 @@ nnoremap <F12> :Goyo<CR>
 inoremap <F12> <C-o>:Goyo<CR>
 nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-f> :Rg<CR>
 
 " Navigate splits
 nnoremap <silent> <C-k> :wincmd k<CR>
