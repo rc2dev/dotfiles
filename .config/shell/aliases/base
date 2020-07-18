@@ -37,7 +37,7 @@ alias grep="grep --color=auto"
 #alias egrep='egrep --color=auto'
 
 # ls
-alias ll="ls -laFh --group-directories-first"
+alias l="ls -laFh --group-directories-first"
 
 # Shell
 alias c="clear"
