@@ -3,6 +3,14 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
+# Create alias for cd'ing into directory
+alias_z() {
+    local -r name="$1"
+    local -r dir="$2"
+    [[ -d "$dir" ]] || return
+
+    alias "$name"="cd "$dir" && ls -a"
+}
 
 # Also check command after sudo for alias (see man bash)
 alias sudo="sudo "
@@ -55,13 +63,13 @@ alias ez="vim $ZDOTDIR/.zshrc"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias z.="cd ~/.config/yadm"
-[ -d ~/.local/bin ] && alias zb="cd ~/.local/bin"
-[ -d ~/.local/opt/scripts ] && alias zt="cd ~/.local/opt/scripts"
-[ -d /opt/scripts ] && alias zt="cd /opt/scripts"
-[ -d ~/Code ] && alias zc="cd ~/Code"
-[ -d ~/Downloads ] && alias zd="cd ~/Downloads"
-[ -d /mnt/c/Users/rccav ] && alias zh="cd /mnt/c/Users/rccav"
+alias_z z. ~/.config/yadm
+alias_z zb ~/.local/bin
+alias_z zt ~/.local/opt/scripts
+alias_z zt /opt/scripts
+alias_z zc ~/Code
+alias_z zd ~/Downloads
+alias_z zh /mnt/c/Users/rccav
 
 # Git
 alias gbro="hub browse"

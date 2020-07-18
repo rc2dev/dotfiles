@@ -20,8 +20,8 @@ alias ll="ls -laFh --group-directories-first -og"
 alias ssh="ssha"
 
 # Browsing
-alias zs="cd /sdcard"
-alias zr="cd $PREFIX"
+alias_z zs /sdcard
+alias_z zr "$PREFIX"
 
 # Turn off TV via Pi
 alias td="ssh pi -t bash -ic td"

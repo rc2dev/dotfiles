@@ -18,6 +18,6 @@ alias td='echo "standby 0" | cec-client -s'
 alias tl='echo "on 0" | cec-client -s'
 
 # Browsing
-[ -d "$HOME/.kodi" ] && alias zk="cd $HOME/.kodi"
-[ -d /var/lib/kodi/.kodi ] && alias zk="cd /var/lib/kodi/.kodi"
+alias_z zk ~/.kodi
+alias_z zk /var/lib/kodi/.kodi
 
