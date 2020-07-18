@@ -9,8 +9,11 @@ alias_z() {
     local -r dir="$2"
     [[ -d "$dir" ]] || return
 
-    alias "$name"="cd "$dir" && ls -a"
+    alias "$name"="cd "$dir""
 }
+
+# List files when cd'ing
+cd() { builtin cd "$@" && ls -A; }
 
 # Also check command after sudo for alias (see man bash)
 alias sudo="sudo "
