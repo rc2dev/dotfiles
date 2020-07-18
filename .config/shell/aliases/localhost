@@ -5,7 +5,7 @@
 
 
 # Source common aliases
-. $ALIASES_DIR/base
+. "$ALIASES_DIR"/base
 
 # Fix aliases that don't work on Busybox
 alias rm="rm -v"

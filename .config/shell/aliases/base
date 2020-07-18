@@ -9,7 +9,7 @@ alias_z() {
     local -r dir="$2"
     [[ -d "$dir" ]] || return
 
-    alias "$name"="cd "$dir""
+    alias "$name"="cd $dir"
 }
 
 # List files when cd'ing
@@ -52,7 +52,7 @@ history-rank() {
 		column -c3 -s " " -t | \
 		sort -nr | \
 		nl | \
-		head -n${n}
+		head -n"${n}"
 }
 
 # Edit
@@ -70,6 +70,8 @@ alias_z z. ~/.config/yadm
 alias_z zb ~/.local/bin
 alias_z zt ~/.local/opt/scripts
 alias_z zt /opt/scripts
+alias_z zk ~/.kodi
+alias_z zk /var/lib/kodi/.kodi
 alias_z zc ~/Code
 alias_z zd ~/Downloads
 alias_z zh /mnt/c/Users/rccav
@@ -105,7 +107,7 @@ alias hs="python3 -m http.server"
 
 # Run NPM module markdown-link-check
 mlc() {
-	find $1 -name \*.md -exec markdown-link-check -p {} \;
+	find "$1" -name \*.md -exec markdown-link-check -p {} \;
 }
 
 # Find broken links

@@ -5,7 +5,7 @@
 
 
 # Source common aliases
-. $ALIASES_DIR/base
+. "$ALIASES_DIR"/base
 
 # Services
 if systemctl status kodi > /dev/null 2>&1; then
@@ -16,8 +16,4 @@ fi
 # TV and HDMI output
 alias td='echo "standby 0" | cec-client -s'
 alias tl='echo "on 0" | cec-client -s'
-
-# Browsing
-alias_z zk ~/.kodi
-alias_z zk /var/lib/kodi/.kodi
 
