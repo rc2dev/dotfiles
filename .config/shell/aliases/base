@@ -68,12 +68,13 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias_z z. ~/.config/yadm
 alias_z zb ~/.local/bin
-alias_z zt ~/.local/opt/scripts
-alias_z zt /opt/scripts
-alias_z zk ~/.kodi
-alias_z zk /var/lib/kodi/.kodi
 alias_z zc ~/Code
 alias_z zd ~/Downloads
+alias_z zk ~/.kodi
+alias_z zk /var/lib/kodi/.kodi
+alias_z zt ~/.local/opt/scripts
+alias_z zt /opt/scripts
+alias_z zw /var/www
 alias_z zh /mnt/c/Users/rccav
 
 # Git
