@@ -83,6 +83,7 @@ plugins=(
 	dircycle
 	dirpersist
 	git
+	systemd
 	z
 	zsh-autosuggestions
 	zsh-syntax-highlighting
