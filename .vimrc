@@ -26,6 +26,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" only load on demand
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
@@ -168,6 +169,9 @@ let g:tq_map_keys = 0
 nnoremap <Leader>ts :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>ts y:ThesaurusQueryReplace <C-r>"<CR>
 
+" Goyo and Limelight
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
@@ -206,6 +210,7 @@ nnoremap <Leader>x :x<CR>
 nnoremap <Leader>mp :MarkdownPreview<CR>
 nnoremap <F12> :Goyo<CR>
 inoremap <F12> <C-o>:Goyo<CR>
+nnoremap <Leader>l :Limelight!!<CR>
 nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <silent> <C-p> :Files<CR>
