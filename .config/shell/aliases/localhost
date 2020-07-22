@@ -19,13 +19,6 @@ alias ll="ls -laFh --group-directories-first -og"
 # Replace ssh with ssha wrapper, so we use ssh-agent
 alias ssh="ssha"
 
-# Browsing
-alias_z zs /sdcard
-alias_z zr "$PREFIX"
-
-# Turn off TV via Pi
-alias td="ssh pi -t bash -ic td"
-
 # Backup Termux
 alias backup="tar \
   -C /data/data/com.termux/files \
