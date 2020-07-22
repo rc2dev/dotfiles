@@ -5,11 +5,11 @@
 
 # Create alias for cd'ing into directory
 alias_z() {
-    local -r name="$1"
-    local -r dir="$2"
-    [[ -d "$dir" ]] || return
+	local -r name="$1"
+	local -r dir="$2"
+	[[ -d "$dir" ]] || return
 
-    alias "$name"="cd $dir"
+	alias "$name"="cd $dir"
 }
 
 # List files when cd'ing
@@ -107,39 +107,33 @@ alias s="ssh"
 alias v="vnc"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 if systemctl status kodi > /dev/null 2>&1; then
-    alias kr="sudo systemctl restart kodi"
-    alias ks="sudo systemctl stop kodi"
+	alias kr="sudo systemctl restart kodi"
+	alias ks="sudo systemctl stop kodi"
 fi
 
 # TV and HDMI output
 if [[ "$(hostname)" == "pi" ]]; then
-    alias td='echo "standby 0" | cec-client -s'
-    alias tl='echo "on 0" | cec-client -s'
+	alias td='echo "standby 0" | cec-client -s'
+	alias tl='echo "on 0" | cec-client -s'
 else
-    alias td="ssh pi -t bash -ic td"
-    alias tl="ssh pi -t bash -ic tl"
+	alias td="ssh pi -t bash -ic td"
+	alias tl="ssh pi -t bash -ic tl"
 fi
 
 # HTTP server
 alias hs="python3 -m http.server"
 
 # Run NPM module markdown-link-check
-mlc() {
-	find "$1" -name \*.md -exec markdown-link-check -p {} \;
-}
+mlc() { find "$1" -name \*.md -exec markdown-link-check -p {} \; }
 
 # Find broken links
 alias fbl="find . -xtype l"
 
 # Record audio
-rau() {
-    arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date +%FT%H%M%S).mp3"
-}
+rau() { arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date +%FT%H%M%S).mp3"; }
 
 # Find and stream audio
-yta() {
-    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
-}
+yta() { mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 
 # Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
