@@ -127,13 +127,8 @@ if [[ -z "$TMUX" ]]; then
 	fi
 fi
 
-# Alias definitions
-ALIASES_DIR="$HOME/.config/shell/aliases"
-if [ -f "$ALIASES_DIR/$HOSTNAME" ]; then
-	. "$ALIASES_DIR/$HOSTNAME"
-else
-	. "$ALIASES_DIR/base"
-fi
+# Aliases definitions
+. ~/.config/shell/aliases
 
 # Hub aliasing
 if command -v hub > /dev/null; then

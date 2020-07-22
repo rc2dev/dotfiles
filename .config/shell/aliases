@@ -1,5 +1,5 @@
 #
-# Common shell aliases for all systems
+# Shell aliases
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
@@ -57,7 +57,7 @@ history-rank() {
 
 # Edit
 alias e="vim"
-alias ea="vim $ALIASES_DIR"
+alias ea="vim ~/.config/shell/aliases"
 alias ee="vim ~/Sync/quick_note.md"
 alias ev="vim ~/.vimrc"
 alias ez="vim $ZDOTDIR/.zshrc"
@@ -153,4 +153,25 @@ if command -v pacman-mirrors > /dev/null; then
 elif command -v reflector > /dev/null; then
 	alias pm="sudo reflector -l 5 --sort rate \
 		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
+fi
+
+# Termux overrides and additions
+if [[ "$(hostname)" == "localhost" ]]; then
+	# Fix aliases that don't work on Busybox
+	alias rm="rm -v"
+	alias ln="ln -v"
+	alias free="free -m"
+	unalias grep
+
+	# Screen is narrow, adapt ll
+	alias ll="ls -laFh --group-directories-first -og"
+
+	# Replace ssh with ssha wrapper, so we use ssh-agent
+	alias ssh="ssha"
+
+	# Backup Termux
+	alias backup="tar \
+		-C /data/data/com.termux/files \
+		-zcf /sdcard/Sync/Drop/termux-backup-$(date +"%Y-%m-%d_%H-%M-%S").tar.gz \
+		home usr"
 fi

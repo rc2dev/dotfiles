@@ -59,13 +59,8 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Alias definitions
-ALIASES_DIR="$HOME/.config/shell/aliases"
-if [ -f "$ALIASES_DIR/$HOSTNAME" ]; then
-	. "$ALIASES_DIR/$HOSTNAME"
-else
-	. "$ALIASES_DIR/base"
-fi
+# Aliases definitions
+. ~/.config/shell/aliases
 
 # Arch's command not found - pkgfile (Arch Wiki)
 if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
