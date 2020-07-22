@@ -112,7 +112,7 @@ if systemctl status kodi > /dev/null 2>&1; then
 fi
 
 # TV and HDMI output
-if [[ "$(hostname)" == "pi" ]]; then
+if [[ "$HOSTNAME" == "pi" ]]; then
 	alias td='echo "standby 0" | cec-client -s'
 	alias tl='echo "on 0" | cec-client -s'
 else
@@ -150,7 +150,7 @@ elif command -v reflector > /dev/null; then
 fi
 
 # Termux overrides and additions
-if [[ "$(hostname)" == "localhost" ]]; then
+if [[ "$HOSTNAME" == "localhost" ]]; then
 	# Fix aliases that don't work on Busybox
 	alias rm="rm -v"
 	alias ln="ln -v"
