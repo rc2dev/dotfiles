@@ -3,3 +3,5 @@
 	email = rccavalcanti@gmail.com
 [pull]
 	ff = only
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/
