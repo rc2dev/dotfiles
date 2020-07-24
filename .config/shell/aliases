@@ -124,7 +124,7 @@ fi
 alias hs="python3 -m http.server"
 
 # Run NPM module markdown-link-check
-mlc() { find "$1" -name \*.md -exec markdown-link-check -p {} \; }
+mlc() { find "$1" -name \*.md -exec markdown-link-check -p {} \;; }
 
 # Find broken links
 alias fbl="find . -xtype l"
