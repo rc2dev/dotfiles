@@ -58,7 +58,7 @@ history-rank() {
 # Edit
 alias e="vim"
 alias ea="vim ~/.config/shell/aliases"
-[[ -d ~/Sync ]] && alias ew="vim + ~/Sync/quick_note.md"
+[[ -d ~/Sync ]] && alias en="vim + ~/Sync/quick_note.md"
 alias ev="vim ~/.vimrc"
 alias ez="vim $ZDOTDIR/.zshrc"
 
