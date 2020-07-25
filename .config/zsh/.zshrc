@@ -115,6 +115,10 @@ bindkey "^[OB" down-line-or-beginning-search
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 
+# vi-mode: Bring back ctrl+arrow for navigating words
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
 # Set colors for ls
 eval $(dircolors -b)
 
