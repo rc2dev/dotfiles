@@ -83,6 +83,7 @@ plugins=(
 	command-not-found
 	dircycle
 	git
+	last-working-dir
 	systemd
 	zsh-autosuggestions
 	zsh-syntax-highlighting
