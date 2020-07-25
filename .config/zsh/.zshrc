@@ -79,12 +79,12 @@ ZSH_CUSTOM="$ZDOTDIR/oh-my-custom"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	vi-mode # should be before dircycle or it will reset the keybindings
+	autojump
 	command-not-found
 	dircycle
 	dirpersist
 	git
 	systemd
-	z
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 )

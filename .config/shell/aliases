@@ -4,7 +4,7 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 
 # Create alias for cd'ing into directory
-alias_z() {
+alias_j() {
 	local -r name="$1"
 	local -r dir="$2"
 	[[ -d "$dir" ]] || return
@@ -66,19 +66,19 @@ alias ez="vim $ZDOTDIR/.zshrc"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias_z zb ~/.local/bin
-alias_z zc ~/Code
-alias_z zd ~/Downloads
-alias_z zk ~/.kodi
-alias_z zk /var/lib/kodi/.kodi
-alias_z zn ~/Sync
-alias_z zp "$PREFIX"
-alias_z zr /mnt/c/Users/rccav
-alias_z zs /sdcard
-alias_z zt ~/.local/opt/scripts
-alias_z zt /opt/scripts
-alias_z zy ~/.config/yadm
-alias_z zw /var/www
+alias_j jb ~/.local/bin
+alias_j jc ~/Code
+alias_j jd ~/Downloads
+alias_j jk ~/.kodi
+alias_j jk /var/lib/kodi/.kodi
+alias_j jn ~/Sync
+alias_j jp "$PREFIX"
+alias_j jr /mnt/c/Users/rccav
+alias_j js /sdcard
+alias_j jt ~/.local/opt/scripts
+alias_j jt /opt/scripts
+alias_j jy ~/.config/yadm
+alias_j jw /var/www
 
 # Git
 alias gbro="hub browse"
