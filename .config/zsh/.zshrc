@@ -82,7 +82,6 @@ plugins=(
 	autojump
 	command-not-found
 	dircycle
-	dirpersist
 	git
 	systemd
 	zsh-autosuggestions
