@@ -1,0 +1,3 @@
+#!/bin/sh
+
+vim + ~/Sync/quick-note.md
