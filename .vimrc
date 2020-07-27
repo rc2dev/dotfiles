@@ -22,7 +22,6 @@ endif
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }   		" only load on demand
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
@@ -211,7 +210,6 @@ nnoremap <Leader>mp :MarkdownPreview<CR>
 nnoremap <F12> :Goyo<CR>
 inoremap <F12> <C-o>:Goyo<CR>
 nnoremap <Leader>l :Limelight!!<CR>
-nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-f> :Rg<CR>
