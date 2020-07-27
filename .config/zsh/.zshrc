@@ -120,8 +120,20 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# Aliases definitions
+. ~/.config/shell/aliases
+
+# fzf
+. /usr/share/doc/fzf/examples/completion.zsh
+. /usr/share/doc/fzf/examples/key-bindings.zsh
+
 # Set colors for ls
 eval $(dircolors -b)
+
+# Hub aliasing
+if command -v hub > /dev/null; then
+	eval "$(hub alias -s)"
+fi
 
 # Prompt active tmux sessions
 if [[ -z "$TMUX" ]]; then
@@ -131,10 +143,3 @@ if [[ -z "$TMUX" ]]; then
 	fi
 fi
 
-# Aliases definitions
-. ~/.config/shell/aliases
-
-# Hub aliasing
-if command -v hub > /dev/null; then
-	eval "$(hub alias -s)"
-fi

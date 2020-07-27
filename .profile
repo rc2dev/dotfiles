@@ -26,11 +26,12 @@ if command -v ruby >/dev/null; then
 	PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-export EDITOR="vim"
-
 if command -v mpc >/dev/null; then
 	export MPD_HOST="192.168.15.101"
 fi
+
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
 
 # Start OpenSSH agent (ArchWiki)
 # We exclude Termux, as this doesn't make sense for it.
