@@ -1,0 +1,35 @@
+# ~/.xprofile
+#
+# Startup commands for dwm
+#
+# Author: Rafael Cavalcanti - rafaelc.org
+
+if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
+  exit 0
+fi
+
+# Gnome Keyring
+if ! pgrep -u "$USER" gnome-keyring-daemon > /dev/null; then
+  eval $(gnome-keyring-daemon --start)
+  export SSH_AUTH_SOCK
+fi
+
+# Polkit agent - so GUI applications can request privileges
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+# Basic utilities
+dunst &
+nitrogen --restore &
+redshift-gtk &
+compton --backend glx --paint-on-overlay --vsync opengl-swc &
+clipmenud &
+blueman-tray &
+flatpak run me.kozec.syncthingtk -m &
+joplin &
+
+# Statusbar loop
+while true; do
+  dwmbar
+  sleep 20s    # Update time every minute
+done &
+
