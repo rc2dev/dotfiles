@@ -23,6 +23,7 @@ nitrogen --restore &
 redshift-gtk &
 compton --backend glx --paint-on-overlay --vsync opengl-swc &
 clipmenud &
+nm-applet &
 blueman-tray &
 flatpak run me.kozec.syncthingtk -m &
 joplin &
