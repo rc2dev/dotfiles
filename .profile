@@ -6,6 +6,11 @@
 # Make sure HOSTNAME is set (Zsh sets HOST)
 HOSTNAME=${HOSTNAME:-$(hostname)}
 
+# Default applications
+export EDITOR="vim"
+export TERMINAL="alacritty"
+export TERMINAL_RUN="alacritty -e"
+
 # User's private bin
 if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
