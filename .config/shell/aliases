@@ -140,6 +140,14 @@ yta() { mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
 alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
 
+# Package management
+if command -v apt > /dev/null; then
+	alias api="sudo apt install"
+	alias apu="sudo apt update"
+	alias app="sudo apt purge"
+	alias apar="sudo apt autoremove -y"
+fi
+
 # Mirrors
 ## Manjaro
 if command -v pacman-mirrors > /dev/null; then
