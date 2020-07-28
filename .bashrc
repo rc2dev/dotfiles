@@ -76,5 +76,9 @@ fi
 . /usr/share/autojump/autojump.bash
 
 # fzf
-. /usr/share/doc/fzf/examples/completion.bash
-. /usr/share/doc/fzf/examples/key-bindings.bash
+if [[ -d /usr/share/doc/fzf/examples/completion.bash ]]; then
+	. /usr/share/doc/fzf/examples/completion.bash
+fi
+if [[ -d /usr/share/doc/fzf/examples/key-bindings ]]; then
+	. /usr/share/doc/fzf/examples/key-bindings.bash
+fi

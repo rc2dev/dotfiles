@@ -124,8 +124,10 @@ bindkey "^[[1;5D" backward-word
 . ~/.config/shell/aliases
 
 # fzf
-. /usr/share/doc/fzf/examples/completion.zsh
-. /usr/share/doc/fzf/examples/key-bindings.zsh
+if [[ -d /usr/share/doc/fzf/examples ]]; then
+	. /usr/share/doc/fzf/examples/completion.zsh
+	. /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
 
 # Set colors for ls
 eval $(dircolors -b)
