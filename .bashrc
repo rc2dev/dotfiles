@@ -72,6 +72,9 @@ if [[ "$(cat /etc/issue 2> /dev/null)" == "Linux Mint 19."* ]]; then
 	. /usr/share/bash-completion/completions/git
 fi
 
+# autojump
+. /usr/share/autojump/autojump.bash
+
 # fzf
 . /usr/share/doc/fzf/examples/completion.bash
 . /usr/share/doc/fzf/examples/key-bindings.bash
