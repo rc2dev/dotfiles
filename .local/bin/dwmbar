@@ -11,4 +11,6 @@ fi
 bar_vol="${vol_icon} $(pulsemixer --get-volume | cut -f 1 -d ' ')%"
 bar_date="$(date +"%a, %b %e")"
 bar_time="🕐 $(date +"%R")"
-xsetroot -name " ${bar_vol} | ${bar_date} | ${bar_time} "
+bar_mem="Mem: $(free -h | grep '^Mem' | awk '{print $3}')"
+
+xsetroot -name " ${bar_mem} | ${bar_vol} | ${bar_date} | ${bar_time} "
