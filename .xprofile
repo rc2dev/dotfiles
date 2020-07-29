@@ -4,8 +4,8 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
-  exit 0
+if [ "$XDG_SESSION_DESKTOP" != "dwm" ]; then
+  return 0
 fi
 
 # Gnome Keyring
@@ -32,6 +32,6 @@ joplin &
 # Statusbar loop
 while true; do
   dwmbar
-  sleep 20s    # Update time every minute
+  sleep 20s
 done &
 
