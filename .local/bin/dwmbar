@@ -9,8 +9,22 @@ else
   vol_icon="🔊"
 fi
 bar_vol="${vol_icon} $(pulsemixer --get-volume | cut -f 1 -d ' ')%"
+
+player_cmd="playerctl --player=%any,chromium"
+player_status="$($player_cmd status)"
+if [[ "$player_status" =~ (Playing|Paused) ]]; then
+  case $player_status in
+    Playing) player_icon=;;
+    Paused) player_icon=;;
+  esac
+  # Calling metadata with --format prevents mixing multiple players
+  artist="$($player_cmd metadata --format "{{ artist }}")"
+  title="$($player_cmd metadata --format "{{ title }}")"
+  bar_player="${player_icon} ${artist:+$artist -} ${title}"
+fi
+
 bar_date="$(date +"%a, %b %e")"
 bar_time="🕐 $(date +"%R")"
 bar_mem="Mem: $(free -h | grep '^Mem' | awk '{print $3}')"
 
-xsetroot -name " ${bar_mem} | ${bar_vol} | ${bar_date} | ${bar_time} "
+xsetroot -name " ${bar_player:+$bar_player |} ${bar_mem} | ${bar_vol} | ${bar_date} | ${bar_time} "
