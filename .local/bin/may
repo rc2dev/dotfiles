@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#
+# Play or enqueue URL to MPD using youtube-dl
+#
+# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+
+readonly script_name="$(basename "$0")"
+readonly script_dir="$(dirname "$(readlink -f "$0")")"
+
+if [[ $# -ne 1 ]]; then
+  printf "Usage: %s url\n" "$script_name"
+  exit 1
+fi
+
+user_url="$1"
+
+select option in "Play now" "Queue"; do
+  case $option in
+    "Play now") readonly next=true && break ;;
+    "Queue") readonly next=false && break ;;
+    "Exit") exit 1 ;;
+    *) printf "Invalid option.\n" 1>&2;;
+  esac
+done
+
+printf "Resolving URL...\n"
+resolved_url="$(youtube-dl --format bestaudio --get-url "$user_url")"
+if [[ -z "$resolved_url" ]]; then
+  printf "youtube-dl couldn't resolve.\n"
+  exit 1
+fi
+
+mpc add "$resolved_url" && mpc play && $next && mpc next

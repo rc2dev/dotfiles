@@ -1,3 +1,33 @@
-cd /sdcard/Download
-bash ~/bin/ytd "$@"
+#!/data/data/com.termux/files/usr/bin/env bash
+# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+printf "What should I do?\n" >&2
+select option in "Download" "Play on MPD" "Exit"; do
+  case $option in
+    "Download")
+      cd /sdcard/Download
+      bash ~/bin/ytd "$@"
+      exit_code=$?
+
+      break
+      ;;
+    "Play on MPD")
+      bash ~/bin/may "$@"
+      exit_code=$?
+
+      break
+      ;;
+    "Exit")
+      exit
+      ;;
+    *)
+      printf "Invalid option.\n" 1>&2;;
+  esac
+done
+
+if [[ $exit_code -ne 0 ]]; then
+  printf "\nPress any key to exit."
+  read
+fi
 
