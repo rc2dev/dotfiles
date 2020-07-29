@@ -26,7 +26,7 @@ clipmenud &
 nm-applet &
 system-config-printer-applet &
 blueman-tray &
-flatpak run me.kozec.syncthingtk -m &
+me.kozec.syncthingtk -m &
 joplin &
 
 # Statusbar loop

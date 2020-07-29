@@ -11,6 +11,11 @@ export EDITOR="vim"
 export TERMINAL="alacritty"
 export TERMINAL_RUN="alacritty -e"
 
+# User flatpaks
+if [ -d "$HOME/.local/share/flatpak/exports/bin" ]; then
+	PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
+fi
+
 # User's private bin
 if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
