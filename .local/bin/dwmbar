@@ -3,6 +3,18 @@
 # Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
+MAX_LEN=30
+
+truncate() {
+  local -r str="$*"
+
+  if [[ ${#str} -gt $MAX_LEN ]]; then
+    printf "%s" "${str::(( MAX_LEN - 3 ))}..."
+  else
+    printf "%s" "$str"
+  fi
+}
+
 if [[ "$(pulsemixer --get-mute)" == "1" ]]; then
   vol_icon="🔇"
 else
@@ -17,9 +29,15 @@ if [[ "$player_status" =~ (Playing|Paused) ]]; then
     Playing) player_icon=;;
     Paused) player_icon=;;
   esac
+
   # Calling metadata with --format prevents mixing multiple players
   artist="$($player_cmd metadata --format "{{ artist }}")"
   title="$($player_cmd metadata --format "{{ title }}")"
+
+  # Truncate long metadata
+  artist="$(truncate "$artist")"
+  title="$(truncate "$title")"
+
   bar_player="${player_icon} ${artist:+$artist -} ${title}"
 fi
 
