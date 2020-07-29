@@ -30,6 +30,7 @@ nm-applet &
 system-config-printer-applet &
 blueman-tray &
 me.kozec.syncthingtk -m &
+keepassxc &
 joplin &
 
 # Statusbar loop
