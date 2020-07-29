@@ -1,3 +1,6 @@
-#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/env bash
+
+# We need PATH
+source ~/.profile
 
 quick-note

@@ -2,18 +2,21 @@
 # Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
+# We need PATH, MPD_HOST
+source ~/.profile
+
 printf "What should I do?\n" >&2
 select option in "Download" "Play on MPD" "Exit"; do
   case $option in
     "Download")
       cd /sdcard/Download
-      bash ~/bin/ytd "$@"
+      bash ytd "$@"
       exit_code=$?
 
       break
       ;;
     "Play on MPD")
-      bash ~/bin/may "$@"
+      bash may "$@"
       exit_code=$?
 
       break
