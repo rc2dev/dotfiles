@@ -3,46 +3,62 @@
 # Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
-MAX_LEN=30
+readonly sep="|"
 
 truncate() {
+  local -r max_len=30
   local -r str="$*"
 
-  if [[ ${#str} -gt $MAX_LEN ]]; then
-    printf "%s" "${str::(( MAX_LEN - 3 ))}..."
+  if [[ ${#str} -gt $max_len ]]; then
+    echo "${str::(( max_len - 3 ))}..."
   else
-    printf "%s" "$str"
+    echo "$str"
   fi
 }
 
-if [[ "$(pulsemixer --get-mute)" == "1" ]]; then
-  vol_icon="🔇"
-else
-  vol_icon="🔊"
-fi
-bar_vol="${vol_icon} $(pulsemixer --get-volume | cut -f 1 -d ' ')%"
+bar_vol() {
+  if [[ "$(pulsemixer --get-mute)" == "1" ]]; then
+    local -r icon="🔇"
+  else
+    local -r icon="🔊"
+  fi
 
-player_cmd="playerctl --player=%any,chromium"
-player_status="$($player_cmd status)"
-if [[ "$player_status" =~ (Playing|Paused) ]]; then
-  case $player_status in
-    Playing) player_icon=;;
-    Paused) player_icon=;;
+  echo "${icon} $(pulsemixer --get-volume | cut -f 1 -d ' ')%"
+}
+
+bar_player() {
+  local -r cmd="playerctl --player=%any,chromium"
+  local -r status="$($cmd status)"
+
+  [[ "$status" =~ (Playing|Paused) ]] || return 0
+
+  case $status in
+    Playing) local -r icon=;;
+    Paused) local -r icon=;;
   esac
 
   # Calling metadata with --format prevents mixing multiple players
-  artist="$($player_cmd metadata --format "{{ artist }}")"
-  title="$($player_cmd metadata --format "{{ title }}")"
+  local artist="$($cmd metadata --format "{{ artist }}")"
+  local title="$($cmd metadata --format "{{ title }}")"
 
   # Truncate long metadata
   artist="$(truncate "$artist")"
   title="$(truncate "$title")"
 
-  bar_player="${player_icon} ${artist:+$artist -} ${title}"
-fi
+  echo "${icon} ${artist:+$artist -} ${title} ${sep} "
+}
 
-bar_date="$(date +"%a, %b %e")"
-bar_time="🕐 $(date +"%R")"
-bar_mem="Mem: $(free -h | grep '^Mem' | awk '{print $3}')"
+bar_date() {
+  echo "$(date +"%a, %b %e")"
+}
 
-xsetroot -name " ${bar_player:+$bar_player |} ${bar_mem} | ${bar_vol} | ${bar_date} | ${bar_time} "
+bar_time() {
+  echo "🕐 $(date +"%R")"
+}
+
+bar_mem() {
+  echo "Mem: $(free -h | grep '^Mem' | awk '{print $3}')"
+}
+
+xsetroot -name " $(bar_player)$(bar_mem) ${sep} $(bar_vol) ${sep} $(bar_date) ${sep} $(bar_time) "
+
