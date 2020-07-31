@@ -1,3 +1,5 @@
+# Author: Rafael Cavalcanti - rafaelc.org
+
 # Colors (One Dark)
 colors:
   # Default colors
@@ -30,3 +32,11 @@ colors:
     white:   '#ffffff'
 
 background_opacity: 0.8
+
+key_bindings:
+  - { key: U, mods: Alt, action: ScrollPageUp }
+  - { key: D, mods: Alt, action: ScrollPageDown }
+  - { key: K, mods: Alt, action: ScrollLineUp }
+  - { key: J, mods: Alt, action: ScrollLineDown }
+  - { key: T, mods: Alt, action: ScrollToTop }
+  - { key: B, mods: Alt, action: ScrollToBottom }
