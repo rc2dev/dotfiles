@@ -40,3 +40,6 @@ key_bindings:
   - { key: J, mods: Alt, action: ScrollLineDown }
   - { key: T, mods: Alt, action: ScrollToTop }
   - { key: B, mods: Alt, action: ScrollToBottom }
+
+scrolling:
+  history: 100000
