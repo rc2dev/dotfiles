@@ -41,6 +41,7 @@ alias ll="ls -lAFh --group-directories-first"
 
 # Shell
 alias c="clear"
+alias C="cd && clear"
 alias q="exit"
 alias x="exit"
 history-rank() {
@@ -102,9 +103,11 @@ alias yw="xdg-open https://github.com/rccavalcanti/dotfiles"
 
 # Easier commands
 alias cx="chmod +x"
+alias r="ranger"
 alias o="xdg-open"
 alias s="ssh"
 alias v="vnc"
+alias y="yadm"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias scr="sudo systemctl restart"
 if systemctl status kodi > /dev/null 2>&1; then
