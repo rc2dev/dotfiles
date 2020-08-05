@@ -13,7 +13,9 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=1
-. ~/.config/shell/git-prompt.sh
+if [[ -e /usr/lib/git-core/git-sh-prompt ]]; then
+	. /usr/lib/git-core/git-sh-prompt
+fi
 
 _pp_reset="\e[00m"
 _pp_green="\e[01;32m"
