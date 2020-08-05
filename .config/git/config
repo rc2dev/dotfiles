@@ -5,3 +5,5 @@
 	ff = only
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
+[fetch]
+	prune = true
