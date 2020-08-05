@@ -122,7 +122,7 @@ bindkey "^[[H" beginning-of-line-hist
 bindkey "^[[F" end-of-line-hist
 
 # Aliases definitions
-. ~/.config/shell/aliases
+. "$ALIASES"
 
 # fzf
 if [[ -d /usr/share/doc/fzf/examples ]]; then

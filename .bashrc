@@ -62,7 +62,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # Aliases definitions
-. ~/.config/shell/aliases
+. "$ALIASES"
 
 # Arch's command not found - pkgfile (Arch Wiki)
 if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then

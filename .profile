@@ -64,6 +64,9 @@ if [[ -n $DISPLAY ]]; then
 	export QT_QPA_PLATFORMTHEME=gtk2
 fi
 
+# Aliases path
+export ALIASES="$HOME/.config/aliases"
+
 # Default applications
 export EDITOR="vim"
 if [[ -n $DISPLAY ]]; then
