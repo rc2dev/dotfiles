@@ -41,7 +41,7 @@ alias ll="ls -lAFh --group-directories-first"
 
 # Shell
 alias c="clear"
-alias C="cd && clear"
+alias c!="cd && clear"
 alias q="exit"
 alias x="exit"
 history-rank() {
@@ -83,6 +83,8 @@ alias_j jw /var/www
 
 # Git
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
+gfr() { git fetch && git reset --hard origin/$(git branch --show-current); }
+alias yd="yadm diff"
 alias glo="git log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
 alias glon="glo --name-only"
 alias gw="hub browse"
@@ -93,23 +95,27 @@ alias yau="yadm add -u"
 alias yc="yadm commit -v"
 alias yc!="yadm commit -v --amend"
 alias yd="yadm diff"
+yfr() { yadm fetch && yadm reset --hard origin/$(yadm branch --show-current); }
 alias yl="yadm pull"
 alias ylo="yadm log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
 alias ylon="ylo --name-only"
 alias yp="yadm push"
 alias ypf="yadm push --force-with-lease"
+alias yrba="yadm rebase --abort"
+alias yrbc="yadm rebase --continue"
+alias yrbi="yadm rebase -i"
 alias yst="yadm status"
-alias yw="xdg-open https://github.com/rccavalcanti/dotfiles"
+alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 &; disown"
 
 # Easier commands
 alias cx="chmod +x"
-alias r="ranger"
 alias o="xdg-open"
+alias r="ranger"
+alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
+alias scr="sudo systemctl restart"
 alias v="vnc"
 alias y="yadm"
-alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
-alias scr="sudo systemctl restart"
 if systemctl status kodi > /dev/null 2>&1; then
 	alias kr="sudo systemctl restart kodi"
 	alias ks="sudo systemctl stop kodi"
@@ -145,20 +151,11 @@ alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
 
 # Package management
 if command -v apt > /dev/null; then
-	alias api="sudo apt install"
-	alias apu="sudo apt update"
-	alias app="sudo apt purge"
-	alias apar="sudo apt autoremove -y"
-fi
-
-# Mirrors
-## Manjaro
-if command -v pacman-mirrors > /dev/null; then
-	alias pm="sudo pacman-mirrors -f 10"
-## Arch
-elif command -v reflector > /dev/null; then
-	alias pm="sudo reflector -l 5 --sort rate \
-		--save /etc/pacman.d/mirrorlist && echo 'OK.' && sudo pacman -Syy"
+	alias ah="apt search"
+	alias ai="sudo apt install"
+	alias ap="sudo apt purge"
+	alias au="sudo apt update"
+	alias aar="sudo apt autoremove -y"
 fi
 
 # Termux overrides and additions
