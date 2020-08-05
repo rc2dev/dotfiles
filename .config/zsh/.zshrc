@@ -115,9 +115,11 @@ bindkey "^[OB" down-line-or-beginning-search
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 
-# vi-mode: Bring back ctrl+arrow for navigating words
+# vi-mode: Bring back ctrl+arrow and Home/End for navigating
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+bindkey "^[[H" beginning-of-line-hist
+bindkey "^[[F" end-of-line-hist
 
 # Aliases definitions
 . ~/.config/shell/aliases
@@ -143,4 +145,3 @@ if [[ -z "$TMUX" ]]; then
 		printf "Sessões tmux ativas: %s\n" $tmux_sessions
 	fi
 fi
-
