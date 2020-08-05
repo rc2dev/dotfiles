@@ -78,10 +78,9 @@ ZSH_CUSTOM="$ZDOTDIR/oh-my-custom"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	vi-mode # should be before dircycle or it will reset the keybindings
+	vi-mode # should be before plugins such as dircycle or it will reset their keybindings
 	autojump
 	command-not-found
-	dircycle
 	git
 	last-working-dir
 	systemd
