@@ -6,11 +6,6 @@
 # Make sure HOSTNAME is set (Zsh sets HOST)
 HOSTNAME=${HOSTNAME:-$(hostname)}
 
-# Default applications
-export EDITOR="vim"
-export TERMINAL="alacritty"
-export TERMINAL_RUN="alacritty -e"
-
 # User flatpaks
 if [ -d "$HOME/.local/share/flatpak/exports/bin" ]; then
 	PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
@@ -45,13 +40,6 @@ if [[ "$HOSTNAME" == "localhost" && -z "$XDG_RUNTIME_DIR" ]]; then
 	export XDG_RUNTIME_DIR="$PREFIX/var/run"
 fi
 
-if command -v mpc >/dev/null; then
-	export MPD_HOST="192.168.15.101"
-fi
-
-export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
-export FZF_DEFAULT_COMMAND="rg --files --hidden"
-
 # Termux: Start OpenSSH agent if needed
 if [[ "$HOSTNAME" == "localhost" && -z "$SSH_AUTH_SOCK" ]]; then
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
@@ -75,3 +63,15 @@ fi
 if [[ -n $DISPLAY ]]; then
 	export QT_QPA_PLATFORMTHEME=gtk2
 fi
+
+# Default applications
+export EDITOR="vim"
+if [[ -n $DISPLAY ]]; then
+	export TERMINAL="alacritty"
+	export TERMINAL_RUN="alacritty -e"
+fi
+
+# Applications configuration
+export MPD_HOST="192.168.15.101"
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
