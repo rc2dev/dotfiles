@@ -172,9 +172,6 @@ if [[ "$HOSTNAME" == "localhost" ]]; then
 	# Screen is narrow, adapt ll
 	alias ll="ls -laFh --group-directories-first -og"
 
-	# Replace ssh with ssha wrapper, so we use ssh-agent
-	alias ssh="ssha"
-
 	# Backup Termux
 	alias backup="tar \
 		-C /data/data/com.termux/files \
