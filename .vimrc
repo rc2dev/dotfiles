@@ -79,7 +79,8 @@ syntax on
 let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide=ghregex
 
-
+" Transparent background
+hi Normal guibg=NONE ctermbg=NONE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEHAVIOUR
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -262,4 +263,3 @@ iab rct Author: Rafael Cavalcanti - rafaelc.org
 if filereadable("/etc/vim/vimrc.local")
 	source /etc/vim/vimrc.local
 endif
-
