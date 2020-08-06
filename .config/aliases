@@ -121,6 +121,19 @@ if systemctl status kodi > /dev/null 2>&1; then
 	alias ks="sudo systemctl stop kodi"
 fi
 
+# Package management
+if command -v apt > /dev/null; then
+	alias ah="apt search"
+	alias ai="sudo apt install"
+	alias ap="sudo apt purge"
+	alias au="sudo apt update"
+	alias aar="sudo apt autoremove -y"
+fi
+
+# journalctl
+alias sj="journalctl"
+alias sju="journalctl -u"
+
 # TV and HDMI output
 if [[ "$HOSTNAME" == "pi" ]]; then
 	alias td='echo "standby 0" | cec-client -s'
@@ -148,15 +161,6 @@ yta() { mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 # Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
 alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
 alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
-
-# Package management
-if command -v apt > /dev/null; then
-	alias ah="apt search"
-	alias ai="sudo apt install"
-	alias ap="sudo apt purge"
-	alias au="sudo apt update"
-	alias aar="sudo apt autoremove -y"
-fi
 
 # Termux overrides and additions
 if [[ "$HOSTNAME" == "localhost" ]]; then
