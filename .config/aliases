@@ -42,6 +42,7 @@ alias ll="ls -lAFh --group-directories-first"
 # Shell
 alias c="clear"
 alias c!="cd && clear"
+alias C="cd -"
 alias q="exit"
 alias x="exit"
 history-rank() {
@@ -68,12 +69,13 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias_j jb ~/.local/bin
-alias_j jc ~/Code
 alias_j jd ~/Downloads
+alias_j je ~/Desktop
 alias_j jk ~/.kodi
 alias_j jk /var/lib/kodi/.kodi
 alias_j jn ~/Sync
-alias_j jp "$PREFIX"
+alias_j jo ~/Code
+alias_j jp ~/Pictures
 alias_j jr /mnt/c/Users/rccav
 alias_j js /sdcard
 alias_j jt ~/.local/opt/scripts
@@ -131,8 +133,8 @@ if command -v apt > /dev/null; then
 fi
 
 # journalctl
-alias sj="journalctl"
-alias sju="journalctl -u"
+alias jc="journalctl"
+alias jcu="journalctl -u"
 
 # TV and HDMI output
 if [[ "$HOSTNAME" == "pi" ]]; then
@@ -157,10 +159,6 @@ rau() { arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date
 
 # Find and stream audio
 yta() { mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
-
-# Generate string from /dev/urandom (http://www.commandlinefu.com/commands/view/7234/create-random-string-from-devurandom-or-another-length)
-alias rand_alpha="cat /dev/urandom | tr -dc '[:alnum:]' | head -c64 && echo"
-alias rand_lower="cat /dev/urandom | tr -dc '[:lower:]' | head -c64 && echo"
 
 # Termux overrides and additions
 if [[ "$HOSTNAME" == "localhost" ]]; then
