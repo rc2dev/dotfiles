@@ -15,26 +15,11 @@ main() {
   yadm submodule update --init --recursive
 
   log "Creating directories..."
-  [[ -d "$HOME/bin" ]] || mkdir -p "$HOME/.local/bin"
   mkdir -p "$HOME/.local/opt"
-
-  install_dconf
 }
 
 log() {
   printf "%s\n" "$*" 1>&2
-}
-
-install_dconf() {
-  local -r dconf_dir="${script_dir}/dconf"
-
-  if ! command -v dconf >/dev/null; then
-    log "dconf is not installed. Skipping..."
-    return 0
-  fi
-
-  log "Loading dconf settings..."
-  cat "$dconf_dir"/*.conf | dconf load /
 }
 
 main "$@"

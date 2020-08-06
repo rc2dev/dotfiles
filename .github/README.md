@@ -6,8 +6,6 @@ User-level configuration for my machines.
 
 The directory structure currently follows the [yadm](https://yadm.io/) specification.
 
-Besides that, the [dconf directory](../.config/yadm/dconf) contains my gsettings configurations in plain text. Those are automatically loaded on bootstrapping.
-
 ## Installation
 
 Use yadm to clone and bootstrap:
