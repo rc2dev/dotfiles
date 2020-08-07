@@ -37,13 +37,16 @@ bar_player() {
     Paused) local -r icon=;;
   esac
 
-  # Calling metadata with --format prevents mixing multiple players
-  local artist="$($cmd metadata --format "{{ artist }}")"
-  local title="$($cmd metadata --format "{{ title }}")"
+  # Calling metadata...
+  #   - with --format: prevents mixing multiple players
+  #   - only once: prevents racing conditions (mixing prev and next song)
+  local -a metadata
+  local -r NL=$'\n'
+  mapfile -t metadata < <($cmd metadata --format "{{ artist }}$NL{{ title }}")
 
   # Truncate long metadata
-  artist="$(truncate "$artist")"
-  title="$(truncate "$title")"
+  local -r artist="$(truncate "${metadata[0]}")"
+  local -r title="$(truncate "${metadata[1]}")"
 
   echo "${icon} ${artist:+$artist -} ${title} ${sep} "
 }
