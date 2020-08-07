@@ -16,7 +16,7 @@ select option in "Download" "Play on MPD" "Exit"; do
       break
       ;;
     "Play on MPD")
-      bash may "$@"
+      bash myt "$@"
       exit_code=$?
 
       break
