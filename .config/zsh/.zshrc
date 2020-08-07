@@ -130,9 +130,6 @@ if [[ -d /usr/share/doc/fzf/examples ]]; then
 	. /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
-# Import colorscheme from 'wal' asynchronously
-(cat ~/.cache/wal/sequences &)
-
 # Set colors for ls
 eval $(dircolors -b)
 
