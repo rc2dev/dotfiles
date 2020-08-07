@@ -60,7 +60,6 @@ history-rank() {
 # Edit
 alias e="$EDITOR"
 alias ea="$EDITOR $ALIASES"
-alias en="quick-note"
 alias ev="$EDITOR ~/.vimrc"
 alias ez="$EDITOR $ZDOTDIR/.zshrc"
 
