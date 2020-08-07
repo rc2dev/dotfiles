@@ -1,8 +1,9 @@
 #!/bin/sh
 # dmenu_run improved
 # if a command ends with "!", it is started in term.
+# With modifications by Rafael Cavalcanti - rafaelc.org
 
-termcmd="st -e"
+termcmd="$TERMINAL_RUN"
 test -s $HOME/.dmenurc && . $HOME/.dmenurc
 
 cmd="$(dmenu_path | dmenu $@)"
