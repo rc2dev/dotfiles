@@ -126,11 +126,14 @@ fi
 
 # Package management
 if command -v apt > /dev/null; then
+	alias aar="sudo apt autoremove -y"
 	alias ah="apt search"
+	alias ama="sudo apt-mark auto"
+	alias amm="sudo apt-mark manual"
 	alias ai="sudo apt install"
 	alias ap="sudo apt purge"
 	alias au="sudo apt update"
-	alias aar="sudo apt autoremove -y"
+	alias aw="apt show"
 fi
 
 # journalctl
@@ -160,6 +163,9 @@ rau() { arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date
 
 # Find and stream audio
 yta() { mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
+
+# List videos from yt playlist
+ytl() { youtube-dl --flat-playlist --dump-json "$@" | jq -r '"https://youtu.be/" + .url'; }
 
 # Termux overrides and additions
 if [[ "$HOSTNAME" == "localhost" ]]; then
