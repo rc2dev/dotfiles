@@ -1,0 +1,5 @@
+#!/bin/sh
+# askpass program using dmenu
+# Author: Rafael Cavalcanti - rafaelc.org
+
+dmenu -P -p "$1" <&-

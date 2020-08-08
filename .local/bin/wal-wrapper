@@ -8,15 +8,17 @@
 
 set -euo pipefail
 
+export SUDO_ASKPASS="$HOME/.local/bin/dpass"
+
 wal "$@"
 
 printf "\nRecompiling dwm...\n"
 # Remove urg_ variables as we don't use the urgent patch.
 sed -i '/ urg_/d' ~/.cache/wal/colors-wal-dwm.h
-cd ~/Code/dwm && sudo make clean install > /dev/null
+cd ~/Code/dwm && sudo -A make clean install > /dev/null
 
 printf "\nRecompiling dmenu...\n"
-cd ~/Code/dmenu && sudo make clean install > /dev/null
+cd ~/Code/dmenu && sudo -A make clean install > /dev/null
 
 printf "\nRestarting dunst...\n"
 killall dunst || true
