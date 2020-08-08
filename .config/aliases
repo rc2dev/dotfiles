@@ -114,7 +114,7 @@ alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 &; d
 alias cx="chmod +x"
 alias o="xdg-open"
 alias r="ranger"
-alias rw="ranger $WALLPAPERS"
+alias sw="sxiv -tr $WALLPAPERS"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias scr="sudo systemctl restart"
@@ -124,6 +124,9 @@ if systemctl status kodi > /dev/null 2>&1; then
 	alias kr="sudo systemctl restart kodi"
 	alias ks="sudo systemctl stop kodi"
 fi
+
+# sxiv: Always animate gifs
+alias sxiv="sxiv -a"
 
 # Package management
 if command -v apt > /dev/null; then

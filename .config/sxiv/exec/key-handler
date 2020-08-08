@@ -1,0 +1,20 @@
+#!/bin/sh
+# Author: Rafael Cavalcanti - rafaelc.org
+
+while read file; do
+  case "$1" in
+    "C-d")
+      gio trash "$file"
+      ;;
+    "C-g")
+      gimp "$file" &
+      # Dirty workaround. If we launch gimp again before the 1st instance finishes
+      # loading, we'll end up with many instances
+      sleep 0.5
+      ;;
+    "C-w")
+      wal-wrapper -s -i "$file"
+      notify-send "Wallpaper set."
+      ;;
+  esac
+done
