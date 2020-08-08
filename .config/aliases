@@ -13,7 +13,7 @@ alias_j() {
 }
 
 # List files when cd'ing
-cd() { builtin cd "$@" && ls -A; }
+cd() { builtin cd "$@" && ls -A --group-directories-first; }
 
 # Also check command after sudo for alias (see man bash)
 alias sudo="sudo "
@@ -69,6 +69,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias_j jb ~/.local/bin
 alias_j jd ~/Downloads
+alias_j jg ~/.config
 alias_j je ~/Desktop
 alias_j jk ~/.kodi
 alias_j jk /var/lib/kodi/.kodi
