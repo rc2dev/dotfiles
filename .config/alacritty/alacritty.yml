@@ -9,6 +9,9 @@ key_bindings:
   - { key: J, mods: Alt, action: ScrollLineDown }
   - { key: T, mods: Alt, action: ScrollToTop }
   - { key: B, mods: Alt, action: ScrollToBottom }
+  - { key: C, mods: Alt, action: Copy }
+  - { key: V, mods: Alt, action: Paste }
+  - { key: F, mods: Alt, action: SearchForward }
   - { key: Escape, mods: Alt, action: ToggleViMode }
 
 scrolling:
