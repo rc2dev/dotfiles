@@ -27,7 +27,7 @@ bar_vol() {
 }
 
 bar_player() {
-  local -r cmd="playerctl --player=%any,chromium"
+  local -r cmd="playerctl --player=%any,chromium,chrome"
   local -r status="$($cmd status)"
 
   [[ "$status" =~ (Playing|Paused) ]] || return 0
