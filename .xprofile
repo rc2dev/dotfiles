@@ -36,6 +36,6 @@ joplin &
 # Statusbar loop
 while true; do
   dwmbar
-  sleep 20s
+  sleep 15s
 done &
 
