@@ -222,10 +222,10 @@ nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
 
 " Resize splits
-nnoremap <silent> <C-Left> :vertical resize +3<CR>
-nnoremap <silent> <C-Right> :vertical resize -3<CR>
-nnoremap <silent> <C-Up> :resize +3<CR>
-nnoremap <silent> <C-Down> :resize -3<CR>
+nnoremap <silent> <C-S-h> :vertical resize +3<CR>
+nnoremap <silent> <C-S-l> :vertical resize -3<CR>
+nnoremap <silent> <C-S-k> :resize +3<CR>
+nnoremap <silent> <C-S-j> :resize -3<CR>
 
 " Change 2 splits from/to vertical/horizontal
 nnoremap <Leader>th <C-w>t<C-w>H
