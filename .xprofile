@@ -29,7 +29,6 @@ clipmenud &
 nm-applet &
 system-config-printer-applet &
 blueman-tray &
-me.kozec.syncthingtk -m &
 kdeconnect-indicator &
 keepassxc &
 joplin &
