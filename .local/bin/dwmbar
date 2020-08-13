@@ -51,17 +51,13 @@ bar_player() {
   echo "${icon} ${artist:+$artist -} ${title} ${sep} "
 }
 
-bar_date() {
-  echo "$(date +"%a, %b %e")"
-}
-
 bar_time() {
-  echo "🕐 $(date +"%R")"
+  echo "$(date +"%a, %e/%m 🕐 %R")"
 }
 
 bar_mem() {
   echo "Mem: $(free -h | grep '^Mem' | awk '{print $3}')"
 }
 
-xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_mem) ${sep} $(bar_date) ${sep} $(bar_time) "
+xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_mem) ${sep} $(bar_time) "
 
