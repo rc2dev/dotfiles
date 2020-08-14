@@ -171,9 +171,6 @@ yta() { mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 # List videos from yt playlist
 ytl() { youtube-dl --flat-playlist --dump-json "$@" | jq -r '"https://youtu.be/" + .url'; }
 
-# Open current media URL on browser
-om() { xdg-open "$(playerctl metadata xesam:url)" >/dev/null 2>&1 & disown; }
-
 # Termux overrides and additions
 if [[ "$HOSTNAME" == "localhost" ]]; then
 	# Fix aliases that don't work on Busybox
