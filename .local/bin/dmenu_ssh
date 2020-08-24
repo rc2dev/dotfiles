@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# dmenu script for ssh'ing and vnc'ing (pass --vnc)
+# Dependencies: my vnc script
+#
+# Author: Rafael Cavalcanti - rafaelc.org
+
+readonly term_cmd="$TERMINAL_RUN"
+readonly ssh_config="$HOME/.ssh/config"
+
+if [[ "$1" == "--vnc" ]]; then
+  readonly cmd="vnc"
+  readonly prompt="vnc"
+  shift
+else
+  readonly cmd="$term_cmd ssh"
+  readonly prompt="ssh"
+fi
+
+readonly hosts=($(grep -E '^Host\s+' "$ssh_config" 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2 | sort))
+readonly host=$(printf '%s\n' "${hosts[@]}" | dmenu -p "$prompt" -i "$@")
+
+if [[ -n "$host" ]]; then
+  $cmd $host
+fi

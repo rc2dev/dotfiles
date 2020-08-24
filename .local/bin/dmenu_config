@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# dmenu script for ssh'ing and vnc'ing (pass --vnc)
+# Dependencies: my vnc script
+#
+# Author: Rafael Cavalcanti - rafaelc.org
+
+readonly terminal_run="$TERMINAL_RUN"
+readonly editor="$EDITOR"
+
+readonly configs=(
+  "alacritty"
+  "aliases"
+  "bashrc"
+  "dunstrc"
+  "dwm"
+  "profile"
+  "ranger"
+  "vimrc"
+  "xprofile"
+  "zshrc"
+)
+
+readonly config=$(printf '%s\n' "${configs[@]}" | dmenu -p "configs" -i "$@")
+
+case $config in
+  alacritty) $terminal_run $editor ~/.config/alacritty/alacritty.yml ;;
+  aliases) $terminal_run $editor ~/.config/aliases ;;
+  bashrc) $terminal_run $editor ~/.bashrc ;;
+  dunstrc) $terminal_run $editor ~/.config/dunst/dunstrc ;;
+  dwm) $terminal_run zsh -c "$editor ~/Code/dwm/config.h; exec zsh" ;;
+  profile) $terminal_run $editor ~/.profile ;;
+  ranger) $terminal_run $editor ~/.config/ranger/rc.conf ;;
+  vimrc) $terminal_run $editor ~/.vimrc ;;
+  xprofile) $terminal_run $editor ~/.xprofile ;;
+  zshrc) $terminal_run $editor ~/.config/zsh/.zshrc ;;
+esac
