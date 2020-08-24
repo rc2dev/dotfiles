@@ -33,12 +33,12 @@ readonly options=(
   "Selection (clipboard)"
 )
 
-readonly option=${1:-$(printf '%s\n' "${options[@]}" | dmenu -p "screenshot" -i -l "${#options[@]}")}
+readonly option=${1:-$(printf '%s\n' "${options[@]}" | dmenu -p "Take screenshot of..." -i -l "${#options[@]}")}
 
 case "$option" in
   "Full screen")
     maim "$out_file"
-    notify-send "Full screen screenshot saved to file."
+    notify-send "Full screen screenshot saved."
     ;;
   "Full screen (clipboard)")
     maim | xclip -selection clipboard -t image/png
@@ -46,15 +46,15 @@ case "$option" in
     ;;
   "Current window")
     maim -i $(xdotool getactivewindow) "$out_file"
-    notify-send "Current window screenshot saved to file."
+    notify-send "Window screenshot saved."
     ;;
   "Current window (clipboard)")
     maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-    notify-send "Current window screenshot copied to clipboard."
+    notify-send "Window screenshot copied to clipboard."
     ;;
   "Selection")
     maim -s "$out_file"
-    notify-send "Selection screenshot saved to file."
+    notify-send "Selection screenshot saved."
     ;;
   "Selection (clipboard)")
     maim -s | xclip -selection clipboard -t image/png
