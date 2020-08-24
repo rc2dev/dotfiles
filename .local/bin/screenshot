@@ -18,6 +18,7 @@
 set -euo pipefail
 
 readonly out_dir="$HOME/Pictures/Screenshots/"
+readonly out_file="${out_dir}/Screenshot from $(date +"%d-%m-%Y %H-%M-%S").png"
 
 if [[ ! -d "$out_dir" ]]; then
   mkdir -p "$out_dir"
@@ -36,24 +37,24 @@ readonly option=${1:-$(printf '%s\n' "${options[@]}" | dmenu -p "screenshot" -i 
 
 case "$option" in
   "Full screen")
-    maim "$out_dir/$(date +%s).png"
-    notify-send "Full screen screenshot saved."
+    maim "$out_file"
+    notify-send "Full screen screenshot saved to file."
     ;;
   "Full screen (clipboard)")
     maim | xclip -selection clipboard -t image/png
     notify-send "Full screen screenshot copied to clipboard."
     ;;
   "Current window")
-    maim -i $(xdotool getactivewindow) "$out_dir/$(date +%s).png"
-    notify-send "Current window screenshot saved to ~/Pictures."
+    maim -i $(xdotool getactivewindow) "$out_file"
+    notify-send "Current window screenshot saved to file."
     ;;
   "Current window (clipboard)")
     maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
     notify-send "Current window screenshot copied to clipboard."
     ;;
   "Selection")
-    maim -s "$out_dir/$(date +%s).png"
-    notify-send "Selection screenshot saved to ~/Pictures."
+    maim -s "$out_file"
+    notify-send "Selection screenshot saved to file."
     ;;
   "Selection (clipboard)")
     maim -s | xclip -selection clipboard -t image/png
