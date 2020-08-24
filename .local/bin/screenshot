@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+#
+# Simple screenshot utility.
+#
+# Usage:
+# 1) Run it without arguments to bring up the options on dmenu.
+# 2) Run it with the wanted option as the argument.
+#
+# Dependencies:
+# - dmenu
+# - maim
+# - notify-send
+# - xclip
+#
+# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly out_dir="$HOME/Pictures/Screenshots/"
+
+if [[ ! -d "$out_dir" ]]; then
+  mkdir -p "$out_dir"
+fi
+
+readonly options=(
+  "Full screen"
+  "Full screen (clipboard)"
+  "Current window"
+  "Current window (clipboard)"
+  "Selection"
+  "Selection (clipboard)"
+)
+
+readonly option=${1:-$(printf '%s\n' "${options[@]}" | dmenu -p "screenshot" -i -l "${#options[@]}")}
+
+case "$option" in
+  "Full screen")
+    maim "$out_dir/$(date +%s).png"
+    notify-send "Full screen screenshot saved."
+    ;;
+  "Full screen (clipboard)")
+    maim | xclip -selection clipboard -t image/png
+    notify-send "Full screen screenshot copied to clipboard."
+    ;;
+  "Current window")
+    maim -i $(xdotool getactivewindow) "$out_dir/$(date +%s).png"
+    notify-send "Current window screenshot saved to ~/Pictures."
+    ;;
+  "Current window (clipboard)")
+    maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+    notify-send "Current window screenshot copied to clipboard."
+    ;;
+  "Selection")
+    maim -s "$out_dir/$(date +%s).png"
+    notify-send "Selection screenshot saved to ~/Pictures."
+    ;;
+  "Selection (clipboard)")
+    maim -s | xclip -selection clipboard -t image/png
+    notify-send "Selection screenshot copied to clipboard."
+    ;;
+  *)
+    printf "Invalid option.\n"
+    ;;
+esac
+
