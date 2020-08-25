@@ -1,0 +1,5 @@
+#!/bin/sh
+# Spotify wrapper, so it starts with a WM_CLASS. Copy-pasted from https://github.com/dasJ/spotifywm.
+# Author: Rafael Cavalcanti - rafaelc.org
+
+LD_PRELOAD=/usr/lib/libcurl.so.3:$HOME/.local/opt/spotifywm/spotifywm.so /usr/bin/spotify
