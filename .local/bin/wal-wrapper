@@ -25,4 +25,4 @@ killall dunst || true
 dunst &
 disown
 
-printf "\nRestart dwm for using the new colorscheme.\n"
+dconfirm "Restart dwm to apply changes?" "killall -HUP dwm"
