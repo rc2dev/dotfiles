@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# Prompt yes/no with dmenu and run a command if yes.
+# Usage: prompt prompt_message command_to_run
+#
+# Author: Rafael Cavalcanti - rafaelc.org
+
+readonly answer="$(printf "%s\n%s" "Yes" "No" | dmenu -i -p "$1")"
+[[ "$answer" == "Yes" ]] && exec $2
+
