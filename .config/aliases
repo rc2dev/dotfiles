@@ -69,12 +69,11 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias_j jb ~/.local/bin
 alias_j jd ~/Downloads
+alias_j je ~/Code
 alias_j jg ~/.config
-alias_j je ~/Desktop
 alias_j jk ~/.kodi
 alias_j jk /var/lib/kodi/.kodi
 alias_j jn ~/Sync
-alias_j jo ~/Code
 alias_j jp ~/Pictures
 alias_j jr /mnt/c/Users/rccav
 alias_j js /sdcard
@@ -141,8 +140,8 @@ if command -v apt > /dev/null; then
 fi
 
 # journalctl
-alias jc="journalctl"
-alias jcu="journalctl -u"
+alias jl="journalctl"
+alias jlu="journalctl -u"
 
 # TV and HDMI output
 if [[ "$HOSTNAME" == "pi" ]]; then
