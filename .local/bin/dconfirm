@@ -5,6 +5,6 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-readonly answer="$(printf "%s\n%s" "Yes" "No" | dmenu -i -p "$1")"
+readonly answer="$(printf "%s\n%s" "Yes" "No" | dmenu -p "$1")"
 [[ "$answer" == "Yes" ]] && exec $2
 

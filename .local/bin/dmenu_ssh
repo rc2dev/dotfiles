@@ -18,7 +18,7 @@ else
 fi
 
 readonly hosts=($(grep -E '^Host\s+' "$ssh_config" 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2 | sort))
-readonly host=$(printf '%s\n' "${hosts[@]}" | dmenu -p "$prompt" -i "$@")
+readonly host=$(printf '%s\n' "${hosts[@]}" | dmenu -p "$prompt" "$@")
 
 if [[ -n "$host" ]]; then
   $cmd $host

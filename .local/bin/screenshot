@@ -33,7 +33,7 @@ readonly options=(
   "Selection (clipboard)"
 )
 
-readonly option=${1:-$(printf '%s\n' "${options[@]}" | dmenu -p "Take screenshot of..." -i -l "${#options[@]}")}
+readonly option=${1:-$(printf '%s\n' "${options[@]}" | dmenu -p "Take screenshot of..." -l "${#options[@]}")}
 
 case "$option" in
   "Full screen")
