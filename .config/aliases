@@ -171,6 +171,14 @@ yta() { mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 # List videos from yt playlist
 ytl() { youtube-dl --flat-playlist --dump-json "$@" | jq -r '"https://youtu.be/" + .url'; }
 
+# Play watch later or $1 playlist on shuffle
+yts() {
+	local -r cookies="$HOME/.config/yt_cookies.txt"
+	local -r id="${1:-WL}"
+
+	mpv --shuffle --ytdl-raw-options="cookies=${cookies}" "https://www.youtube.com/playlist?list=${id}"
+}
+
 # Termux overrides and additions
 if [[ "$HOSTNAME" == "localhost" ]]; then
 	# Fix aliases that don't work on Busybox
