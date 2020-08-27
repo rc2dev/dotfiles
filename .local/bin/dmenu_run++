@@ -3,13 +3,23 @@
 # dmenu_run with improvements:
 # - If the command ends with "!", start it in a terminal.
 # - Accept shell aliases.
+# - Recent commands are listed first (based on https://tools.suckless.org/dmenu/scripts/run-recent)
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
+readonly cache="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_recent"
+
+# For compgen
 source "$ALIASES"
 
-readonly cmd="$(compgen -ac | dmenu "$@")"
-case $cmd in
-    *\! ) $TERMINAL_RUN_HOLD bash -ic "$(cut -d'!' -f1 <<< $cmd)" ;;
-    * ) $cmd ;;
+touch "$cache"
+
+readonly most_used=$(sort "$cache" | uniq -c | sort -r | cut -d" " -f8)
+readonly run=$( (echo "$most_used"; compgen -ac | grep -vxF "$most_used") | dmenu "$@")
+([ -z "$run" ] || echo "$run"; head -n 99 "$cache") > "$cache.$$"
+mv -f "$cache.$$" "$cache"
+
+case "$run" in
+    *\!) exec $TERMINAL_RUN_HOLD bash -ic "${run%!}" ;;
+    *) exec bash -ic "$run" ;;
 esac
