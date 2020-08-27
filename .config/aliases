@@ -107,7 +107,7 @@ alias yrba="yadm rebase --abort"
 alias yrbc="yadm rebase --continue"
 alias yrbi="yadm rebase -i"
 alias yst="yadm status"
-alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 &; disown"
+alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 & disown"
 
 # Easier commands
 alias cx="chmod +x"
