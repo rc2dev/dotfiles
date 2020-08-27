@@ -1,15 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # dmenu_run improved
-# if a command ends with "!", it is started in term.
-# With modifications by Rafael Cavalcanti - rafaelc.org
+# - If the command ends with "!", start it in a terminal.
+#
+# Author: Rafael Cavalcanti - rafaelc.org
 
-termcmd="$TERMINAL_RUN"
-test -s $HOME/.dmenurc && . $HOME/.dmenurc
-
-cmd="$(dmenu_path | dmenu $@)"
+readonly cmd="$(dmenu_path | dmenu "$@")"
 case $cmd in
-    *\! ) ${termcmd} $(printf "%s" "${cmd}" | cut -d'!' -f1);;
-    * ) ${cmd} ;;
+    *\! ) $TERMINAL_RUN $(cut -d'!' -f1 <<< $cmd) ;;
+    * ) $cmd ;;
 esac
-exit
-
