@@ -10,6 +10,6 @@ source "$ALIASES"
 
 readonly cmd="$(compgen -ac | dmenu "$@")"
 case $cmd in
-    *\! ) $TERMINAL_RUN bash -ic "$(cut -d'!' -f1 <<< $cmd)" ;;
+    *\! ) $TERMINAL_RUN_HOLD bash -ic "$(cut -d'!' -f1 <<< $cmd)" ;;
     * ) $cmd ;;
 esac

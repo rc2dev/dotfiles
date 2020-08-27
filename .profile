@@ -79,6 +79,7 @@ export EDITOR="vim"
 if [[ -n $DISPLAY ]]; then
 	export TERMINAL="alacritty"
 	export TERMINAL_RUN="alacritty -e"
+	export TERMINAL_RUN_HOLD="alacritty --hold -e"
 fi
 
 # Applications configuration
