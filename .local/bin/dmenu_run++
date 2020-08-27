@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# dmenu_run improved
+#
+# dmenu_run with improvements
 # - If the command ends with "!", start it in a terminal.
 #
 # Author: Rafael Cavalcanti - rafaelc.org
