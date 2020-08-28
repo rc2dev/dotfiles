@@ -99,6 +99,8 @@ source $ZSH/oh-my-zsh.sh
 setopt globdots
 # Don't show '..' and '.' on completion
 zstyle ':completion:*' special-dirs false
+# Show list of ambiguous completions on first tab
+setopt list_ambiguous
 
 # Execute lines with history expansion directly
 setopt nohist_verify
