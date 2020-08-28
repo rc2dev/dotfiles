@@ -14,8 +14,9 @@ source "$ALIASES"
 
 touch "$cache"
 
-readonly most_used=$(sort "$cache" | uniq -c | sort -r | cut -d" " -f8)
-readonly run=$( (echo "$most_used"; compgen -ac | grep -vxF "$most_used") | dmenu "$@")
+readonly most_used=$(sort "$cache" | uniq -c | sort -r | cut -d" " -f8-)
+readonly all_cmds="$(compgen -ac | sort | uniq)"
+readonly run=$( (echo "$most_used"; echo "$all_cmds" | grep -vxF "$most_used") | dmenu "$@")
 ([ -z "$run" ] || echo "$run"; head -n 99 "$cache") > "$cache.$$"
 mv -f "$cache.$$" "$cache"
 
