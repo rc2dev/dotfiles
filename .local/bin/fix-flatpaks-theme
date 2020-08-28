@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Copy the theme configuration from ~ to the flatpaks homes.
+# This should be not needed if using a settings daemon.
+#
+# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+for app in ~/.var/app/*; do
+  dest="$app/config/gtk-3.0"
+  mkdir -p "$dest"
+  cp -vf ~/.config/gtk-3.0/settings.ini "$dest"
+done
