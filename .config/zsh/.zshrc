@@ -100,9 +100,6 @@ setopt globdots
 # Don't show '..' and '.' on completion
 zstyle ':completion:*' special-dirs false
 
-# On ambiguous completion, insert first match immediatly
-setopt menu_complete
-
 # Execute lines with history expansion directly
 setopt nohist_verify
 
