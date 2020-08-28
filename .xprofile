@@ -17,9 +17,6 @@ fi
 # Polkit agent - so GUI applications can request privileges
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-# Use a xsettings service so Flatpak apps are themed
-xfsettingsd &
-
 # Basic utilities
 dunst &
 wal -R &
