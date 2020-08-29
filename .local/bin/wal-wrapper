@@ -8,7 +8,7 @@
 
 set -euo pipefail
 
-export SUDO_ASKPASS="$HOME/.local/bin/dpass"
+export SUDO_ASKPASS="$HOME/.local/bin/dmenu_pass"
 
 wal "$@"
 
@@ -25,4 +25,4 @@ killall dunst || true
 dunst &
 disown
 
-dconfirm "Restart dwm to apply changes?" "killall -HUP dwm"
+dmenu_confirm "Restart dwm to apply changes?" "killall -HUP dwm"
