@@ -178,9 +178,9 @@ ytl() {
 # Play watch later or $1 playlist on shuffle
 yts() {
 	local -r cookies="$HOME/.config/yt_cookies.txt"
-	local -r id="${1:-WL}"
+	local -r url="${1:-https://www.youtube.com/playlist?list=WL}"
 
-	mpv --shuffle --ytdl-raw-options="cookies=${cookies}" "https://www.youtube.com/playlist?list=${id}"
+	mpv --shuffle --ytdl-raw-options="cookies=$cookies" "$url"
 }
 
 # Termux overrides and additions
