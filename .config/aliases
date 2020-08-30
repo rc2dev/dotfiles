@@ -169,7 +169,11 @@ rau() { arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date
 yta() { mpv --keep-open=no --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 
 # List videos from yt playlist
-ytl() { youtube-dl --flat-playlist --dump-json "$@" | jq -r '"https://youtu.be/" + .url'; }
+ytl() {
+	local -r cookies="$HOME/.config/yt_cookies.txt"
+
+	youtube-dl --cookies="$cookies" --flat-playlist --dump-json "$@" | jq -r '"https://youtu.be/" + .url'
+}
 
 # Play watch later or $1 playlist on shuffle
 yts() {
