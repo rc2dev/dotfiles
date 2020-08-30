@@ -168,19 +168,20 @@ rau() { arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date
 # Find and stream audio
 yta() { mpv --keep-open=no --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 
-# List videos from yt playlist
+# List videos from watch later or $1 playlist
 ytl() {
 	local -r cookies="$HOME/.config/yt_cookies.txt"
+	local -r playlist_url="${1:-https://www.youtube.com/playlist?list=WL}"
 
-	youtube-dl --cookies="$cookies" --flat-playlist --dump-json "$@" | jq -r '"https://youtu.be/" + .url'
+	youtube-dl --cookies="$cookies" --flat-playlist --dump-json "$playlist_url" | jq -r '"https://youtu.be/" + .url'
 }
 
 # Play watch later or $1 playlist on shuffle
 yts() {
 	local -r cookies="$HOME/.config/yt_cookies.txt"
-	local -r url="${1:-https://www.youtube.com/playlist?list=WL}"
+	local -r playlist_url="${1:-https://www.youtube.com/playlist?list=WL}"
 
-	mpv --shuffle --ytdl-raw-options="cookies=$cookies" "$url"
+	mpv --shuffle --ytdl-raw-options="cookies=$cookies" "$playlist_url"
 }
 
 # Termux overrides and additions
