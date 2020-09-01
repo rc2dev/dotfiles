@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# slock wrapper, pausing and resuming dunst notifications
+#
+# Author: Rafael Cavalcanti - rafaelc.org
+
+killall -SIGUSR1 dunst
+/usr/bin/slock
+
+killall -SIGUSR2 dunst
+
