@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#
+# Launch Chromium apps by name in the CLI.
+# Features:
+# - Name is case insensitive.
+# - Only allow one instance.
+#
+# Dependencies: wmctrl
+#
+# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly script_name="$(basename "$0")"
+readonly launchers_dir="$HOME/.local/share/applications"
+
+if [[ $# -ne 1 ]]; then
+  printf "Usage: %s app_name\n" "$script_name"
+  exit 1
+fi
+readonly app_name="$1"
+
+for f in "$launchers_dir"/chrome-*.desktop; do
+  if grep -qiE "^Name=$app_name$" "$f"; then
+    readonly app_launcher="$(basename "$f")"
+    readonly app_id="$(cut -d- -f2 <<< "$app_launcher")"
+
+    if wmctrl -xl | grep -q "$app_id"; then
+      printf "App is already running.\n"
+      exit
+    fi
+
+    exec gtk-launch "$app_launcher"
+  fi
+done
+
+printf "App not found.\n"
