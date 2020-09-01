@@ -1,0 +1,21 @@
+#!/data/data/com.termux/files/usr/bin/bash
+#
+# Choose host for ssh'ing from a list.
+#
+# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly ssh_config="$HOME/.ssh/config"
+readonly hosts=($(grep -E '^Host\s+' "$ssh_config" 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2 | sort))
+
+printf "ssh into...\n\n"
+select host in "${hosts[@]}"; do
+  if [[ -z $host ]]; then
+    printf "Invalid option.\n"
+  else
+    exec ssh "$host"
+  fi
+done
+
