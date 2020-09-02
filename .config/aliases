@@ -79,6 +79,7 @@ alias_j jr /mnt/c/Users/rccav
 alias_j js /sdcard
 alias_j jt ~/.local/opt/scripts
 alias_j jt /opt/scripts
+alias_j jv ~/Videos
 alias_j jy ~/.config/yadm
 alias_j jw /var/www
 alias_j jw "$WALLPAPERS"
