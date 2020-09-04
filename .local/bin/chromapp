@@ -4,6 +4,7 @@
 # Features:
 # - Name is case insensitive.
 # - Only allow one instance.
+# - List available apps.
 #
 # Dependencies: wmctrl
 #
@@ -15,24 +16,42 @@ set -euo pipefail
 readonly script_name="$(basename "$0")"
 readonly launchers_dir="$HOME/.local/share/applications"
 
-if [[ $# -ne 1 ]]; then
-  printf "Usage: %s app_name\n" "$script_name"
+main() {
+  [[ $# -ne 1 ]] && usage
+
+  launch_app "$1"
+
+  printf "App not found.\n" && usage
+}
+
+usage() {
+  printf "Available apps:\n"
+
+  for f in "$launchers_dir"/chrome-*.desktop; do
+    printf -- "- "
+    awk -F= '/^Name=/{print $2}' "$f"
+  done | sort
+
+  printf "\nRun with: %s app_name\n" "$script_name"
   exit 1
-fi
-readonly app_name="$1"
+}
 
-for f in "$launchers_dir"/chrome-*.desktop; do
-  if grep -qiE "^Name=$app_name$" "$f"; then
-    readonly app_launcher="$(basename "$f")"
-    readonly app_id="$(cut -d- -f2 <<< "$app_launcher")"
+launch_app() {
+  local -r app_name="$1"
 
-    if wmctrl -xl | grep -q "$app_id"; then
-      printf "App is already running.\n"
-      exit
+  for f in "$launchers_dir"/chrome-*.desktop; do
+    if grep -qiE "^Name=$app_name$" "$f"; then
+      local -r app_launcher="$(basename "$f")"
+      local -r app_id="$(cut -d- -f2 <<< "$app_launcher")"
+
+      if wmctrl -xl | grep -q "$app_id"; then
+        printf "App is already running.\n"
+        exit
+      fi
+
+      exec gtk-launch "$app_launcher"
     fi
+  done
+}
 
-    exec gtk-launch "$app_launcher"
-  fi
-done
-
-printf "App not found.\n"
+main "$@"
