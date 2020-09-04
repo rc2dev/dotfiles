@@ -18,7 +18,7 @@
 set -euo pipefail
 
 readonly out_dir="$HOME/Pictures/Screenshots/"
-readonly out_file="${out_dir}/Screenshot from $(date +"%d-%m-%Y %H-%M-%S").png"
+readonly out_file="${out_dir}/Screenshot from $(date +"%Y-%m-%d %H-%M-%S").png"
 
 if [[ ! -d "$out_dir" ]]; then
   mkdir -p "$out_dir"
