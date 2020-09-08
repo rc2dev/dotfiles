@@ -23,7 +23,7 @@ bar_vol() {
     local -r icon="🔊"
   fi
 
-  echo "${icon} $(pulsemixer --get-volume | cut -f 1 -d ' ')%"
+  printf "%s %3d%%" "${icon}" "$(pulsemixer --get-volume | cut -f 1 -d ' ')"
 }
 
 bar_player() {
