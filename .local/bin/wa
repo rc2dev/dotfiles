@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#
+# Launch webapps in Chromium browsers in app mode.
+# Features:
+# - Only allow one instance.
+#
+# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly script_name="$(basename "$0")"
+readonly browser="x-www-browser"
+
+declare -Ar apps=(
+  [projetos]="https://docs.google.com/spreadsheets/d/14uu321lifzWad1456NsA6FgS8febTf64zDtL2nu29Is/"
+  [whatsapp]="https://web.whatsapp.com/"
+)
+
+usage() {
+  printf "Usage: %s [app]\n" "$script_name"
+  printf "Apps: %s\n" "${!apps[*]}"
+  exit 1
+}
+
+[[ -z ${1:-} ]] && usage
+readonly app="$1"
+
+[[ -z "${apps[$app]+d}" ]] && printf "App doesn't exist.\n" && usage
+readonly url="${apps[$app]}"
+
+readonly class="$(sed 's#^https://##;s#/$##;s#.com/#.com__#g;s#/#_#g' <<< "$url")"
+if wmctrl -xl | grep -q "$class"; then
+  printf "App is already running.\n"
+  exit
+fi
+
+exec "$browser" --app="$url"
