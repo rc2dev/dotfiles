@@ -34,6 +34,7 @@ Plug 'aperezdc/vim-template'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'tpope/vim-fugitive'
 Plug 'ron89/thesaurus_query.vim'
+Plug 'mattn/emmet-vim'
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -174,6 +175,11 @@ vnoremap <Leader>ts y:ThesaurusQueryReplace <C-r>"<CR>
 " Goyo and Limelight
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" emmet-vim
+let g:user_emmet_leader_key=','
+let g:user_emmet_mode='n'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
