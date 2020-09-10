@@ -1,6 +1,6 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 
-background_opacity: 0.85
+background_opacity: 0.95
 
 key_bindings:
   - { key: U, mods: Alt, action: ScrollPageUp }
