@@ -16,7 +16,7 @@ readonly options="$(cat <<-END
 END
 )"
 
-readonly chosen="$(cut -d# -f1 <(printf "%s" "$options") | dmenu -p "Power menu" "$@")"
+readonly chosen="$(cut -d# -f1 <(printf "%s" "$options") | dmenu -l "$(wc -l <<< "$options")" -p "Power menu" "$@")"
 [[ -z "$chosen" ]] && exit
 
 readonly cmd="$(grep "$chosen" <(printf "%s" "$options") | cut -d# -f2)"
