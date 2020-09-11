@@ -2,4 +2,4 @@
 
 # Move everything from ~/
 ZDOTDIR="$HOME/.config/zsh"
-HISTFILE="$ZDOTDIR/.zsh_history"
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh_history"
