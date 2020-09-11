@@ -80,8 +80,12 @@ syntax on
 let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide=ghregex
 
-" Transparent background
-hi Normal guibg=NONE ctermbg=NONE
+" Transparent background (exclude gvim or it will get messed up)
+if ! has("gui_running")
+	hi Normal guibg=NONE ctermbg=NONE
+end
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEHAVIOUR
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -115,6 +119,7 @@ set viminfo+='1000,n~/.vim/viminfo
 
 " Run dwmbar whenever it is updated
 autocmd BufWritePost dwmbar !dwmbar
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CODE STYLE
