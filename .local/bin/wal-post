@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Wrapper script for pywal, doing all the extra needed
+# Script to run after pywal, doing all the extra needed
 # operations for using a new colorscheme.
 #
 # Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
@@ -9,8 +9,6 @@
 set -euo pipefail
 
 export SUDO_ASKPASS="$HOME/.local/bin/dmenu_pass"
-
-wal "$@"
 
 printf "\nRecompiling dwm...\n"
 # Remove urg_ variables as we don't use the urgent patch.

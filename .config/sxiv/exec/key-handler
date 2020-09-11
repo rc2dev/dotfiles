@@ -13,7 +13,7 @@ while read file; do
       sleep 0.5
       ;;
     "C-w")
-      wal-wrapper -s -i "$file"
+      wal -o wal-post -s -i "$file"
       notify-send "Wallpaper set."
       ;;
   esac
