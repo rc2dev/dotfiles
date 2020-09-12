@@ -1,3 +1,5 @@
+-- With modifications by Rafael Cavalcanti - rafaelc.org
+
 local mp = require("mp")
 local assdraw = require("mp.assdraw")
 local msg = require("mp.msg")
@@ -5,7 +7,7 @@ local utils = require("mp.utils")
 local mpopts = require("mp.options")
 local options = {
 	-- Defaults to shift+w
-	keybind = "W",
+	keybind = "Ctrl+s",
 	-- If empty, saves on the same directory of the playing video.
 	-- A starting "~" will be replaced by the home dir.
 	-- This field is delimited by double-square-brackets - [[ and ]] - instead of
@@ -13,7 +15,7 @@ local options = {
 	-- backslashes as a path separator. Examples of valid inputs for this field
 	-- would be: [[]] (the default, empty value), [[C:\Users\John]] (on Windows),
 	-- and [[/home/john]] (on Unix-like systems eg. Linux).
-	output_directory = [[]],
+	output_directory = [[~/Videos]],
 	run_detached = false,
 	-- Template string for the output file
 	-- %f - Filename, with extension
