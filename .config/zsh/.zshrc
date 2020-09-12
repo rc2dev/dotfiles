@@ -102,6 +102,9 @@ zstyle ':completion:*' special-dirs false
 # List ambiguous completions on first tab
 unsetopt list_ambiguous
 
+# Globbing: Use ^ to negate
+setopt extended_glob
+
 # Execute lines with history expansion directly
 setopt nohist_verify
 
