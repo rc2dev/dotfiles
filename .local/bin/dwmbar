@@ -27,8 +27,7 @@ bar_vol() {
 }
 
 bar_player() {
-  local -r cmd="playerctl --player=%any,chromium,chrome"
-  local -r status="$($cmd status)"
+  local -r status="$(playerctl status)"
 
   [[ "$status" =~ (Playing|Paused) ]] || return 0
 
@@ -42,7 +41,7 @@ bar_player() {
   #   - only once: prevents racing conditions (mixing prev and next song)
   local -a metadata
   local -r NL=$'\n'
-  mapfile -t metadata < <($cmd metadata --format "{{ artist }}$NL{{ title }}")
+  mapfile -t metadata < <(playerctl metadata --format "{{ artist }}$NL{{ title }}")
 
   # Truncate long metadata
   local -r artist="$(truncate "${metadata[0]}")"
