@@ -13,8 +13,8 @@ while read file; do
       sleep 0.5
       ;;
     "C-w")
-      wal -o wal-post -s -i "$file"
-      notify-send "Wallpaper set."
+      wal -o wal-post -s -i "$file" &&
+        notify-send "Wallpaper set."
       ;;
   esac
 done
