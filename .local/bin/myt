@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
-# Play or enqueue URL to MPD using youtube-dl
+# Play or enqueue URL to MPD using youtube-dl.
+# Supports playlists.
 #
 # Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
@@ -26,10 +27,13 @@ select option in "Play now" "Queue"; do
 done
 
 printf "Resolving URL...\n"
-resolved_url="$(youtube-dl --format bestaudio --get-url "$user_url")"
-if [[ -z "$resolved_url" ]]; then
-  printf "youtube-dl couldn't resolve.\n"
+# In the case of a playlist we need to add the URLs one by one.
+youtube-dl --format bestaudio --get-url "$user_url" | xargs -n 1 -r -i sh -c "mpc add {} && printf 'URL added.\n'"
+
+if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
+  printf "youtube-dl had an error resolving the URL.\n"
   exit 1
 fi
 
-mpc add "$resolved_url" && mpc play && $next && mpc next
+mpc play
+$next && mpc next
