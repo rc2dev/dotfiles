@@ -117,9 +117,9 @@ set directory=$HOME/.vim/swap//,.
 " Move ~/.viminfo to ~/.vim
 set viminfo+='1000,n~/.vim/viminfo
 
-" Run dwmbar whenever it is updated
+" Run these commands whenever these files are updated
 autocmd BufWritePost dwmbar !dwmbar
-
+autocmd BufWritePost .xsettingsd !killall -HUP xsettingsd
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CODE STYLE

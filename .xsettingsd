@@ -1,0 +1,9 @@
+Gtk/CursorThemeName "Pop"
+Gtk/DecorationLayout "menu:close"
+Gtk/FontName "Fira Sans Semi-Light 10"
+Net/IconThemeName "Pop"
+Net/ThemeName "Pop-dark"
+Xft/Antialias 1
+Xft/HintStyle "hintslight"
+Xft/Hinting 1
+Xft/RGBA "rgb"

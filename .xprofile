@@ -17,11 +17,8 @@ fi
 # Polkit agent - so GUI applications can request privileges
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-# For some reason, ~/.Xresources are not sourced when logging a
-# second time from gdm.
-[ -f ~/.Xresources ] && xrdb ~/.Xresources
-
 # Basic utilities
+xsettingsd &
 dunst &
 wal -R &
 redshift-gtk &
