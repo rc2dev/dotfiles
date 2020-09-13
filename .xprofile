@@ -25,7 +25,6 @@ compton --backend glx --paint-on-overlay --vsync opengl-swc &
 clipmenud &
 nm-applet &
 system-config-printer-applet &
-blueman-tray &
 kdeconnect-indicator &
 keepassxc &
 joplin &
