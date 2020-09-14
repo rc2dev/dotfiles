@@ -13,3 +13,6 @@ sudo git clone --depth=1 https://github.com/TheLocehiliosan/yadm.git /opt/yadm
 
 printf "Linking to /usr/local/bin...\n"
 sudo ln -s /opt/yadm/yadm /usr/local/bin
+
+read -p "Clone and bootstrap dotfiles? (y/n) " clone
+[[ "$clone" == "y" ]] && yadm clone --bootstrap https://github.com/rccavalcanti/dotfiles.git
