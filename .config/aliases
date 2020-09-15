@@ -33,8 +33,9 @@ alias free="free -h"
 # Coloured output
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
-#alias fgrep='fgrep --color=auto'
-#alias egrep='egrep --color=auto'
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias rgrep="rgrep --color=auto"
 
 # ls
 alias ll="ls -lAFh --group-directories-first"
@@ -42,7 +43,6 @@ alias ll="ls -lAFh --group-directories-first"
 # Shell
 alias c="clear"
 alias c!="cd && clear"
-alias C="cd -"
 alias q="exit"
 alias x="exit"
 history-rank() {
@@ -71,6 +71,7 @@ alias_j jb ~/.local/bin
 alias_j jd ~/Downloads
 alias_j je ~/Code
 alias_j jg ~/.config
+alias_j jh ~/Pictures/Screenshots
 alias_j jk ~/.kodi
 alias_j jk /var/lib/kodi/.kodi
 alias_j jn ~/Sync
@@ -87,7 +88,6 @@ alias_j jw "$WALLPAPERS"
 # Git
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
 gfr() { git fetch && git reset --hard origin/$(git branch --show-current); }
-alias yd="yadm diff"
 alias glo="git log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
 alias glon="glo --name-only"
 alias gw="hub browse"
@@ -118,15 +118,16 @@ alias sw="sxiv -tr $WALLPAPERS"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias scr="sudo systemctl restart"
-alias v="vnc"
 alias y="yadm"
 if systemctl status kodi > /dev/null 2>&1; then
 	alias kr="sudo systemctl restart kodi"
 	alias ks="sudo systemctl stop kodi"
 fi
 
-# sxiv: Always animate gifs
-alias sxiv="sxiv -a"
+# journalctl
+alias jl="journalctl"
+alias jlu="journalctl -u"
+
 
 # Package management
 if command -v apt > /dev/null; then
@@ -140,10 +141,6 @@ if command -v apt > /dev/null; then
 	alias afu="sudo apt full-upgrade"
 	alias aw="apt show"
 fi
-
-# journalctl
-alias jl="journalctl"
-alias jlu="journalctl -u"
 
 # TV and HDMI output
 if [[ "$HOSTNAME" == "pi" ]]; then
@@ -182,6 +179,9 @@ yts() {
 
 	mpv --shuffle "$playlist_url"
 }
+
+# sxiv: Always animate gifs
+alias sxiv="sxiv -a"
 
 # Termux overrides and additions
 if [[ "$HOSTNAME" == "localhost" ]]; then
