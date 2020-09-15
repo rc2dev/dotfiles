@@ -171,18 +171,16 @@ yta() { mpv --keep-open=no --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 
 # List videos from watch later or $1 playlist
 ytl() {
-	local -r cookies="$HOME/.config/yt_cookies.txt"
 	local -r playlist_url="${1:-https://www.youtube.com/playlist?list=WL}"
 
-	youtube-dl --cookies="$cookies" --flat-playlist --dump-json "$playlist_url" | jq -r '"https://youtu.be/" + .url'
+	youtube-dl --flat-playlist --dump-json "$playlist_url" | jq -r '"https://youtu.be/" + .url'
 }
 
 # Play watch later or $1 playlist on shuffle
 yts() {
-	local -r cookies="$HOME/.config/yt_cookies.txt"
 	local -r playlist_url="${1:-https://www.youtube.com/playlist?list=WL}"
 
-	mpv --shuffle --ytdl-raw-options="cookies=$cookies" "$playlist_url"
+	mpv --shuffle "$playlist_url"
 }
 
 # Termux overrides and additions
