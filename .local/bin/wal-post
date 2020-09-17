@@ -23,4 +23,5 @@ killall dunst || true
 dunst &
 disown
 
-dmenu_confirm "Restart dwm to apply changes?" "killall -HUP dwm"
+printf "\nRestarting dwm...\n"
+killall -HUP dwm
