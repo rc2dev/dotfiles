@@ -5,7 +5,7 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 
 readonly options="$(cat <<-END
-	Htop#$TERMINAL_RUN htop
+	Htop#$TERMINAL -e htop
 	System monitor#gnome-system-monitor
 	Lock#slock
 	Restart dwm#killall -HUP dwm

@@ -21,6 +21,6 @@ readonly run=$( (echo "$most_used"; echo "$all_cmds" | grep -vxF "$most_used") |
 mv -f "$cache.$$" "$cache"
 
 case "$run" in
-    *\!) exec $TERMINAL_RUN_HOLD bash -ic "${run%!}" ;;
+    *\!) exec $TERMINAL --hold -e bash -ic "${run%!}" ;;
     *) exec bash -ic "$run" ;;
 esac

@@ -5,7 +5,7 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-readonly term_cmd="$TERMINAL_RUN"
+readonly term_cmd="$TERMINAL -e"
 readonly ssh_config="$HOME/.ssh/config"
 
 if [[ "$1" == "--vnc" ]]; then

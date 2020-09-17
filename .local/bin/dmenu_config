@@ -5,7 +5,7 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-readonly terminal_run="$TERMINAL_RUN"
+readonly terminal_run="$TERMINAL -e"
 readonly editor="$EDITOR"
 
 readonly configs=(
