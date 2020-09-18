@@ -21,15 +21,6 @@ if [ -d "$HOME/bin" ]; then
 	PATH="$HOME/bin:$PATH"
 fi
 
-# Scripts
-if [ -d "/opt/scripts/general" ]; then
-	PATH="/opt/scripts/general:$PATH"
-fi
-# Scripts on Termux
-if [ -d "$HOME/.local/opt/scripts/general" ]; then
-	PATH="$HOME/.local/opt/scripts/general:$PATH"
-fi
-
 # Rubygem user's bin
 if command -v ruby >/dev/null; then
 	PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
