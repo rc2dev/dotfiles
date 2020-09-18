@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+#
+# Downloads random images from Unsplash API. Images are free to all uses.
+# Based on https://github.com/omeryagmurlu/linux-unsplash-wallpaper
+#
+# Dependencies: wget, fdupes
+#
+# Copyright (C) 2017-2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+readonly script_name="$(basename "$0")"
+readonly def_download_dir="$WALLPAPERS"
+readonly resolution="1920x1080"
+readonly wait_sec="2"
+
+main() {
+	check_args "$@"
+
+	readonly n="$1"
+	readonly download_dir="${2:-$def_download_dir}"
+
+	download
+	clean_dir
+}
+
+log() {
+	printf "%s\t%s\n" "$(date)" "$*"
+}
+
+usage(){
+	printf "Usage: %s n [download_dir]\n" "$script_name"
+	exit
+}
+
+check_args() {
+	if [[ $# -ne 0 && $# -ne 1 ]]; then
+		printf "Wrong number of arguments.\n"
+		usage
+	fi
+
+	if [[ ! "$1" =~ ^[0-9]+$ ]]; then
+		printf "First argument must be a number.\n"
+		usage
+	fi
+
+	if [[ -n "$2" && ! -d "$2" ]]; then
+		printf "'%s' is not a directory." "$2"
+		usage
+	fi
+}
+
+download() {
+	for i in $(seq 1 "$n"); do
+		log "Downloading wallpaper ${i}/${n}..."
+
+		local rant="$(date +%s)"
+		wget -O "${download_dir}/${rant}.jpg" -q "https://source.unsplash.com/${resolution}"
+
+		sleep "$wait_sec"
+	done
+}
+
+clean_dir() {
+	log "Removing duplicates..."
+	fdupes -rdN "$download_dir"
+
+	log "Removing 0 byte files..."
+	find "$download_dir" -size 0 -delete
+}
+
+main "$@"

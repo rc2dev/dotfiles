@@ -1,0 +1,196 @@
+#!/bin/bash
+#
+# Commands to update my systems.
+#
+# Copyright (C) 2017-2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+declare -ar rc_repos=(
+	"$HOME/.local/opt/scripts"
+	"/opt/scripts"
+	"/etc/pifi/streams"
+)
+
+main() {
+	declare -i step=0
+
+	force_ssh_passphrase
+
+	update_distro
+	update_pihole
+	update_ydl
+	update_dotfiles
+	update_rc
+	update_vim
+
+	log "Script concluído."
+}
+
+log() {
+	printf "\n\n%s\n" "$*" 1>&2
+}
+
+log_os() {
+	log "Sistema detectado: $*"
+}
+
+log_step() {
+	((step++))
+	log "[ $step ] $*"
+}
+
+update_distro() {
+	# Update distro packages - order matters
+	if is_osmc; then
+		log_os "OSMC"
+		update_distro_osmc
+	elif is_mint; then
+		log_os "Mint"
+	elif has_command pamac; then
+		log_os "Manjaro (Pamac)"
+		update_distro_pamac
+	elif has_command pacman; then
+		log_os "Arch (Pacman)"
+		update_distro_pacman
+	elif has_command apt; then
+		log_os "APT genérico"
+		update_distro_apt
+	else
+		log "Atualização de pacotes não disponível para a sua distro."
+	fi
+}
+
+update_distro_apt() {
+	# Termux doesn't have sudo
+	local sudo
+	has_command sudo && sudo=sudo
+
+	log_step "Atualizando pacotes do APT..."
+	$sudo apt update && $sudo apt full-upgrade -y
+
+	log_step "Executando apt autoremove..."
+	$sudo apt autoremove --purge --yes
+
+	log_step "Limpando cache do APT..."
+	$sudo apt clean
+}
+
+update_distro_pacman() {
+	log_step "Atualizando pacotes..."
+	sudo pacman -Syu
+
+	log_step "Atualizando AUR..."
+	trizen -Syu --aur --devel --needed
+}
+
+update_distro_pamac() {
+	log_step "Atualizando pacotes via Pamac..."
+	pamac update
+}
+
+update_distro_osmc() {
+	cat <<-END
+	Como atualizar os pacotes?
+
+	1) Add-on do OSMC (recomendado)
+	2) APT
+	3) Não atualizar
+
+	END
+
+	local opt
+	while [[ ! "$opt" =~ ^[123]$ ]]; do
+		read -rp "Digite o número: " opt
+	done
+
+	case $opt in
+		1)
+			log_step "Solicitando atualização ao add-on do OSMC..."
+			kodi-send --host=127.0.0.1 --action='RunScript(/usr/share/kodi/addons/script.module.osmcsetting.updates/resources/lib/call_parent.py, update)'
+			;;
+		2)
+			update_distro_apt
+			;;
+		3)
+			log "Pulando atualização dos pacotes..."
+			;;
+	esac
+}
+
+update_dotfiles() {
+	log_step "Atualizando dotfiles..."
+	yadm pull
+}
+
+update_rc() {
+	local gitdir
+	local sudo
+
+	log_step "Atualizando repositórios RC..."
+
+	for gitdir in "${rc_repos[@]}"; do
+		if [[ -d "$gitdir" ]]; then
+			printf "\n%s: " "${gitdir/$HOME/\~}"
+
+			if [[ "$(stat -c "%u" "$gitdir")" == "0" ]]; then
+				sudo="sudo"
+			else
+				sudo=""
+			fi
+			$sudo git --git-dir="$gitdir/.git" --work-tree "$gitdir" pull
+		fi
+	done
+}
+
+update_pihole() {
+	has_command pihole || return 0
+
+	log_step "Atualizando Pi Hole..."
+	pihole -up
+}
+
+update_ydl() {
+	if has_command pip3 && pip3 list | grep -q youtube-dl; then
+		log_step "Atualizando pacote youtube-dl do PIP..."
+		pip3 install --upgrade youtube_dl
+	fi
+
+	if [[ -f /usr/local/bin/youtube-dl ]]; then
+		sudo youtube-dl -U
+	fi
+}
+
+update_vim() {
+	has_command vim || return 0
+
+	log_step "Atualizando vim-plug e plugins do VIM..."
+	vim +PlugUpgrade +PlugUpdate +PlugClean! +qa!
+}
+
+is_mint() {
+	[[ "$(cat /etc/issue 2>/dev/null)" == "Linux Mint"* ]]
+}
+
+is_osmc() {
+	# Termux doesn't have this file, so we silence the errors
+	[[ "$(cat /etc/issue 2>/dev/null)" == *"OSMC"* ]]
+}
+
+is_termux() {
+	[[ "$HOSTNAME" == "localhost" ]]
+}
+
+# Allow us to prompt for SSH key passphrase early on, if needed.
+force_ssh_passphrase() {
+	local KEY_PATH="$HOME/.ssh/id_rsa"
+	[[ -e $KEY_PATH ]] || return
+	is_termux && return
+
+	ssh-add -l | grep -q "$(ssh-keygen -lf "$KEY_PATH" | awk '{print $2}')" || ssh-add "$KEY_PATH"
+}
+
+has_command() {
+	command -v "$1" > /dev/null
+}
+
+main "$@"

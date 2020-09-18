@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# VNC to other host via SSH tunnel
+#
+# Copyright (C) 2017-2019 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+readonly clients="krdc remote-viewer vinagre"
+
+
+usage() {
+	printf "Usage: %s host\n" "$(basename "$0")"
+}
+
+log() {
+	printf "[%s]\t%s\n" "$(date)" "$*" 1>&2
+}
+
+check_args() {
+	if [[ $# != 1 ]]; then
+		usage
+		exit
+	fi
+}
+
+# Find VNC client to use
+set_client() {
+	local client
+	for client in $clients; do
+		if command -v "$client" > /dev/null; then
+			printf "$client"
+			return 0
+		fi
+	done
+
+	return 1
+}
+
+main() {
+	trap ' ' SIGINT
+
+	check_args "$@"
+	local host="$1"
+
+	local client
+	client="$(set_client)"
+	[[ $? != 0 ]] && log "VNC client not found" && exit 1
+	log "Client set as $client"
+
+	log "Creating tunnel"
+	local command="ssh $host -L 5900:localhost:5900 -f -N"
+	$command
+
+	log "Launching VNC client"
+	$client vnc://localhost:5900 2> /dev/null
+
+	log "Closing tunnel"
+	pkill -fx "$command" || log "Failed to close tunnel"
+}
+
+main "$@"

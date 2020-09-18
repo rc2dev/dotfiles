@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# Send files to phone.
+# It's a wrapper around KDE Connect CLI to provide
+# a bit more functionality.
+#
+# Copyright (C) 2019 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+check_args() {
+	if (( $# == 0 )); then
+		printf "Usage: %s file [file...]\n" "$(basename "$0")"
+		exit 1
+	fi
+
+	for arg; do
+		if ! [[ "$arg" = /* ]]; then
+			printf "Please use full paths.\n"
+			exit 1
+		fi
+	done
+}
+
+main() {
+	check_args "$@"
+	send_files "$@"
+}
+
+send_files() {
+	local phone_id=$(kdeconnect-cli -l --id-only | head -1)
+	local msg
+
+	while (( $# > 0 )); do
+		if kdeconnect-cli --device "$phone_id" --share "$1"; then
+			msg="File sent - $(basename -- "$1")"
+		else
+			msg="Failed to send the file."
+		fi
+		notify-send -a "send2phone" "$msg"
+		shift
+	done
+}
+
+main "$@"

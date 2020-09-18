@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Printscreen of the X server. Useful for capturing lockscreen, DM, etc.
+# Dependencies: xwd, imagemagick
+#
+# Copyright (C) 2017 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+time="$(date +%s)"
+path="$HOME/capture_$time"
+
+export DISPLAY=:0
+
+sleep 3
+xwd -root > $path
+convert "xwd:$path" "${path}.png"
+rm "$path"

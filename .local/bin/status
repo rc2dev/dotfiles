@@ -1,0 +1,93 @@
+#!/bin/bash
+# Copyright (C) 2019 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+readonly pifi_api="http://localhost:3030/api/player"
+readonly kodi_api="http://localhost:8080/jsonrpc"
+declare -Ar services=(
+	[Apache]="apache2"
+	[Dispmanx]="dispmanx"
+	[Fail2Ban]="fail2ban"
+	[Kodi]="kodi"
+	[Lighttpd]="lighttpd"
+	[MPD]="mpd"
+	[Nginx]="nginx"
+	[Ngrok]="ngrok"
+	[Pi-Hole FTL]="pihole-FTL"
+	[PiFi Radio]="pifi"
+	[Raspotify]="raspotify"
+	[Samba]="smbd"
+	[Serveo]="serveo"
+	[Shairport-sync]="shairport-sync"
+	[Transmission]="transmission-daemon"
+)
+
+status_services() {
+	# Workaround for aliased unit, systemd < 237
+	systemctl show kodi > /dev/null 2>&1
+
+	local list_units=$(systemctl list-unit-files)
+	for label in "${!services[@]}"; do
+		unit="${services[$label]}"
+
+		if grep -Fq "$unit" <<<"$list_units"; then
+			printf "%-15s%s\n" "$label" "$(systemctl is-active "$unit")"
+		fi
+	done
+}
+
+status_pifi() {
+	local pifi_response=$(curl "$pifi_api" 2>/dev/null)
+	local playing=$(jq -r .playing <<<$pifi_response)
+	local title=$(jq -r .title <<<$pifi_response)
+	local vol=$(jq .vol <<<$pifi_response)
+
+	if [[ "$playing" == "true" ]]; then
+		printf "PiFi is playing %s, vol: %s%%\n" "$title" "$vol"
+	else
+		printf "PiFi is idle\n"
+	fi
+}
+
+status_kodi() {
+	local kodi_active_players=$(curl -s \
+		--data-binary '{"jsonrpc": "2.0", "method": "Player.GetActivePlayers", "id":1}' \
+		-H 'content-type: application/json;' "$kodi_api" | jq .result)
+
+	if [[ "$kodi_active_players" == "[]" ]]; then
+		printf "Kodi is idle\n"
+	elif [[ "$kodi_active_players" == "" ]]; then
+		printf "Kodi doesn't seem to be running\n"
+	else
+		printf "Kodi has ACTIVE MEDIA\n"
+	fi
+}
+
+status_system() {
+	free | awk 'NR==2{printf("Mem:  %.1f%%\n", $3/$2 * 100)}'
+	df / | awk 'NR==2{printf("Disk: %.1f%% (%.1fG available)\n", $3/$2 *100, $4/(1024*1024))}'
+	/opt/vc/bin/vcgencmd measure_temp | awk -F "=" '{printf("Temp: %s\n", $2)}'
+	iwconfig 2> /dev/null | grep Link | awk '{print $2}' | awk -F "=" '{printf("WiFi: %s\n", $2)}'
+	uptime -p
+}
+
+has_pifi() {
+	systemctl list-unit-files | grep -q pifi
+}
+
+has_kodi() {
+	command -v kodi >/dev/null
+}
+
+main() {
+	status_services | sort
+	printf "\n"
+
+	has_pifi && status_pifi
+	has_kodi && status_kodi
+
+	printf "\n"
+	status_system
+}
+
+main "$@"

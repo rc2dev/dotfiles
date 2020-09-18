@@ -1,0 +1,75 @@
+#!/bin/bash
+#
+# Mount Borg archives with ease.
+#
+# Copyright (C) 2019-2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+# User configuration
+## Set this to the directory parent to your repositories
+readonly default_repos_dir=
+## Set this if you want to your password to be sourced
+readonly default_passcommand=
+
+
+if ! command -v borg >/dev/null; then
+	printf "Please install Borg.\n"
+	exit 1
+fi
+
+if [[ $# -gt 1 ]]; then
+	printf "Usage: %s [repos_dir]\n" "$(basename "$0")"
+	exit 1
+fi
+
+if [[ -n "${1:-}" ]]; then
+	repos_dir="$1"
+else
+	repos_dir="${default_repos_dir}"
+	export BORG_PASSCOMMAND="${default_passcommand}"
+fi
+
+if [ ! -d "${repos_dir}" ]; then
+	printf "Given directory doesn't exist.\n"
+	exit 1
+fi
+
+printf "Select repo:\n"
+repos=$(find "${repos_dir}" -maxdepth 1 -mindepth 1 -type d -printf "%f\n")
+select repo in ${repos}; do
+	case ${repo} in
+		"") printf "Invalid repo.\n" ;;
+		*) printf "You selected %s.\n\n" "${repo}" && break ;;
+	esac
+done
+
+printf "Select archive:\n"
+if ! archives=$(borg list --short "${repos_dir}/${repo}"); then
+	printf "Error listing archives.\n"
+	exit 1
+fi
+select archive in ${archives}; do
+	case ${archive} in
+		"") printf "Invalid archive.\n" ;;
+		*) printf "You selected %s.\n\n" "${archive}" && break ;;
+	esac
+done
+
+mnt_dir=$(mktemp -d)
+printf "Mounting archive at %s...\n" "${mnt_dir}"
+if ! borg mount "${repos_dir}/${repo}::${archive}" "${mnt_dir}"; then
+	printf "Error mounting archive.\n"
+	exit 1
+fi
+
+if [ -n "$DISPLAY" ]; then
+	printf "Opening in file manager...\n\n"
+	xdg-open "${mnt_dir}" >/dev/null 2>&1
+fi
+
+read -p "Press enter to umount. "
+while ! fusermount -u "${mnt_dir}"; do
+	read -p "Press enter to try again. "
+done

@@ -1,0 +1,9 @@
+#!/bin/sh
+# Run Firefox with a temporary profile
+#
+# Copyright (C) 2019 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+profile_dir="$(mktemp -d)"
+firefox --profile "$profile_dir" --no-remote "$@"
+rm -rf "$profile_dir"

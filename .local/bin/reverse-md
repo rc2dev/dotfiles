@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+#
+# Simple script to read a markdown file and
+# reverse the second level sections.
+#
+# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+#
+
+import argparse
+import os
+import sys
+
+
+def main():
+    args = parse_args()
+    sections = get_sections(args.filename)
+    reversed = reverse_sections(sections)
+    save(reversed, get_out_name(args.filename))
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("filename")
+    return parser.parse_args()
+
+
+def get_sections(filename):
+    sections = []
+    section = ""
+    with open(filename, "r") as fp:
+        while True:
+            line = fp.readline()
+            if not line:
+                break
+
+            if line.startswith("# ") and len(sections) > 0:
+                print("I need all ## to have the same parent. Aborting.")
+                sys.exit(1)
+
+            if line.startswith("## "):
+                sections.append(section)
+                section = ""
+
+            section += line
+    sections.append(section)
+
+    return sections
+
+
+def reverse_sections(sections):
+    reversed = []
+    reversed.append(sections[0])
+    reversed.extend(sections[:0:-1])
+
+    return reversed
+
+
+def get_out_name(filename):
+    name, ext = os.path.splitext(filename)
+    return f"{name}_reversed{ext}"
+
+
+def save(content, filename):
+    if os.path.exists(filename):
+        overwrite = input(f"Overwrite {filename}? ")
+        if overwrite.lower() not in ["y", "yes"]:
+            print("Saving aborted.")
+            return False
+
+    with open(filename, "w") as f:
+        f.writelines(content)
+
+    return True
+
+
+if __name__ == "__main__":
+    main()
