@@ -1,0 +1,7 @@
+[filter "borg-mount"]
+	clean = "sed \
+		-e 's/default_repos_dir=.*$/default_repos_dir=/' \
+		-e 's/default_passcommand=.*$/default_passcommand=/'"
+
+[filter "xsettingsd"]
+  clean = "sed -E 's#^Net/ThemeName .*$#Net/ThemeName \"Pop-dark\"#'"

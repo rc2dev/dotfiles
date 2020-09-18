@@ -1,0 +1,2 @@
+borg-mount filter=borg-mount
+.xsettingsd filter=xsettingsd

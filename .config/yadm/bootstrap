@@ -14,6 +14,9 @@ main() {
   log "Initializing submodules..."
   yadm submodule update --init --recursive
 
+  log "Adding repository config..."
+  yadm gitconfig include.path ~/.config/yadm/gitconfig
+
   log "Creating directories..."
   mkdir -p "$HOME/.local/opt"
 }
