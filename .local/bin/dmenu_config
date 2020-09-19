@@ -5,9 +5,6 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-readonly terminal_run="$TERMINAL -e"
-readonly editor="$EDITOR"
-
 readonly configs=(
   "alacritty"
   "aliases"
@@ -27,17 +24,17 @@ readonly configs=(
 readonly config=$(printf '%s\n' "${configs[@]}" | dmenu -p "configs" "$@")
 
 case $config in
-  alacritty) $terminal_run $editor ~/.config/alacritty/alacritty.yml ;;
-  aliases) $terminal_run $editor ~/.config/aliases ;;
-  bashrc) $terminal_run $editor ~/.bashrc ;;
-  dunstrc) $terminal_run $editor ~/.config/wal/templates/dunstrc ;;
-  dwm) $TERMINAL --working-directory ~/Code/dwm -e zsh -c "$editor ~/Code/dwm/config.h; exec zsh" ;;
-  mpv/mpv) $terminal_run $editor ~/.config/mpv/mpv.conf ;;
-  mpv/input) $terminal_run $editor ~/.config/mpv/input.conf ;;
-  profile) $terminal_run $editor ~/.profile ;;
-  ranger/rc) $terminal_run $editor ~/.config/ranger/rc.conf ;;
-  ranger/rifle) $terminal_run $editor ~/.config/ranger/rifle.conf ;;
-  vimrc) $terminal_run $editor ~/.vimrc ;;
-  xprofile) $terminal_run $editor ~/.xprofile ;;
-  zshrc) $terminal_run $editor ~/.config/zsh/.zshrc ;;
+  alacritty) $TERMINAL -e $EDITOR ~/.config/alacritty/alacritty.yml ;;
+  aliases) $TERMINAL -e $EDITOR ~/.config/aliases ;;
+  bashrc) $TERMINAL -e $EDITOR ~/.bashrc ;;
+  dunstrc) $TERMINAL -e $EDITOR ~/.config/wal/templates/dunstrc ;;
+  dwm) $TERMINAL --working-directory ~/Code/dwm -e zsh -c "$EDITOR ~/Code/dwm/config.h; exec zsh" ;;
+  mpv/mpv) $TERMINAL -e $EDITOR ~/.config/mpv/mpv.conf ;;
+  mpv/input) $TERMINAL -e $EDITOR ~/.config/mpv/input.conf ;;
+  profile) $TERMINAL -e $EDITOR ~/.profile ;;
+  ranger/rc) $TERMINAL -e $EDITOR ~/.config/ranger/rc.conf ;;
+  ranger/rifle) $TERMINAL -e $EDITOR ~/.config/ranger/rifle.conf ;;
+  vimrc) $TERMINAL -e $EDITOR ~/.vimrc ;;
+  xprofile) $TERMINAL -e $EDITOR ~/.xprofile ;;
+  zshrc) $TERMINAL -e $EDITOR ~/.config/zsh/.zshrc ;;
 esac
