@@ -31,7 +31,7 @@ case $config in
   aliases) $terminal_run $editor ~/.config/aliases ;;
   bashrc) $terminal_run $editor ~/.bashrc ;;
   dunstrc) $terminal_run $editor ~/.config/wal/templates/dunstrc ;;
-  dwm) $terminal_run zsh -c "$editor ~/Code/dwm/config.h; exec zsh" ;;
+  dwm) $TERMINAL --working-directory ~/Code/dwm -e zsh -c "$editor ~/Code/dwm/config.h; exec zsh" ;;
   mpv/mpv) $terminal_run $editor ~/.config/mpv/mpv.conf ;;
   mpv/input) $terminal_run $editor ~/.config/mpv/input.conf ;;
   profile) $terminal_run $editor ~/.profile ;;
