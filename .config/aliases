@@ -158,6 +158,9 @@ mlc() { find "$1" -name \*.md -exec markdown-link-check -p {} \;; }
 # Find broken links
 alias fbl="find . -xtype l"
 
+# Random man page
+alias manrand="find /usr/share/man/man1 -type f | shuf | head -1 | sed -E 's#.*/(.*).gz#\1#' | xargs $TERMINAL -e man"
+
 # Record audio
 rau() { arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date +%FT%H%M%S).mp3"; }
 
