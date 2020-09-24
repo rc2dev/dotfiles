@@ -121,6 +121,9 @@ set viminfo+='1000,n~/.vim/viminfo
 autocmd BufWritePost dwmbar !dwmbar
 autocmd BufWritePost .xsettingsd !killall -HUP xsettingsd
 
+" Set executable bit to scripts
+autocmd BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod +x <afile> | endif | endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CODE STYLE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
