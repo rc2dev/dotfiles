@@ -9,7 +9,7 @@ readonly clients="krdc remote-viewer vinagre"
 
 
 usage() {
-	printf "Usage: %s host\n" "$(basename "$0")"
+	printf "Usage: %s [ssh_options] host\n" "$(basename "$0")"
 }
 
 log() {
@@ -17,7 +17,7 @@ log() {
 }
 
 check_args() {
-	if [[ $# != 1 ]]; then
+	if [[ $# == 0 ]]; then
 		usage
 		exit
 	fi
@@ -40,7 +40,7 @@ main() {
 	trap ' ' SIGINT
 
 	check_args "$@"
-	local host="$1"
+	local host="$*"
 
 	local client
 	client="$(set_client)"
