@@ -2,11 +2,13 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 # Inspired by https://www.youtube.com/watch?v=vrN5SPeVUu0
 
-case "$(printf "Search\nRandom\n" | dmenu -p "Manpages: ")" in
-	Search)
-		man -k . | awk '{print $1}' | dmenu -l 20 -p 'Search manpages: ' | xargs $TERMINAL -e man
-		;;
-	Random)
+readonly option="$( ( printf "RANDOM MANPAGE\n"; man -k . | awk '{print $1}' ) | dmenu -l 20 -p 'Search manpages: ')"
+
+case $option in
+	"RANDOM MANPAGE")
 		find /usr/share/man/man1 -type f | shuf | head -1 | sed -E 's#.*/(.*).gz#\1#' | xargs $TERMINAL -e man
+		;;
+	*)
+		$TERMINAL -e man $option
 		;;
 esac
