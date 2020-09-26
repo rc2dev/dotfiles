@@ -6,6 +6,7 @@
 # Licensed under GPLv3
 
 set -euo pipefail
+IFS=$'\n'
 
 # User configuration
 ## Set this to the directory parent to your repositories
