@@ -6,8 +6,6 @@
 # Licensed under GPLv3
 
 declare -ar rc_repos=(
-	"$HOME/.local/opt/scripts"
-	"/opt/scripts"
 	"/etc/pifi/streams"
 )
 
