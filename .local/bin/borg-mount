@@ -64,7 +64,7 @@ if ! borg mount "${repos_dir}/${repo}::${archive}" "${mnt_dir}"; then
 	exit 1
 fi
 
-if [ -n "$DISPLAY" ]; then
+if [ -n "${DISPLAY:-}" ]; then
 	printf "Opening in file manager...\n\n"
 	xdg-open "${mnt_dir}" >/dev/null 2>&1
 fi
