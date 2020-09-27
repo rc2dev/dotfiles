@@ -13,6 +13,7 @@ key_bindings:
   - { key: V, mods: Alt, action: Paste }
   - { key: F, mods: Alt, action: SearchForward }
   - { key: Escape, mods: Alt, action: ToggleViMode }
+  - { key: I, mods: Alt, action: ToggleViMode }
 
 mouse_bindings:
   - { mouse: Right, action: Copy }
