@@ -14,5 +14,8 @@ key_bindings:
   - { key: F, mods: Alt, action: SearchForward }
   - { key: Escape, mods: Alt, action: ToggleViMode }
 
+mouse_bindings:
+  - { mouse: Right, action: Copy }
+
 scrolling:
   history: 100000
