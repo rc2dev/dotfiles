@@ -1,15 +1,6 @@
-[submodule "cli/.config/zsh/plugins/zsh-autosuggestions"]
-	path = .config/zsh/oh-my-custom/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "cli/.config/zsh/plugins/zsh-syntax-highlighting"]
-	path = .config/zsh/oh-my-custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "cli/.config/zsh/oh-my-zsh"]
-	path = .config/zsh/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "home/.tmux"]
 	path = .tmux
 	url = https://github.com/gpakosz/.tmux.git
-[submodule ".config/zsh/oh-my-custom/plugins/spaceship-prompt"]
-	path = .config/zsh/oh-my-custom/themes/spaceship-prompt
-	url = https://github.com/denysdovhan/spaceship-prompt.git
+[submodule ".config/zsh/antigen"]
+	path = .config/zsh/antigen
+	url = https://github.com/zsh-users/antigen.git
