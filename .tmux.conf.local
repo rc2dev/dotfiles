@@ -307,4 +307,4 @@ bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xs
 
 # New keybindings
 bind X confirm-before kill-session
-
+bind-key s command-prompt -p "send pane to:"  "join-pane -t '%%'"
