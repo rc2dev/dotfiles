@@ -61,6 +61,11 @@ if [[ -n $DISPLAY ]]; then
 	export QT_QPA_PLATFORMTHEME=gtk2
 fi
 
+# Check slow host
+if [[ " pizero " =~ " $HOSTNAME " ]]; then
+	export SLOW_HOST=true
+fi
+
 # Paths
 export ALIASES="$HOME/.config/aliases"
 export WALLPAPERS="$HOME/Pictures/Wallpapers/Desktop/"
