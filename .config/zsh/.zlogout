@@ -1,3 +1,9 @@
-# Author: Rafael Cavalcanti
+# zlogout
+# Author: Rafael Cavalcanti - rafaelc.org
 
-emulate bash -c '. ~/.bash_logout'
+# Termux: Release wake-lock grabbed upon SSH connection
+if [[ "$HOSTNAME" == "localhost" && -n "$SSH_CLIENT" ]]; then
+  printf "Releasing wake-lock...\n" 1>&2
+  termux-wake-unlock
+fi
+
