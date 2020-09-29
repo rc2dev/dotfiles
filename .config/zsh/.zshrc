@@ -14,9 +14,9 @@ antigen bundle last-working-dir
 antigen bundle systemd
 
 # Other bundles
-$SLOW_HOST || antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle denysdovhan/spaceship-prompt
+$SLOW_HOST || antigen bundle zsh-users/zsh-autosuggestions
 
 antigen apply
 

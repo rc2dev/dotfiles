@@ -22,9 +22,6 @@ endif
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-if $SLOW_HOST != "true"
-	Plug 'vim-airline/vim-airline'
-endif
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
@@ -38,6 +35,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'tpope/vim-fugitive'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'mattn/emmet-vim'
+if $SLOW_HOST != "true"
+	Plug 'vim-airline/vim-airline'
+endif
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
