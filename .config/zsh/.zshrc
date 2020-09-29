@@ -24,7 +24,7 @@ antigen apply
 #####################################################################
 # History
 ####################################################################
-HISTFILE=~/.cache/zsh_history
+HISTFILE="$ZSH_CACHE_DIR/history"
 HISTSIZE=5000
 SAVEHIST=10000
 
