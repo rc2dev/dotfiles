@@ -13,7 +13,7 @@ alias_j() {
 }
 
 # List files when cd'ing
-cd() { builtin cd "$@" && ls -A --group-directories-first; }
+cd() { builtin cd "$@" && ls --color -AF --group-directories-first; }
 
 # Also check command after sudo for alias (see man bash)
 alias sudo="sudo "
@@ -38,6 +38,7 @@ alias fgrep="fgrep --color=auto"
 alias rgrep="rgrep --color=auto"
 
 # ls
+alias la="ls -AF --group-directories-first"
 alias ll="ls -lAFh --group-directories-first"
 
 # Shell
