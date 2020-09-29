@@ -6,9 +6,6 @@
 #####################################################################
 source "$ZDOTDIR/antigen/antigen.zsh"
 
-# Load the oh-my-zsh's library
-antigen use oh-my-zsh
-
 # Bundles from the default repo (robbyrussell's oh-my-zsh)
 antigen bundle autojump
 antigen bundle command-not-found
@@ -60,6 +57,8 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 # Add keybinding for editing in VIM
+autoload -Uz edit-command-line
+zle -N edit-command-line
 bindkey "^E" edit-command-line
 
 
