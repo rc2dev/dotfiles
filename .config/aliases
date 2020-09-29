@@ -145,7 +145,7 @@ if command -v apt > /dev/null; then
 fi
 
 # TV and HDMI output
-if [[ "$HOSTNAME" == "pi" ]]; then
+if [[ "$HOST" == "pi" ]]; then
 	alias td='echo "standby 0" | cec-client -s'
 	alias tl='echo "on 0" | cec-client -s'
 else
@@ -192,7 +192,7 @@ yts() {
 alias sxiv="sxiv -a"
 
 # Termux overrides and additions
-if [[ "$HOSTNAME" == "localhost" ]]; then
+if [[ "$HOST" == "localhost" ]]; then
 	# Fix aliases that don't work on Busybox
 	alias rm="rm -v"
 	alias ln="ln -v"

@@ -175,7 +175,7 @@ is_osmc() {
 }
 
 is_termux() {
-	[[ "$HOSTNAME" == "localhost" ]]
+	[[ "$(hostname)" == "localhost" ]]
 }
 
 # Allow us to prompt for SSH key passphrase early on, if needed.

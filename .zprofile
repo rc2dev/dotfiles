@@ -3,9 +3,6 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-# Make sure HOSTNAME is set (Zsh sets HOST)
-HOSTNAME=${HOSTNAME:-$(hostname)}
-
 # User flatpaks
 if [ -d "$HOME/.local/share/flatpak/exports/bin" ]; then
 	PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
@@ -33,19 +30,19 @@ if [[ -d "$HOME/.local/opt/spicetify-cli" ]]; then
 fi
 
 # Termux: Set runtime dir
-if [[ "$HOSTNAME" == "localhost" && -z "$XDG_RUNTIME_DIR" ]]; then
+if [[ "$HOST" == "localhost" && -z "$XDG_RUNTIME_DIR" ]]; then
 	export XDG_RUNTIME_DIR="$PREFIX/var/run"
 fi
 
 # Termux: Start OpenSSH agent if needed
-if [[ "$HOSTNAME" == "localhost" && -z "$SSH_AUTH_SOCK" ]]; then
+if [[ "$HOST" == "localhost" && -z "$SSH_AUTH_SOCK" ]]; then
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
 	rm -f "$SSH_AUTH_SOCK"
 	ssh-agent -t 1h -a "$SSH_AUTH_SOCK" > /dev/null
 fi
 
 # Termux: if connected via SSH, grab wake-lock
-if [[ "$HOSTNAME" == "localhost" && -n "$SSH_CLIENT" ]]; then
+if [[ "$HOST" == "localhost" && -n "$SSH_CLIENT" ]]; then
 	printf "Grabbing wake-lock...\n" 1>&2
 	termux-wake-lock
 fi
@@ -62,7 +59,7 @@ if [[ -n $DISPLAY ]]; then
 fi
 
 # Check slow host
-if [[ " pi pi-vcc pizero " =~ " $HOSTNAME " ]]; then
+if [[ " pi pi-vcc pizero " =~ " $HOST " ]]; then
 	export SLOW_HOST=true
 else
 	export SLOW_HOST=false
