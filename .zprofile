@@ -1,5 +1,5 @@
 #
-# ~/.profile
+# ~/.zprofile
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
@@ -74,11 +74,18 @@ export WALLPAPERS="$HOME/Pictures/Wallpapers/Desktop/"
 
 # Default applications
 export EDITOR="vim"
-if [[ -n $DISPLAY ]]; then
-	export TERMINAL="alacritty"
-fi
+export TERMINAL="alacritty"
 
 # Applications configuration
 export MPD_HOST="192.168.15.101"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
+
+# Zsh configuration
+# Needed for last-working-dir plugin; and I use it in other places
+export ZSH_CACHE_DIR="$HOME/.cache/zsh"
+mkdir -p "$ZSH_CACHE_DIR"
+# Move from ~/
+export ZDOTDIR="$HOME/.config/zsh"
+export ADOTDIR="$ZSH_CACHE_DIR/antigen"
+

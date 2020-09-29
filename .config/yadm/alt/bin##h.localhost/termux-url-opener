@@ -3,7 +3,7 @@
 # Licensed under GPLv3
 
 # We need PATH, MPD_HOST
-source ~/.profile
+source ~/.zprofile
 
 printf "What should I do?\n" >&2
 select option in "Download" "Play on MPD" "Exit"; do

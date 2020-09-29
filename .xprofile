@@ -4,6 +4,8 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
+source $HOME/.zprofile
+
 if [ "$XDG_SESSION_DESKTOP" != "dwm" ]; then
   return 0
 fi
