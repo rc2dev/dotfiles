@@ -40,8 +40,7 @@ Plug 'ron89/thesaurus_query.vim'
 Plug 'mattn/emmet-vim'
 " Colorschemes
 Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
-Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -55,7 +54,7 @@ set bg=dark
 if hostname() == "localhost"
 	colorscheme gruvbox
 else
-	colorscheme onedark
+	colorscheme dracula
 endif
 
 " Interface
