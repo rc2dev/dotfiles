@@ -62,7 +62,7 @@ if [[ -n $DISPLAY ]]; then
 fi
 
 # Check slow host
-if [[ " pizero " =~ " $HOSTNAME " ]]; then
+if [[ " pi pi-vcc pizero " =~ " $HOSTNAME " ]]; then
 	export SLOW_HOST=true
 fi
 
