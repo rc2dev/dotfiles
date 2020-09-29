@@ -19,6 +19,11 @@ mouse_bindings:
 scrolling:
   history: 100000
 
+window:
+  padding:
+    x: 3
+    y: 3
+
 background_opacity: 0.90
 
 font:
