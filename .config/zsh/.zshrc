@@ -28,6 +28,14 @@ HISTFILE="$ZSH_CACHE_DIR/history"
 HISTSIZE=5000
 SAVEHIST=10000
 
+# Record timestamp of command
+setopt extended_history
+
+# Ignore commands that start with space
+setopt hist_ignore_space
+
+# Share history between terminals
+setopt share_history
 
 #####################################################################
 # Completion
@@ -67,9 +75,6 @@ bindkey "^E" edit-command-line
 ######################################################################
 # Globbing: Use ^ to negate
 setopt extendedglob
-
-# Execute lines with history expansion directly
-setopt nohist_verify
 
 
 ######################################################################
