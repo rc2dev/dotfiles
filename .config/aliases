@@ -37,6 +37,9 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias rgrep="rgrep --color=auto"
 
+# Show timestamp on zsh history
+alias history="history -i"
+
 # ls
 alias la="ls -AF --group-directories-first"
 alias ll="ls -lAFh --group-directories-first"
