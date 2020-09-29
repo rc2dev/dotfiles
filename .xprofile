@@ -29,7 +29,6 @@ nm-applet &
 system-config-printer-applet &
 kdeconnect-indicator &
 keepassxc &
-joplin &
 
 # Statusbar loop
 while true; do
