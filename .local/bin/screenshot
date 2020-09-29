@@ -35,6 +35,9 @@ readonly options=(
 
 readonly option=${1:-$(printf '%s\n' "${options[@]}" | dmenu -p "Take screenshot of..." -l "${#options[@]}")}
 
+# Dirty workaround for dmenu showing up on picture
+sleep 0.5
+
 case "$option" in
   "Full screen")
     maim "$out_file"
