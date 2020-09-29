@@ -64,6 +64,8 @@ fi
 # Check slow host
 if [[ " pi pi-vcc pizero " =~ " $HOSTNAME " ]]; then
 	export SLOW_HOST=true
+else
+	export SLOW_HOST=false
 fi
 
 # Paths

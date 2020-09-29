@@ -48,11 +48,11 @@ case "$option" in
     notify-send "Full screen screenshot copied to clipboard."
     ;;
   "Current window")
-    maim -i $(xdotool getactivewindow) "$out_file"
+    maim -i "$(xdotool getactivewindow)" "$out_file"
     notify-send "Window screenshot saved."
     ;;
   "Current window (clipboard)")
-    maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+    maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png
     notify-send "Window screenshot copied to clipboard."
     ;;
   "Selection")
