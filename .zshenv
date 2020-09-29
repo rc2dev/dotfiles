@@ -2,3 +2,4 @@
 
 # Move from ~/
 ZDOTDIR="$HOME/.config/zsh"
+ADOTDIR="$HOME/.cache/antigen"
