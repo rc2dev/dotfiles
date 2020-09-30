@@ -42,16 +42,9 @@ if [[ "$HOST" == "localhost" && -n "$SSH_CLIENT" ]]; then
 	termux-wake-lock
 fi
 
-# WSL: fix umask
-if [[ "$(umask)" == "0000" ]]; then
-	umask 0027
-fi
-
 # Make Qt use GTK style
 # Be sure to install qt5-style-plugins
-if [[ -n $DISPLAY ]]; then
-	export QT_QPA_PLATFORMTHEME=gtk2
-fi
+export QT_QPA_PLATFORMTHEME=gtk2
 
 # Check slow host
 if [[ " pi pi-vcc pizero " =~ " $HOST " ]]; then
