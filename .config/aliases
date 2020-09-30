@@ -31,18 +31,17 @@ alias df="df -h"
 alias free="free -h"
 
 # Coloured output
-alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias rgrep="rgrep --color=auto"
 
+# ls
+alias ls="ls --color=auto -AF --group-directories-first"
+alias ll="ls -lh"
+
 # Show timestamp on zsh history
 alias history="history -i"
-
-# ls
-alias la="ls -AF --group-directories-first"
-alias ll="ls -lAFh --group-directories-first"
 
 # Shell
 alias c="clear"
