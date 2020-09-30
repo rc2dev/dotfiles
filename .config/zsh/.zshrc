@@ -69,6 +69,10 @@ bindkey "^[OB" down-line-or-beginning-search
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# Move to beginning/end of line with Home/End
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+
 # Add keybinding for editing in VIM
 autoload -Uz edit-command-line
 zle -N edit-command-line
