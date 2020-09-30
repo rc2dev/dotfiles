@@ -37,6 +37,7 @@ setopt hist_ignore_space
 # Share history between terminals
 setopt share_history
 
+
 #####################################################################
 # Completion
 #####################################################################
@@ -51,6 +52,10 @@ zstyle ':completion:*' menu select
 
 # Small letters to match small and capital letters
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# Complete ssh hosts with ~/.ssh/config
+zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
+zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
 
 #####################################################################
@@ -106,3 +111,4 @@ if [[ -z "$TMUX" ]]; then
     printf "Sessões tmux ativas: %s\n" $tmux_sessions
   fi
 fi
+
