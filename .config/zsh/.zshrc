@@ -1,25 +1,6 @@
 # zshrc
 # Author: Rafael Cavalcanti - rafaelc.org
 
-#####################################################################
-# Plugins
-#####################################################################
-source "$ZDOTDIR/antigen/antigen.zsh"
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh)
-antigen bundle autojump
-antigen bundle command-not-found
-antigen bundle git
-antigen bundle last-working-dir
-antigen bundle systemd
-
-# Other bundles
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle denysdovhan/spaceship-prompt
-$SLOW_HOST || antigen bundle zsh-users/zsh-autosuggestions
-
-antigen apply
-
 
 #####################################################################
 # History
@@ -94,6 +75,26 @@ bindkey "^E" edit-command-line
 setopt extendedglob
 
 
+#####################################################################
+# Plugins
+#####################################################################
+source "$ZDOTDIR/antigen/antigen.zsh"
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh)
+antigen bundle autojump
+antigen bundle command-not-found
+antigen bundle git
+antigen bundle last-working-dir
+antigen bundle systemd
+
+# Other bundles
+$SLOW_HOST || antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle denysdovhan/spaceship-prompt
+antigen bundle zsh-users/zsh-syntax-highlighting # should be last
+
+antigen apply
+
+
 ######################################################################
 # Non-zsh
 ######################################################################
@@ -111,4 +112,3 @@ if [[ -z "$TMUX" ]]; then
     printf "Sessões tmux ativas: %s\n" $tmux_sessions
   fi
 fi
-
