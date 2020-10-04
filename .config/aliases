@@ -89,7 +89,7 @@ alias_j jw "$WALLPAPERS"
 
 # Git
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
-gfr() { git fetch && git reset --hard origin/$(git branch --show-current); }
+gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
 alias glo="git log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
 alias glon="glo --name-only"
 alias gw="hub browse"
@@ -100,7 +100,7 @@ alias yau="yadm add -u"
 alias yc="yadm commit -v"
 alias yc!="yadm commit -v --amend"
 alias yd="yadm diff"
-yfr() { yadm fetch && yadm reset --hard origin/$(yadm branch --show-current); }
+yfr() { yadm fetch && yadm reset --hard origin/$(yadm rev-parse --abbrev-ref HEAD); }
 alias yl="yadm pull"
 alias ylo="yadm log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
 alias ylon="ylo --name-only"
