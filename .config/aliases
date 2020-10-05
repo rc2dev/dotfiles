@@ -62,6 +62,7 @@ history-rank() {
 		nl | \
 		head -n"${n}"
 }
+take() { mkdir -p $@ && cd ${@:$#}; }
 
 # Edit
 alias e="$EDITOR"
