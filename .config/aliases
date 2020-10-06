@@ -183,7 +183,8 @@ ytl() {
 }
 
 # Download videos from clipboard
-alias ytp="xclip -selection clipboard -out | xargs -n 1 -P 5 youtube-dl"
+# Use single quotes so date is defined upon use.
+alias ytp='xclip -selection clipboard -out | tee ytp-$(date +%s).txt | xargs -n 1 -P 5 youtube-dl'
 
 # Play watch later or $1 playlist on shuffle
 yts() {
