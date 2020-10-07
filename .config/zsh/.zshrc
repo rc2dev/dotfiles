@@ -31,6 +31,10 @@ setopt globdots
 # Use arrow-key driven interface for completion
 zstyle ':completion:*' menu select
 
+# Use colors
+eval "$(dircolors)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
 # Small letters to match small and capital letters
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
