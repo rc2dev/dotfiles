@@ -73,8 +73,9 @@ alias ez="$EDITOR $ZDOTDIR/.zshrc"
 
 # Browsing
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
+alias ../..="cd ../.."
+alias ../../..="cd ../../.."
+alias c-="cd -"
 alias_j jb ~/.local/bin
 alias_j jd ~/Downloads
 alias_j je ~/Code
