@@ -135,7 +135,6 @@ fi
 alias jl="journalctl"
 alias jlu="journalctl -u"
 
-
 # Package management
 if command -v apt > /dev/null; then
 	alias aar="sudo apt autoremove -y"
@@ -150,12 +149,14 @@ if command -v apt > /dev/null; then
 fi
 
 # TV and HDMI output
+td="echo 'standby 0' | cec-client -s"
+tl="echo 'on 0' | cec-client -s"
 if [[ "$HOST" == "pi" ]]; then
-	alias td='echo "standby 0" | cec-client -s'
-	alias tl='echo "on 0" | cec-client -s'
+	alias td="$td"
+	alias tl="$tl"
 else
-	alias td="ssh pi -t bash -ic td"
-	alias tl="ssh pi -t bash -ic tl"
+	alias td="ssh pi -t sh -c \"$td\""
+	alias tl="ssh pi -t sh -c \"$tl\""
 fi
 
 # HTTP server
@@ -168,7 +169,7 @@ mlc() { find "$1" -name \*.md -exec markdown-link-check -p {} \;; }
 alias fbl="find . -xtype l"
 
 # Random man page
-alias manrand="find /usr/share/man/man1 -type f | shuf | head -1 | sed -E 's#.*/(.*).gz#\1#' | xargs $TERMINAL -e man"
+alias manrand="find /usr/share/man/man1 -type f | shuf | head -1 | sed -E 's#.*/(.*).gz#\1#' | xargs man"
 
 # Record audio
 rau() { arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date +%FT%H%M%S).mp3"; }
@@ -214,7 +215,7 @@ if [[ "$HOST" == "localhost" ]]; then
 	unalias grep
 
 	# Screen is narrow, adapt ll
-	alias ll="ls -laFh --group-directories-first -og"
+	alias ll="ls -lh -og"
 
 	# Backup Termux
 	# Use single quotes so date is defined upon use.
