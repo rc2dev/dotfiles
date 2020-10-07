@@ -196,6 +196,14 @@ yts() {
 # sxiv: Always animate gifs
 alias sxiv="sxiv -a"
 
+# Global aliases (only supported by zsh)
+if [[ -n "$ZSH_VERSION" ]]; then
+	alias -g G="| grep"
+	alias -g L="| less"
+	alias -g LL="|& less"
+	alias -g PIPE="|"
+fi
+
 # Termux overrides and additions
 if [[ "$HOST" == "localhost" ]]; then
 	# Fix aliases that don't work on Busybox
