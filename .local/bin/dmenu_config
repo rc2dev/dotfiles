@@ -16,6 +16,7 @@ readonly configs=(
   "profile"
   "ranger/rc"
   "ranger/rifle"
+  "ssh"
   "vimrc"
   "xprofile"
   "zshrc"
@@ -34,6 +35,7 @@ case $config in
   profile) $TERMINAL -e $EDITOR ~/.profile ;;
   ranger/rc) $TERMINAL -e $EDITOR ~/.config/ranger/rc.conf ;;
   ranger/rifle) $TERMINAL -e $EDITOR ~/.config/ranger/rifle.conf ;;
+  ssh) $TERMINAL -e $EDITOR ~/.ssh/config ;;
   vimrc) $TERMINAL -e $EDITOR ~/.vimrc ;;
   xprofile) $TERMINAL -e $EDITOR ~/.xprofile ;;
   zshrc) $TERMINAL -e $EDITOR ~/.config/zsh/.zshrc ;;
