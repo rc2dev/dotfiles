@@ -138,6 +138,7 @@ alias jlu="journalctl -u"
 # Package management
 if command -v apt > /dev/null; then
 	alias aar="sudo apt autoremove -y"
+	alias afh="apt-file search"
 	alias ah="apt search"
 	alias ama="sudo apt-mark auto"
 	alias amm="sudo apt-mark manual"
