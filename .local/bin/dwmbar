@@ -55,7 +55,7 @@ bar_time() {
 }
 
 bar_mem() {
-  echo "Mem: $(free -h | grep '^Mem' | awk '{print $3}')"
+  echo "Mem: $(free -h | awk '/^Mem:/ {print $3}')"
 }
 
 xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_mem) ${sep} $(bar_time) "
