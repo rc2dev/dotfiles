@@ -64,6 +64,9 @@ history-rank() {
 }
 take() { mkdir -p $@ && cd ${@:$#}; }
 
+# Copy last command to clipboard
+alias ct="fc -ln -1 | xclip -selection clipboard"
+
 # Edit
 alias e="$EDITOR"
 alias ea="$EDITOR $ALIASES"
