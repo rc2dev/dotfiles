@@ -8,17 +8,17 @@
 readonly configs=(
   "alacritty"
   "aliases"
-  "bashrc"
   "dunstrc"
   "dwm"
   "mpv/mpv"
   "mpv/input"
-  "profile"
+  "ranger/commands"
   "ranger/rc"
   "ranger/rifle"
   "ssh"
   "vimrc"
   "xprofile"
+  "zprofile"
   "zshrc"
 )
 
@@ -26,17 +26,17 @@ readonly config=$(printf '%s\n' "${configs[@]}" | dmenu -p "configs" "$@")
 
 case $config in
   alacritty) $TERMINAL -e $EDITOR ~/.config/alacritty/alacritty.yml ;;
-  aliases) $TERMINAL -e $EDITOR ~/.config/aliases ;;
-  bashrc) $TERMINAL -e $EDITOR ~/.bashrc ;;
+  aliases) $TERMINAL -e $EDITOR $ALIASES ;;
   dunstrc) $TERMINAL -e $EDITOR ~/.config/wal/templates/dunstrc ;;
   dwm) $TERMINAL --working-directory ~/Code/dwm -e zsh -c "$EDITOR ~/Code/dwm/config.h; exec zsh" ;;
   mpv/mpv) $TERMINAL -e $EDITOR ~/.config/mpv/mpv.conf ;;
   mpv/input) $TERMINAL -e $EDITOR ~/.config/mpv/input.conf ;;
-  profile) $TERMINAL -e $EDITOR ~/.profile ;;
+  ranger/commands) $TERMINAL -e $EDITOR ~/.config/ranger/commands.py ;;
   ranger/rc) $TERMINAL -e $EDITOR ~/.config/ranger/rc.conf ;;
   ranger/rifle) $TERMINAL -e $EDITOR ~/.config/ranger/rifle.conf ;;
   ssh) $TERMINAL -e $EDITOR ~/.ssh/config ;;
   vimrc) $TERMINAL -e $EDITOR ~/.vimrc ;;
   xprofile) $TERMINAL -e $EDITOR ~/.xprofile ;;
+  zprofile) $TERMINAL -e $EDITOR ~/.zprofile ;;
   zshrc) $TERMINAL -e $EDITOR ~/.config/zsh/.zshrc ;;
 esac
