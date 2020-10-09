@@ -6,7 +6,7 @@
 
 readonly options="$(cat <<-END
 	Htop#$TERMINAL -e htop
-	System monitor#gnome-system-monitor
+	System monitor#ksysguard
 	Lock#slock
 	Restart dwm#killall -HUP dwm
 	Logout#killall -TERM dwm
