@@ -22,7 +22,7 @@ readonly configs=(
   "zshrc"
 )
 
-readonly config=$(printf '%s\n' "${configs[@]}" | dmenu -p "configs" "$@")
+readonly config=$(printf '%s\n' "${configs[@]}" | dmenu -p "config:" "$@")
 
 case $config in
   alacritty) $TERMINAL -e $EDITOR ~/.config/alacritty/alacritty.yml ;;

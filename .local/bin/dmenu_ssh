@@ -10,11 +10,11 @@ readonly ssh_config="$HOME/.ssh/config"
 
 if [[ "$1" == "--vnc" ]]; then
   readonly cmd="vnc"
-  readonly prompt="vnc"
+  readonly prompt="vnc:"
   shift
 else
   readonly cmd="$term_cmd ssh"
-  readonly prompt="ssh"
+  readonly prompt="ssh:"
 fi
 
 readonly hosts=($(grep -E '^Host\s+' "$ssh_config" 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2 | sort))
