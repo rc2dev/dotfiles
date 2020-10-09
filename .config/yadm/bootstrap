@@ -17,6 +17,9 @@ main() {
   log "Adding repository config..."
   yadm gitconfig include.path ~/.config/yadm/gitconfig
 
+  log "Installing VIM plugins..."
+  vim +PlugInstall +qa!
+
   log "Creating directories..."
   mkdir -p "$HOME/.local/opt"
 }

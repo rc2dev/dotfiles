@@ -162,7 +162,7 @@ update_vim() {
 	has_command vim || return 0
 
 	log_step "Atualizando vim-plug e plugins do VIM..."
-	vim +PlugUpgrade +PlugUpdate +PlugClean! +qa!
+	vim +PlugUpdate +PlugClean! +qa!
 }
 
 is_mint() {

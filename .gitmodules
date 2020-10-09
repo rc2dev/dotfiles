@@ -4,3 +4,6 @@
 [submodule ".config/zsh/antigen"]
 	path = .config/zsh/antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule ".vim/vim-plug"]
+	path = .vim/autoload/vim-plug
+	url = https://github.com/junegunn/vim-plug
