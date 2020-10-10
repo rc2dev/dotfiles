@@ -190,8 +190,8 @@ ytl() {
 }
 
 # Download videos from clipboard
-# Use single quotes so date is defined upon use.
-alias ytp='xclip -selection clipboard -out | tee ytp-$(date +%s).txt | xargs -n 1 -P 5 youtube-dl'
+# echo adds a cosmetic breakline in the tty
+alias ytp="(xclip -selection clipboard -out; echo) | tee /dev/tty | xargs -n1 -P5 -I_arg sh -c \"youtube-dl '_arg' || echo '_arg' >> ~/Downloads/ydl_failed_urls.txt\""
 
 # Play watch later or $1 playlist on shuffle
 yts() {
