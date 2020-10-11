@@ -26,6 +26,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'tpope/vim-fugitive'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'mattn/emmet-vim'
+Plug 'ap/vim-css-color'
 if $SLOW_HOST != "true"
 	Plug 'vim-airline/vim-airline'
 endif
