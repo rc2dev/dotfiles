@@ -191,7 +191,7 @@ ytl() {
 
 # Download videos from clipboard
 # echo adds a cosmetic breakline in the tty
-alias ytp="(xclip -selection clipboard -out; echo) | tee /dev/tty | xargs -n1 -P5 -I_arg sh -c \"youtube-dl '_arg' || echo '_arg' >> ~/Downloads/ydl_failed_urls.txt\""
+alias ytp="(xclip -selection clipboard -out; echo) | vipe | tee /dev/tty | xargs -n1 -P5 -I_arg sh -c \"youtube-dl '_arg' || echo '_arg' >> ~/Downloads/ydl_failed_urls.txt\""
 
 # Play watch later or $1 playlist on shuffle
 yts() {
