@@ -51,13 +51,14 @@ endif
 
 " Interface
 set showcmd                     " Show partial command
-set noshowmode                  " Don't show modes below status line (redundant to Powerline)
 set laststatus=2                " Always show status line
 set showtabline=2               " Always show tab line
+set noshowmode                  " Don't show modes below status line (redundant to Airline)
 set splitbelow splitright       " Splitting puts new window right of / below current
 
 " Editor
-set nu
+syntax on                       " Enable syntax highlighting
+set number
 set relativenumber
 set linebreak                   " More inteligent wrapping (don't break words)
 set scrolloff=10                " Minimum lines below cursor
@@ -67,9 +68,6 @@ set list listchars=tab:→\ ,trail:·
 " Highlight current line in normal mode
 set cursorline
 autocmd InsertEnter,InsertLeave * set cursorline!
-
-" Enable syntax highlighting
-syntax on
 
 " netrw: Hide dotfiles by default
 let ghregex='\(^\|\s\s\)\zs\.\S\+'
@@ -118,6 +116,7 @@ autocmd BufWritePost .xsettingsd !killall -HUP xsettingsd
 
 " Set executable bit to scripts
 autocmd BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod +x <afile> | endif | endif
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CODE STYLE
