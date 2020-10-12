@@ -29,6 +29,7 @@ Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 if $SLOW_HOST != "true"
 	Plug 'vim-airline/vim-airline'
+	set noshowmode                  " Don't show modes below status line (redundant to Airline)
 endif
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -53,7 +54,6 @@ endif
 set showcmd                     " Show partial command
 set laststatus=2                " Always show status line
 set showtabline=2               " Always show tab line
-set noshowmode                  " Don't show modes below status line (redundant to Airline)
 set splitbelow splitright       " Splitting puts new window right of / below current
 
 " Editor
