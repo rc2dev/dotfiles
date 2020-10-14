@@ -41,6 +41,7 @@ alias less="less -R"
 
 # ls
 alias ls="ls --color=always -AF --group-directories-first"
+alias l="ls"
 alias ll="ls -lh"
 
 # Show timestamp on zsh history
