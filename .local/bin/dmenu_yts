@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# dmenu script for playing yt on shuffle
+#
+# Author: Rafael Cavalcanti - rafaelc.org
+
+readonly options="$(cat <<-END
+	⏲ Watch later#https://www.youtube.com/playlist?list=WL
+	♫ Music#--no-keep-open https://www.youtube.com/playlist?list=PLG0ys6U09lfmgmxd8gw7fRbGzENTcaCE-
+	♫ Music - Watch later#https://www.youtube.com/playlist?list=PLG0ys6U09lfnE3SbOnT_BV4NSo2O9xZ90
+	♫ Music - HDex#https://www.youtube.com/playlist?list=PLG0ys6U09lfk8yQNjZmfc_IgjyBu71dfi
+END
+)"
+
+readonly chosen="$(cut -d# -f1 <(printf "%s" "$options") | dmenu -p "yt playlists:" "$@")"
+[[ -z "$chosen" ]] && exit
+
+readonly args="$(grep "^${chosen}#" <(printf "%s" "$options") | cut -d# -f2)"
+mpv --shuffle $args

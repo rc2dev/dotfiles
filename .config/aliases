@@ -181,25 +181,14 @@ alias manrand="find /usr/share/man/man1 -type f | shuf | head -1 | sed -E 's#.*/
 rau() { arecord -vv -f cd | ffmpeg -loglevel 24 -i - "$HOME/Downloads/rec_$(date +%FT%H%M%S).mp3"; }
 
 # Find and stream audio
-yta() { mpv --keep-open=no --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
+yta() { mpv --no-keep-open --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 
-# List videos from watch later or $1 playlist
-ytl() {
-	local -r playlist_url="${1:-https://www.youtube.com/playlist?list=WL}"
-
-	youtube-dl --flat-playlist --dump-json "$playlist_url" | jq -r '"https://youtu.be/" + .url'
-}
+# List videos from $1 playlist
+ytl() { youtube-dl --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/" + .url'; }
 
 # Download videos from clipboard
 # echo adds a cosmetic breakline in the tty
 alias ytp="(xclip -selection clipboard -out; echo) | vipe | tee /dev/tty | xargs -n1 -P5 -I_arg sh -c \"youtube-dl '_arg' || echo '_arg' | ts >> ~/Downloads/ydl_failed_urls.txt\""
-
-# Play watch later or $1 playlist on shuffle
-yts() {
-	local -r playlist_url="${1:-https://www.youtube.com/playlist?list=WL}"
-
-	mpv --shuffle "$playlist_url"
-}
 
 # sxiv: Always animate gifs
 alias sxiv="sxiv -a"
