@@ -62,6 +62,10 @@ bindkey "^[OB" down-line-or-beginning-search
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# Delete word with ctrl+delete and ctrl+backspace
+bindkey '^H' backward-kill-word
+bindkey '5~' kill-word
+
 # Move to beginning/end of line with Home/End
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
