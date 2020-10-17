@@ -24,7 +24,7 @@ usage() {
 }
 
 [[ -z ${1:-} ]] && usage
-readonly app="$1"
+readonly app="${1,,}" # lowercase
 
 [[ -z "${apps[$app]+d}" ]] && printf "App doesn't exist.\n" && usage
 readonly url="${apps[$app]}"
