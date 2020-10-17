@@ -5,21 +5,20 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-readonly term_cmd="$TERMINAL -e"
 readonly ssh_config="$HOME/.ssh/config"
 
-if [[ "$1" == "--vnc" ]]; then
-  readonly cmd="vnc"
-  readonly prompt="vnc:"
-  shift
-else
-  readonly cmd="$term_cmd ssh"
-  readonly prompt="ssh:"
-fi
-
 readonly hosts=($(grep -E '^Host\s+' "$ssh_config" 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2 | sort))
-readonly host=$(printf '%s\n' "${hosts[@]}" | dmenu -p "$prompt" "$@")
+readonly host=$(printf "%s\n" "${hosts[@]}" | dmenu -p "host:" "$@")
+[[ -z "$host" ]] && exit
 
-if [[ -n "$host" ]]; then
-  $cmd $host
-fi
+readonly cmd=$(printf "%s\n%s\n" ssh vnc | dmenu -p "connection:" "$@")
+[[ -z "$cmd" ]] && exit
+
+case $cmd in
+  ssh)
+    exec $TERMINAL -e $cmd $host
+    ;;
+  *)
+    exec $cmd $host
+    ;;
+esac
