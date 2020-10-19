@@ -183,6 +183,10 @@ autocmd! User GoyoLeave Limelight!
 let g:user_emmet_leader_key=','
 let g:user_emmet_mode='n'
 
+" fzf.vim
+" Add function for searching file names on ~
+command! -bang HFiles call fzf#vim#files('~', <bang>0)
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
@@ -225,6 +229,7 @@ nnoremap <Leader>l :Limelight!!<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-f> :Rg<CR>
+nnoremap <silent> <C-g> :HFiles<CR>
 
 " Navigate splits
 nnoremap <silent> <C-k> :wincmd k<CR>
