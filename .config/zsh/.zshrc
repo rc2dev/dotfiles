@@ -113,6 +113,7 @@ antigen bundle systemd
 
 # Other bundles
 $SLOW_HOST || antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle Aloxaf/fzf-tab
 antigen bundle denysdovhan/spaceship-prompt
 antigen bundle zsh-users/zsh-syntax-highlighting # should be last
 
