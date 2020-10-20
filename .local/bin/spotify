@@ -1,14 +1,27 @@
 #!/bin/sh
 #
 # Spotify wrapper. Features:
-# - Start with a WM_CLASS. Based on https://github.com/dasJ/spotifywm.
+# - Start with a WM_CLASS (useful for WM rules). Based on https://github.com/dasJ/spotifywm.
 # - Only allow one instance.
+# - Skip ads.
 #
 # Author: Rafael Cavalcanti - rafaelc.org
+
 
 if wmctrl -xl | grep -q spotify.Spotify; then
   printf "Spotify is already running.\n"
   exit 1
 fi
 
-LD_PRELOAD=/usr/lib/libcurl.so.3:$HOME/.local/opt/spotifywm/spotifywm.so exec /usr/bin/spotify
+# Launch ad skipper
+while true; do
+  if [ "$(playerctl metadata title)" = "Advertisement" ]; then
+    playerctl next && notify-send "Spotify ad skipped."
+  fi
+  sleep 2s
+done &
+
+LD_PRELOAD=/usr/lib/libcurl.so.3:$HOME/.local/opt/spotifywm/spotifywm.so /usr/bin/spotify
+
+# Kill ad skipper
+trap 'kill $(jobs -p)' EXIT
