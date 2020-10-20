@@ -48,9 +48,7 @@ export QT_QPA_PLATFORMTHEME=gtk2
 
 # Check slow host
 if [[ " pi pi-vcc pizero " =~ " $HOST " ]]; then
-	export SLOW_HOST=true
-else
-	export SLOW_HOST=false
+	export SLOW_HOST=1
 fi
 
 # Paths

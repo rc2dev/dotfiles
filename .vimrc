@@ -28,7 +28,7 @@ Plug 'ron89/thesaurus_query.vim'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'ap/vim-css-color'
-if $SLOW_HOST != "true"
+if $SLOW_HOST != "1"
 	Plug 'vim-airline/vim-airline'
 	set noshowmode                  " Don't show modes below status line (redundant to Airline)
 endif
