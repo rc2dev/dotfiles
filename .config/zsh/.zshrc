@@ -42,6 +42,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
+# Complete all processes with kill and killall
+zstyle ':completion:*:processes' command ps axh -o user,pid,%cpu,%mem,start,cmd
+zstyle ':completion:*:processes' sort false
+zstyle ':completion:*:processes-names' command ps axh -o cmd
+
 
 #####################################################################
 # Interface
@@ -131,3 +136,4 @@ if [[ -z "$TMUX" ]]; then
     printf "Sessões tmux ativas: %s\n" $tmux_sessions
   fi
 fi
+
