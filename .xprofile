@@ -35,5 +35,5 @@ keepassxc &
 # Statusbar loop
 while true; do
   dwmbar
-  sleep 15s
+  sleep 10s
 done &
