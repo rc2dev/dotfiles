@@ -65,8 +65,8 @@ history-rank() {
 }
 take() { mkdir -p $@ && cd ${@:$#}; }
 
-# Copy last command to clipboard
-alias clc="fc -ln -1 | xclip -selection clipboard"
+# Copy command from history to clipboard
+alias ch="fc -ln -20 | fzf | xclip -selection clipboard"
 
 # Edit
 alias e="$EDITOR"
@@ -200,6 +200,8 @@ if [[ -n "$ZSH_VERSION" ]]; then
 	alias -g L="| less"
 	alias -g LL="|& less"
 	alias -g PIPE="|"
+	alias -g C="| xclip -selection clipboard"
+	alias -g P="xclip -selection clipboard -out |"
 fi
 
 # Termux overrides and additions
