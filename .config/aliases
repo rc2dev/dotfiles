@@ -127,7 +127,6 @@ alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 & di
 alias cx="chmod +x"
 alias o="xdg-open"
 alias r="ranger"
-alias sw="sxiv -tr $WALLPAPERS"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias scr="sudo systemctl restart"
@@ -190,9 +189,6 @@ ytl() { youtube-dl --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/"
 # Download videos from clipboard
 # echo adds a cosmetic breakline in the tty
 alias ytp="(xclip -selection clipboard -out; echo) | vipe | tee /dev/tty | xargs -n1 -P5 -I_arg sh -c \"youtube-dl '_arg' || echo '_arg' | ts >> ~/Downloads/ydl_failed_urls.txt\""
-
-# sxiv: Always animate gifs
-alias sxiv="sxiv -a"
 
 # Global aliases (only supported by zsh)
 if [[ -n "$ZSH_VERSION" ]]; then
