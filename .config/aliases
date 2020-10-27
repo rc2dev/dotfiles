@@ -84,7 +84,7 @@ alias_j jb ~/.local/bin
 alias_j jd ~/Downloads
 alias_j je ~/Code
 alias_j jg ~/.config
-alias_j jH ~/Pictures/Screenshots
+alias_j jh ~/Pictures/Screenshots
 alias_j jk ~/.kodi
 alias_j jk /var/lib/kodi/.kodi
 alias_j jm ~/Music
