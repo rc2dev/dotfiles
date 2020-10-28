@@ -150,7 +150,7 @@ if command -v apt > /dev/null; then
 	alias ai="sudo apt install"
 	alias ap="sudo apt purge"
 	alias au="sudo apt update"
-	alias afu="sudo apt full-upgrade"
+	alias afu="sudo apt update && sudo apt full-upgrade"
 	alias aw="apt show"
 fi
 
