@@ -1,6 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/env bash
-
-# We need PATH
-source ~/.zprofile
-
-en
