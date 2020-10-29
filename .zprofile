@@ -63,6 +63,8 @@ export TERMINAL="alacritty"
 export MPD_HOST="192.168.15.101"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore -g '!.git' -g '!node_modules'"
+# clipmenud: This fixes losing the clipboard content when closing the source application
+export CM_OWN_CLIPBOARD=1
 
 # Zsh configuration
 # Needed for last-working-dir plugin; and I use it in other places

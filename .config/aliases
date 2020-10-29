@@ -21,7 +21,7 @@ alias watch="watch "
 
 # Increase verbosity and prompt before overwriting (for rm, prompt
 # before removing directory or more than 3 files)
-alias cp="cp -vi"
+alias cp="cp -vir"
 alias mv="mv -vi"
 alias rm="rm -vI"
 alias ln="ln -vi"
