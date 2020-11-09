@@ -29,6 +29,7 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'ap/vim-css-color'
 Plug 'ferrine/md-img-paste.vim'
+Plug 'francoiscabrol/ranger.vim'
 if $SLOW_HOST != "1"
 	Plug 'vim-airline/vim-airline'
 	set noshowmode                  " Don't show modes below status line (redundant to Airline)
