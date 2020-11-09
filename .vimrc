@@ -208,6 +208,9 @@ noremap <Leader>d "+d
 noremap <Leader>p "+p
 set pastetoggle=<F2>
 
+" Insert current date
+inoremap <F3> <C-R>=strftime("%d/%m/%Y")<CR>
+
 " Run current file
 nnoremap <F5> :w<CR>:!%:p<CR>
 inoremap <F5> <C-o>:w<CR><C-o>:!%:p<CR>
@@ -216,26 +219,28 @@ inoremap <F5> <C-o>:w<CR><C-o>:!%:p<CR>
 nnoremap <F6> :setlocal spell!<CR>
 inoremap <F6> <C-o>:setlocal spell!<CR>
 
-" Edit files
-nnoremap <Leader>ev :e ~/.vimrc<CR>
-
-" Insert current date
-inoremap <F3> <C-R>=strftime("%d/%m/%Y")<CR>
-
 " Save and quit
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
 
-" Plugins
-nnoremap <Leader>mp :MarkdownPreview<CR>
-nnoremap <F12> :Goyo<CR>
-inoremap <F12> <C-o>:Goyo<CR>
-nnoremap <Leader>l :Limelight!!<CR>
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <C-f> :PRg<CR>
-nnoremap <silent> <C-g> :HFiles<CR>
+" Edit files
+nnoremap <Leader>ev :e ~/.vimrc<CR>
+
+" Use friendlier line navigation on prose files
+augroup navigation
+	autocmd Filetype markdown,text nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+	autocmd Filetype markdown,text nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
+	autocmd Filetype markdown,text nnoremap <Down> gj
+	autocmd Filetype markdown,text nnoremap <Up> gk
+	autocmd Filetype markdown,text nnoremap <Home> g<Home>
+	autocmd Filetype markdown,text nnoremap <End> g<End>
+augroup END
+
+" Buffer navigation
+nnoremap <Leader><Leader> <C-^>
+nnoremap <Leader>j :bp<CR>
+nnoremap <Leader>k :bn<CR>
 
 " Navigate splits
 nnoremap <silent> <C-k> :wincmd k<CR>
@@ -256,19 +261,19 @@ nnoremap <Leader>tv <C-w>t<C-w>K
 " Close all splits but the current one
 nnoremap <Leader>o <C-w>o
 
-" Use friendlier line navigation on prose files
-augroup navigation
-	autocmd Filetype markdown,text nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
-	autocmd Filetype markdown,text nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
-	autocmd Filetype markdown,text nnoremap <Down> gj
-	autocmd Filetype markdown,text nnoremap <Up> gk
-	autocmd Filetype markdown,text nnoremap <Home> g<Home>
-	autocmd Filetype markdown,text nnoremap <End> g<End>
-augroup END
-
 " Save as root and source ~/.vimrc
 cmap w!! w !sudo tee % > /dev/null
 cmap sv :so ~/.vimrc
+
+" Plugins
+nnoremap <Leader>mp :MarkdownPreview<CR>
+nnoremap <F12> :Goyo<CR>
+inoremap <F12> <C-o>:Goyo<CR>
+nnoremap <Leader>l :Limelight!!<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-f> :PRg<CR>
+nnoremap <silent> <C-g> :HFiles<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
