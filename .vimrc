@@ -28,6 +28,7 @@ Plug 'ron89/thesaurus_query.vim'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'ap/vim-css-color'
+Plug 'ferrine/md-img-paste.vim'
 if $SLOW_HOST != "1"
 	Plug 'vim-airline/vim-airline'
 	set noshowmode                  " Don't show modes below status line (redundant to Airline)
@@ -185,7 +186,13 @@ let g:user_emmet_mode='n'
 
 " fzf.vim
 " Add function for searching file names on ~
-command! -bang HFiles call fzf#vim#files('~', <bang>0)
+command! -bang HFiles call fzf#vim#files('~', {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
+" Add function to Rg files of the current buffer project
+command! -bang -nargs=* PRg
+  \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, {'dir': system('git -C '.expand('%:p:h').' rev-parse --show-toplevel 2> /dev/null')[:-2], 'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
+
+" md-img-paste
+autocmd FileType markdown nmap <buffer><silent> <leader>ip :call mdip#MarkdownClipboardImage()<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -228,7 +235,7 @@ inoremap <F12> <C-o>:Goyo<CR>
 nnoremap <Leader>l :Limelight!!<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <C-f> :Rg<CR>
+nnoremap <silent> <C-f> :PRg<CR>
 nnoremap <silent> <C-g> :HFiles<CR>
 
 " Navigate splits
@@ -272,7 +279,6 @@ iab rca [RC added]
 iab rcm [RC modified]
 iab rcp Copyright (C) <C-r>=strftime("%Y")<CR> Rafael Cavalcanti - rafaelc.org<CR>Licensed under GPLv3<CR>
 iab rct Author: Rafael Cavalcanti - rafaelc.org
-
 
 
 " Source a global configuration file if available
