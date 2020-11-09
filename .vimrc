@@ -118,7 +118,8 @@ autocmd BufWritePost dwmbar !dwmbar
 autocmd BufWritePost .xsettingsd !killall -HUP xsettingsd
 
 " Set executable bit to scripts
-autocmd BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod +x <afile> | endif | endif
+autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile>
+autocmd BufWritePost * endif " Workaround, as puting this on above line would prevent next autocmds to run.
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -291,6 +292,7 @@ iab rca [RC added]
 iab rcm [RC modified]
 iab rcp Copyright (C) <C-r>=strftime("%Y")<CR> Rafael Cavalcanti - rafaelc.org<CR>Licensed under GPLv3<CR>
 iab rct Author: Rafael Cavalcanti - rafaelc.org
+
 
 
 " Source a global configuration file if available

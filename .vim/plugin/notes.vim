@@ -5,13 +5,15 @@ let g:notes_dir='~/.data/Sync/.Notes/'
 let g:notes_resources_dir='~/.data/Sync/.Notes/_resources'
 let g:notes_resources_dir_inline='_resources'
 
+" fzf: Set special keybinds to search notes
+command! -bang NFiles call fzf#vim#files(g:notes_dir, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
+noremap <C-n> :NFiles<CR>
+
 " md-img-paste: Save images to resources folder
 autocmd BufNewFile,BufRead ~/.data/Sync/.Notes/*
 	\ let g:mdip_imgdir_absolute = g:notes_resources_dir |
 	\ let g:mdip_imgdir = g:notes_resources_dir |
 	\ let g:mdip_imgdir_intext = g:notes_resources_dir_inline
 
-" fzf: Set special keybinds to search notes
-command! -bang NFiles call fzf#vim#files(g:notes_dir, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
-noremap <C-n> :NFiles<CR>
-
+" Auto-commit on save
+autocmd BufWritePost ~/.data/Sync/.Notes/* !bash -c "cd '%:p:h' && git reset && git add '%:p' && EDITOR='vim -M' git commit -qv -em 'Auto-commit' || git reset"
