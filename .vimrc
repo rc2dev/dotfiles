@@ -195,6 +195,14 @@ command! -bang -nargs=* PRg
 " md-img-paste
 autocmd FileType markdown nmap <buffer><silent> <leader>ip :call mdip#MarkdownClipboardImage()<CR>
 
+" AutoComplPop
+" Disable for markdown and text
+if(exists("g:acp_behavior"))
+      let g:acp_behavior.markdown=[]
+      let g:acp_behavior.text=[]
+else
+      let g:acp_behavior = {'markdown':[], 'text':[]}
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
