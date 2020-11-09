@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# Author: Rafael Cavalcanti - rafaelc.org
+
+cd "$NOTES"
+
+readonly chosen="$(find . -iname "*.md" | sed "s#^./##" | sed "s#.md\$##" | dmenu -l 5)"
+[[ -z $chosen ]] && exit
+
+<<< "$chosen" sed "s#\$#.md#" | xargs -d '\n' $TERMINAL -e $EDITOR
