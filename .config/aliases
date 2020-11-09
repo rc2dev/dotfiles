@@ -71,6 +71,8 @@ alias ch="fc -ln -20 | fzf | xclip -selection clipboard"
 # Edit
 alias e="$EDITOR"
 alias ea="$EDITOR $ALIASES"
+alias eg="vim +HFiles"
+alias en="vim +NFiles"
 alias ep="$EDITOR ~/.zprofile"
 alias ev="$EDITOR ~/.vimrc"
 alias ez="$EDITOR $ZDOTDIR/.zshrc"
