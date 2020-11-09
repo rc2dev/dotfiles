@@ -216,13 +216,11 @@ inoremap <F5> <C-o>:w<CR><C-o>:!%:p<CR>
 nnoremap <F6> :setlocal spell!<CR>
 inoremap <F6> <C-o>:setlocal spell!<CR>
 
-" Buffer navigation
-nnoremap <Leader><Leader> <C-^>
-nnoremap <Leader>j :bp<CR>
-nnoremap <Leader>k :bn<CR>
-
 " Edit files
 nnoremap <Leader>ev :e ~/.vimrc<CR>
+
+" Insert current date
+inoremap <F3> <C-R>=strftime("%d/%m/%Y")<CR>
 
 " Save and quit
 nnoremap <Leader>w :w<CR>
