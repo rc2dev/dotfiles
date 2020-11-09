@@ -1,3 +1,0 @@
-#!/bin/sh
-
-vim + "$NOTES/quick-note.md"
