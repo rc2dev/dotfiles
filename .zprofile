@@ -53,6 +53,7 @@ fi
 
 # Paths
 export ALIASES="$HOME/.config/aliases"
+export NOTES="/home/rafael/Documents/Notes/"
 export WALLPAPERS="$HOME/Pictures/Wallpapers/Desktop/"
 
 # Default applications
