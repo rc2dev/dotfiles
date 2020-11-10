@@ -20,5 +20,5 @@ augroup note_config
 	autocmd BufNewFile $NOTES/*.md Template *note
 
 	" Auto-commit to git on save
-	autocmd BufWritePost $NOTES/*.md !bash -c "cd '%:p:h' && git reset && git add . && EDITOR='vim -M' git commit -qv -em 'Auto-commit' || git reset"
+	autocmd BufWritePost $NOTES/*.md !bash -c "cd '%:p:h' && git reset && git add -A && EDITOR='vim -M' git commit -qv -em 'Auto-commit' || git reset"
 augroup END
