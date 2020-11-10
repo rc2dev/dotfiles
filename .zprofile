@@ -53,7 +53,7 @@ fi
 
 # Paths
 export ALIASES="$HOME/.config/aliases"
-export NOTES="/home/rafael/.data/Sync/.Notes" # vim needs the real path
+export NOTES="/home/rafael/.data/Sync/.Notes/md" # vim needs the real path
 export WALLPAPERS="$HOME/Pictures/Wallpapers"
 
 # Default applications
