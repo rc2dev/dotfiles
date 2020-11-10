@@ -9,11 +9,16 @@ let g:notes_resources_dir_inline='_resources'
 command! -bang NFiles call fzf#vim#files(g:notes_dir, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
 noremap <C-n> :NFiles<CR>
 
-" md-img-paste: Save images to resources folder
-autocmd BufNewFile,BufRead $NOTES/*
-	\ let g:mdip_imgdir_absolute = g:notes_resources_dir |
-	\ let g:mdip_imgdir = g:notes_resources_dir |
-	\ let g:mdip_imgdir_intext = g:notes_resources_dir_inline
+augroup note_config
+	" md-img-paste: Save images to resources folder
+	autocmd BufNewFile,BufRead $NOTES/*
+		\ let g:mdip_imgdir_absolute = g:notes_resources_dir |
+		\ let g:mdip_imgdir = g:notes_resources_dir |
+		\ let g:mdip_imgdir_intext = g:notes_resources_dir_inline
 
-" Auto-commit on save
-autocmd BufWritePost $NOTES/* !bash -c "cd '%:p:h' && git reset && git add . && EDITOR='vim -M' git commit -qv -em 'Auto-commit' || git reset"
+	" Template for new notes
+	autocmd BufNewFile $NOTES/*.md Template *note
+
+	" Auto-commit to git on save
+	autocmd BufWritePost $NOTES/*.md !bash -c "cd '%:p:h' && git reset && git add . && EDITOR='vim -M' git commit -qv -em 'Auto-commit' || git reset"
+augroup END
