@@ -44,6 +44,7 @@ update_distro() {
 		update_distro_osmc
 	elif is_mint; then
 		log_os "Mint"
+		update_distro_mint
 	elif has_command pamac; then
 		log_os "Manjaro (Pamac)"
 		update_distro_pamac
@@ -71,6 +72,14 @@ update_distro_apt() {
 
 	log_step "Limpando cache do APT..."
 	$sudo apt clean
+}
+
+update_distro_mint() {
+	log_step "Atualizando Mint..."
+	mintupdate-cli upgrade
+
+	log_step "Limpando cache do APT..."
+	sudo apt clean
 }
 
 update_distro_pacman() {
