@@ -1,6 +1,10 @@
 " Functionality for taking notes
 " Author: Rafael Cavalcanti - rafaelc.org
 
+if ! isdirectory($NOTES)
+	finish
+endif
+
 let g:notes_dir=$NOTES
 let g:notes_resources_dir=$NOTES . '/_resources'
 let g:notes_resources_dir_inline='_resources'
