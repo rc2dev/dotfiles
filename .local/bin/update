@@ -133,11 +133,9 @@ update_rc() {
 	local gitdir
 	local sudo
 
-	log_step "Atualizando repositórios RC..."
-
 	for gitdir in "${rc_repos[@]}"; do
 		if [[ -d "$gitdir" ]]; then
-			printf "\n%s: " "${gitdir/$HOME/\~}"
+			log_step "Atualizando repositório ${gitdir/$HOME/\~}..."
 
 			if [[ "$(stat -c "%u" "$gitdir")" == "0" ]]; then
 				sudo="sudo"
@@ -161,10 +159,6 @@ update_ydl() {
 	if has_command pip3 && pip3 list --format=columns | grep -q youtube-dl; then
 		log_step "Atualizando pacote youtube-dl do PIP..."
 		pip3 install --upgrade youtube_dl
-	fi
-
-	if [[ -f /usr/local/bin/youtube-dl ]]; then
-		sudo youtube-dl -U
 	fi
 }
 
