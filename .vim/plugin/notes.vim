@@ -5,12 +5,11 @@ if ! isdirectory($NOTES)
 	finish
 endif
 
-let g:notes_dir=$NOTES
-let g:notes_resources_dir=$NOTES . '/_resources'
-let g:notes_resources_dir_inline='_resources'
+let g:notes_resources_dir=$NOTES . '/../resources'
+let g:notes_resources_dir_inline='resources'
 
 " fzf: Set special keybinds to search notes
-command! -bang NFiles call fzf#vim#files(g:notes_dir, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
+command! -bang NFiles call fzf#vim#files($NOTES, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
 noremap <C-n> :NFiles<CR>
 
 augroup note_config
