@@ -157,7 +157,8 @@ update_pihole() {
 }
 
 update_ydl() {
-	if has_command pip3 && pip3 list | grep -q youtube-dl; then
+	# Use --format to silence pip warning.
+	if has_command pip3 && pip3 list --format=columns | grep -q youtube-dl; then
 		log_step "Atualizando pacote youtube-dl do PIP..."
 		pip3 install --upgrade youtube_dl
 	fi
