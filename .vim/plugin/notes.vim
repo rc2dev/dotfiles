@@ -14,9 +14,8 @@ noremap <C-n> :NFiles<CR>
 
 augroup note_config
 	" md-img-paste: Save images to resources folder
-	autocmd BufNewFile,BufRead $NOTES/*
+	autocmd BufNewFile,BufRead $NOTES/*.md
 		\ let g:mdip_imgdir_absolute = g:notes_resources_dir |
-		\ let g:mdip_imgdir = g:notes_resources_dir |
 		\ let g:mdip_imgdir_intext = g:notes_resources_dir_inline
 
 	" Template for new notes
