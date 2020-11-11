@@ -4,7 +4,10 @@
 
 cd "$NOTES"
 
-readonly chosen="$(find . -iname "*.md" | sed "s#^./##" | sed "s#.md\$##" | dmenu -l 5)"
+# List all notes sorted by last modified
+# Using xargs instead of find -exec is faster.
+readonly notes="$(find . -iname "*.md" -printf "%T@:%p\n" | sort -nr | cut -d: -f2- | sed "s#^./##" | sed "s#.md\$##")"
+readonly chosen="$(dmenu -l 10 <<< "$notes")"
 [[ -z $chosen ]] && exit
 
-<<< "$chosen" sed "s#\$#.md#" | xargs -d '\n' $TERMINAL -e $EDITOR
+printf "%s.md" "$chosen" | xargs -d '\n' $TERMINAL -e $EDITOR
