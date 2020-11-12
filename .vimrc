@@ -102,6 +102,7 @@ set incsearch                   " Incremental search
 " Command completion
 set history=500                 " Number of command lines remembered
 set wildmenu
+set wildmode=longest:full,full  " First tab to complete longest *common* string
 
 " Open quickfix automatically (for shellcheck)
 autocmd QuickFixCmdPost [^l]* nested cwindow
