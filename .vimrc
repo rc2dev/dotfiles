@@ -29,6 +29,7 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'ap/vim-css-color'
 Plug 'ferrine/md-img-paste.vim'
+Plug 'plasticboy/vim-markdown'
 Plug 'francoiscabrol/ranger.vim'
 if $SLOW_HOST != "1"
 	Plug 'vim-airline/vim-airline'
@@ -195,6 +196,11 @@ command! -bang -nargs=* PRg
 
 " md-img-paste
 autocmd FileType markdown inoremap <buffer><silent> <C-b> <C-o>:call mdip#MarkdownClipboardImage()<CR>
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_level = 2
+let g:vim_markdown_toc_autofit = 1
 
 " AutoComplPop
 " Disable for markdown and text
