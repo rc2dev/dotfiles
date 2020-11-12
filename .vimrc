@@ -67,12 +67,12 @@ set relativenumber
 set linebreak                   " More inteligent wrapping (don't break words)
 set scrolloff=10                " Minimum lines below cursor
 set showmatch                   " Show matching brackets
+set nofoldenable                " Don't fold on opening file
 " Show tabs and trailing spaces
 set list listchars=tab:→\ ,trail:·
 " Highlight current line in normal mode
 set cursorline
 autocmd InsertEnter,InsertLeave * set cursorline!
-
 " netrw: Hide dotfiles by default
 let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide=ghregex
@@ -199,7 +199,6 @@ command! -bang -nargs=* PRg
 autocmd FileType markdown inoremap <buffer><silent> <C-b> <C-o>:call mdip#MarkdownClipboardImage()<CR>
 
 " vim-markdown
-let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_level = 2
 let g:vim_markdown_toc_autofit = 1
 
