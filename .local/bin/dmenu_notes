@@ -7,7 +7,8 @@ cd "$NOTES"
 # List all notes sorted by last modified
 # Using xargs instead of find -exec is faster.
 readonly notes="$(find . -iname "*.md" -printf "%T@:%p\n" | sort -nr | cut -d: -f2- | sed "s#^./##" | sed "s#.md\$##")"
-readonly chosen="$(dmenu -l 10 <<< "$notes")"
+readonly chosen="$(printf "Browse...\n%s" "$notes" | dmenu -l 5 -g 4 -p "notes:")"
 [[ -z $chosen ]] && exit
 
+[[ "$chosen" == "Browse..." ]] && exec $TERMINAL -e ranger
 printf "%s.md" "$chosen" | xargs -d '\n' $TERMINAL -e $EDITOR
