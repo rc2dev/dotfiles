@@ -31,7 +31,7 @@ Plug 'ap/vim-css-color'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'francoiscabrol/ranger.vim'
-if $SLOW_HOST != "1"
+if $SLOW_HOST != '1'
     Plug 'vim-airline/vim-airline'
     set noshowmode                                  " Don't show modes below status line (redundant to Airline)
 endif
@@ -47,7 +47,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
 set termguicolors                                   " Use truecolors
-if hostname() == "localhost"
+if hostname() == 'localhost'
     colorscheme gruvbox
 else
     colorscheme dracula
@@ -78,7 +78,7 @@ let g:netrw_list_hide=ghregex
 
 function! EnableTransparency()
     " Don't do it on gvim or it will get messed up
-    if has("gui_running")
+    if has('gui_running')
         return
     endif
 
@@ -174,14 +174,14 @@ autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-closetag
 " Enable for *.erb
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb'
 
 " vim-airline
 " Show open buffers on top
 let g:airline#extensions#tabline#enabled = 1
 
 " vim-template
-let g:templates_directory = ["$HOME/.vim/templates"]
+let g:templates_directory = ['$HOME/.vim/templates']
 let g:templates_no_builtin_templates = 1
 
 " Goyo
@@ -223,7 +223,7 @@ let g:user_emmet_mode='n'
 command! -bang HFiles call fzf#vim#files('~', {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
 " Add function to Rg files of the current buffer project
 command! -bang -nargs=* PRg
-    \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, {'dir': system('git -C '.expand('%:p:h').' rev-parse --show-toplevel 2> /dev/null')[:-2], 'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
+    \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, {'dir': system('git -C '.expand('%:p:h').' rev-parse --show-toplevel 2> /dev/null')[:-2], 'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 
 " md-img-paste
 autocmd FileType markdown inoremap <buffer><silent> <C-b> <C-o>:call mdip#MarkdownClipboardImage()<CR>
@@ -234,7 +234,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " AutoComplPop
 " Disable for markdown and text
-if(exists("g:acp_behavior"))
+if(exists('g:acp_behavior'))
     let g:acp_behavior.markdown=[]
     let g:acp_behavior.text=[]
 else
@@ -245,7 +245,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap leader key
+" Remap leader key (Space must be in double quotes)
 let mapleader="\<Space>"
 
 " Clipboard operations
@@ -255,7 +255,7 @@ noremap <Leader>p "+p
 set pastetoggle=<F2>
 
 " Insert current date
-inoremap <F3> <C-R>=strftime("%d/%m/%Y")<CR>
+inoremap <F3> <C-R>=strftime('%d/%m/%Y')<CR>
 
 " Run current file
 nnoremap <F5> :w<CR>:!%:p<CR>
@@ -333,12 +333,12 @@ inoremap <F12> <C-o>:call DisableTransparency()<CR>:Goyo<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab rca [RC added]
 iab rcm [RC modified]
-iab rcp Copyright (C) <C-r>=strftime("%Y")<CR> Rafael Cavalcanti - rafaelc.org<CR>Licensed under GPLv3<CR>
+iab rcp Copyright (C) <C-r>=strftime('%Y')<CR> Rafael Cavalcanti - rafaelc.org<CR>Licensed under GPLv3<CR>
 iab rct Author: Rafael Cavalcanti - rafaelc.org
 
 
 
 " Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
+if filereadable('/etc/vim/vimrc.local')
     source /etc/vim/vimrc.local
 endif
