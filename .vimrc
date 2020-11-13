@@ -46,7 +46,7 @@ call plug#end()
 " APPEARANCE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
-set termguicolors                               " Use truecolors
+set termguicolors                                   " Use truecolors
 if hostname() == "localhost"
     colorscheme gruvbox
 else
@@ -55,18 +55,18 @@ endif
 
 " Interface
 set showcmd                                         " Show partial command
-set laststatus=2                                " Always show status line
-set showtabline=2                               " Always show tab line
-set splitbelow splitright               " Splitting puts new window right of / below current
+set laststatus=2                                    " Always show status line
+set showtabline=2                                   " Always show tab line
+set splitbelow splitright                           " Splitting puts new window right of / below current
 
 " Editor
-syntax on                                               " Enable syntax highlighting
+syntax on                                           " Enable syntax highlighting
 set number
 set relativenumber
 set linebreak                                       " More inteligent wrapping (don't break words)
-set scrolloff=10                                " Minimum lines below cursor
+set scrolloff=10                                    " Minimum lines below cursor
 set showmatch                                       " Show matching brackets
-set nofoldenable                                " Don't fold on opening file
+set nofoldenable                                    " Don't fold on opening file
 " Show tabs and trailing spaces
 set list listchars=tab:→\ ,trail:·
 " Highlight current line in normal mode
@@ -105,14 +105,14 @@ set mouse=a                                         " Enable the use of the mous
 command! MakeTags !ctags -R .
 
 " Search
-set ignorecase                                  " Do case insensitive matching
+set ignorecase                                      " Do case insensitive matching
 set smartcase                                       " Do smart case matching
 set incsearch                                       " Incremental search
 
 " Command completion
-set history=500                                 " Number of command lines remembered
+set history=500                                     " Number of command lines remembered
 set wildmenu
-set wildmode=longest:full,full  " First tab to complete longest *common* string
+set wildmode=longest:full,full                      " First tab to complete longest *common* string
 
 " Open quickfix automatically (for shellcheck)
 autocmd QuickFixCmdPost [^l]* nested cwindow
@@ -131,7 +131,7 @@ autocmd BufWritePost .xsettingsd !killall -HUP xsettingsd
 
 " Set executable bit to scripts
 autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile>
-autocmd BufWritePost * endif " Workaround, as puting this on above line would prevent next autocmds to run.
+autocmd BufWritePost * endif                       " Workaround, putting this in above line would prevent next autocmds to run
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -148,8 +148,8 @@ set expandtab
 " Trim whitespace when saving
 function! AutoTrim()
     if !&binary && &filetype != 'diff'
-        :%s/\s\+$//e                                        " Remove trailing whitespace in every line
-        :%s/^\n\+\%$//e                                 " Remove blank lines at the end of the file
+        :%s/\s\+$//e                                " Remove trailing whitespace in every line
+        :%s/^\n\+\%$//e                             " Remove blank lines at the end of the file
     endif
 endfunction
 autocmd BufWrite * call AutoTrim()
