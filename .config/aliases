@@ -72,7 +72,6 @@ alias ch="fc -ln -20 | fzf | xclip -selection clipboard"
 alias e="$EDITOR"
 alias ea="$EDITOR $ALIASES"
 alias eg="vim +HFiles"
-alias en="vim +NFiles"
 alias ep="$EDITOR ~/.zprofile"
 alias ev="$EDITOR ~/.vimrc"
 alias ez="$EDITOR $ZDOTDIR/.zshrc"
@@ -88,7 +87,6 @@ alias_j jh ~/Pictures/Screenshots
 alias_j jk ~/.kodi
 alias_j jk /var/lib/kodi/.kodi
 alias_j jm ~/Music
-alias_j jn "$NOTES"
 alias_j jp ~/Pictures
 alias_j jr /mnt/c/Users/rccav
 alias_j js /sdcard
@@ -98,8 +96,11 @@ alias_j jy ~/.config/yadm
 alias_j jw /var/www
 alias_j jw "$WALLPAPERS"
 
-# Open on Ranger
-alias fn="ranger $NOTES"
+# Notes
+alias en="vim +NFiles"
+alias fn="(cd $NOTES && vim +PRg)"
+alias_j jn "$NOTES"
+alias rn="ranger $NOTES"
 
 # Git
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
@@ -129,8 +130,8 @@ alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 & di
 
 # Easier commands
 alias cx="chmod +x"
-alias f="ranger"
 alias o="xdg-open"
+alias r="ranger"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias scr="sudo systemctl restart"
