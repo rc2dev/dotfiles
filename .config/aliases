@@ -98,6 +98,9 @@ alias_j jy ~/.config/yadm
 alias_j jw /var/www
 alias_j jw "$WALLPAPERS"
 
+# Open on Ranger
+alias fn="ranger $NOTES"
+
 # Git
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
 gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
@@ -126,8 +129,8 @@ alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 & di
 
 # Easier commands
 alias cx="chmod +x"
+alias f="ranger"
 alias o="xdg-open"
-alias r="ranger"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias scr="sudo systemctl restart"
