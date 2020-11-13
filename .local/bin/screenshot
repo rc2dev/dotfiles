@@ -27,6 +27,7 @@ fi
 readonly options=(
   "Full screen"
   "Full screen (clipboard)"
+  "Full screen with 5s delay"
   "Current window"
   "Current window (clipboard)"
   "Selection"
@@ -46,6 +47,11 @@ case "$option" in
   "Full screen (clipboard)")
     maim | xclip -selection clipboard -t image/png
     notify-send "Full screen screenshot copied to clipboard."
+    ;;
+  "Full screen with 5s delay")
+    sleep 5s
+    maim "$out_file"
+    notify-send "Full screen screenshot saved."
     ;;
   "Current window")
     maim -i "$(xdotool getactivewindow)" "$out_file"
