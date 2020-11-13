@@ -184,12 +184,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:templates_directory = ["$HOME/.vim/templates"]
 let g:templates_no_builtin_templates = 1
 
-" thesaurus_query
-" Disable keymappings and set my own
-let g:tq_map_keys = 0
-nnoremap <Leader>ts :ThesaurusQueryReplaceCurrentWord<CR>
-vnoremap <Leader>ts y:ThesaurusQueryReplace <C-r>"<CR>
-
 " Goyo
 " Ensure :q to quit when Goyo is active
 " Toggle Limelight
@@ -319,14 +313,19 @@ cmap sv :so ~/.vimrc
 
 " Plugins
 nnoremap <Leader>mp :MarkdownPreview<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+" thesaurus_query
+" Disable keymappings and set my own
+let g:tq_map_keys = 0
+nnoremap <Leader>ct :ThesaurusQueryReplaceCurrentWord<CR>
+vnoremap <Leader>ct y:ThesaurusQueryReplace <C-r>"<CR>
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-f> :PRg<CR>
+nnoremap <silent> <C-g> :HFiles<CR>
 " Disabling transparency using GoyoEnter causes some borders to show.
 " Disabling it here instead is a workaround.
 nnoremap <F12> :call DisableTransparency()<CR>:Goyo<CR>
 inoremap <F12> <C-o>:call DisableTransparency()<CR>:Goyo<CR>
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <C-f> :PRg<CR>
-nnoremap <silent> <C-g> :HFiles<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
