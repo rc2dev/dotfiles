@@ -32,8 +32,8 @@ Plug 'ferrine/md-img-paste.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'francoiscabrol/ranger.vim'
 if $SLOW_HOST != "1"
-	Plug 'vim-airline/vim-airline'
-	set noshowmode                  " Don't show modes below status line (redundant to Airline)
+    Plug 'vim-airline/vim-airline'
+    set noshowmode                                  " Don't show modes below status line (redundant to Airline)
 endif
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -46,27 +46,27 @@ call plug#end()
 " APPEARANCE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
-set termguicolors               " Use truecolors
+set termguicolors                               " Use truecolors
 if hostname() == "localhost"
-	colorscheme gruvbox
+    colorscheme gruvbox
 else
-	colorscheme dracula
+    colorscheme dracula
 endif
 
 " Interface
-set showcmd                     " Show partial command
-set laststatus=2                " Always show status line
-set showtabline=2               " Always show tab line
-set splitbelow splitright       " Splitting puts new window right of / below current
+set showcmd                                         " Show partial command
+set laststatus=2                                " Always show status line
+set showtabline=2                               " Always show tab line
+set splitbelow splitright               " Splitting puts new window right of / below current
 
 " Editor
-syntax on                       " Enable syntax highlighting
+syntax on                                               " Enable syntax highlighting
 set number
 set relativenumber
-set linebreak                   " More inteligent wrapping (don't break words)
-set scrolloff=10                " Minimum lines below cursor
-set showmatch                   " Show matching brackets
-set nofoldenable                " Don't fold on opening file
+set linebreak                                       " More inteligent wrapping (don't break words)
+set scrolloff=10                                " Minimum lines below cursor
+set showmatch                                       " Show matching brackets
+set nofoldenable                                " Don't fold on opening file
 " Show tabs and trailing spaces
 set list listchars=tab:→\ ,trail:·
 " Highlight current line in normal mode
@@ -77,17 +77,17 @@ let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide=ghregex
 
 function! EnableTransparency()
-	" Don't do it on gvim or it will get messed up
-	if has("gui_running")
-		return
-	endif
+    " Don't do it on gvim or it will get messed up
+    if has("gui_running")
+        return
+    endif
 
-	set bg=dark
-	hi Normal guibg=NONE ctermbg=NONE
+    set bg=dark
+    hi Normal guibg=NONE ctermbg=NONE
 endfunction
 
 function! DisableTransparency()
-	set bg=dark
+    set bg=dark
 endfunction
 
 call EnableTransparency()
@@ -96,27 +96,27 @@ call EnableTransparency()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEHAVIOUR
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set modeline                    " Enable modeline
-set hidden                      " Allow buffers to be hidden without saving
-set mouse=a                     " Enable the use of the mouse
+set modeline                                        " Enable modeline
+set hidden                                          " Allow buffers to be hidden without saving
+set mouse=a                                         " Enable the use of the mouse
 
 " Create tags file (this just runs ctags). This allows:
 " ^] to jump to tag under cursor; g^] for ambiguous tags; ^t to jump back up the tag stack
 command! MakeTags !ctags -R .
 
 " Search
-set ignorecase                  " Do case insensitive matching
-set smartcase                   " Do smart case matching
-set incsearch                   " Incremental search
+set ignorecase                                  " Do case insensitive matching
+set smartcase                                       " Do smart case matching
+set incsearch                                       " Incremental search
 
 " Command completion
-set history=500                 " Number of command lines remembered
+set history=500                                 " Number of command lines remembered
 set wildmenu
 set wildmode=longest:full,full  " First tab to complete longest *common* string
 
 " Open quickfix automatically (for shellcheck)
 autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
+autocmd QuickFixCmdPost l* nested lwindow
 
 " Put swap files in one directory. Fallback to working dir.
 silent !mkdir -p ~/.vim/swap
@@ -147,10 +147,10 @@ set expandtab
 
 " Trim whitespace when saving
 function! AutoTrim()
-	if !&binary && &filetype != 'diff'
-		:%s/\s\+$//e                    " Remove trailing whitespace in every line
-		:%s/^\n\+\%$//e                 " Remove blank lines at the end of the file
-	endif
+    if !&binary && &filetype != 'diff'
+        :%s/\s\+$//e                                        " Remove trailing whitespace in every line
+        :%s/^\n\+\%$//e                                 " Remove blank lines at the end of the file
+    endif
 endfunction
 autocmd BufWrite * call AutoTrim()
 
@@ -189,26 +189,26 @@ let g:templates_no_builtin_templates = 1
 " Toggle Limelight
 " Restore transparency on leave
 function! s:goyo_enter()
-	let b:quitting = 0
-	let b:quitting_bang = 0
-	autocmd QuitPre <buffer> let b:quitting = 1
-	cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+    let b:quitting = 0
+    let b:quitting_bang = 0
+    autocmd QuitPre <buffer> let b:quitting = 1
+    cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
 
-	Limelight
+    Limelight
 endfunction
 
 function! s:goyo_leave()
-	" Quit Vim if this is the only remaining buffer
-	if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-		if b:quitting_bang
-			qa!
-		else
-			qa
-		endif
-	endif
+    " Quit Vim if this is the only remaining buffer
+    if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+        if b:quitting_bang
+            qa!
+        else
+            qa
+        endif
+    endif
 
-	Limelight!
-	call EnableTransparency()
+    Limelight!
+    call EnableTransparency()
 endfunction
 
 autocmd! User GoyoEnter call <SID>goyo_enter()
@@ -223,7 +223,7 @@ let g:user_emmet_mode='n'
 command! -bang HFiles call fzf#vim#files('~', {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
 " Add function to Rg files of the current buffer project
 command! -bang -nargs=* PRg
-	\ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, {'dir': system('git -C '.expand('%:p:h').' rev-parse --show-toplevel 2> /dev/null')[:-2], 'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
+    \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, {'dir': system('git -C '.expand('%:p:h').' rev-parse --show-toplevel 2> /dev/null')[:-2], 'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 
 " md-img-paste
 autocmd FileType markdown inoremap <buffer><silent> <C-b> <C-o>:call mdip#MarkdownClipboardImage()<CR>
@@ -235,10 +235,10 @@ let g:vim_markdown_toc_autofit = 1
 " AutoComplPop
 " Disable for markdown and text
 if(exists("g:acp_behavior"))
-	let g:acp_behavior.markdown=[]
-	let g:acp_behavior.text=[]
+    let g:acp_behavior.markdown=[]
+    let g:acp_behavior.text=[]
 else
-	let g:acp_behavior = {'markdown':[], 'text':[]}
+    let g:acp_behavior = {'markdown':[], 'text':[]}
 endif
 
 
@@ -275,12 +275,12 @@ nnoremap <Leader>ev :e ~/.vimrc<CR>
 
 " Use friendlier line navigation on prose files
 augroup navigation
-	autocmd Filetype markdown,text nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
-	autocmd Filetype markdown,text nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
-	autocmd Filetype markdown,text nnoremap <Down> gj
-	autocmd Filetype markdown,text nnoremap <Up> gk
-	autocmd Filetype markdown,text nnoremap <Home> g<Home>
-	autocmd Filetype markdown,text nnoremap <End> g<End>
+    autocmd Filetype markdown,text nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+    autocmd Filetype markdown,text nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
+    autocmd Filetype markdown,text nnoremap <Down> gj
+    autocmd Filetype markdown,text nnoremap <Up> gk
+    autocmd Filetype markdown,text nnoremap <Home> g<Home>
+    autocmd Filetype markdown,text nnoremap <End> g<End>
 augroup END
 
 " Buffer navigation
@@ -340,5 +340,5 @@ iab rct Author: Rafael Cavalcanti - rafaelc.org
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
-	source /etc/vim/vimrc.local
+    source /etc/vim/vimrc.local
 endif
