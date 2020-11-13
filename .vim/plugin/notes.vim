@@ -8,9 +8,8 @@ endif
 let g:notes_resources_dir=$NOTES . '/../resources'
 let g:notes_resources_dir_inline='resources'
 
-" fzf: Set special keybinds to search notes
-command! -bang NFiles call fzf#vim#files($NOTES, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
-noremap <C-n> :NFiles<CR>
+" fzf: Set keybind to search notes
+nnoremap <C-n> :Files $NOTES<CR>
 
 augroup note_config
     " md-img-paste: Save images to resources folder

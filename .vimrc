@@ -219,8 +219,6 @@ let g:user_emmet_leader_key=','
 let g:user_emmet_mode='n'
 
 " fzf.vim
-" Add function for searching file names on ~
-command! -bang HFiles call fzf#vim#files('~', {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
 " Add function to Rg files of the current buffer project
 command! -bang -nargs=* PRg
     \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, {'dir': system('git -C '.expand('%:p:h').' rev-parse --show-toplevel 2> /dev/null')[:-2], 'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
@@ -320,8 +318,8 @@ let g:tq_map_keys = 0
 nnoremap <Leader>ct :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>ct y:ThesaurusQueryReplace <C-r>"<CR>
 nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-g> :Files $HOME<CR>
 nnoremap <silent> <C-f> :PRg<CR>
-nnoremap <silent> <C-g> :HFiles<CR>
 " Disabling transparency using GoyoEnter causes some borders to show.
 " Disabling it here instead is a workaround.
 nnoremap <F12> :call DisableTransparency()<CR>:Goyo<CR>

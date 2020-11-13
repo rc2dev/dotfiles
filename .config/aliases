@@ -71,7 +71,7 @@ alias ch="fc -ln -20 | fzf | xclip -selection clipboard"
 # Edit
 alias e="$EDITOR"
 alias ea="$EDITOR $ALIASES"
-alias eg="vim +HFiles"
+alias eg="vim +'Files $HOME'"
 alias ep="$EDITOR ~/.zprofile"
 alias ev="$EDITOR ~/.vimrc"
 alias ez="$EDITOR $ZDOTDIR/.zshrc"
@@ -97,8 +97,8 @@ alias_j jw /var/www
 alias_j jw "$WALLPAPERS"
 
 # Notes
-alias en="vim +NFiles"
 alias fn="(cd $NOTES && vim +PRg)"
+alias en="vim +'Files $NOTES'"
 alias_j jn "$NOTES"
 alias rn="ranger $NOTES"
 
