@@ -47,7 +47,6 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
 set termguicolors               " Use truecolors
-set bg=dark
 if hostname() == "localhost"
 	colorscheme gruvbox
 else
@@ -77,10 +76,21 @@ autocmd InsertEnter,InsertLeave * set cursorline!
 let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide=ghregex
 
-" Transparent background (exclude gvim or it will get messed up)
-if ! has("gui_running")
+function! EnableTransparency()
+	" Don't do it on gvim or it will get messed up
+	if has("gui_running")
+		return
+	endif
+
+	set bg=dark
 	hi Normal guibg=NONE ctermbg=NONE
-end
+endfunction
+
+function! DisableTransparency()
+	set bg=dark
+endfunction
+
+call EnableTransparency()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,9 +190,35 @@ let g:tq_map_keys = 0
 nnoremap <Leader>ts :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>ts y:ThesaurusQueryReplace <C-r>"<CR>
 
-" Goyo and Limelight
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+" Goyo
+" Ensure :q to quit when Goyo is active
+" Toggle Limelight
+" Restore transparency on leave
+function! s:goyo_enter()
+	let b:quitting = 0
+	let b:quitting_bang = 0
+	autocmd QuitPre <buffer> let b:quitting = 1
+	cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+
+	Limelight
+endfunction
+
+function! s:goyo_leave()
+	" Quit Vim if this is the only remaining buffer
+	if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+		if b:quitting_bang
+			qa!
+		else
+			qa
+		endif
+	endif
+
+	Limelight!
+	call EnableTransparency()
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
 
 " emmet-vim
 let g:user_emmet_leader_key=','
@@ -210,6 +246,7 @@ if(exists("g:acp_behavior"))
 else
 	let g:acp_behavior = {'markdown':[], 'text':[]}
 endif
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
@@ -282,9 +319,10 @@ cmap sv :so ~/.vimrc
 
 " Plugins
 nnoremap <Leader>mp :MarkdownPreview<CR>
-nnoremap <F12> :Goyo<CR>
-inoremap <F12> <C-o>:Goyo<CR>
-nnoremap <Leader>l :Limelight!!<CR>
+" Disabling transparency using GoyoEnter causes some borders to show.
+" Disabling it here instead is a workaround.
+nnoremap <F12> :call DisableTransparency()<CR>:Goyo<CR>
+inoremap <F12> <C-o>:call DisableTransparency()<CR>:Goyo<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-f> :PRg<CR>
