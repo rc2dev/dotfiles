@@ -24,6 +24,8 @@ augroup note_config
     autocmd BufRead $NOTES/*.md normal G
 
     " Auto-commit to git on save
-    autocmd BufWritePost $NOTES/*.md silent !bash -c 'cd "%:p:h" && git reset && git add -A && EDITOR="vim -M" git commit -qv -em "Auto-commit" && git push -q || git reset'
+    " The arrows would stop working on VIM after returning from commiting.
+    " We workaround this using a external terminal.
+    autocmd BufWritePost $NOTES/*.md silent !$TERMINAL -e bash -c 'cd "%:p:h" && git reset && git add -A && EDITOR="vim -M" git commit -qv -em "Auto-commit" && git push -q || git reset'
     autocmd BufWritePost $NOTES/*.md redraw!
 augroup END
