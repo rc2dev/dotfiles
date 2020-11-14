@@ -323,7 +323,7 @@ nnoremap <silent> <C-f> :PRg<CR>
 " Disabling transparency using GoyoEnter causes some borders to show.
 " Disabling it here instead is a workaround.
 nnoremap <F12> :call DisableTransparency()<CR>:Goyo<CR>
-inoremap <F12> <C-o>:call DisableTransparency()<CR>:Goyo<CR>
+inoremap <F12> <C-o>:call DisableTransparency()<CR><C-o>:Goyo<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
