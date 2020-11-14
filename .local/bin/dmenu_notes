@@ -2,6 +2,11 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
+if [[ ! -d "$NOTES" ]]; then
+  printf "Note directory doesn't exist.\n"
+  exit 1
+fi
+
 cd "$NOTES"
 
 # List all notes sorted by last modified
