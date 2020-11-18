@@ -7,3 +7,6 @@
 [submodule ".vim/vim-plug"]
 	path = .vim/autoload/vim-plug
 	url = https://github.com/junegunn/vim-plug
+[submodule ".local/opt/z.lua"]
+	path = .local/opt/z.lua
+	url = https://github.com/skywind3000/z.lua

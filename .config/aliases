@@ -4,7 +4,7 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 
 # Create alias for cd'ing into directory
-alias_j() {
+alias_z() {
 	local -r name="$1"
 	local -r dir="$2"
 	[[ -d "$dir" ]] || return
@@ -78,28 +78,31 @@ alias ez="$EDITOR $ZDOTDIR/.zshrc"
 
 # Browsing
 alias ..="cd .."
-alias c-="cd -"
-alias_j jb ~/.local/bin
-alias_j jd ~/Downloads
-alias_j je ~/Code
-alias_j jg ~/.config
-alias_j jh ~/Pictures/Screenshots
-alias_j jk ~/.kodi
-alias_j jk /var/lib/kodi/.kodi
-alias_j jm ~/Music
-alias_j jp ~/Pictures
-alias_j jr /mnt/c/Users/rccav
-alias_j js /sdcard
-alias_j jt ~/Sync
-alias_j jv ~/Videos
-alias_j jy ~/.config/yadm
-alias_j jw /var/www
-alias_j jw "$WALLPAPERS"
+alias_z zb ~/.local/bin
+alias_z zd ~/Downloads
+alias_z ze ~/Code
+alias_z zg ~/.config
+alias_z zh ~/Pictures/Screenshots
+alias_z zk ~/.kodi
+alias_z zk /var/lib/kodi/.kodi
+alias_z zm ~/Music
+alias_z zp ~/Pictures
+alias_z zs /sdcard
+alias_z zt ~/Sync
+alias_z zv ~/Videos
+alias_z zy ~/.config/yadm
+alias_z zw /var/www
+alias_z zw "$WALLPAPERS"
+
+# z.lua
+alias zc="z -c"
+alias zi="z -I"
+alias zu="z -b"
 
 # Notes
 alias fn="(cd $NOTES && vim +PRg)"
 alias en="vim +'Files $NOTES'"
-alias_j jn "$NOTES"
+alias_z zn "$NOTES"
 alias rn="ranger $NOTES"
 
 # Git
