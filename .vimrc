@@ -246,9 +246,14 @@ endif
 " Remap leader key (Space must be in double quotes)
 let mapleader="\<Space>"
 
+" For consistency with C and D
+noremap Y y$
+
 " Clipboard operations
 noremap <Leader>y "+y
+noremap <Leader>Y "+y$
 noremap <Leader>d "+d
+noremap <Leader>D "+d$
 noremap <Leader>p "+p
 set pastetoggle=<F2>
 
@@ -267,6 +272,9 @@ inoremap <F6> <C-o>:setlocal spell!<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
+
+" Avoid unintentional switch to Ex mode
+nmap Q <nop>
 
 " Edit files
 nnoremap <Leader>ev :e ~/.vimrc<CR>
