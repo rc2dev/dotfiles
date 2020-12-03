@@ -18,10 +18,15 @@ if command -v ruby >/dev/null; then
 	PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
+# Anaconda
+if [ -d "$HOME/.local/opt/anaconda3/bin" ]; then
+	PATH="$HOME/.local/opt/anaconda3/bin:$PATH"
+fi
+
 # Spicetify
 if [[ -d "$HOME/.local/opt/spicetify-cli" ]]; then
 	export SPICETIFY_INSTALL="$HOME/.local/opt/spicetify-cli"
-	export PATH="$SPICETIFY_INSTALL:$PATH"
+	PATH="$SPICETIFY_INSTALL:$PATH"
 fi
 
 # Termux: Set runtime dir
