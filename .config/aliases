@@ -13,7 +13,7 @@ alias_z() {
 }
 
 # List files when cd'ing
-cd() { builtin cd "$@" && ls --color -AF --group-directories-first; }
+cd() { builtin cd "$@" && $CMD_LS --color=always -aF --group-directories-first; }
 
 # Also check command after sudo for alias (see man bash)
 alias sudo="sudo "
@@ -40,9 +40,13 @@ alias rgrep="rgrep --color=always"
 alias less="less -R"
 
 # ls
-alias ls="ls --color=always -AF --group-directories-first"
-alias l="ls"
-alias ll="ls -lh"
+if command -v exa > /dev/null; then
+	CMD_LS="exa"
+else
+	CMD_LS="ls"
+fi
+	alias ls="$CMD_LS --color=always -aF --group-directories-first"
+alias ll="ls -l"
 
 # Show timestamp on zsh history
 alias history="history -i"
@@ -219,9 +223,6 @@ if [[ "$HOST" == "localhost" ]]; then
 	alias ln="ln -v"
 	alias free="free -m"
 	unalias grep
-
-	# Screen is narrow, adapt ll
-	alias ll="ls -lh -og"
 
 	# Backup Termux
 	# Use single quotes so date is defined upon use.
