@@ -24,6 +24,7 @@ xsettingsd &
 dunst &
 wal -R &
 redshift-gtk &
+unclutter &
 compton --backend glx --paint-on-overlay --vsync opengl-swc &
 clipmenud &
 nm-applet &
