@@ -97,6 +97,7 @@ alias_z zv ~/Videos
 alias_z zy ~/.config/yadm
 alias_z zw /var/www
 alias_z zw "$WALLPAPERS"
+alias_z z8 ~/Pictures/RN8
 
 # ranger
 alias r="ranger"
