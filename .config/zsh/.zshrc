@@ -127,11 +127,6 @@ antigen apply
 ######################################################################
 source $ALIASES
 
-# Hub aliasing
-if command -v hub > /dev/null; then
-  eval "$(hub alias -s)"
-fi
-
 # Prompt active tmux sessions
 if [[ -z "$TMUX" ]]; then
   tmux_sessions="$(tmux ls 2>/dev/null | wc -l)"
