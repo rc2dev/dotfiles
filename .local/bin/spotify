@@ -16,7 +16,7 @@ fi
 # Launch ad skipper
 while true; do
   if [ "$(playerctl metadata title)" = "Advertisement" ]; then
-    playerctl next && notify-send "Spotify ad skipped."
+    playerctl next && notify-send "Attempted to skip Spotify ad."
   fi
   sleep 2s
 done &
