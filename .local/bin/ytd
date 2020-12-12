@@ -9,13 +9,11 @@ export TOP_PID=$$
 
 cmd() {
   printf "Select format:\n" >&2
-  select option in "Default" "MP4" "Convert to MP4" "Audio" "MP3" "Just wget" "Exit"; do
+  select option in "Default" "Audio" "Audio - MP3" "Just wget" "Exit"; do
     case $option in
       "Default") echo "youtube-dl" && break ;;
-      "MP4") echo "youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'" && break ;;
-      "Convert to MP4") echo "youtube-dl --recode-video mp4" && break ;;
       "Audio") echo "youtube-dl --extract-audio" && break ;;
-      "MP3") echo "youtube-dl --extract-audio --audio-format mp3" && break ;;
+      "Audio - MP3") echo "youtube-dl --extract-audio --audio-format mp3" && break ;;
       "Just wget") echo "wget" && break ;;
       "Exit") kill -s TERM $TOP_PID && break ;;
       *) printf "Invalid option.\n" 1>&2;;
