@@ -230,8 +230,8 @@ if [[ "$HOST" == "localhost" ]]; then
 
 	# Backup Termux
 	# Use single quotes so date is defined upon use.
-	alias backup='tar
-		-C /data/data/com.termux/files
-		-zcf /sdcard/Sync/Drop/termux-backup-$(date +"%Y-%m-%d_%H-%M-%S").tar.gz
+	alias backup='tar \
+		-C /data/data/com.termux/files \
+		-zcf /sdcard/Sync/termux-backup-$(date +"%Y-%m-%d_%H-%M-%S").tar.gz \
 		home usr'
 fi
