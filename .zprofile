@@ -71,8 +71,11 @@ export EDITOR="vim"
 export TERMINAL="alacritty"
 
 # Applications configuration
-# clipmenud: This fixes losing the clipboard content when closing the source application
+# clipmenud
+# This fixes losing the clipboard content when closing the source application
 export CM_OWN_CLIPBOARD=1
+# This makes history persistent across sessions
+export CM_DIR="$HOME/.cache"
 # fzf
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore -g '!.git' -g '!node_modules'"
