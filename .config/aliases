@@ -153,8 +153,9 @@ if systemctl status kodi > /dev/null 2>&1; then
 fi
 
 # journalctl
-alias jl="journalctl"
-alias jlu="journalctl -u"
+alias jc="journalctl"
+alias jcu="journalctl -u"
+alias jcuf="journalctl -f -u"
 
 # Package management
 if command -v apt > /dev/null; then
