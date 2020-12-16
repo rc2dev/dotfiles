@@ -285,8 +285,8 @@ augroup navigation
     autocmd Filetype markdown,text nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
     autocmd Filetype markdown,text nnoremap <Down> gj
     autocmd Filetype markdown,text nnoremap <Up> gk
-    autocmd Filetype markdown,text inoremap <Down> <C-\><C-o>gj
-    autocmd Filetype markdown,text inoremap <Up> <C-\><C-o>gk
+    autocmd Filetype markdown,text inoremap <expr> <Down> pumvisible() ? "\<Down>" : "\<C-\>\<C-o>gj"
+    autocmd Filetype markdown,text inoremap <expr> <Up> pumvisible() ? "\<Up>" : "\<C-\>\<C-o>gk"
 augroup END
 
 " Buffer navigation
