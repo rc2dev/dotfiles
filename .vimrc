@@ -114,6 +114,9 @@ set history=500                                     " Number of command lines re
 set wildmenu
 set wildmode=longest:full,full                      " First tab to complete longest *common* string
 
+" Completion menu
+set completeopt=longest,menu                        " Don't select first item, but longest common
+
 " Open quickfix automatically (for shellcheck)
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost l* nested lwindow
