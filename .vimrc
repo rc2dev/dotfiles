@@ -266,6 +266,8 @@ inoremap <F3> <C-R>=strftime('%d/%m/%Y')<CR>
 " Run current file
 nnoremap <F5> :w<CR>:!%:p<CR>
 inoremap <F5> <C-o>:w<CR><C-o>:!%:p<CR>
+autocmd FileType markdown nnoremap <F5> :MarkdownPreview<CR>
+autocmd FileType markdown inoremap <F5> <C-o>:MarkdownPreview<CR>
 
 " Toggle spellcheck
 nnoremap <F6> :setlocal spell!<CR>
@@ -321,7 +323,6 @@ cmap w!! w !sudo tee % > /dev/null
 cmap sv :so ~/.vimrc
 
 " Plugins
-nnoremap <Leader>mp :MarkdownPreview<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 " thesaurus_query
 " Disable keymappings and set my own
