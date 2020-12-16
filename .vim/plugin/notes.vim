@@ -27,5 +27,4 @@ augroup note_config
     " The arrows would stop working on VIM after returning from commiting.
     " We workaround this using a external terminal.
     autocmd BufWritePost $NOTES/*.md silent !$TERMINAL -e bash -c 'cd "%:p:h" && git add -A && EDITOR="vim -M" git commit -qv -em "Auto-commit" && git push -q'
-    autocmd BufWritePost $NOTES/*.md redraw!
 augroup END
