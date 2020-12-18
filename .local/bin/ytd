@@ -5,29 +5,20 @@
 # Copyright (C) 2019-2020 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
+set -euo pipefail
 
-cmd() {
-  printf "Select format:\n" >&2
-  select option in "Default" "Audio"; do
-    case $option in
-      "Default") echo "youtube-dl" && break ;;
-      "Audio") echo "youtube-dl --extract-audio" && break ;;
-      *) printf "Invalid option.\n" 1>&2;;
-    esac
-  done
-}
+if [[ $# -eq 0 ]]; then
+  printf "We need at least a url.\n"
+  exit 1
+fi
 
-usage() {
-  echo "We need at least a url."
-  exit
-}
+printf "Select format:\n" >&2
 
-main() {
-  [[ $# -eq 0 ]] && usage
+select option in "Default" "Audio"; do
+  case $option in
+    "Default") youtube-dl "$@"; break ;;
+    "Audio") youtube-dl --extract-audio "$@"; break ;;
+    *) printf "Invalid option.\n" >&2 ;;
+  esac
+done
 
-  until $(cmd) "$@"; do
-    echo "Try again."
-  done
-}
-
-main "$@"
