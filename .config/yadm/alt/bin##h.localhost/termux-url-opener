@@ -12,7 +12,7 @@ main() {
 select_action() {
   printf "What should I do?\n" >&2
 
-  select option in "Download video" "Download audio" "Play on MPD"; do
+  select option in "Download video" "Download audio" "MPD: Play now" "MPD: Queue"; do
     case $option in
       "Download video")
         cd /sdcard/Download || cd
@@ -24,8 +24,12 @@ select_action() {
         youtube-dl --extract-audio "$@" || hold
         break
         ;;
-      "Play on MPD")
-        bash myt "$@" || hold
+      "MPD: Play now")
+        bash myt --play-now "$@" || hold
+        break
+        ;;
+      "MPD: Queue")
+        bash myt --queue "$@" || hold
         break
         ;;
       *)

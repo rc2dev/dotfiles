@@ -6,33 +6,48 @@
 # Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
-
 readonly script_name="$(basename "$0")"
 readonly script_dir="$(dirname "$(readlink -f "$0")")"
 
-if [[ $# -ne 1 ]]; then
-  printf "Usage: %s url\n" "$script_name"
+main() {
+  [[ $# -ne 2 ]] && usage
+
+  read_args "$@"
+  play
+}
+
+usage() {
+  cat <<EOF >&2
+Usage: $script_name option url
+Options: --play-now, --queue
+EOF
+
   exit 1
-fi
+}
 
-user_url="$1"
+read_args() {
+  readonly option="$1"
+  readonly user_url="$2"
 
-select option in "Play now" "Queue"; do
   case $option in
-    "Play now") readonly next=true && break ;;
-    "Queue") readonly next=false && break ;;
-    *) printf "Invalid option.\n" 1>&2;;
+    "--play-now") readonly next=true ;;
+    "--queue") readonly next=false ;;
+    *) usage ;;
   esac
-done
+}
 
-printf "Resolving URL...\n"
-# In the case of a playlist we need to add the URLs one by one.
-youtube-dl --format bestaudio --get-url "$user_url" | xargs -n 1 -r -i sh -c "mpc add {} && printf 'URL added.\n'"
+play() {
+  printf "Resolving URL...\n"
+  # In the case of a playlist we need to add the URLs one by one.
+  youtube-dl --format bestaudio --get-url "$user_url" | xargs -n 1 -r -i sh -c "mpc add {} && printf 'URL added.\n'"
 
-if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
-  printf "youtube-dl had an error resolving the URL.\n"
-  exit 1
-fi
+  if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
+    printf "youtube-dl had an error resolving the URL.\n"
+    exit 1
+  fi
 
-mpc play
-$next && mpc next
+  mpc play
+  $next && mpc next
+}
+
+main "$@"
