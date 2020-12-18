@@ -12,11 +12,16 @@ main() {
 select_action() {
   printf "What should I do?\n" >&2
 
-  select option in "Download" "Play on MPD"; do
+  select option in "Download video" "Download audio" "Play on MPD"; do
     case $option in
-      "Download")
+      "Download video")
         cd /sdcard/Download || cd
-        bash ytd "$@" || hold
+        youtube-dl "$@" || hold
+        break
+        ;;
+      "Download audio")
+        cd /sdcard/Download || cd
+        youtube-dl --extract-audio "$@" || hold
         break
         ;;
       "Play on MPD")
