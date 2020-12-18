@@ -6,7 +6,7 @@
 source ~/.zprofile
 
 printf "What should I do?\n" >&2
-select option in "Download" "Play on MPD" "Exit"; do
+select option in "Download" "Play on MPD"; do
   case $option in
     "Download")
       cd /sdcard/Download || cd
@@ -20,9 +20,6 @@ select option in "Download" "Play on MPD" "Exit"; do
       exit_code=$?
 
       break
-      ;;
-    "Exit")
-      exit
       ;;
     *)
       printf "Invalid option.\n" 1>&2;;

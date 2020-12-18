@@ -21,7 +21,6 @@ select option in "Play now" "Queue"; do
   case $option in
     "Play now") readonly next=true && break ;;
     "Queue") readonly next=false && break ;;
-    "Exit") exit 1 ;;
     *) printf "Invalid option.\n" 1>&2;;
   esac
 done

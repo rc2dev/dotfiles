@@ -2,18 +2,16 @@
 #
 # Conveniently provide youtube-dl options. Used on Termux.
 #
-# Copyright (C) 2019 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2019-2020 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
-export TOP_PID=$$
 
 cmd() {
   printf "Select format:\n" >&2
-  select option in "Default" "Audio" "Exit"; do
+  select option in "Default" "Audio"; do
     case $option in
       "Default") echo "youtube-dl" && break ;;
       "Audio") echo "youtube-dl --extract-audio" && break ;;
-      "Exit") kill -s TERM $TOP_PID && break ;;
       *) printf "Invalid option.\n" 1>&2;;
     esac
   done
