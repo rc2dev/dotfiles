@@ -16,20 +16,20 @@ select_action() {
     case $option in
       "Download video")
         cd /sdcard/Download || cd
-        youtube-dl "$@" || hold
+        youtube-dl "$@" || notify_error "$@"
         break
         ;;
       "Download audio")
         cd /sdcard/Download || cd
-        youtube-dl --extract-audio "$@" || hold
+        youtube-dl --extract-audio "$@" || notify_error "$@"
         break
         ;;
       "MPD: Play now")
-        bash myt --play-now "$@" || hold
+        bash myt --play-now "$@" || notify_error "$@"
         break
         ;;
       "MPD: Queue")
-        bash myt --queue "$@" || hold
+        bash myt --queue "$@" || notify_error "$@"
         break
         ;;
       *)
@@ -38,9 +38,11 @@ select_action() {
   done
 }
 
-hold() {
-  printf "\nPress any key to exit."
-  read
+notify_error() {
+  termux-notification \
+    -t "Error (tap to open URL)" \
+    -c "$option - URL: $*" \
+    --action "termux-open-url $*"
 }
 
 main "$@"
