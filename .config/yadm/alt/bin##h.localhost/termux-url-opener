@@ -5,29 +5,33 @@
 # We need PATH, MPD_HOST
 source ~/.zprofile
 
-printf "What should I do?\n" >&2
-select option in "Download" "Play on MPD"; do
-  case $option in
-    "Download")
-      cd /sdcard/Download || cd
-      bash ytd "$@"
-      exit_code=$?
+main() {
+  select_action "$@"
+}
 
-      break
-      ;;
-    "Play on MPD")
-      bash myt "$@"
-      exit_code=$?
+select_action() {
+  printf "What should I do?\n" >&2
 
-      break
-      ;;
-    *)
-      printf "Invalid option.\n" 1>&2;;
-  esac
-done
+  select option in "Download" "Play on MPD"; do
+    case $option in
+      "Download")
+        cd /sdcard/Download || cd
+        bash ytd "$@" || hold
+        break
+        ;;
+      "Play on MPD")
+        bash myt "$@" || hold
+        break
+        ;;
+      *)
+        printf "Invalid option.\n" 1>&2 ;;
+    esac
+  done
+}
 
-if [[ $exit_code -ne 0 ]]; then
+hold() {
   printf "\nPress any key to exit."
   read
-fi
+}
 
+main "$@"
