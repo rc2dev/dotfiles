@@ -9,12 +9,10 @@ export TOP_PID=$$
 
 cmd() {
   printf "Select format:\n" >&2
-  select option in "Default" "Audio" "Audio - MP3" "Just wget" "Exit"; do
+  select option in "Default" "Audio" "Exit"; do
     case $option in
       "Default") echo "youtube-dl" && break ;;
       "Audio") echo "youtube-dl --extract-audio" && break ;;
-      "Audio - MP3") echo "youtube-dl --extract-audio --audio-format mp3" && break ;;
-      "Just wget") echo "wget" && break ;;
       "Exit") kill -s TERM $TOP_PID && break ;;
       *) printf "Invalid option.\n" 1>&2;;
     esac
