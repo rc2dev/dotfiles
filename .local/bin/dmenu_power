@@ -9,6 +9,7 @@ readonly options="$(cat <<-END
 	System monitor#ksysguard
 	Lock#slock
 	Restart dwm#killall -HUP dwm
+	Switch user#gdmflexiserver
 	Logout#killall -TERM dwm
 	Suspend#systemctl suspend
 	Reboot#systemctl reboot
