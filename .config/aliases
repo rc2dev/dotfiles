@@ -207,6 +207,10 @@ ytl() { youtube-dl --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/"
 # echo adds a cosmetic breakline in the tty
 alias ytp="(xclip -selection clipboard -out; echo) | vipe | tee /dev/tty | xargs -n1 -P5 -I_arg sh -c \"youtube-dl '_arg' || echo '_arg' | ts >> ~/Downloads/ydl_failed_urls.txt\""
 
+# Backup vcn
+# Use single quotes so date is defined upon use.
+alias backup-vcn='ssh vcn sudo tar czf - /boot /etc > pi-vcc_$(date +"%Y-%m-%d_%H-%M-%S").tar.gz'
+
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
 	alias ../..="cd ../.."
