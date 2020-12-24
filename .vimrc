@@ -31,6 +31,7 @@ Plug 'ap/vim-css-color'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'airblade/vim-rooter'
 if $SLOW_HOST != '1'
     Plug 'vim-airline/vim-airline'
     set noshowmode                                  " Don't show modes below status line (redundant to Airline)
@@ -221,11 +222,6 @@ autocmd! User GoyoLeave call <SID>goyo_leave()
 let g:user_emmet_leader_key=','
 let g:user_emmet_mode='n'
 
-" fzf.vim
-" Add function to Rg files of the current buffer project
-command! -bang -nargs=* PRg
-    \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1, {'dir': system('git -C '.expand('%:p:h').' rev-parse --show-toplevel 2> /dev/null')[:-2], 'options': ['--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}'] }, <bang>0)
-
 " md-img-paste
 autocmd FileType markdown inoremap <buffer><silent> <C-b> <C-o>:call mdip#MarkdownClipboardImage()<CR>
 
@@ -241,6 +237,9 @@ if(exists('g:acp_behavior'))
 else
     let g:acp_behavior = {'markdown':[], 'text':[]}
 endif
+
+" rooter
+let g:rooter_silent_chdir = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -331,7 +330,7 @@ nnoremap <Leader>ct :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>ct y:ThesaurusQueryReplace <C-r>"<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-g> :Files $HOME<CR>
-nnoremap <silent> <C-f> :PRg<CR>
+nnoremap <silent> <C-f> :Rg<CR>
 " Disabling transparency using GoyoEnter causes some borders to show.
 " Disabling it here instead is a workaround.
 nnoremap <F12> :call DisableTransparency()<CR>:Goyo<CR>
@@ -352,3 +351,4 @@ iab rct Author: Rafael Cavalcanti - rafaelc.org
 if filereadable('/etc/vim/vimrc.local')
     source /etc/vim/vimrc.local
 endif
+
