@@ -110,7 +110,7 @@ alias zu="z -b"
 
 # Notes
 alias fn="(cd $NOTES && vim +PRg)"
-alias en="vim +'Files $NOTES'"
+alias en="vim +Notes"
 alias_z zn "$NOTES"
 alias rn="ranger $NOTES"
 

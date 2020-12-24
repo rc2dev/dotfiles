@@ -8,8 +8,15 @@ endif
 let g:notes_resources_dir=$NOTES . '/../resources'
 let g:notes_resources_dir_inline='resources'
 
+" fzf: Define command to search notes, ordered by modified date
+command! -bang -nargs=0 Notes call fzf#run(fzf#wrap({
+    \ 'source': 'find -iname "*.md" -printf "%T@:%p\n" | sort -nr | cut -d: -f2- | sed "s#./##"',
+    \ 'dir': '$NOTES',
+    \ 'options': ['--prompt', 'Notes/', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']
+    \ }))
+
 " fzf: Set keybind to search notes
-nnoremap <C-n> :Files $NOTES<CR>
+nnoremap <C-n> :Notes<CR>
 
 augroup note_config
     " md-img-paste: Save images to resources folder
