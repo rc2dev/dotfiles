@@ -114,8 +114,7 @@ antigen bundle systemd
 # Other bundles
 [[ $SLOW_HOST == 1 ]] || antigen bundle zsh-users/zsh-autosuggestions
 command -v fzf >/dev/null && antigen bundle Aloxaf/fzf-tab
-# Use a submodule as ranger also needs the files
-command -v lua >/dev/null && antigen bundle $HOME/.local/opt/z.lua
+command -v lua >/dev/null && antigen bundle $HOME/.local/opt/z.lua # use submodule as ranger also needs the file
 antigen bundle denysdovhan/spaceship-prompt
 antigen bundle zsh-users/zsh-syntax-highlighting # should be last
 
