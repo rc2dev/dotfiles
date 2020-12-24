@@ -59,7 +59,7 @@ bar_mem() {
 }
 
 bar_temp() {
-  echo "CPU: $(sensors | awk '/^Package/ {print $4}')"
+  echo " CPU: $(sensors | awk '/^Package/ {print substr($4, 2)}')"
 }
 
 xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
