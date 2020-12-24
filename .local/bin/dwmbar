@@ -55,7 +55,7 @@ bar_time() {
 }
 
 bar_mem() {
-  echo "Mem: $(free -h | awk '/^Mem:/ {print $3}')"
+  echo " $(free -h | awk '/^Mem:/ {print $3}')"
 }
 
 bar_temp() {
