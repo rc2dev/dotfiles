@@ -297,6 +297,7 @@ augroup END
 nnoremap <Leader><Leader> <C-^>
 nnoremap <Leader>j :bp<CR>
 nnoremap <Leader>k :bn<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 " Navigate splits
 nnoremap <silent> <C-k> :wincmd k<CR>
