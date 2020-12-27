@@ -52,8 +52,7 @@ alias ll="ls -l"
 alias history="history -i"
 
 # Shell
-alias c="clear"
-alias c!="cd && clear"
+alias c="cd && clear"
 alias q="exit"
 alias x="exit"
 history-rank() {
