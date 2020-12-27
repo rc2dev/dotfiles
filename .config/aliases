@@ -212,6 +212,10 @@ alias ytp="(xclip -selection clipboard -out; echo) | vipe | tee /dev/tty | xargs
 # Use single quotes so date is defined upon use.
 alias backup-vcn='ssh vcn sudo tar czf - /boot /etc > pi-vcc_$(date +"%Y-%m-%d_%H-%M-%S").tar.gz'
 
+# fzf
+alias cg='cd "$(find "$HOME" -type d | fzf --multi=1)"'
+alias cr='cd "$(find / -type d 2> /dev/null | fzf --multi=1)"'
+
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
 	alias ../..="cd ../.."
@@ -224,6 +228,9 @@ if [[ -n "$ZSH_VERSION" ]]; then
 	alias -g PIPE="|"
 	alias -g C="| xclip -selection clipboard"
 	alias -g P="xclip -selection clipboard -out |"
+	# fzf
+	alias -g D='$(find "$HOME" -type d | fzf --multi=1)'
+	alias -g DR='$(find / -type d | fzf --multi=1)'
 fi
 
 # Termux overrides and additions
