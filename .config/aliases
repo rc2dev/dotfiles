@@ -213,7 +213,7 @@ alias backup-vcn='ssh vcn sudo tar czf - /boot /etc > pi-vcc_$(date +"%Y-%m-%d_%
 
 # fzf
 alias cg='cd "$(find "$HOME" -type d | fzf --multi=1)"'
-alias cr='cd "$(find / -type d 2> /dev/null | fzf --multi=1)"'
+alias cr='cd "$(find / -type d -not -path "/run/timeshift/*" 2> /dev/null | fzf --multi=1)"'
 
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
