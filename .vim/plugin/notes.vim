@@ -7,8 +7,8 @@ endif
 
 let s:notes_dir=resolve($NOTES) " autocmd needs the real path
 let s:notes_wildcard=s:notes_dir . '/*.md'
-let g:notes_resources_dir=s:notes_dir . '/../resources'
-let g:notes_resources_dir_inline='resources'
+let s:resources_dir=s:notes_dir . '/../resources'
+let s:resources_dir_inline='resources'
 
 " fzf: Define command to search notes, ordered by modified date
 command! -bang -nargs=0 Notes call fzf#run(fzf#wrap({
@@ -44,8 +44,9 @@ augroup notes
 
     " md-img-paste: Save images to resources folder
     execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard .
-        \ ' let g:mdip_imgdir_absolute = ' . g:notes_resources_dir . ' |'
-        \ ' let g:mdip_imgdir_intext = ' . g:notes_resources_dir_inline
+        \ ' let g:mdip_imgdir_absolute = "' . s:resources_dir . '" |'
+        \ ' let g:mdip_imgdir_intext = "' . s:resources_dir_inline . '" |'
+        \ ' let g:mdip_imgdir = "' . s:resources_dir_inline . '"'
 
     " Add keybind for toggling auto-commit
     execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' nnoremap <F4> :call NotesAutoCommitToggle()<CR>'
