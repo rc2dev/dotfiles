@@ -19,6 +19,9 @@ command! -bang -nargs=0 Notes call fzf#run(fzf#wrap({
 nnoremap <C-n> :Notes<CR>
 
 function NotesCommit()
+    " Workaround to set focus to the terminal
+    call timer_start(100, { -> execute( "wincmd w") })
+
     term ++close bash -c "cd '%:p:h' && git add -A && EDITOR='vim -M' git commit -qv -em 'Auto-commit' && git push -q"
 endfunction
 
