@@ -228,6 +228,7 @@ autocmd FileType markdown inoremap <buffer><silent> <C-b> <C-o>:call mdip#Markdo
 " vim-markdown
 let g:vim_markdown_folding_level = 2
 let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_frontmatter = 1
 
 " AutoComplPop
 " Disable for markdown and text
