@@ -47,15 +47,15 @@ augroup notes
         \ ' let g:mdip_imgdir_absolute = ' . g:notes_resources_dir . ' |'
         \ ' let g:mdip_imgdir_intext = ' . g:notes_resources_dir_inline
 
+    " Add keybind for toggling auto-commit
+    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' nnoremap <F4> :call NotesAutoCommitToggle()<CR>'
+    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' inoremap <F4> <C-o>:call NotesAutoCommitToggle()<CR>'
+
     " Template for new notes
     execute 'autocmd BufNewFile ' . s:notes_wildcard ' Template *note'
 
     " Go to last line on opening
     execute 'autocmd BufRead ' . s:notes_wildcard . ' normal G'
-
-    " Add keybind for toggling auto-commit
-    execute 'autocmd BufRead ' . s:notes_wildcard . ' nnoremap <F4> :call NotesAutoCommitToggle()<CR>'
-    execute 'autocmd BufRead ' . s:notes_wildcard . ' inoremap <F4> <C-o>:call NotesAutoCommitToggle()<CR>'
 
     " Auto-commit to git on save
     execute 'autocmd BufWritePost ' . s:notes_wildcard ' if g:notes_autocommit | call NotesCommit() | endif'
