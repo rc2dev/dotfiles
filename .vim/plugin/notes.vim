@@ -18,6 +18,22 @@ command! -bang -nargs=0 Notes call fzf#run(fzf#wrap({
 " fzf: Set keybind to search notes
 nnoremap <C-n> :Notes<CR>
 
+function NotesCommit()
+    term ++close bash -c "cd '%:p:h' && git add -A && EDITOR='vim -M' git commit -qv -em 'Auto-commit' && git push -q"
+endfunction
+
+let g:notes_autocommit = 1
+function NotesAutoCommitToggle()
+    if g:notes_autocommit
+        let g:notes_autocommit = 0
+        echo 'Disabled notes auto-commit.'
+    else
+        let g:notes_autocommit = 1
+        echo 'Enabled notes auto-commit.'
+        call NotesCommit()
+    endif
+endfunction
+
 augroup note_config
     " md-img-paste: Save images to resources folder
     autocmd BufNewFile,BufRead $NOTES/*.md
@@ -30,6 +46,10 @@ augroup note_config
     " Go to last line on opening
     autocmd BufRead $NOTES/*.md normal G
 
+    " Add keybind for toggling auto-commit
+    autocmd BufRead $NOTES/*.md nnoremap <F4> :call NotesAutoCommitToggle()<CR>
+    autocmd BufRead $NOTES/*.md inoremap <F4> <C-o>:call NotesAutoCommitToggle()<CR>
+
     " Auto-commit to git on save
-    autocmd BufWritePost $NOTES/*.md term ++close bash -c "cd '%:p:h' && git add -A && EDITOR='vim -M' git commit -qv -em 'Auto-commit' && git push -q"
+    autocmd BufWritePost $NOTES/*.md if g:notes_autocommit | call NotesCommit() | endif
 augroup END
