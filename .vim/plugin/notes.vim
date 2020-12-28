@@ -5,13 +5,15 @@ if ! isdirectory($NOTES)
     finish
 endif
 
-let g:notes_resources_dir=$NOTES . '/../resources'
+let s:notes_dir=resolve($NOTES) " autocmd needs the real path
+let s:notes_wildcard=s:notes_dir . '/*.md'
+let g:notes_resources_dir=s:notes_dir . '/../resources'
 let g:notes_resources_dir_inline='resources'
 
 " fzf: Define command to search notes, ordered by modified date
 command! -bang -nargs=0 Notes call fzf#run(fzf#wrap({
     \ 'source': 'find -iname "*.md" -printf "%T@:%p\n" | sort -nr | cut -d: -f2- | sed "s#./##"',
-    \ 'dir': '$NOTES',
+    \ 'dir': s:notes_dir,
     \ 'options': ['--prompt', 'Notes/', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']
     \ }))
 
@@ -37,22 +39,24 @@ function NotesAutoCommitToggle()
     endif
 endfunction
 
-augroup note_config
+augroup notes
+    " Use execute so we can use a variable as autocmd's {pat}
+
     " md-img-paste: Save images to resources folder
-    autocmd BufNewFile,BufRead $NOTES/*.md
-        \ let g:mdip_imgdir_absolute = g:notes_resources_dir |
-        \ let g:mdip_imgdir_intext = g:notes_resources_dir_inline
+    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard .
+        \ ' let g:mdip_imgdir_absolute = ' . g:notes_resources_dir . ' |'
+        \ ' let g:mdip_imgdir_intext = ' . g:notes_resources_dir_inline
 
     " Template for new notes
-    autocmd BufNewFile $NOTES/*.md Template *note
+    execute 'autocmd BufNewFile ' . s:notes_wildcard ' Template *note'
 
     " Go to last line on opening
-    autocmd BufRead $NOTES/*.md normal G
+    execute 'autocmd BufRead ' . s:notes_wildcard . ' normal G'
 
     " Add keybind for toggling auto-commit
-    autocmd BufRead $NOTES/*.md nnoremap <F4> :call NotesAutoCommitToggle()<CR>
-    autocmd BufRead $NOTES/*.md inoremap <F4> <C-o>:call NotesAutoCommitToggle()<CR>
+    execute 'autocmd BufRead ' . s:notes_wildcard . ' nnoremap <F4> :call NotesAutoCommitToggle()<CR>'
+    execute 'autocmd BufRead ' . s:notes_wildcard . ' inoremap <F4> <C-o>:call NotesAutoCommitToggle()<CR>'
 
     " Auto-commit to git on save
-    autocmd BufWritePost $NOTES/*.md if g:notes_autocommit | call NotesCommit() | endif
+    execute 'autocmd BufWritePost ' . s:notes_wildcard ' if g:notes_autocommit | call NotesCommit() | endif'
 augroup END
