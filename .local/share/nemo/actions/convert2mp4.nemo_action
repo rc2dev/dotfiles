@@ -1,0 +1,8 @@
+[Nemo Action]
+Name=Convert to MP4
+Comment=Convert video file to MP4 format
+Exec=ffmpeg -i %F %F.converted.mp4
+Dependencies=ffmpeg;
+Selection=s
+Mimetypes=video/*;
+Quote=double
