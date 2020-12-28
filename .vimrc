@@ -313,8 +313,8 @@ nnoremap <silent> <C-Up> :resize +3<CR>
 nnoremap <silent> <C-Down> :resize -3<CR>
 
 " Change 2 splits from/to vertical/horizontal
-nnoremap <Leader>th <C-w>t<C-w>H
-nnoremap <Leader>tv <C-w>t<C-w>K
+nnoremap <Leader>th <C-w>t<C-w>K
+nnoremap <Leader>tv <C-w>t<C-w>H
 
 " Close all splits but the current one
 nnoremap <Leader>o <C-w>o
