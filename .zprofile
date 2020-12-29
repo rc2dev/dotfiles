@@ -83,6 +83,8 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore -g '!.git' -g '!node
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # mpd
 export MPD_HOST="192.168.15.101"
+# taskwarrior
+export TASKRC="$HOME/Sync/Apps/taskrc"
 # z.lua
 # Move out from ~/
 export _ZL_DATA="/home/rafael/.local/share/zlua"
