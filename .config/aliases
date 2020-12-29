@@ -152,6 +152,13 @@ if systemctl status kodi > /dev/null 2>&1; then
 	alias ks="sudo systemctl stop kodi"
 fi
 
+# Taskwarrior
+alias t="task"
+alias ta="task add"
+alias te="task edit"
+alias tl="task log"
+alias ty="task sync"
+
 # journalctl
 alias jc="journalctl"
 alias jcu="journalctl -u"
@@ -172,14 +179,14 @@ if command -v apt > /dev/null; then
 fi
 
 # TV and HDMI output
-td="echo 'standby 0' | cec-client -s"
-tl="echo 'on 0' | cec-client -s"
+tv_off="echo 'standby 0' | cec-client -s"
+tv_on="echo 'on 0' | cec-client -s"
 if [[ "$HOST" == "pi" ]]; then
-	alias td="$td"
-	alias tl="$tl"
+	alias tv_off="$tv_off"
+	alias tv_on="$tv_on"
 else
-	alias td="ssh pi -t sh -c \"$td\""
-	alias tl="ssh pi -t sh -c \"$tl\""
+	alias tv_off="ssh pi -t sh -c \"$tv_off\""
+	alias tv_on="ssh pi -t sh -c \"$tv_on\""
 fi
 
 # HTTP server
