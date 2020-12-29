@@ -156,8 +156,10 @@ fi
 alias t="task"
 alias ta="task add"
 alias te="task edit"
+alias tm="task modify"
 alias tl="task log"
 alias ty="task sync"
+alias et="$EDITOR $TASKRC"
 
 # journalctl
 alias jc="journalctl"
