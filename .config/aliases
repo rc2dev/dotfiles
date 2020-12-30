@@ -155,6 +155,9 @@ fi
 # Taskwarrior
 alias t="task"
 alias ta="task add"
+alias tan="task annotate"
+alias tct="task end:today status:completed all"
+alias tcy="task end:yesterday status:completed all"
 alias te="task edit"
 alias tm="task modify"
 alias tl="task log"
