@@ -231,12 +231,15 @@ let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_frontmatter = 1
 
 " AutoComplPop
-" Disable for markdown and text
+" For markdown and text: only complete files
 if(exists('g:acp_behavior'))
-    let g:acp_behavior.markdown=[]
-    let g:acp_behavior.text=[]
+    let g:acp_behavior.markdown=[{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
+    let g:acp_behavior.text=[{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
 else
-    let g:acp_behavior = {'markdown':[], 'text':[]}
+    let g:acp_behavior={
+                \ 'markdown': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}],
+                \ 'text': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
+                \ }
 endif
 
 " rooter
