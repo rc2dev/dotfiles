@@ -39,7 +39,7 @@ read_args() {
 play() {
   printf "Resolving URL...\n"
   # In the case of a playlist we need to add the URLs one by one.
-  youtube-dl --format bestaudio --get-url "$user_url" | xargs -n 1 -r -i sh -c "mpc add {} && printf 'URL added.\n'"
+  youtube-dl --format bestaudio --get-url "$user_url" | xargs -n 1 -r -i sh -c "mpc add '{}' && printf 'URL added.\n'"
 
   if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
     printf "youtube-dl had an error resolving the URL.\n"
