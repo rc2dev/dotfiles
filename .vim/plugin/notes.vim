@@ -49,8 +49,8 @@ augroup notes
         \ ' let g:mdip_imgdir = "' . s:resources_dir_inline . '"'
 
     " Add keybind for toggling auto-commit
-    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' nnoremap <F4> :call NotesAutoCommitToggle()<CR>'
-    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' inoremap <F4> <C-o>:call NotesAutoCommitToggle()<CR>'
+    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' nnoremap <F7> :call NotesAutoCommitToggle()<CR>'
+    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' inoremap <F7> <C-o>:call NotesAutoCommitToggle()<CR>'
 
     " Template for new notes
     execute 'autocmd BufNewFile ' . s:notes_wildcard ' Template *note'
