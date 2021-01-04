@@ -241,8 +241,8 @@ if [[ -n "$ZSH_VERSION" ]]; then
 	alias -g C="| xclip -selection clipboard"
 	alias -g P="xclip -selection clipboard -out |"
 	# fzf
-	alias -g D='$(find "$HOME" -type d | fzf --multi=1)'
-	alias -g DR='$(find / -type d | fzf --multi=1)'
+	alias -g D='$(eval $FD_DIRS '$HOME' | fzf +m)'
+	alias -g DR='$(eval $FD_DIRS / | fzf +m)'
 fi
 
 # Termux overrides and additions

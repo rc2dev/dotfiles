@@ -77,10 +77,12 @@ export CM_OWN_CLIPBOARD=1
 # This makes history persistent across sessions
 export CM_DIR="$HOME/.cache"
 # fzf
+export FD_FILES="fdfind --follow --hidden --no-ignore-vcs --exclude '*.git' --exclude 'node_modules' ."
+export FD_DIRS="fdfind --follow --hidden --no-ignore-vcs -t d ."
+export FZF_DEFAULT_COMMAND="$FD_FILES"
+export FZF_CTRL_T_COMMAND="$FD_FILES '$HOME'"
+export FZF_ALT_C_COMMAND="$FD_DIRS '$HOME'"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40% --multi"
-export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore -g '!.git' -g '!node_modules'"
-# This adds home hidden files to ^T
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # mpd
 export MPD_HOST="192.168.15.101"
 # taskwarrior
