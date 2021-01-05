@@ -82,7 +82,14 @@ export FD_DIRS="fdfind --follow --hidden --no-ignore-vcs -t d ."
 export FZF_DEFAULT_COMMAND="$FD_FILES"
 export FZF_CTRL_T_COMMAND="$FD_FILES '$HOME'"
 export FZF_ALT_C_COMMAND="$FD_DIRS '$HOME'"
-export FZF_DEFAULT_OPTS="--layout=reverse --height 40% --multi"
+export FZF_DEFAULT_OPTS="
+	--layout=reverse
+	--height 40%
+	--multi
+	--bind 'ctrl-a:select-all'
+	--bind 'ctrl-y:execute-silent(echo {+} | xclip -selection clipboard)'
+"
+
 # mpd
 export MPD_HOST="192.168.15.101"
 # taskwarrior
