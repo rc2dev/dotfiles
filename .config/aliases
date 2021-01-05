@@ -157,7 +157,6 @@ fi
 alias t="task"
 alias tad="task add"
 alias tac="task active"
-alias tan="task annotate"
 alias tb="task burndown.daily"
 alias tct="task end:today status:completed all"
 alias tcy="task end:yesterday status:completed all"
