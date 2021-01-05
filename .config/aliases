@@ -104,8 +104,13 @@ alias rw="ranger $WALLPAPERS"
 
 # z.lua
 alias zc="z -c"
-alias zi="z -I"
 alias zu="z -b"
+# Make z interactive when run without arguments
+unalias z
+z() {
+	[ $# -eq 0 ] && _zlua -I . && return
+	_zlua "$@"
+}
 
 # Notes
 alias fn="(cd $NOTES && vim +PRg)"
