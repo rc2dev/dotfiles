@@ -134,6 +134,7 @@ alias ylo="yadm log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cg
 alias ylon="ylo --name-only"
 alias yp="yadm push"
 alias ypf="yadm push --force-with-lease"
+alias yrb="yadm rebase"
 alias yrba="yadm rebase --abort"
 alias yrbc="yadm rebase --continue"
 alias yrbi="yadm rebase -i"
