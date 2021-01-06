@@ -10,7 +10,7 @@ My scripts can be found at [~/.local/bin](https://github.com/rccavalcanti/dotfil
 
 ## Installation
 
-Use yadm to clone and bootstrap:
+Use [the installation script](../.config/yadm/install), or with the latest yadm installed run:
 
 ```sh
 yadm clone --bootstrap https://github.com/rccavalcanti/dotfiles.git
@@ -20,4 +20,4 @@ yadm clone --bootstrap https://github.com/rccavalcanti/dotfiles.git
 
 Licensed under [GPLv3](LICENSE)
 
-Copyright (C) 2018-2020 [Rafael Cavalcanti](https://rafaelc.org/)
+Copyright (C) 2018-2021 [Rafael Cavalcanti](https://rafaelc.org/)
