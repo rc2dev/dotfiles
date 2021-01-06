@@ -47,7 +47,9 @@ play() {
   fi
 
   mpc play
-  $next && mpc next
+  if $next; then
+    mpc next
+  fi
 }
 
 main "$@"
