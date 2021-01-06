@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 #
+# Helper for adding annotations to TaskWarrior tasks.
+# Features:
+# - Add multi-line annotations to your tasks using your preferred editor.
+# - Add single-line annotations as always (via cli arguments) or using the editor.
+#
 # Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
 # Copyright (C) 2016 djp <djp@cutter>
 #
