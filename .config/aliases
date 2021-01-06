@@ -106,7 +106,7 @@ alias rw="ranger $WALLPAPERS"
 alias zc="z -c"
 alias zu="z -b"
 # Make z interactive when run without arguments
-unalias z
+unalias z 2> /dev/null
 z() {
 	[ $# -eq 0 ] && _zlua -I . && return
 	_zlua "$@"
