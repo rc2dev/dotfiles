@@ -80,8 +80,6 @@ export CM_DIR="$HOME/.cache"
 export FD_FILES="fdfind --follow --hidden --no-ignore-vcs --exclude '*.git' --exclude 'node_modules' ."
 export FD_DIRS="fdfind --follow --hidden --no-ignore-vcs -t d ."
 export FZF_DEFAULT_COMMAND="$FD_FILES"
-export FZF_CTRL_T_COMMAND="$FD_FILES '$HOME'"
-export FZF_ALT_C_COMMAND="$FD_DIRS '$HOME'"
 export FZF_DEFAULT_OPTS="
 	--layout=reverse
 	--height 40%

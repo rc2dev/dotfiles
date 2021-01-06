@@ -119,13 +119,18 @@ antigen bundle zsh-users/zsh-syntax-highlighting # should be last
 
 antigen apply
 
+######################################################################
 # fzf
+######################################################################
 if [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then # Ubuntu
   source /usr/share/doc/fzf/examples/completion.zsh
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 elif [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then # Raspbian
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
+
+export FZF_CTRL_T_COMMAND="$FD_FILES '$HOME'"
+export FZF_ALT_C_COMMAND="$FD_DIRS '$HOME'"
 
 ######################################################################
 # Non-zsh
