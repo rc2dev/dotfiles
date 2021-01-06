@@ -6,21 +6,34 @@
 # Distributed under terms of the MIT license.
 #
 
-readonly id="$*"
+# Constants
+readonly editor="${EDITOR:-vi}"
+
+# Read arguments
+readonly id="${1:-}"
+shift
+annot="$*"
+
+# Check arguments
 if ! echo "$id" | grep -q '[0-9]\+'; then
-    echo "ERROR: command must be followed by a single task ID."
+    echo "Usage: tan task_id [annotation]"
     exit 1
 fi
 
-readonly annot_file="$(mktemp)"
-readonly editor="${EDITOR:-vi}"
+# Use annotation from CLI if provided
+if [[ -n "$annot" ]]; then
+    task "$id" annotate "$annot"
+    exit 0
+fi
 
+# Use annotation from editor
+readonly annot_file="$(mktemp)"
 $editor "$annot_file"
 
 if [[ "$(wc -l "$annot_file")" -gt 1 ]]; then
-    readonly annot="\n$(cat "$annot_file")"
+    annot="\n$(cat "$annot_file")"
 else
-    readonly annot="$(cat "$annot_file")"
+    annot="$(cat "$annot_file")"
 fi
 
 task "$id" annotate "$annot"
