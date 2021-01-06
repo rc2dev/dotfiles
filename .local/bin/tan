@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
 # Copyright (C) 2016 djp <djp@cutter>
@@ -6,23 +6,24 @@
 # Distributed under terms of the MIT license.
 #
 
-ID=$*
-if ! echo "$ID" | grep -q '[0-9]\+'; then
-    echo "  ERROR: twan command must be followed by a single task ID"
+readonly id="$*"
+if ! echo "$id" | grep -q '[0-9]\+'; then
+    echo "ERROR: command must be followed by a single task ID."
     exit 1
 fi
 
-FILE="`mktemp`"
-EDITOR="${EDITOR:-vi}"
-$EDITOR "$FILE"
+readonly annot_file="$(mktemp)"
+readonly editor="${EDITOR:-vi}"
 
-if [ `which -l $FILE` -gt 1 ]; then
-    ANNOTATION="`echo -n "\n"; cat $FILE`"
+$editor "$annot_file"
+
+if [[ "$(wc -l "$annot_file")" -gt 1 ]]; then
+    readonly annot="\n$(cat "$annot_file")"
 else
-    ANNOTATION="`cat $FILE`"
+    readonly annot="$(cat "$annot_file")"
 fi
-task $ID annotate "$ANNOTATION"
 
-rm "$FILE"
-exit 0
+task "$id" annotate "$annot"
+
+rm "$annot_file"
 
