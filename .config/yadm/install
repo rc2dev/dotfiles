@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Install dotfiles from scratch.
+#
+# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly dotfiles_repo="https://github.com/rccavalcanti/dotfiles.git"
+
+yadm() {
+  local -r yadm_url="https://raw.githubusercontent.com/TheLocehiliosan/yadm/master/yadm"
+
+  curl "$yadm_url" | bash -s -- "$@"
+}
+export -f yadm
+
+main() {
+  yadm clone --bootstrap "$@" "$dotfiles_repo"
+}
+
+main "$@"
