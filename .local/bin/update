@@ -2,7 +2,7 @@
 #
 # Commands to update my systems.
 #
-# Copyright (C) 2017-2020 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2017-2021 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
 
@@ -15,6 +15,7 @@ main() {
 	update_ydl
 	update_dotfiles
 	update_vim
+	update_antigen
 
 	log "Script concluído."
 }
@@ -137,6 +138,13 @@ update_vim() {
 
 	log_step "Atualizando vim-plug e plugins do VIM..."
 	vim +PlugUpdate +PlugClean! +qa!
+}
+
+update_antigen() {
+	has_command zsh || return 0
+
+	log_step "Atualizando zsh antigen..."
+	zsh -ic "antigen update"
 }
 
 is_mint() {
