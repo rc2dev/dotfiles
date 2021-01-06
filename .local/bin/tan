@@ -20,7 +20,7 @@ shift
 annot="$*"
 
 # Check arguments
-if ! echo "$id" | grep -q '[0-9]\+'; then
+if [[ ! $id =~ [0-9]+ ]]; then
     echo "Usage: tan task_id [annotation]"
     exit 1
 fi
