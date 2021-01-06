@@ -10,3 +10,6 @@
 [submodule ".local/opt/z.lua"]
 	path = .local/opt/z.lua
 	url = https://github.com/skywind3000/z.lua
+[submodule ".local/opt/yadm-project"]
+	path = .local/opt/yadm-project
+	url = https://github.com/TheLocehiliosan/yadm.git
