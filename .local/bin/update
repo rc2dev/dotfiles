@@ -5,20 +5,15 @@
 # Copyright (C) 2017-2020 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
-declare -ar rc_repos=(
-	"/etc/pifi/streams"
-)
 
 main() {
 	declare -i step=0
 
-	force_ssh_passphrase
+	#force_ssh_passphrase
 
 	update_distro
-	update_pihole
 	update_ydl
 	update_dotfiles
-	update_rc
 	update_vim
 
 	log "Script concluído."
@@ -127,31 +122,6 @@ update_distro_osmc() {
 update_dotfiles() {
 	log_step "Atualizando dotfiles..."
 	yadm pull
-}
-
-update_rc() {
-	local gitdir
-	local sudo
-
-	for gitdir in "${rc_repos[@]}"; do
-		if [[ -d "$gitdir" ]]; then
-			log_step "Atualizando repositório ${gitdir/$HOME/\~}..."
-
-			if [[ "$(stat -c "%u" "$gitdir")" == "0" ]]; then
-				sudo="sudo"
-			else
-				sudo=""
-			fi
-			$sudo git --git-dir="$gitdir/.git" --work-tree "$gitdir" pull
-		fi
-	done
-}
-
-update_pihole() {
-	has_command pihole || return 0
-
-	log_step "Atualizando Pi Hole..."
-	pihole -up
 }
 
 update_ydl() {
