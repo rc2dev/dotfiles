@@ -177,8 +177,8 @@ command AutoTrimToggle :call AutoTrimToggle()
 " Set default languages
 set spelllang=pt_br,en_us,es_es
 
-" Turn on for file types
-autocmd Filetype gitcommit,markdown,text setlocal spell
+" Turn on for file types, except on vimdiff
+autocmd Filetype gitcommit,markdown,text if ! &diff | setlocal spell | endif
 
 " Set languages for specific files
 autocmd Filetype gitcommit setlocal spelllang=en_us
