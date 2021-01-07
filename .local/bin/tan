@@ -12,6 +12,7 @@
 #
 
 # Constants
+readonly script_name="$(basename "$0")"
 readonly editor="${EDITOR:-vi}"
 
 # Read arguments
@@ -21,7 +22,7 @@ annot="$*"
 
 # Check arguments
 if [[ ! $id =~ ^[0-9a-f]+$ ]]; then
-    echo "Usage: tan task_id [annotation]"
+    echo "Usage: $script_name task_id [annotation]"
     exit 1
 fi
 
