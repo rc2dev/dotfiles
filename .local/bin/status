@@ -3,7 +3,7 @@
 # Licensed under GPLv3
 
 readonly pifi_api="http://localhost:3030/api/player"
-readonly kodi_api="http://localhost:8080/jsonrpc"
+readonly kodi_api="http://localhost:80/jsonrpc" # osmc binds it to port 80, default is 8080
 declare -Ar services=(
 	[Apache]="apache2"
 	[Dispmanx]="dispmanx"
