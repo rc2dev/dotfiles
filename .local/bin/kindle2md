@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+#
+# This script gets a HTML annotations file exported from the Kindle app
+# and convert it to markdown.
+#
+# Be sure to install the Python dependencies (BeautifulSoup).
+#
+# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+#
+
+from bs4 import BeautifulSoup
+from pathlib import Path
+from os.path import basename, splitext
+from sys import argv, exit
+
+script_name = basename(__file__)
+
+if len(argv) != 2:
+    print(f'Usage: {script_name} html_file')
+    exit(1)
+
+source_name = argv[1]
+dest_name = splitext(source_name)[0] + '.md'
+
+source = Path(source_name)
+dest = Path(dest_name)
+
+if dest.exists():
+    print(f'Destination file "{dest}" already exists.')
+    answer = input('Overwrite? [y/n] ')
+    if answer.lower().strip() != 'y':
+        exit(1)
+
+file_content = source.read_text()
+soup = BeautifulSoup(file_content, 'html.parser')
+
+bookTitle = soup.select_one('.bookTitle').contents[0].strip()
+textElements = soup.select('.noteText')
+descElements = soup.select('.noteHeading')
+
+texts = [elem.contents[0].strip() for elem in textElements]
+types = [elem.contents[0][:-2].strip() for elem in descElements]
+pages = [elem.contents[2][5:].strip() for elem in descElements]
+
+output = f'# {bookTitle}\n\n'
+for i in range(len(texts)):
+    output += f'- {texts[i]}\n'
+    output += f'\t{types[i]} @ {pages[i]}\n'
+    output += '\n'
+
+dest.write_text(output)
+print(f'Written to: {dest_name}')
