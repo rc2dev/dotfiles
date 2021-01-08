@@ -100,6 +100,7 @@ call EnableTransparency()
 set modeline                                        " Enable modeline
 set hidden                                          " Allow buffers to be hidden without saving
 set mouse=a                                         " Enable the use of the mouse
+set clipboard=unnamedplus                           " Use system clipboard
 
 " Create tags file (this just runs ctags). This allows:
 " ^] to jump to tag under cursor; g^] for ambiguous tags; ^t to jump back up the tag stack
@@ -268,11 +269,6 @@ let mapleader="\<Space>"
 noremap Y y$
 
 " Clipboard operations
-noremap <Leader>y "+y
-noremap <Leader>Y "+y$
-noremap <Leader>d "+d
-noremap <Leader>D "+d$
-noremap <Leader>p "+p
 set pastetoggle=<F2>
 
 " Insert current date
