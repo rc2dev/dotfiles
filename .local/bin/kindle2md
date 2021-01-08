@@ -32,16 +32,25 @@ if dest.exists():
     if answer.lower().strip() != 'y':
         exit(1)
 
-file_content = source.read_text()
+try:
+    file_content = source.read_text()
+except OSError as e:
+    print(f'Failed to read file: {e}.')
+    exit(1)
+
 soup = BeautifulSoup(file_content, 'html.parser')
 
-bookTitle = soup.select_one('.bookTitle').contents[0].strip()
-textElements = soup.select('.noteText')
-descElements = soup.select('.noteHeading')
+try:
+    bookTitle = soup.select_one('.bookTitle').contents[0].strip()
+    textElements = soup.select('.noteText')
+    descElements = soup.select('.noteHeading')
 
-texts = [elem.contents[0].strip() for elem in textElements]
-types = [elem.contents[0][:-2].strip() for elem in descElements]
-pages = [elem.contents[2][5:].strip() for elem in descElements]
+    texts = [elem.contents[0].strip() for elem in textElements]
+    types = [elem.contents[0][:-2].strip() for elem in descElements]
+    pages = [elem.contents[2][5:].strip() for elem in descElements]
+except AttributeError as e:
+    print(f'Error parsing file: {e}')
+    exit(1)
 
 output = f'# {bookTitle}\n\n'
 for i in range(len(texts)):
@@ -49,5 +58,9 @@ for i in range(len(texts)):
     output += f'\t{types[i]} @ {pages[i]}\n'
     output += '\n'
 
-dest.write_text(output)
+try:
+    dest.write_text(output)
+except OSError as e:
+    print(f'Failed to write file: {e}')
+    exit(1)
 print(f'Written to: {dest_name}')
