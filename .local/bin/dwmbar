@@ -51,7 +51,7 @@ bar_player() {
 }
 
 bar_time() {
-  echo " $(date +"%a, %e/%m (%R)")"
+  echo " $(date +"%a, %d/%m (%R)")"
 }
 
 bar_mem() {
