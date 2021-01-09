@@ -3,7 +3,11 @@
 # This script gets a HTML annotations file exported from the Kindle app
 # and convert it to markdown.
 #
-# Be sure to install the Python dependencies (BeautifulSoup).
+# Instructions:
+# 1. Download this script.
+# 2. Be sure to have python installed.
+# 3. Install python dependencies: pip3 install --user beautifulsoup4
+# 4. Run the script: python3 kindle2md YOUR_FILE.html
 #
 # Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
