@@ -272,7 +272,7 @@ noremap Y y$
 set pastetoggle=<F2>
 
 " Insert current date
-inoremap <F3> <C-R>=strftime('%d/%m/%Y')<CR>
+inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
 
 " Run current file
 nnoremap <F5> :w<CR>:!%:p<CR>
