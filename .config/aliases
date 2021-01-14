@@ -154,6 +154,7 @@ alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias scr="sudo systemctl restart"
 alias scs="sudo systemctl start"
+alias y="yadm"
 if systemctl status kodi > /dev/null 2>&1; then
 	alias kr="sudo systemctl restart kodi"
 	alias ks="sudo systemctl stop kodi"
