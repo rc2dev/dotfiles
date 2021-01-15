@@ -8,7 +8,7 @@ endif
 let s:notes_dir=resolve($NOTES) " autocmd needs the real path
 let s:notes_wildcard=s:notes_dir . '/*.md'
 let s:resources_dir=s:notes_dir . '/../resources'
-let s:resources_dir_inline='resources'
+let s:resources_dir_inline='/resources'
 
 " fzf: Define command to search notes, ordered by modified date
 command! -bang -nargs=0 Notes call fzf#run(fzf#wrap({
