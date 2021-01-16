@@ -54,6 +54,7 @@ alias history="history -i"
 # Shell
 alias c="cd && clear"
 alias q="exit"
+alias :q="exit"
 alias x="exit"
 history-rank() {
 	local n=${1:-10}
