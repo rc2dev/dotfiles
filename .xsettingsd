@@ -1,7 +1,7 @@
 Gtk/CursorThemeName "breeze_cursors"
 Gtk/DecorationLayout "menu:close"
-Gtk/FontName "Fira Sans Semi-Light 10"
-Net/IconThemeName "Pop"
+Gtk/FontName "Ubuntu 10"
+Net/IconThemeName "Mint-Y-Teal"
 Net/ThemeName "Pop-dark"
 Xft/Antialias 1
 Xft/HintStyle "hintslight"
