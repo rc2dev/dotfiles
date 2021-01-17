@@ -31,7 +31,7 @@ detect_desktop() {
 		Deepin) toggle_deepin;;
 		GNOME) toggle_gnome;;
 		ubuntu:GNOME) toggle_gnome;;
-		X-Cinnamon) toggle_cinnamon;;
+		cinnamon) toggle_cinnamon;;
 		XFCE) toggle_xfce;;
 		*) printf "This desktop is not supported.\n";;
 	esac
