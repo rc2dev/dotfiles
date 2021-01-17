@@ -70,12 +70,20 @@ export WALLPAPERS="$HOME/Pictures/Wallpapers"
 export EDITOR="vim"
 export TERMINAL="alacritty"
 
+
 # Applications configuration
+#######################################################
+
 # clipmenud
 # This fixes losing the clipboard content when closing the source application
 export CM_OWN_CLIPBOARD=1
 # This makes history persistent across sessions
 export CM_DIR="$HOME/.cache"
+
+# cmus
+# Move configuration
+CMUS_HOME="$HOME/Documents/cmus"
+
 # fzf
 export FD_FILES="fd --follow --hidden --no-ignore-vcs --exclude '*.git' --exclude 'node_modules' ."
 export FD_DIRS="fd --follow --hidden --no-ignore-vcs -t d ."
@@ -90,8 +98,10 @@ export FZF_DEFAULT_OPTS="
 
 # mpd
 export MPD_HOST="192.168.15.101"
+
 # taskwarrior
 export TASKRC="$HOME/Sync/Apps/taskrc"
+
 # z.lua
 # Move out from ~/
 export _ZL_DATA="/home/rafael/.local/share/zlua"
