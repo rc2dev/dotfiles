@@ -5,4 +5,4 @@ Comment=Run Firefox with a temporary profile
 Exec=firefox-tmp-profile
 Icon=firefox
 Type=Application
-Categories=Internet;
+Categories=Network;WebBrowser;
