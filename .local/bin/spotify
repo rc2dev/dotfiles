@@ -21,7 +21,7 @@ while true; do
   sleep 2s
 done &
 
-LD_PRELOAD=/usr/lib/libcurl.so.3:$HOME/.local/opt/spotifywm/spotifywm.so /usr/bin/spotify
+LD_PRELOAD=/usr/lib/libcurl.so.3:$HOME/.local/lib/spotifywm.so /usr/bin/spotify
 
 # Kill ad skipper
 trap 'kill $(jobs -p)' EXIT
