@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=WhatsApp
+Comment=Web App
+Exec=webapp whatsapp
+Terminal=false
+Type=Application
+Icon=whatsapp
+Categories=GTK;Network;
+StartupNotify=true
