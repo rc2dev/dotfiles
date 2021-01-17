@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Firefox temporary profile
+Name=Firefox Temporary Profile
 Comment=Run Firefox with a temporary profile
 Exec=firefox-tmp-profile
 Icon=firefox
