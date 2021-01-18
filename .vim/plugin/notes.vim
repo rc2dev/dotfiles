@@ -46,7 +46,7 @@ augroup notes
     execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard .
         \ ' let g:mdip_imgdir_absolute = "' . s:resources_dir . '" |'
         \ ' let g:mdip_imgdir_intext = "' . s:resources_dir_inline . '" |'
-        \ ' let g:mdip_imgdir = "' . s:resources_dir_inline . '"'
+        \ ' let g:mdip_imgdir = "' . s:resources_dir . '"'
 
     " Add keybind for toggling auto-commit
     execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' nnoremap <F7> :call NotesAutoCommitToggle()<CR>'
