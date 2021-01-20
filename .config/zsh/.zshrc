@@ -99,6 +99,10 @@ rationalise-dot() {
 zle -N rationalise-dot
 bindkey . rationalise-dot
 
+# Automatically quote pasted URLs
+autoload -Uz bracketed-paste-url-magic
+zle -N bracketed-paste bracketed-paste-url-magic
+
 
 #####################################################################
 # Plugins
