@@ -28,12 +28,6 @@ if [ -d "$HOME/.local/opt/anaconda3/bin" ]; then
 	PATH="$HOME/.local/opt/anaconda3/bin:$PATH"
 fi
 
-# Spicetify
-if [[ -d "$HOME/.local/opt/spicetify-cli" ]]; then
-	export SPICETIFY_INSTALL="$HOME/.local/opt/spicetify-cli"
-	PATH="$SPICETIFY_INSTALL:$PATH"
-fi
-
 # Termux: Set runtime dir
 if [[ "$HOST" == "localhost" && -z "$XDG_RUNTIME_DIR" ]]; then
 	export XDG_RUNTIME_DIR="$PREFIX/var/run"
