@@ -4,4 +4,4 @@
 		-e 's/default_passcommand=.*$/default_passcommand=/'"
 
 [filter "xsettingsd"]
-  clean = "sed -E 's#^Net/ThemeName .*$#Net/ThemeName #'"
+  clean = "sed -E 's#^Net/ThemeName .*$#Net/ThemeName \"\"#'"
