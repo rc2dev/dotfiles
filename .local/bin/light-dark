@@ -111,11 +111,14 @@ toggle_xsettingsd() {
 
 	if [[ "$theme_current" == "$theme_light" ]]; then
 		local -r theme_new="$theme_dark"
+		local -r icon_new="$icon_dark"
 	else
 		local -r theme_new="$theme_light"
+		local -r icon_new="$icon_light"
 	fi
 
 	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" ~/.xsettingsd
+	sed -i "s#^Net/IconThemeName .*\$#Net/IconThemeName \"$theme_new\"#" ~/.xsettingsd
 
 	killall -HUP xsettingsd
 }
