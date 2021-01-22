@@ -30,7 +30,7 @@ if [[ ! $id =~ ^[0-9a-f,-]+$ ]]; then
 fi
 
 # Check if task ID exists
-if ! task info "$id" > /dev/null; then
+if ! task info "$id" > /dev/null 2>&1; then
     echo "Invalid task ID."
     exit 1
 fi
