@@ -23,8 +23,9 @@ shift
 annot="$*"
 
 # Check arguments
-if [[ ! $id =~ ^[0-9a-f]+$ ]]; then
+if [[ ! $id =~ ^[0-9a-f,-]+$ ]]; then
     echo "Usage: $script_name task_id [annotation]"
+    echo "You can provide multiple IDs separated by commas and dashes."
     exit 1
 fi
 
