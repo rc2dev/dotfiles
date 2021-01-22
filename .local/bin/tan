@@ -28,6 +28,12 @@ if [[ ! $id =~ ^[0-9a-f]+$ ]]; then
     exit 1
 fi
 
+# Check if task ID exists
+if ! task info "$id" > /dev/null; then
+    echo "Invalid task ID."
+    exit 1
+fi
+
 # Use annotation from CLI if provided
 if [[ -n "$annot" ]]; then
     task "$id" annotate "$annot"
