@@ -13,6 +13,8 @@
 
 set -euo pipefail
 
+trap 'rm -f "$annot_file"' EXIT
+
 # Constants
 readonly script_name="$(basename "$0")"
 readonly editor="${EDITOR:-vi}"
@@ -52,6 +54,4 @@ else
 fi
 
 task "$id" annotate "$annot"
-
-rm "$annot_file"
 
