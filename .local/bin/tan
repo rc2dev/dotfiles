@@ -13,6 +13,7 @@
 
 set -euo pipefail
 
+trap 'echo An error ocurred.' ERR
 trap 'rm -f "$annot_file"' EXIT
 
 # Constants
