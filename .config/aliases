@@ -117,7 +117,16 @@ z() {
 alias fn="(cd $NOTES && vim +PRg)"
 alias ej="vim +Journal"
 alias en="vim +Notes"
-alias enp='find "$NOTES/Eu Inc/Projetos/" -iname "journal.md" -exec vim {} +'
+# Print journal entries with specific tags
+tj() {
+	[[ $# -eq 0 ]] && echo "Usage: tj tag1 [tag2...]" && return 1
+	local grep_args=()
+	for arg; do
+		grep_args+=("-e")
+		grep_args+=("$arg")
+	done
+	grep -ilr --color=no ${grep_args[*]} "$NOTES/Eu Inc/Journal" | sort | xargs -d '\n' bat
+}
 alias_z zn "$NOTES"
 alias rn="ranger $NOTES"
 
