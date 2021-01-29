@@ -117,6 +117,8 @@ z() {
 alias fn="(cd $NOTES && vim +Rg)"
 alias ej="vim +Journal"
 alias en="vim +Notes"
+# Print all journal entries
+alias cj='find "$NOTES/Eu Inc/Journal" -type f | sort | xargs -d "\n" bat'
 # Print journal entries with specific tags
 tj() {
 	[[ $# -eq 0 ]] && echo "Usage: tj tag1 [tag2...]" && return 1
