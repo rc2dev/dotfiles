@@ -200,6 +200,13 @@ let g:airline#extensions#tabline#enabled = 1
 " vim-template
 let g:templates_directory = ['$HOME/.vim/templates']
 let g:templates_no_builtin_templates = 1
+let g:templates_user_variables = [
+		\   ['FFDATE', 'GetFullDate'],
+		\ ]
+function! GetFullDate()
+		return strftime('%Y-%m-%d %T %z')
+endfunction
+
 
 " Goyo
 " Ensure :q to quit when Goyo is active
