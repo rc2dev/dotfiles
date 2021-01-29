@@ -90,6 +90,7 @@ alias_z zh ~/Pictures/Screenshots
 alias_z zk ~/.kodi
 alias_z zk /var/lib/kodi/.kodi
 alias_z zm ~/Music
+alias_z zn "$NOTES"
 alias_z zp ~/Pictures
 alias_z zs /sdcard
 alias_z zt ~/Sync
@@ -112,25 +113,6 @@ z() {
 	[ $# -eq 0 ] && _zlua -I . && return
 	_zlua "$@"
 }
-
-# Notes
-alias fn="(cd $NOTES && vim +Rg)"
-alias ej="vim +Journal"
-alias en="vim +Notes"
-# Print all journal entries
-alias cj='find "$NOTES/Eu Inc/Journal" -type f | sort | xargs -d "\n" bat'
-# Print journal entries with specific tags
-tj() {
-	[[ $# -eq 0 ]] && echo "Usage: tj tag1 [tag2...]" && return 1
-	local grep_args=()
-	for arg; do
-		grep_args+=("-e")
-		grep_args+=("$arg")
-	done
-	grep -ilr --color=no ${grep_args[*]} "$NOTES/Eu Inc/Journal" | sort | xargs -d '\n' bat
-}
-alias_z zn "$NOTES"
-alias rn="ranger $NOTES"
 
 # Git
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
@@ -162,6 +144,7 @@ alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 & di
 # Easier commands
 alias cx="chmod +x"
 alias ex="atool --extract --each --"
+alias n="notes"
 alias o="xdg-open"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
