@@ -115,6 +115,7 @@ z() {
 
 # Notes
 alias fn="(cd $NOTES && vim +PRg)"
+alias ej="vim +Journal"
 alias en="vim +Notes"
 alias enp='find "$NOTES/Eu Inc/Projetos/" -iname "journal.md" -exec vim {} +'
 alias_z zn "$NOTES"

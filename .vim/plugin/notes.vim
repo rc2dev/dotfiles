@@ -7,6 +7,7 @@ endif
 
 let s:notes_dir=resolve($NOTES) " autocmd needs the real path
 let s:notes_wildcard=s:notes_dir . '/*.md'
+let s:journal_dir=s:notes_dir . '/Eu Inc/Journal'
 let s:resources_dir=s:notes_dir . '/../resources'
 let s:resources_dir_inline='/resources'
 
@@ -19,6 +20,9 @@ command! -bang -nargs=0 Notes call fzf#run(fzf#wrap({
 
 " fzf: Set keybind to search notes
 nnoremap <C-n> :Notes<CR>
+
+" Start a new journal entry
+command! -nargs=0 Journal execute 'edit ' . s:journal_dir . '/' . strftime('%Y-%m-%d %H%M%S %z') . '.md'
 
 function NotesCommit()
     " Workaround to set focus to the terminal
