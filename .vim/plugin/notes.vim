@@ -52,6 +52,11 @@ augroup notes
         \ ' let g:mdip_imgdir_intext = "' . s:resources_dir_inline . '" |'
         \ ' let g:mdip_imgdir = "' . s:resources_dir . '"'
 
+    " Add completion for tags
+    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard .
+        \ ' setlocal dictionary+=' . s:notes_dir . '/../tags.txt'
+    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' setlocal iskeyword+=#'
+
     " Add keybind for toggling auto-commit
     execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' nnoremap <F7> :call NotesAutoCommitToggle()<CR>'
     execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' inoremap <F7> <C-o>:call NotesAutoCommitToggle()<CR>'

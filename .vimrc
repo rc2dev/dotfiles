@@ -250,17 +250,8 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_frontmatter = 1
 
-" AutoComplPop
-" For markdown and text: only complete files
-if(exists('g:acp_behavior'))
-    let g:acp_behavior.markdown=[{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
-    let g:acp_behavior.text=[{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
-else
-    let g:acp_behavior={
-                \ 'markdown': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}],
-                \ 'text': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
-                \ }
-endif
+" For Markdown and text: don't complete with files contents
+autocmd FileType markdown,text set complete=t,k
 
 " rooter
 let g:rooter_silent_chdir = 1
