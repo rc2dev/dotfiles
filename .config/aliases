@@ -114,7 +114,7 @@ z() {
 }
 
 # Notes
-alias fn="(cd $NOTES && vim +PRg)"
+alias fn="(cd $NOTES && vim +Rg)"
 alias ej="vim +Journal"
 alias en="vim +Notes"
 # Print journal entries with specific tags
