@@ -21,29 +21,26 @@ readonly script_name="$(basename "$0")"
 readonly editor="${EDITOR:-vi}"
 
 usage() {
-    echo "Usage: $script_name task_id [annotation]"
-    echo "You can provide multiple IDs separated by commas and dashes."
+    echo "Usage: $script_name filter [annotation]"
+    echo "Filter must be provided in only one argument, quote if needed."
     exit 1
 }
 
 # Read arguments
 [[ $# -eq 0 ]] && usage
-readonly id="$1"
+readonly filter="$1"
 shift
 annot="$*"
 
-# Check arguments
-[[ ! $id =~ ^[0-9a-f,-]+$ ]] && usage
-
-# Check if task ID exists
-if ! task info "$id" > /dev/null 2>&1; then
-    echo "Invalid task ID."
+# Check if any task exists
+if ! task info "$filter" > /dev/null 2>&1; then
+    echo "No tasks found."
     exit 1
 fi
 
 # Use annotation from CLI if provided
 if [[ -n "$annot" ]]; then
-    task "$id" annotate "$annot"
+    task $filter annotate "$annot"
     exit 0
 fi
 
@@ -57,5 +54,5 @@ else
     annot="$(cat "$annot_file")"
 fi
 
-task "$id" annotate "$annot"
+task $filter annotate "$annot"
 
