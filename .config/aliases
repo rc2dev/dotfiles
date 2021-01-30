@@ -13,7 +13,7 @@ alias_z() {
 }
 
 # List files when cd'ing
-cd() { builtin cd "$@" && $CMD_LS --color=always -aF --group-directories-first; }
+cd() { builtin cd "$@" && eval $CMD_LS; }
 
 # Also check command after sudo for alias (see man bash)
 alias sudo="sudo "
@@ -41,12 +41,14 @@ alias less="less -R"
 
 # ls
 if command -v exa > /dev/null; then
-	CMD_LS="exa"
+	CMD_LS="exa --color=always -aF --group-directories-first"
+	alias ls="$CMD_LS"
+	alias ll="ls -l --git"
 else
-	CMD_LS="ls"
+	CMD_LS="ls --color=always -AF --group-directories-first"
+	alias ls="$CMD_LS"
+	alias ll="ls -l"
 fi
-	alias ls="$CMD_LS --color=always -aF --group-directories-first"
-alias ll="ls -l"
 
 # Show timestamp on zsh history
 alias history="history -i"
