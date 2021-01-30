@@ -14,23 +14,26 @@
 set -euo pipefail
 
 trap 'echo An error ocurred.' ERR
-trap 'rm -f "$annot_file"' EXIT
+trap '[[ -n ${annot_file:-} ]] && rm -f "$annot_file"' EXIT
 
 # Constants
 readonly script_name="$(basename "$0")"
 readonly editor="${EDITOR:-vi}"
 
+usage() {
+    echo "Usage: $script_name task_id [annotation]"
+    echo "You can provide multiple IDs separated by commas and dashes."
+    exit 1
+}
+
 # Read arguments
-readonly id="${1:-}"
+[[ $# -eq 0 ]] && usage
+readonly id="$1"
 shift
 annot="$*"
 
 # Check arguments
-if [[ ! $id =~ ^[0-9a-f,-]+$ ]]; then
-    echo "Usage: $script_name task_id [annotation]"
-    echo "You can provide multiple IDs separated by commas and dashes."
-    exit 1
-fi
+[[ ! $id =~ ^[0-9a-f,-]+$ ]] && usage
 
 # Check if task ID exists
 if ! task info "$id" > /dev/null 2>&1; then
