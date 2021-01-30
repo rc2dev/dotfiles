@@ -3,6 +3,8 @@
 import os
 from ranger.core.loader import CommandLoader
 from ranger.api.commands import Command
+from ranger.ext import spawn
+from subprocess import CalledProcessError
 
 # Copied from https://wiki.archlinux.org/index.php/Ranger#Compression
 class compress(Command):
@@ -70,27 +72,30 @@ class take(Command):
             self.fm.notify("file/directory exists!", bad=True)
 
 
-# Copied from https://github.com/ranger/ranger/wiki/Custom-Commands
-# "Now, simply bind this function to a key: map <C-f> fzf_select"
+# Based on https://github.com/ranger/ranger/wiki/Custom-Commands
 class fzf_select(Command):
     """
     :fzf_select
 
-    Find a file using fzf.
+    Find a file in the repository root using fzf. If not in a repository, use the current directory.
 
     With a prefix argument select only directories.
-
-    See: https://github.com/junegunn/fzf
     """
     def execute(self):
         import subprocess
         import os.path
+
+        try:
+            dir_to_search=spawn.check_output("git rev-parse --show-cdup").strip()
+        except CalledProcessError:
+            dir_to_search="."
+
         if self.quantifier:
             # match only directories
-            command="eval $FD_DIRS | fzf +m"
+            command=f"{os.environ['FD_DIRS']} '{dir_to_search}' | fzf +m"
         else:
             # match files and directories
-            command="eval $FD_FILES | fzf +m"
+            command=f"{os.environ['FD_FILES']} '{dir_to_search}' | fzf +m"
         fzf = self.fm.execute_command(command, universal_newlines=True, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
