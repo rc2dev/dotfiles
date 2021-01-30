@@ -146,7 +146,6 @@ alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 & di
 # Easier commands
 alias cx="chmod +x"
 alias ex="atool --extract --each --"
-alias n="notes"
 alias o="xdg-open"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
@@ -157,6 +156,16 @@ if systemctl status kodi > /dev/null 2>&1; then
 	alias kr="sudo systemctl restart kodi"
 	alias ks="sudo systemctl stop kodi"
 fi
+
+# Notes
+alias n="notes"
+alias ndr="notes dr"
+alias nf="notes f"
+alias nj="notes j"
+alias njc="notes jc"
+alias njt="notes jt"
+alias nh="notes h"
+alias nr="notes r"
 
 # Taskwarrior
 alias t="task"
