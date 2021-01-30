@@ -78,9 +78,11 @@ alias hy="fc -ln -20 | fzf | xclip -selection clipboard"
 alias e="$EDITOR"
 alias ea="$EDITOR $ALIASES"
 alias eg="vim +'Files $HOME'"
-alias ep="$EDITOR ~/.zprofile"
+alias ep="vim +Files"
 alias ev="$EDITOR ~/.vimrc"
+alias exp="$EDITOR ~/.xprofile"
 alias ez="$EDITOR $ZDOTDIR/.zshrc"
+alias ezp="$EDITOR ~/.zprofile"
 
 # Browsing
 alias ..="cd .."
@@ -163,9 +165,9 @@ alias ndr="notes dr"
 alias nf="notes f"
 alias nj="notes j"
 alias njc="notes jc"
-alias njt="notes jt"
 alias nh="notes h"
 alias nr="notes r"
+alias nt="notes t"
 
 # Taskwarrior
 alias t="task"
