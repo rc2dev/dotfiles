@@ -50,8 +50,18 @@ try:
     descElements = soup.select('.noteHeading')
 
     texts = [elem.contents[0].strip() for elem in textElements]
-    types = [elem.contents[0][:-2].strip() for elem in descElements]
-    pages = [elem.contents[2][5:].strip() for elem in descElements]
+
+    # Parse descriptions
+    types = []
+    pages = []
+    for elem in descElements:
+        desc = ''.join(elem.strings).strip()
+        descWords = desc.split(' ')
+        the_type = descWords[0]
+        the_page = ' '.join(descWords[-2:])
+        types.append(the_type)
+        pages.append(the_page)
+
 except AttributeError as e:
     print(f'Error parsing file: {e}')
     exit(1)
