@@ -3,8 +3,9 @@
 # Launch webapps in Chromium browsers in app mode.
 # Features:
 # - Only allow one instance.
+# - Use separate profile if desired.
 #
-# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2020-2021 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
 set -euo pipefail
@@ -14,7 +15,15 @@ readonly browser="chromium"
 
 declare -Ar apps=(
   [euinc]="https://docs.google.com/spreadsheets/d/14uu321lifzWad1456NsA6FgS8febTf64zDtL2nu29Is/"
+  [messenger]="https://www.messenger.com/"
   [whatsapp]="https://web.whatsapp.com/"
+)
+
+# Empty for default
+declare -Ar profiles=(
+  [euinc]=""
+  [messenger]="fb"
+  [whatsapp]="fb"
 )
 
 usage() {
@@ -35,4 +44,10 @@ if wmctrl -xl | grep -q "$class"; then
   exit
 fi
 
-exec "$browser" --app="$url"
+readonly profile="${profiles[$app]:-}"
+if [[ -n $profile ]]; then
+  printf "Using separated profile: %s.\n" "$profile"
+  readonly opt="--user-data-dir=$HOME/.config/webapp/$browser/$profile"
+fi
+
+exec "$browser" ${opt:-} --app="$url"
