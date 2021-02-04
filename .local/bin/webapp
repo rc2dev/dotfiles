@@ -15,20 +15,21 @@ readonly browser="chromium"
 
 declare -Ar apps=(
   [euinc]="https://docs.google.com/spreadsheets/d/14uu321lifzWad1456NsA6FgS8febTf64zDtL2nu29Is/"
-  [messenger]="https://www.messenger.com/"
+  [messenger]="https://messenger.com/"
+  [twitter]="https://twitter.com/"
   [whatsapp]="https://web.whatsapp.com/"
 )
 
-# Empty for default
-declare -Ar profiles=(
-  [euinc]=""
-  [messenger]="fb"
-  [whatsapp]="fb"
+declare -Ar separate_profile=(
+  [euinc]=false
+  [messenger]=true
+  [twitter]=true
+  [whatsapp]=true
 )
 
 usage() {
   printf "Usage: %s [app]\n" "$script_name"
-  printf "Apps: %s\n" "${!apps[*]}"
+  printf "Apps: %s\n" "$(tr ' ' '\n' <<< ${!apps[*]} | sort | tr '\n' ' ')"
   exit 1
 }
 
@@ -44,10 +45,9 @@ if wmctrl -xl | grep -q "$class"; then
   exit
 fi
 
-readonly profile="${profiles[$app]:-}"
-if [[ -n $profile ]]; then
-  printf "Using separated profile: %s.\n" "$profile"
-  readonly opt="--user-data-dir=$HOME/.config/webapp/$browser/$profile"
+if ${separate_profile[$app]:-false}; then
+  printf "Using separated profile...\n"
+  readonly opt="--user-data-dir=$HOME/.config/webapp/$browser/$app"
 fi
 
 exec "$browser" ${opt:-} --app="$url"
