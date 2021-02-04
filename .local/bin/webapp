@@ -10,7 +10,7 @@
 set -euo pipefail
 
 readonly script_name="$(basename "$0")"
-readonly browser="x-www-browser"
+readonly browser="chromium"
 
 declare -Ar apps=(
   [euinc]="https://docs.google.com/spreadsheets/d/14uu321lifzWad1456NsA6FgS8febTf64zDtL2nu29Is/"

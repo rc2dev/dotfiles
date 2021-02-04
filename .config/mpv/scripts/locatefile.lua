@@ -11,7 +11,7 @@ function GetFileName(url)
 end
 
 -- for ubuntu
-url_browser_linux_cmd = "xdg-open \"$url\""
+url_browser_linux_cmd = "chromium \"$url\""
 file_browser_linux_cmd = "dbus-send --print-reply --dest=org.freedesktop.FileManager1 /org/freedesktop/FileManager1 org.freedesktop.FileManager1.ShowItems array:string:\"file:$path\" string:\"\""
 -- for macos
 url_browser_macos_cmd = "open \"$url\""
