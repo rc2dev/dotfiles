@@ -148,6 +148,7 @@ alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 & di
 # Easier commands
 alias cx="chmod +x"
 alias ex="atool --extract --each --"
+alias f="find . -iname"
 alias o="xdg-open"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
