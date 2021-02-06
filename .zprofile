@@ -94,7 +94,7 @@ export FZF_DEFAULT_OPTS="
 export MPD_HOST="192.168.15.101"
 
 # taskwarrior
-export TASKRC="$HOME/Sync/Apps/taskrc"
+export TASKRC="$HOME/Sync/Apps/Taskwarrior/taskrc"
 
 # z.lua
 # Move out from ~/
