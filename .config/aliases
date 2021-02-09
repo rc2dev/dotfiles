@@ -193,6 +193,7 @@ alias tl="task log"
 alias ty="task sync"
 alias t0="task limit:0"
 alias et="$EDITOR $TASKRC"
+alias tt="taskwarrior-tui"
 
 # journalctl
 alias jc="journalctl"
@@ -271,9 +272,6 @@ if [[ -n "$ZSH_VERSION" ]]; then
 	alias -g PIPE="|"
 	alias -g Y="| xclip -selection clipboard"
 	alias -g P="xclip -selection clipboard -out |"
-	# fzf
-	alias -g D='$(eval $FD_DIRS '$HOME' | fzf +m)'
-	alias -g DR='$(eval $FD_DIRS / | fzf +m)'
 fi
 
 # Termux overrides and additions
