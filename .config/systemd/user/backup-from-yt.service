@@ -1,0 +1,10 @@
+# Author: Rafael Cavalcanti - rafaelc.org
+
+[Unit]
+Description=Backup from yt
+After=network.target
+OnFailure=status-email@%n.service
+
+[Service]
+ExecStart=%h/Documents/Tech/Backups/bin/backup-from-yt
+Nice=19

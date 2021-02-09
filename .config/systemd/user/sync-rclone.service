@@ -1,0 +1,10 @@
+# Author: Rafael Cavalcanti - rafaelc.org
+
+[Unit]
+Description=Sync rclone
+After=network.target
+OnFailure=status-email@%n.service
+
+[Service]
+ExecStart=%h/Documents/Tech/Backups/bin/sync-rclone
+Nice=19

@@ -1,0 +1,12 @@
+# Author: Rafael Cavalcanti - rafaelc.org
+
+[Unit]
+Description=Run backup-from-pizero periodically
+
+[Timer]
+OnCalendar=*-*-* 00,12:00:00
+Persistent=true
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target
