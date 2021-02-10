@@ -54,7 +54,7 @@ fi
 alias history="history -i"
 
 # Shell
-alias c="cd && clear"
+alias c="builtin cd && clear"
 alias q="exit"
 alias :q="exit"
 alias x="exit"
