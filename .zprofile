@@ -74,8 +74,7 @@ export CM_OWN_CLIPBOARD=1
 # This makes history persistent across sessions
 export CM_DIR="$HOME/.cache"
 
-# cmus
-# Move configuration
+# cmus: Move configuration
 CMUS_HOME="$HOME/Documents/cmus"
 
 # fzf
@@ -90,18 +89,32 @@ export FZF_DEFAULT_OPTS="
 	--bind 'ctrl-y:execute-silent(echo {+} | xclip -selection clipboard)'
 "
 
+# less: Have less (and man) display colours
+# From: https://unix.stackexchange.com/a/329092 and
+#       https://wiki.archlinux.org/index.php/Color_output_in_console#man
+export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
+export LESS_TERMCAP_md=$'\e[1;33m'     # begin blink
+#export LESS_TERMCAP_so=$'\e[01;44;37m' # begin reverse video
+export LESS_TERMCAP_us=$'\e[01;37m'    # begin underline
+export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
+#export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
+export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
+export GROFF_NO_SGR=1                  # for konsole and gnome-terminals
+
+# man: Dsplay the percentage into the document
+export MANPAGER="less -s -M +Gg"
+
 # mpd
 export MPD_HOST="192.168.15.101"
 
 # taskwarrior
 export TASKRC="$HOME/Sync/Apps/Taskwarrior/taskrc"
 
-# z.lua
-# Move out from ~/
+# z.lua: Move out from ~/
 export _ZL_DATA="/home/rafael/.local/share/zlua"
 export RANGER_ZLUA="$HOME/.local/opt/z.lua/z.lua"
 
-# Zsh configuration
+# Zsh
 # Needed for last-working-dir plugin; and I use it in other places
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
 mkdir -p "$ZSH_CACHE_DIR"
