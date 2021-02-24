@@ -25,10 +25,7 @@ nnoremap <C-n> :Notes<CR>
 command! -nargs=0 Journal execute 'edit ' . s:journal_dir . '/' . strftime('%Y-%m-%d %H%M%S %z') . '.md'
 
 function NotesCommit()
-    " Workaround to set focus to the terminal
-    call timer_start(100, { -> execute( "wincmd w") })
-
-    term ++close bash -c "cd '%:p:h' && git add -A && EDITOR='vim -M' git commit -qv -em 'Auto-commit' && git push -q"
+    silent execute !bash -c "cd '%:p:h' && git add -A && git commit -qm 'Auto-commit' && git push -q"
 endfunction
 
 let g:notes_autocommit = 1
