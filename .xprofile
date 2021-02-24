@@ -22,7 +22,7 @@ fi
 # Basic utilities
 xsettingsd &
 dunst &
-wal -R &
+nitrogen --restore &
 redshift-gtk &
 compton --backend glx --paint-on-overlay --vsync opengl-swc &
 clipmenud &

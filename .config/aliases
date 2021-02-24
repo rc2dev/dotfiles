@@ -106,7 +106,6 @@ alias_z z8 ~/Documents/RN8\ Sync
 
 # ranger
 alias r="ranger"
-alias rw="ranger $WALLPAPERS"
 
 # z.lua
 alias zc="z -c"
