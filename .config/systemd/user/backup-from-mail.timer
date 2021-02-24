@@ -1,0 +1,12 @@
+# Author: Rafael Cavalcanti - rafaelc.org
+
+[Unit]
+Description=Run backup-from-mail periodically
+
+[Timer]
+OnCalendar=weekly
+Persistent=true
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target
