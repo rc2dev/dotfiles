@@ -119,6 +119,7 @@ z() {
 
 # Git
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
+alias gd1="git diff HEAD~"
 gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
 alias glo="git log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
 alias glon="glo --name-only"
