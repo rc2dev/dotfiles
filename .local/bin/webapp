@@ -16,14 +16,12 @@ readonly browser="chromium"
 declare -Ar apps=(
   [euinc]="https://docs.google.com/spreadsheets/d/14uu321lifzWad1456NsA6FgS8febTf64zDtL2nu29Is/"
   [messenger]="https://messenger.com/"
-  [twitter]="https://twitter.com/"
   [whatsapp]="https://web.whatsapp.com/"
 )
 
 declare -Ar separate_profile=(
   [euinc]=false
   [messenger]=true
-  [twitter]=true
   [whatsapp]=true
 )
 
