@@ -278,6 +278,10 @@ noremap Y y$
 " Clipboard operations
 set pastetoggle=<F2>
 
+" Replace line or selection with default register content
+nnoremap <Leader>p "_ddP
+vnoremap <LeadeR>p "_dP
+
 " Insert current date
 inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
 
