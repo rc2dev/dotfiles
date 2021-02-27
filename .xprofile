@@ -24,7 +24,7 @@ xsettingsd &
 dunst &
 nitrogen --restore &
 redshift-gtk &
-compton --backend glx --paint-on-overlay --vsync opengl-swc &
+compton &
 clipmenud &
 nm-applet &
 system-config-printer-applet &
