@@ -131,8 +131,8 @@ set directory=$HOME/.vim/swap//,.
 set viminfo+='1000,n~/.vim/viminfo
 
 " Run these commands whenever these files are updated
-autocmd BufWritePost dwmbar !dwmbar
-autocmd BufWritePost .xsettingsd !killall -HUP xsettingsd
+autocmd BufWritePost dwmbar silent !dwmbar
+autocmd BufWritePost .xsettingsd silent !killall -HUP xsettingsd
 autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
 
 " Set executable bit to scripts
