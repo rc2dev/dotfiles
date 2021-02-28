@@ -134,6 +134,7 @@ set viminfo+='1000,n~/.vim/viminfo
 autocmd BufWritePost dwmbar silent !dwmbar
 autocmd BufWritePost .xsettingsd silent !killall -HUP xsettingsd
 autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
+autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
 
 " Set executable bit to scripts
 autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile>
