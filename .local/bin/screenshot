@@ -20,6 +20,10 @@ set -euo pipefail
 readonly out_dir="$HOME/Pictures/Screenshots/"
 readonly out_file="${out_dir}/Screenshot from $(date +"%Y-%m-%d %H-%M-%S").png"
 
+notify() {
+  notify-send --urgency=low "Screenshot" "$*"
+}
+
 if [[ ! -d "$out_dir" ]]; then
   mkdir -p "$out_dir"
 fi
@@ -42,32 +46,32 @@ sleep 0.5
 case "$option" in
   "Full screen")
     maim "$out_file"
-    notify-send "Full screen screenshot saved."
+    notify "Full screen screenshot saved."
     ;;
   "Full screen (clipboard)")
     maim | xclip -selection clipboard -t image/png
-    notify-send "Full screen screenshot copied to clipboard."
+    notify "Full screen screenshot copied to clipboard."
     ;;
   "Full screen with 5s delay")
     sleep 5s
     maim "$out_file"
-    notify-send "Full screen screenshot saved."
+    notify "Full screen screenshot saved."
     ;;
   "Current window")
     maim -i "$(xdotool getactivewindow)" "$out_file"
-    notify-send "Window screenshot saved."
+    notify "Window screenshot saved."
     ;;
   "Current window (clipboard)")
     maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png
-    notify-send "Window screenshot copied to clipboard."
+    notify "Window screenshot copied to clipboard."
     ;;
   "Selection")
     maim -s "$out_file"
-    notify-send "Selection screenshot saved."
+    notify "Selection screenshot saved."
     ;;
   "Selection (clipboard)")
     maim -s | xclip -selection clipboard -t image/png
-    notify-send "Selection screenshot copied to clipboard."
+    notify "Selection screenshot copied to clipboard."
     ;;
   *)
     printf "Invalid option.\n"
