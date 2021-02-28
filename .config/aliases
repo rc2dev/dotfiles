@@ -41,11 +41,11 @@ alias less="less -R"
 
 # ls
 if command -v exa > /dev/null; then
-	CMD_LS="exa --color=always -aF --group-directories-first"
+	CMD_LS="exa --color=auto -aF --group-directories-first"
 	alias ls="$CMD_LS"
 	alias ll="ls -l --git"
 else
-	CMD_LS="ls --color=always -AF --group-directories-first"
+	CMD_LS="ls --color=auto -AF --group-directories-first"
 	alias ls="$CMD_LS"
 	alias ll="ls -l"
 fi
