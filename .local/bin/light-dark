@@ -118,7 +118,7 @@ toggle_xsettingsd() {
 	fi
 
 	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" ~/.xsettingsd
-	sed -i "s#^Net/IconThemeName .*\$#Net/IconThemeName \"$theme_new\"#" ~/.xsettingsd
+	sed -i "s#^Net/IconThemeName .*\$#Net/IconThemeName \"$icon_new\"#" ~/.xsettingsd
 
 	killall -HUP xsettingsd
 }
