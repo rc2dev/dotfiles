@@ -192,10 +192,13 @@ alias tp="task limit:page"
 alias tsa="task start"
 alias tso="task stop"
 alias tl="task log"
-alias ty="task sync"
+alias ts="task sync"
 alias t0="task limit:0"
 alias et="$EDITOR $TASKRC"
 alias tt="taskwarrior-tui"
+
+# Timewarrior
+alias ty="timew"
 
 # journalctl
 alias jc="journalctl"
