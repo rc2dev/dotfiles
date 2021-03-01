@@ -40,6 +40,9 @@ function NotesAutoCommitToggle()
     endif
 endfunction
 
+" Add command to toggle autocommit
+command! -nargs=0 NotesAutoCommitToggle call NotesAutoCommitToggle()
+
 " Copy file to resources and add markdown reference
 function NotesInsertFile(src)
     if ! filereadable(a:src)
@@ -81,10 +84,6 @@ augroup notes
 
     " Automatically open completion popup for tags
     execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' inoremap <buffer> @ @<C-x><C-k>'
-
-    " Add keybind for toggling auto-commit
-    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' nnoremap <F7> :call NotesAutoCommitToggle()<CR>'
-    execute 'autocmd BufNewFile,BufRead ' . s:notes_wildcard . ' inoremap <F7> <C-o>:call NotesAutoCommitToggle()<CR>'
 
     " Template for new notes
     execute 'autocmd BufNewFile ' . s:notes_wildcard ' Template *note'
