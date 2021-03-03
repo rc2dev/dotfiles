@@ -277,6 +277,11 @@ let mapleader="\<Space>"
 " For consistency with C and D
 noremap Y y$
 
+" Delete to black hole
+nnoremap <Leader>d "_d
+nnoremap <Leader>D "_D
+nnoremap <Leader>c "_c
+
 " Replace line or selection with default register content
 nnoremap <Leader>p "_ddP
 vnoremap <LeadeR>p "_dP
