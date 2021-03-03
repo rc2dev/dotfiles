@@ -25,7 +25,9 @@ nnoremap <C-n> :Notes<CR>
 command! -nargs=0 Journal execute 'edit ' . s:journal_dir . '/' . strftime('%Y-%m-%d %H%M%S %z') . '.md'
 
 function NotesCommit()
-    silent execute "!cd '" . s:notes_dir . "'; git add '%:p' && git add '" . s:resources_dir . "' && git commit -qm 'Auto-commit' && git push -q"
+    " Redirect git commit output, as it prints output if there is nothing to
+    " commit, even with -q.
+    silent execute "!cd '" . s:notes_dir . "'; git add '%:p' && git add '" . s:resources_dir . "' && git commit -qm 'Auto-commit' >/dev/null 2>&1 && git push -q"
 endfunction
 
 let g:notes_autocommit = 1
