@@ -45,20 +45,20 @@ except OSError as e:
 soup = BeautifulSoup(file_content, 'html.parser')
 
 try:
-    bookTitle = soup.select_one('.bookTitle').contents[0].strip()
-    textElements = soup.select('.noteText')
-    descElements = soup.select('.noteHeading')
+    book_title = soup.select_one('.bookTitle').contents[0].strip()
+    text_elements = soup.select('.noteText')
+    desc_elements = soup.select('.noteHeading')
 
-    texts = [elem.contents[0].strip() for elem in textElements]
+    texts = [elem.contents[0].strip() for elem in text_elements]
 
     # Parse descriptions
     types = []
     pages = []
-    for elem in descElements:
+    for elem in desc_elements:
         desc = ''.join(elem.strings).strip()
-        descWords = desc.split(' ')
-        the_type = descWords[0]
-        the_page = ' '.join(descWords[-2:])
+        desc_words = desc.split(' ')
+        the_type = desc_words[0]
+        the_page = ' '.join(desc_words[-2:])
         types.append(the_type)
         pages.append(the_page)
 
@@ -66,7 +66,7 @@ except AttributeError as e:
     print(f'Error parsing file: {e}')
     exit(1)
 
-output = f'# {bookTitle}\n\n'
+output = f'# {book_title}\n\n'
 for i in range(len(texts)):
     output += f'- {texts[i]}\n'
     output += f'\t{types[i]} @ {pages[i]}\n'
