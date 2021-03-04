@@ -14,3 +14,8 @@ if has_changed .vimrc; then
   # For some reason, PlugInstall doesn't proceed with GIT_DIR set.
   (unset GIT_DIR && vim +PlugInstall +PlugClean! +qa! >/dev/tty </dev/tty)
 fi
+
+if has_changed yadm/bootstrap; then
+  echo "[Hook] yadm's bootstrap changed: Running it again..."
+  yadm bootstrap
+fi
