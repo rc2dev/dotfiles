@@ -16,6 +16,7 @@ main() {
 
   log "Adding repository config..."
   yadm gitconfig include.path ~/.config/yadm/gitconfig
+  yadm gitconfig core.hooksPath ~/.config/yadm/hooks-git
 
   log "Installing VIM plugins..."
   vim +PlugInstall +qa!

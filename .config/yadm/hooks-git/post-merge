@@ -1,0 +1,16 @@
+#!/bin/sh
+# Author: Rafael Cavalcanti
+# Git hook to run a command after `git merge` / `git pull` if a specified file was changed.
+
+readonly changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+
+has_changed() {
+  echo "$changed_files" | grep --quiet -E "$1"
+}
+
+# Update VIM plugins
+if has_changed .vimrc; then
+  echo "[Hook] vimrc changed: Installing/cleaning VIM plugins..."
+  # For some reason, PlugInstall doesn't proceed with GIT_DIR set.
+  (unset GIT_DIR && vim +PlugInstall +PlugClean! +qa! >/dev/tty </dev/tty)
+fi
