@@ -85,6 +85,7 @@ export FZF_DEFAULT_OPTS="
 	--layout=reverse
 	--height 40%
 	--multi
+	--bind 'change:top'
 	--bind 'ctrl-a:select-all'
 	--bind 'ctrl-y:execute-silent(echo {+} | xclip -selection clipboard)'
 "
