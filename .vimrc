@@ -279,12 +279,17 @@ noremap Y y$
 
 " Delete to black hole
 nnoremap <Leader>d "_d
+vnoremap <Leader>d "_d
 nnoremap <Leader>D "_D
+nnoremap <LeadeR>x "_x
 nnoremap <Leader>c "_c
+vnoremap <Leader>c "_c
+nnoremap <Leader>C "_C
+nnoremap <LeadeR>x "_x
 
 " Replace line or selection with default register content
 nnoremap <Leader>p "_ddP
-vnoremap <LeadeR>p "_dP
+vnoremap <Leader>p "_dP
 
 " Insert current date
 inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
