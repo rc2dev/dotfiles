@@ -20,7 +20,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'aperezdc/vim-template'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'tpope/vim-fugitive'
