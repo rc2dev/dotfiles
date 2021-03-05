@@ -352,6 +352,10 @@ cmap sv :so ~/.vimrc
 
 " Plugins
 nnoremap <Leader>gs :Gstatus<CR>
+" NERDCommenter
+" Disable default mappings and add mine
+let g:NERDCreateDefaultMappings = 0
+map <leader>; <plug>NERDCommenterToggle
 " thesaurus_query
 " Disable keymappings and set my own
 let g:tq_map_keys = 0
