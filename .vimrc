@@ -270,8 +270,11 @@ endif
 let g:rooter_silent_chdir = 1
 
 " local_vimrc
+" Add $NOTES to the whitelist
 call lh#local_vimrc#munge('whitelist', resolve($NOTES).'/..')
-
+" Remove $HOME from the asklist and add it to the blacklist
+call lh#local_vimrc#filter_list('asklist', 'v:val != $HOME')
+call lh#local_vimrc#munge('blacklist', $HOME)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
