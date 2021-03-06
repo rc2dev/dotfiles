@@ -15,7 +15,7 @@ has_changed() {
 if has_changed .vimrc; then
   echo "\n[Hook] vimrc changed: Installing/cleaning VIM plugins..."
   # For some reason, PlugInstall doesn't proceed with GIT_DIR set.
-  (unset GIT_DIR && vim +PlugInstall +PlugClean! +qa! >/dev/tty </dev/tty)
+  (unset GIT_DIR && vim +PlugInstall +PlugClean! +qa!)
 fi
 
 if has_changed yadm/bootstrap; then
