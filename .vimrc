@@ -32,6 +32,8 @@ Plug 'ferrine/md-img-paste.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'airblade/vim-rooter'
+Plug 'LucHermitte/lh-vim-lib'                       " Dependency for local_vimrc
+Plug 'LucHermitte/local_vimrc'
 if $SLOW_HOST != '1'
     Plug 'vim-airline/vim-airline'
     set noshowmode                                  " Don't show modes below status line (redundant to Airline)
@@ -266,6 +268,9 @@ endif
 
 " rooter
 let g:rooter_silent_chdir = 1
+
+" local_vimrc
+call lh#local_vimrc#munge('whitelist', resolve($NOTES).'/..')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
