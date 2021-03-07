@@ -9,6 +9,7 @@ readonly options="$(cat <<-END
 	♫ Music#--no-keep-open https://www.youtube.com/playlist?list=PLG0ys6U09lfmgmxd8gw7fRbGzENTcaCE-
 	♫ Music - Watch later#https://www.youtube.com/playlist?list=PLG0ys6U09lfnE3SbOnT_BV4NSo2O9xZ90
 	♫ Music - HDex#https://www.youtube.com/playlist?list=PLG0ys6U09lfk8yQNjZmfc_IgjyBu71dfi
+	 CC#https://www.youtube.com/playlist?list=PLG0ys6U09lfnC0103-nm77pcfPuldFfE7
 END
 )"
 
