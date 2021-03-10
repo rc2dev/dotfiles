@@ -4,8 +4,8 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-readonly color_bg_normal="#730a0a"
-readonly color_bg_selected="#c20000"
+readonly bg_normal="#730a0a"
+readonly bg_selected="#c20000"
 
 readonly options="$(cat <<-END
 	Htop#$TERMINAL -e htop
@@ -20,7 +20,10 @@ readonly options="$(cat <<-END
 END
 )"
 
-readonly chosen="$(cut -d# -f1 <(printf "%s" "$options") | dmenu -p "Power menu:" -nb "$color_bg_normal" -sb "$color_bg_selected" "$@")"
+readonly chosen="$(
+	cut -d# -f1 <(printf "%s" "$options") |
+	dmenu -p "Power menu:" -nb "$bg_normal" -sb "$bg_selected" -nhb "$bg_normal" -shb "$bg_selected" "$@"
+)"
 [[ -z "$chosen" ]] && exit
 
 readonly cmd="$(grep "$chosen" <(printf "%s" "$options") | cut -d# -f2)"
