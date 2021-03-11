@@ -111,9 +111,6 @@ export MPD_HOST="192.168.15.101"
 # taskwarrior
 export TASKRC="$HOME/Sync/Apps/Taskwarrior/taskrc"
 
-# timewarrior
-export TIMEWARRIORDB="$HOME/Documents/Timewarrior"
-
 # z.lua: Move out from ~/
 export _ZL_DATA="/home/rafael/.local/share/zlua"
 export RANGER_ZLUA="$HOME/.local/opt/z.lua/z.lua"
