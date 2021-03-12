@@ -225,6 +225,9 @@ if command -v apt > /dev/null; then
 	alias aw="apt show"
 fi
 
+# Use bat if available
+command -v bat >/dev/null && alias cat="bat"
+
 # TV and HDMI output
 tv_off="echo 'standby 0' | cec-client -s"
 tv_on="echo 'on 0' | cec-client -s"
