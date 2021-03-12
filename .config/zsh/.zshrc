@@ -112,7 +112,6 @@ source "$ZDOTDIR/antigen/antigen.zsh"
 # Bundles from the default repo (robbyrussell's oh-my-zsh)
 antigen bundle command-not-found
 antigen bundle git
-antigen bundle last-working-dir
 antigen bundle systemd
 
 # Other bundles
