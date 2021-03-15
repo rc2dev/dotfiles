@@ -312,10 +312,9 @@ autocmd FileType markdown inoremap <F5> <C-o>:MarkdownPreview<CR>
 nnoremap <F6> :setlocal spell!<CR>
 inoremap <F6> <C-o>:setlocal spell!<CR>
 
-" Save and quit
+" Save or quit
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>x :x<CR>
 
 " Avoid unintentional switch to Ex mode
 nmap Q <nop>
