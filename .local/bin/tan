@@ -45,7 +45,8 @@ if [[ -n "$annot" ]]; then
 fi
 
 # Use annotation from editor
-readonly annot_file="$(mktemp)"
+# Add file extension to get syntax highlighting
+readonly annot_file="$(mktemp).md"
 $editor "$annot_file"
 
 if [[ "$(wc -l "$annot_file" | cut -d ' ' -f 1)" -gt 1 ]]; then
