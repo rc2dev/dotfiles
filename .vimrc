@@ -73,9 +73,6 @@ set nofoldenable                                    " Don't fold on opening file
 set cursorline                                      " Highlight current line
 " Show tabs and trailing spaces
 set list listchars=tab:→\ ,trail:·
-" netrw: Hide dotfiles by default
-let ghregex='\(^\|\s\s\)\zs\.\S\+'
-let g:netrw_list_hide=ghregex
 
 augroup appearance
     " Resize splits automatically if VIM is resized
