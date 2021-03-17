@@ -70,19 +70,17 @@ set linebreak                                       " More inteligent wrapping (
 set scrolloff=10                                    " Minimum lines below cursor
 set showmatch                                       " Show matching brackets
 set nofoldenable                                    " Don't fold on opening file
+set cursorline                                      " Highlight current line
 " Show tabs and trailing spaces
 set list listchars=tab:→\ ,trail:·
-" Highlight current line
-set cursorline
-augroup appearance
-    " Only highlight current line in normal mode
-    autocmd InsertEnter,InsertLeave * set cursorline!
-    " Resize splits automatically if VIM is resized
-    autocmd VimResized * execute "normal! \<C-w>="
-augroup END
 " netrw: Hide dotfiles by default
 let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide=ghregex
+
+augroup appearance
+    " Resize splits automatically if VIM is resized
+    autocmd VimResized * execute "normal! \<C-w>="
+augroup END
 
 function! EnableTransparency()
     " Don't do it on gvim or it will get messed up
