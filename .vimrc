@@ -72,9 +72,14 @@ set showmatch                                       " Show matching brackets
 set nofoldenable                                    " Don't fold on opening file
 " Show tabs and trailing spaces
 set list listchars=tab:→\ ,trail:·
-" Highlight current line in normal mode
+" Highlight current line
 set cursorline
-autocmd InsertEnter,InsertLeave * set cursorline!
+augroup appearance
+    " Only highlight current line in normal mode
+    autocmd InsertEnter,InsertLeave * set cursorline!
+    " Resize splits automatically if VIM is resized
+    autocmd VimResized * execute "normal! \<C-w>="
+augroup END
 " netrw: Hide dotfiles by default
 let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide=ghregex
