@@ -342,6 +342,11 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
+# Reload dwmbar when Spotify song changes.
+[spotify]
+    appname = "Spotify"
+    script = "dwmbar"
+
 # Disable the transient hint so that idle_threshold cannot be bypassed from the
 # client
 #[transient_disable]
