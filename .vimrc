@@ -121,10 +121,6 @@ set wildmode=longest:full,full                      " First tab to complete long
 " Completion menu
 set completeopt=longest,menu                        " Don't select first item, but longest common
 
-" Open quickfix automatically (for shellcheck)
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost l* nested lwindow
-
 " Put swap files in one directory. Fallback to working dir.
 silent !mkdir -p ~/.vim/swap
 set directory=$HOME/.vim/swap//,.
@@ -132,15 +128,21 @@ set directory=$HOME/.vim/swap//,.
 " Move ~/.viminfo to ~/.vim
 set viminfo+='1000,n~/.vim/viminfo
 
-" Run these commands whenever these files are updated
-autocmd BufWritePost dwmbar silent !dwmbar
-autocmd BufWritePost .xsettingsd silent !killall -HUP xsettingsd
-autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
-autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
+augroup behaviour
+    " Open quickfix automatically (for shellcheck)
+    autocmd QuickFixCmdPost [^l]* nested cwindow
+    autocmd QuickFixCmdPost l* nested lwindow
 
-" Set executable bit to scripts
-autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile>
-autocmd BufWritePost * endif                       " Workaround, putting this in above line would prevent next autocmds to run
+    " Run these commands whenever these files are updated
+    autocmd BufWritePost dwmbar silent !dwmbar
+    autocmd BufWritePost .xsettingsd silent !killall -HUP xsettingsd
+    autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
+    autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
+
+    " Set executable bit to scripts
+    autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile>
+    autocmd BufWritePost * endif " Workaround, putting this in above line would prevent next autocmds to run
+augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -275,6 +277,7 @@ call lh#local_vimrc#munge('whitelist', resolve($NOTES).'/..')
 " Remove $HOME from the asklist and add it to the blacklist
 call lh#local_vimrc#filter_list('asklist', 'v:val != $HOME')
 call lh#local_vimrc#munge('blacklist', $HOME)
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
