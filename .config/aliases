@@ -198,13 +198,15 @@ alias et="$EDITOR $TASKRC"
 alias tt="taskwarrior-tui"
 
 # Timewarrior
-alias i="ssh piz timew"
-alias is="ssh piz timew summary"
-alias isw="ssh piz timew summary :week"
-alias ism="ssh piz timew summary :month"
-alias isa="ssh piz timew start"
-alias iso="ssh piz timew stop"
-alias ico="ssh piz timew continue"
+alias timew="ssh piz timew :color"
+alias i="timew"
+alias ist="timew summary"
+alias isy="timew summary :yesterday"
+alias isw="timew summary :week"
+alias ism="timew summary :month"
+alias isa="timew start"
+alias iso="timew stop"
+alias ico="timew continue"
 
 # journalctl
 alias jc="journalctl"
