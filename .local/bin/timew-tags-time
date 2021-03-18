@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Print total time elapsed for each tag on Timewarrior.
+#
+# By default it uses :day as the period. Any argument will be passed to
+# timewarrior and erase this default.
+#
+# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly timew_cmd="ssh piz timew :color"
+
+if [[ $# -eq 0 ]]; then
+  opts=":day"
+else
+  opts=("$@")
+fi
+
+readonly tags="$($timew_cmd tags | tail -n +4 | awk '{print $1}')"
+
+printf "Total time spent:\n\n"
+
+for tag in $tags; do
+  printf "%-12s %s\n" "$tag" "$($timew_cmd summary ${opts[*]} "$tag" | tail -2 | awk '(NR==1){print $1}' | sed 's/No/0/')"
+done | sort -k 2 -r
