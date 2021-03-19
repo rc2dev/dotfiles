@@ -365,6 +365,7 @@ cmap w!! w !sudo tee % > /dev/null
 command Sv :so ~/.vimrc
 
 " Plugins
+" vim-fugitive
 nnoremap <Leader>gs :Gstatus<CR>
 " NERDCommenter
 " Disable default mappings and add mine
@@ -375,9 +376,11 @@ map <leader>; <plug>NERDCommenterToggle
 let g:tq_map_keys = 0
 nnoremap <Leader>ct :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>ct y:ThesaurusQueryReplace <C-r>"<CR>
+" fzf.vim
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-g> :Files $HOME<CR>
 nnoremap <silent> <C-f> :Rg<CR>
+" Goyo
 " Disabling transparency using GoyoEnter causes some borders to show.
 " Disabling it here instead is a workaround.
 nnoremap <F12> :call DisableTransparency()<CR>:Goyo<CR>
