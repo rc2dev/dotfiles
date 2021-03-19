@@ -362,7 +362,7 @@ nnoremap <Leader>o <C-w>o
 
 " Save as root and source ~/.vimrc
 cmap w!! w !sudo tee % > /dev/null
-cmap sv :so ~/.vimrc
+command Sv :so ~/.vimrc
 
 " Plugins
 nnoremap <Leader>gs :Gstatus<CR>
