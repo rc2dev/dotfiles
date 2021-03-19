@@ -14,11 +14,6 @@ readonly host=$(printf "%s\n" "${hosts[@]}" | dmenu -p "host:" "$@")
 readonly cmd=$(printf "%s\n%s\n" ssh vnc | dmenu -p "connection:" "$@")
 [[ -z "$cmd" ]] && exit
 
-case $cmd in
-  ssh)
-    exec $TERMINAL -e $cmd $host
-    ;;
-  *)
-    exec $cmd $host
-    ;;
-esac
+# Also use terminal for vnc, so new fingerprint can be accepted.
+# With WM swallowing, this doesn't create a additional window.
+exec $TERMINAL -e $cmd $host
