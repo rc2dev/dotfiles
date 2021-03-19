@@ -133,6 +133,9 @@ augroup behaviour
     autocmd QuickFixCmdPost [^l]* nested cwindow
     autocmd QuickFixCmdPost l* nested lwindow
 
+    " Filter temporary commit files from :oldfiles and :History
+    autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "COMMIT_EDITMSG"')
+
     " Run these commands whenever these files are updated
     autocmd BufWritePost dwmbar silent !dwmbar
     autocmd BufWritePost .xsettingsd silent !killall -HUP xsettingsd
@@ -143,6 +146,7 @@ augroup behaviour
     autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile>
     autocmd BufWritePost * endif " Workaround, putting this in above line would prevent next autocmds to run
 augroup END
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
