@@ -76,15 +76,20 @@ bar_currency() {
 
   mkdir -p "$cache_dir"
   if [[ ! -e $cache || $(($(date +%s) - $(date +%s -r "$cache"))) -gt $interval ]]; then
-    value="$(curl -s rate.sx/"$currency" | awk '/end:/{ print $8}')"
+    value="$(curl -s rate.sx/"$currency" | awk '/end:/{ print $8 }')"
+    value="${value#$}"
     echo "$value" > "$cache"
   else
     value="$(cat "$cache")"
   fi
 
-  echo "$currency: $value"
+  echo "$value"
 }
 
 
-xsetroot -name " $(bar_player)$(bar_currency BTC) ${sep} $(bar_currency ETH) ${sep} $(bar_currency BAT) ${sep} $(bar_vol) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
+bar_crypto() {
+  echo " $(bar_currency BTC) $(bar_currency ETH) $(bar_currency BAT)"
+}
+
+xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_crypto) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
 
