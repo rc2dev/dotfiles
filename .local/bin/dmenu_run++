@@ -18,7 +18,7 @@ touch "$cache"
 
 readonly most_used=$(sort "$cache" | uniq -c | sed -e 's/^ *//;s/ /,/' | sort -rn | cut -d, -f2-)
 readonly all_cmds="$(compgen -ac | sort | uniq)"
-readonly pol_cmds="$(ls -1 "$pol_shortcuts" | sed -e 's/^/pol:/')"
+[[ -d "$pol_shortcuts" ]] && readonly pol_cmds="$(ls -1 "$pol_shortcuts" | sed -e 's/^/pol:/')"
 readonly run=$( (echo "$most_used"; (echo "$all_cmds"; echo "$pol_cmds") | grep -vxF "$most_used") | dmenu "$@")
 ([ -z "$run" ] || echo "$run"; head -n 99 "$cache") > "$cache.$$"
 mv -f "$cache.$$" "$cache"
