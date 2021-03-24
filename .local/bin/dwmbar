@@ -91,5 +91,13 @@ bar_crypto() {
   echo " $(bar_currency BTC) $(bar_currency ETH) $(bar_currency BAT)"
 }
 
-xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_crypto) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
+bar_timew() {
+  local -r status="$(ssh piz timew)"
+
+  if [[ $(wc -l <<< "$status") -gt 1 ]]; then
+    local -r tag="$(head -1 <<< "$status" | cut -f2- -d' ')"
+    echo "🖍️ $tag $sep "
+  fi
+}
+xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_timew)$(bar_crypto) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
 
