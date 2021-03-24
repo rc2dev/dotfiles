@@ -199,7 +199,6 @@ alias et="$EDITOR $TASKRC"
 alias tt="taskwarrior-tui"
 
 # Timewarrior
-alias timew="ssh piz timew :color"
 alias i="timew"
 alias ico="timew continue"
 alias ijo="timew join"

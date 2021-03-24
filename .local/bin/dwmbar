@@ -92,7 +92,8 @@ bar_crypto() {
 }
 
 bar_timew() {
-  local -r status="$(ssh piz timew)"
+  # --skip-dwmbar or we'll get into an infinite loop
+  local -r status="$(timew --skip-dwmbar)"
 
   if [[ $(wc -l <<< "$status") -gt 1 ]]; then
     local -r tag="$(head -1 <<< "$status" | cut -f2- -d' ')"

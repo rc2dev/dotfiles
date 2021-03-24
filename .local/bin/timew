@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# Timewarrior wrapper. Features:
+# - Call it on the right server.
+# - Update dwmbar.
+#
+# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+readonly host="piz"
+
+[[ "$1" == "--skip-dwmbar" ]] && readonly skip_dwmbar=1 && shift
+
+# :color forces color on, since this ssh command won’t allocate a tty.
+ssh "$host" timew :color "$@"
+
+# Update dwmbar
+[[ $XDG_SESSION_DESKTOP == dwm && ! $skip_dwmbar == 1 ]] && dwmbar
