@@ -29,7 +29,7 @@ bar_vol() {
 }
 
 bar_player() {
-  local -r status="$(playerctl status)"
+  local -r status="$(playerctl status 2>/dev/null)"
 
   [[ "$status" =~ (Playing|Paused) ]] || return 0
 
