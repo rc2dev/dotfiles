@@ -55,5 +55,10 @@ else
     annot="$(cat "$annot_file")"
 fi
 
-task $filter annotate "$annot"
+# Print annotation if error saving, otherwise the user will lose it
+if ! task $filter annotate "$annot"; then
+    echo "Error annotating task. Here is your annotation:"
+    echo
+    echo "$annot"
+fi
 
