@@ -164,6 +164,7 @@ fi
 
 # Notes
 alias n="notes"
+alias nd="notes d"
 alias ndr="notes dr"
 alias nf="notes f"
 alias nj="notes j"
