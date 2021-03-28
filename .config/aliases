@@ -217,6 +217,8 @@ alias isa="timew start"
 alias iso="timew stop"
 alias it="timew tags"
 alias itr="timew track"
+alias it="timew report totals"
+alias itlw="timew report totals :lastweek"
 alias itt="timew report totals :day"
 alias itm="timew report totals :month"
 alias itw="timew report totals :week"
@@ -284,10 +286,6 @@ ytl() { youtube-dl --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/"
 
 # Download only subtitles
 alias ytsub="youtube-dl --all-subs --skip-download"
-
-# Download videos from clipboard
-# echo adds a cosmetic breakline in the tty
-alias ytp="(xclip -selection clipboard -out; echo) | vipe | tee /dev/tty | xargs -n1 -P5 -I_arg sh -c \"youtube-dl '_arg' || echo '_arg' | ts >> ~/Downloads/ydl_failed_urls.txt\""
 
 # Backup vcn
 # Use single quotes so date is defined upon use.
