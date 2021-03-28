@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 #
-# dmenu script for choosing application to open URL.
-#
-# URLs are passed as arguments. With no arguments, urls are retrieved from
-# clipboard.
+# dmenu script for choosing application to open URLs from clipboard.
 #
 # Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
@@ -11,12 +8,7 @@
 readonly term="$TERMINAL"
 readonly term_class="sys"
 
-if [[ $# -eq 0 ]]; then
-	printf "No arguments provided. Getting urls from clipboard.\n"
-	declare -ar urls=($(xclip -out -selection clipboard))
-else
-	declare -ar urls=("$@")
-fi
+declare -ar urls=($(xclip -out -selection clipboard))
 
 declare -Ar options=(
 	["youtube-dl"]="ydl"
