@@ -5,7 +5,8 @@
 # URLs are passed as arguments. With no arguments, urls are retrieved from
 # clipboard.
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
 
 readonly term="$TERMINAL"
 readonly term_class="sys"
@@ -49,7 +50,9 @@ ydl() {
 
 }
 
-readonly chosen="$(printf "%s\n" "${!options[@]}" | sort | dmenu -p "Open url:" -l 4 -g 4)"
+readonly urls_str="${urls[*]}"
+readonly prompt="Open ${#urls[@]}: ${urls_str::30}..."
+readonly chosen="$(printf "%s\n" "${!options[@]}" | sort | dmenu -p "$prompt" -l 4 -g 4)"
 [[ -z "$chosen" ]] && exit
 
 readonly cmd="${options["$chosen"]}"
