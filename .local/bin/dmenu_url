@@ -41,9 +41,9 @@ ydl() {
 		trap '\''echo $(date +"%b %d %H:%M:%S") $@ >> ~/ydl_errors.log'\'' ERR
 
 		mkdir -p ~/Downloads && cd ~/Downloads
-		echo "Downloading these URLs:"
-		echo "$@"
-		echo
+		printf "Downloading these URLs:\n"
+		printf "%s\n" "$@"
+		printf
 
 		youtube-dl '$opts' "$@"
 	' --	"${urls[@]}"
