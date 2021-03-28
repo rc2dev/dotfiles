@@ -10,6 +10,7 @@ key_bindings:
   - { key: Y, mods: Alt, action: Copy }
   - { key: P, mods: Alt, action: Paste }
   - { key: F, mods: Alt, action: SearchForward }
+  - { key: Return, mods: Alt, action: SpawnNewInstance }
   - { key: Escape, mods: Alt, action: ToggleViMode }
   - { key: I, mods: Alt, action: ToggleViMode }
 
