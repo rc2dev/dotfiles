@@ -13,7 +13,7 @@ readonly term_class="sys"
 
 if [[ $# -eq 0 ]]; then
 	printf "No arguments provided. Getting urls from clipboard.\n"
-	declare -ar urls=("$(xclip -out -selection clipboard)")
+	declare -ar urls=($(xclip -out -selection clipboard))
 else
 	declare -ar urls=("$@")
 fi
