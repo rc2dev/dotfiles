@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+#
+# dmenu script for choosing application to open URL.
+#
+# URLs are passed as arguments. With no arguments, urls are retrieved from
+# clipboard.
+#
+# Author: Rafael Cavalcanti - rafaelc.org
+
+readonly term="$TERMINAL"
+readonly term_class="sys"
+
+if [[ $# -eq 0 ]]; then
+	printf "No arguments provided. Getting urls from clipboard.\n"
+	declare -ar urls=("$(xclip -out -selection clipboard)")
+else
+	declare -ar urls=("$@")
+fi
+
+declare -Ar options=(
+	["youtube-dl"]="ydl"
+	["youtube-dl (audio)"]="ydl -x"
+	["mpv"]="mpv"
+	["umpv"]="umpv"
+	["myt (queue)"]="myt --queue"
+	["myt (play now)"]="myt --play-now"
+	["Brave"]="brave-browser"
+	["Brave (incognito)"]="brave-browser --incognito"
+	["Chromium"]="chromium"
+	["Chromium (incognito)"]="chromium --incognito"
+	["Chromium temporary profile"]="chromium --temp-profile"
+	["Firefox"]="firefox"
+	["Firefox (private window)"]="firefox --private-window"
+)
+
+ydl() {
+	local -r opts="$1"
+
+	$term --class "$term_class" -e bash -c '
+		trap '\''echo $(date +"%b %d %H:%M:%S") $@ >> ~/ydl_errors.log'\'' ERR
+
+		mkdir -p ~/Downloads && cd ~/Downloads
+		echo "Downloading these URLs:"
+		echo "$@"
+		echo
+
+		youtube-dl '$opts' "$@"
+	' --	"${urls[@]}"
+
+}
+
+readonly chosen="$(printf "%s\n" "${!options[@]}" | sort | dmenu -p "Open url:" -l 4 -g 4)"
+[[ -z "$chosen" ]] && exit
+
+readonly cmd="${options["$chosen"]}"
+$cmd "${urls[@]}"
+
