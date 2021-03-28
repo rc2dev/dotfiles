@@ -40,8 +40,9 @@ ydl() {
 }
 
 declare -a urls=()
+readonly url_regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
 while read -r url; do
-	[[ ! $url == http* ]] && continue
+	[[ ! $url =~ $url_regex ]] && continue
 	urls+=("$url")
 done < <(xclip -out -selection clipboard && printf '\n')
 
