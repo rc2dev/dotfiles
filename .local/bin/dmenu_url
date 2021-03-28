@@ -8,8 +8,6 @@
 readonly term="$TERMINAL"
 readonly term_class="sys"
 
-declare -ar urls=($(xclip -out -selection clipboard))
-
 declare -Ar options=(
 	["youtube-dl"]="ydl"
 	["youtube-dl (audio)"]="ydl -x"
@@ -39,8 +37,18 @@ ydl() {
 
 		youtube-dl '$opts' "$@"
 	' --	"${urls[@]}"
-
 }
+
+declare -a urls=()
+while read -r url; do
+	[[ ! $url == http* ]] && continue
+	urls+=("$url")
+done < <(xclip -out -selection clipboard && printf '\n')
+
+if [[ ${#urls[@]} -eq 0 ]]; then
+	notify-send "dmenu" "No URLs on clipboard."
+	exit
+fi
 
 readonly urls_str="${urls[*]}"
 readonly prompt="Open ${#urls[@]}: ${urls_str::30}..."
