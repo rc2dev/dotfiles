@@ -39,12 +39,12 @@ ydl() {
 	' --	"${urls[@]}"
 }
 
+declare -ar clipboard=($(xclip -out -selection clipboard))
 declare -a urls=()
 readonly url_regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
-while read -r url; do
-	[[ ! $url =~ $url_regex ]] && continue
-	urls+=("$url")
-done < <(xclip -out -selection clipboard && printf '\n')
+for url in "${clipboard[@]}"; do
+	[[ $url =~ $url_regex ]] && urls+=("$url")
+done
 
 if [[ ${#urls[@]} -eq 0 ]]; then
 	notify-send "dmenu" "No URLs on clipboard."
