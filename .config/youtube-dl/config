@@ -11,3 +11,6 @@
 
 # Download and embed subs
 --embed-subs --all-subs
+
+# Truncate long file names to avoid filesystem error
+--output '%(title).150s-%(id)s.%(ext)s'
