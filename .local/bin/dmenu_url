@@ -7,6 +7,7 @@
 
 readonly term="$TERMINAL"
 readonly term_class="sys"
+readonly browser="x-www-browser"
 
 declare -Ar options=(
 	["youtube-dl"]="ydl"
@@ -15,6 +16,7 @@ declare -Ar options=(
 	["umpv"]="umpv"
 	["myt (queue)"]="myt --queue"
 	["myt (play now)"]="myt --play-now"
+	["Wallabag it"]="wallabag"
 	["Brave"]="brave-browser"
 	["Brave (incognito)"]="brave-browser --incognito"
 	["Chromium"]="chromium"
@@ -37,6 +39,32 @@ ydl() {
 
 		youtube-dl '$opts' "$@"
 	' --	"${urls[@]}"
+}
+
+wallabag() {
+	for url in ${urls[@]}; do
+		encoded_url="$(encode_url "$url")"
+		$browser "http://192.168.15.102/bookmarklet?url=$encoded_url"
+	done
+}
+
+# Copied from https://gist.github.com/cdown/1163649
+encode_url() {
+    # urlencode <string>
+
+    old_lc_collate=$LC_COLLATE
+    LC_COLLATE=C
+
+    local length="${#1}"
+    for (( i = 0; i < length; i++ )); do
+        local c="${1:$i:1}"
+        case $c in
+            [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
+            *) printf '%%%02X' "'$c" ;;
+        esac
+    done
+
+    LC_COLLATE=$old_lc_collate
 }
 
 declare -ar clipboard=($(xclip -out -selection clipboard))
