@@ -23,7 +23,7 @@ declare -Ar options=(
 	["Chromium (incognito)"]="chromium --incognito"
 	["Chromium temporary profile"]="chromium --temp-profile"
 	["Firefox"]="firefox"
-	["Firefox (private window)"]="firefox --private-window"
+	["Firefox (private window)"]="firefox_private"
 )
 
 ydl() {
@@ -39,6 +39,13 @@ ydl() {
 
 		youtube-dl '$opts' "$@"
 	' --	"${urls[@]}"
+}
+
+firefox_private() {
+	for url in ${urls[@]}; do
+		firefox -private-window "$url" &
+		sleep 1s
+	done
 }
 
 wallabag() {
