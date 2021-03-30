@@ -198,10 +198,19 @@ alias ts="task sync"
 alias t0="task limit:0"
 alias et="$EDITOR $TASKRC"
 alias tt="taskwarrior-tui"
+# Print all tasks completed in month yyyy-mm
+tcm() {
+	[[ $# -eq 0 ]] && echo "tcm yyyy-mm [args...]" && return
+	local -r start="$1-01"
+	local -r end="$(date -d "$start next month" '+%Y-%m-%d')"
+	shift
+	task completed end.after:$start end.before:$end "$@"
+}
 
 # Timewarrior
 alias i="timew"
 alias ico="timew continue"
+alias idel="timew delete"
 alias ijo="timew join"
 alias ijo12="timew join @1 @2"
 alias ile="timew lengthen"
