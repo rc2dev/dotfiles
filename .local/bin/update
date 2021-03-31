@@ -72,7 +72,7 @@ update_distro_apt() {
 
 update_distro_mint() {
 	log_step "Atualizando Mint..."
-	mintupdate-cli upgrade
+	sudo mintupdate-cli upgrade -y
 
 	log_step "Limpando cache do APT..."
 	sudo apt clean
