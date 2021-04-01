@@ -6,7 +6,7 @@ if ! isdirectory($NOTES)
 endif
 
 let s:notes_dir=resolve($NOTES)
-let s:journal_dir=s:notes_dir . '/Eu Inc/Journal'
+let s:journal_dir=s:notes_dir . '/Journal'
 
 " fzf: Define command to search notes, ordered by modified date
 command! -bang -nargs=0 Notes call fzf#run(fzf#wrap({
