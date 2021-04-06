@@ -10,6 +10,7 @@
 
 readonly cache="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_recent"
 readonly pol_shortcuts="$HOME/.PlayOnLinux/shortcuts"
+readonly recent_num="200"
 
 # For compgen
 source "$ALIASES"
@@ -20,7 +21,7 @@ readonly most_used=$(sort "$cache" | uniq -c | sed -e 's/^ *//;s/ /,/' | sort -r
 readonly all_cmds="$(compgen -ac | sort | uniq)"
 [[ -d "$pol_shortcuts" ]] && readonly pol_cmds="$(ls -1 "$pol_shortcuts" | sed -e 's/^/pol:/')"
 readonly run=$( (echo "$most_used"; (echo "$all_cmds"; echo "$pol_cmds") | grep -vxF "$most_used") | dmenu "$@")
-([ -z "$run" ] || echo "$run"; head -n 99 "$cache") > "$cache.$$"
+([ -z "$run" ] || echo "$run"; head -n $((recent_num - 1)) "$cache") > "$cache.$$"
 mv -f "$cache.$$" "$cache"
 
 case "$run" in
