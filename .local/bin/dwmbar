@@ -67,7 +67,7 @@ bar_temp() {
 
 # Retrieves currency value at interval
 # Args: the currency code
-bar_currency() {
+get_currency() {
   local -r currency="${1,,}" # lowercase
   local -r interval=60
   local -r cache_dir="$HOME/.cache/dwmbar"
@@ -87,8 +87,8 @@ bar_currency() {
 }
 
 
-bar_crypto() {
-  echo "$ $(bar_currency BTC) $(bar_currency ETH) $(bar_currency BAT)"
+bar_currency() {
+  echo "$ $(get_currency BTC) $(get_currency ETH) $(get_currency BAT)"
 }
 
 bar_timew() {
@@ -100,5 +100,5 @@ bar_timew() {
     echo "🖍️ $tag $sep "
   fi
 }
-xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_timew)$(bar_crypto) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
+xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_timew)$(bar_currency) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
 
