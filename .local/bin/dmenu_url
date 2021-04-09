@@ -34,8 +34,7 @@ ydl() {
 
 		mkdir -p ~/Downloads && cd ~/Downloads
 		printf "Downloading these URLs:\n"
-		printf "%s\n" "$@"
-		printf
+		printf "%s\n\n" "$@"
 
 		youtube-dl '$opts' "$@"
 	' --	"${urls[@]}"
