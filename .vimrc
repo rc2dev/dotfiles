@@ -259,6 +259,8 @@ autocmd FileType markdown inoremap <buffer><silent> <C-b> <C-o>:call mdip#Markdo
 let g:vim_markdown_folding_level = 2
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
 
 " AutoComplPop
 " For markdown and text: only complete files
