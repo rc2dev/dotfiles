@@ -96,9 +96,10 @@ bar_timew() {
   local -r status="$(timew --skip-dwmbar)"
 
   if [[ $(wc -l <<< "$status") -gt 1 ]]; then
-    local -r tag="$(head -1 <<< "$status" | cut -f2- -d' ')"
+    local -r tag="$(head -1 <<< "$status" | sed -e 's/^Tracking //' -e 's/^"//' -e 's/"$//')"
     echo "🖍️ $tag $sep "
   fi
 }
+
 xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_timew)$(bar_currency) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
 
