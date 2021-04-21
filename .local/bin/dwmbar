@@ -97,7 +97,8 @@ bar_timew() {
 
   if [[ $(wc -l <<< "$status") -gt 1 ]]; then
     local -r tag="$(head -1 <<< "$status" | sed -e 's/^Tracking //' -e 's/^"//' -e 's/"$//')"
-    echo "🖍️ $tag $sep "
+    local -r time="$(sed -nE '4s/^\s+Total\s+//;4s/...$//p' <<< "$status")"
+    echo "🖍️ $tag $time $sep "
   fi
 }
 
