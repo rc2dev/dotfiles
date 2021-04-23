@@ -26,6 +26,7 @@ nitrogen --restore &
 redshift-gtk &
 compton &
 clipmenud &
+playerctld daemon &
 nm-applet &
 system-config-printer-applet &
 kdeconnect-indicator &

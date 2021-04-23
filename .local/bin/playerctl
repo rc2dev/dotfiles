@@ -1,5 +1,0 @@
-#!/bin/sh
-# playerctl wrapper with my player selection.
-# Author: Rafael Cavalcanti - rafaelc.org
-
-exec /usr/bin/playerctl --player=spotify,%any,chromium,chrome "$@"
