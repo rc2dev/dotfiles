@@ -28,6 +28,11 @@ if [ -d "$HOME/.local/opt/anaconda3/bin" ]; then
 	PATH="$HOME/.local/opt/anaconda3/bin:$PATH"
 fi
 
+# RVM. Make sure this is the last PATH variable change.
+if [ -d "$HOME/.rvm/bin" ]; then
+	export PATH="$PATH:$HOME/.rvm/bin"
+fi
+
 # Termux: Set runtime dir
 if [[ "$HOST" == "localhost" && -z "$XDG_RUNTIME_DIR" ]]; then
 	export XDG_RUNTIME_DIR="$PREFIX/var/run"
