@@ -2,7 +2,7 @@
 #
 # Launch webapps in Chromium browsers in app mode.
 # Features:
-# - Only allow one instance.
+# - Allow only one instance if desired.
 # - Use separate profile if desired.
 #
 # Copyright (C) 2020-2021 Rafael Cavalcanti - rafaelc.org
@@ -25,6 +25,12 @@ declare -Ar separate_profile=(
   [whatsapp]=true
 )
 
+declare -Ar single_instance=(
+  [euinc]=false
+  [messenger]=true
+  [whatsapp]=true
+)
+
 usage() {
   printf "Usage: %s [app]\n" "$script_name"
   printf "Apps: %s\n" "$(tr ' ' '\n' <<< ${!apps[*]} | sort | tr '\n' ' ')"
@@ -37,10 +43,12 @@ readonly app="${1,,}" # lowercase
 [[ -z "${apps[$app]+d}" ]] && printf "App doesn't exist.\n" && usage
 readonly url="${apps[$app]}"
 
-readonly class="$(sed 's#^https://##;s#/$##;s#.com/#.com__#g;s#/#_#g' <<< "$url")"
-if wmctrl -xl | grep -q "$class"; then
-  printf "App is already running.\n"
-  exit
+if ${single_instance[$app]:-false}; then
+  readonly class="$(sed 's#^https://##;s#/$##;s#.com/#.com__#g;s#/#_#g' <<< "$url")"
+  if wmctrl -xl | grep -q "$class"; then
+    printf "App is already running.\n"
+    exit
+  fi
 fi
 
 if ${separate_profile[$app]:-false}; then
