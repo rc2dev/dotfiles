@@ -372,7 +372,7 @@ command Sv :so ~/.vimrc
 
 " Plugins
 " vim-fugitive
-nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gs :Git<CR>
 " NERDCommenter
 " Disable default mappings and add mine
 let g:NERDCreateDefaultMappings = 0
