@@ -20,5 +20,5 @@ nnoremap <C-n> :Notes<CR>
 
 " Start a new journal entry
 command! -nargs=0 Journal execute 'edit ' .
-    \ s:journal_dir . '/' . strftime('%Y-%m') . '/' . strftime('%Y-%m-%d %H%M%S %z') . '.md'
+    \ s:journal_dir . '/' . strftime('%Y-%m') . '/' . strftime('%Y-%m-%d %H%M%S') . '.md'
 
