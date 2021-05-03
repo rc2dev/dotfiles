@@ -209,6 +209,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 " vim-template
 let g:templates_directory = ['$HOME/.vim/templates']
+" Replace colon as Android 11 doesn't like them.
+let g:templates_name_prefix = '.vim-template.'
 let g:templates_no_builtin_templates = 1
 let g:templates_user_variables = [
 		\   ['FFDATE', 'GetFullDate'],
