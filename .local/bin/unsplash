@@ -67,7 +67,7 @@ clean_dir() {
 	fdupes -rdN "$download_dir"
 
 	log "Removing 0 byte files..."
-	find "$download_dir" -size 0 -delete
+	find "$download_dir" -maxdepth 0 -size 0 -delete
 }
 
 main "$@"
