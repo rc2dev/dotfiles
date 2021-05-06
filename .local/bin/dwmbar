@@ -96,7 +96,7 @@ bar_timew() {
   local -r status="$(timew --skip-dwmbar)"
 
   if [[ $(wc -l <<< "$status") -gt 1 ]]; then
-    local -r tag="$(head -1 <<< "$status" | sed -e 's/^Tracking //' -e 's/^"//' -e 's/"$//')"
+    local -r tag="$(head -1 <<< "$status" | sed -e 's/^Tracking //' -e 's/"//g')"
     local -r time="$(sed -nE '4s/^\s+Total\s+//;4s/...$//p' <<< "$status")"
     echo "🖍️ $tag $time $sep "
   fi
