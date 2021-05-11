@@ -29,6 +29,7 @@ clipmenud &
 playerctld daemon &
 nm-applet &
 system-config-printer-applet &
+mintupdate-launcher &
 kdeconnect-indicator &
 syncthing-gtk --minimized &
 keepassxc &
