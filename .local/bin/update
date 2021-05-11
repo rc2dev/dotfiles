@@ -41,11 +41,8 @@ update_distro() {
 	elif is_mint; then
 		log_os "Mint"
 		update_distro_mint
-	elif has_command pamac; then
-		log_os "Manjaro (Pamac)"
-		update_distro_pamac
 	elif has_command pacman; then
-		log_os "Arch (Pacman)"
+		log_os "Arch"
 		update_distro_pacman
 	elif has_command apt; then
 		log_os "APT genérico"
@@ -84,11 +81,6 @@ update_distro_pacman() {
 
 	log_step "Atualizando AUR..."
 	trizen -Syu --aur --devel --needed
-}
-
-update_distro_pamac() {
-	log_step "Atualizando pacotes via Pamac..."
-	pamac update
 }
 
 update_distro_osmc() {
