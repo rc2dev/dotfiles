@@ -15,4 +15,6 @@ readonly host="piz"
 ssh "$host" timew :color "$@"
 
 # Update dwmbar
-[[ $XDG_SESSION_DESKTOP == dwm && ! $skip_dwmbar == 1 ]] && dwmbar
+if [[ $XDG_SESSION_DESKTOP == dwm && ! $skip_dwmbar == 1 ]]; then
+  dwmbar
+fi
