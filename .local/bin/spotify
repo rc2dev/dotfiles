@@ -1,7 +1,6 @@
 #!/bin/sh
 #
 # Spotify wrapper. Features:
-# - Start with a WM_CLASS (useful for WM rules). Based on https://github.com/dasJ/spotifywm.
 # - Only allow one instance.
 # - Skip ads.
 #
@@ -23,5 +22,5 @@ while true; do
   sleep 2s
 done &
 
-LD_PRELOAD=$HOME/.local/lib/spotifywm.so /usr/bin/spotify
+flatpak run com.spotify.Client
 
