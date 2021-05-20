@@ -6,9 +6,6 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-# Kill ad skipper on exit
-trap 'kill $!' EXIT
-
 if wmctrl -xl | grep -q spotify.Spotify; then
   printf "Spotify is already running.\n"
   exit 1
@@ -21,6 +18,9 @@ while true; do
   fi
   sleep 2s
 done &
+
+# Kill ad skipper on exit
+trap 'kill $!' EXIT
 
 flatpak run com.spotify.Client
 
