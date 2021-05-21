@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # Spotify wrapper. Features:
 # - Only allow one instance.
@@ -13,9 +13,12 @@ fi
 
 # Launch ad skipper
 while true; do
-  if [ "$(playerctl metadata title)" = "Advertisement" ] && [ "$(playerctl status)" = "Playing" ]; then
-    playerctl next && notify-send --urgency=low "Spotify" "Attempted to skip Spotify ad."
+  status="$(playerctl --player=spotify metadata --format="{{status}} {{title}}" 2>/dev/null)"
+
+  if [[ "$status" =~ Playing\ \(Advertisement\|Spotify\) ]]; then
+    playerctl --player=spotify next && notify-send --urgency=low "Spotify" "Attempted to skip Spotify ad."
   fi
+
   sleep 2s
 done &
 
