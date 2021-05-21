@@ -23,7 +23,7 @@ while true; do
 done &
 
 # Kill ad skipper on exit
-trap 'kill $!' EXIT
+trap 'kill $!; echo Killing ad skipper...' EXIT
 
 flatpak run com.spotify.Client
 
