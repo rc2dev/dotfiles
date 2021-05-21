@@ -27,3 +27,11 @@ trap 'kill $!' EXIT
 
 flatpak run com.spotify.Client
 
+# Workaround for Flatpak. On Flatpak, the above command exits immediately,
+# killing the ad skipper.
+while true; do
+  sleep 10s
+    if ! wmctrl -xl | grep -q spotify.Spotify; then
+      break
+    fi
+done
