@@ -6,28 +6,34 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
+# Single instance
 if wmctrl -xl | grep -q spotify.Spotify; then
   printf "Spotify is already running.\n"
   exit 1
 fi
 
 # Launch ad skipper
-while true; do
-  status="$(playerctl --player=spotify metadata --format="{{status}} {{title}}" 2>/dev/null)"
+if ! command -v playerctl >/dev/null; then
+  echo "Playerctl not found. Ad skipper won't be launched."
+else
+  while true; do
+    status="$(playerctl --player=spotify metadata --format="{{status}} {{title}}" 2>/dev/null)"
 
-  if [[ "$status" =~ Playing\ \(Advertisement\|Spotify\) ]]; then
-    playerctl --player=spotify next && notify-send --urgency=low "Spotify" "Attempted to skip Spotify ad."
-  fi
+    if [[ "$status" =~ Playing\ \(Advertisement\|Spotify\) ]]; then
+      playerctl --player=spotify next && notify-send --urgency=low "Spotify" "Attempted to skip Spotify ad."
+    fi
 
-  sleep 2s
-done &
+    sleep 2s
+  done &
+fi
 
 # Kill ad skipper on exit
 trap 'kill $!; echo Killing ad skipper...' EXIT
 
+# Launch spotify
 flatpak run com.spotify.Client
 
-# Workaround for Flatpak. On Flatpak, the above command exits immediately,
+# Workaround for Flatpak. On Flatpak, the above command exits immediatelly,
 # killing the ad skipper.
 while true; do
   sleep 10s
