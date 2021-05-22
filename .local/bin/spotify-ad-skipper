@@ -12,10 +12,10 @@
 readonly script_name="$(basename "$0")"
 
 log() {
-  echo "$*" 1>&2
+  echo "[$script_name] $*" 1>&2
 }
 
-log "Starting ad-skipper..."
+log "Starting..."
 
 # Only allow one instance
 readonly pidfile="${XDG_RUNTIME_DIR}/${script_name}.pid"
@@ -23,7 +23,7 @@ readonly pidfile="${XDG_RUNTIME_DIR}/${script_name}.pid"
 if [[ -e $pidfile ]]; then
   pid="$(cat "$pidfile")"
   if kill "$pid" > /dev/null; then
-    log "Ad skipper is already running."
+    log "Already running."
     exit 1
   else
      rm "$pidfile"
@@ -35,30 +35,24 @@ trap 'rm $pidfile' EXIT
 
 # Check dependencies
 if ! command -v playerctl >/dev/null; then
-  log "Playerctl not found. Ad-skipper won't be launched."
+  log "Playerctl not found. Exiting..."
   exit 1
 fi
 
-# Skip ads
+# Skip ads or exit
 while true; do
   status="$(playerctl --player=spotify metadata --format="{{status}} {{title}}" 2>/dev/null)"
+
+  # Allow time to spotify to launch
+  if [[ -z "$status" && $SECONDS -gt 30 ]]; then
+    log "Spotify is not running. Exiting..."
+    exit
+  fi
 
   if [[ "$status" =~ Playing\ \(Advertisement\|Spotify\) ]]; then
     playerctl --player=spotify next && notify-send --urgency=low "Spotify" "Attempted to skip Spotify ad."
   fi
 
   sleep 2s
-done &
-
-# Kill ad skipper on exit
-trap 'kill $!; log Killing ad-skipper...' EXIT
-
-# Exit if Spotify is not running
-while true; do
-  sleep 10s
-
-  if ! wmctrl -xl | grep -q spotify.Spotify; then
-    log "Spotify is not running. Exiting ad-skipper..."
-    exit
-  fi
 done
+
