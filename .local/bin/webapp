@@ -51,6 +51,10 @@ fi
 if ${separate_profile[$app]:-false}; then
   printf "Using separated profile...\n"
   readonly opt="--user-data-dir=$HOME/.config/webapp/$browser/$app"
+else
+  printf "Using default profile...\n"
+  # Necessary if the browser is fully running (not app mode) with other profile
+  readonly opt="--profile-directory=Default"
 fi
 
 exec "$browser" ${opt:-} --app="$url"
