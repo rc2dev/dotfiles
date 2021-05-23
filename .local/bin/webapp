@@ -30,7 +30,7 @@ declare -Ar single_instance=(
 
 usage() {
   printf "Usage: %s [app]\n" "$script_name"
-  printf "Apps: %s\n" "$(tr ' ' '\n' <<< ${!apps[*]} | sort | tr '\n' ' ')"
+  printf "Apps: %s\n" "$(tr ' ' '\n' <<< "${!apps[*]}" | sort | tr '\n' ' ')"
   exit 1
 }
 
