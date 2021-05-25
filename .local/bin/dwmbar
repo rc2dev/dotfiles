@@ -88,7 +88,7 @@ get_currency() {
 
 
 bar_currency() {
-  echo "$ $(get_currency BTC) $(get_currency ETH) $(get_currency BAT)"
+  echo "$ $(get_currency BTC) $(get_currency ETH) $(get_currency ADA) $(get_currency BAT)"
 }
 
 bar_timew() {
