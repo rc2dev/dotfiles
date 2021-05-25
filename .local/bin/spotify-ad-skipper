@@ -49,7 +49,7 @@ while true; do
     exit
   fi
 
-  if [[ "$status" =~ Playing\ \(Advertisement\|Spotify\) ]]; then
+  if [[ "$status" =~ Playing\ (Advertisement|Spotify) ]]; then
     playerctl --player=spotify next && notify-send --urgency=low "Spotify" "Attempted to skip Spotify ad."
   fi
 
