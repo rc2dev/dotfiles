@@ -74,8 +74,6 @@ export TERMINAL="alacritty"
 #######################################################
 
 # clipmenud
-# This fixes losing the clipboard content when closing the source application
-export CM_OWN_CLIPBOARD=1
 # This makes history persistent across sessions
 export CM_DIR="$HOME/.cache"
 
