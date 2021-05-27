@@ -44,7 +44,7 @@ while true; do
   status="$(playerctl --player=spotify metadata --format="{{status}} {{title}}" 2>/dev/null)"
 
   # Allow time to spotify to launch
-  if [[ -z "$status" && $SECONDS -gt 30 ]]; then
+  if [[ $? -ne 0 && $SECONDS -gt 30 ]]; then
     log "Spotify is not running. Exiting..."
     exit
   fi
