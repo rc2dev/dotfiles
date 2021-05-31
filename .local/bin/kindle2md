@@ -54,8 +54,6 @@ try:
     texts = [elem.contents[0].strip() for elem in text_elements]
     all_texts = [elem.contents[0].strip() for elem in all_text_elements]
 
-    
-
     # Parse descriptions
     types = []
     pages = []
