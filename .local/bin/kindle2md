@@ -18,6 +18,7 @@ from pathlib import Path
 from os.path import basename, splitext
 from sys import argv, exit
 
+
 script_name = basename(__file__)
 
 if len(argv) != 2:
@@ -37,7 +38,7 @@ if dest.exists():
         exit(1)
 
 try:
-    file_content = source.read_text()
+    file_content = source.read_text(encoding='UTF-8')
 except OSError as e:
     print(f'Failed to read file: {e}.')
     exit(1)
@@ -47,18 +48,20 @@ soup = BeautifulSoup(file_content, 'html.parser')
 try:
     book_title = soup.select_one('.bookTitle').contents[0].strip()
     text_elements = soup.select('.noteText')
+    all_text_elements = soup.select('.noteText,.sectionHeading')
     desc_elements = soup.select('.noteHeading')
 
     texts = [elem.contents[0].strip() for elem in text_elements]
+    all_texts = [elem.contents[0].strip() for elem in all_text_elements]
 
     # Parse descriptions
     types = []
     pages = []
     for elem in desc_elements:
         desc = ''.join(elem.strings).strip()
-        desc_words = desc.split(' ')
+        desc_words = desc.split('-')
         the_type = desc_words[0]
-        the_page = ' '.join(desc_words[-2:])
+        the_page = ' '.join(desc_words[-1:])
         types.append(the_type)
         pages.append(the_page)
 
@@ -67,13 +70,24 @@ except AttributeError as e:
     exit(1)
 
 output = f'# {book_title}\n\n'
+ai = 0
 for i in range(len(texts)):
-    output += f'- {texts[i]}\n'
-    output += f'\t{types[i]} @ {pages[i]}\n'
-    output += '\n'
+    if not texts[i] == all_texts[ai]:      
+        output += f'## {all_texts[ai]}\n\n'
+        ai+=1
+        # I have no idea why this is backwards of what I'd expect, it seems the truthiness is inverse of my expectation
+    if not types[i].find("Note"): 
+        output += f'\t> {texts[i]}\n' # blockquote my notes
+        output += f'\t{types[i]} @ {pages[i]}\n'
+        output += '\n'
+    else:
+        output += f'- {texts[i]}\n'
+        output += f'\t{types[i]} @ {pages[i]}\n'
+        output += '\n'
+    ai+=1
 
 try:
-    dest.write_text(output)
+    dest.write_text(output, encoding='UTF-8')
 except OSError as e:
     print(f'Failed to write file: {e}')
     exit(1)
