@@ -62,7 +62,6 @@ try:
     for elem in desc_elements:
         desc = ''.join(elem.strings).strip()
         desc_words = desc.split('-')
-        # desc_words = re.split(r'', desc)
         the_type = desc_words[0]
         the_page = ' '.join(desc_words[-1:])
         types.append(the_type)
