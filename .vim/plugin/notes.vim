@@ -19,6 +19,7 @@ command! -bang -nargs=0 Notes call fzf#run(fzf#wrap({
 nnoremap <C-n> :Notes<CR>
 
 " Start a new journal entry
-command! -nargs=0 Journal execute 'edit ' .
-    \ s:journal_dir . '/' . strftime('%Y-%m') . '/' . strftime('%Y-%m-%d %H%M%S') . '.md'
+command! -nargs=0 Journal
+    \ call mkdir(s:journal_dir . '/' . strftime('%Y-%m'), 'p') |
+    \ execute 'edit ' s:journal_dir . '/' . strftime('%Y-%m') . '/' . strftime('%Y-%m-%d %H%M%S') . '.md'
 
