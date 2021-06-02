@@ -375,7 +375,7 @@ command Sv :so ~/.vimrc
 " Plugins
 " vim-fugitive
 nnoremap <Leader>gs :Git<CR>
-nnoremap <Leader>gf :Git<CR>
+nnoremap <Leader>gm :GMove <C-R>=expand('%')<CR>
 " NERDCommenter
 " Disable default mappings and add mine
 let g:NERDCreateDefaultMappings = 0
@@ -403,7 +403,6 @@ iab rca [RC added]
 iab rcm [RC modified]
 iab rcp Copyright (C) <C-r>=strftime('%Y')<CR> Rafael Cavalcanti - rafaelc.org<CR>Licensed under GPLv3<CR>
 iab rct Author: Rafael Cavalcanti - rafaelc.org
-
 
 
 " Source a global configuration file if available
