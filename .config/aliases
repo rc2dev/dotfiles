@@ -272,17 +272,8 @@ fi
 # HTTP server
 alias hs="python3 -m http.server"
 
-# Run NPM module markdown-link-check
-mlc() { find "$1" -name \*.md -exec markdown-link-check -p {} \;; }
-
 # Find broken links
 alias fbl="find . -xtype l"
-
-# Copy file as .ori
-ori() {
-	[[ -z ${1:-} ]] && echo "Please provide the files to backup." && return 1
-	for f; do sudo cp --archive --verbose "$f" "$f.ori"; done
-}
 
 # Random man page
 alias manrand="find /usr/share/man/man1 -type f | shuf | head -1 | sed -E 's#.*/(.*).gz#\1#' | xargs man"
