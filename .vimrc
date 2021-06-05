@@ -34,6 +34,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'airblade/vim-rooter'
 Plug 'LucHermitte/lh-vim-lib'                       " Dependency for local_vimrc
 Plug 'LucHermitte/local_vimrc'
+Plug 'wincent/loupe'
 if $SLOW_HOST != '1'
     Plug 'vim-airline/vim-airline'
     set noshowmode                                  " Don't show modes below status line (redundant to Airline)
