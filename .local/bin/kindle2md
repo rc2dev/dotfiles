@@ -13,10 +13,10 @@
 # Licensed under GPLv3
 #
 
-from bs4 import BeautifulSoup
 from pathlib import Path
 from os.path import basename, splitext
 from sys import argv, exit
+from bs4 import BeautifulSoup
 
 
 script_name = basename(__file__)
