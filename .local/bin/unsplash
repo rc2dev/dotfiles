@@ -9,15 +9,16 @@
 # Licensed under GPLv3
 
 readonly script_name="$(basename "$0")"
-readonly def_download_dir="$WALLPAPERS"
+readonly default_dest_dir="$WALLPAPERS"
 readonly resolution="1920x1080"
+readonly src_url="https://source.unsplash.com/random/${resolution}"
 readonly wait_sec="2"
 
 main() {
 	check_args "$@"
 
 	readonly n="$1"
-	readonly download_dir="${2:-$def_download_dir}"
+	readonly dest_dir="${2:-$default_dest_dir}"
 
 	download
 	clean_dir
@@ -28,7 +29,7 @@ log() {
 }
 
 usage(){
-	printf "Usage: %s n [download_dir]\n" "$script_name"
+	printf "Usage: %s n [dest_dir]\n" "$script_name"
 	exit
 }
 
@@ -50,13 +51,13 @@ check_args() {
 }
 
 download() {
-	log "Downloading to: ${download_dir}"
+	log "Downloading to: ${dest_dir}"
 
 	for i in $(seq 1 "$n"); do
 		log "Downloading wallpaper ${i}/${n}..."
 
-		local rant="$(date +%s)"
-		wget -O "${download_dir}/${rant}.jpg" -q "https://source.unsplash.com/${resolution}"
+		local dest="${dest_dir}/$(date +%s).jpg"
+		wget -q "$src_url" -O "$dest"
 
 		sleep "$wait_sec"
 	done
@@ -64,10 +65,10 @@ download() {
 
 clean_dir() {
 	log "Removing duplicates..."
-	fdupes -rdN "$download_dir"
+	fdupes -rdN "$dest_dir"
 
 	log "Removing 0 byte files..."
-	find "$download_dir" -maxdepth 0 -size 0 -delete
+	find "$dest_dir" -maxdepth 0 -size 0 -delete
 }
 
 main "$@"
