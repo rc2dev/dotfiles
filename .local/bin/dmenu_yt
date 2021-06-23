@@ -7,9 +7,11 @@
 readonly yt_channel="UCHMpAR9vVyImG570uZqElPg"
 
 # Get list of playlists
-readonly pls_json="$(youtube-dl --flat-playlist --dump-json "https://www.youtube.com/channel/$yt_channel/playlists?view=1&sort=dd&shelf_id=0")"
-readarray -t pls_titles < <(jq -r .title <<< "$pls_json")
+pls_json="$(youtube-dl --flat-playlist --dump-json "https://www.youtube.com/channel/$yt_channel/playlists?view=1&sort=dd&shelf_id=0")"
+# Add missing "Watch Later"
+pls_json+=' {"url": "https://www.youtube.com/playlist?list=WL", "title": "Watch Later"}'
 
+readarray -t pls_titles < <(jq -r .title <<< "$pls_json")
 readonly chosen="$(printf "%s\n" "${pls_titles[@]}" | sort | dmenu -p "yt playlists:" -l 5 -g 4 "$@")"
 [[ -z "$chosen" ]] && exit
 readonly url="$(jq -r "select(.title==\"$chosen\") | .url" <<< "$pls_json")"
