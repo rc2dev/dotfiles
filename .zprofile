@@ -108,9 +108,6 @@ export GROFF_NO_SGR=1                  # for konsole and gnome-terminals
 # man: Dsplay the percentage into the document
 export MANPAGER="less -s -M +Gg"
 
-# mpd
-export MPD_HOST="192.168.15.101"
-
 # taskwarrior
 export TASKRC="$HOME/Sync/Apps/Taskwarrior/taskrc"
 
