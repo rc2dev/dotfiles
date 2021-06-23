@@ -1,25 +1,22 @@
 #!/usr/bin/env bash
 #
-# dmenu script for playing yt playlists on shuffle.
+# dmenu script for playing user's yt playlists on shuffle.
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-readonly options="$(cat <<-END
-	⏲ Watch later#https://www.youtube.com/playlist?list=WL
-	♫ Music#--no-keep-open https://www.youtube.com/playlist?list=PLG0ys6U09lfmgmxd8gw7fRbGzENTcaCE-
-	♫ Music - Watch later#https://www.youtube.com/playlist?list=PLG0ys6U09lfnE3SbOnT_BV4NSo2O9xZ90
-	♫ Music - HDex#https://www.youtube.com/playlist?list=PLG0ys6U09lfk8yQNjZmfc_IgjyBu71dfi
-	 CC#https://www.youtube.com/playlist?list=PLG0ys6U09lfnC0103-nm77pcfPuldFfE7
-END
-)"
+readonly yt_channel="UCHMpAR9vVyImG570uZqElPg"
 
-readonly chosen="$(cut -d# -f1 <(printf "%s" "$options") | dmenu -p "yt playlists:" "$@")"
+# Get list of playlists
+readonly pls_json="$(youtube-dl --flat-playlist --dump-json "https://www.youtube.com/channel/$yt_channel/playlists?view=1&sort=dd&shelf_id=0")"
+readarray -t pls_titles < <(jq -r .title <<< "$pls_json")
+
+readonly chosen="$(printf "%s\n" "${pls_titles[@]}" | sort | dmenu -p "yt playlists:" -l 5 -g 4 "$@")"
 [[ -z "$chosen" ]] && exit
-readonly args="$(grep "^${chosen}#" <(printf "%s" "$options") | cut -d# -f2)"
+readonly url="$(jq -r "select(.title==\"$chosen\") | .url" <<< "$pls_json")"
 
 user_args=""
 readonly no_resume="$(printf "No\nYes" | dmenu -p "Start over?" "$@")"
 [[ $no_resume == "Yes" ]] && user_args="$user_args --no-resume-playback"
 
-mpv --shuffle $user_args $args
+mpv --shuffle $user_args "$url"
 
