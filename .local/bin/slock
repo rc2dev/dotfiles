@@ -2,17 +2,12 @@
 #
 # slock wrapper. Features
 # - Pause and resume dunst notifications
-# - Pause all players
 # - Stop Timewarrior
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
 if command -v timew >/dev/null; then
   timew stop > /dev/null
-fi &
-
-if command -v playerctl >/dev/null; then
-  playerctl --all-players pause
 fi &
 
 killall -SIGUSR1 dunst
