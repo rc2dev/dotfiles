@@ -337,12 +337,12 @@ nnoremap <Leader>ev :e ~/.vimrc<CR>
 
 " Use friendlier line navigation on prose files
 augroup navigation
-    autocmd Filetype markdown,text nnoremap <buffer> <expr> j v:count == 0 ? 'gj' : 'j'
-    autocmd Filetype markdown,text nnoremap <buffer> <expr> k v:count == 0 ? 'gk' : 'k'
-    autocmd Filetype markdown,text nnoremap <buffer> <Down> gj
-    autocmd Filetype markdown,text nnoremap <buffer> <Up> gk
-    autocmd Filetype markdown,text inoremap <buffer> <expr> <Down> pumvisible() ? "\<Down>" : "\<C-\>\<C-o>gj"
-    autocmd Filetype markdown,text inoremap <buffer> <expr> <Up> pumvisible() ? "\<Up>" : "\<C-\>\<C-o>gk"
+    autocmd Filetype markdown,text,taskedit nnoremap <buffer> <expr> j v:count == 0 ? 'gj' : 'j'
+    autocmd Filetype markdown,text,taskedit nnoremap <buffer> <expr> k v:count == 0 ? 'gk' : 'k'
+    autocmd Filetype markdown,text,taskedit nnoremap <buffer> <Down> gj
+    autocmd Filetype markdown,text,taskedit nnoremap <buffer> <Up> gk
+    autocmd Filetype markdown,text,taskedit inoremap <buffer> <expr> <Down> pumvisible() ? "\<Down>" : "\<C-\>\<C-o>gj"
+    autocmd Filetype markdown,text,taskedit inoremap <buffer> <expr> <Up> pumvisible() ? "\<Up>" : "\<C-\>\<C-o>gk"
 augroup END
 
 " Buffer navigation
