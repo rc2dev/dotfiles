@@ -216,9 +216,14 @@ let g:templates_name_prefix = '.vim-template.'
 let g:templates_no_builtin_templates = 1
 let g:templates_user_variables = [
 		\   ['FFDATE', 'GetFullDate'],
+                \   ['FILE1', 'GetFileNoExt'],
 		\ ]
 function! GetFullDate()
 		return strftime('%Y-%m-%d %T %z')
+endfunction
+" Only remove last extension
+function! GetFileNoExt()
+    return expand('%:t:r')
 endfunction
 
 
