@@ -9,16 +9,23 @@
 # Licensed under GPLv3
 
 readonly script_name="$(basename "$0")"
-readonly default_dest_dir="$WALLPAPERS"
+readonly dest_dir="$WALLPAPERS"
 readonly resolution="1920x1080"
-readonly src_url="https://source.unsplash.com/random/${resolution}"
+readonly random_url="https://source.unsplash.com/random/${resolution}"
+readonly search_url="https://source.unsplash.com/${resolution}/?"
 readonly wait_sec="2"
 
 main() {
 	check_args "$@"
 
 	readonly n="$1"
-	readonly dest_dir="${2:-$default_dest_dir}"
+	if [[ -z ${2:-} ]]; then
+		log "Images to fetch: random."
+		readonly url="$random_url"
+	else
+		log "Images to fetch: keyword '$2'"
+		readonly url="${search_url}$2"
+	fi
 
 	download
 	clean_dir
@@ -29,23 +36,24 @@ log() {
 }
 
 usage(){
-	printf "Usage: %s n [dest_dir]\n" "$script_name"
-	exit
+	cat <<-END
+	Usage: $script_name n [keywords]
+
+	Arguments:
+	n: Number of pictures to download.
+	keywords: search term(s) separated by commas.
+END
+	exit 1
 }
 
 check_args() {
-	if [[ $# -ne 0 && $# -ne 1 ]]; then
+	if [[ $# -ne 0 && $# -gt 2 ]]; then
 		printf "Wrong number of arguments.\n"
 		usage
 	fi
 
 	if [[ ! "$1" =~ ^[0-9]+$ ]]; then
 		printf "First argument must be a number.\n"
-		usage
-	fi
-
-	if [[ -n "$2" && ! -d "$2" ]]; then
-		printf "'%s' is not a directory." "$2"
 		usage
 	fi
 }
@@ -57,7 +65,7 @@ download() {
 		log "Downloading wallpaper ${i}/${n}..."
 
 		local dest="${dest_dir}/$(date +%s).jpg"
-		wget -q "$src_url" -O "$dest"
+		wget -q "$url" -O "$dest"
 
 		sleep "$wait_sec"
 	done
