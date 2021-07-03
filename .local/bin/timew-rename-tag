@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# rename timewarrior tag: use as timew-tagrename <oldtag> <newtag>
+#
+# Downloaded from https://github.com/GothenburgBitFactory/timewarrior/issues/210#issuecomment-594799967
+
+oldtag=$1; shift
+newtag=$1; shift
+idlist=$(timew summary 1970W01 - now "$oldtag" :ids |\
+  sed -nr 's/.* (@[0-9]+) .*/\1/p')
+
+timew tag $idlist "$newtag"
+timew untag $idlist "$oldtag"
