@@ -59,6 +59,7 @@ else
 endif
 
 " Interface
+set shortmess+=I                                    " Disable startup message
 set showcmd                                         " Show partial command
 set laststatus=2                                    " Always show status line
 set showtabline=2                                   " Always show tab line
@@ -101,6 +102,7 @@ call EnableTransparency()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEHAVIOUR
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set lazyredraw                                      " Skip redrawing screen in some cases
 set modeline                                        " Enable modeline
 set hidden                                          " Allow buffers to be hidden without saving
 set mouse=a                                         " Enable the use of the mouse
@@ -339,6 +341,17 @@ nmap Q <nop>
 
 " Edit files
 nnoremap <Leader>ev :e ~/.vimrc<CR>
+
+" Try to prevent using the arrow keys for movement.
+nnoremap <Left>  :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up>    :echoe "Use k"<CR>
+nnoremap <Down>  :echoe "Use j"<CR>
+" ...and in insert mode
+inoremap <Left>  <ESC>:echoe "Use h"<CR>
+inoremap <Right> <ESC>:echoe "Use l"<CR>
+inoremap <Up>    <ESC>:echoe "Use k"<CR>
+inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 " Use friendlier line navigation on prose files
 augroup navigation
