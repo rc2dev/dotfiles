@@ -286,6 +286,8 @@ alias manrand="find /usr/share/man/man1 -type f | shuf | head -1 | sed -E 's#.*/
 # Find and stream audio
 yta() { mpv --no-keep-open --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 
+ytv() { mpv --no-keep-open ytdl://ytsearch:"$*"; }
+
 # List videos from $1 playlist
 ytl() { youtube-dl --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/" + .url'; }
 
