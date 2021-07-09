@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Eu Inc. Sheet
-Comment=Web App
-Exec=webapp euinc
-Terminal=false
-Type=Application
-Icon=web-google-sheets
-Categories=GTK;Office;
-StartupNotify=true
