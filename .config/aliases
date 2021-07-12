@@ -168,6 +168,9 @@ if systemctl status kodi > /dev/null 2>&1; then
 	alias ks="sudo systemctl stop kodi"
 fi
 
+# Set default options
+alias fd="fd --hidden --follow --no-ignore-vcs --exclude '.git' --exclude 'node_modules'"
+
 # Notes
 alias n="notes"
 alias nd="notes d"
