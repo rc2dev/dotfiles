@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Chromium wrapper.
+# - Always use GNOME Keyring. By default, it doesn't on dwm.
+# - Force dark theme, since Chrome/ium can't detect system theme
+# (https://bugs.chromium.org/p/chromium/issues/detail?id=998903)
+#
+# Author: Rafael Cavalcanti - rafaelc.org
+
+exec /usr/bin/chromium --password-store=gnome --force-dark-mode "$@"
