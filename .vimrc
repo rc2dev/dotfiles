@@ -102,7 +102,6 @@ call EnableTransparency()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEHAVIOUR
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set lazyredraw                                      " Skip redrawing screen in some cases
 set modeline                                        " Enable modeline
 set hidden                                          " Allow buffers to be hidden without saving
 set mouse=a                                         " Enable the use of the mouse
