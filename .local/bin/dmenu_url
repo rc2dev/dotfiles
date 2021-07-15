@@ -40,14 +40,14 @@ ydl() {
 }
 
 firefox_private() {
-	for url in ${urls[@]}; do
+	for url in "${urls[@]}"; do
 		firefox -private-window "$url" &
 		sleep 1s
 	done
 }
 
 to_wallabag() {
-	for url in ${urls[@]}; do
+	for url in "${urls[@]}"; do
 		if wallabag add "$url"; then
 			notify-send --urgency=low "dmenu_url" "Added to Wallabag: $url"
 		else
