@@ -91,7 +91,7 @@ alias_z zb ~/.local/bin
 alias_z zd ~/Downloads
 alias_z ze ~/Code
 alias_z zg ~/.config
-alias_z zh ~/Pictures/Screenshots
+alias_z zh ~/Sync/Screenshots
 alias_z zk ~/.kodi
 alias_z zk /var/lib/kodi/.kodi
 alias_z zm ~/Music
