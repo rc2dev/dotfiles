@@ -50,7 +50,7 @@ firefox_private() {
 wallabag() {
 	for url in ${urls[@]}; do
 		encoded_url="$(encode_url "$url")"
-		$browser "http://192.168.15.102:8081/bookmarklet?url=$encoded_url"
+		$browser "http://192.168.15.101:4001/bookmarklet?url=$encoded_url"
 	done
 }
 
