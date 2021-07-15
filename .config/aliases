@@ -246,8 +246,7 @@ alias ity="timew report totals :yesterday"
 
 # journalctl
 alias jc="journalctl"
-alias jcu="journalctl -u"
-alias jcuf="journalctl -f -u"
+alias jcu="journalctl --user"
 
 # Package management
 if command -v apt > /dev/null; then
