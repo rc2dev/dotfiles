@@ -7,7 +7,6 @@
 
 readonly term="$TERMINAL"
 readonly term_class="sys"
-readonly browser="x-www-browser"
 
 declare -Ar options=(
 	["youtube-dl"]="ydl"
@@ -16,7 +15,7 @@ declare -Ar options=(
 	["umpv"]="umpv"
 	["myt (queue)"]="myt --queue"
 	["myt (play now)"]="myt --play-now"
-	["Wallabag it"]="wallabag"
+	["Wallabag it"]="to_wallabag"
 	["Brave"]="brave-browser"
 	["Brave (incognito)"]="brave-browser --incognito"
 	["Chromium"]="chromium"
@@ -47,10 +46,13 @@ firefox_private() {
 	done
 }
 
-wallabag() {
+to_wallabag() {
 	for url in ${urls[@]}; do
-		encoded_url="$(encode_url "$url")"
-		$browser "http://192.168.15.101:4001/bookmarklet?url=$encoded_url"
+		if wallabag add "$url"; then
+			notify-send --urgency=low "dmenu_url" "Added to Wallabag: $url"
+		else
+			notify-send --urgency=critical "dmenu_url" "Error adding to Wallabag: $url"
+		fi
 	done
 }
 
