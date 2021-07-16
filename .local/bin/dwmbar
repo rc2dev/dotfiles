@@ -100,7 +100,26 @@ bar_timew() {
     local -r time="$(sed -nE '4s/^\s+Total\s+//;4s/...$//p' <<< "$status")"
     echo "🖍️ $tag $time $sep "
   fi
+
+  notify_pomodoro "$time"
 }
+
+notify_pomodoro() {
+  local -r time="$1"
+  local -r period_timew="0:25" # Use timewarrior format
+  local -r period_human="25 min" # Use human readable format
+  local -r notified_file="${XDG_RUNTIME_DIR:-$HOME/.cache}/dwmbar_pomodoro_notified"
+
+  if [[ "$time" == "$period_timew" ]]; then
+    if [[ ! -e "$notified_file" ]]; then
+      notify-send "Pomodoro" "You worked $period_human. Get a rest."
+      touch "$notified_file"
+    fi
+  else
+    rm -rf "$notified_file"
+  fi
+}
+
 
 xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_timew)$(bar_currency) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
 
