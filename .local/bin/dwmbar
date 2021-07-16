@@ -67,7 +67,7 @@ bar_temp() {
 
 # Output currencies values, updating at interval
 bar_currencies() {
-  local -r currencies=(BTC ETH ADA BAT)
+  local -r currencies_regex="(BTC|ETH|ADA|BAT)"
   local -r interval=60
   local -r cache="$HOME/.cache/dwmbar_currencies"
 
@@ -78,23 +78,17 @@ bar_currencies() {
 
   raw="$(curl -s 'rate.sx/?qFT&n=150')"
 
-  local currency
-  local value
-  local output="$"
-  for currency in "${currencies[@]}"; do
-    currency="${currency^^}" # uppercase
-    value="$(awk -v currency="$currency" '$0 ~ "[^[:alpha:]]"currency"[^[:alpha:]]" {
+  local -r values="$(awk -v currency="$currencies_regex" '
+    $0 ~ "[^[:alpha:]]"currency"[^[:alpha:]]" {
       if ($6 >= 100)
-        printf "%d", $6
+        printf " %d", $6
       else
-        printf "%.2f", $6
+        printf " %.2f", $6
      }
+  ' <<< "$raw")"
+  local -r output="\$$values"
 
-    ' <<< "$raw")"
-    output="$output $value"
-  done
-
-  echo "$output"
+  echo "$output" | tee "$cache"
 }
 
 
