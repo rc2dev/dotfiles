@@ -400,7 +400,6 @@ command Sv :so ~/.vimrc
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gm :GMove <C-R>=expand('%')<CR>
 nnoremap <Leader>gl :Gclog<CR>
-
 " NERDCommenter
 " Disable default mappings and add mine
 let g:NERDCreateDefaultMappings = 0
@@ -414,6 +413,7 @@ vnoremap <Leader>ct y:ThesaurusQueryReplace <C-r>"<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-g> :Files $HOME<CR>
 nnoremap <silent> <C-f> :Rg<CR>
+nnoremap <silent> <C-h> :History<CR>
 " Goyo
 " Disabling transparency using GoyoEnter causes some borders to show.
 " Disabling it here instead is a workaround.
