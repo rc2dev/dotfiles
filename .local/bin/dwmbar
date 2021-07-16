@@ -80,7 +80,14 @@ bar_currencies() {
   local output="$"
   for currency in "${currencies[@]}"; do
     currency="${currency^^}" # uppercase
-    value="$(awk -v currency="$currency" '$0 ~ "[^[:alpha:]]"currency"[^[:alpha:]]" { print $6 }' "$cache")"
+    value="$(awk -v currency="$currency" '$0 ~ "[^[:alpha:]]"currency"[^[:alpha:]]" {
+      if ($6 >= 100)
+        printf "%d", $6
+      else
+        printf "%.2f", $6
+     }
+
+    ' "$cache")"
     output="$output $value"
   done
 
