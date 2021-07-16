@@ -2,7 +2,7 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 # Inspired by https://www.youtube.com/watch?v=vrN5SPeVUu0
 
-readonly option="$( ( printf "RANDOM MANPAGE\n"; (man -k . | awk '{print $1}' ) | sort) | dmenu -l 10 -g 5 -p 'manpage:')"
+readonly option="$( ( printf "RANDOM MANPAGE\n"; (man -k . | awk '{print $1, $2}' ) | sort) | dmenu -l 10 -g 5 -p 'manpage:' | cut -d'(' -f 1)"
 
 case $option in
 	"RANDOM MANPAGE")
