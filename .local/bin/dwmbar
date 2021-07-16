@@ -71,9 +71,12 @@ bar_currencies() {
   local -r interval=60
   local -r cache="$HOME/.cache/dwmbar_currencies"
 
-  if [[ ! -e $cache || $(($(date +%s) - $(date +%s -r "$cache"))) -gt $interval ]]; then
-    curl -s 'rate.sx/?qFT&n=150' > "$cache"
+  if [[ -e $cache && $(($(date +%s) - $(date +%s -r "$cache"))) -lt $interval ]]; then
+    cat "$cache"
+    return
   fi
+
+  raw="$(curl -s 'rate.sx/?qFT&n=150')"
 
   local currency
   local value
@@ -87,7 +90,7 @@ bar_currencies() {
         printf "%.2f", $6
      }
 
-    ' "$cache")"
+    ' <<< "$raw")"
     output="$output $value"
   done
 
