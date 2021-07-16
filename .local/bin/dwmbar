@@ -68,20 +68,15 @@ bar_temp() {
 # Retrieves currency value at interval
 # Args: the currency code
 get_currency() {
-  local -r currency="${1,,}" # lowercase
+  local -r currency="${1^^}" # uppercase
   local -r interval=60
-  local -r cache_dir="$HOME/.cache/dwmbar"
-  local -r cache="$cache_dir/currency_$currency"
-  local value
+  local -r cache="$HOME/.cache/dwmbar_currencies"
 
-  mkdir -p "$cache_dir"
   if [[ ! -e $cache || $(($(date +%s) - $(date +%s -r "$cache"))) -gt $interval ]]; then
-    value="$(curl -s rate.sx/"$currency" | awk '/end:/{ print $8 }')"
-    value="${value#$}"
-    echo "$value" > "$cache"
-  else
-    value="$(cat "$cache")"
+    curl -s 'rate.sx/?qFT&n=150' > "$cache"
   fi
+
+  local -r value="$(awk -v currency="$currency" '$0 ~ "[^[:alpha:]]"currency"[^[:alpha:]]" { print $6 }' "$cache")"
 
   echo "$value"
 }
