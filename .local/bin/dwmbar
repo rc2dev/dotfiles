@@ -65,10 +65,9 @@ bar_temp() {
 }
 
 
-# Retrieves currency value at interval
-# Args: the currency code
-get_currency() {
-  local -r currency="${1^^}" # uppercase
+# Output currencies values, updating at interval
+bar_currencies() {
+  local -r currencies=(BTC ETH ADA BAT)
   local -r interval=60
   local -r cache="$HOME/.cache/dwmbar_currencies"
 
@@ -76,15 +75,18 @@ get_currency() {
     curl -s 'rate.sx/?qFT&n=150' > "$cache"
   fi
 
-  local -r value="$(awk -v currency="$currency" '$0 ~ "[^[:alpha:]]"currency"[^[:alpha:]]" { print $6 }' "$cache")"
+  local currency
+  local value
+  local output="$"
+  for currency in "${currencies[@]}"; do
+    currency="${currency^^}" # uppercase
+    value="$(awk -v currency="$currency" '$0 ~ "[^[:alpha:]]"currency"[^[:alpha:]]" { print $6 }' "$cache")"
+    output="$output $value"
+  done
 
-  echo "$value"
+  echo "$output"
 }
 
-
-bar_currency() {
-  echo "$ $(get_currency BTC) $(get_currency ETH) $(get_currency ADA) $(get_currency BAT)"
-}
 
 bar_timew() {
   # --skip-dwmbar or we'll get into an infinite loop
@@ -116,5 +118,5 @@ notify_pomodoro() {
 }
 
 
-xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_timew)$(bar_currency) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
+xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_timew)$(bar_currencies) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
 
