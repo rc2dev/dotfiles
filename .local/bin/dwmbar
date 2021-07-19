@@ -88,7 +88,7 @@ bar_currencies() {
   ' <<< "$raw")"
   local -r output="\$$values"
 
-  echo "$output" | tee "$cache"
+  tee "$cache" <<< "$output"
 }
 
 
@@ -105,15 +105,17 @@ bar_timew() {
   notify_pomodoro "$time"
 }
 
+# args:
+# - elapsed time in h:mm format
 notify_pomodoro() {
-  local -r time="$1"
-  local -r period_timew="0:25" # Use timewarrior format
-  local -r period_human="25 min" # Use human readable format
+  local -r elapsed_hmm="$1"
+  local -r elapsed="$(<<< "$elapsed_hmm" awk -F: '{ print ($1 * 60 + $2) }')"
+  local -r period="25" # Pomodoro period in minutes
   local -r notified_file="${XDG_RUNTIME_DIR:-$HOME/.cache}/dwmbar_pomodoro_notified"
 
-  if [[ "$time" == "$period_timew" ]]; then
+  if [[ "$elapsed" == "$period" ]]; then
     if [[ ! -e "$notified_file" ]]; then
-      notify-send "Pomodoro" "You worked $period_human. Get a rest."
+      notify-send "Pomodoro" "You worked $period minutes. Get a rest."
       touch "$notified_file"
     fi
   else
