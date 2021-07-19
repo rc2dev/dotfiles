@@ -105,17 +105,18 @@ bar_timew() {
   notify_pomodoro "$time"
 }
 
+# Notify pomodoro on period and repeated periods.
 # args:
 # - elapsed time in h:mm format
 notify_pomodoro() {
   local -r elapsed_hmm="$1"
   local -r elapsed="$(<<< "$elapsed_hmm" awk -F: '{ print ($1 * 60 + $2) }')"
-  local -r period="25" # Pomodoro period in minutes
+  local -r period=25 # Pomodoro period in minutes
   local -r notified_file="${XDG_RUNTIME_DIR:-$HOME/.cache}/dwmbar_pomodoro_notified"
 
-  if [[ "$elapsed" == "$period" ]]; then
+  if [[ $(( elapsed % period )) -eq 0 && $elapsed -gt 0 ]]; then
     if [[ ! -e "$notified_file" ]]; then
-      notify-send "Pomodoro" "You worked $period minutes. Get a rest."
+      notify-send "Pomodoro" "You worked $elapsed minutes. Get a rest."
       touch "$notified_file"
     fi
   else
