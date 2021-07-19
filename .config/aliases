@@ -134,7 +134,7 @@ alias yc="yadm commit -v"
 alias yc!="yadm commit -v --amend"
 alias yco="yadm checkout"
 alias yd="yadm diff"
-alias yd1="yadmt diff HEAD~"
+alias yd1="yadm diff HEAD~"
 alias yd2="yadm diff HEAD~2"
 yfr() { yadm fetch && yadm reset --hard origin/$(yadm rev-parse --abbrev-ref HEAD); }
 alias yl="yadm pull"
