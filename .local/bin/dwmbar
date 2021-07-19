@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2020-2021 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
 readonly sep=" "
