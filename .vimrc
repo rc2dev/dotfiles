@@ -41,8 +41,8 @@ if $SLOW_HOST != '1'
     set noshowmode                                  " Don't show modes below status line (redundant to Airline)
 endif
 " Colorschemes
-Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -53,7 +53,7 @@ call plug#end()
 " Theme
 set termguicolors                                   " Use truecolors
 if hostname() == 'localhost'
-    colorscheme gruvbox
+    colorscheme nord
 else
     colorscheme dracula
 endif
