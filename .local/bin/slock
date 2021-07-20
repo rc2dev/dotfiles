@@ -1,14 +1,8 @@
 #!/bin/sh
 #
-# slock wrapper. Features
-# - Pause and resume dunst notifications
-# - Stop Timewarrior
+# slock wrapper: pause and resume dunst notifications.
 #
 # Author: Rafael Cavalcanti - rafaelc.org
-
-if command -v timew >/dev/null; then
-  timew stop > /dev/null
-fi &
 
 killall -SIGUSR1 dunst
 /usr/bin/slock
