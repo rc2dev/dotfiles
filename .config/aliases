@@ -173,16 +173,13 @@ alias fd="fd --hidden --follow --no-ignore-vcs --exclude '.git' --exclude 'node_
 
 # Notes
 alias n="notes"
-alias nd="notes d"
-alias ndr="notes dr"
-alias nf="notes f"
-alias nj="notes j"
-alias njc="notes jc"
-alias njr="notes jr"
-alias njx="notes jx"
-alias nh="notes h"
-alias nr="notes r"
-alias nt="notes t"
+alias nf="notes find"
+alias nj="notes journal"
+alias njc="notes journal-cat"
+alias njx="notes journal-x"
+alias nn="notes name"
+alias nnr="notes name-ranger"
+alias nr="notes ranger"
 
 # Taskwarrior
 alias t="task"
