@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#
+# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+readonly script_name="$(basename "$0")"
+readonly target_host="pi"
+readonly log="/var/log/dnsmasq-queries.log"
+
+readonly option="${1:-}"
+
+case $option in
+  stats)
+    printf "Blocked domains:\n\n"
+    cmd="zcat --force -- $log* | grep 0.0.0.0 | cut -d' ' -f 6 | sort | uniq -c  | sort -nr"
+    ;;
+  tail)
+    cmd="tail -f $log"
+    ;;
+  *)
+    echo "Usage: $script_name stats/tail"
+    exit 1
+    ;;
+esac
+
+if [[ ${HOST} == $target_host ]]; then
+  eval "$cmd"
+else
+  ssh "$target_host" eval "$cmd"
+fi
+
