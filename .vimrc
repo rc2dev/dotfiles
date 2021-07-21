@@ -413,7 +413,7 @@ vnoremap <Leader>ct y:ThesaurusQueryReplace <C-r>"<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-g> :Files $HOME<CR>
 nnoremap <silent> <C-f> :Rg<CR>
-nnoremap <silent> <C-h> :History<CR>
+nnoremap <silent> <C-t> :History<CR>
 " Goyo
 " Disabling transparency using GoyoEnter causes some borders to show.
 " Disabling it here instead is a workaround.
