@@ -5,6 +5,7 @@
 
 readonly script_name="$(basename "$0")"
 readonly target_host="pi"
+readonly host="${HOST:-$(hostname)}"
 readonly log="/var/log/dnsmasq-queries.log"
 
 readonly option="${1:-}"
@@ -23,7 +24,7 @@ case $option in
     ;;
 esac
 
-if [[ ${HOST} == $target_host ]]; then
+if [[ "$host" == "$target_host" ]]; then
   eval "$cmd"
 else
   ssh "$target_host" eval "$cmd"
