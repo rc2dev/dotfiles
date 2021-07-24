@@ -338,6 +338,7 @@ inoremap <F6> <C-o>:setlocal spell!<CR>
 " Save or quit
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>z :x<CR>
 
 " Avoid unintentional switch to Ex mode
 nmap Q <nop>
