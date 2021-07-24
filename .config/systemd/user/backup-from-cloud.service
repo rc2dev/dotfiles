@@ -1,10 +1,10 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 
 [Unit]
-Description=Backup from yt
+Description=Backup from cloud
 After=network.target
 OnFailure=status-email@%n.service
 
 [Service]
-ExecStart=%h/Documents/Sysadmin/Backups/bin/backup-from-yt
+ExecStart=%h/Documents/Sysadmin/Backups/bin/backup-from-cloud
 Nice=19

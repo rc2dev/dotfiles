@@ -1,7 +1,7 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 
 [Unit]
-Description=Run backup-from-yt periodically
+Description=Run backup-from-cloud periodically
 
 [Timer]
 OnCalendar=weekly
