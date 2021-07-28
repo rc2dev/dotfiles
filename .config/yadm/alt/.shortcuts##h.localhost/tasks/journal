@@ -1,0 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+. ~/.zprofile
+
+bash ~/.local/bin/notes journal-x
