@@ -86,8 +86,12 @@ bar_currencies() {
         printf " %.2f", $6
      }
   ' <<< "$raw")"
-  local -r output="\$$values"
 
+  if [[ -z "$values" ]]; then
+    return
+  fi
+
+  local -r output="\$$values $sep "
   tee "$cache" <<< "$output"
 }
 
@@ -125,5 +129,5 @@ notify_pomodoro() {
 }
 
 
-xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_timew)$(bar_currencies) ${sep} $(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
+xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_timew)$(bar_currencies)$(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
 
