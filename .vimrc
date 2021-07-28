@@ -52,11 +52,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
 set termguicolors                                   " Use truecolors
-if hostname() == 'localhost'
-    colorscheme nord
-else
-    colorscheme dracula
-endif
+colorscheme nord
 
 " Interface
 set shortmess+=I                                    " Disable startup message
