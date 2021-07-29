@@ -1,1 +1,1 @@
-../../Sync/.Notes/bin/notes.vim
+../../Sync/.Notes/notes.vim
