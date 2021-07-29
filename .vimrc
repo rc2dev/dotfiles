@@ -54,6 +54,10 @@ call plug#end()
 set termguicolors                                   " Use truecolors
 colorscheme nord
 
+" Fix colors on st
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 " Interface
 set shortmess+=I                                    " Disable startup message
 set showcmd                                         " Show partial command
@@ -102,6 +106,11 @@ set modeline                                        " Enable modeline
 set hidden                                          " Allow buffers to be hidden without saving
 set mouse=a                                         " Enable the use of the mouse
 set clipboard=unnamedplus                           " Use system clipboard
+
+" Fix mouse scrollwheel on st
+if &term =~ '^st\($\|-\)'
+  set ttymouse=sgr
+endif
 
 " Create tags file (this just runs ctags). This allows:
 " ^] to jump to tag under cursor; g^] for ambiguous tags; ^t to jump back up the tag stack
