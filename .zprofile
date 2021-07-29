@@ -67,7 +67,7 @@ export WALLPAPERS="$HOME/Pictures/Wallpapers"
 
 # Default applications
 export EDITOR="vim"
-export TERMINAL="alacritty"
+export TERMINAL="st"
 
 
 # Applications configuration
