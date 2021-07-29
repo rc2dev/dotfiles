@@ -74,7 +74,9 @@ bindkey ';5~' kill-word
 
 # Move to beginning/end of line with Home/End
 bindkey "^[[H" beginning-of-line
+bindkey "^[[1~" beginning-of-line
 bindkey "^[[F" end-of-line
+bindkey "^[[4~" end-of-line
 
 # Add keybinding for editing in VIM
 autoload -Uz edit-command-line
