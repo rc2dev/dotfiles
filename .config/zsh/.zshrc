@@ -54,6 +54,13 @@ zstyle ':completion:*:processes-names' command ps axh -o cmd
 # Use emacs bindings
 bindkey -e
 
+# Use vim navigation keys in menu completion
+zmodload zsh/complist
+bindkey -M menuselect '^h' vi-backward-char
+bindkey -M menuselect '^k' vi-up-line-or-history
+bindkey -M menuselect '^l' vi-forward-char
+bindkey -M menuselect '^j' vi-down-line-or-history
+
 # History with arrow up/down
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
