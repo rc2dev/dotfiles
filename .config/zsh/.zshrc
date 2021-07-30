@@ -51,9 +51,6 @@ zstyle ':completion:*:processes-names' command ps axh -o cmd
 #####################################################################
 # Interface
 #####################################################################
-# Use emacs bindings
-bindkey -e
-
 # Use vim navigation keys in menu completion
 zmodload zsh/complist
 bindkey -M menuselect '^h' vi-backward-char
@@ -131,6 +128,20 @@ antigen bundle zsh-users/zsh-syntax-highlighting # should be last
 
 antigen apply
 
+
+#####################################################################
+# Plugins configuration
+#####################################################################
+# Needed for spaceship theme to refresh vi_mode
+spaceship_vi_mode_enable
+# vi_mode: Remove it from left prompt
+SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#vi_mode}")
+# vi_mode: Add it to right prompt
+SPACESHIP_RPROMPT_ORDER=(vi_mode)
+# vi_mode: Remove insert mode symbol
+SPACESHIP_VI_MODE_INSERT=
+
+
 ######################################################################
 # fzf
 ######################################################################
@@ -143,6 +154,7 @@ fi
 
 export FZF_CTRL_T_COMMAND="$FD_FILES '$HOME'"
 export FZF_ALT_C_COMMAND="$FD_DIRS '$HOME'"
+
 
 ######################################################################
 # Non-zsh
@@ -159,3 +171,4 @@ fi
 
 # RVM: Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
