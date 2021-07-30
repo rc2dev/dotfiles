@@ -58,6 +58,7 @@ colorscheme nord
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+" Fix
 " Interface
 set shortmess+=I                                    " Disable startup message
 set showcmd                                         " Show partial command
@@ -107,9 +108,16 @@ set hidden                                          " Allow buffers to be hidden
 set mouse=a                                         " Enable the use of the mouse
 set clipboard=unnamedplus                           " Use system clipboard
 
-" Fix mouse scrollwheel on st
+" Fixes for st
 if &term =~ '^st\($\|-\)'
+  " Mouse wheel
   set ttymouse=sgr
+
+  " Ctrl+arrow
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
 endif
 
 " Create tags file (this just runs ctags). This allows:
