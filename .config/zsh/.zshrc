@@ -58,14 +58,16 @@ bindkey -M menuselect '^k' vi-up-line-or-history
 bindkey -M menuselect '^l' vi-forward-char
 bindkey -M menuselect '^j' vi-down-line-or-history
 
-# History with arrow up/down
+# History with arrow up/down and vim's ctrl+jk
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[OA" up-line-or-beginning-search
+bindkey "^k" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 bindkey "^[OB" down-line-or-beginning-search
+bindkey "^j" down-line-or-beginning-search
 
 # Move to beginning/end of words with ctrl
 bindkey "^[[1;5C" forward-word
