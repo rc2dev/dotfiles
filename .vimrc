@@ -375,6 +375,10 @@ inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
+inoremap <C-Left>  <ESC>:echoe "Use b"<CR>
+inoremap <C-Right> <ESC>:echoe "Use w"<CR>
+inoremap <C-Up>    <ESC>:echoe "Use k"<CR>
+inoremap <C-Down>  <ESC>:echoe "Use j"<CR>
 
 " Use ctrl+jk on completion menu
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
