@@ -32,7 +32,6 @@ system-config-printer-applet &
 kdeconnect-indicator &
 syncthing-gtk --minimized &
 keepassxc &
-~/.rvm/wrappers/ruby-2.6.6/task-web &
 
 # Statusbar loop
 while true; do
