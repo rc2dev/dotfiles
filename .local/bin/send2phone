@@ -12,13 +12,6 @@ check_args() {
 		printf "Usage: %s file [file...]\n" "$(basename "$0")"
 		exit 1
 	fi
-
-	for arg; do
-		if ! [[ "$arg" = /* ]]; then
-			printf "Please use full paths.\n"
-			exit 1
-		fi
-	done
 }
 
 main() {
