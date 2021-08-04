@@ -17,11 +17,12 @@ fi
 readonly phone_id="$(kdeconnect-cli -l --id-only | head -1)"
 
 while (( $# > 0 )); do
-	if kdeconnect-cli --device "$phone_id" --share "$1"; then
-		msg="File sent - $(basename -- "$1")"
+	file="$1"
+	base="$(basename -- "$file")"
+	if kdeconnect-cli --device "$phone_id" --share "$file"; then
+		notify-send --urgency=normal "$script_name" "File sent: $base"
 	else
-		msg="Failed to send the file."
+		notify-send --urgency=critical "$script_name" "Failed to send file: $base"
 	fi
-	notify-send -a "send2phone" "$msg"
 	shift
 done
