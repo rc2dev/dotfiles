@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#
+# Simple template engine on Bash.
+# Based on https://pempek.net/articles/2013/07/08/bash-sh-as-template-engine/
+#
+# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly script_name="$(basename "$0")"
+
+main() {
+  check_args "$@"
+
+  # These variables can be used in the template.
+  local -r TEMPLATE_FILE="$1"
+  local -r FILE_FULL="${2:-/dev/stdout}"
+  local -r FILE_NAME="$(basename "$FILE_FULL")"
+  local -r FILE_NOEXT="${FILE_NAME%.*}"
+
+  render_template "$TEMPLATE_FILE" > "$FILE_FULL"
+}
+
+check_args() {
+  if [[ $# -eq 0 || $# -gt 2 ]]; then
+    log "Usage: $script_name template_file [output]"
+    exit 1
+  fi
+
+  if [[ ! -e $1 ]]; then
+    log "Template not found."
+    exit 1
+   fi
+}
+
+log() {
+  echo "$*" 1>&2
+}
+
+render_template() {
+  eval "echo \"$(cat $1)\""
+}
+
+main "$@"
