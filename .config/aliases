@@ -181,6 +181,10 @@ alias nn="notes name"
 alias nnr="notes name-ranger"
 alias nr="notes ranger"
 
+# Plan
+alias pat="plan add-todo"
+alias pet="plan edit-todo"
+
 # Timewarrior
 alias i="timew"
 alias ica="timew cancel"
