@@ -236,19 +236,11 @@ let g:templates_directory = ['$HOME/.vim/templates']
 let g:templates_name_prefix = '.vim-template.'
 let g:templates_no_builtin_templates = 1
 let g:templates_user_variables = [
-    \   ['FFDATE', 'GetFullDate'],
     \   ['FILE1', 'GetFileNoExt'],
-    \   ['DIR', 'GetDir'],
     \ ]
-function! GetFullDate()
-    return strftime('%Y-%m-%d %T %z')
-endfunction
 " Only remove last extension
 function! GetFileNoExt()
     return expand('%:t:r')
-endfunction
-function! GetDir()
-    return expand('%:p:h:t')
 endfunction
 
 
