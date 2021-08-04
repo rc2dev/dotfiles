@@ -181,39 +181,6 @@ alias nn="notes name"
 alias nnr="notes name-ranger"
 alias nr="notes ranger"
 
-# Taskwarrior
-alias t="task"
-alias tad="task add"
-alias tac="task active"
-alias tb="task burndown.daily"
-alias tbw="task burndown.weekly"
-alias tco="task completed"
-alias tct="task completed end:today"
-alias tcy="task completed end:yesterday"
-alias tcw="task completed end.before:monday end.after:monday-7days"
-alias tclw="task completed end.before:monday-7days end.after:monday-14days"
-alias tdel="task delete"
-alias tdu="task duplicate"
-alias tdo="task done"
-alias te="task edit"
-alias tm="task modify"
-alias tp="task limit:page"
-alias tsa="task start"
-alias tso="task stop"
-alias tl="task log"
-alias ts="task sync"
-alias t0="task limit:0"
-alias et="$EDITOR $TASKRC"
-alias tt="taskwarrior-tui"
-# Print all tasks completed in month yyyy-mm
-tcm() {
-	[[ $# -eq 0 ]] && echo "tcm yyyy-mm [args...]" && return
-	local -r start="$1-01"
-	local -r end="$(date -d "$start next month" '+%Y-%m-%d')"
-	shift
-	task completed end.after:$start end.before:$end "$@"
-}
-
 # Timewarrior
 alias i="timew"
 alias ica="timew cancel"
