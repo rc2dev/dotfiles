@@ -149,8 +149,9 @@ augroup behaviour
     autocmd QuickFixCmdPost [^l]* nested cwindow
     autocmd QuickFixCmdPost l* nested lwindow
 
-    " Filter temporary commit files from :oldfiles and :History
+    " Filter temporary git files from :oldfiles and :History
     autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "COMMIT_EDITMSG"')
+    autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "rebase-merge"')
 
     " Run these commands whenever these files are updated
     autocmd BufWritePost dwmbar silent !dwmbar
