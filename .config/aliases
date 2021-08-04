@@ -96,6 +96,7 @@ alias_z zk ~/.kodi
 alias_z zk /var/lib/kodi/.kodi
 alias_z zm ~/Music
 alias_z zn "$NOTES"
+alias_z znb "$NOTES/../bin"
 alias_z zp ~/Pictures
 alias_z zs /sdcard
 alias_z zt ~/Sync
@@ -182,8 +183,16 @@ alias nnr="notes name-ranger"
 alias nr="notes ranger"
 
 # Plan
-alias pat="plan add-todo"
-alias pet="plan edit-todo"
+alias pta="plan task-add"
+alias pte="plan task-edit"
+alias pd="plan day"
+alias pl="plan log"
+alias ply="plan log --yesterday"
+alias py="plan day --yesterday"
+alias pt="plan day --tomorrow"
+alias pw="plan week"
+alias plw="plan week --last"
+alias pnw="plan week --next"
 
 # Timewarrior
 alias i="timew"
