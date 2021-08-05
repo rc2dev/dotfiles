@@ -94,14 +94,15 @@ alias_z zg ~/.config
 alias_z zh ~/Sync/Screenshots
 alias_z zk ~/.kodi
 alias_z zk /var/lib/kodi/.kodi
-alias_z zm ~/Music
+alias_z zm /mnt
 alias_z zn "$NOTES"
 alias_z znb "$NOTES/../bin"
 alias_z zp ~/Pictures
 alias_z zs /sdcard
-alias_z zt ~/Sync
+alias_z zu /media/$USER
 alias_z zv ~/Videos
-alias_z zy ~/.config/yadm
+alias_z zy ~/Sync
+alias_z zY ~/.config/yadm
 alias_z zw /var/www
 alias_z zw "$WALLPAPERS"
 alias_z z8 ~/Documents/RN8\ Sync
