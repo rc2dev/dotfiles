@@ -1,7 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/bash
-
-. ~/.zprofile
-export LD_PRELOAD=${PREFIX}/lib/libtermux-exec.so
-
-bash "$NOTES/../bin/plan" week --cmd xdg-open
-
