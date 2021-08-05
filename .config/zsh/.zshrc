@@ -84,6 +84,9 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[4~" end-of-line
 
+# Fix delete key on Termux
+bindkey "^[[P" delete-char
+
 # Add keybinding for editing in VIM
 autoload -Uz edit-command-line
 zle -N edit-command-line
