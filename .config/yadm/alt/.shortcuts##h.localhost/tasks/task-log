@@ -1,6 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/bash
-
-. ~/.zprofile
-
-bash "$NOTES/../bin/termux_task" task-log
-
