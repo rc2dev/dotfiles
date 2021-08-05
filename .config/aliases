@@ -185,16 +185,16 @@ alias nr="notes ranger"
 
 # Plan
 alias p="plan"
-alias pta="plan task-add"
-alias pte="plan task-edit"
 alias pd="plan day"
-alias ptl="plan log"
-alias ptly="plan log --yesterday"
 alias py="plan day --yesterday"
 alias pt="plan day --tomorrow"
 alias pw="plan week"
 alias plw="plan week --last"
 alias pnw="plan week --next"
+alias ta="plan task-add"
+alias te="plan task-edit"
+alias tl="plan task-log"
+alias tly="plan task-log --yesterday"
 
 # Timewarrior
 alias i="timew"
