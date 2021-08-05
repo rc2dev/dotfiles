@@ -32,8 +32,7 @@ Plug 'ferrine/md-img-paste.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'airblade/vim-rooter'
-Plug 'LucHermitte/lh-vim-lib'                       " Dependency for local_vimrc
-Plug 'LucHermitte/local_vimrc'
+Plug 'embear/vim-localvimrc'
 Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
 if $SLOW_HOST != '1'
@@ -303,12 +302,12 @@ endif
 " rooter
 let g:rooter_silent_chdir = 1
 
-" local_vimrc
-" Add $NOTES to the whitelist
-call lh#local_vimrc#munge('whitelist', resolve($NOTES).'/..')
-" Remove $HOME from the asklist and add it to the blacklist
-call lh#local_vimrc#filter_list('asklist', 'v:val != $HOME')
-call lh#local_vimrc#munge('blacklist', $HOME)
+" vim-localvimrc
+let g:localvimrc_whitelist=resolve($NOTES . '/../.lvimrc')
+let g:localvimrc_blacklist='/'
+" Disable sandbox as the only vimrc whitelists can't be run there,
+" and we're always prompted.
+let g:localvimrc_sandbox=0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
