@@ -183,6 +183,7 @@ alias nnr="notes name-ranger"
 alias nr="notes ranger"
 
 # Plan
+alias p="plan"
 alias pta="plan task-add"
 alias pte="plan task-edit"
 alias pd="plan day"
