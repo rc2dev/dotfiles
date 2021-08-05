@@ -19,13 +19,13 @@ truncate() {
 }
 
 bar_vol() {
-  if [[ "$(pulsemixer --get-mute)" == "1" ]]; then
+  if [[ "$(pamixer --get-mute)" == "1" ]]; then
     local -r icon="🔇"
   else
     local -r icon="🔊"
   fi
 
-  printf "%s %3d%%" "${icon}" "$(pulsemixer --get-volume | cut -f 1 -d ' ')"
+  printf "%s %3d%%" "${icon}" "$(pamixer --get-volume | cut -f 1 -d ' ')"
 }
 
 bar_player() {
