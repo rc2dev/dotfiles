@@ -97,6 +97,7 @@ alias_z zk /var/lib/kodi/.kodi
 alias_z zm /mnt
 alias_z zn "$NOTES"
 alias_z znb "$NOTES/../bin"
+alias_z znp "$NOTES/Planejamento"
 alias_z zp ~/Pictures
 alias_z zs /sdcard
 alias_z zu /media/$USER
