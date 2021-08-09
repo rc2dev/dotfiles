@@ -1,3 +1,6 @@
+" Author: Rafael Cavalcanti - rafaelc.org
+
+" Suggested by :help write-filetype-plugin
 if exists('b:did_ftplugin')
     finish
   endif

@@ -1,5 +1,11 @@
 " Author: Rafael Cavalcanti - rafaelc.org
 
+" Suggested by :help write-filetype-plugin
+if exists('b:did_ftplugin')
+    finish
+  endif
+let b:did_ftplugin = 1
+
 " Create a Markdown-link structure for the current word or visual selection.
 " Optionally insert the current system clipboard as an URL.
 " Adapted from https://stackoverflow.com/a/14284350.
