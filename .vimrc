@@ -276,9 +276,6 @@ autocmd! User GoyoLeave call <SID>goyo_leave()
 let g:user_emmet_leader_key=','
 let g:user_emmet_mode='n'
 
-" md-img-paste
-autocmd FileType markdown inoremap <buffer><silent> <C-b> <C-o>:call mdip#MarkdownClipboardImage()<CR>
-
 " vim-markdown
 let g:vim_markdown_folding_level = 2
 let g:vim_markdown_toc_autofit = 1
@@ -335,11 +332,9 @@ vnoremap <Leader>p "_dP
 " Insert current date
 inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
 
-" Run current file
+" Run current file (overwritten per filetype)
 nnoremap <F5> :w<CR>:!%:p<CR>
 inoremap <F5> <C-o>:w<CR><C-o>:!%:p<CR>
-autocmd FileType markdown nnoremap <F5> :MarkdownPreview<CR>
-autocmd FileType markdown inoremap <F5> <C-o>:MarkdownPreview<CR>
 
 " Toggle spellcheck
 nnoremap <F6> :setlocal spell!<CR>
