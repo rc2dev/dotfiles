@@ -90,6 +90,9 @@ function! EnableTransparency()
 
     set bg=dark
     hi Normal guibg=NONE ctermbg=NONE
+    " Fix :terminal having black background after the above command.
+    " [Value for Nord Theme]
+    hi Terminal guibg=#2E3440
 endfunction
 
 function! DisableTransparency()
