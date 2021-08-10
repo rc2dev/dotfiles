@@ -227,6 +227,19 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb'
 " vim-airline
 " Show open buffers on top
 let g:airline#extensions#tabline#enabled = 1
+" Don't display spelling language
+let g:airline_detect_spelllang = 0
+" Use powerline symbols
+let g:airline_powerline_fonts = 1
+" Do not draw separators for empty sections
+let g:airline_skip_empty_sections = 1
+" Display a short path in statusline
+let g:airline_stl_path_style = 'short'
+" Skip display file format if it matches this string
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+" Redifine section z
+let g:airline_section_z = '%p%% %v %#__accent_bold#%{g:airline_symbols.maxlinenr}%L%#__restore__#'
+
 
 " vim-template
 let g:templates_directory = ['$HOME/.vim/templates']
@@ -448,4 +461,3 @@ iab rct Author: Rafael Cavalcanti - rafaelc.org
 if filereadable('/etc/vim/vimrc.local')
     source /etc/vim/vimrc.local
 endif
-
