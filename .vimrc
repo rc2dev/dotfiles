@@ -40,7 +40,6 @@ if $SLOW_HOST != '1'
     set noshowmode                                  " Don't show modes below status line (redundant to Airline)
 endif
 " Colorschemes
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
