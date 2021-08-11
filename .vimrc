@@ -433,6 +433,8 @@ nnoremap <Leader>gl :Gclog<CR>
 " Disable default mappings and add mine
 let g:NERDCreateDefaultMappings = 0
 map <leader>; <plug>NERDCommenterToggle
+" Termux
+map <leader>/ <plug>NERDCommenterToggle
 " thesaurus_query
 " Disable keymappings and set my own
 let g:tq_map_keys = 0
