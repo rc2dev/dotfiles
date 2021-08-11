@@ -29,7 +29,7 @@ ydl() {
 	local -r opts="$1"
 
 	trap '
-		echo $(date +"%b %d %H:%M:%S") $@ >> ~/ydl_errors.log;
+		echo $(date +"%b %d %H:%M:%S") $@ >> ~/Downloads/ydl_errors.log;
 		notify-send --urgency=critical "dmenu_url - youtube-dl" "Logged error downloading: $@"
 		' ERR
 
