@@ -28,7 +28,7 @@ declare -Ar options=(
 ydl() {
 	local -r opts="$1"
 
-	$term --class "$term_class" -e bash -c '
+	$term -c "$term_class" -e bash -c '
 		trap '\''echo $(date +"%b %d %H:%M:%S") $@ >> ~/ydl_errors.log'\'' ERR
 
 		mkdir -p ~/Downloads && cd ~/Downloads
