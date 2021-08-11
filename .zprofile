@@ -114,9 +114,9 @@ export MANPAGER="less -s -M +Gg"
 export TASKRC="$HOME/Sync/Apps/Taskwarrior/taskrc"
 
 # z.lua: Move from ~/
-export _ZL_DATA="/home/rafael/.local/share/zlua"
+export _ZL_DATA="$HOME/.local/share/zlua"
 export RANGER_ZLUA="$HOME/.local/opt/z.lua/z.lua"
 
-# Zsh: Move from ~/
+# zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
 
