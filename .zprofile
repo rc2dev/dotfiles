@@ -113,15 +113,10 @@ export MANPAGER="less -s -M +Gg"
 # taskwarrior
 export TASKRC="$HOME/Sync/Apps/Taskwarrior/taskrc"
 
-# z.lua: Move out from ~/
+# z.lua: Move from ~/
 export _ZL_DATA="/home/rafael/.local/share/zlua"
 export RANGER_ZLUA="$HOME/.local/opt/z.lua/z.lua"
 
-# Zsh
-# Needed for last-working-dir plugin; and I use it in other places
-export ZSH_CACHE_DIR="$HOME/.cache/zsh"
-mkdir -p "$ZSH_CACHE_DIR"
-# Move from ~/
+# Zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
-export ADOTDIR="$ZSH_CACHE_DIR/antigen"
 

@@ -5,7 +5,7 @@
 #####################################################################
 # History
 ####################################################################
-HISTFILE="$ZSH_CACHE_DIR/history"
+HISTFILE="$HOME/.cache/zsh_history"
 HISTSIZE=5000
 SAVEHIST=10000
 
@@ -118,20 +118,25 @@ zle -N bracketed-paste bracketed-paste-url-magic
 #####################################################################
 # Plugins
 #####################################################################
-source "$ZDOTDIR/antigen/antigen.zsh"
+# Source framework
+declare -A ZINIT
+ZINIT[HOME_DIR]="$HOME/.local/share/zsh/zinit"
+source "$ZINIT[HOME_DIR]/bin/zinit.zsh"
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh)
-antigen bundle command-not-found
-antigen bundle git
-antigen bundle systemd
+# Needed by zinit because we are sourcing it after compinit
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Bundles from robbyrussell's oh-my-zsh
+for plugin in "command-not-found" "git" "systemd"; do
+  zinit snippet OMZ::plugins/$plugin/$plugin.plugin.zsh
+done
 
 # Other bundles
-[[ $SLOW_HOST == 1 ]] || antigen bundle zsh-users/zsh-autosuggestions
-command -v lua >/dev/null && antigen bundle $HOME/.local/opt/z.lua # use submodule as ranger also needs the file
-antigen bundle denysdovhan/spaceship-prompt
-antigen bundle zsh-users/zsh-syntax-highlighting # should be last
-
-antigen apply
+[[ $SLOW_HOST == 1 ]] || zinit load zsh-users/zsh-autosuggestions
+command -v lua >/dev/null && zinit load $HOME/.local/opt/z.lua # use submodule as ranger also needs the file
+zinit load denysdovhan/spaceship-prompt
+zinit load zsh-users/zsh-syntax-highlighting # should be last
 
 
 #####################################################################

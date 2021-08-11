@@ -15,7 +15,7 @@ main() {
 	update_ydl
 	update_dotfiles
 	update_vim
-	update_antigen
+	update_zinit
 
 	log "Script concluído."
 }
@@ -132,11 +132,11 @@ update_vim() {
 	vim +PlugUpdate +PlugClean! +qa!
 }
 
-update_antigen() {
+update_zinit() {
 	has_command zsh || return 0
 
-	log_step "Atualizando zsh antigen..."
-	zsh -ic "antigen update"
+	log_step "Atualizando zsh zinit..."
+	zsh -ic "zinit update --parallel"
 }
 
 is_mint() {
