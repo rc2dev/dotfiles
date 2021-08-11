@@ -62,7 +62,7 @@ fi
 
 # Paths
 export ALIASES="$HOME/.config/aliases"
-export NOTES="$HOME/Sync/.Notes/md"
+export NOTES="$HOME/Sync/.Notes"
 export WALLPAPERS="$HOME/Pictures/Wallpapers"
 
 # Default applications

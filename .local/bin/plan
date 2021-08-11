@@ -5,4 +5,4 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-exec bash "$NOTES/../bin/plan" "$@"
+exec bash "$NOTES/bin/plan" "$@"

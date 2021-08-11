@@ -314,7 +314,7 @@ endif
 let g:rooter_silent_chdir = 1
 
 " vim-localvimrc
-let g:localvimrc_whitelist=resolve($NOTES . '/../.lvimrc')
+let g:localvimrc_whitelist=resolve($NOTES . '/.lvimrc')
 let g:localvimrc_blacklist='/'
 " Disable sandbox as the only vimrc whitelists can't be run there,
 " and we're always prompted.
