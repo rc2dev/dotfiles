@@ -20,35 +20,6 @@ setopt share_history
 
 
 #####################################################################
-# Completion
-#####################################################################
-autoload -Uz compinit
-compinit
-
-# Show hidden files on completion
-setopt globdots
-
-# Use arrow-key driven interface for completion
-zstyle ':completion:*' menu select
-
-# Use colors
-eval "$(dircolors)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-# Small letters to match small and capital letters
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
-# Complete ssh hosts with ~/.ssh/config
-zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
-zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
-
-# Complete all processes with kill and killall
-zstyle ':completion:*:processes' command ps axh -o user,pid,%cpu,%mem,start,cmd
-zstyle ':completion:*:processes' sort false
-zstyle ':completion:*:processes-names' command ps axh -o cmd
-
-
-#####################################################################
 # Interface
 #####################################################################
 # Use vim navigation keys in menu completion
@@ -123,10 +94,6 @@ declare -A ZINIT
 ZINIT[HOME_DIR]="$HOME/.local/share/zsh/zinit"
 source "$ZINIT[HOME_DIR]/bin/zinit.zsh"
 
-# Needed by zinit because we are sourcing it after compinit
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
 
 #####################################################################
 # Plugins sourcing
@@ -178,6 +145,36 @@ fi
 
 export FZF_CTRL_T_COMMAND="$FD_FILES '$HOME'"
 export FZF_ALT_C_COMMAND="$FD_DIRS '$HOME'"
+
+
+#####################################################################
+# Completion (should be after loading plugins with zinit)
+#####################################################################
+autoload -Uz compinit
+compinit
+
+# Show hidden files on completion
+setopt globdots
+
+# Use arrow-key driven interface for completion
+zstyle ':completion:*' menu select
+
+# Use colors
+eval "$(dircolors)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# Small letters to match small and capital letters
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# Complete ssh hosts with ~/.ssh/config
+zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
+zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
+
+# Complete all processes with kill and killall
+zstyle ':completion:*:processes' command ps axh -o user,pid,%cpu,%mem,start,cmd
+zstyle ':completion:*:processes' sort false
+zstyle ':completion:*:processes-names' command ps axh -o cmd
+
 
 
 ######################################################################
