@@ -127,16 +127,25 @@ source "$ZINIT[HOME_DIR]/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Bundles from robbyrussell's oh-my-zsh
+# Plugins from robbyrussell's oh-my-zsh
 for plugin in "command-not-found" "git" "systemd"; do
   zinit snippet OMZ::plugins/$plugin/$plugin.plugin.zsh
 done
 
-# Other bundles
+# Other plugins
 [[ $SLOW_HOST == 1 ]] || zinit load zsh-users/zsh-autosuggestions
-command -v lua >/dev/null && zinit load $HOME/.local/opt/z.lua # use submodule as ranger also needs the file
+
 zinit load denysdovhan/spaceship-prompt
+
+zinit ice wait lucid
+command -v lua >/dev/null && zinit load "$HOME/.local/opt/z.lua" # use submodule as ranger also needs the file
+
+zinit ice wait lucid
 zinit load zsh-users/zsh-syntax-highlighting # should be last
+
+# RVM: Load RVM into a shell session *as a function*
+zinit ice wait lucid
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && zinit load "$HOME/.rvm/scripts/rvm"
 
 
 #####################################################################
@@ -178,7 +187,4 @@ if [[ -z "$TMUX" ]]; then
     printf "Sessões tmux ativas: %s\n" $tmux_sessions
   fi
 fi
-
-# RVM: Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
