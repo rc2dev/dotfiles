@@ -84,10 +84,12 @@ CMUS_HOME="$HOME/Documents/cmus"
 export FD_FILES="fd --follow --hidden --no-ignore-vcs --exclude '.git' --exclude 'node_modules' ."
 export FD_DIRS="fd --follow --hidden --no-ignore-vcs -t d ."
 export FZF_DEFAULT_COMMAND="$FD_FILES"
+# Preview files with bat, directories with tree
 export FZF_DEFAULT_OPTS="
 	--layout=reverse
 	--height 40%
 	--multi
+	--preview '([[ -d {} ]] && tree -C {}) || ([[ -f {} ]] && bat --style=full --color=always --decorations=never {}) || echo {}'
 	--bind 'change:top'
 	--bind 'ctrl-a:select-all'
 	--bind 'ctrl-y:execute-silent(echo {+} | xclip -selection clipboard)'
