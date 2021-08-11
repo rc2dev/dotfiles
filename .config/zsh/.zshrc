@@ -1,6 +1,7 @@
 # zshrc
 # Author: Rafael Cavalcanti - rafaelc.org
 
+
 ZSH_CACHE_DIR="$HOME/.cache/zsh"
 mkdir -p "$ZSH_CACHE_DIR"
 
