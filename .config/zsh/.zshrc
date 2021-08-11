@@ -1,11 +1,14 @@
 # zshrc
 # Author: Rafael Cavalcanti - rafaelc.org
 
+ZSH_CACHE_DIR="$HOME/.cache/zsh"
+mkdir -p "$ZSH_CACHE_DIR"
+
 
 #####################################################################
 # History
 ####################################################################
-HISTFILE="$HOME/.cache/zsh_history"
+HISTFILE="$ZSH_CACHE_DIR/history"
 HISTSIZE=5000
 SAVEHIST=10000
 
@@ -151,7 +154,7 @@ export FZF_ALT_C_COMMAND="$FD_DIRS '$HOME'"
 # Completion (should be after loading plugins with zinit)
 #####################################################################
 autoload -Uz compinit
-compinit
+compinit -d "$ZSH_CACHE_DIR/zcompdump"
 
 # Show hidden files on completion
 setopt globdots
