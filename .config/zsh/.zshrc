@@ -116,9 +116,9 @@ zle -N bracketed-paste bracketed-paste-url-magic
 
 
 #####################################################################
-# Plugins
+# Plugins framework
 #####################################################################
-# Source framework
+# Source zinit
 declare -A ZINIT
 ZINIT[HOME_DIR]="$HOME/.local/share/zsh/zinit"
 source "$ZINIT[HOME_DIR]/bin/zinit.zsh"
@@ -127,21 +127,26 @@ source "$ZINIT[HOME_DIR]/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+
+#####################################################################
+# Plugins sourcing
+#####################################################################
 # Plugins from robbyrussell's oh-my-zsh
 for plugin in "command-not-found" "git" "systemd"; do
   zinit snippet OMZ::plugins/$plugin/$plugin.plugin.zsh
 done
 
-# Other plugins
 [[ $SLOW_HOST == 1 ]] || zinit load zsh-users/zsh-autosuggestions
 
 zinit load denysdovhan/spaceship-prompt
 
+# Use submodule as ranger also needs the file
 zinit ice wait lucid
-command -v lua >/dev/null && zinit load "$HOME/.local/opt/z.lua" # use submodule as ranger also needs the file
+command -v lua >/dev/null && zinit load "$HOME/.local/opt/z.lua"
 
+# Should be last
 zinit ice wait lucid
-zinit load zsh-users/zsh-syntax-highlighting # should be last
+zinit load zsh-users/zsh-syntax-highlighting
 
 # RVM: Load RVM into a shell session *as a function*
 zinit ice wait lucid
