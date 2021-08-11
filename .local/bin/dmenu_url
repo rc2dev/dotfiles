@@ -28,9 +28,12 @@ declare -Ar options=(
 ydl() {
 	local -r opts="$1"
 
-	$term -c "$term_class" -e bash -c '
-		trap '\''echo $(date +"%b %d %H:%M:%S") $@ >> ~/ydl_errors.log'\'' ERR
+	trap '
+		echo $(date +"%b %d %H:%M:%S") $@ >> ~/ydl_errors.log;
+		notify-send --urgency=critical "dmenu_url - youtube-dl" "Logged error downloading: $@"
+		' ERR
 
+	$term -c "$term_class" -e bash -c '
 		mkdir -p ~/Downloads && cd ~/Downloads
 		printf "Downloading these URLs:\n"
 		printf "%s\n\n" "$@"
