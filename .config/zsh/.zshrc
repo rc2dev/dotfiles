@@ -111,7 +111,6 @@ done
 zinit load denysdovhan/spaceship-prompt
 
 # Use submodule as ranger also needs the file
-zinit ice wait lucid
 command -v lua >/dev/null && zinit load "$HOME/.local/opt/z.lua"
 
 # Should be last
