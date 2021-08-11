@@ -145,9 +145,12 @@ elif [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then # Raspbian
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
-export FZF_CTRL_T_COMMAND="$FD_FILES '$HOME'"
-export FZF_ALT_C_COMMAND="$FD_DIRS '$HOME'"
+# Rebind ^T to ^P (bring back default bind)
+bindkey "^P" fzf-file-widget
+bindkey "^T" self-insert
 
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FD_DIRS"
 
 #####################################################################
 # Completion (should be after loading plugins with zinit)
