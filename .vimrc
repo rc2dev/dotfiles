@@ -109,6 +109,9 @@ set hidden                                          " Allow buffers to be hidden
 set mouse=a                                         " Enable the use of the mouse
 set clipboard=unnamedplus                           " Use system clipboard
 
+" Wait for typing to be completed (for slow typing on Termux)
+set notimeout
+
 " Fixes for st
 if &term =~ '^st\($\|-\)'
   " Mouse wheel
