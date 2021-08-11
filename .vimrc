@@ -143,7 +143,7 @@ silent !mkdir -p ~/.vim/swap
 set directory=$HOME/.vim/swap//,.
 
 " Move ~/.viminfo to ~/.vim
-set viminfo+='1000,n~/.vim/viminfo
+set viminfo+='2000,n~/.vim/viminfo
 
 augroup behaviour
     " Open quickfix automatically (for shellcheck)
