@@ -107,20 +107,24 @@ for plugin in "command-not-found" "git" "systemd"; do
   zinit snippet OMZ::plugins/$plugin/$plugin.plugin.zsh
 done
 
-[[ $SLOW_HOST == 1 ]] || zinit load zsh-users/zsh-autosuggestions
+# fzf
+zinit snippet 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh'
+zinit snippet 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh'
 
-zinit load denysdovhan/spaceship-prompt
+[[ $SLOW_HOST == 1 ]] || zinit light zsh-users/zsh-autosuggestions
+
+zinit light denysdovhan/spaceship-prompt
 
 # Use submodule as ranger also needs the file
-command -v lua >/dev/null && zinit load "$HOME/.local/opt/z.lua"
+command -v lua >/dev/null && zinit light "$HOME/.local/opt/z.lua"
 
 # Should be last
 zinit ice wait lucid
-zinit load zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-syntax-highlighting
 
 # RVM: Load RVM into a shell session *as a function*
 zinit ice wait lucid
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && zinit load "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && zinit light "$HOME/.rvm/scripts/rvm"
 
 
 #####################################################################
@@ -135,23 +139,13 @@ SPACESHIP_RPROMPT_ORDER=(vi_mode)
 # vi_mode: Remove insert mode symbol
 SPACESHIP_VI_MODE_INSERT=
 
-
-######################################################################
 # fzf
-######################################################################
-if [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then # Ubuntu
-  source /usr/share/doc/fzf/examples/completion.zsh
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-elif [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then # Raspbian
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-fi
-
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FD_DIRS"
 # Rebind ^T to ^P (bring back default bind)
 bindkey "^P" fzf-file-widget
 bindkey "^T" self-insert
 
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="$FD_DIRS"
 
 #####################################################################
 # Completion (should be after loading plugins with zinit)
