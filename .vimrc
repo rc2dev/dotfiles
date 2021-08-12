@@ -31,6 +31,7 @@ Plug 'ap/vim-css-color'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'                        " Dependency for ranger.vim to replace netrw
 Plug 'airblade/vim-rooter'
 Plug 'embear/vim-localvimrc'
 Plug 'wincent/loupe'
@@ -312,6 +313,10 @@ else
                 \ 'text': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
                 \ }
 endif
+
+" ranger.vim
+" Open ranger when vim open a directory.
+let g:ranger_replace_netrw = 1
 
 " rooter
 let g:rooter_silent_chdir = 1
