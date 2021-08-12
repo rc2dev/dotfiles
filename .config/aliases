@@ -25,6 +25,8 @@ alias cp="cp -vir"
 alias mv="mv -vi"
 alias rm="rm -vI"
 alias ln="ln -vi"
+alias chmod="chmod -v"
+alias chown="chown -v"
 
 # Human-readable output
 alias df="df -h"
@@ -78,8 +80,8 @@ alias hy="fc -ln -20 | fzf | xclip -selection clipboard"
 alias e="$EDITOR"
 alias ea="$EDITOR $ALIASES"
 alias eg="vim +'Files $HOME'"
-alias eh="vim +History"
 alias ep="vim +Files"
+alias et="vim +History"
 alias ev="$EDITOR ~/.vimrc"
 alias exp="$EDITOR ~/.xprofile"
 alias ez="$EDITOR $ZDOTDIR/.zshrc"
@@ -109,7 +111,7 @@ alias_z zw "$WALLPAPERS"
 alias_z z8 ~/Documents/RN8\ Sync
 
 # ranger
-alias r="ranger"
+alias ff="ranger"
 
 # z.lua
 alias zc="z -c"
@@ -244,17 +246,6 @@ fi
 
 # Use bat if available
 command -v bat >/dev/null && alias cat="bat"
-
-# TV and HDMI output
-tv_off="echo 'standby 0' | cec-client -s"
-tv_on="echo 'on 0' | cec-client -s"
-if [[ "$HOST" == "pi" ]]; then
-	alias tv_off="$tv_off"
-	alias tv_on="$tv_on"
-else
-	alias tv_off="ssh pi -t sh -c \"$tv_off\""
-	alias tv_on="ssh pi -t sh -c \"$tv_on\""
-fi
 
 # HTTP server
 alias hs="python3 -m http.server"
