@@ -111,7 +111,8 @@ alias_z zw "$WALLPAPERS"
 alias_z z8 ~/Documents/RN8\ Sync
 
 # ranger
-alias ff="ranger"
+alias f="ranger"
+alias fp="ranger --cmd=fzf_select"
 
 # z.lua
 alias zc="z -c"
@@ -161,8 +162,7 @@ ye() {
 # Easier commands
 alias cx="chmod +x"
 alias ex="atool --extract --each --"
-alias f="find . -iname"
-alias o="xdg-open"
+alias ff="find . -iname"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias scr="sudo systemctl restart"
@@ -175,6 +175,14 @@ fi
 
 # Set default options
 alias fd="fd --hidden --follow --no-ignore-vcs --exclude '.git' --exclude 'node_modules'"
+
+# Shorter xdg-open
+# Run fzf if no args.
+o() {
+	[[ $# -gt 0 ]] && return xdg-open "$@"
+
+	fzf | xargs -r -d'\n' -P 0 -n 1 xdg-open
+}
 
 # Notes
 alias n="notes"
