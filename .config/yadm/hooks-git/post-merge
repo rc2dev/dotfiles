@@ -14,7 +14,7 @@ has_changed() {
 # Update VIM plugins
 if has_changed .vimrc; then
   echo "\n[Hook] vimrc changed: Installing/cleaning VIM plugins..."
-  # For some reason, PlugInstall doesn't proceed with GIT_DIR set.
+  # PlugInstall doesn't proceed with GIT_DIR set (https://github.com/junegunn/vim-plug/issues/506).
   (unset GIT_DIR && vim +PlugInstall +PlugClean! +qa!)
 fi
 
