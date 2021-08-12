@@ -7,7 +7,7 @@ if exists('b:did_ftplugin')
 let b:did_ftplugin = 1
 
 " Create a markdown link structure with the URL from clipboard.
-nnoremap <Leader>l i[](<C-r>*)<Esc>F[a
+nnoremap <Leader>l i [](<C-r>*)<Esc>F[a
 vnoremap <Leader>l "ldi[<C-r>l](<C-r>*)
 
 " markdown-preview
