@@ -81,9 +81,9 @@ export CM_DIR="$HOME/.cache"
 CMUS_HOME="$HOME/Documents/cmus"
 
 # fzf
-export FD_FILES="fd --follow --hidden --no-ignore-vcs --exclude '.git' --exclude 'node_modules'"
-export FD_DIRS="$FD_FILES -t d"
-export FZF_DEFAULT_COMMAND="$FD_FILES ."
+export FD_FILES="fd --follow --hidden --no-ignore-vcs --exclude '.git' --exclude 'node_modules' ."
+export FD_DIRS="$FD_FILES -t d ."
+export FZF_DEFAULT_COMMAND="$FD_FILES"
 # Preview files with bat, directories with tree
 export FZF_DEFAULT_OPTS="
 	--layout=reverse
