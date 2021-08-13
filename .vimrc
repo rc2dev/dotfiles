@@ -49,7 +49,23 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Theme
+function! s:set_transparency()
+  " Don't do it on gvim or it will get messed up
+  if has('gui_running')
+    return
+  endif
+
+  let l:theme_guibg = synIDattr(hlID('Normal'), 'bg')
+  autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
+  " Fix :terminal having black background after the above command.
+  execute 'hi Terminal guibg=' . l:theme_guibg
+endfunction
+
+augroup appearance
+  autocmd ColorScheme * call <SID>set_transparency()
+augroup END
+
+" Theme (must come after autocmd for transparency)
 set termguicolors                                   " Use truecolors
 colorscheme nord
 set bg=dark
@@ -81,19 +97,6 @@ augroup appearance
     " Resize splits automatically if VIM is resized
     autocmd VimResized * execute "normal! \<C-w>="
 augroup END
-
-function! s:EnableTransparency()
-    " Don't do it on gvim or it will get messed up
-    if has('gui_running')
-        return
-    endif
-
-    hi Normal guibg=NONE ctermbg=NONE
-    " Fix :terminal having black background after the above command.
-    " [Value for Nord Theme]
-    hi Terminal guibg=#2E3440
-endfunction
-call s:EnableTransparency()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -237,7 +240,6 @@ endfunction
 " Goyo
 " Ensure :q to quit when Goyo is active
 " Toggle Limelight
-" Restore transparency on leave
 function! s:goyo_enter()
     let b:quitting = 0
     let b:quitting_bang = 0
@@ -258,7 +260,6 @@ function! s:goyo_leave()
     endif
 
     Limelight!
-    call s:EnableTransparency()
 endfunction
 
 autocmd! User GoyoEnter call <SID>goyo_enter()
