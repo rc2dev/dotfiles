@@ -114,6 +114,8 @@ update_distro_osmc() {
 }
 
 update_dotfiles() {
+	has_command yadm || return 0
+
 	log_step "Atualizando dotfiles..."
 	yadm pull
 }
