@@ -81,7 +81,7 @@ augroup appearance
     autocmd VimResized * execute "normal! \<C-w>="
 augroup END
 
-function! EnableTransparency()
+function! s:EnableTransparency()
     " Don't do it on gvim or it will get messed up
     if has('gui_running')
         return
@@ -94,11 +94,11 @@ function! EnableTransparency()
     hi Terminal guibg=#2E3440
 endfunction
 
-function! DisableTransparency()
+function! s:DisableTransparency()
     set bg=dark
 endfunction
 
-call EnableTransparency()
+call s:EnableTransparency()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -263,7 +263,7 @@ function! s:goyo_leave()
     endif
 
     Limelight!
-    call EnableTransparency()
+    call s:EnableTransparency()
 endfunction
 
 autocmd! User GoyoEnter call <SID>goyo_enter()
@@ -434,8 +434,8 @@ nnoremap <silent> <C-t> :History<CR>
 " Goyo
 " Disabling transparency using GoyoEnter causes some borders to show.
 " Disabling it here instead is a workaround.
-nnoremap <F12> :call DisableTransparency()<CR>:Goyo<CR>
-inoremap <F12> <C-o>:call DisableTransparency()<CR><C-o>:Goyo<CR>
+nnoremap <F12> :call <SID>DisableTransparency()<CR>:Goyo<CR>
+inoremap <F12> <C-o>:call <SID>DisableTransparency()<CR><C-o>:Goyo<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
