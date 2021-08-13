@@ -16,6 +16,7 @@ main() {
 	update_dotfiles
 	update_vim
 	update_zinit
+	update_submodules
 
 	log "Script concluído."
 }
@@ -137,6 +138,19 @@ update_zinit() {
 
 	log_step "Atualizando zsh zinit..."
 	zsh -ic "zinit update --parallel"
+}
+
+update_submodules() {
+	has_command yadm || return 0
+
+	read -n 1 -p "Atualizar submódulos yadm? " answer
+	if [[ ! "$answer" =~ [yYsS] ]]; then
+		log "Pulando..."
+		return
+	fi
+
+	log_step "Atualizando submódulos yadm..."
+	yadm submodule update --recursive --remote
 }
 
 is_mint() {
