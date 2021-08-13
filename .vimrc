@@ -52,6 +52,7 @@ call plug#end()
 " Theme
 set termguicolors                                   " Use truecolors
 colorscheme nord
+set bg=dark
 
 " Fix colors on st
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -87,17 +88,11 @@ function! s:EnableTransparency()
         return
     endif
 
-    set bg=dark
     hi Normal guibg=NONE ctermbg=NONE
     " Fix :terminal having black background after the above command.
     " [Value for Nord Theme]
     hi Terminal guibg=#2E3440
 endfunction
-
-function! s:DisableTransparency()
-    set bg=dark
-endfunction
-
 call s:EnableTransparency()
 
 
@@ -269,6 +264,14 @@ endfunction
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
 
+" Limelight
+" The color for dimming down the surrounding paragraphs, as it can't calculate
+" from the transparent theme
+" Name or ANSI code (:help cterm-colors)
+let g:limelight_conceal_ctermfg = 'DarkGray'
+" Name or RGB color (:help gui-colors)
+let g:limelight_conceal_guifg = '#777777'
+
 " emmet-vim
 let g:user_emmet_leader_key=','
 let g:user_emmet_mode='n'
@@ -432,10 +435,8 @@ nnoremap <silent> <C-g> :Files $HOME<CR>
 nnoremap <silent> <C-f> :Rg<CR>
 nnoremap <silent> <C-t> :History<CR>
 " Goyo
-" Disabling transparency using GoyoEnter causes some borders to show.
-" Disabling it here instead is a workaround.
-nnoremap <F12> :call <SID>DisableTransparency()<CR>:Goyo<CR>
-inoremap <F12> <C-o>:call <SID>DisableTransparency()<CR><C-o>:Goyo<CR>
+nnoremap <F12> :Goyo<CR>
+inoremap <F12> <C-o>:Goyo<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
