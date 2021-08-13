@@ -186,27 +186,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Trim whitespace when saving
-function! Trim()
-    if !&binary && &filetype != 'diff'
-        :%s/\s\+$//e                                " Remove trailing whitespace in every line
-        :%s/^\n\+\%$//e                             " Remove blank lines at the end of the file
-    endif
-endfunction
-autocmd BufWrite * if g:autotrim | call Trim() | endif
-
-let g:autotrim = 1
-function AutoTrimToggle()
-    if g:autotrim
-        let g:autotrim = 0
-        echo 'Autotrim disabled.'
-    else
-        let g:autotrim = 1
-        echo 'Autotrim enabled.'
-    endif
-endfunction
-command AutoTrimToggle :call AutoTrimToggle()
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SPELL CHECK
