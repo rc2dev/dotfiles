@@ -74,7 +74,7 @@ history-rank() {
 take() { mkdir -p $@ && cd ${@:$#}; }
 
 # Copy command from history to clipboard
-alias hy="fc -ln -20 | fzf | xclip -selection clipboard"
+alias hy="fc -ln -$HISTSIZE | fzf | xclip -selection clipboard"
 
 # Edit
 alias e="$EDITOR"
