@@ -111,19 +111,12 @@ alias_z zw /var/www
 alias_z zw "$WALLPAPERS"
 alias_z z8 ~/Documents/RN8\ Sync
 
+# zoxide: make z interactive when run without arguments
+alias z="zi"
+
 # ranger
 alias f="ranger"
 alias fp="ranger --cmd=fzf_select"
-
-# z.lua
-alias zc="z -c"
-alias zu="z -b"
-# Make z interactive when run without arguments
-unalias z 2> /dev/null
-z() {
-	[ $# -eq 0 ] && _zlua -I . && return
-	_zlua "$@"
-}
 
 # Git
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"

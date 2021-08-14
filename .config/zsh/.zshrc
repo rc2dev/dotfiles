@@ -115,9 +115,6 @@ zinit snippet 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-b
 
 zinit light denysdovhan/spaceship-prompt
 
-# Use submodule as ranger also needs the file
-command -v lua >/dev/null && zinit light "$HOME/.local/opt/z.lua"
-
 # Should be last
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
@@ -125,6 +122,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 # RVM: Load RVM into a shell session *as a function*
 zinit ice wait lucid
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && zinit light "$HOME/.rvm/scripts/rvm"
+
+zinit ice wait lucid
+eval "$(zoxide init zsh)"
 
 
 #####################################################################
@@ -145,6 +145,12 @@ export FZF_ALT_C_COMMAND="$FD_DIRS"
 # Rebind ^T to ^P (bring back default bind)
 bindkey "^P" fzf-file-widget
 bindkey "^T" self-insert
+
+# zoxide
+# Automatically accept if one entry
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --select-1"
+# Resolve symlinks before adding to DB: prevents duplicates
+export _ZO_RESOLVE_SYMLINKS=1
 
 
 #####################################################################
@@ -174,7 +180,6 @@ zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 zstyle ':completion:*:processes' command ps axh -o user,pid,%cpu,%mem,start,cmd
 zstyle ':completion:*:processes' sort false
 zstyle ':completion:*:processes-names' command ps axh -o cmd
-
 
 
 ######################################################################
