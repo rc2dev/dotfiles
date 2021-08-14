@@ -1,1 +1,0 @@
-/home/rafael/.local/opt/z.lua/ranger_zlua.py
