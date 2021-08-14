@@ -13,3 +13,6 @@
 [submodule ".local/share/zsh/zinit/bin"]
 	path = .local/share/zsh/zinit/bin
 	url = https://github.com/zdharma/zinit.git
+[submodule ".config/ranger/zoxide"]
+	path = .config/ranger/plugins/zoxide
+	url = git@github.com:rccavalcanti/ranger-zoxide.git
