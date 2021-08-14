@@ -147,8 +147,8 @@ bindkey "^P" fzf-file-widget
 bindkey "^T" self-insert
 
 # zoxide
-# Automatically accept if one entry
-export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --select-1"
+# Automatically accept if one entry and changes from default
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --select-1 --no-multi --preview 'tree {2..}'"
 # Resolve symlinks before adding to DB: prevents duplicates
 export _ZO_RESOLVE_SYMLINKS=1
 
