@@ -52,14 +52,11 @@ else
 	alias ll="ls -l"
 fi
 
+# History
 # Show timestamp on zsh history
 alias history="history -i"
-
-# Shell
-alias c="builtin cd && clear"
-alias q="exit"
-alias :q="exit"
-alias x="exit"
+# Copy command from history to clipboard
+alias hy="fc -ln -$HISTSIZE | fzf | xclip -selection clipboard"
 history-rank() {
 	local n=${1:-10}
 
@@ -71,10 +68,13 @@ history-rank() {
 		nl | \
 		head -n"${n}"
 }
-take() { mkdir -p $@ && cd ${@:$#}; }
 
-# Copy command from history to clipboard
-alias hy="fc -ln -$HISTSIZE | fzf | xclip -selection clipboard"
+# Shell
+alias c="builtin cd && clear"
+alias q="exit"
+alias :q="exit"
+alias x="exit"
+take() { mkdir -p $@ && cd ${@:$#}; }
 
 # Edit
 alias e="$EDITOR"
@@ -95,7 +95,6 @@ alias_z ze ~/Code
 alias_z zg ~/.config
 alias_z zh ~/Sync/Screenshots
 alias_z zk ~/.kodi
-alias_z zk /var/lib/kodi/.kodi
 alias_z zm /mnt
 alias_z zn "$NOTES"
 alias_z znb "$NOTES/bin"
@@ -113,6 +112,27 @@ alias_z z8 ~/Documents/RN8\ Sync
 
 # zoxide: make z interactive when run without arguments
 alias z="zi"
+
+# Easier commands
+alias cx="chmod +x"
+alias ex="atool --extract --each --"
+alias ff="find . -iname"
+alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
+alias s="ssh"
+alias scr="sudo systemctl restart"
+alias scs="sudo systemctl start"
+alias y="yadm"
+
+# Shorter xdg-open
+# Run fzf if no args.
+o() {
+	[[ $# -gt 0 ]] && return xdg-open "$@"
+
+	fzf | xargs -r -d'\n' -P 0 -n 1 xdg-open
+}
+
+# Set default options
+alias fd="fd --hidden --follow --no-ignore-vcs --exclude '.git' --exclude 'node_modules'"
 
 # ranger
 alias f="ranger"
@@ -152,31 +172,6 @@ alias yw="xdg-open https://github.com/rccavalcanti/dotfiles >/dev/null 2>&1 & di
 ye() {
 	args=${*:-'+GFiles'}
 	GIT_DIR=$HOME/.local/share/yadm/repo.git GIT_WORK_TREE=$HOME vim $args
-}
-
-# Easier commands
-alias cx="chmod +x"
-alias ex="atool --extract --each --"
-alias ff="find . -iname"
-alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
-alias s="ssh"
-alias scr="sudo systemctl restart"
-alias scs="sudo systemctl start"
-alias y="yadm"
-if systemctl status kodi > /dev/null 2>&1; then
-	alias kr="sudo systemctl restart kodi"
-	alias ks="sudo systemctl stop kodi"
-fi
-
-# Set default options
-alias fd="fd --hidden --follow --no-ignore-vcs --exclude '.git' --exclude 'node_modules'"
-
-# Shorter xdg-open
-# Run fzf if no args.
-o() {
-	[[ $# -gt 0 ]] && return xdg-open "$@"
-
-	fzf | xargs -r -d'\n' -P 0 -n 1 xdg-open
 }
 
 # Notes
@@ -229,6 +224,28 @@ alias itm="timew report totals :month"
 alias itw="timew report totals :week"
 alias ity="timew report totals :yesterday"
 
+# Use bat if available
+command -v bat >/dev/null && alias cat="bat"
+
+# HTTP server
+alias hs="python3 -m http.server"
+
+# Find broken links
+alias fbl="find . -xtype l"
+
+# Random man page
+alias manrand="find /usr/share/man/man1 -type f | shuf | head -1 | sed -E 's#.*/(.*).gz#\1#' | xargs man"
+
+# mpv and ydl
+# Find and stream audio
+yta() { mpv --no-keep-open --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
+# Find ans stream video
+ytv() { mpv --no-keep-open ytdl://ytsearch:"$*"; }
+# List videos from $1 playlist
+ytl() { youtube-dl --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/" + .url'; }
+# Download only subtitles
+alias yts="youtube-dl --all-subs --skip-download"
+
 # journalctl
 alias jc="journalctl"
 alias jcu="journalctl --user"
@@ -246,29 +263,6 @@ if command -v apt > /dev/null; then
 	alias afu="sudo apt update && sudo apt full-upgrade"
 	alias aw="apt show"
 fi
-
-# Use bat if available
-command -v bat >/dev/null && alias cat="bat"
-
-# HTTP server
-alias hs="python3 -m http.server"
-
-# Find broken links
-alias fbl="find . -xtype l"
-
-# Random man page
-alias manrand="find /usr/share/man/man1 -type f | shuf | head -1 | sed -E 's#.*/(.*).gz#\1#' | xargs man"
-
-# Find and stream audio
-yta() { mpv --no-keep-open --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
-
-ytv() { mpv --no-keep-open ytdl://ytsearch:"$*"; }
-
-# List videos from $1 playlist
-ytl() { youtube-dl --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/" + .url'; }
-
-# Download only subtitles
-alias yts="youtube-dl --all-subs --skip-download"
 
 # Backup vcn
 # Use single quotes so date is defined upon use.
