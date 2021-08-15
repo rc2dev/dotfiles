@@ -129,7 +129,7 @@ alias y="yadm"
 o() {
 	[[ $# -gt 0 ]] && return xdg-open "$@"
 
-	fzf | xargs -r -d'\n' -P 0 -n 1 xdg-open
+	fzf --height 100% --margin '7%,5%' | xargs -r -d'\n' -P 0 -n 1 xdg-open
 }
 
 # Set default options
