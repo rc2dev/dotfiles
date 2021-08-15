@@ -37,8 +37,8 @@ Plug 'embear/vim-localvimrc'
 Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
 if $SLOW_HOST != '1'
-    Plug 'vim-airline/vim-airline'
-    set noshowmode                                  " Don't show modes below status line (redundant to Airline)
+  Plug 'vim-airline/vim-airline'
+  set noshowmode                                  " Don't show modes below status line (redundant to Airline)
 endif
 " Colorschemes
 Plug 'arcticicestudio/nord-vim'
@@ -49,7 +49,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! s:set_transparency()
+function! s:SetTransparency()
   " Don't do it on gvim or it will get messed up
   if has('gui_running')
     return
@@ -62,7 +62,7 @@ function! s:set_transparency()
 endfunction
 
 augroup appearance
-  autocmd ColorScheme * call <SID>set_transparency()
+  autocmd ColorScheme * call <SID>SetTransparency()
 augroup END
 
 " Theme (must come after autocmd for transparency)
@@ -94,8 +94,8 @@ set cursorline                                      " Highlight current line
 set list listchars=tab:→\ ,trail:·
 
 augroup appearance
-    " Resize splits automatically if VIM is resized
-    autocmd VimResized * execute "normal! \<C-w>="
+  " Resize splits automatically if VIM is resized
+  autocmd VimResized * execute "normal! \<C-w>="
 augroup END
 
 
@@ -147,29 +147,29 @@ set directory=$HOME/.vim/swap//,.
 set viminfo+='2000,n~/.vim/viminfo
 
 augroup behaviour
-    " Open quickfix automatically (for shellcheck)
-    autocmd QuickFixCmdPost [^l]* nested cwindow
-    autocmd QuickFixCmdPost l* nested lwindow
+  " Open quickfix automatically (for shellcheck)
+  autocmd QuickFixCmdPost [^l]* nested cwindow
+  autocmd QuickFixCmdPost l* nested lwindow
 
-    " Filter temporary git files from :oldfiles and :History
-    autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "COMMIT_EDITMSG"')
-    autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "rebase-merge"')
+  " Filter temporary git files from :oldfiles and :History
+  autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "COMMIT_EDITMSG"')
+  autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "rebase-merge"')
 
-    " Run these commands whenever these files are updated
-    autocmd BufWritePost dwmbar silent !dwmbar
-    autocmd BufWritePost .xsettingsd silent !killall -HUP xsettingsd
-    autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
-    autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
+  " Run these commands whenever these files are updated
+  autocmd BufWritePost dwmbar silent !dwmbar
+  autocmd BufWritePost .xsettingsd silent !killall -HUP xsettingsd
+  autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
+  autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
 
-    " Set executable bit to scripts
-    autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile>
-    autocmd BufWritePost * endif " Workaround, putting this in above line would prevent next autocmds to run
+  " Set executable bit to scripts
+  autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile>
+  autocmd BufWritePost * endif " Workaround, putting this in above line would prevent next autocmds to run
 
-    " Set undo point after very sentence on prose files
-    autocmd Filetype gitcommit,markdown,text inoremap . .<C-g>u
-    autocmd Filetype gitcommit,markdown,text inoremap ! !<C-g>u
-    autocmd Filetype gitcommit,markdown,text inoremap ? ?<C-g>u
-    autocmd Filetype gitcommit,markdown,text inoremap : :<C-g>u
+  " Set undo point after very sentence on prose files
+  autocmd Filetype gitcommit,markdown,text inoremap . .<C-g>u
+  autocmd Filetype gitcommit,markdown,text inoremap ! !<C-g>u
+  autocmd Filetype gitcommit,markdown,text inoremap ? ?<C-g>u
+  autocmd Filetype gitcommit,markdown,text inoremap : :<C-g>u
 augroup END
 
 
@@ -229,41 +229,41 @@ let g:templates_directory = ['$HOME/.vim/templates']
 let g:templates_name_prefix = '.vim-template.'
 let g:templates_no_builtin_templates = 1
 let g:templates_user_variables = [
-    \   ['FILE1', 'GetFileNoExt'],
-    \ ]
+  \   ['FILE1', 'GetFileNoExt'],
+  \ ]
 " Only remove last extension
 function! GetFileNoExt()
-    return expand('%:t:r')
+  return expand('%:t:r')
 endfunction
 
 
 " Goyo
 " Ensure :q to quit when Goyo is active
 " Toggle Limelight
-function! s:goyo_enter()
-    let b:quitting = 0
-    let b:quitting_bang = 0
-    autocmd QuitPre <buffer> let b:quitting = 1
-    cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+function! s:GoyoEnter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
 
-    Limelight
+  Limelight
 endfunction
 
-function! s:goyo_leave()
-    " Quit Vim if this is the only remaining buffer
-    if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-        if b:quitting_bang
-            qa!
-        else
-            qa
-        endif
-    endif
+function! s:GoyoLeave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+      if b:quitting_bang
+          qa!
+      else
+          qa
+      endif
+  endif
 
-    Limelight!
+  Limelight!
 endfunction
 
-autocmd! User GoyoEnter call <SID>goyo_enter()
-autocmd! User GoyoLeave call <SID>goyo_leave()
+autocmd! User GoyoEnter call <SID>GoyoEnter()
+autocmd! User GoyoLeave call <SID>GoyoLeave()
 
 " Limelight
 " The color for dimming down the surrounding paragraphs, as it can't calculate
@@ -287,13 +287,13 @@ let g:vim_markdown_new_list_item_indent = 0
 " AutoComplPop
 " For markdown and text: only complete files
 if(exists('g:acp_behavior'))
-    let g:acp_behavior.markdown=[{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
-    let g:acp_behavior.text=[{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
+  let g:acp_behavior.markdown=[{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
+  let g:acp_behavior.text=[{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
 else
-    let g:acp_behavior={
-                \ 'markdown': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}],
-                \ 'text': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
-                \ }
+  let g:acp_behavior={
+              \ 'markdown': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}],
+              \ 'text': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
+              \ }
 endif
 
 " ranger.vim
@@ -377,12 +377,12 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Use friendlier line navigation on prose files
 augroup navigation
-    autocmd Filetype markdown,text,taskedit nnoremap <buffer> <expr> j v:count == 0 ? 'gj' : 'j'
-    autocmd Filetype markdown,text,taskedit nnoremap <buffer> <expr> k v:count == 0 ? 'gk' : 'k'
-    autocmd Filetype markdown,text,taskedit nnoremap <buffer> <Down> gj
-    autocmd Filetype markdown,text,taskedit nnoremap <buffer> <Up> gk
-    autocmd Filetype markdown,text,taskedit inoremap <buffer> <expr> <Down> pumvisible() ? "\<Down>" : "\<C-\>\<C-o>gj"
-    autocmd Filetype markdown,text,taskedit inoremap <buffer> <expr> <Up> pumvisible() ? "\<Up>" : "\<C-\>\<C-o>gk"
+  autocmd Filetype markdown,text,taskedit nnoremap <buffer> <expr> j v:count == 0 ? 'gj' : 'j'
+  autocmd Filetype markdown,text,taskedit nnoremap <buffer> <expr> k v:count == 0 ? 'gk' : 'k'
+  autocmd Filetype markdown,text,taskedit nnoremap <buffer> <Down> gj
+  autocmd Filetype markdown,text,taskedit nnoremap <buffer> <Up> gk
+  autocmd Filetype markdown,text,taskedit inoremap <buffer> <expr> <Down> pumvisible() ? "\<Down>" : "\<C-\>\<C-o>gj"
+  autocmd Filetype markdown,text,taskedit inoremap <buffer> <expr> <Up> pumvisible() ? "\<Up>" : "\<C-\>\<C-o>gk"
 augroup END
 
 " Buffer navigation
@@ -451,5 +451,5 @@ iab rct Author: Rafael Cavalcanti - rafaelc.org
 
 " Source a global configuration file if available
 if filereadable('/etc/vim/vimrc.local')
-    source /etc/vim/vimrc.local
+  source /etc/vim/vimrc.local
 endif
