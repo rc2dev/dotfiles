@@ -92,6 +92,7 @@ export FZF_DEFAULT_OPTS="
 	--preview '([[ -d {} ]] && tree -C {}) || ([[ -f {} ]] && bat --style=full --color=always --decorations=never {}) || echo {}'
 	--bind 'change:top'
 	--bind 'ctrl-a:select-all'
+	--bind 'ctrl-t:top'
 	--bind 'ctrl-y:execute-silent(echo {+} | xclip -selection clipboard)'
 "
 # Nord theme
