@@ -26,6 +26,6 @@ mv -f "$cache.$$" "$cache"
 
 case "$run" in
     pol:*) exec playonlinux --run "${run#pol:}" ;;
-    *\!) exec $TERMINAL --hold -e zsh -ic "${run%!}" ;;
+    *\!) exec $TERMINAL -e zsh -ic "${run%!}; read" ;;
     *) exec zsh -ic "$run" ;;
 esac
