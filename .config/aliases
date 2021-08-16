@@ -127,7 +127,10 @@ alias y="yadm"
 # Shorter xdg-open
 # Run fzf if no args.
 o() {
-	[[ $# -gt 0 ]] && return xdg-open "$@"
+	if [[ $# -gt 0 ]]; then
+		xdg-open "$@"
+		return
+	fi
 
 	fzf --height 100% --margin '7%,5%' | xargs -r -d'\n' -P 0 -n 1 xdg-open
 }
