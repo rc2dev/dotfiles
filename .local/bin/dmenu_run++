@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
 # dmenu_run with improvements:
-# - If the command ends with "!", start it in a terminal.
+# - If the command ends with "!", start it in a terminal (and hold).
 # - Accept shell aliases.
-# - Recent commands are listed first (based on https://tools.suckless.org/dmenu/scripts/run-recent)
+# - Recent commands are listed first (based on https://tools.suckless.org/dmenu/scripts/run-recent).
 # - List and run PlayOnLinux shortcuts.
 #
 # Author: Rafael Cavalcanti - rafaelc.org
