@@ -143,7 +143,6 @@ alias f="ranger"
 alias fp="ranger --cmd=fzf_select"
 
 # Git
-alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
 alias gd1="git diff HEAD~"
 alias gd2="git diff HEAD~2"
 gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
