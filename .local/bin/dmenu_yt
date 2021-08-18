@@ -5,12 +5,23 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 
 readonly yt_channel="UCHMpAR9vVyImG570uZqElPg"
+readonly pls_cache="$HOME/.cache/yt_playlists.json"
 
-# Get list of playlists
-pls_json="$(youtube-dl --flat-playlist --dump-json "https://www.youtube.com/channel/$yt_channel/playlists?view=1&sort=dd&shelf_id=0")"
-# Add missing "Watch Later"
-pls_json+=' {"url": "https://www.youtube.com/playlist?list=WL", "title": "Watch Later"}'
+# Don't wait for getting playlists from remote server
+cache_pls() {
+  pls_json="$(youtube-dl --flat-playlist --dump-json "https://www.youtube.com/channel/$yt_channel/playlists?view=1&sort=dd&shelf_id=0")"
+  # Add missing "Watch Later"
+  pls_json+=' {"url": "https://www.youtube.com/playlist?list=WL", "title": "Watch Later"}'
+  echo "$pls_json" > "$pls_cache"
+}
 
+if [[ ! -e "$pls_cache" ]]; then
+  cache_pls
+else
+  cache_pls &
+fi
+
+readonly pls_json="$(cat "$pls_cache")"
 readarray -t pls_titles < <(jq -r .title <<< "$pls_json")
 readonly chosen="$(printf "%s\n" "${pls_titles[@]}" | sort | dmenu -p "yt playlists:" -l 5 -g 4 "$@")"
 [[ -z "$chosen" ]] && exit
