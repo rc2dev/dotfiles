@@ -27,9 +27,5 @@ readonly chosen="$(printf "%s\n" "${pls_titles[@]}" | sort | dmenu -p "yt playli
 [[ -z "$chosen" ]] && exit
 readonly url="$(jq -r "select(.title==\"$chosen\") | .url" <<< "$pls_json")"
 
-user_args=""
-readonly no_resume="$(printf "No\nYes" | dmenu -p "Start over?" "$@")"
-[[ $no_resume == "Yes" ]] && user_args="$user_args --no-resume-playback"
-
-mpv --shuffle $user_args "$url"
+mpv --shuffle "$url"
 
