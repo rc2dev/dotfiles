@@ -21,11 +21,10 @@ scrolling:
   history: 100000
 
 window:
+  opacity: 0.92
   padding:
     x: 3
     y: 3
-
-background_opacity: 0.92
 
 font:
   normal:
