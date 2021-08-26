@@ -79,7 +79,8 @@ for i in range(len(texts)):
         k += 1
     else:
         output += f'- {texts[i]}\n'
-        output += f'\t{types[i]} @ {pages[i]}\n'
+        output += '\n'
+        output += f'  {types[i]} @ {pages[i]}\n'
         output += '\n'
     k += 1
 
