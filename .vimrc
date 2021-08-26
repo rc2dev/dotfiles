@@ -37,7 +37,7 @@ Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
 if $SLOW_HOST != '1'
   Plug 'vim-airline/vim-airline'
-  set noshowmode                                  " Don't show modes below status line (redundant to Airline)
+  set noshowmode                                    " Don't show modes below status line (redundant to Airline)
 endif
 " Colorschemes
 Plug 'arcticicestudio/nord-vim'
