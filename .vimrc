@@ -22,7 +22,6 @@ Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'preservim/nerdcommenter'
 Plug 'aperezdc/vim-template'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'tpope/vim-fugitive'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'mattn/emmet-vim'
@@ -453,3 +452,4 @@ iab rct Author: Rafael Cavalcanti - rafaelc.org
 if filereadable('/etc/vim/vimrc.local')
   source /etc/vim/vimrc.local
 endif
+
