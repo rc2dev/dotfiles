@@ -55,13 +55,18 @@ function! s:SetTransparency()
   endif
 
   let l:theme_guibg = synIDattr(hlID('Normal'), 'bg')
-  autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
+  hi Normal guibg=NONE ctermbg=NONE
   " Fix :terminal having black background after the above command.
   execute 'hi Terminal guibg=' . l:theme_guibg
 endfunction
 
 augroup appearance
+  autocmd!
+
   autocmd ColorScheme * call <SID>SetTransparency()
+
+  " Resize splits automatically if VIM is resized
+  autocmd VimResized * execute "normal! \<C-w>="
 augroup END
 
 " Theme (must come after autocmd for transparency)
@@ -91,11 +96,6 @@ set nofoldenable                                    " Don't fold on opening file
 set cursorline                                      " Highlight current line
 " Show tabs and trailing spaces
 set list listchars=tab:→\ ,trail:·
-
-augroup appearance
-  " Resize splits automatically if VIM is resized
-  autocmd VimResized * execute "normal! \<C-w>="
-augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -146,6 +146,8 @@ set directory=$HOME/.vim/swap//,.
 set viminfo+='2000,n~/.vim/viminfo
 
 augroup behaviour
+  autocmd!
+
   " Open quickfix automatically (for shellcheck)
   autocmd QuickFixCmdPost [^l]* nested cwindow
   autocmd QuickFixCmdPost l* nested lwindow
@@ -190,12 +192,16 @@ set expandtab
 " Set default languages
 set spelllang=pt_br,en_us,es_es
 
-" Turn on for file types, except on vimdiff
-autocmd Filetype gitcommit,markdown,text if ! &diff | setlocal spell | endif
+augroup spellcheck
+  autocmd!
 
-" Set languages for specific files
-autocmd Filetype gitcommit setlocal spelllang=en_us
-autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
+  " Turn on for file types, except on vimdiff
+  autocmd Filetype gitcommit,markdown,text if ! &diff | setlocal spell | endif
+
+  " Set languages for specific files
+  autocmd Filetype gitcommit setlocal spelllang=en_us
+  autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
+augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -242,7 +248,7 @@ endfunction
 function! s:GoyoEnter()
   let b:quitting = 0
   let b:quitting_bang = 0
-  autocmd QuitPre <buffer> let b:quitting = 1
+  autocmd! QuitPre <buffer> let b:quitting = 1
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
 
   Limelight
@@ -376,6 +382,8 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Use friendlier line navigation on prose files
 augroup navigation
+  autocmd!
+
   autocmd Filetype markdown,text,taskedit nnoremap <buffer> <expr> j v:count == 0 ? 'gj' : 'j'
   autocmd Filetype markdown,text,taskedit nnoremap <buffer> <expr> k v:count == 0 ? 'gk' : 'k'
   autocmd Filetype markdown,text,taskedit nnoremap <buffer> <Down> gj
