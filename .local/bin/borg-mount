@@ -74,3 +74,4 @@ read -p "Press enter to umount. "
 while ! fusermount -u "${mnt_dir}"; do
 	read -p "Press enter to try again. "
 done
+rmdir "$mnt_dir"
