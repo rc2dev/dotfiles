@@ -6,9 +6,7 @@ if exists('b:did_ftplugin')
   endif
 let b:did_ftplugin = 1
 
-" Disable sleuth
-let b:sleuth_automatic = 0
-" Markor uses 4 spaces, so this makes our life easier.
+" Use 4 spaces
 setlocal tabstop=4 shiftwidth=4 expandtab
 
 " Hide text such as bold, italic
