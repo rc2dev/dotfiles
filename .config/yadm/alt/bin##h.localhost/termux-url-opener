@@ -1,0 +1,21 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -euo pipefail
+. ~/.zprofile
+readonly url="$1"
+
+cd ~/Downloads
+if ! youtube-dl "$url"; then
+  content="Error downloading"
+  priority="high"
+else
+  content="Finished downloading"
+  priority="low"
+fi
+
+termux-notification \
+  --content "$content: $url" \
+  --priority "$priority" \
+  --title "Termux" \
+  --action "termux-open $url"
+
