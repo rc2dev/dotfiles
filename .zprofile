@@ -3,6 +3,9 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
+# Set HOST if unset
+export HOST="${HOST:-$(hostname)}"
+
 # Flatpaks
 if [ -d "/var/lib/flatpak/exports/bin" ]; then
 	PATH="/var/lib/flatpak/exports/bin:$PATH"
@@ -34,19 +37,19 @@ if [ -d "$HOME/.rvm/bin" ]; then
 fi
 
 # Termux: Set runtime dir
-if [[ "$HOST" == "localhost" && -z "$XDG_RUNTIME_DIR" ]]; then
+if [[ "$HOST" == "localhost" && -z "${XDG_RUNTIME_DIR:-}" ]]; then
 	export XDG_RUNTIME_DIR="$PREFIX/var/run"
 fi
 
 # Termux: Start OpenSSH agent if needed
-if [[ "$HOST" == "localhost" && -z "$SSH_AUTH_SOCK" ]]; then
+if [[ "$HOST" == "localhost" && -z "${SSH_AUTH_SOCK:-}" ]]; then
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
 	rm -f "$SSH_AUTH_SOCK"
 	ssh-agent -t 1h -a "$SSH_AUTH_SOCK" > /dev/null
 fi
 
 # Termux: if connected via SSH, grab wake-lock
-if [[ "$HOST" == "localhost" && -n "$SSH_CLIENT" ]]; then
+if [[ "$HOST" == "localhost" && -n "${SSH_CLIENT:-}" ]]; then
 	printf "Grabbing wake-lock...\n" 1>&2
 	termux-wake-lock
 fi
