@@ -13,7 +13,7 @@ readonly option="${1:-}"
 case $option in
   stats)
     printf "Blocked domains:\n\n"
-    cmd="zcat --force -- $log* | grep 0.0.0.0 | cut -d' ' -f 6 | sort | uniq -c  | sort -nr"
+    cmd="zcat --force -- $log* | grep 0.0.0.0 | cut -d' ' -f 7 | sort | uniq -c | sort -nr"
     ;;
   tail)
     cmd="tail -f $log"
