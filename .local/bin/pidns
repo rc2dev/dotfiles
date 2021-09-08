@@ -11,15 +11,19 @@ readonly log="/var/log/dnsmasq-queries.log"
 readonly option="${1:-}"
 
 case $option in
-  stats)
+  blocked)
     printf "Blocked domains:\n\n"
     cmd="zcat --force -- $log* | grep 0.0.0.0 | cut -d' ' -f 7 | sort | uniq -c | sort -nr"
+    ;;
+  passed)
+    printf "Passed domains:\n\n"
+    cmd="zcat --force -- $log* | grep reply | grep -v 0.0.0.0 | cut -d' ' -f 7 | sort | uniq -c | sort -nr"
     ;;
   tail)
     cmd="tail -f $log"
     ;;
   *)
-    echo "Usage: $script_name stats/tail"
+    echo "Usage: $script_name blocked/passed/tail"
     exit 1
     ;;
 esac
