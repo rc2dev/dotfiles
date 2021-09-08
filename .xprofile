@@ -21,6 +21,7 @@ fi
 
 # Basic utilities
 xsettingsd &
+imwheel -b "4 5" &
 dunst &
 nitrogen --restore &
 redshift-gtk &
