@@ -64,7 +64,7 @@ try:
         # There can be multiple location informations after the dash ("deferredreward")
         the_page = desc.partition('-')[2].strip()
         if elem.span:
-            the_color = elem.span.text.title()
+            the_color = elem.span.text
         else:
             the_color = None
         types.append(the_type)
@@ -86,9 +86,9 @@ for i in range(len(texts)):
         output += f'- {texts[i]}\n'
         output += '\n'
         if colors[i] is not None:
-            output += f'  {colors[i]} {types[i]} @ {pages[i]}\n'
+            output += f'  _{colors[i]} {types[i]} @ {pages[i]}_\n'.lower()
         else:
-            output += f'  {types[i]} @ {pages[i]}\n'
+            output += f'  _{types[i]} @ {pages[i]}_\n'.lower()
         output += '\n'
     k += 1
 
