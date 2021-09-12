@@ -18,7 +18,6 @@ from os.path import basename, splitext
 from sys import argv, exit
 from bs4 import BeautifulSoup
 
-
 script_name = basename(__file__)
 
 if len(argv) != 2:
@@ -58,13 +57,19 @@ try:
     # Parse descriptions
     types = []
     pages = []
+    colors = []
     for elem in desc_elements:
         desc = ''.join(elem.strings).strip()
         the_type = desc.partition(' ')[0].strip()
         # There can be multiple location informations after the dash ("deferredreward")
         the_page = desc.partition('-')[2].strip()
+        if elem.span:
+            the_color = elem.span.text.title()
+        else:
+            the_color = None
         types.append(the_type)
         pages.append(the_page)
+        colors.append(the_color)
 
 except AttributeError as e:
     print(f'Error parsing file: {e}')
@@ -80,7 +85,10 @@ for i in range(len(texts)):
     else:
         output += f'- {texts[i]}\n'
         output += '\n'
-        output += f'  {types[i]} @ {pages[i]}\n'
+        if colors[i] is not None:
+            output += f'  {colors[i]} {types[i]} @ {pages[i]}\n'
+        else:
+            output += f'  {types[i]} @ {pages[i]}\n'
         output += '\n'
     k += 1
 
