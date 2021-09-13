@@ -189,6 +189,7 @@ alias nr="notes ranger"
 
 # Plan
 alias p="plan"
+alias pn="plan see-notes"
 alias pd="plan day"
 alias py="plan day --yesterday"
 alias pt="plan day --tomorrow"
