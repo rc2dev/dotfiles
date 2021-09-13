@@ -1,3 +1,5 @@
+# Author: Rafael Cavalcanti - rafaelc.org
+
 # Increase scroll wheel speed on browsers
 "^(chromium-browser|brave-browser)$"
   None, Up, Button4, 2
