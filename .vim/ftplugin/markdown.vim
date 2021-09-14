@@ -16,7 +16,7 @@ setlocal conceallevel=2
 setlocal makeprg=pandoc\ --pdf-engine=xelatex\ '%'\ $*\ \-o\ '/tmp/vim_pandoc.pdf'
 
 " Set "run" shortcut
-nnoremap <F5> :make<CR>:silent !xdg-open '/tmp/vim_pandoc.pdf' &<CR>
+nnoremap <F5> :w<CR>:make<CR>:silent !xdg-open '/tmp/vim_pandoc.pdf' &<CR>
 
 " Create a markdown link structure with the URL from clipboard.
 nnoremap <Leader>l i [](<C-r>*)<Esc>F[a
