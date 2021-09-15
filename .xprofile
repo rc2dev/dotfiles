@@ -24,6 +24,7 @@ xsettingsd &
 imwheel -b "4 5" &
 dunst &
 nitrogen --restore &
+LANG=pt_BR.utf-8 conky &
 redshift-gtk &
 compton &
 clipmenud &
