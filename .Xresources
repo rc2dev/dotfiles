@@ -1,8 +1,8 @@
 *.topbar: 0
 
 /* Fonts */
-dmenu.font: Noto Mono:size=9
-dwm.font: Ubuntu Mono:size=10
+dmenu.font: Noto Mono:size=10
+dwm.font: Noto Mono:size=10
 st.font: Ubuntu Mono:pixelsize=16:antialias=true:autohint=true
 
 /* dwm */
