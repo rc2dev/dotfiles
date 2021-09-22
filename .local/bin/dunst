@@ -29,5 +29,6 @@ killall dunst 2>/dev/null || true
   -cf "$(query_xrdb dunst.crtiicalfg)" \
   -font "$(query_xrdb dunst.font)" \
   -frame_width "$(query_xrdb dunst.frame_width)" \
-  -transparency "$(query_xrdb dunst.transparency)"
+  -transparency "$(query_xrdb dunst.transparency)" \
+  -icon_path "$(query_xrdb dunst.icon_path)"
 

@@ -15,6 +15,7 @@ st.alpha: 0.95
 /* dunst */
 dunst.frame_width: 1
 dunst.transparency: 4
+dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/16x16/apps/
 
 
 /******* Themes definitions ********/
