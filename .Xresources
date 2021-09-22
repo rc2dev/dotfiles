@@ -11,36 +11,59 @@ dwm.borderpx: 2
 st.alpha: 0.95
 
 
-/********** Themes **********/
+/******* Themes definitions ********/
 
-/* Theme based on Nord for dwm */
-dwm.normbgcolor: #2e3440
-dwm.normbordercolor: #2e3440
-dwm.normfgcolor: #81a1c1
-dwm.selbgcolor: #4c566a
-dwm.selbordercolor: #4c566a
-dwm.selfgcolor: #e5e9f0
+/* Nord theme (for st) */
+#define c00 #3b4252
+#define c01 #bf616a
+#define c02 #a3be8c
+#define c03 #ebcb8b
+#define c04 #81a1c1
+#define c05 #b48ead
+#define c06 #88c0d0
+#define c07 #e5e9f0
+#define c08 #4c566a
+#define c09 #bf616a
+#define c10 #a3be8c
+#define c11 #ebcb8b
+#define c12 #81a1c1
+#define c13 #b48ead
+#define c14 #8fbcbb
+#define c15 #eceff4
+#define cbg #2e3440
+#define cfg #d8dee9
 
-/* Nord theme for st */
+
+/******* Theme application *******/
+
+/* dwm */
+dwm.normbgcolor: cbg
+dwm.normbordercolor: cbg
+dwm.normfgcolor: c12
+dwm.selbgcolor: c08
+dwm.selbordercolor: c08
+dwm.selfgcolor: c07
+
+/* st */
 /* 8 normal colors */
-*.color0: #3b4252 /* black   */
-*.color1: #bf616a /* red     */
-*.color2: #a3be8c /* green   */
-*.color3: #ebcb8b /* yellow  */
-*.color4: #81a1c1 /* blue    */
-*.color5: #b48ead /* magenta */
-*.color6: #88c0d0 /* cyan    */
-*.color7: #e5e9f0 /* white   */
+*.color0: c00 /* black   */
+*.color1: c01 /* red     */
+*.color2: c02 /* green   */
+*.color3: c03 /* yellow  */
+*.color4: c04 /* blue    */
+*.color5: c05 /* magenta */
+*.color6: c06 /* cyan    */
+*.color7: c07 /* white   */
 /* 8 bright colors */
-*.color8: #4c566a /* black   */
-*.color9: #bf616a /* red     */
-*.color10: #a3be8c /* green   */
-*.color11: #ebcb8b /* yellow  */
-*.color12: #81a1c1 /* blue    */
-*.color13: #b48ead /* magenta */
-*.color14: #8fbcbb /* cyan    */
-*.color15: #eceff4 /* white   */
+*.color8: c08 /* black   */
+*.color9: c09 /* red     */
+*.color10: c10 /* green   */
+*.color11: c11 /* yellow  */
+*.color12: c12 /* blue    */
+*.color13: c13 /* magenta */
+*.color14: c14 /* cyan    */
+*.color15: c15 /* white   */
 /* more colors can be added after 255 to use with DefaultXX */
-*.background: #2e3440
-*.foreground: #d8dee9
+*.background: cbg
+*.foreground: cfg
 
