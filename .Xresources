@@ -1,6 +1,7 @@
 *.topbar: 0
 
 /* Fonts */
+dmenu.font: Noto Mono:size=9
 dwm.font: Ubuntu Mono:size=10
 st.font: Ubuntu Mono:pixelsize=16:antialias=true:autohint=true
 
@@ -13,7 +14,7 @@ st.alpha: 0.95
 
 /******* Themes definitions ********/
 
-/* Nord theme (for st) */
+/* Nord theme (from st) */
 #define c00 #3b4252
 #define c01 #bf616a
 #define c02 #a3be8c
@@ -36,13 +37,15 @@ st.alpha: 0.95
 
 /******* Theme application *******/
 
+/* dmenu and dwm */
+*.normbgcolor: cbg
+*.normfgcolor: c12
+*.selbgcolor: c08
+*.selfgcolor: c07
+
 /* dwm */
-dwm.normbgcolor: cbg
 dwm.normbordercolor: cbg
-dwm.normfgcolor: c12
-dwm.selbgcolor: c08
 dwm.selbordercolor: c08
-dwm.selfgcolor: c07
 
 /* st */
 /* 8 normal colors */
