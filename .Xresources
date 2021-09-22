@@ -4,12 +4,17 @@
 dmenu.font: Noto Mono:size=10
 dwm.font: Noto Mono:size=10
 st.font: Ubuntu Mono:pixelsize=16:antialias=true:autohint=true
+dunst.font: Noto Mono 10
 
 /* dwm */
 dwm.borderpx: 2
 
 /* st */
 st.alpha: 0.95
+
+/* dunst */
+dunst.frame_width: 1
+dunst.transparency: 4
 
 
 /******* Themes definitions ********/
@@ -70,3 +75,12 @@ dwm.selbordercolor: c08
 *.background: cbg
 *.foreground: cfg
 
+/* dunst */
+dunst.frame_color: c07
+dunst.separator_color: c07
+dunst.lowbg: cbg
+dunst.lowfg: c15
+dunst.normalbg: c08
+dunst.normalfg: c15
+dunst.criticalbg: c01
+dunst.criticalfg: cfg

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+# Dunst wrapper to use Xresources
+#
+# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly dunst_bin="/usr/bin/dunst"
+readonly xresources="$(xrdb -query)"
+
+# Arg: value to query
+query_xrdb() {
+  grep "$1" <<< "$xresources" | cut -f 2
+}
+
+# Kill running instance if any
+killall dunst 2>/dev/null || true
+
+"$dunst_bin" \
+  -frame_color "$(query_xrdb dunst.frame_color)" \
+  -separator_color "$(query_xrdb dunst.separator_color)" \
+  -lb "$(query_xrdb dunst.lowbg)" \
+  -lf "$(query_xrdb dunst.lowfg)" \
+  -nb "$(query_xrdb dunst.normalbg)" \
+  -nf "$(query_xrdb dunst.normalfg)" \
+  -cb "$(query_xrdb dunst.criticalbg)" \
+  -cf "$(query_xrdb dunst.crtiicalfg)" \
+  -font "$(query_xrdb dunst.font)" \
+  -frame_width "$(query_xrdb dunst.frame_width)" \
+  -transparency "$(query_xrdb dunst.transparency)"
+
