@@ -1,11 +1,27 @@
+*.topbar: 0
+
+/* Fonts */
+dwm.font: Ubuntu Mono:size=10
 st.font: Ubuntu Mono:pixelsize=16:antialias=true:autohint=true
+
+/* dwm */
+dwm.borderpx: 2
+
+/* st */
 st.alpha: 0.95
 
 
-/***********************************
- ********** Nordic for st **********
- ***********************************/
+/********** Themes **********/
 
+/* Theme based on Nord for dwm */
+dwm.normbgcolor: #2e3440
+dwm.normbordercolor: #2e3440
+dwm.normfgcolor: #81a1c1
+dwm.selbgcolor: #4c566a
+dwm.selbordercolor: #4c566a
+dwm.selfgcolor: #e5e9f0
+
+/* Nord theme for st */
 /* 8 normal colors */
 *.color0: #3b4252 /* black   */
 *.color1: #bf616a /* red     */
@@ -15,7 +31,6 @@ st.alpha: 0.95
 *.color5: #b48ead /* magenta */
 *.color6: #88c0d0 /* cyan    */
 *.color7: #e5e9f0 /* white   */
-
 /* 8 bright colors */
 *.color8: #4c566a /* black   */
 *.color9: #bf616a /* red     */
@@ -25,7 +40,6 @@ st.alpha: 0.95
 *.color13: #b48ead /* magenta */
 *.color14: #8fbcbb /* cyan    */
 *.color15: #eceff4 /* white   */
-
 /* more colors can be added after 255 to use with DefaultXX */
 *.background: #2e3440
 *.foreground: #d8dee9
