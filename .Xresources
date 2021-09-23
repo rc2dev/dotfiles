@@ -57,10 +57,10 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 /******* Theme application *******/
 
 /* dmenu and dwm */
-*.normbgcolor: cbg
 *.normfgcolor: c12
-*.selbgcolor: c08
+*.normbgcolor: cbg
 *.selfgcolor: c07
+*.selbgcolor: c08
 dwm.normbordercolor: cbg
 dwm.selbordercolor: c08
 
