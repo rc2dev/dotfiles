@@ -5,7 +5,7 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 
 readonly yt_channel="UCHMpAR9vVyImG570uZqElPg"
-readonly pls_cache="$HOME/.cache/yt_playlists.json"
+readonly pls_cache="$HOME/.cache/dmenu_yt_playlists.json"
 
 # Don't wait for getting playlists from remote server
 cache_pls() {

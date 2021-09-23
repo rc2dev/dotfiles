@@ -8,7 +8,7 @@
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-readonly cache="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_recent"
+readonly cache="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_run++_recent"
 readonly pol_shortcuts="$HOME/.PlayOnLinux/shortcuts"
 readonly recent_num="500"
 
