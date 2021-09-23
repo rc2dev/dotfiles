@@ -1,4 +1,4 @@
-*.topbar: 0
+*.topbar: 1
 
 /* Fonts */
 dmenu.font: Noto Mono:size=10
