@@ -3,19 +3,19 @@
 /* Fonts */
 dmenu.font: Noto Mono:size=9.5
 dwm.font: Noto Mono:size=9.5
-st.font: Ubuntu Mono:pixelsize=16:antialias=true:autohint=true
-dunst.font: Noto Mono 9.5
+St.font: Ubuntu Mono:pixelsize=16:antialias=true:autohint=true
+Dunst.font: Noto Mono 9.5
 
 /* dwm */
 dwm.borderpx: 2
 
 /* st */
-st.alpha: 0.95
+St.alpha: 0.95
 
-/* dunst */
-dunst.frame_width: 1
-dunst.transparency: 4
-dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/16x16/apps/
+/* Dunst */
+Dunst.frame_width: 1
+Dunst.transparency: 4
+Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/16x16/apps/
 
 
 /******* Themes definitions ********/
@@ -76,12 +76,12 @@ dwm.selbordercolor: c08
 *.background: cbg
 *.foreground: cfg
 
-/* dunst */
-dunst.frame_color: c07
-dunst.separator_color: c07
-dunst.lowbg: cbg
-dunst.lowfg: c15
-dunst.normalbg: c08
-dunst.normalfg: c15
-dunst.criticalbg: c01
-dunst.criticalfg: cfg
+/* Dunst */
+Dunst.frame_color: c07
+Dunst.separator_color: c07
+Dunst.lowbg: cbg
+Dunst.lowfg: c15
+Dunst.normalbg: c08
+Dunst.normalfg: c15
+Dunst.criticalbg: c01
+Dunst.criticalfg: cfg

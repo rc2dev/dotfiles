@@ -19,16 +19,16 @@ query_xrdb() {
 killall dunst 2>/dev/null || true
 
 "$dunst_bin" \
-  -frame_color "$(query_xrdb dunst.frame_color)" \
-  -separator_color "$(query_xrdb dunst.separator_color)" \
-  -lb "$(query_xrdb dunst.lowbg)" \
-  -lf "$(query_xrdb dunst.lowfg)" \
-  -nb "$(query_xrdb dunst.normalbg)" \
-  -nf "$(query_xrdb dunst.normalfg)" \
-  -cb "$(query_xrdb dunst.criticalbg)" \
-  -cf "$(query_xrdb dunst.crtiicalfg)" \
-  -font "$(query_xrdb dunst.font)" \
-  -frame_width "$(query_xrdb dunst.frame_width)" \
-  -transparency "$(query_xrdb dunst.transparency)" \
-  -icon_path "$(query_xrdb dunst.icon_path)"
+  -frame_color "$(query_xrdb Dunst.frame_color)" \
+  -separator_color "$(query_xrdb Dunst.separator_color)" \
+  -lb "$(query_xrdb Dunst.lowbg)" \
+  -lf "$(query_xrdb Dunst.lowfg)" \
+  -nb "$(query_xrdb Dunst.normalbg)" \
+  -nf "$(query_xrdb Dunst.normalfg)" \
+  -cb "$(query_xrdb Dunst.criticalbg)" \
+  -cf "$(query_xrdb Dunst.crtiicalfg)" \
+  -font "$(query_xrdb Dunst.font)" \
+  -frame_width "$(query_xrdb Dunst.frame_width)" \
+  -transparency "$(query_xrdb Dunst.transparency)" \
+  -icon_path "$(query_xrdb Dunst.icon_path)"
 
