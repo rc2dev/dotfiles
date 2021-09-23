@@ -1,3 +1,15 @@
+/*
+ * ~/.Xresources
+ *
+ * Other places for theming:
+ * - ~/.xsettingsd
+ * - ~/.xprofile (fzf)
+ *
+ * Author: Rafael Cavalcanti - rafaelc.org
+ *
+ */
+
+
 *.topbar: 1
 
 /* Fonts */
@@ -19,6 +31,7 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 
 
 /******* Themes definitions ********/
+/* (must come before application) */
 
 /* Nord theme (from st) */
 #define c00 #3b4252
@@ -48,8 +61,6 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 *.normfgcolor: c12
 *.selbgcolor: c08
 *.selfgcolor: c07
-
-/* dwm */
 dwm.normbordercolor: cbg
 dwm.selbordercolor: c08
 
@@ -85,3 +96,4 @@ Dunst.normalbg: c08
 Dunst.normalfg: c15
 Dunst.criticalbg: c01
 Dunst.criticalfg: cfg
+
