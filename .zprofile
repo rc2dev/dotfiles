@@ -58,6 +58,9 @@ fi
 # Be sure to install qt5-style-plugins
 export QT_QPA_PLATFORMTHEME=gtk2
 
+# Auto logout on tty if inactive
+if [[ $(tty) =~ /dev\/tty ]]; then TMOUT=120; fi
+
 # Check slow host
 if [[ " pi pi-vcc pizero " =~ " $HOST " ]]; then
 	export SLOW_HOST=1
