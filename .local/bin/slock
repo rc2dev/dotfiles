@@ -5,7 +5,7 @@
 # Author: Rafael Cavalcanti - rafaelc.org
 
 killall -SIGUSR1 dunst
-/usr/bin/slock
+/usr/local/bin/slock
 
 killall -SIGUSR2 dunst
 
