@@ -137,6 +137,7 @@ o() {
 
 # Set default options
 alias fd="fd --hidden --follow --no-ignore-vcs --exclude '.git' --exclude 'node_modules'"
+alias caffeinate="caffeinate --socket $XIDLEHOOK_SOCK"
 
 # ranger
 alias f="ranger"

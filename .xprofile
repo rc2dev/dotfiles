@@ -36,6 +36,15 @@ syncthing-gtk --minimized &
 keepassxc &
 chromium --profile-directory='Default' --app='https://docs.google.com/spreadsheets/d/1u5q22YMmvNleFijg33sBbEiJMnfIDPkNxQ_mLyBacqU/' &
 
+# Automatically lock and suspend after idle
+xidlehook \
+  --detect-sleep \
+  --not-when-fullscreen \
+  --socket "$XIDLEHOOK_SOCK" \
+  --timer 60 'slock' '' \
+  --timer 900 'systemctl suspend' '' \
+  &
+
 # Statusbar loop
 while true; do
   dwmbar
