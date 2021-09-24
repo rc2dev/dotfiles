@@ -64,7 +64,7 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 dwm.normbordercolor: cbg
 dwm.selbordercolor: c08
 
-/* st */
+/* st, slock */
 /* 8 normal colors */
 *.color0: c00 /* black   */
 *.color1: c01 /* red     */
