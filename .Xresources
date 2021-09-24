@@ -10,15 +10,14 @@
  */
 
 
-*.topbar: 1
-
 /* Fonts */
 dmenu.font: Noto Mono:size=9.5
 dwm.font: Noto Mono:size=9.5
 St.font: Ubuntu Mono:pixelsize=16:antialias=true:autohint=true
 Dunst.font: Noto Mono 9.5
 
-/* dwm */
+/* dmenu, dwm */
+*.topbar: 1
 dwm.borderpx: 2
 
 /* st */
@@ -56,14 +55,6 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 
 /******* Theme application *******/
 
-/* dmenu and dwm */
-*.normfgcolor: c12
-*.normbgcolor: cbg
-*.selfgcolor: c07
-*.selbgcolor: c08
-dwm.normbordercolor: cbg
-dwm.selbordercolor: c08
-
 /* st, slock */
 /* 8 normal colors */
 *.color0: c00 /* black   */
@@ -86,6 +77,14 @@ dwm.selbordercolor: c08
 /* more colors can be added after 255 to use with DefaultXX */
 *.background: cbg
 *.foreground: cfg
+
+/* dmenu and dwm */
+*.normbgcolor: cbg
+*.normfgcolor: c12
+*.selbgcolor: c08
+*.selfgcolor: c07
+dwm.normbordercolor: cbg
+dwm.selbordercolor: c08
 
 /* Dunst */
 Dunst.frame_color: c07
