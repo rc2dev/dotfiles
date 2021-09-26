@@ -99,7 +99,7 @@ alias_z zk ~/.kodi
 alias_z zm /mnt
 alias_z zn "$NOTES"
 alias_z znb "$NOTES/bin"
-alias_z znj "$NOTES/md/Journal"
+alias_z znd "$NOTES/md/Dump"
 alias_z znp "$NOTES/md/Planejamento"
 alias_z zp ~/Pictures
 alias_z zs /sdcard
@@ -181,9 +181,9 @@ ye() {
 # Notes
 alias n="notes"
 alias nf="notes find"
-alias nj="notes journal"
-alias njc="notes journal-cat"
-alias njx="notes journal-x"
+alias nd="notes dump"
+alias ndc="notes dump-cat"
+alias ndx="notes dump-x"
 alias nn="notes name"
 alias nnr="notes name-ranger"
 alias nr="notes ranger"

@@ -3,4 +3,4 @@
 . ~/.zprofile
 export LD_PRELOAD=${PREFIX}/lib/libtermux-exec.so
 
-bash ~/.local/bin/notes journal-x
+bash ~/.local/bin/notes dump-x
