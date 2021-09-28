@@ -19,6 +19,7 @@ Dunst.font: Noto Mono 9.5
 /* dmenu, dwm */
 *.topbar: 1
 dwm.borderpx: 2
+dwm.mfact: 0.5
 
 /* st */
 St.alpha: 0.95
