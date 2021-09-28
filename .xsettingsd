@@ -1,6 +1,6 @@
 Gtk/CursorThemeName "breeze_cursors"
 Gtk/DecorationLayout "menu:close"
-Gtk/FontName "Noto Sans 9.5"
+Gtk/FontName "Roboto 10"
 Net/IconThemeName ""
 Net/ThemeName ""
 Xft/Antialias 1

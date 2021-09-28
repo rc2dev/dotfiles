@@ -11,10 +11,10 @@
 
 
 /* Fonts */
-dmenu.font: Noto Mono:size=9.5
-dwm.font: Noto Mono:size=9.5
-St.font: Ubuntu Mono:pixelsize=16:antialias=true:autohint=true
-Dunst.font: Noto Mono 9.5
+dmenu.font: Roboto Mono:size=10
+dwm.font: Roboto Mono:size=10
+St.font: Roboto Mono:pixelsize=14:antialias=true:autohint=true
+Dunst.font: Roboto Mono 10
 
 /* dmenu, dwm */
 *.topbar: 1
