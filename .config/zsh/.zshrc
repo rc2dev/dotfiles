@@ -89,6 +89,9 @@ bindkey . rationalise-dot
 autoload -Uz bracketed-paste-url-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 
+# Don't prompt on `rm *` (rm is already aliased to do it)
+setopt rm_star_silent
+
 
 #####################################################################
 # Plugins framework
