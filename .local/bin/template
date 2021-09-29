@@ -21,7 +21,13 @@ main() {
   local -r FILE_UNTIL_SPACE="$(cut -f1 -d ' ' <<< "$FILE_NOEXT")"
   local -r FILE_DIR="$(basename "$(dirname "$FILE_FULL")")"
 
-  render_template "$TEMPLATE_FILE" > "$FILE_FULL"
+  local -r rendered="$(render_template "$TEMPLATE_FILE")"
+
+  if [[ -f "$FILE_FULL" ]]; then
+    echo -e "$rendered\n$(cat "$FILE_FULL")" > "$FILE_FULL"
+  else
+    echo "$rendered" > "$FILE_FULL"
+  fi
 }
 
 check_args() {
