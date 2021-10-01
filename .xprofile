@@ -40,6 +40,7 @@ chromium --profile-directory='Default' --app='https://docs.google.com/spreadshee
 xidlehook \
   --detect-sleep \
   --not-when-fullscreen \
+  --not-when-audio \
   --socket "$XIDLEHOOK_SOCK" \
   --timer 90 'slock' '' \
   --timer 900 'systemctl suspend' '' \
