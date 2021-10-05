@@ -19,7 +19,7 @@ setlocal makeprg=pandoc\ --pdf-engine=xelatex\ '%'\ $*\ \-o\ '/tmp/vim_pandoc.pd
 nnoremap <F5> :w<CR>:make<CR>:silent !xdg-open '/tmp/vim_pandoc.pdf' &<CR>
 
 " Create a markdown link structure with the URL from clipboard.
-nnoremap <Leader>l i [](<C-r>*)<Esc>F[a
+nnoremap <Leader>l i[](<C-r>*)<Esc>F[a
 vnoremap <Leader>l "ldi[<C-r>l](<C-r>*)
 
 " md-img-paste
