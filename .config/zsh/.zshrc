@@ -67,6 +67,9 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey "^E" edit-command-line
 
+# Add keybinding for going to parent dir
+bindkey -s "^U" 'cd ..^M'
+
 
 ######################################################################
 # Behaviour
