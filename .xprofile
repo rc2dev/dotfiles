@@ -34,7 +34,6 @@ system-config-printer-applet &
 kdeconnect-indicator &
 syncthing-gtk --minimized &
 keepassxc &
-chromium --profile-directory='Default' --app='https://docs.google.com/spreadsheets/d/1u5q22YMmvNleFijg33sBbEiJMnfIDPkNxQ_mLyBacqU/' &
 
 # Automatically lock and suspend after idle
 xidlehook \
