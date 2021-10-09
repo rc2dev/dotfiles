@@ -180,13 +180,13 @@ ye() {
 
 # Notes
 alias n="notes"
-alias nf="notes find"
+alias nf="notes ranger"
+alias nff="notes find"
 alias nd="notes dump"
 alias ndc="notes dump-cat"
 alias ndx="notes dump-x"
 alias nn="notes name"
-alias nnr="notes name-ranger"
-alias nr="notes ranger"
+alias nnf="notes name-ranger"
 
 # Plan
 alias p="plan"
