@@ -132,10 +132,6 @@ export TASKRC="$HOME/Sync/Apps/Taskwarrior/taskrc"
 # xidlehook
 export XIDLEHOOK_SOCK="$XDG_RUNTIME_DIR/xidlehook.sock"
 
-# z.lua: Move from ~/
-export _ZL_DATA="$HOME/.local/share/zlua"
-export RANGER_ZLUA="$HOME/.local/opt/z.lua/z.lua"
-
 # zoxide
 export _ZO_EXCLUDE_DIRS="/mnt:/media"
 
