@@ -4,6 +4,7 @@
  * Other places for theming:
  * - ~/.xsettingsd
  * - ~/.xprofile (fzf)
+ * - ~/.config/bat/config
  *
  * Author: Rafael Cavalcanti - rafaelc.org
  *
