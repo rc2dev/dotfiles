@@ -341,6 +341,10 @@ nnoremap <LeadeR>x "_x
 nnoremap <Leader>p "_ddP
 vnoremap <Leader>p "_dP
 
+" Move selection up/down and re-format
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " Insert current date
 inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
 
