@@ -226,8 +226,10 @@ let g:airline_skip_empty_sections = 1
 let g:airline_stl_path_style = 'short'
 " Skip display file format if it matches this string
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+" Don't display word count
+let g:airline#extensions#wordcount#enabled = 0
 " Redifine section z
-let g:airline_section_z = '%p%% %v %#__accent_bold#%{g:airline_symbols.maxlinenr}%L%#__restore__#'
+let g:airline_section_z = '%#__accent_bold#%{g:airline_symbols.maxlinenr}%L%#__restore__# %p%%%{g:airline_symbols.linenr}%l,%v'
 
 
 " vim-template
