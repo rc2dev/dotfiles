@@ -184,6 +184,7 @@ filetype plugin indent on
 
 " Default indentation
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 
@@ -402,15 +403,14 @@ augroup END
 
 " Buffer navigation
 nnoremap <Leader><Leader> <C-^>
-nnoremap <Leader>j :bp<CR>
-nnoremap <Leader>k :bn<CR>
+nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 " Navigate splits
-nnoremap <silent> <C-k> :wincmd k<CR>
-nnoremap <silent> <C-j> :wincmd j<CR>
-nnoremap <silent> <C-h> :wincmd h<CR>
-nnoremap <silent> <C-l> :wincmd l<CR>
+nnoremap <silent> <leader>k :wincmd k<CR>
+nnoremap <silent> <leader>j :wincmd j<CR>
+nnoremap <silent> <leader>h :wincmd h<CR>
+nnoremap <silent> <leader>l :wincmd l<CR>
 
 " Resize splits
 nnoremap <silent> <C-Left> :vertical resize -3<CR>
