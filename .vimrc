@@ -160,7 +160,7 @@ augroup behaviour
   autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
   autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
   autocmd BufWritePost .imwheelrc silent !killall imwheel; imwheel -b "4 5"
-  autocmd BufWritePost .Xresources silent !xrdb $XRESOURCES
+  autocmd BufWritePost Xresources silent !xrdb $XRESOURCES
 
   " Set executable bit to scripts
   autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile>
