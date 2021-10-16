@@ -450,6 +450,9 @@ nnoremap <silent> <C-t> :History<CR>
 " Goyo
 nnoremap <F12> :Goyo<CR>
 inoremap <F12> <C-o>:Goyo<CR>
+" loupe
+let g:LoupeClearHighlightMap=1
+nmap <leader>m <Plug>(LoupeClearHighlight)
 
 
 " ABBREVIATIONS {{{1
