@@ -67,7 +67,7 @@ if [[ " pi pi-vcc pizero " =~ " $HOST " ]]; then
 fi
 
 # Paths
-export ALIASES="$HOME/.config/aliases"
+export ALIASES="$HOME/.config/zsh/aliases"
 export NOTES="$HOME/Sync/.Notes"
 export XRESOURCES="$HOME/.config/X11/Xresources"
 export WALLPAPERS="$HOME/Pictures/Wallpapers"
