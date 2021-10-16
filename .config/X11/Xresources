@@ -32,7 +32,7 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 
 
 /* Theme */
-#include "themes/terminalsexy"
+#include "themes/nord"
 
 /* st, slock */
 *.color0: c00
