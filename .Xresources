@@ -23,7 +23,7 @@ dwm.borderpx: 2
 dwm.mfact: 0.5
 
 /* st */
-St.alpha: 0.95
+St.alpha: 0.85
 
 /* Dunst */
 Dunst.frame_width: 1
@@ -31,51 +31,58 @@ Dunst.transparency: 4
 Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/16x16/apps/
 
 
-/******* Themes definitions ********/
-/* (must come before application) */
+/* Theme definition (must come before application) */
+/* First color is normal, second is light. */
 
-/* Nord theme (from st) */
-#define c00 #3b4252
-#define c01 #bf616a
-#define c02 #a3be8c
-#define c03 #ebcb8b
-#define c04 #81a1c1
-#define c05 #b48ead
-#define c06 #88c0d0
-#define c07 #e5e9f0
-#define c08 #4c566a
-#define c09 #bf616a
-#define c10 #a3be8c
-#define c11 #ebcb8b
-#define c12 #81a1c1
-#define c13 #b48ead
-#define c14 #8fbcbb
-#define c15 #eceff4
-#define cbg #2e3440
-#define cfg #d8dee9
+! special
+#define cfg #c5c8c6
+#define cbg #1d1f21
+!*.cursorColor:  #c5c8c6
+! black
+#define c00 #282a2e
+#define c08 #373b41
+! red
+#define c01 #a54242
+#define c09 #cc6666
+! green
+#define c02 #8c9440
+#define c10 #b5bd68
+! yellow
+#define c03 #de935f
+#define c11 #f0c674
+! blue
+#define c04 #5f819d
+#define c12 #81a2be
+! magenta
+#define c05 #85678f
+#define c13 #b294bb
+! cyan
+#define c06 #5e8d87
+#define c14 #8abeb7
+! white
+#define c07 #707880
+#define c15 #c5c8c6
 
 
-/******* Theme application *******/
+/* Theme application */
 
 /* st, slock */
-/* 8 normal colors */
-*.color0: c00 /* black   */
-*.color1: c01 /* red     */
-*.color2: c02 /* green   */
-*.color3: c03 /* yellow  */
-*.color4: c04 /* blue    */
-*.color5: c05 /* magenta */
-*.color6: c06 /* cyan    */
-*.color7: c07 /* white   */
-/* 8 bright colors */
-*.color8: c08 /* black   */
-*.color9: c09 /* red     */
-*.color10: c10 /* green   */
-*.color11: c11 /* yellow  */
-*.color12: c12 /* blue    */
-*.color13: c13 /* magenta */
-*.color14: c14 /* cyan    */
-*.color15: c15 /* white   */
+*.color0: c00
+*.color1: c01
+*.color2: c02
+*.color3: c03
+*.color4: c04
+*.color5: c05
+*.color6: c06
+*.color7: c07
+*.color8: c08
+*.color9: c09
+*.color10: c10
+*.color11: c11
+*.color12: c12
+*.color13: c13
+*.color14: c14
+*.color15: c15
 /* more colors can be added after 255 to use with DefaultXX */
 *.background: cbg
 *.foreground: cfg
