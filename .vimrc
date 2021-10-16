@@ -1,5 +1,6 @@
-" ~/.vimrc
+" vim:fdm=marker:fdl=0:foldenable
 "
+" ~/.vimrc
 " Author: Rafael Cavalcanti - rafaelc.org
 "
 
@@ -7,8 +8,7 @@
 set nocompatible
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-plug (needs single quotes)
+" vim-plug (needs single quotes) {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
@@ -45,8 +45,7 @@ Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" APPEARANCE
+" APPEARANCE {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! s:SetTransparency()
   " Don't do it on gvim or it will get messed up
@@ -98,8 +97,7 @@ set cursorline                                      " Highlight current line
 set list listchars=tab:→\ ,trail:·
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BEHAVIOUR
+" BEHAVIOUR {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set modeline                                        " Enable modeline
 set hidden                                          " Allow buffers to be hidden without saving
@@ -176,8 +174,7 @@ augroup behaviour
 augroup END
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CODE STYLE
+" CODE STYLE {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load indentation rules and plugin according to the detected filetype
 filetype plugin indent on
@@ -189,8 +186,7 @@ set shiftwidth=2
 set expandtab
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SPELL CHECK
+" SPELL CHECK {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set default languages
 set spelllang=pt_br,en_us,es_es
@@ -207,8 +203,7 @@ augroup spellcheck
 augroup END
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGINS CONFIGURATION
+" PLUGINS CONFIGURATION {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-closetag
 " Enable for *.erb
@@ -321,8 +316,7 @@ let g:localvimrc_blacklist='/'
 let g:localvimrc_sandbox=0
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" KEYBINDINGS
+" KEYBINDINGS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap leader key (Space must be in double quotes)
 let mapleader="\<Space>"
@@ -455,8 +449,7 @@ nnoremap <F12> :Goyo<CR>
 inoremap <F12> <C-o>:Goyo<CR>
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ABBREVIATIONS
+" ABBREVIATIONS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab rca [RC added]
 iab rcm [RC modified]
