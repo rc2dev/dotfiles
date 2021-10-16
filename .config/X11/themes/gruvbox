@@ -1,0 +1,31 @@
+! Adapted from https://github.com/morhetz/gruvbox-generalized
+! by Rafael Cavalcanti - rafaelc.org
+
+! hard contrast: *background: #1d2021
+#define cbg #282828
+! soft contrast: *background: #32302f
+#define cfg #ebdbb2
+! Black + DarkGrey
+#define c00 #282828
+#define c08 #928374
+! DarkRed + Red
+#define c01 #cc241d
+#define c09 #fb4934
+! DarkGreen + Green
+#define c02 #98971a
+#define c10 #b8bb26
+! DarkYellow + Yellow
+#define c03 #d79921
+#define c11 #fabd2f
+! DarkBlue + Blue
+#define c04 #458588
+#define c12 #83a598
+! DarkMagenta + Magenta
+#define c05 #b16286
+#define c13 #d3869b
+! DarkCyan + Cyan
+#define c06 #689d6a
+#define c14 #8ec07c
+! LightGrey + White
+#define c07 #a89984
+#define c15 #ebdbb2

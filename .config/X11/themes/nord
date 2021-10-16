@@ -1,0 +1,21 @@
+! Adapted from nord patch for st
+! by Rafael Cavalcanti - rafaelc.org
+
+#define c00 #3b4252
+#define c01 #bf616a
+#define c02 #a3be8c
+#define c03 #ebcb8b
+#define c04 #81a1c1
+#define c05 #b48ead
+#define c06 #88c0d0
+#define c07 #e5e9f0
+#define c08 #4c566a
+#define c09 #bf616a
+#define c10 #a3be8c
+#define c11 #ebcb8b
+#define c12 #81a1c1
+#define c13 #b48ead
+#define c14 #8fbcbb
+#define c15 #eceff4
+#define cbg #2e3440
+#define cfg #d8dee9

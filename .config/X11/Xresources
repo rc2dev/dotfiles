@@ -1,5 +1,5 @@
 /*
- * ~/.Xresources
+ * Xresources
  *
  * Other places for theming:
  * - ~/.xsettingsd
@@ -31,40 +31,8 @@ Dunst.transparency: 4
 Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/16x16/apps/
 
 
-/* Theme definition (must come before application) */
-/* First color is normal, second is light. */
-
-! special
-#define cfg #c5c8c6
-#define cbg #1d1f21
-!*.cursorColor:  #c5c8c6
-! black
-#define c00 #282a2e
-#define c08 #373b41
-! red
-#define c01 #a54242
-#define c09 #cc6666
-! green
-#define c02 #8c9440
-#define c10 #b5bd68
-! yellow
-#define c03 #de935f
-#define c11 #f0c674
-! blue
-#define c04 #5f819d
-#define c12 #81a2be
-! magenta
-#define c05 #85678f
-#define c13 #b294bb
-! cyan
-#define c06 #5e8d87
-#define c14 #8abeb7
-! white
-#define c07 #707880
-#define c15 #c5c8c6
-
-
-/* Theme application */
+/* Theme */
+#include "themes/terminalsexy"
 
 /* st, slock */
 *.color0: c00
@@ -91,7 +59,7 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 *.normbgcolor: cbg
 *.normfgcolor: c12
 *.selbgcolor: c08
-*.selfgcolor: c07
+*.selfgcolor: c15
 dwm.normbordercolor: cbg
 dwm.selbordercolor: c08
 
