@@ -364,6 +364,9 @@ nmap Q <nop>
 " Edit files
 nnoremap <Leader>ev :e ~/.vimrc<CR>
 
+" Toggle folding with <Tab>
+nnoremap <Tab> za
+
 " Try to prevent using the arrow keys for movement.
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
