@@ -22,8 +22,8 @@ usage() {
 
 detect_desktop() {
 	if pidof xsettingsd > /dev/null; then
-	 toggle_xsettingsd
-	 return $?
+		toggle_xsettingsd
+		return $?
 	fi
 
 	case "$XDG_SESSION_DESKTOP" in

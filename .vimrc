@@ -303,8 +303,6 @@ let g:localvimrc_blacklist='/'
 " and we're always prompted.
 let g:localvimrc_sandbox=0
 
-" coc.nvim
-let g:coc_global_extensions=1
 
 " KEYBINDINGS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
