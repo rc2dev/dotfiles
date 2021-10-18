@@ -18,7 +18,7 @@ St.font: Roboto Mono:pixelsize=14:antialias=true:autohint=true
 Dunst.font: Roboto Mono 10
 
 /* dmenu, dwm */
-*.topbar: 1
+*.topbar: 0
 dwm.borderpx: 2
 dwm.mfact: 0.5
 
