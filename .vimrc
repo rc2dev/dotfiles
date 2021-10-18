@@ -34,8 +34,8 @@ Plug 'airblade/vim-rooter'
 Plug 'embear/vim-localvimrc'
 Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if $SLOW_HOST != '1'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'vim-airline/vim-airline'
   set noshowmode                                    " Don't show modes below status line (redundant to Airline)
 endif
