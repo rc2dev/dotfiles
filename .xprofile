@@ -41,7 +41,7 @@ xidlehook \
   --not-when-fullscreen \
   --not-when-audio \
   --socket "$XIDLEHOOK_SOCK" \
-  --timer 90 'slock' '' \
+  --timer 120 'slock' '' \
   --timer 900 'systemctl suspend' '' \
   &
 
