@@ -25,7 +25,6 @@ Plug 'aperezdc/vim-template'
 Plug 'tpope/vim-fugitive'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'mattn/emmet-vim'
-Plug 'vim-scripts/AutoComplPop'
 Plug 'ap/vim-css-color'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'plasticboy/vim-markdown'
@@ -35,6 +34,7 @@ Plug 'airblade/vim-rooter'
 Plug 'embear/vim-localvimrc'
 Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if $SLOW_HOST != '1'
   Plug 'vim-airline/vim-airline'
   set noshowmode                                    " Don't show modes below status line (redundant to Airline)
@@ -289,18 +289,6 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
 
-" AutoComplPop
-" For markdown and text: only complete files
-if(exists('g:acp_behavior'))
-  let g:acp_behavior.markdown=[{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
-  let g:acp_behavior.text=[{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
-else
-  let g:acp_behavior={
-              \ 'markdown': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}],
-              \ 'text': [{'meets': 'acp#meetsForFile', 'repeat': 1, 'command': ''}]
-              \ }
-endif
-
 " ranger.vim
 " Open ranger when vim open a directory.
 let g:ranger_replace_netrw = 1
@@ -315,6 +303,8 @@ let g:localvimrc_blacklist='/'
 " and we're always prompted.
 let g:localvimrc_sandbox=0
 
+" coc.nvim
+let g:coc_global_extensions=1
 
 " KEYBINDINGS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
