@@ -130,7 +130,7 @@ zinit ice wait lucid
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && zinit light "$HOME/.rvm/scripts/rvm"
 
 zinit ice wait lucid
-eval "$(zoxide init zsh)"
+command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 
 #####################################################################
