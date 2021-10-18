@@ -444,10 +444,10 @@ nnoremap <silent> <c-k> :wincmd k<cr>
 nnoremap <silent> <c-j> :wincmd j<cr>
 nnoremap <silent> <c-h> :wincmd h<cr>
 nnoremap <silent> <c-l> :wincmd l<cr>
-tnoremap <silent> <c-k> <C-w>k
-tnoremap <silent> <c-j> <C-w>j
-tnoremap <silent> <c-h> <C-w>h
-tnoremap <silent> <c-l> <C-w>l
+tnoremap <silent> <expr> <c-k> &filetype == "fzf" ? "<c-k>" : "<c-w>k"
+tnoremap <silent> <expr> <c-j> &filetype == "fzf" ? "<c-j>" : "<c-w>j"
+tnoremap <silent> <expr> <c-h> &filetype == "fzf" ? "<c-h>" : "<c-w>h"
+tnoremap <silent> <expr> <c-l> &filetype == "fzf" ? "<c-l>" : "<c-w>l"
 
 " Resize splits
 nnoremap <silent> <C-Left> :vertical resize -3<CR>
