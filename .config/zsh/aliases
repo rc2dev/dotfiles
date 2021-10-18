@@ -143,6 +143,7 @@ alias caffeinate="caffeinate --socket $XIDLEHOOK_SOCK"
 # ranger
 alias f="ranger"
 alias fp="ranger --cmd=fzf_select"
+alias fs="ranger $NOTES/md/Planejamento/Semanas"
 
 # Git
 alias gd1="git diff HEAD~"
