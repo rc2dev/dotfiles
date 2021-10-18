@@ -405,10 +405,14 @@ nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 " Navigate splits
-nnoremap <silent> <leader>k :wincmd k<CR>
-nnoremap <silent> <leader>j :wincmd j<CR>
-nnoremap <silent> <leader>h :wincmd h<CR>
-nnoremap <silent> <leader>l :wincmd l<CR>
+nnoremap <silent> <c-k> :wincmd k<cr>
+nnoremap <silent> <c-j> :wincmd j<cr>
+nnoremap <silent> <c-h> :wincmd h<cr>
+nnoremap <silent> <c-l> :wincmd l<cr>
+tnoremap <silent> <c-k> <C-w>k
+tnoremap <silent> <c-j> <C-w>j
+tnoremap <silent> <c-h> <C-w>h
+tnoremap <silent> <c-l> <C-w>l
 
 " Resize splits
 nnoremap <silent> <C-Left> :vertical resize -3<CR>
