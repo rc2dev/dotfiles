@@ -28,12 +28,11 @@ Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'plasticboy/vim-markdown'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'                        " Dependency for ranger.vim to replace netrw
 Plug 'airblade/vim-rooter'
 Plug 'embear/vim-localvimrc'
 Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
+Plug 'rafaqz/ranger.vim'
 if $SLOW_HOST != '1'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'vim-airline/vim-airline'
@@ -289,10 +288,6 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
 
-" ranger.vim
-" Open ranger when vim open a directory.
-let g:ranger_replace_netrw = 1
-
 " rooter
 let g:rooter_silent_chdir = 1
 
@@ -493,6 +488,12 @@ inoremap <F12> <C-o>:Goyo<CR>
 " loupe
 let g:LoupeClearHighlightMap=1
 nmap <leader>m <Plug>(LoupeClearHighlight)
+" ranger.vim
+nnoremap <leader>ff :RangerEdit<cr>
+nnoremap <leader>fv :RangerVSplit<cr>
+nnoremap <leader>fs :RangerSplit<cr>
+nnoremap <leader>fi :RangerInsert<cr>
+nnoremap <leader>fa :RangerAppend<cr>
 
 
 " ABBREVIATIONS {{{1
