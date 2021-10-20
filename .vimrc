@@ -345,6 +345,9 @@ nmap <leader>r  <Plug>(coc-format-selected)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
+" Disable autocompletion for some file types
+autocmd FileType markdown,text let b:coc_suggest_disable = 1
+
 
 " KEYBINDINGS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
