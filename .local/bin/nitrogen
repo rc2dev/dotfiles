@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# Wrapper for nitrogen, so LightDM wallpaper is synced.
+#
+# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Licensed under GPLv3
+
+set -euo pipefail
+
+/usr/bin/nitrogen "$@"
+if [[ "${1:-}" == "--restore" ]]; then
+  exit $?
+fi
+
+readonly bg_path="$(awk -F '=' '/file/{print $2}' "$HOME/.config/nitrogen/bg-saved.cfg")"
+
+dbus-send \
+  --print-reply \
+  --system \
+  --dest=org.freedesktop.Accounts \
+  /org/freedesktop/Accounts/User$(id -u) \
+  org.freedesktop.DBus.Properties.Set \
+  string:org.freedesktop.DisplayManager.AccountsService \
+  string:BackgroundFile \
+  variant:string:"$bg_path"
