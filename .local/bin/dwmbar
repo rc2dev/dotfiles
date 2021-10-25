@@ -67,7 +67,7 @@ bar_temp() {
 
 # Output currencies values, updating at interval
 bar_currencies() {
-  local -r currencies_regex="(BTC|ETH|ADA|BAT)"
+  local -r currencies_regex="(BTC|ETH|ADA)"
   local -r interval=60
   local -r cache="$HOME/.cache/dwmbar_currencies"
 
