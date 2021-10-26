@@ -97,7 +97,7 @@ mp.register_script_message("locate-current-file", function()
     end
     msg.debug("Command to be executed: '" .. cmd .. "'")
     mp.osd_message('Browse \n' .. path)
-    os.execute(cmd)
+    os.execute(cmd .. "&")
   else
     msg.debug("'path' property was empty, no media has been loaded.")
   end
