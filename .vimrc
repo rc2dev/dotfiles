@@ -161,8 +161,8 @@ augroup behaviour
   autocmd BufWritePost .imwheelrc silent !killall imwheel; imwheel -b "4 5"
   autocmd BufWritePost Xresources silent !xrdb $XRESOURCES
 
-  " Set executable bit to scripts
-  autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile>
+  " Set executable bit to scripts on bin
+  autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' && expand('%:p:h') =~ '/bin$' | silent !chmod +x <afile>
   autocmd BufWritePost * endif " Workaround, putting this in above line would prevent next autocmds to run
 
   " Set undo point after very sentence on prose files
