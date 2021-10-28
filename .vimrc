@@ -87,13 +87,18 @@ set splitbelow splitright                           " Splitting puts new window 
 syntax on                                           " Enable syntax highlighting
 set number
 set relativenumber
-set linebreak                                       " More inteligent wrapping (don't break words)
 set scrolloff=10                                    " Minimum lines below cursor
 set showmatch                                       " Show matching brackets
 set nofoldenable                                    " Don't fold on opening file
 set cursorline                                      " Highlight current line
 " Show tabs and trailing spaces
 set list listchars=tab:→\ ,trail:·
+
+" Line wrap
+set linebreak                                       " More inteligent wrapping (don't break words)
+let &showbreak='⤷ '                                 " Use an arrow starting wrapped line
+set breakindent                                     " Indent wrapped lines to match start
+set breakindentopt=shift:2                          " Emphasize broken lines by indenting them
 
 
 " BEHAVIOUR {{{1
