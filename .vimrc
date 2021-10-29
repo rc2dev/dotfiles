@@ -127,6 +127,9 @@ endif
 " ^] to jump to tag under cursor; g^] for ambiguous tags; ^t to jump back up the tag stack
 command! MakeTags !ctags -R .
 
+" Remove comment leader when joining comment lines
+set formatoptions+=j
+
 " Search
 set ignorecase                                      " Do case insensitive matching
 set smartcase                                       " Do smart case matching
