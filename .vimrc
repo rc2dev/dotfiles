@@ -141,11 +141,12 @@ set wildmode=longest:full,full                      " First tab to complete long
 set completeopt=longest,menu                        " Don't select first item, but longest common
 
 " Put swap files in one directory. Fallback to working dir.
-silent !mkdir -p ~/.vim/swap
-set directory=$HOME/.vim/swap//,.
+silent !mkdir -p ~/.vim/tmp/swap
+set directory=$HOME/.vim/tmp/swap//,.
 
 " Move ~/.viminfo to ~/.vim
-set viminfo+='2000,n~/.vim/viminfo
+silent !mkdir -p ~/.vim/tmp
+set viminfo+='2000,n~/.vim/tmp/viminfo
 
 augroup behaviour
   autocmd!
