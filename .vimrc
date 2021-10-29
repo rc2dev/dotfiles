@@ -291,7 +291,6 @@ let g:user_emmet_leader_key=','
 let g:user_emmet_mode='n'
 
 " vim-markdown
-let g:vim_markdown_folding_level = 2
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_auto_insert_bullets = 0
