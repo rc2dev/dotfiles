@@ -91,8 +91,8 @@ set scrolloff=10                                    " Minimum lines below cursor
 set showmatch                                       " Show matching brackets
 set nofoldenable                                    " Don't fold on opening file
 set cursorline                                      " Highlight current line
-" Show tabs and trailing spaces
-set list listchars=tab:→\ ,trail:·
+set list listchars=tab:→\ ,trail:·                  " Show tabs and trailing spaces
+set fillchars=vert:┃                                " Solid line for vertical split
 
 " Line wrap
 set linebreak                                       " More inteligent wrapping (don't break words)
