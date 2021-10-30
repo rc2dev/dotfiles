@@ -3,7 +3,7 @@
 # Copyright (C) 2020-2021 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
-readonly sep=" "
+readonly sep="  "
 
 truncate() {
   local -r max_len=20
@@ -129,5 +129,10 @@ notify_pomodoro() {
 }
 
 
-xsetroot -name " $(bar_player)$(bar_vol) ${sep} $(bar_currencies)$(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) "
+readonly output="$(
+  echo " $(bar_player)$(bar_vol) ${sep} $(bar_currencies)$(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) " |
+  sed 's/ /  /g' # Increase space for non-mono font.
+)"
+
+xsetroot -name "$output"
 
