@@ -12,10 +12,10 @@
 
 
 /* Fonts */
-dmenu.font: Roboto Mono:size=10
-dwm.font: Roboto Mono:size=10
+dmenu.font: Roboto:size=10
+dwm.font: Roboto:size=10
 St.font: Roboto Mono:pixelsize=14:antialias=true:autohint=true
-Dunst.font: Roboto Mono 10
+Dunst.font: Roboto 10
 
 /* dmenu, dwm */
 *.topbar: 1
