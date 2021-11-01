@@ -3,7 +3,7 @@
 # Copyright (C) 2020-2021 Rafael Cavalcanti - rafaelc.org
 # Licensed under GPLv3
 
-readonly sep="  "
+readonly sep="   "
 
 truncate() {
   local -r max_len=20
@@ -49,7 +49,7 @@ bar_player() {
   local -r artist="$(truncate "${metadata[0]}")"
   local -r title="$(truncate "${metadata[1]}")"
 
-  echo "${icon} ${artist:+$artist -} ${title} ${sep} "
+  echo "${icon} ${artist:+$artist -} ${title}"
 }
 
 bar_time() {
@@ -91,7 +91,7 @@ bar_currencies() {
     return
   fi
 
-  local -r output="\$$values $sep "
+  local -r output="\$$values"
   tee "$cache" <<< "$output"
 }
 
@@ -103,7 +103,7 @@ bar_timew() {
   if [[ $(wc -l <<< "$status") -gt 1 ]]; then
     local -r tag="$(head -1 <<< "$status" | sed -e 's/^Tracking //' -e 's/"//g')"
     local -r time="$(sed -nE '4s/^\s+Total\s+//;4s/...$//p' <<< "$status")"
-    echo "🖍️ $tag $time $sep "
+    echo "🖍️ $tag $time"
   fi
 
   notify_pomodoro "$time"
@@ -129,10 +129,23 @@ notify_pomodoro() {
 }
 
 
-readonly output="$(
-  echo " $(bar_player)$(bar_vol) ${sep} $(bar_currencies)$(bar_temp) ${sep} $(bar_mem) ${sep} $(bar_time) " |
-  sed 's/ /  /g' # Increase space for non-mono font.
-)"
+declare -ar elements=(
+  "$(bar_player)"
+  "$(bar_vol)"
+  "$(bar_currencies)"
+  "$(bar_temp)"
+  "$(bar_mem)"
+  "$(bar_time)"
+)
+
+# Generate output string
+output="$(printf "\t%s" "${elements[@]}")"
+# Remove separator from beginning and duplicated
+output="$(sed 's/^\t*//; s/\t+/\t/g' <<< ${output})"
+# Place chosen separator
+output="$(sed "s/\t/$sep/g" <<< ${output})"
+# Increase spacing for non-mono fonts
+output="${output// /  }"
 
 xsetroot -name "$output"
 
