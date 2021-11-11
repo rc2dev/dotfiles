@@ -34,9 +34,11 @@ Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
 Plug 'rafaqz/ranger.vim'
 if $SLOW_HOST != '1'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'vim-airline/vim-airline'
   set noshowmode                                    " Don't show modes below status line (redundant to Airline)
+endif
+if hostname() == 'rd'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
 " Colorschemes
 Plug 'arcticicestudio/nord-vim'
