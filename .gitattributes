@@ -1,2 +1,3 @@
-borg-mount filter=borg-mount
 .xsettingsd filter=xsettingsd
+borg-mount filter=borg-mount
+flameshot.ini filter=flameshot
