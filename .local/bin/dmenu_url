@@ -90,7 +90,7 @@ fi
 
 readonly urls_str="${urls[*]}"
 readonly prompt="Open ${#urls[@]}: ${urls_str::30}..."
-readonly chosen="$(printf "%s\n" "${!options[@]}" | sort | dmenu -p "$prompt")"
+readonly chosen="$(printf "%s\n" "${!options[@]}" | sort | dmenu -p "$prompt" "$@")"
 [[ -z "$chosen" ]] && exit
 
 readonly cmd="${options["$chosen"]}"
