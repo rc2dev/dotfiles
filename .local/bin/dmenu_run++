@@ -10,7 +10,7 @@
 
 readonly cache="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_run++_recent"
 readonly pol_shortcuts="$HOME/.PlayOnLinux/shortcuts"
-readonly recent_num="300"
+readonly recent_num="200"
 
 # For compgen
 source "$ALIASES"
