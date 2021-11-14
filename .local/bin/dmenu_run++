@@ -3,26 +3,19 @@
 # dmenu_run with improvements:
 # - If the command ends with "!", start it in a terminal (and hold).
 # - Accept shell aliases.
-# - Recent commands are listed first (based on https://tools.suckless.org/dmenu/scripts/run-recent).
 # - List and run PlayOnLinux shortcuts.
 #
 # Author: Rafael Cavalcanti - rafaelc.org
 
-readonly cache="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_run++_recent"
 readonly pol_shortcuts="$HOME/.PlayOnLinux/shortcuts"
-readonly recent_num="200"
 
 # For compgen
 source "$ALIASES"
 
-touch "$cache"
-
-readonly most_used=$(sort "$cache" | uniq -c | sed -e 's/^ *//;s/ /,/' | sort -rn | cut -d, -f2-)
 readonly all_cmds="$(compgen -ac | sort | uniq)"
 [[ -d "$pol_shortcuts" ]] && readonly pol_cmds="$(ls -1 "$pol_shortcuts" | sed -e 's/^/pol:/')"
-readonly run=$( (echo "$most_used"; (echo "$all_cmds"; echo "$pol_cmds") | grep -vxF "$most_used") | dmenu "$@")
-([ -z "$run" ] || echo "$run"; head -n $((recent_num - 1)) "$cache") > "$cache.$$"
-mv -f "$cache.$$" "$cache"
+
+readonly run="$( (echo "$all_cmds"; echo "$pol_cmds") | dmenu "$@")"
 
 case "$run" in
     pol:*) exec playonlinux --run "${run#pol:}" ;;
