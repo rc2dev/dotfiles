@@ -2,5 +2,5 @@
 
 . ~/.zprofile
 
-bash "$NOTES/bin/termux_task"
+bash "$NOTES/bin/menus/termux_task"
 

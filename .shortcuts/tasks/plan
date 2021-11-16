@@ -3,5 +3,5 @@
 . ~/.zprofile
 export LD_PRELOAD=${PREFIX}/lib/libtermux-exec.so
 
-bash "$NOTES/bin/termux_plan"
+bash "$NOTES/bin/menus/termux_plan"
 
