@@ -110,10 +110,16 @@ export FZF_DEFAULT_OPTS="
 	#--color=preview-fg:#e5e9f0
 	#--color=border:#4c566a,gutter:#3b4252,header:#88c0d0
 	#--color=info:#88c0d0,marker:#88c0d0,pointer:#81a1c1
-	#--color=prompt:#88c0d0,spinner:#88c0d0'
+	#--color=prompt:#88c0d0,spinner:#88c0d0
+#'
 # Dracula theme
 # Removed bg:#282a36 for transparent bg
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=fg:#f8f8f2,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+	--color=fg:#f8f8f2,hl:#bd93f9
+	--color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
+	--color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
+	--color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
+'
 
 # less: Have less (and man) display colours
 # From: https://unix.stackexchange.com/a/329092 and
