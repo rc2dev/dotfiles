@@ -66,6 +66,9 @@ augroup appearance
 
   autocmd ColorScheme * call <SID>SetTransparency()
 
+ " For dracula theme, make tab chars more subtle
+ autocmd ColorScheme * if g:colors_name == 'dracula' | hi! link SpecialKey DraculaComment | endif
+
   " Resize splits automatically if VIM is resized
   autocmd VimResized * execute "normal! \<C-w>="
 augroup END
