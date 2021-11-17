@@ -42,6 +42,7 @@ if hostname() == 'rd'
 endif
 " Colorschemes
 Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -71,7 +72,7 @@ augroup END
 
 " Theme (must come after autocmd for transparency)
 set termguicolors                                   " Use truecolors
-colorscheme nord
+colorscheme dracula
 set bg=dark
 
 " Fix colors on st

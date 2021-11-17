@@ -1,0 +1,21 @@
+! Adapted from https://github.com/dracula/xresources
+! by Rafael Cavalcanti - rafaelc.org
+
+#define cfg #F8F8F2
+#define cbg #282A36
+#define c00 #000000
+#define c08 #4D4D4D
+#define c01 #FF5555
+#define c09 #FF6E67
+#define c02 #50FA7B
+#define c10 #5AF78E
+#define c03 #F1FA8C
+#define c11 #F4F99D
+#define c04 #BD93F9
+#define c12 #CAA9FA
+#define c05 #FF79C6
+#define c13 #FF92D0
+#define c06 #8BE9FD
+#define c14 #9AEDFE
+#define c07 #BFBFBF
+#define c15 #E6E6E6
