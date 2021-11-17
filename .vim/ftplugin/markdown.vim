@@ -9,9 +9,6 @@ let b:did_ftplugin = 1
 " Use 4 spaces
 setlocal tabstop=4 shiftwidth=4 expandtab
 
-" Hide text such as bold, italic
-setlocal conceallevel=2
-
 " Set makeprg
 setlocal makeprg=pandoc\ --pdf-engine=xelatex\ '%'\ $*\ \-o\ '/tmp/vim_pandoc.pdf'
 
