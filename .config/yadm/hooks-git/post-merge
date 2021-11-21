@@ -24,7 +24,8 @@ if has_changed yadm/bootstrap; then
 fi
 
 if has_changed .gitmodules; then
-  echo "\n[Hook] ~/.gitmodules changed: Initializing submodules..."
+  echo "\n[Hook] ~/.gitmodules changed: Syncing and initializing submodules..."
+  yadm submodule sync --recursive
   yadm submodule update --init --recursive
 fi
 
