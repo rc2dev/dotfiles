@@ -2,7 +2,7 @@
 	name = Rafael Cavalcanti
 	email = dev@rafaelc.org
 [pull]
-	ff = only
+	rebase = true
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 [fetch]
