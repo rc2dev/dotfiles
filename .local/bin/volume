@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+#
+# Volume notification: Pulseaudio and dunst
+#
+# Adapted from https://gist.github.com/Liblor/b01549fef2d3d56247ff0292034a3ad6
+# by Rafael Cavalcanti - rafaelc.org
+#
+
+notify_id=506
+
+function get_volume {
+    pamixer --get-volume | cut -f 1 -d ' '
+}
+
+function get_volume_icon {
+    if [ "$1" -lt 34 ]
+    then
+        echo -n "audio-volume-low-symbolic"
+    elif [ "$1" -lt 67 ]
+    then
+        echo -n "audio-volume-medium-symbolic"
+    elif [ "$1" -le 100 ]
+    then
+        echo -n "audio-volume-high-symbolic"
+    else
+        echo -n "audio-volume-overamplified-symbolic"
+    fi
+}
+
+function volume_notification {
+    volume=`get_volume`
+    vol_icon=`get_volume_icon $volume`
+    bar=$(seq -s "─" $(($volume / 5)) | sed 's/[0-9]//g')
+    dunstify -r $notify_id -u low -i $vol_icon $bar
+}
+
+function mute_notification {
+    muted=$(pamixer --get-mute)
+    if [ $muted == true ]
+    then
+        dunstify -r $notify_id -u low -i audio-volume-muted-symbolic mute
+    else
+        dunstify -r $notify_id -u low -i `get_volume_icon $(get_volume)` unmute
+    fi
+}
+
+case $1 in
+    up)
+        pactl set-sink-volume @DEFAULT_SINK@ +5%
+        volume_notification
+        ;;
+    down)
+        pactl set-sink-volume @DEFAULT_SINK@ -5%
+        volume_notification
+        ;;
+    mute)
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
+        mute_notification
+        ;;
+    *)
+        echo "Usage: $0 up | down | mute"
+        ;;
+esac
