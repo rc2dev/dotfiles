@@ -78,16 +78,16 @@ take() { mkdir -p $@ && cd ${@:$#}; }
 
 # Edit
 alias e="$EDITOR"
-alias ea="$EDITOR $ALIASES"
+alias ea="ye $ALIASES"
 alias eg="vim +'Files $HOME'"
 alias ep="vim +Files"
 alias et="vim +History"
-alias ev="$EDITOR ~/.vimrc"
-alias exp="$EDITOR ~/.xprofile"
-alias exr="$EDITOR $XRESOURCES"
+alias ev="ye ~/.vimrc"
+alias exp="ye ~/.xprofile"
+alias exr="ye $XRESOURCES"
 alias ey="ye"
-alias ez="$EDITOR $ZDOTDIR/.zshrc"
-alias ezp="$EDITOR ~/.zprofile"
+alias ez="ye $ZDOTDIR/.zshrc"
+alias ezp="ye ~/.zprofile"
 
 # Browsing
 alias ..="cd .."
@@ -210,9 +210,6 @@ alias hs="python3 -m http.server"
 
 # Find broken links
 alias fbl="find . -xtype l"
-
-# Random man page
-alias manrand="find /usr/share/man/man1 -type f | shuf | head -1 | sed -E 's#.*/(.*).gz#\1#' | xargs man"
 
 # mpv and ydl
 # Find and stream audio
