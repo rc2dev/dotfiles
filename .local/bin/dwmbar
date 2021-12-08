@@ -131,7 +131,6 @@ notify_pomodoro() {
 
 declare -ar elements=(
   "$(bar_player)"
-  "$(bar_vol)"
   "$(bar_currencies)"
   "$(bar_temp)"
   "$(bar_mem)"
