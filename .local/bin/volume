@@ -31,16 +31,16 @@ function volume_notification {
     volume=`get_volume`
     vol_icon=`get_volume_icon $volume`
     bar=$(seq -s "─" $(($volume / 5)) | sed 's/[0-9]//g')
-    dunstify -r $notify_id -u low -i $vol_icon $bar
+    dunstify -r $notify_id -u low -t 3000 -i $vol_icon $bar
 }
 
 function mute_notification {
     muted=$(pamixer --get-mute)
     if [ $muted == true ]
     then
-        dunstify -r $notify_id -u low -i audio-volume-muted-symbolic mute
+        dunstify -r $notify_id -u low -t 3000 -i audio-volume-muted-symbolic mute
     else
-        dunstify -r $notify_id -u low -i `get_volume_icon $(get_volume)` unmute
+        dunstify -r $notify_id -u low -t 3000 -i `get_volume_icon $(get_volume)` unmute
     fi
 }
 
