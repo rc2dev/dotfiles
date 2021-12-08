@@ -150,7 +150,7 @@ alias fs="ranger $NOTES/md/Planejamento/Semanas"
 alias gd1="git diff HEAD~"
 alias gd2="git diff HEAD~2"
 gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
-alias glo="git log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
+alias glo="git log --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
 alias glon="glo --name-only"
 alias gw="gh repo view --web"
 
@@ -166,7 +166,7 @@ alias yd1="yadm diff HEAD~"
 alias yd2="yadm diff HEAD~2"
 yfr() { yadm fetch && yadm reset --hard origin/$(yadm rev-parse --abbrev-ref HEAD); }
 alias yl="yadm pull"
-alias ylo="yadm log --graph --pretty=format:'%Cred%h - %an - %ar %Cblue%d%n  %Cgreen %s%n'"
+alias ylo="yadm log --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
 alias ylon="ylo --name-only"
 alias yp="yadm push"
 alias ypf="yadm push --force-with-lease"
