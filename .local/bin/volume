@@ -30,8 +30,9 @@ function get_volume_icon {
 function volume_notification {
     volume=`get_volume`
     vol_icon=`get_volume_icon $volume`
-    bar=$(seq -s "─" $(($volume / 5)) | sed 's/[0-9]//g')
-    dunstify -r $notify_id -u low -t 3000 -i $vol_icon $bar
+    vol_num="$volume%"
+    bar=$(seq -s "─" $(($volume / 4)) | sed 's/[0-9]//g')
+    dunstify -r $notify_id -u low -t 3000 -i $vol_icon "$vol_num  $bar"
 }
 
 function mute_notification {
