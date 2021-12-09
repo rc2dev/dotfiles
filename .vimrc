@@ -522,6 +522,8 @@ iab rcm [RC modified]
 iab rcp Copyright (C) <C-r>=strftime('%Y')<CR> Rafael Cavalcanti - rafaelc.org<CR>Licensed under GPLv3<CR>
 iab rct Author: Rafael Cavalcanti - rafaelc.org
 
+"}}}
+
 
 " Source a global configuration file if available
 if filereadable('/etc/vim/vimrc.local')
