@@ -30,7 +30,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-30+40" # Right with top bar
+    geometry = "320x5-30+40" # Right with top bar
     #geometry = "360x5+775+15" # Center without top bar
     #geometry = "360x5+775+30" # Center with top bar
 
@@ -57,7 +57,7 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 10
+    padding = 15
 
     # Horizontal padding.
     horizontal_padding = 10
