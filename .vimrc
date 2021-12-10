@@ -169,7 +169,6 @@ augroup behaviour
   autocmd BufWritePost .xsettingsd silent !killall -HUP xsettingsd
   autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
   autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
-  autocmd BufWritePost .imwheelrc silent !killall imwheel; imwheel -b "4 5"
   autocmd BufWritePost Xresources silent !xrdb $XRESOURCES
 
   " Set executable bit to scripts on bin
