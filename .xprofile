@@ -22,7 +22,9 @@ fi
 
 # Basic utilities
 xsettingsd &
-imwheel -b "4 5" &
+# If -f is not passed, mouse over dwmbar has the same behaviour
+# as it was over the focused window.
+imwheel -b "4 5" -f &
 dunst &
 nitrogen --restore &
 LANG=pt_BR.utf-8 conky &
