@@ -19,12 +19,10 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-Plug 'alvan/vim-closetag'
 Plug 'preservim/nerdcommenter'
 Plug 'aperezdc/vim-template'
 Plug 'tpope/vim-fugitive'
 Plug 'ron89/thesaurus_query.vim'
-Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'plasticboy/vim-markdown'
@@ -33,6 +31,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
 Plug 'rafaqz/ranger.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 if $SLOW_HOST != '1'
   Plug 'vim-airline/vim-airline'
   set noshowmode                                    " Don't show modes below status line (redundant to Airline)
@@ -40,9 +39,6 @@ endif
 if hostname() == 'rd'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
-" Colorschemes
-Plug 'arcticicestudio/nord-vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -219,10 +215,6 @@ augroup END
 
 " PLUGINS CONFIGURATION {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-closetag
-" Enable for *.erb
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb'
-
 " vim-airline
 " Show open buffers on top
 let g:airline#extensions#tabline#enabled = 1
@@ -291,10 +283,6 @@ autocmd! User GoyoLeave call <SID>GoyoLeave()
 let g:limelight_conceal_ctermfg = 'DarkGray'
 " Name or RGB color (:help gui-colors)
 let g:limelight_conceal_guifg = '#777777'
-
-" emmet-vim
-let g:user_emmet_leader_key=','
-let g:user_emmet_mode='n'
 
 " vim-markdown
 let g:vim_markdown_toc_autofit = 1
