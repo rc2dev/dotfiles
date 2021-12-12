@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 # Inspired by https://www.youtube.com/watch?v=vrN5SPeVUu0
 
 readonly option="$( ( printf "RANDOM MANPAGE\n"; (man -k . | awk '{print $1, $2}' ) | sort) | dmenu -l 10 -g 5 -p 'manpage:' | cut -d'(' -f 1)"

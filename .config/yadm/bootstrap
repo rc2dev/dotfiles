@@ -2,7 +2,7 @@
 #
 # Bootstrapping script for yadm.
 #
-# Copyright (C) 2020 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2020 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 set -euo pipefail

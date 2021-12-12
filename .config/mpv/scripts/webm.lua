@@ -1,4 +1,4 @@
--- With modifications by Rafael Cavalcanti - rafaelc.org
+-- With modifications by Rafael Cavalcanti <https://rafaelc.org/dev>
 
 local mp = require("mp")
 local assdraw = require("mp.assdraw")

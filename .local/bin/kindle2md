@@ -9,7 +9,7 @@
 # 3. Install python dependencies: pip3 install --user beautifulsoup4
 # 4. Run the script: python3 kindle2md YOUR_FILE.html
 #
-# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2021 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 #
 

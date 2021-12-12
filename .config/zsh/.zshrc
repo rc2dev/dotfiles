@@ -1,5 +1,5 @@
 # zshrc
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 
 ZSH_CACHE_DIR="$HOME/.cache/zsh"

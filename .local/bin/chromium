@@ -3,6 +3,6 @@
 # Chromium wrapper.
 # - Always use GNOME Keyring. By default, it doesn't on dwm.
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 exec /usr/bin/chromium --password-store=gnome "$@"

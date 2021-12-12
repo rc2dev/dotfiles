@@ -1,5 +1,5 @@
 ! Adapted from https://github.com/dracula/xresources
-! by Rafael Cavalcanti - rafaelc.org
+! by Rafael Cavalcanti <https://rafaelc.org/dev>
 
 #define cfg #F8F8F2
 #define cbg #282A36

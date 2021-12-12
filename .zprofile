@@ -1,7 +1,7 @@
 #
 # ~/.zprofile
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 # Set HOST if unset
 export HOST="${HOST:-$(hostname)}"

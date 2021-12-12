@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) %YEAR% Rafael Cavalcanti - rafaelc.org
+# Copyright (C) %YEAR% Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 set -euo pipefail

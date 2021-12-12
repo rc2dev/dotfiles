@@ -3,7 +3,7 @@
 # Prompt yes/no with dmenu and run a command if yes.
 # Usage: prompt prompt_message command_to_run
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 readonly answer="$(printf "%s\n%s" "Yes" "No" | dmenu -p "$1")"
 [[ "$answer" == "Yes" ]] && exec $2

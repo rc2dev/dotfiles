@@ -3,7 +3,7 @@
 # Volume notification: Pulseaudio and dunst
 #
 # Adapted from https://gist.github.com/Liblor/b01549fef2d3d56247ff0292034a3ad6
-# by Rafael Cavalcanti - rafaelc.org
+# by Rafael Cavalcanti <https://rafaelc.org/dev>
 #
 
 notify_id=506

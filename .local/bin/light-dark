@@ -2,7 +2,7 @@
 #
 # Toggle between light and dark themes on several DEs.
 #
-# Copyright (C) 2017-2020 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2017-2020 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 readonly config_path="$HOME/.config/X11/light-dark.conf"

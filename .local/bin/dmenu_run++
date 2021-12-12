@@ -5,7 +5,7 @@
 # - Accept shell aliases.
 # - List and run PlayOnLinux shortcuts.
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 readonly pol_shortcuts="$HOME/.PlayOnLinux/shortcuts"
 

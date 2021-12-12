@@ -1,5 +1,5 @@
 " Trim whitespace when saving
-" Author: Rafael Cavalcanti - rafaelc.org
+" Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 function! s:Trim()
     if !&binary && &filetype != 'diff'

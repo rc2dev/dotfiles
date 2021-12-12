@@ -2,7 +2,7 @@
 #
 # VNC to other host via SSH tunnel
 #
-# Copyright (C) 2017-2019 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2017-2019 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 readonly clients="krdc remote-viewer vinagre"

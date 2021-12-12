@@ -1,7 +1,7 @@
 #
 # Shell aliases
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 # Create alias for cd'ing into directory
 alias_z() {

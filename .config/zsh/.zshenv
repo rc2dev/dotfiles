@@ -1,4 +1,4 @@
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 # Skip the not really helping Ubuntu global compinit
 # (from zinit docs)

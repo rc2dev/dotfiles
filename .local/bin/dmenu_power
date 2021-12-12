@@ -2,7 +2,7 @@
 #
 # dmenu script for power commands
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 readonly bg_normal="#730a0a"
 readonly bg_selected="#c20000"

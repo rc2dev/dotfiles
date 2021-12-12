@@ -2,7 +2,7 @@
 #
 # Startup commands for dwm
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 source $HOME/.zprofile
 xrdb $XRESOURCES

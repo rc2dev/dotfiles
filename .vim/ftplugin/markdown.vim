@@ -1,4 +1,4 @@
-" Author: Rafael Cavalcanti - rafaelc.org
+" Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 " Suggested by :help write-filetype-plugin
 if exists('b:did_ftplugin')

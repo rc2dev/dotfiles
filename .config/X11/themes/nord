@@ -1,5 +1,5 @@
 ! Adapted from nord patch for st
-! by Rafael Cavalcanti - rafaelc.org
+! by Rafael Cavalcanti <https://rafaelc.org/dev>
 
 #define c00 #3b4252
 #define c01 #bf616a

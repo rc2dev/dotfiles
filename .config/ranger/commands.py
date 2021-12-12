@@ -1,4 +1,4 @@
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 import os
 from ranger.core.loader import CommandLoader

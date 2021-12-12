@@ -2,7 +2,7 @@
 #
 # slock wrapper: pause and resume dunst notifications.
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 killall -SIGUSR1 dunst
 /usr/local/bin/slock

@@ -3,7 +3,7 @@
 # rename timewarrior tag: use as timew-tagrename <oldtag> <newtag>
 #
 # Adapted from https://github.com/GothenburgBitFactory/timewarrior/issues/210#issuecomment-594799967
-# by Rafael Cavalcanti - rafaelc.org.
+# by Rafael Cavalcanti <https://rafaelc.org/dev>.
 
 readonly script_name="$(basename "$0")"
 

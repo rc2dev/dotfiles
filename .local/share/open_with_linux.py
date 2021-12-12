@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# With modifications by Rafael Cavalcanti - rafaelc.org
+# With modifications by Rafael Cavalcanti <https://rafaelc.org/dev>
 from __future__ import print_function
 
 import os

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Downloaded from https://github.com/mpv-player/mpv/blob/master/TOOLS/umpv
-# Modifications by Rafael Cavalcanti - rafaelc.org
+# Modifications by Rafael Cavalcanti <https://rafaelc.org/dev>
 
 """
 This script emulates "unique application" functionality on Linux. When starting

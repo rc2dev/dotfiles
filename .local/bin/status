@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (C) 2019 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2019 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 readonly pifi_api="http://localhost:3030/api/player"

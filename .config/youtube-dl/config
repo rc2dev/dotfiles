@@ -1,4 +1,4 @@
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 # Path to yt cookies
 --cookies="$HOME/.config/youtube-dl/yt_cookies.txt"

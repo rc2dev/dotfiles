@@ -3,7 +3,7 @@
 # Wrapper around date for Termux, as a dirty workaround for "plan" locale,
 # as Termux doesn't support locales.
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 if [[ "$HOSTNAME" != "localhost" ]]; then
   exec /usr/bin/date "$@"

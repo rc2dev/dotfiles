@@ -3,7 +3,7 @@
 # Toggles grayscale using compton.
 # Based on https://wiki.archlinux.org/title/Picom#Grayscale
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 set -euo pipefail
 

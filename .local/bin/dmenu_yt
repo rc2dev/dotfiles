@@ -2,7 +2,7 @@
 #
 # dmenu script for playing user's yt playlists on shuffle.
 #
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 readonly yt_channel="UCHMpAR9vVyImG570uZqElPg"
 readonly pls_cache="$HOME/.cache/dmenu_yt_playlists.json"

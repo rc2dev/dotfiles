@@ -1,5 +1,5 @@
 ! Adapted from https://github.com/morhetz/gruvbox-generalized
-! by Rafael Cavalcanti - rafaelc.org
+! by Rafael Cavalcanti <https://rafaelc.org/dev>
 
 ! hard contrast: *background: #1d2021
 #define cbg #282828

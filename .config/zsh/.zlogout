@@ -1,5 +1,5 @@
 # zlogout
-# Author: Rafael Cavalcanti - rafaelc.org
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 # Termux: Release wake-lock grabbed upon SSH connection
 # Check if this is the only session

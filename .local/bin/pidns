@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2021 Rafael Cavalcanti - rafaelc.org
+# Copyright (C) 2021 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 readonly script_name="$(basename "$0")"

@@ -1,7 +1,7 @@
 " vim:fdm=marker:fdl=0:foldenable
 "
 " ~/.vimrc
-" Author: Rafael Cavalcanti - rafaelc.org
+" Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 "
 
 " Don't mimic Vi
@@ -506,8 +506,8 @@ nnoremap <leader>fa :RangerAppend<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab rca [RC added]
 iab rcm [RC modified]
-iab rcp Copyright (C) <C-r>=strftime('%Y')<CR> Rafael Cavalcanti - rafaelc.org<CR>Licensed under GPLv3<CR>
-iab rct Author: Rafael Cavalcanti - rafaelc.org
+iab rcp Copyright (C) <C-r>=strftime('%Y')<CR> Rafael Cavalcanti <https://rafaelc.org/dev><CR>Licensed under GPLv3<CR>
+iab rct Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 "}}}
 
