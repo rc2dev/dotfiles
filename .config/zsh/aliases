@@ -110,7 +110,6 @@ alias_z zy ~/Sync
 alias_z zY ~/.config/yadm
 alias_z zw /var/www
 alias_z zw "$WALLPAPERS"
-alias_z z8 ~/Documents/RN8\ Sync
 
 # zoxide: make z interactive when run without arguments
 alias z="zi"
@@ -144,11 +143,8 @@ alias spotdl="spotdl --output-format m4a"
 # ranger
 alias f="ranger"
 alias fp="ranger --cmd=fzf_select"
-alias fs="ranger $NOTES/md/Planejamento/Semanas"
 
 # Git
-alias gd1="git diff HEAD~"
-alias gd2="git diff HEAD~2"
 gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
 alias glo="git log --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
 alias glon="glo --name-only"
@@ -162,8 +158,6 @@ alias yc!="yadm commit -v --amend"
 alias yca="yadm commit -v -a"
 alias yco="yadm checkout"
 alias yd="yadm diff"
-alias yd1="yadm diff HEAD~"
-alias yd2="yadm diff HEAD~2"
 yfr() { yadm fetch && yadm reset --hard origin/$(yadm rev-parse --abbrev-ref HEAD); }
 alias yl="yadm pull"
 alias ylo="yadm log --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
@@ -187,7 +181,6 @@ alias nf="notes ranger"
 alias nff="notes find"
 alias nd="notes dump"
 alias ndc="notes dump-cat"
-alias ndx="notes dump-x"
 alias nn="notes name"
 
 # Plan
