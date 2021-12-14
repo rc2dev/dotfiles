@@ -6,7 +6,7 @@
 readonly sep="   "
 
 truncate() {
-  local -r max_len=20
+  local -r max_len=25
   local -r str="$*"
 
   if [[ ${#str} -gt $max_len ]]; then
@@ -131,7 +131,6 @@ notify_pomodoro() {
 
 declare -ar elements=(
   "$(bar_player)"
-  "$(bar_currencies)"
   "$(bar_temp)"
   "$(bar_mem)"
   "$(bar_time)"
