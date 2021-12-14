@@ -136,9 +136,6 @@ export GROFF_NO_SGR=1                  # for konsole and gnome-terminals
 # man: Dsplay the percentage into the document
 export MANPAGER="less -s -M +Gg"
 
-# taskwarrior
-export TASKRC="$HOME/Sync/Apps/Taskwarrior/taskrc"
-
 # xidlehook
 export XIDLEHOOK_SOCK="$XDG_RUNTIME_DIR/xidlehook.sock"
 
