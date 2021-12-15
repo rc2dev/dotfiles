@@ -2,8 +2,10 @@
 # Author: Rafael Cavalcanti
 # Git hook to run a command after `git merge` / `git pull` if a specified file was changed.
 
-# Fix weird terminal behaviour
-exec </dev/tty >/dev/tty
+# Fix weird terminal behaviour (only if attatched to terminal)
+if [ -t 1 ]; then
+  exec </dev/tty >/dev/tty
+fi
 
 readonly changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
 
