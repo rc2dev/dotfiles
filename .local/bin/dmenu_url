@@ -9,8 +9,8 @@ readonly term="$TERMINAL"
 readonly term_instance="sys"
 
 declare -Ar options=(
-	["youtube-dl"]="ydl"
-	["youtube-dl (audio)"]="ydl -x"
+	["yt-dlp"]="ydl"
+	["yt-dlp (audio)"]="ydl -x"
 	["mpv"]="mpv"
 	["umpv"]="umpv"
 	["Wallabag it"]="to_wallabag"
@@ -28,7 +28,7 @@ ydl() {
 
 	trap '
 		echo $(date +"%b %d %H:%M:%S") $@ >> ~/Downloads/ydl_errors.log;
-		notify-send --urgency=critical "dmenu_url - youtube-dl" "Logged error downloading: $@"
+		notify-send --urgency=critical "dmenu_url - yt-dlp" "Logged error downloading: $@"
 		' ERR
 
 	$term -n "$term_instance" -e bash -c '
@@ -36,7 +36,7 @@ ydl() {
 		printf "Downloading these URLs:\n"
 		printf "%s\n\n" "$@"
 
-		youtube-dl '$opts' "$@"
+		yt-dlp '$opts' "$@"
 	' --	"${urls[@]}"
 }
 

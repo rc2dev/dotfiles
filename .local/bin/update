@@ -122,9 +122,9 @@ update_dotfiles() {
 
 update_ydl() {
 	# Use --format to silence pip warning.
-	if has_command pip3 && pip3 list --format=columns | grep -q youtube-dl; then
-		log_step "Atualizando pacote youtube-dl do PIP..."
-		pip3 install --upgrade youtube_dl
+	if has_command pip3 && pip3 list --format=columns | grep -q yt-dlp; then
+		log_step "Atualizando pacote yt-dlp do PIP..."
+		pip3 install --upgrade yt-dlp
 	fi
 }
 

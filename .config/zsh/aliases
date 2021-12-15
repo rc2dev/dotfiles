@@ -205,9 +205,9 @@ yta() { mpv --no-keep-open --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
 # Find ans stream video
 ytv() { mpv --no-keep-open ytdl://ytsearch:"$*"; }
 # List videos from $1 playlist
-ytl() { youtube-dl --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/" + .url'; }
+ytl() { yt-dlp --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/" + .url'; }
 # Download only subtitles
-alias yts="youtube-dl --all-subs --skip-download"
+alias yts="yt-dlp --all-subs --skip-download"
 
 # journalctl
 alias jc="journalctl"

@@ -5,7 +5,7 @@ set -euo pipefail
 readonly url="$1"
 
 cd ~/Downloads
-if ! youtube-dl "$url"; then
+if ! yt-dlp "$url"; then
   content="Error downloading"
   priority="high"
 else

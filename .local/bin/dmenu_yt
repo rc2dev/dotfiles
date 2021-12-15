@@ -9,7 +9,7 @@ readonly pls_cache="$HOME/.cache/dmenu_yt_playlists.json"
 
 # Don't wait for getting playlists from remote server
 cache_pls() {
-  pls_json="$(youtube-dl --flat-playlist --dump-json "https://www.youtube.com/channel/$yt_channel/playlists?view=1&sort=dd&shelf_id=0")"
+  pls_json="$(yt-dlp --flat-playlist --dump-json "https://www.youtube.com/channel/$yt_channel/playlists?view=1&sort=dd&shelf_id=0")"
   # Add missing "Watch Later"
   pls_json+=' {"url": "https://www.youtube.com/playlist?list=WL", "title": "Watch Later"}'
   echo "$pls_json" > "$pls_cache"
