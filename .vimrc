@@ -31,6 +31,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
 Plug 'rafaqz/ranger.vim'
+Plug 'freitass/todo.txt-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 if $SLOW_HOST != '1'
   Plug 'vim-airline/vim-airline'
@@ -355,8 +356,9 @@ endif
 
 " KEYBINDINGS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap leader key (Space must be in double quotes)
+" Remap leader keys (Space must be in double quotes)
 let mapleader="\<Space>"
+let maplocalleader=","
 
 " For consistency with C and D
 noremap Y y$

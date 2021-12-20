@@ -182,6 +182,11 @@ alias nd="notes dump"
 alias ndc="notes dump-cat"
 alias nn="notes name"
 
+# todo.txt
+alias t="todo-txt"
+alias te="e $TODO_DIR/todo.txt"
+alias td="e $TODO_DIR/done.txt"
+
 # Use bat if available
 command -v bat >/dev/null && alias cat="bat"
 
