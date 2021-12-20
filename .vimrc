@@ -141,6 +141,7 @@ set incsearch                                       " Incremental search
 set history=500                                     " Number of command lines remembered
 set wildmenu
 set wildmode=longest:full,full                      " First tab to complete longest *common* string
+set wildignorecase
 
 " Completion menu
 set completeopt=longest,menu                        " Don't select first item, but longest common
