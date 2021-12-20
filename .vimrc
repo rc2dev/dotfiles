@@ -379,6 +379,9 @@ vnoremap <Leader>p "_dP
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" Toogle paste
+set pastetoggle=<F2>
+
 " Insert current date
 inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
 
