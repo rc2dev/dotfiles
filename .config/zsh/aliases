@@ -101,7 +101,6 @@ alias_z zm /mnt
 alias_z zn "$NOTES"
 alias_z znb "$NOTES/bin"
 alias_z znd "$NOTES/md/Dump"
-alias_z znp "$NOTES/md/Planejamento"
 alias_z zp ~/Pictures
 alias_z zs /sdcard
 alias_z zu /media/$USER
@@ -182,13 +181,6 @@ alias nff="notes find"
 alias nd="notes dump"
 alias ndc="notes dump-cat"
 alias nn="notes name"
-
-# Plan
-alias p="plan"
-alias pd="plan day"
-alias py="plan day --yesterday"
-alias pt="plan day --tomorrow"
-alias te="plan task-edit"
 
 # Use bat if available
 command -v bat >/dev/null && alias cat="bat"

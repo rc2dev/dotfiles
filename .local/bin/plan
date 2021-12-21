@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-#
-# Ideally, we would just symlink to the file. However, this doesn't work on
-# Termux, since the file is on /sdcard, and, thus, it can't be made executable.
-#
-# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
-
-exec bash "$NOTES/bin/plan" "$@"
