@@ -186,6 +186,9 @@ alias nn="notes name"
 alias t="todo-txt"
 alias te="e $TODO_DIR/todo.txt"
 alias td="e $TODO_DIR/done.txt"
+alias tad="t add"
+alias tdo="t do"
+alias tll="t ls"
 
 # Use bat if available
 command -v bat >/dev/null && alias cat="bat"
