@@ -145,7 +145,7 @@ alias fp="ranger --cmd=fzf_select"
 
 # Git
 gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
-alias glo="git log --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
+alias glo="git log --all --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
 alias glon="glo --name-only"
 alias gw="gh repo view --web"
 
@@ -159,7 +159,7 @@ alias yco="yadm checkout"
 alias yd="yadm diff"
 yfr() { yadm fetch && yadm reset --hard origin/$(yadm rev-parse --abbrev-ref HEAD); }
 alias yl="yadm pull"
-alias ylo="yadm log --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
+alias ylo="yadm log --all --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
 alias ylon="ylo --name-only"
 alias yp="yadm push"
 alias ypf="yadm push --force-with-lease"
@@ -167,6 +167,7 @@ alias yrb="yadm rebase"
 alias yrba="yadm rebase --abort"
 alias yrbc="yadm rebase --continue"
 alias yrbi="yadm rebase -i"
+alias ysh="yadm show"
 alias yst="yadm status"
 alias yw="xdg-open https://rafaelc.org/dotfiles >/dev/null 2>&1 & disown"
 ye() {
