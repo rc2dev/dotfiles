@@ -1,6 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/bash
-
-. ~/.zprofile
-export LD_PRELOAD=${PREFIX}/lib/libtermux-exec.so
-
-bash ~/.local/bin/notes dump --opener termux-open

@@ -1,11 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 . ~/.zprofile
+export LD_PRELOAD=${PREFIX}/lib/libtermux-exec.so
 
-bash ~/.local/bin/notes name --opener termux-open
-
-# Workaround on AOSP.
-# Without this, if the markdown app is locked, and Termux is not open,
-# the authentication pop-up shows up only for a brief moment and
-# nothing more happens.
-sleep 15s
+bash "$NOTES/bin/menus/termux_notes"
