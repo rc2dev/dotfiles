@@ -2,24 +2,12 @@
 # Copyright (C) 2019 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
-readonly pifi_api="http://localhost:3030/api/player"
 readonly kodi_api="http://localhost:80/jsonrpc" # osmc binds it to port 80, default is 8080
 declare -Ar services=(
-	[Apache]="apache2"
 	[Dispmanx]="dispmanx"
 	[Fail2Ban]="fail2ban"
 	[Kodi]="kodi"
-	[Lighttpd]="lighttpd"
-	[MPD]="mpd"
-	[Nginx]="nginx"
 	[Ngrok]="ngrok"
-	[Pi-Hole FTL]="pihole-FTL"
-	[PiFi Radio]="pifi"
-	[Raspotify]="raspotify"
-	[Samba]="smbd"
-	[Serveo]="serveo"
-	[Shairport-sync]="shairport-sync"
-	[Transmission]="transmission-daemon"
 )
 
 status_services() {
@@ -34,19 +22,6 @@ status_services() {
 			printf "%-15s%s\n" "$label" "$(systemctl is-active "$unit")"
 		fi
 	done
-}
-
-status_pifi() {
-	local pifi_response=$(curl "$pifi_api" 2>/dev/null)
-	local playing=$(jq -r .playing <<<$pifi_response)
-	local title=$(jq -r .title <<<$pifi_response)
-	local vol=$(jq .vol <<<$pifi_response)
-
-	if [[ "$playing" == "true" ]]; then
-		printf "PiFi is playing %s, vol: %s%%\n" "$title" "$vol"
-	else
-		printf "PiFi is idle\n"
-	fi
 }
 
 status_kodi() {
@@ -71,10 +46,6 @@ status_system() {
 	uptime -p
 }
 
-has_pifi() {
-	systemctl list-unit-files | grep -q pifi
-}
-
 has_kodi() {
 	command -v kodi >/dev/null
 }
@@ -83,10 +54,9 @@ main() {
 	status_services | sort
 	printf "\n"
 
-	has_pifi && status_pifi
 	has_kodi && status_kodi
-
 	printf "\n"
+
 	status_system
 }
 
