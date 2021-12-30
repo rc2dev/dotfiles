@@ -1,2 +1,2 @@
 [Context]
-filesystems=home;!host
+filesystems=/mnt/data;home;!host
