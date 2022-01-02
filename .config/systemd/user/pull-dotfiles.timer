@@ -1,0 +1,11 @@
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+[Unit]
+Description=Pull dotfiles daily
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
