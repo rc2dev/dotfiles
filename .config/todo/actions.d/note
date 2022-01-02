@@ -1,5 +1,6 @@
 #!/bin/bash
 # Downloaded from https://github.com/mgarrido/todo.txt-cli/tree/note/todo.actions.d
+# with fixes by Rafael Cavalcanti <https://rafaelc.org/dev>
 
 TODO_NOTES_DIR=${TODO_NOTES_DIR:-$TODO_DIR/notes}
 TODO_NOTE_TAG=${TODO_NOTE_TAG:-note}
@@ -143,7 +144,10 @@ case "$TODO_NOTE_ACTION" in
 
 "__rmfromtext")
     getnotenamefromtext "$*"
-    rm -f "$TODO_NOTES_DIR/$notename"
+    if [ $notename ]
+    then
+        rm -f "$TODO_NOTES_DIR/$notename"
+    fi
     ;;
 
 *)
