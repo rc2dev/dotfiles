@@ -175,10 +175,7 @@ ye() {
 
 # Notes
 alias n="notes"
-alias nf="notes ranger"
 alias nff="notes find"
-alias nd="notes dump"
-alias ndc="notes dump-cat"
 alias nn="notes name"
 
 # todo.txt
