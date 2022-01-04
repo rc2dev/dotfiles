@@ -8,9 +8,12 @@
 set -euo pipefail
 
 /usr/bin/nitrogen "$@"
-if [[ "${1:-}" == "--restore" ]]; then
-  exit $?
-fi
+# We could exit here in the case of `nitrogen --restore` (to bypass setting
+# LightDM's wallpaper again in that case). This would work fine if we don't
+# login into other DEs where the wallpaper is managed by other software.
+# However, if we login into Cinnamon, for example, it will overwrite LightDM's
+# wallpaper with the one set there. So, upon calling `nitrogen --restore`, it
+# also makes sense to set the LightDM wallpaper.
 
 readonly bg_path="$(awk -F '=' '/file/{print $2}' "$HOME/.config/nitrogen/bg-saved.cfg")"
 
