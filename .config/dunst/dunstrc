@@ -349,6 +349,11 @@
     appname = "Spotify"
     script = "dwmbar"
 
+# Don't save volume notifications to history
+[volume]
+    icon = "audio-volume-*"
+    history_ignore = true
+
 # Disable the transient hint so that idle_threshold cannot be bypassed from the
 # client
 #[transient_disable]
