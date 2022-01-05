@@ -20,4 +20,4 @@ yadm clone --bootstrap https://github.com/rccavalcanti/dotfiles.git
 
 Licensed under [GPLv3](LICENSE)
 
-Copyright (C) 2018-2021 [Rafael Cavalcanti](https://rafaelc.org/dev)
+Copyright (C) 2018-2022 [Rafael Cavalcanti](https://rafaelc.org/dev)
