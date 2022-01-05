@@ -205,7 +205,7 @@ alias yts="yt-dlp --all-subs --skip-download"
 
 # journalctl
 alias jc="journalctl"
-alias jcu="journalctl --user"
+alias jcu="journalctl --user-unit"
 
 # Package management
 if command -v apt > /dev/null; then
