@@ -68,7 +68,7 @@ fi
 
 # Paths
 export ALIASES="$HOME/.config/zsh/aliases"
-export NOTES="$HOME/Sync/.Notes"
+export NOTES="$HOME/Documents/Notes"
 export XRESOURCES="$HOME/.config/X11/Xresources"
 export WALLPAPERS="$HOME/Pictures/Wallpapers"
 
