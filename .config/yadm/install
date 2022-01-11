@@ -7,7 +7,7 @@
 
 set -euo pipefail
 
-readonly dotfiles_repo="https://github.com/rccavalcanti/dotfiles.git"
+readonly dotfiles_repo="https://github.com/rc2dev/dotfiles.git"
 
 yadm() {
   local -r yadm_url="https://raw.githubusercontent.com/TheLocehiliosan/yadm/master/yadm"
