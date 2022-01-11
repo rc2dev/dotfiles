@@ -5,6 +5,7 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
+# Termux's hostname is "localhost"
 if [[ "$HOSTNAME" != "localhost" ]]; then
   exec /usr/bin/date "$@"
 fi
