@@ -107,7 +107,8 @@ toggle_ini() {
 }
 
 toggle_xsettingsd() {
-	local -r theme_current="$(awk -F' ' '/^Net\/ThemeName / {gsub("\"","", $2); print $2}' ~/.xsettingsd)"
+	local -r config_file="$HOME/.config/xsettingsd/xsettingsd.conf"
+	local -r theme_current="$(awk -F' ' '/^Net\/ThemeName / {gsub("\"","", $2); print $2}' "$config_file")"
 
 	if [[ "$theme_current" == "$theme_light" ]]; then
 		local -r theme_new="$theme_dark"
@@ -117,8 +118,8 @@ toggle_xsettingsd() {
 		local -r icon_new="$icon_light"
 	fi
 
-	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" ~/.xsettingsd
-	sed -i "s#^Net/IconThemeName .*\$#Net/IconThemeName \"$icon_new\"#" ~/.xsettingsd
+	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" "$config_file"
+	sed -i "s#^Net/IconThemeName .*\$#Net/IconThemeName \"$icon_new\"#" "$config_file"
 
 	killall -HUP xsettingsd
 }
