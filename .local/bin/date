@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# Wrapper around date for Termux, as a dirty workaround for "plan" locale,
-# as Termux doesn't support locales.
+# Wrapper around `date` on Termux, as a dirty workaround for `notes` locale, as
+# Termux doesn't support locales.
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
