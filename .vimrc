@@ -73,7 +73,12 @@ augroup END
 
 " Theme (must come after autocmd for transparency)
 set termguicolors                                   " Use truecolors
-colorscheme dracula
+" We won't have the theme on first run
+try
+  colorscheme dracula
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme desert
+endtry
 set bg=dark
 
 " Fix colors on st
