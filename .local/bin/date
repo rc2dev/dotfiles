@@ -7,10 +7,10 @@
 
 # Termux's hostname is "localhost"
 if [[ "$HOSTNAME" != "localhost" ]]; then
-  exec /usr/bin/date "$@"
+  exec /bin/date "$@"
 fi
 
-/usr/bin/date "$@" | sed '
+/bin/date "$@" | sed '
   s/Mon/seg/g;
   s/Tue/ter/g;
   s/Wed/qua/g;
