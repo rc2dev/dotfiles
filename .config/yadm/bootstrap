@@ -24,9 +24,6 @@ main() {
 
   log "Installing VIM plugins..."
   vim +PlugInstall +qa!
-
-  log "Creating directories..."
-  mkdir -p "$HOME/.local/opt"
 }
 
 log() {
