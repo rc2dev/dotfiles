@@ -1,0 +1,10 @@
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+[Unit]
+Description=Backup from airport
+After=network.target
+OnFailure=status-email@%n.service
+
+[Service]
+ExecStart=%h/Documents/Sysadmin/Backups/bin/backup-from-airport
+Nice=19

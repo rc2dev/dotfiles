@@ -1,0 +1,12 @@
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+[Unit]
+Description=Run backup-from-airport periodically
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target
