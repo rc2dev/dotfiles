@@ -497,8 +497,9 @@ map <leader>/ <plug>NERDCommenterToggle
 " thesaurus_query
 " Disable keymappings and set my own
 let g:tq_map_keys = 0
-nnoremap <Leader>ct :ThesaurusQueryReplaceCurrentWord<CR>
-vnoremap <Leader>ct y:ThesaurusQueryReplace <C-r>"<CR>
+" <leader>ct is already used
+nnoremap <Leader>cs :ThesaurusQueryReplaceCurrentWord<CR>
+vnoremap <Leader>cs y:ThesaurusQueryReplace <C-r>"<CR>
 " fzf.vim
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-g> :Files $HOME<CR>
