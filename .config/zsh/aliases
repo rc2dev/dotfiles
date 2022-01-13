@@ -153,6 +153,7 @@ alias yau="yadm add -u"
 alias yc="yadm commit -v"
 alias yc!="yadm commit -v --amend"
 alias yca="yadm commit -v -a"
+alias ycp="yadm cherry-pick"
 alias yco="yadm checkout"
 alias yd="yadm diff"
 yfr() { yadm fetch && yadm reset --hard origin/$(yadm rev-parse --abbrev-ref HEAD); }
