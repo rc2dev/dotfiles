@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+if [[ "$HOST" != "rd" ]]; then
+  exit 0
+fi
+
+xmodmap ~/.config/X11/xmodmap_rd
+# Press and release Control_L to send Escape
+xcape -e 'Control_L=Escape'
+
