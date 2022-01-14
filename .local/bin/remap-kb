@@ -2,11 +2,14 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-if [[ "$HOST" != "rd" ]]; then
-  exit 0
+if [[ "$HOST" == "rd" ]]; then
+  xmodmap ~/.config/X11/xmodmap_rd
+
+  # Press and release Control_L to send Escape
+  xcape -e 'Control_L=Escape'
 fi
 
-xmodmap ~/.config/X11/xmodmap_rd
-# Press and release Control_L to send Escape
-xcape -e 'Control_L=Escape'
-
+# On dwm, Super_L sends Super+D
+if [[ "$XDG_SESSION_DESKTOP" == "dwm" ]]; then
+  xcape -e 'Super_L=Super_L|D'
+fi
