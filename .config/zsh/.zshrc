@@ -26,6 +26,9 @@ setopt share_history
 #####################################################################
 # Interface
 #####################################################################
+# Use emacs keybindings
+set -o emacs
+
 # Use vim navigation keys in menu completion
 zmodload zsh/complist
 bindkey -M menuselect '^h' vi-backward-char
@@ -62,7 +65,7 @@ bindkey "^[[4~" end-of-line
 # Fix delete key on Termux
 bindkey "^[[P" delete-char
 
-# Add keybinding for editing in VIM
+# Add keybinding for editing in text editor
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey "^E" edit-command-line
@@ -136,15 +139,6 @@ command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 #####################################################################
 # Plugins configuration
 #####################################################################
-# Needed for spaceship theme to refresh vi_mode
-spaceship_vi_mode_enable
-# vi_mode: Remove it from left prompt
-SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#vi_mode}")
-# vi_mode: Add it to right prompt
-SPACESHIP_RPROMPT_ORDER=(vi_mode)
-# vi_mode: Remove insert mode symbol
-SPACESHIP_VI_MODE_INSERT=
-
 # fzf
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FD_DIRS"
