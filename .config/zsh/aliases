@@ -13,7 +13,7 @@ alias_z() {
 }
 
 # List files when cd'ing
-cd() { builtin cd "$@" && eval $CMD_LS; }
+cd() { builtin cd "$@" && eval "ls"; }
 
 # Also check command after sudo for alias (see man bash)
 alias sudo="sudo "
@@ -43,31 +43,18 @@ alias less="less -R"
 
 # ls
 if command -v exa > /dev/null; then
-	CMD_LS="exa --color=auto -aF --group-directories-first"
-	alias ls="$CMD_LS"
+	alias ls="exa --color=auto -aF --group-directories-first"
 	alias ll="ls -l --git"
 else
-	CMD_LS="ls --color=auto -AF --group-directories-first"
-	alias ls="$CMD_LS"
+	alias ls="ls --color=auto -AF --group-directories-first"
 	alias ll="ls -l"
 fi
 
 # History
-# Show timestamp on zsh history
-alias history="history -i"
+# Show whole history (like bash) and timestamped
+alias history="history -i 0"
 # Copy command from history to clipboard
-alias hy="fc -ln -$HISTSIZE | fzf | xclip -selection clipboard"
-history-rank() {
-	local n=${1:-10}
-
-	builtin history 0 | \
-		awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | \
-		grep -v "./" | \
-		column -c3 -s " " -t | \
-		sort -nr | \
-		nl | \
-		head -n"${n}"
-}
+alias hy="fc -ln 0 | fzf | xclip -selection clipboard"
 
 # Shell
 alias c="builtin cd && clear"
@@ -111,6 +98,15 @@ alias_z zw "$WALLPAPERS"
 
 # zoxide: make z interactive when run without arguments
 alias z="zi"
+
+# Create a backup of a file
+bak() {
+	if [[ "$(stat --format '%u' "$1")" == "$UID" ]]; then
+		cp "$1"{,.bak}
+	else
+		sudo cp "$1"{,.bak}
+	fi
+}
 
 # Easier commands
 alias cx="chmod +x"
@@ -178,7 +174,6 @@ ye() {
 
 # Notes
 alias n="notes"
-alias nff="notes find"
 alias nn="notes name"
 
 # todo.txt
