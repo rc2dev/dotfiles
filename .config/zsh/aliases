@@ -27,6 +27,7 @@ alias rm="rm -vI"
 alias ln="ln -vi"
 alias chmod="chmod -v"
 alias chown="chown -v"
+alias mkdir="mkdir -v"
 
 # Human-readable output
 alias df="df -h"
