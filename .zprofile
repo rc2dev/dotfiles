@@ -136,6 +136,12 @@ export GROFF_NO_SGR=1                  # for konsole and gnome-terminals
 # man: Dsplay the percentage into the document
 export MANPAGER="less -s -M +Gg"
 
+# pgcli
+if [[ "$HOST" == "pi" ]]; then
+	export PGHOST="localhost"
+	export PGUSER="postgres"
+fi
+
 # todo.txt
 export TODO_DIR="/mnt/dav/todo"
 export TODO_FILE="$TODO_DIR/todo.txt"
