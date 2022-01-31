@@ -152,7 +152,8 @@ export REPORT_FILE="$TODO_DIR/report.txt"
 export XIDLEHOOK_SOCK="$XDG_RUNTIME_DIR/xidlehook.sock"
 
 # zoxide
-export _ZO_EXCLUDE_DIRS="/mnt:/media"
+# $HOME is excluded by default. Also exclude directories with network mount points.
+export _ZO_EXCLUDE_DIRS="$HOME:/media/$USER:/media/$USER/*"
 
 # zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
