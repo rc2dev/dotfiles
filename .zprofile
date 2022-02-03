@@ -153,7 +153,8 @@ export XIDLEHOOK_SOCK="$XDG_RUNTIME_DIR/xidlehook.sock"
 
 # zoxide
 # $HOME is excluded by default. Also exclude directories with network mount points.
-export _ZO_EXCLUDE_DIRS="$HOME:/media/$USER:/media/$USER/*"
+# Use `whoami` instead of `$USER`, or termux-url-open fails.
+export _ZO_EXCLUDE_DIRS="$HOME:/media/$(whoami):/media/$(whoami)/*"
 
 # zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
