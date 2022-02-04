@@ -26,6 +26,7 @@ xsettingsd &
 # as it was over the focused window.
 imwheel -b "4 5" -f &
 remap-kb &
+sxhkd &
 dunst &
 nitrogen --restore &
 redshift-gtk &

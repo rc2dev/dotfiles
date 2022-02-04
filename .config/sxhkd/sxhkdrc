@@ -1,0 +1,70 @@
+super + a
+  chromium --profile-directory="Default"
+
+# Chromium's profile selector
+super + ctrl + a
+  chromium --profile-directory="Guest Profile"
+
+super + shift + a
+  chromium --temp-profile
+
+super + c
+  dmenu_yt
+
+super + alt + d
+  light-dark
+
+super + e
+  emacs
+
+super + f
+  $TERMINAL -e ranger
+
+super + shift + f
+  nemo
+
+super + m
+  $TERMINAL -n cmus -e cmus
+
+super + n
+  $TERMINAL -e notes name
+
+super + shift + n
+  dmenu_notes
+
+super + o
+  $TERMINAL -e notes journal
+
+super + p
+  keepassxc
+
+super + shift + q
+  xkill
+
+super + r
+  dmenu_url
+
+super + x
+  $TERMINAL -e zsh -ic 'o'
+
+super + shift + x
+  $TERMINAL -e ranger --cmd=fzf_select
+
+super + w
+  x-www-browser
+
+super + shift + w
+  x-www-browser --incognito
+
+ctrl + alt + v
+  clipmenu
+
+XF86Calculator
+  gnome-calculator
+
+Print
+  flameshot gui
+
+Print + shift
+  flameshot launcher
+
