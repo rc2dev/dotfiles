@@ -130,7 +130,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 
 # RVM: Load RVM into a shell session *as a function*
 zinit ice wait lucid
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && zinit light "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && zinit snippet "$HOME/.rvm/scripts/rvm"
 
 zinit ice wait lucid
 command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
