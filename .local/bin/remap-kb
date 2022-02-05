@@ -9,7 +9,3 @@ if [[ "$HOST" == "rd" ]]; then
   xcape -e 'Control_L=Escape'
 fi
 
-# On dwm, Super_L sends Super+D
-if [[ "$XDG_SESSION_DESKTOP" == "dwm" ]]; then
-  xcape -e 'Super_L=Super_L|D'
-fi
