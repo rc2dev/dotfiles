@@ -1,12 +1,6 @@
-super + a
-  chromium --profile-directory="Default"
-
-# Chromium's profile selector
-super + ctrl + a
-  chromium --profile-directory="Guest Profile"
-
-super + shift + a
-  chromium --temp-profile
+# "Guest profile" calls chromium's profile selector
+super + {_, ctrl, shift} + a
+  chromium {--profile-directory="Default", --profile-directory="Guest Profile", --temp-profile}
 
 super + c
   dmenu_yt
@@ -47,14 +41,8 @@ super + r
 super + x
   $TERMINAL -e zsh -ic 'o'
 
-super + shift + x
-  $TERMINAL -e ranger --cmd=fzf_select
-
-super + w
-  x-www-browser
-
-super + shift + w
-  x-www-browser --incognito
+super + {_, shift} + w
+  x-www-browser {_, --incognito}
 
 ctrl + alt + v
   clipmenu
