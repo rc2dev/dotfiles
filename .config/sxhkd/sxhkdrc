@@ -2,9 +2,6 @@
 super + {_, ctrl, shift} + a
   chromium {--profile-directory="Default", --profile-directory="Guest Profile", --temp-profile}
 
-super + c
-  dmenu_yt
-
 super + alt + d
   light-dark
 
@@ -17,17 +14,8 @@ super + f
 super + shift + f
   nemo
 
-super + m
-  $TERMINAL -n cmus -e cmus
-
-super + n
-  $TERMINAL -e notes name
-
-super + shift + n
-  dmenu_notes
-
-super + o
-  $TERMINAL -e notes journal
+super + {_, shift, alt} + n
+  {$TERMINAL -e notes name, dmenu_notes, $TERMINAL -e notes journal}
 
 super + p
   keepassxc
@@ -38,8 +26,23 @@ super + shift + q
 super + r
   dmenu_url
 
-super + x
-  $TERMINAL -e zsh -ic 'o'
+# Try to copy link from browser before running dmenu_url.
+# Both tilde and --clear-modifiers are a workaround for this to work.
+~super + shift + r
+  xdotool key --clearmodifiers ctrl+l && xdotool key --clearmodifiers ctrl+c && dmenu_url
+
+super + s; {c, e, l, m, t, v, w, x, y}
+ { \
+  localc, \
+  thunderbird, \
+  thingy, \
+  $TERMINAL -n cmus -e cmus, \
+  org.telegram.desktop, \
+  virt-manager, \
+  io.bit3.WhatsAppQT, \
+  $TERMINAL -e zsh -ic 'o', \
+  dmenu_yt, \
+ }
 
 super + {_, shift} + w
   x-www-browser {_, --incognito}
