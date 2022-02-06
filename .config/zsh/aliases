@@ -90,7 +90,7 @@ alias_z zn "$NOTES"
 alias_z znb "$NOTES/bin"
 alias_z zp ~/Pictures
 alias_z zs /sdcard
-alias_z st /mnt
+alias_z zt /mnt
 alias_z zv ~/Videos
 alias_z zy ~/Sync
 alias_z zY ~/.config/yadm
