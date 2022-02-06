@@ -38,7 +38,7 @@ if command -v exa > /dev/null; then
 	alias ll="ls -l --git"
 else
 	alias ls="ls --color=auto -AF --group-directories-first"
-	alias ll="ls -l"
+	alias ll="ls -lh"
 fi
 
 # History
@@ -62,7 +62,8 @@ alias eg="vim +'Files $HOME'"
 alias ej="ye $JUMPS"
 alias ep="vim +Files"
 alias et="vim +History"
-alias ev="ye ~/.vimrc"
+# Don't use `ye`, since vim-plug operations fail with those variables set.
+alias ev="e ~/.vimrc"
 alias exp="ye ~/.xprofile"
 alias exr="ye $XRESOURCES"
 alias ey="ye"
@@ -82,9 +83,12 @@ bak() {
 }
 
 # Easier commands
+alias fbl="find . -xtype l"  # Find broken links
 alias cx="chmod +x"
 alias ex="atool --extract --each --"
+alias f="ranger"
 alias ff="find . -iname"
+alias hs="python3 -m http.server"  # HTTP server
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias scr="sudo systemctl restart"
@@ -106,10 +110,6 @@ o() {
 alias caffeinate="caffeinate --socket $XIDLEHOOK_SOCK"
 alias fd="fd --hidden --follow --no-ignore-vcs --exclude '.git' --exclude 'node_modules'"
 alias spotdl="spotdl --output-format m4a"
-
-# ranger
-alias f="ranger"
-alias fp="ranger --cmd=fzf_select"
 
 # Git
 gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
@@ -157,12 +157,6 @@ alias te="e $TODO_DIR/todo.txt"
 
 # Use bat if available
 command -v bat >/dev/null && alias cat="bat"
-
-# HTTP server
-alias hs="python3 -m http.server"
-
-# Find broken links
-alias fbl="find . -xtype l"
 
 # mpv and ydl
 # Find and stream audio
@@ -226,5 +220,6 @@ if [[ "$HOST" == "localhost" ]]; then
 		home usr'
 fi
 
+# Source jumping aliases
 [[ ! -e "$ZDOTDIR/jumps_auto" ]] && gen-jumps
 source "$ZDOTDIR/jumps_auto"
