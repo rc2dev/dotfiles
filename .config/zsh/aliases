@@ -3,15 +3,6 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-# Create alias for cd'ing into directory
-alias_z() {
-	local -r name="$1"
-	local -r dir="$2"
-	[[ -d "$dir" ]] || return
-
-	alias "$name"="cd \"$dir\""
-}
-
 # List files when cd'ing
 cd() { builtin cd "$@" && eval "ls"; }
 
@@ -57,6 +48,7 @@ alias history="history -i 0"
 alias hy="fc -ln 0 | fzf | xclip -selection clipboard"
 
 # Shell
+alias ..="cd .."
 alias c="builtin cd && clear"
 alias q="exit"
 alias :q="exit"
@@ -67,6 +59,7 @@ take() { mkdir -p $@ && cd ${@:$#}; }
 alias e="$EDITOR"
 alias ea="ye $ALIASES"
 alias eg="vim +'Files $HOME'"
+alias ej="ye $JUMPS"
 alias ep="vim +Files"
 alias et="vim +History"
 alias ev="ye ~/.vimrc"
@@ -75,27 +68,6 @@ alias exr="ye $XRESOURCES"
 alias ey="ye"
 alias ez="ye $ZDOTDIR/.zshrc"
 alias ezp="ye ~/.zprofile"
-
-# Browsing
-alias ..="cd .."
-alias_z zb ~/.local/bin
-alias_z zd ~/Downloads
-alias_z zc ~/Code
-alias_z ze /media/$USER
-alias_z zg ~/.config
-alias_z zh ~/Pictures/Screenshots
-alias_z zk ~/.kodi
-alias_z zm ~/Music
-alias_z zn "$NOTES"
-alias_z znb "$NOTES/bin"
-alias_z zp ~/Pictures
-alias_z zs /sdcard
-alias_z zt /mnt
-alias_z zv ~/Videos
-alias_z zy ~/Sync
-alias_z zY ~/.config/yadm
-alias_z zw /var/www
-alias_z zw "$WALLPAPERS"
 
 # zoxide: make z interactive when run without arguments
 alias z="zi"
@@ -253,3 +225,6 @@ if [[ "$HOST" == "localhost" ]]; then
 		-zcf /sdcard/Sync/termux-backup-$(date +"%Y-%m-%d_%H-%M-%S").tar.gz \
 		home usr'
 fi
+
+[[ ! -e "$ZDOTDIR/jumps_auto" ]] && gen-jumps
+source "$ZDOTDIR/jumps_auto"

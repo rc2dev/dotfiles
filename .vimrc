@@ -177,6 +177,7 @@ augroup behaviour
   autocmd BufWritePost .xsettingsd silent !killall -HUP xsettingsd
   autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
   autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
+  autocmd BufWritePost $JUMPS silent !gen-jumps
   autocmd BufWritePost sxhkdrc silent !killall -USR1 sxhkd
   autocmd BufWritePost Xresources silent !xrdb $XRESOURCES
 

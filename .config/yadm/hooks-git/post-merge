@@ -31,3 +31,7 @@ if has_changed .gitmodules; then
   yadm submodule update --init --recursive
 fi
 
+if has_changed .config/jumps.conf; then
+  echo "\n[Hook] jumps.conf changed: Re-generating jumps..."
+  gen-jumps
+fi
