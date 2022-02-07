@@ -2,7 +2,7 @@
 super + {_, ctrl, shift} + a
   chromium {--profile-directory="Default", --profile-directory="Guest Profile", --temp-profile}
 
-super + alt + d
+super + shift + d
   light-dark
 
 super + e
