@@ -9,7 +9,7 @@
 # 3. Install python dependencies: pip3 install --user beautifulsoup4
 # 4. Run the script: python3 kindle2md YOUR_FILE.html
 #
-# Copyright (C) 2021 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Copyright (C) 2021-2022 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 #
 
@@ -17,6 +17,21 @@ from pathlib import Path
 from os.path import basename, splitext
 from sys import argv, exit
 from bs4 import BeautifulSoup
+
+
+def parse_description(elem):
+    raw = elem.text.strip()
+
+    entry_type = raw.partition(' ')[0].strip()
+    # There can be multiple location informations after the dash ("deferredreward")
+    page = raw.partition('-')[2].strip()
+    color = elem.span.text if elem.span else None
+
+    if color is None:
+        return f'_{entry_type} @ {page}_'.lower()
+
+    return f'_{color} {entry_type} @ {page}_'.lower()
+
 
 script_name = basename(__file__)
 
@@ -46,51 +61,27 @@ except OSError as e:
 soup = BeautifulSoup(file_content, 'html.parser')
 
 try:
-    book_title = soup.select_one('.bookTitle').contents[0].strip()
+    book_title = soup.select_one('.bookTitle').text.strip()
+    headings_elements = soup.select('.noteHeading, .sectionHeading')
     text_elements = soup.select('.noteText')
-    sections_and_text_elements = soup.select('.noteText, .sectionHeading')
-    desc_elements = soup.select('.noteHeading')
-
-    texts = [elem.contents[0].strip() for elem in text_elements]
-    sections_and_texts = [elem.contents[0].strip() for elem in sections_and_text_elements]
-
-    # Parse descriptions
-    types = []
-    pages = []
-    colors = []
-    for elem in desc_elements:
-        desc = ''.join(elem.strings).strip()
-        the_type = desc.partition(' ')[0].strip()
-        # There can be multiple location informations after the dash ("deferredreward")
-        the_page = desc.partition('-')[2].strip()
-        if elem.span:
-            the_color = elem.span.text
-        else:
-            the_color = None
-        types.append(the_type)
-        pages.append(the_page)
-        colors.append(the_color)
-
 except AttributeError as e:
     print(f'Error parsing file: {e}')
     exit(1)
 
-output = f'# {book_title}\n\n'
-k = 0
-for i in range(len(texts)):
-    if not texts[i] == sections_and_texts[k]:
-        output += f'## {sections_and_texts[k]}\n'
+try:
+    output = f'# {book_title}\n'
+    for elem in headings_elements:
         output += '\n'
-        k += 1
-    else:
-        output += f'- {texts[i]}\n'
-        output += '\n'
-        if colors[i] is not None:
-            output += f'  _{colors[i]} {types[i]} @ {pages[i]}_\n'.lower()
+        if 'sectionHeading' in elem.attrs['class']:
+            output += f'## {elem.text.strip()}\n'
         else:
-            output += f'  _{types[i]} @ {pages[i]}_\n'.lower()
-        output += '\n'
-    k += 1
+            text_elem = text_elements.pop(0)
+            output += f'- {text_elem.text.strip()}\n'
+            output += f'\n'
+            output += f'  {parse_description(elem)}\n'
+except IndexError as e:
+    print(f'Error parsing file: {e}')
+    exit(1)
 
 try:
     dest.write_text(output, encoding='UTF-8')
