@@ -92,10 +92,10 @@ class fzf_select(Command):
 
         if self.quantifier:
             # match only directories
-            command=f"{os.environ['FD_DIRS']} '{dir_to_search}' | fzf +m"
+            command=f"fd {os.environ['FD_ARGS']} --type d . '{dir_to_search}' | fzf +m"
         else:
             # match files and directories
-            command=f"{os.environ['FD_FILES']} '{dir_to_search}' | fzf +m"
+            command=f"fd {os.environ['FD_ARGS']} . '{dir_to_search}' | fzf +m"
         fzf = self.fm.execute_command(command, universal_newlines=True, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
@@ -122,10 +122,10 @@ class fzf_locate(Command):
         import os.path
         if self.quantifier:
             # match only directories
-            command="eval $FD_DIRS '$HOME' | fzf +m"
+            command=f"fd {os.environ['FD_ARGS']} --type d . {os.environ['HOME']} | fzf +m"
         else:
             # match files and directories
-            command="eval $FD_FILES '$HOME' | fzf +m"
+            command=f"fd {os.environ['FD_ARGS']}  . {os.environ['HOME']}| fzf +m"
         fzf = self.fm.execute_command(command, universal_newlines=True, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:

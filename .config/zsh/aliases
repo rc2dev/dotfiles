@@ -108,7 +108,7 @@ o() {
 
 # Set default options
 alias caffeinate="caffeinate --socket $XIDLEHOOK_SOCK"
-alias fd="fd --hidden --follow --no-ignore-vcs --exclude '.git' --exclude 'node_modules'"
+alias fd="fd $FD_ARGS"
 alias spotdl="spotdl --output-format m4a"
 
 # Git
