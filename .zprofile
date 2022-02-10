@@ -85,9 +85,6 @@ export TERMINAL="st"
 # This makes history persistent across sessions
 export CM_DIR="$HOME/.cache"
 
-# cmus: Move configuration
-CMUS_HOME="$HOME/Documents/cmus"
-
 # fd
 export FD_ARGS="--follow --hidden --no-ignore-vcs"
 
@@ -104,16 +101,6 @@ export FZF_DEFAULT_OPTS="
 	--bind 'ctrl-t:top'
 	--bind 'ctrl-y:execute-silent(echo {+} | xclip -selection clipboard)'
 "
-# Nord theme
-# Removed bg:#2e3440 and preview-bg:#2e3440, for transparent bg
-#export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-	#--color=bg+:#4c566a,fg:#e5e9f0
-	#--color=fg+:#eceff4,hl:#88c0d0,hl+:#81a1c1
-	#--color=preview-fg:#e5e9f0
-	#--color=border:#4c566a,gutter:#3b4252,header:#88c0d0
-	#--color=info:#88c0d0,marker:#88c0d0,pointer:#81a1c1
-	#--color=prompt:#88c0d0,spinner:#88c0d0
-#'
 # Dracula theme
 # Removed bg:#282a36 for transparent bg
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
