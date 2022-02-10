@@ -5,8 +5,8 @@ super + {_, ctrl, shift} + a
 super + shift + d
   light-dark
 
-super + e
-  emacs
+super + {_, shift} + e
+  {emacs, $TERMINAL -e vim +History}
 
 super + f
   $TERMINAL -e ranger
@@ -31,16 +31,15 @@ super + r
 ~super + shift + r
   xdotool key --clearmodifiers ctrl+l && xdotool key --clearmodifiers ctrl+c && dmenu_url
 
-super + s; {c, e, l, m, t, v, w, x, y}
+super + s; {c, e, m, t, v, w, x, y}
  { \
   localc, \
   thunderbird, \
-  thingy, \
   $TERMINAL -n cmus -e cmus, \
   org.telegram.desktop, \
   virt-manager, \
   io.bit3.WhatsAppQT, \
-  $TERMINAL -e zsh -ic 'o', \
+  $TERMINAL -e zsh -c "fd $FD_ARGS --no-hidden . | fzf --height 100% --margin 7%\,5% | xargs -r -d'\n' -P 0 -n 1 xdg-open", \
   dmenu_yt, \
  }
 
