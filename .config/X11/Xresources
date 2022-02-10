@@ -28,6 +28,7 @@ Xft.rgba: rgb
 *.topbar: 1
 dwm.borderpx: 2
 dwm.mfact: 0.5
+dwm.enablegaps: 0
 
 /* st */
 St.alpha: 0.95
