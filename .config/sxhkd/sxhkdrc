@@ -39,7 +39,7 @@ super + s; {c, e, m, t, v, w, x, y}
   org.telegram.desktop, \
   virt-manager, \
   io.bit3.WhatsAppQT, \
-  $TERMINAL -e zsh -c "fd $FD_ARGS --no-hidden . | fzf --height 100% --margin 7%\,5% | xargs -r -d'\n' -P 0 -n 1 xdg-open", \
+  $TERMINAL -e zsh -c "fd $FD_ARGS --no-hidden --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources | fzf --height 100% --margin 7%\,5% | xargs -r -d'\n' -P 0 -n 1 xdg-open", \
   dmenu_yt, \
  }
 
