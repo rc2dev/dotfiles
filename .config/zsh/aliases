@@ -63,6 +63,7 @@ alias ej="ye $JUMPS"
 alias ep="vim +Files"
 alias et="vim +History"
 # Don't use `ye`, since vim-plug operations fail with those variables set.
+alias es="ye ~/.config/sxhkd/sxhkdrc"
 alias ev="e ~/.vimrc"
 alias exp="ye ~/.xprofile"
 alias exr="ye $XRESOURCES"
