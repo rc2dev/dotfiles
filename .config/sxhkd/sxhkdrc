@@ -31,10 +31,11 @@ super + r
 ~super + shift + r
   xdotool key --clearmodifiers ctrl+l && xdotool key --clearmodifiers ctrl+c && dmenu_url
 
-super + s; {c, e, m, t, v, w, x, y}
+super + s; {c, e, f, m, t, v, w, x, y}
  { \
   localc, \
   thunderbird, \
+  x-www-browser --new-window https://www.myfitnesspal.com/pt/food/diary, \
   $TERMINAL -n cmus -e cmus, \
   org.telegram.desktop, \
   virt-manager, \
