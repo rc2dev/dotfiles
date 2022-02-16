@@ -141,6 +141,10 @@ export REPORT_FILE="$TODO_DIR/report.txt"
 export XIDLEHOOK_SOCK="$XDG_RUNTIME_DIR/xidlehook.sock"
 
 # zoxide
+# Automatically accept if one entry and changes from default
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --select-1 --no-multi --preview 'tree {2..}'"
+# Resolve symlinks before adding to DB: prevents duplicates
+export _ZO_RESOLVE_SYMLINKS=1
 # $HOME is excluded by default. Also exclude directories with network mount points.
 # Use `whoami` instead of `$USER`, or termux-url-open fails.
 export _ZO_EXCLUDE_DIRS="$HOME:/media/$(whoami):/media/$(whoami)/*"
