@@ -159,6 +159,9 @@ alias te="e $TODO_DIR/todo.txt"
 # Use bat if available
 command -v bat >/dev/null && alias cat="bat"
 
+# Docker
+alias doq="docker run -it --rm -v ~/Downloads:/share"  # Quickly start an interactive container
+
 # mpv and ydl
 # Find and stream audio
 yta() { mpv --no-keep-open --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
