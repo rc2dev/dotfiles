@@ -16,16 +16,12 @@ if ! command -v borg >/dev/null; then
 fi
 
 if [[ $# -ne 1 ]]; then
-	cat <<-END
-		Usage: $script_name repos_dir
-
-		repos_dir: The directory parent to your repositories
-	END
+	printf "Usage: %s repo" "$script_name"
 	exit 1
 fi
 
-readonly repos_dir="$1"
-if [ ! -d "${repos_dir}" ]; then
+readonly repo="$1"
+if [ ! -d "${repo}" ]; then
 	printf "Given directory doesn't exist.\n"
 	exit 1
 fi
@@ -36,17 +32,8 @@ if [[ -z "${BORG_PASSPHRASE:-}" && -z "${BORG_PASSCOMMAND:-}" && -z "${BORG_PASS
 	export BORG_PASSPHRASE
 fi
 
-printf "Select repo:\n"
-repos=$(find "${repos_dir}" -maxdepth 1 -mindepth 1 -type d -printf "%f\n")
-select repo in ${repos}; do
-	case ${repo} in
-		"") printf "Invalid repo.\n" ;;
-		*) printf "You selected %s.\n\n" "${repo}" && break ;;
-	esac
-done
-
 printf "Select archive:\n"
-if ! archives=$(borg list --short "${repos_dir}/${repo}"); then
+if ! archives=$(borg list --short "$repo"); then
 	printf "Error listing archives.\n"
 	exit 1
 fi
@@ -59,7 +46,7 @@ done
 
 mnt_dir=$(mktemp -d)
 printf "Mounting archive at %s...\n" "${mnt_dir}"
-if ! borg mount "${repos_dir}/${repo}::${archive}" "${mnt_dir}"; then
+if ! borg mount "${repo}::${archive}" "${mnt_dir}"; then
 	printf "Error mounting archive.\n"
 	exit 1
 fi
