@@ -1,40 +1,39 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Mount Borg archives with ease.
 #
-# Copyright (C) 2019-2020 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Copyright (C) 2019-2022 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 set -euo pipefail
+
+readonly script_name="$(basename "$0")"
 IFS=$'\n'
-
-# User configuration
-## Set this to the directory parent to your repositories
-readonly default_repos_dir=
-## Set this if you want to your password to be sourced
-readonly default_passcommand=
-
 
 if ! command -v borg >/dev/null; then
 	printf "Please install Borg.\n"
 	exit 1
 fi
 
-if [[ $# -gt 1 ]]; then
-	printf "Usage: %s [repos_dir]\n" "$(basename "$0")"
+if [[ $# -ne 1 ]]; then
+	cat <<-END
+		Usage: $script_name repos_dir
+
+		repos_dir: The directory parent to your repositories
+	END
 	exit 1
 fi
 
-if [[ -n "${1:-}" ]]; then
-	repos_dir="$1"
-else
-	repos_dir="${default_repos_dir}"
-	export BORG_PASSCOMMAND="${default_passcommand}"
-fi
-
+readonly repos_dir="$1"
 if [ ! -d "${repos_dir}" ]; then
 	printf "Given directory doesn't exist.\n"
 	exit 1
+fi
+
+if [[ -z "${BORG_PASSPHRASE:-}" && -z "${BORG_PASSCOMMAND:-}" && -z "${BORG_PASSPHRASE_FD:-}" ]]; then
+	read -s -p "Enter passphrase: " BORG_PASSPHRASE
+	printf "\n"
+	export BORG_PASSPHRASE
 fi
 
 printf "Select repo:\n"

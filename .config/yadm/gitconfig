@@ -1,8 +1,3 @@
-[filter "borg-mount"]
-	clean = "sed \
-		-e 's/default_repos_dir=.*$/default_repos_dir=/' \
-		-e 's/default_passcommand=.*$/default_passcommand=/'"
-
 [filter "flameshot"]
   clean = "sed -E '/^savePath/d; /^draw/d'"
 
