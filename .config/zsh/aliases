@@ -53,7 +53,12 @@ alias c="builtin cd && clear"
 alias q="exit"
 alias :q="exit"
 alias x="exit"
-take() { mkdir -p $@ && cd ${@:$#}; }
+take() {
+	if ! mkdir -p "$@"; then
+		echo "Retrying with sudo..."
+		sudo mkdir -p "$@"
+	fi && cd ${@:$#}
+}
 
 # Edit
 alias e="$EDITOR"
@@ -177,18 +182,16 @@ alias jc="journalctl"
 alias jcu="journalctl --user-unit"
 
 # Package management
-if command -v apt > /dev/null; then
-	alias aar="sudo apt autoremove -y"
-	alias afh="apt-file search"
-	alias ah="apt search"
-	alias ama="sudo apt-mark auto"
-	alias amm="sudo apt-mark manual"
-	alias ai="sudo apt install"
-	alias ap="sudo apt purge"
-	alias au="sudo apt update"
-	alias afu="sudo apt update && sudo apt full-upgrade"
-	alias aw="apt show"
-fi
+alias aar="sudo apt autoremove -y"
+alias afh="apt-file search"
+alias ah="apt search"
+alias ama="sudo apt-mark auto"
+alias amm="sudo apt-mark manual"
+alias ai="sudo apt install"
+alias ap="sudo apt purge"
+alias au="sudo apt update"
+alias afu="sudo apt update && sudo apt full-upgrade"
+alias aw="apt show"
 
 # Backup vcn
 # Use single quotes so date is defined upon use.
