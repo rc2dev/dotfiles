@@ -80,17 +80,6 @@ bindkey -s "^U" 'cd ..^M'
 # Globbing: Use ^ to negate
 setopt extendedglob
 
-# Convert dots to ../.., ../../.., etc.
-rationalise-dot() {
-  if [[ $LBUFFER = *.. ]]; then
-    LBUFFER+=/..
-  else
-    LBUFFER+=.
-  fi
-}
-zle -N rationalise-dot
-bindkey . rationalise-dot
-
 # Automatically quote pasted URLs
 autoload -Uz bracketed-paste-url-magic
 zle -N bracketed-paste bracketed-paste-url-magic

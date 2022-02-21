@@ -203,9 +203,6 @@ alias backup-vcn='ssh vcn sudo tar czf - /boot /etc > pi-vcc_$(date +"%Y-%m-%d_%
 
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
-	alias ../..="cd ../.."
-	alias ../../..="cd ../../.."
-
 	# Global aliases
 	alias -g G="| grep"
 	alias -g L="| less"
