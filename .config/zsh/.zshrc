@@ -112,7 +112,7 @@ source "$ZINIT[HOME_DIR]/bin/zinit.zsh"
 # Plugins sourcing
 #####################################################################
 # Plugins from robbyrussell's oh-my-zsh
-for plugin in "command-not-found" "git" "systemd"; do
+for plugin in "command-not-found" "git"; do
   zinit snippet OMZ::plugins/$plugin/$plugin.plugin.zsh
 done
 

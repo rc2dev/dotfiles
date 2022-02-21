@@ -97,8 +97,6 @@ alias ff="find . -iname"
 alias hs="python3 -m http.server"  # HTTP server
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
-alias scr="sudo systemctl restart"
-alias scs="sudo systemctl start"
 alias y="yadm"
 
 # Shorter xdg-open
@@ -176,6 +174,12 @@ ytv() { mpv --no-keep-open ytdl://ytsearch:"$*"; }
 ytl() { yt-dlp --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/" + .url'; }
 # Download only subtitles
 alias yts="yt-dlp --all-subs --skip-download"
+
+# systemctl
+alias sc="sudo systemctl"
+alias scu="systemctl --user"
+alias scr="sudo systemctl restart"
+alias scs="systemctl status"
 
 # journalctl
 alias jc="journalctl"
