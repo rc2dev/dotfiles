@@ -62,6 +62,7 @@ soup = BeautifulSoup(file_content, 'html.parser')
 
 try:
     book_title = soup.select_one('.bookTitle').text.strip()
+    book_author = soup.select_one('.authors').text.strip()
     headings_elements = soup.select('.noteHeading, .sectionHeading')
     text_elements = soup.select('.noteText')
 except AttributeError as e:
@@ -69,7 +70,7 @@ except AttributeError as e:
     exit(1)
 
 try:
-    output = f'# {book_title}\n'
+    output = f'# {book_author} - {book_title}\n'
     for elem in headings_elements:
         output += '\n'
         if 'sectionHeading' in elem.attrs['class']:
