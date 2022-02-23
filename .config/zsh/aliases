@@ -93,7 +93,7 @@ alias fbl="find . -xtype l"  # Find broken links
 alias cx="chmod +x"
 alias ex="atool --extract --each --"
 alias f="ranger"
-alias ff="find . -iname"
+alias fn="find . -iname"
 alias hs="python3 -m http.server"  # HTTP server
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
@@ -178,6 +178,8 @@ alias yts="yt-dlp --all-subs --skip-download"
 # systemctl
 alias sc="sudo systemctl"
 alias scu="systemctl --user"
+alias scdr="sudo systemctl daemon-reload"
+alias scudr="sudo systemctl daemon-reload"
 alias scr="sudo systemctl restart"
 alias scs="systemctl status"
 
