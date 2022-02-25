@@ -1,7 +1,0 @@
-#!/bin/bash
-# Downloaded from https://github.com/mgarrido/todo.txt-cli/tree/note/todo.actions.d
-
-[ "$1" = "usage" ] && exit 0
-
-shift
-"$TODO_SH" del "$@"

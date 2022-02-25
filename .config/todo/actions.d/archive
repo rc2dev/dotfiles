@@ -1,8 +1,0 @@
-#!/bin/bash
-# Downloaded from https://github.com/mgarrido/todo.txt-cli/tree/note/todo.actions.d
-
-[ "$1" = "usage" ] && exit 0
-
-grep "^x" "$TODO_FILE" | while read -r line; do "$TODO_SH" note __archive $line; done
-
-"$TODO_SH" command "$@"

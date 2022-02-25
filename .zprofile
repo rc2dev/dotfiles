@@ -131,12 +131,6 @@ if [[ "$HOST" == "pi" ]]; then
 	export PGUSER="postgres"
 fi
 
-# todo.txt
-export TODO_DIR="/mnt/dav/todo"
-export TODO_FILE="$TODO_DIR/todo.txt"
-export DONE_FILE="$TODO_DIR/done.txt"
-export REPORT_FILE="$TODO_DIR/report.txt"
-
 # xidlehook
 export XIDLEHOOK_SOCK="$XDG_RUNTIME_DIR/xidlehook.sock"
 
