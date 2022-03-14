@@ -73,6 +73,12 @@ bindkey "^E" edit-command-line
 # Add keybinding for going to parent dir
 bindkey -s "^U" 'cd ..^M'
 
+# Set cursor as bar
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+
+precmd_functions+=(_fix_cursor)
 
 ######################################################################
 # Behaviour
