@@ -1,7 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/bash
-
-if sshd; then
-  echo "sshd is running." | termux-toast
-else
-  echo "ERROR starting sshd." | termux-toast
-fi
