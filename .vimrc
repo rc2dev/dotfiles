@@ -389,11 +389,11 @@ noremap Y y$
 nnoremap <Leader>d "_d
 vnoremap <Leader>d "_d
 nnoremap <Leader>D "_D
-nnoremap <LeadeR>x "_x
+nnoremap <Leader>x "_x
 nnoremap <Leader>c "_c
 vnoremap <Leader>c "_c
 nnoremap <Leader>C "_C
-nnoremap <LeadeR>x "_x
+nnoremap <Leader>x "_x
 
 " Replace line or selection with default register content
 nnoremap <Leader>p "_ddP
@@ -420,8 +420,7 @@ inoremap <F6> <C-o>:setlocal spell!<CR>
 " Save or quit
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>z :x<CR>
-nnoremap zz :w\|:bd<CR>
+nnoremap ZX :w\|:bd<CR>
 
 " Avoid unintentional switch to Ex mode
 nmap Q <nop>
@@ -497,6 +496,7 @@ command Sv :so ~/.vimrc
 
 " Plugins
 " vim-fugitive
+nnoremap <Leader>gd :GDelete<CR>
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gm :GMove <C-R>=expand('%')<CR>
 nnoremap <Leader>gl :Gclog<CR>
