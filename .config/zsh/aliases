@@ -76,8 +76,9 @@ alias ey="ye"
 alias ez="ye $ZDOTDIR/.zshrc"
 alias ezp="ye ~/.zprofile"
 
-# zoxide: make z interactive when run without arguments
-alias z="zi"
+# zoxide: make z interactive when run without arguments.
+# This is the same as "zi", but we define it directly, so we can reuse zi.
+alias z="__zoxide_zi"
 
 # Create a backup of a file
 bak() {
