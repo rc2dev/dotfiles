@@ -127,9 +127,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit ice wait lucid
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && zinit snippet "$HOME/.rvm/scripts/rvm"
 
-unalias zi # this alias is created by zinit and conflicts with zoxide
 zinit ice wait lucid
-command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
+# Don't create aliases (z, zi); we'll define later
+command -v zoxide >/dev/null && eval "$(zoxide init --no-aliases zsh)"
 
 
 #####################################################################
