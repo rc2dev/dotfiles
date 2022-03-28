@@ -497,6 +497,7 @@ command Sv :so ~/.vimrc
 " Plugins
 " vim-fugitive
 nnoremap <Leader>gd :GDelete<CR>
+nnoremap <Leader>gD :GDelete!<CR>
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gm :GMove <C-R>=expand('%')<CR>
 nnoremap <Leader>gl :Gclog<CR>
