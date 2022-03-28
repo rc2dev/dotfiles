@@ -101,6 +101,7 @@ keys() {
 }
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
+alias se="sudo -e"
 alias y="yadm"
 
 # Shorter xdg-open
