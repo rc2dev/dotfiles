@@ -11,10 +11,10 @@
  */
 
 /* Fonts */
-dmenu.font: Roboto:size=10
-dwm.font: Roboto:size=10
-St.font: Roboto Mono:pixelsize=14:antialias=true:autohint=true
-Dunst.font: Roboto 10
+dmenu.font: Ubuntu:size=11
+dwm.font: Ubuntu:size=11
+St.font: Ubuntu Mono:pixelsize=18:antialias=true:autohint=true
+Dunst.font: Ubuntu 11
 
 /* Fix font rendering on Wine applications on standalone WMs. */
 Xft.autohint: 0
@@ -40,7 +40,7 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 
 
 /* Theme */
-#include "themes/dracula"
+#include "themes/nord"
 
 /* st, slock */
 *.color0: c00
@@ -65,7 +65,7 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 
 /* dmenu and dwm */
 *.normbgcolor: cbg
-*.normfgcolor: c12
+*.normfgcolor: cfg /* c12 or cfg */
 *.selbgcolor: c08
 *.selfgcolor: c15
 dwm.normbordercolor: cbg

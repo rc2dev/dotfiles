@@ -88,10 +88,10 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Adapted from <https://stackoverflow.com/a/42118416>
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
-" reset the cursor on start
-augroup myCmds
-au!
-autocmd VimEnter * silent !echo -ne "\e[2 q"
+" Reset the cursor on start
+augroup cursor
+  au!
+  autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 
 " Interface
