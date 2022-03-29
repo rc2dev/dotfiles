@@ -32,7 +32,6 @@ Plug 'airblade/vim-rooter'
 Plug 'embear/vim-localvimrc'
 Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
-Plug 'freitass/todo.txt-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 if $SLOW_HOST != '1'
   Plug 'vim-airline/vim-airline'
