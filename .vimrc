@@ -183,7 +183,7 @@ augroup behaviour
 
   " Run these commands whenever these files are updated
   autocmd BufWritePost dwmbar silent !dwmbar
-  autocmd BufWritePost .xsettingsd silent !killall -HUP xsettingsd
+  autocmd BufWritePost xsettingsd.conf silent !killall -HUP xsettingsd
   autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
   autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
   autocmd BufWritePost $JUMPS silent !gen-jumps
