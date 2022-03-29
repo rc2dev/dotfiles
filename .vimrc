@@ -515,7 +515,6 @@ nnoremap <Leader>cs :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>cs y:ThesaurusQueryReplace <C-r>"<CR>
 " fzf.vim
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <C-g> :Files $HOME<CR>
 nnoremap <silent> <C-f> :Rg<CR>
 nnoremap <silent> <C-t> :History<CR>
 " Goyo

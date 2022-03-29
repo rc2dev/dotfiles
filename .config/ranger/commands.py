@@ -105,33 +105,3 @@ class fzf_select(Command):
             else:
                 self.fm.select_file(fzf_file)
 
-# Adapted from https://github.com/ranger/ranger/wiki/Custom-Commands
-# Like fzf_select, but searches globally, not only child directories.
-class fzf_locate(Command):
-    """
-    :fzf_locate
-
-    Find a file using fzf.
-
-    With a prefix argument select only directories.
-
-    See: https://github.com/junegunn/fzf
-    """
-    def execute(self):
-        import subprocess
-        import os.path
-        if self.quantifier:
-            # match only directories
-            command=f"fd {os.environ['FD_ARGS']} --type d . {os.environ['HOME']} | fzf +m"
-        else:
-            # match files and directories
-            command=f"fd {os.environ['FD_ARGS']}  . {os.environ['HOME']}| fzf +m"
-        fzf = self.fm.execute_command(command, universal_newlines=True, stdout=subprocess.PIPE)
-        stdout, stderr = fzf.communicate()
-        if fzf.returncode == 0:
-            fzf_file = os.path.abspath(stdout.rstrip('\n'))
-            if os.path.isdir(fzf_file):
-                self.fm.cd(fzf_file)
-            else:
-                self.fm.select_file(fzf_file)
-
