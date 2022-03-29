@@ -86,7 +86,7 @@ class fzf_select(Command):
         import os.path
 
         try:
-            dir_to_search=spawn.check_output("git rev-parse --show-cdup").strip()
+            dir_to_search=spawn.check_output("git rev-parse --show-toplevel").strip()
         except CalledProcessError:
             dir_to_search="."
 
