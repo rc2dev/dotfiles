@@ -7,6 +7,8 @@
 #
 
 notify_id=506
+bar_max_size=26
+step=5
 
 function get_volume {
     pamixer --get-volume | cut -f 1 -d ' '
@@ -31,7 +33,14 @@ function volume_notification {
     volume=`get_volume`
     vol_icon=`get_volume_icon $volume`
     vol_num="$volume%"
-    bar=$(seq -s "─" $(($volume / 4)) | sed 's/[0-9]//g')
+
+    bar_size=$((volume / step))
+    echo $bar_size
+    if [[ $bar_size -gt $bar_max_size ]]; then
+        bar_size=$bar_max_size
+    fi
+    bar=$(seq -s "─" $bar_size | sed 's/[0-9]//g')
+
     dunstify -r $notify_id -u low -t 3000 -i $vol_icon "$vol_num  $bar"
 }
 
@@ -47,11 +56,11 @@ function mute_notification {
 
 case $1 in
     up)
-        pactl set-sink-volume @DEFAULT_SINK@ +5%
+        pactl set-sink-volume @DEFAULT_SINK@ +$step%
         volume_notification
         ;;
     down)
-        pactl set-sink-volume @DEFAULT_SINK@ -5%
+        pactl set-sink-volume @DEFAULT_SINK@ -$step%
         volume_notification
         ;;
     mute)
