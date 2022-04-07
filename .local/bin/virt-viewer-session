@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-#
-# Shortcut for virt-viewer on local session
-#
-# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
-
-virt-viewer --connect=qemu:///session --attach "$@"
-

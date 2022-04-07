@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# virt-viewer wrapper:
+# - Always use --attach.
+# - Easily connect to session QEMU.
+#
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+readonly bin="/usr/bin/virt-viewer"
+readonly qemu_path="$(zenity --list --title="Options for virt-viewer" --text="Connect to..." --column="0" "session" "system" --width=100 --hide-header)"
+
+if [[ -z "$qemu_path" ]]; then
+  exit
+fi
+
+exec "$bin" --connect="qemu:///$qemu_path" --attach "$@"
+
