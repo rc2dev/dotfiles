@@ -12,7 +12,8 @@
 
 /* Fonts */
 dmenu.font: Ubuntu:size=11
-dwm.font: Ubuntu:size=11
+/* Use patched font for icons on tags. */
+dwm.font: Ubuntu Nerd Font:size=11:style=Book
 St.font: Ubuntu Mono:pixelsize=18:antialias=true:autohint=true
 Dunst.font: Ubuntu 11
 
