@@ -64,6 +64,13 @@ bar_temp() {
   echo " $(sensors | awk '/^Package/ {print substr($4, 2)}')"
 }
 
+bar_battery() {
+  if [[ ! -e /sys/class/power_supply/BAT0 ]]; then
+    return
+  fi
+
+  echo " $(acpi | awk '{print $4}' | sed s/,//)"
+}
 
 # Output currencies values, updating at interval
 bar_currencies() {
@@ -131,6 +138,7 @@ notify_pomodoro() {
 
 declare -ar elements=(
   "$(bar_player)"
+  "$(bar_battery)"
   "$(bar_temp)"
   "$(bar_mem)"
   "$(bar_time)"
