@@ -32,6 +32,7 @@ nitrogen --restore &
 redshift-gtk &
 compton &
 clipmenud &
+nm-applet &
 system-config-printer-applet &
 kdeconnect-indicator &
 syncthing-gtk --minimized &
