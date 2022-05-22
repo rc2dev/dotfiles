@@ -65,11 +65,24 @@ bar_temp() {
 }
 
 bar_battery() {
-  if [[ ! -e /sys/class/power_supply/BAT0 ]]; then
+  local -r battery="/sys/class/power_supply/BAT0"
+
+  if [[ ! -e "$battery" ]]; then
     return
   fi
 
-  echo " $(acpi | awk '{print $4}' | sed s/,//)"
+  local icon
+  case "$(cat "$battery/status")" in
+    "Full") icon="" ;;
+    "Discharging") icon="" ;;
+    "Charging") icon="⚡" ;;
+    "Not charging") icon="🛑" ;;
+    "Unknown") icon="" ;;
+  esac
+
+  local -r level="$(cat "$battery/capacity")%"
+
+  echo "$icon $level"
 }
 
 # Output currencies values, updating at interval
