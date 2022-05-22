@@ -3,14 +3,6 @@
 ! Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 !
 
-! Place Control_L also on Caps_Lock
-clear lock
-clear control
-keycode 66 = Control_L
-keycode 37 = Control_L
-add lock = Caps_Lock
-add control = Control_L Control_R
-
 ! MF68: Reorganize media keys
 keycode 121 = XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume XF86AudioRaiseVolume
 keycode 122 = XF86AudioMute NoSymbol XF86AudioMute NoSymbol XF86AudioMute XF86AudioMute
@@ -22,6 +14,8 @@ keycode 174 = XF86AudioPlay XF86AudioPause XF86AudioPlay XF86AudioPause XF86Audi
 keycode 179 = XF86AudioPrev NoSymbol XF86AudioPrev NoSymbol XF86AudioPrev XF86AudioPrev
 
 ! MF68 br: Swap apostrophe and escape
+! Needed because caps lock and escape are swapped
+clear lock
 keycode 9 = apostrophe quotedbl apostrophe quotedbl notsign notsign notsign
 keycode 49 = Escape quotedbl Escape
 
@@ -29,5 +23,3 @@ keycode 49 = Escape quotedbl Escape
 keycode 38 = a A a A backslash AE ae AE a A ae AE a A ae AE
 keycode 39 = s S s S bar section ssharp section s S ssharp section s S ssharp section
 
-! br: Place EuroSign on 3rd level of 'e'
-keycode 26 = e E e E EuroSign EuroSign EuroSign EuroSign e E EuroSign EuroSign e E EuroSign EuroSign
