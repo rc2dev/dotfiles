@@ -66,23 +66,28 @@ bar_temp() {
 
 bar_battery() {
   local -r battery="/sys/class/power_supply/BAT0"
-
   if [[ ! -e "$battery" ]]; then
     return
   fi
 
+  local -r status="$(cat "$battery/status")"
+  local -r level="$(cat "$battery/capacity")"
+
   local icon
-  case "$(cat "$battery/status")" in
+  case "$status" in
     "Full") icon="" ;;
-    "Discharging") icon="" ;;
+    "Discharging")
+      if [[ $level -gt 50 ]]; then icon=""
+      elif [[ $level -gt 15 ]]; then icon=""
+      else icon=""
+      fi
+      ;;
     "Charging") icon="⚡" ;;
     "Not charging") icon="🛑" ;;
     "Unknown") icon="" ;;
   esac
 
-  local -r level="$(cat "$battery/capacity")%"
-
-  echo "$icon $level"
+  echo "$icon $level%"
 }
 
 # Output currencies values, updating at interval
