@@ -22,9 +22,6 @@ fi
 
 # Basic utilities
 xsettingsd &
-# If -f is not passed, mouse over dwmbar has the same behaviour
-# as it was over the focused window.
-imwheel -b "4 5" -f &
 remap-kb &
 sxhkd &
 dunst &
@@ -34,19 +31,27 @@ compton &
 clipmenud &
 nm-applet &
 system-config-printer-applet &
-kdeconnect-indicator &
 syncthing-gtk --minimized &
 keepassxc &
 
-# Automatically lock and suspend after idle
-xidlehook \
-  --detect-sleep \
-  --not-when-fullscreen \
-  --not-when-audio \
-  --socket "$XIDLEHOOK_SOCK" \
-  --timer 120 'slock' '' \
-  --timer 900 'systemctl suspend' '' \
-  &
+# rd specific
+if [ "$HOST" = "rd" ]; then
+  # If -f is not passed, mouse over dwmbar has the same behaviour
+  # as it was over the focused window.
+  imwheel -b "4 5" -f &
+
+  # Automatically lock and suspend after idle
+  xidlehook \
+    --detect-sleep \
+    --not-when-fullscreen \
+    --not-when-audio \
+    --socket "$XIDLEHOOK_SOCK" \
+    --timer 120 'slock' '' \
+    --timer 900 'systemctl suspend' '' \
+    &
+
+  kdeconnect-indicator &
+fi
 
 # Statusbar loop
 while true; do
