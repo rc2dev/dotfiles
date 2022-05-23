@@ -18,7 +18,7 @@ if ! pgrep -u "$USER" gnome-keyring-daemon > /dev/null; then
 fi
 
 # Polkit agent - so GUI applications can request privileges
-/usr/bin/lxpolkit &
+lxpolkit &
 
 # Basic utilities
 xsettingsd &
