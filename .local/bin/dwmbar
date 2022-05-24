@@ -165,7 +165,7 @@ declare -ar elements=(
 # Generate output string
 output="$(printf "\t%s" "${elements[@]}")"
 # Remove separator from beginning and duplicated
-output="$(sed 's/^\t*//; s/\t+/\t/g' <<< ${output})"
+output="$(sed -E 's/^\t*//; s/\t+/\t/g' <<< ${output})"
 # Place chosen separator
 output="$(sed "s/\t/$sep/g" <<< ${output})"
 # Increase spacing for non-mono fonts
