@@ -70,8 +70,8 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey "^E" edit-command-line
 
-# Add keybinding for going to parent dir
-bindkey -s "^U" 'cd ..^M'
+# Add keybinding for going to parent dir (Alt+Up)
+bindkey -s "^[[1;3A" 'cd ..^M'
 
 # Set cursor as bar
 _fix_cursor() {
