@@ -84,6 +84,7 @@ export TERMINAL="st"
 # clipmenud
 # This makes history persistent across sessions
 export CM_DIR="$HOME/.cache"
+export CM_IGNORE_WINDOW="KeePassXC"
 
 # fd
 export FD_ARGS="--follow --hidden --no-ignore-vcs"
