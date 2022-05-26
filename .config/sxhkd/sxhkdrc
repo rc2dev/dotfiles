@@ -1,8 +1,8 @@
 super + shift + d
   light-dark
 
-super + {_, shift} + e
-  {emacs, $TERMINAL -e vim +History}
+super + e
+  $TERMINAL -e vim +History
 
 super + f
   $TERMINAL -e ranger
