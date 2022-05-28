@@ -7,7 +7,7 @@
 
 set -euo pipefail
 
-readonly dunst_bin="/usr/bin/dunst"
+readonly dunst_bin="/usr/local/bin/dunst"
 readonly xresources="$(xrdb -query)"
 
 # Arg: value to query
