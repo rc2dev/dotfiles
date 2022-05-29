@@ -43,6 +43,9 @@ super + s; {c, C, f, m, r, v, w, x, y}
 super + {_, shift} + w
   x-www-browser {_, --incognito}
 
+super + {_, shift, ctrl, alt } + period
+  dunstctl { action 0, close, history-pop, context }
+
 ctrl + alt + v
   clipmenu
 

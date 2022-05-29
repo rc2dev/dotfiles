@@ -4,8 +4,8 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-killall -SIGUSR1 dunst
+dunstctl set-paused true
 /usr/local/bin/slock
 
-killall -SIGUSR2 dunst
+dunstctl set-paused false
 

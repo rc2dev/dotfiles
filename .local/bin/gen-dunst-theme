@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#
+# Generate dunst theme file
+#
+# Copyright (C) 2021, 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly dunst_dir="$HOME/.config/dunst/dunstrc.d"
+readonly xresources="$(xrdb -query)"
+
+# Arg: value to query
+query_xrdb() {
+  grep "$1" <<< "$xresources" | cut -f 2
+}
+
+mkdir -p "$dunst_dir"
+cat <<END > "$dunst_dir/00-theme.conf"
+[global]
+    frame_color = "$(query_xrdb Dunst.frame_color)"
+    separator_color = "$(query_xrdb Dunst.separator_color)"
+    font = $(query_xrdb Dunst.font)
+    frame_width = $(query_xrdb Dunst.frame_width)
+    transparency = $(query_xrdb Dunst.transparency)
+    icon_path = $(query_xrdb Dunst.icon_path)
+
+[urgency_low]
+    background = "$(query_xrdb Dunst.lowbg)"
+    foreground = "$(query_xrdb Dunst.lowfg)"
+
+[urgency_normal]
+    background = "$(query_xrdb Dunst.normalbg)"
+    foreground = "$(query_xrdb Dunst.normalfg)"
+
+[urgency_critical]
+    background = "$(query_xrdb Dunst.criticalbg)"
+    foreground = "$(query_xrdb Dunst.criticalfg)"
+END
+
+
+# Kill running instance if any
+killall dunst 2>/dev/null || true
+dunst & disown
+

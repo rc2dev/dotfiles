@@ -24,7 +24,7 @@ lxpolkit &
 xsettingsd &
 remap-kb &
 sxhkd &
-dunst &
+gen-dunst-theme &  # This already calls dunst
 nitrogen --restore &
 redshift-gtk &
 compton &

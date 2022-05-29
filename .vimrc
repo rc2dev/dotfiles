@@ -189,6 +189,7 @@ augroup behaviour
   autocmd BufWritePost $JUMPS silent !gen-jumps
   autocmd BufWritePost sxhkdrc silent !killall -USR1 sxhkd
   autocmd BufWritePost Xresources silent !xrdb $XRESOURCES
+  autocmd BufWritePost Xresources silent !gen-dunst-theme
 
   " Set executable bit to scripts on bin
   autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' && expand('%:p:h') =~ '/bin$' | silent !chmod +x <afile>
