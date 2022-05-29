@@ -7,7 +7,7 @@
 #
 
 notify_id=506
-bar_max_size=26
+bar_max_size=24
 step=5
 
 function get_volume {
