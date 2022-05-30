@@ -1,6 +1,9 @@
 super + shift + d
   light-dark
 
+super + b
+  dmenu-bluetooth
+
 super + e
   $TERMINAL -e vim +History
 
