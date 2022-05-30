@@ -12,7 +12,6 @@ declare -Ar options=(
 	["yt-dlp"]="ydl"
 	["yt-dlp (audio)"]="ydl -x"
 	["mpv"]="mpv"
-	["umpv"]="umpv"
 	["Wallabag it"]="to_wallabag"
 	["Brave"]="brave-browser"
 	["Brave (incognito)"]="brave-browser --incognito"
