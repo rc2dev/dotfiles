@@ -26,10 +26,11 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 /* dmenu, dwm */
-*.topbar: 1
+*.topbar: 0
 dwm.borderpx: 2
 dwm.mfact: 0.5
-dwm.enablegaps: 0
+dwm.enablegaps: 1
+dwm.smartgaps: 1
 
 /* st */
 St.alpha: 0.95
