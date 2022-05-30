@@ -46,6 +46,9 @@ super + {_, shift} + w
 super + {_, shift, ctrl, alt } + period
   dunstctl { action 0, close, history-pop, context }
 
+super + Return
+  $TERMINAL
+
 ctrl + alt + v
   clipmenu
 
