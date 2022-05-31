@@ -6,7 +6,7 @@
 readonly sep="  ·  "
 
 truncate() {
-  local -r max_len=25
+  local -r max_len=20
   local -r str="$*"
 
   if [[ ${#str} -gt $max_len ]]; then
