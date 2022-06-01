@@ -465,6 +465,9 @@ augroup navigation
   autocmd Filetype markdown,text,taskedit inoremap <buffer> <expr> <Up> pumvisible() ? "\<Up>" : "\<C-\>\<C-o>gk"
 augroup END
 
+" Delete current file
+nnoremap <Leader><Del> :call delete(expand('%')) \| echo "Deleted file."<CR>
+
 " Buffer navigation
 nnoremap <Leader><Leader> <C-^>
 nnoremap <Leader>n :bn<CR>
@@ -499,8 +502,6 @@ command Sv :so ~/.vimrc
 
 " Plugins
 " vim-fugitive
-nnoremap <Leader>gd :GDelete<CR>
-nnoremap <Leader>gD :GDelete!<CR>
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gm :GMove <C-R>=expand('%')<CR>
 nnoremap <Leader>gl :Gclog<CR>
