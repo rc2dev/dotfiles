@@ -16,9 +16,9 @@ declare -Ar options=(
 	["Brave (incognito)"]="brave-browser --incognito"
 	["Chromium"]="chromium --profile-directory=Default"
 	["Chromium (incognito)"]="chromium --incognito"
-	["Chromium temporary profile"]="chromium --temp-profile"
+	["Chromium (temporary)"]="chromium --temp-profile"
 	["Firefox"]="firefox"
-	["Firefox (private window)"]="firefox_private"
+	["Firefox (incognito)"]="firefox_private"
 )
 
 ydl() {
