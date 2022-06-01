@@ -12,6 +12,7 @@ main() {
 	#force_ssh_passphrase
 
 	update_distro
+	update_flatpaks
 	update_ydl
 	update_dotfiles
 	update_vim
@@ -111,6 +112,12 @@ update_distro_osmc() {
 			log "Pulando atualização dos pacotes..."
 			;;
 	esac
+}
+
+update_flatpaks() {
+	has_command flatpak || return 0
+
+	flatpak update
 }
 
 update_dotfiles() {
