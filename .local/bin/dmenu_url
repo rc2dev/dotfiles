@@ -10,7 +10,6 @@ readonly term_instance="sys"
 
 declare -Ar options=(
 	["yt-dlp"]="ydl"
-	["yt-dlp (audio)"]="ydl -x"
 	["mpv"]="mpv"
 	["Wallabag it"]="to_wallabag"
 	["Brave"]="brave-browser"
