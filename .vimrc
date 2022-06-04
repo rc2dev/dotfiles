@@ -33,10 +33,8 @@ Plug 'embear/vim-localvimrc'
 Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim', { 'as': 'dracula' }
-if $SLOW_HOST != '1'
-  Plug 'vim-airline/vim-airline'
-  set noshowmode                                    " Don't show modes below status line (redundant to Airline)
-endif
+Plug 'vim-airline/vim-airline'
+set noshowmode                                       " Don't show modes below status line (redundant to Airline)
 if hostname() == 'rd'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
@@ -235,6 +233,11 @@ augroup END
 " PLUGINS CONFIGURATION {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline
+" This speeds up the plugin
+if $SLOW_HOST == '1'
+  let g:airline_extensions = []
+  let g:airline_highlighting_cache = 1
+endif
 " Show open buffers on top
 let g:airline#extensions#tabline#enabled = 1
 " Don't display spelling language
