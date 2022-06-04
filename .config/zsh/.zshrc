@@ -115,8 +115,7 @@ done
 zinit snippet 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh'
 zinit snippet 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh'
 
-[[ $SLOW_HOST == 1 ]] || zinit light zsh-users/zsh-autosuggestions
-
+zinit light zsh-users/zsh-autosuggestions
 zinit light denysdovhan/spaceship-prompt
 
 # Should be last
