@@ -141,6 +141,10 @@ export FZF_ALT_C_COMMAND="$FD_DIRS"
 # Rebind ^T to ^P (bring back default bind)
 bindkey "^P" fzf-file-widget
 bindkey "^T" self-insert
+# Rebind Alt+C to ^O
+bindkey -r "^[c"
+zle -N fzf-cd-widget
+bindkey '^O' fzf-cd-widget
 
 
 #####################################################################
