@@ -303,7 +303,7 @@ set -g default-terminal "xterm-256color"
 set -ga terminal-overrides ",xterm-256color:Tc"
 
 # Enable primary selection
-bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xsel -ip"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -i -selection primary"
 
 # New keybindings
 bind X confirm-before kill-session
