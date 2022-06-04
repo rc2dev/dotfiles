@@ -518,7 +518,12 @@ let g:tq_map_keys = 0
 nnoremap <Leader>cs :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>cs y:ThesaurusQueryReplace <C-r>"<CR>
 " fzf.vim
-nnoremap <silent> <C-p> :Files<CR>
+if $GIT_DIR == "" && $GIT_WORK_TREE == ""
+  nnoremap <silent> <C-p> :Files<CR>
+else
+  " Useful for bare directories such as dotfiles
+  nnoremap <silent> <C-p> :GFiles<CR>
+endif
 nnoremap <silent> <C-f> :Rg<CR>
 nnoremap <silent> <C-t> :History<CR>
 " Goyo
