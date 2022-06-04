@@ -34,7 +34,7 @@ Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
-set noshowmode                                       " Don't show modes below status line (redundant to Airline)
+set noshowmode                                      " Don't show modes below status line (redundant to Airline)
 if hostname() == 'rd'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
@@ -242,8 +242,8 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 " Don't display spelling language
 let g:airline_detect_spelllang = 0
-" Use powerline symbols
-let g:airline_powerline_fonts = 1
+" Don't use powerline symbols
+let g:airline_powerline_fonts = 0
 " Do not draw separators for empty sections
 let g:airline_skip_empty_sections = 1
 " Display a short path in statusline
@@ -253,8 +253,7 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 " Don't display word count
 let g:airline#extensions#wordcount#enabled = 0
 " Redifine section z
-let g:airline_section_z = '%#__accent_bold#%{g:airline_symbols.maxlinenr}%L%#__restore__# %p%%%{g:airline_symbols.linenr}%l,%v'
-
+let g:airline_section_z = '%p%%%{g:airline_symbols.linenr}%l,%v %#__accent_bold#%{g:airline_symbols.maxlinenr} %L%#__restore__#'
 
 " vim-template
 let g:templates_directory = ['$HOME/.vim/templates']
@@ -268,7 +267,6 @@ let g:templates_user_variables = [
 function! GetFileNoExt()
   return expand('%:t:r')
 endfunction
-
 
 " Goyo
 " Ensure :q to quit when Goyo is active
