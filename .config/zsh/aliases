@@ -62,19 +62,14 @@ take() {
 
 # Edit
 alias e="$EDITOR"
-alias ea="ye $ALIASES"
+alias ef="vim +Rg"
 alias eg="vim +'Files $HOME'"
-alias ej="ye $JUMPS"
 alias ep="vim +Files"
 alias et="vim +History"
 # Don't use `ye`, since vim-plug operations fail with those variables set.
-alias es="ye ~/.config/sxhkd/sxhkdrc"
 alias ev="e ~/.vimrc"
 alias exp="ye ~/.xprofile"
-alias exr="ye $XRESOURCES"
 alias ey="ye"
-alias ez="ye $ZDOTDIR/.zshrc"
-alias ezp="ye ~/.zprofile"
 
 # zoxide: make z interactive when run without arguments.
 # This is the same as "zi", but we define it directly, so we can reuse zi.
@@ -99,21 +94,11 @@ alias hs="python3 -m http.server"  # HTTP server
 keys() {
 	xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
+alias o="xdg-open"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias se="sudo -e"
 alias y="yadm"
-
-# Shorter xdg-open
-# Run fzf if no args.
-o() {
-	if [[ $# -gt 0 ]]; then
-		xdg-open "$@"
-		return
-	fi
-
-	fzf --height 100% --margin '7%,5%' | xargs -r -d'\n' -P 0 -n 1 xdg-open
-}
 
 # Set default options
 alias caffeinate="caffeinate --socket $XIDLEHOOK_SOCK"
@@ -158,12 +143,6 @@ ye() {
 alias n="notes"
 alias nn="notes name"
 
-# todo.txt
-alias t="todo-txt"
-alias tad="t add"
-alias tdo="t do"
-alias te="e $TODO_DIR/todo.txt"
-
 # Use bat if available
 command -v bat >/dev/null && alias cat="bat"
 
@@ -180,17 +159,14 @@ ytl() { yt-dlp --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/" + .
 # Download only subtitles
 alias yts="yt-dlp --all-subs --skip-download"
 
-# systemctl
+# systemctl, journalctl
 alias sc="sudo systemctl"
 alias scu="systemctl --user"
 alias scdr="sudo systemctl daemon-reload"
-alias scudr="sudo systemctl daemon-reload"
+alias scudr="systemctl --user daemon-reload"
 alias scr="sudo systemctl restart"
 alias scs="systemctl status"
-
-# journalctl
 alias jc="journalctl"
-alias jcu="journalctl --user-unit"
 
 # Package management
 alias aar="sudo apt autoremove -y"
@@ -214,7 +190,6 @@ if [[ -n "$ZSH_VERSION" ]]; then
 	alias -g G="| grep"
 	alias -g L="| less"
 	alias -g LL="|& less"
-	alias -g PIPE="|"
 	alias -g Y="| xclip -selection clipboard"
 	alias -g P="xclip -selection clipboard -out |"
 fi
