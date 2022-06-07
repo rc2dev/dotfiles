@@ -6,5 +6,5 @@ After=network.target
 OnFailure=status-email@%n.service
 
 [Service]
-ExecStart=%h/Documents/Sysadmin/Backups/bin/backup-from-cloud
+ExecStart=%h/Documents/Sysadmin/Backups/backup-bin/backup-from-cloud
 Nice=19

@@ -6,5 +6,5 @@ After=network.target
 OnFailure=status-email@%n.service
 
 [Service]
-ExecStart=%h/Documents/Sysadmin/Backups/bin/sync-rclone
+ExecStart=%h/Documents/Sysadmin/Backups/backup-bin/sync-rclone
 Nice=19
