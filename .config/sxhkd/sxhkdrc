@@ -14,7 +14,7 @@ super + shift + f
   nemo
 
 super + {_, shift, ctrl} + n
-  $TERMINAL -e notes {name, dump, plan-view}
+  $TERMINAL -e notes {name, dump, plan}
 
 super + p
   keepassxc
