@@ -14,7 +14,6 @@ declare -Ar options=(
 	["Wallabag it"]="to_wallabag"
 	["Brave"]="brave-browser"
 	["Brave (incognito)"]="brave-browser --incognito"
-	["Chromium"]="chromium --profile-directory=Default"
 	["Chromium (incognito)"]="chromium --incognito"
 	["Chromium (temporary)"]="chromium --temp-profile"
 	["Firefox"]="firefox"

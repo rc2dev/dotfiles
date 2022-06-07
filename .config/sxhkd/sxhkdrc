@@ -32,7 +32,7 @@ super + r
 
 super + s; {c, C, f, m, r, v, w, x, y}
  { \
-  chromium --profile-directory="Default", \
+  chromium, \
   chromium --temp-profile, \
   x-www-browser --new-window https://www.myfitnesspal.com/pt/food/diary, \
   $TERMINAL -n cmus -e cmus, \
