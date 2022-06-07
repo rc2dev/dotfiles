@@ -14,7 +14,11 @@ super + shift + f
   nemo
 
 super + {_, shift, ctrl} + n
-  $TERMINAL -e notes {name, dump, plan}
+  { \
+    $TERMINAL -e notes name, \
+    $TERMINAL -e notes dump, \
+    $TERMINAL -n plan -e notes plan \
+  }
 
 super + p
   keepassxc
@@ -30,14 +34,12 @@ super + r
 ~super + shift + r
   xdotool key --clearmodifiers ctrl+l && xdotool key --clearmodifiers ctrl+c && dmenu_url
 
-super + s; {c, C, f, m, r, v, w, x, y}
+super + s; {c, C, m, r, w, x, y}
  { \
   chromium, \
   chromium --temp-profile, \
-  x-www-browser --new-window https://www.myfitnesspal.com/pt/food/diary, \
   $TERMINAL -n cmus -e cmus, \
   de.haeckerfelix.Shortwave, \
-  virt-manager, \
   qimgv $WALLPAPERS, \
   $TERMINAL -e zsh -c "fd $FD_ARGS --no-hidden --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources | fzf --height 100% --margin 7%\,5% | xargs -r -d'\n' -P 0 -n 1 xdg-open", \
   dmenu_yt, \
