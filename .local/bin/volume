@@ -6,7 +6,7 @@
 # by Rafael Cavalcanti <https://rafaelc.org/dev>
 #
 
-notify_id=506
+notify_id=101
 bar_max_size=24
 step=5
 
