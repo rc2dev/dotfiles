@@ -10,6 +10,7 @@
 [submodule ".local/share/zsh/zinit/bin"]
 	path = .local/share/zsh/zinit/bin
 	url = https://github.com/zdharma-continuum/zinit.git
+	branch = main
 [submodule ".config/ranger/plugins/zoxide"]
 	path = .config/ranger/plugins/zoxide
 	url = https://github.com/jchook/ranger-zoxide.git
