@@ -128,10 +128,9 @@ update_dotfiles() {
 }
 
 update_ydl() {
-	# Use --format to silence pip warning.
-	if has_command pip3 && pip3 list --format=columns | grep -q yt-dlp; then
-		log_step "Atualizando pacote yt-dlp do PIP..."
-		pip3 install --upgrade yt-dlp
+	if has_command pipx && pipx list | grep -q yt-dlp; then
+		log_step "Atualizando pacote yt-dlp do pipx..."
+		pipx upgrade yt-dlp
 	fi
 }
 
