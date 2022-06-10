@@ -7,8 +7,3 @@ setxkbmap -option eurosign:e
 # Swap caps lock and escape
 setxkbmap -option caps:swapescape
 
-readonly xmodmap="$HOME/.config/X11/xmodmap_$(hostname)"
-if [[ -e "$xmodmap" ]]; then
-  xmodmap "$xmodmap"
-fi
-
