@@ -188,3 +188,8 @@ if [[ -z "$TMUX" ]]; then
   fi
 fi
 
+# Automatically start tmux if connected via SSH
+if [[ -z "$TMUX" && -n "$SSH_CLIENT" ]]; then
+  tmux attach || tmux >/dev/null 2>&1
+fi
+
