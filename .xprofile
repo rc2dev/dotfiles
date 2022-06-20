@@ -59,6 +59,3 @@ while true; do
   sleep 10s
 done &
 
-# User applications
-$TERMINAL -n plan -e notes plan &
-gtk-launch webapp-MyFitnessPal3427.desktop &
