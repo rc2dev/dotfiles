@@ -13,11 +13,10 @@ super + f
 super + shift + f
   nemo
 
-super + {_, shift, ctrl} + n
+super + {_, shift} + n
   { \
     $TERMINAL -e notes name, \
-    $TERMINAL -e notes dump, \
-    $TERMINAL -n plan -e notes plan \
+    $TERMINAL -e notes dump
   }
 
 super + p
@@ -50,8 +49,8 @@ super + x
 super + {_, shift} + w
   x-www-browser {_, --incognito}
 
-super + {_, shift, ctrl, alt } + period
-  dunstctl { action 0, close, history-pop, context }
+super + {_, shift, ctrl } + period
+  dunstctl { context, close, history-pop }
 
 super + Return
   $TERMINAL
