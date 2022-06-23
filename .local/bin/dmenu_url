@@ -23,17 +23,17 @@ declare -Ar options=(
 ydl() {
 	local -r opts="$1"
 
-	trap '
-		echo $(date +"%b %d %H:%M:%S") $@ >> ~/Downloads/ydl_errors.log;
-		notify-send --urgency=critical "dmenu_url - yt-dlp" "Logged error downloading: $@"
-		' ERR
-
 	$term -n "$term_instance" -e bash -c '
 		mkdir -p ~/Downloads && cd ~/Downloads
 		printf "Downloading these URLs:\n"
 		printf "%s\n\n" "$@"
 
-		yt-dlp '$opts' "$@"
+		if yt-dlp '$opts' "$@"; then
+			notify-send --urgency=low "dmenu_url - yt-dlp" "Finished downloading: $@"
+		else
+			echo $(date +"%b %d %H:%M:%S") $@ >> ~/Downloads/ydl_errors.log;
+			notify-send --urgency=critical "dmenu_url - yt-dlp" "Logged error downloading: $@"
+		fi
 	' --	"${urls[@]}"
 }
 
