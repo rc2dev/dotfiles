@@ -42,7 +42,7 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 
 
 /* Theme */
-#include "themes/nord"
+#include "themes/dracula"
 
 /* st, slock */
 *.color0: c00
@@ -67,11 +67,12 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 
 /* dmenu and dwm */
 *.normbgcolor: cbg
-*.normfgcolor: cfg /* c12 or cfg */
-*.selbgcolor: c08
-*.selfgcolor: c15
+*.normfgcolor: c07 /* c07, c12 or cfg */
+*.selbgcolor: c04  /* c04 or c08 */
+*.selfgcolor: c00  /* c00 or c15 */
 dwm.normbordercolor: cbg
-dwm.selbordercolor: c08
+dwm.selbordercolor: c04
+dmenu.highlightcolor: #ff4500  /* acceptable contrast for dark and light */
 
 /* Dunst */
 Dunst.frame_color: c07
