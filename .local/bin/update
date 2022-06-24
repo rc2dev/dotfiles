@@ -14,6 +14,7 @@ main() {
 	update_distro
 	update_flatpaks
 	update_ydl
+	update_themes
 	update_dotfiles
 	update_vim
 	update_zinit
@@ -128,6 +129,14 @@ update_vim() {
 
 	log_step "Atualizando vim-plug e plugins do VIM..."
 	vim +PlugClean! +PlugUpdate +qa!
+}
+
+update_themes() {
+	log_step "Atualizando ~/.themes e ~/.icons..."
+
+	for i in $HOME/.themes/*/.git $HOME/.icons/*/.git; do
+		( echo $i; cd $i/..; git pull; )
+	done
 }
 
 update_zinit() {
