@@ -43,9 +43,6 @@ update_distro() {
 	elif is_mint; then
 		log_os "Mint"
 		update_distro_mint
-	elif has_command pacman; then
-		log_os "Arch"
-		update_distro_pacman
 	elif has_command apt; then
 		log_os "APT genérico"
 		update_distro_apt
@@ -75,14 +72,6 @@ update_distro_mint() {
 
 	log_step "Limpando cache do APT..."
 	sudo apt clean
-}
-
-update_distro_pacman() {
-	log_step "Atualizando pacotes..."
-	sudo pacman -Syu
-
-	log_step "Atualizando AUR..."
-	trizen -Syu --aur --devel --needed
 }
 
 update_distro_osmc() {
