@@ -47,9 +47,9 @@ firefox_private() {
 to_wallabag() {
 	for url in "${urls[@]}"; do
 		if wallabag add "$url"; then
-			notify-send --urgency=low "dmenu_url" "Added to Wallabag: $url"
+			notify-send --urgency=low "dmenu_url - Wallabag" "Added: $url"
 		else
-			notify-send --urgency=critical "dmenu_url" "Error adding to Wallabag: $url"
+			notify-send --urgency=critical "dmenu_url - Wallabag" "Error adding: $url"
 		fi
 	done
 }
@@ -81,7 +81,7 @@ for url in "${clipboard[@]}"; do
 done
 
 if [[ ${#urls[@]} -eq 0 ]]; then
-	notify-send "dmenu" "No URLs on clipboard."
+	notify-send "dmenu_url" "No URLs on clipboard."
 	exit
 fi
 
