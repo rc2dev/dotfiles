@@ -6,4 +6,3 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 @daily 5 update-ytdlp bash -c 'source ~/.zprofile && chronic pipx upgrade yt-dlp'
 @daily 5 notes-rename bash -c 'source ~/.zprofile && cd $NOTES && notes rename-all $NOTES/notes/Dump/20*'
-5      5 send-news    chronic ~/Code/send-news/bin/send-news wallabag_main.recipe
