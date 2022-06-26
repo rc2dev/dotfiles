@@ -7,6 +7,11 @@
 
 set -euo pipefail
 
+# Configuration
+declare -ar options=(-o allow_other)
+declare -ar common_options=()
+
+
 readonly script_name="$(basename "$0")"
 IFS=$'\n'
 
@@ -46,7 +51,8 @@ done
 
 mnt_dir=$(mktemp -d)
 printf "Mounting archive at %s...\n" "${mnt_dir}"
-if ! borg mount "${repo}::${archive}" "${mnt_dir}"; then
+if ! borg "${common_options[@]}" mount "${options[@]}" \
+		"${repo}::${archive}" "${mnt_dir}"; then
 	printf "Error mounting archive.\n"
 	exit 1
 fi
