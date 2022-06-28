@@ -180,14 +180,14 @@ augroup behaviour
   autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "rebase-merge"')
 
   " Run these commands whenever these files are updated
-  autocmd BufWritePost dwmbar silent !dwmbar
-  autocmd BufWritePost xsettingsd.conf silent !killall -HUP xsettingsd
   autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
+  autocmd BufWritePost dwmbar silent !dwmbar
   autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
   autocmd BufWritePost $JUMPS silent !gen-jumps
   autocmd BufWritePost sxhkdrc silent !killall -USR1 sxhkd
   autocmd BufWritePost Xresources silent !xrdb $XRESOURCES
   autocmd BufWritePost Xresources silent !gen-dunst-theme
+  autocmd BufWritePost xsettingsd.conf silent !killall -HUP xsettingsd
 
   " Set executable bit to scripts on bin
   autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' && expand('%:p:h') =~ '/bin$' | silent !chmod +x <afile>
