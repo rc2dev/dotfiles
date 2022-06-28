@@ -399,10 +399,6 @@ vnoremap <Leader>c "_c
 nnoremap <Leader>C "_C
 nnoremap <Leader>x "_x
 
-" Replace line or selection with default register content
-nnoremap <Leader>p "_ddP
-vnoremap <Leader>p "_dP
-
 " Move selection up/down and re-format
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -424,7 +420,6 @@ inoremap <F6> <C-o>:setlocal spell!<CR>
 " Save or quit
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap ZX :w\|:bd<CR>
 
 " Avoid unintentional switch to Ex mode
 nmap Q <nop>
@@ -509,8 +504,6 @@ nnoremap <Leader>gl :Gclog<CR>
 " NERDCommenter
 " Disable default mappings and add mine
 let g:NERDCreateDefaultMappings = 0
-map <leader>; <plug>NERDCommenterToggle
-" Termux
 map <leader>/ <plug>NERDCommenterToggle
 " thesaurus_query
 " Disable keymappings and set my own
