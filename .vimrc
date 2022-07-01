@@ -106,6 +106,7 @@ set relativenumber
 set scrolloff=10                                    " Minimum lines below cursor
 set showmatch                                       " Show matching brackets
 set nofoldenable                                    " Don't fold on opening file
+set foldlevelstart=1                                " Initial folding level (setting this on ftplugin didn't work)
 set cursorline                                      " Highlight current line
 set list listchars=tab:→\ ,trail:·                  " Show tabs and trailing spaces
 set fillchars=vert:┃                                " Solid line for vertical split
