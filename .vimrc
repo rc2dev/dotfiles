@@ -117,6 +117,9 @@ let &showbreak='⤷ '                                 " Use an arrow starting wr
 set breakindent                                     " Indent wrapped lines to match start
 set breakindentopt=shift:2                          " Emphasize broken lines by indenting them
 
+" Enable syntax highlighting on systemd files
+autocmd BufRead,BufNewFile *.service*,*.timer* set ft=systemd
+
 
 " BEHAVIOUR {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
