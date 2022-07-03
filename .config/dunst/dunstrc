@@ -448,4 +448,9 @@
     icon = "audio-volume-*"
     history_ignore = true
 
+[whatsapp]
+    body = "*web.whatsapp.com*"
+    # Prevent title to wrap, which would make the message body absent.
+    word_wrap = false
+
 # vim: ft=cfg
