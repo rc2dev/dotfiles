@@ -143,10 +143,6 @@ if &term =~ '^st\($\|-\)'
   execute "set <xLeft>=\e[1;*D"
 endif
 
-" Create tags file (this just runs ctags). This allows:
-" ^] to jump to tag under cursor; g^] for ambiguous tags; ^t to jump back up the tag stack
-command! MakeTags !ctags -R .
-
 " Remove comment leader when joining comment lines
 set formatoptions+=j
 
@@ -231,10 +227,4 @@ augroup spellcheck
 augroup END
 
 "}}}
-
-
-" Source a global configuration file if available
-if filereadable('/etc/vim/vimrc.local')
-  source /etc/vim/vimrc.local
-endif
 
