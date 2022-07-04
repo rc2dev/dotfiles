@@ -1,86 +1,51 @@
-" vim:fdm=marker:fdl=0:foldenable
 "
 " ~/.vimrc
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 "
 
-" Don't mimic Vi
+" Don't mimic Vi (must be first)
 set nocompatible
 
+" Misc options
+set modeline                        " Enable modeline
+set hidden                          " Allow buffers to be hidden without saving
+set mouse=a                         " Enable the use of the mouse
+set clipboard=unnamedplus           " Use system clipboard
+set notimeout                       " Wait to complete typing (slow typing on Termux)
+set formatoptions+=j                " Remove comment leader when joining comment lines
 
-" vim-plug (needs single quotes) {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Specify a directory for plugins
-call plug#begin('~/.vim/plugged')
+" Search
+set ignorecase                      " Do case insensitive matching
+set smartcase                       " Do smart case matching
+set incsearch                       " Incremental search
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdcommenter'
-Plug 'aperezdc/vim-template'
-Plug 'tpope/vim-fugitive'
-Plug 'ron89/thesaurus_query.vim'
-Plug 'ap/vim-css-color'
-Plug 'ferrine/md-img-paste.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'                        " Dependency for ranger.vim to replace netrw
-Plug 'airblade/vim-rooter'
-Plug 'embear/vim-localvimrc'
-Plug 'wincent/loupe'
-Plug 'dense-analysis/ale'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'vim-airline/vim-airline'
-set noshowmode                                      " Don't show modes below status line (redundant to Airline)
-if hostname() == 'rd'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-endif
+" Command completion
+set history=500                     " Number of command lines remembered
+set wildmenu
+set wildmode=longest:full,full      " First tab to complete longest *common* string
+set wildignorecase
 
-call plug#end()
+" Completion menu
+set completeopt=longest,menu        " Don't select first item, but longest common
 
+" Interface
+set shortmess+=I                    " Disable startup message
+set showcmd                         " Show partial command
+set laststatus=2                    " Always show status line
+set showtabline=2                   " Always show tab line
+set splitbelow splitright           " Splitting puts new window right of / below current
+set fillchars=vert:┃                " Solid line for vertical split
 
-" APPEARANCE {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! s:SetTransparency()
-  " Don't do it on gvim or it will get messed up
-  if has('gui_running')
-    return
-  endif
-
-  let l:theme_guibg = synIDattr(hlID('Normal'), 'bg')
-  hi Normal guibg=NONE ctermbg=NONE
-  " Fix :terminal having black background after the above command.
-  execute 'hi Terminal guibg=' . l:theme_guibg
-endfunction
-
-augroup appearance
-  autocmd!
-
-  autocmd ColorScheme * call <SID>SetTransparency()
-
- " For dracula theme, make tab chars more subtle
- autocmd ColorScheme dracula hi! link SpecialKey DraculaComment
-
-  " Resize splits automatically if VIM is resized
-  autocmd VimResized * execute "normal! \<C-w>="
-augroup END
-
-" Theme (must come after autocmd for transparency)
-set termguicolors                                   " Use truecolors
-" We won't have the theme on first run
-try
-  colorscheme dracula
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme desert
-endtry
-set bg=dark
-
-" Fix colors on st
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" Editor appearance
+syntax on                           " Enable syntax highlighting
+set number
+set relativenumber
+set scrolloff=10                    " Minimum lines below cursor
+set showmatch                       " Show matching brackets
+set nofoldenable                    " Don't fold on opening file
+set foldlevelstart=1                " Initial folding level (setting this on ftplugin didn't work)
+set cursorline                      " Highlight current line
+set list listchars=tab:→\ ,trail:·  " Show tabs and trailing spaces
 
 " Use different cursor for insert/normal mode
 " Adapted from <https://stackoverflow.com/a/42118416>
@@ -92,44 +57,40 @@ augroup cursor
   autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 
-" Interface
-set shortmess+=I                                    " Disable startup message
-set showcmd                                         " Show partial command
-set laststatus=2                                    " Always show status line
-set showtabline=2                                   " Always show tab line
-set splitbelow splitright                           " Splitting puts new window right of / below current
-
-" Editor
-syntax on                                           " Enable syntax highlighting
-set number
-set relativenumber
-set scrolloff=10                                    " Minimum lines below cursor
-set showmatch                                       " Show matching brackets
-set nofoldenable                                    " Don't fold on opening file
-set foldlevelstart=1                                " Initial folding level (setting this on ftplugin didn't work)
-set cursorline                                      " Highlight current line
-set list listchars=tab:→\ ,trail:·                  " Show tabs and trailing spaces
-set fillchars=vert:┃                                " Solid line for vertical split
-
 " Line wrap
-set linebreak                                       " More inteligent wrapping (don't break words)
-let &showbreak='⤷ '                                 " Use an arrow starting wrapped line
-set breakindent                                     " Indent wrapped lines to match start
-set breakindentopt=shift:2                          " Emphasize broken lines by indenting them
+set linebreak                       " More inteligent wrapping (don't break words)
+let &showbreak='⤷ '                 " Use an arrow starting wrapped line
+set breakindent                     " Indent wrapped lines to match start
+set breakindentopt=shift:2          " Emphasize broken lines by indenting them
 
-" Enable syntax highlighting on systemd files
-autocmd BufRead,BufNewFile *.service*,*.timer* set ft=systemd
+" Default indentation
+filetype plugin indent on           " Load indentation rules and plugin according to filetype
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
 
+" Spell check
+" Default languages
+set spelllang=pt_br,en_us,es_es
+augroup spellcheck
+  autocmd!
 
-" BEHAVIOUR {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set modeline                                        " Enable modeline
-set hidden                                          " Allow buffers to be hidden without saving
-set mouse=a                                         " Enable the use of the mouse
-set clipboard=unnamedplus                           " Use system clipboard
+  " Turn on for file types, except on vimdiff
+  autocmd Filetype gitcommit,markdown,text if ! &diff | setlocal spell | endif
 
-" Wait for typing to be completed (for slow typing on Termux)
-set notimeout
+  " Set languages for specific files
+  autocmd Filetype gitcommit setlocal spelllang=en_us
+  autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
+augroup END
+
+" Put swap files in one directory. Fallback to working dir.
+silent !mkdir -p ~/.vim/tmp/swap
+set directory=$HOME/.vim/tmp/swap//,.
+
+" Move ~/.viminfo to ~/.vim
+silent !mkdir -p ~/.vim/tmp
+set viminfo+='2000,n~/.vim/tmp/viminfo
 
 " Fixes for st
 if &term =~ '^st\($\|-\)'
@@ -143,37 +104,8 @@ if &term =~ '^st\($\|-\)'
   execute "set <xLeft>=\e[1;*D"
 endif
 
-" Remove comment leader when joining comment lines
-set formatoptions+=j
-
-" Search
-set ignorecase                                      " Do case insensitive matching
-set smartcase                                       " Do smart case matching
-set incsearch                                       " Incremental search
-
-" Command completion
-set history=500                                     " Number of command lines remembered
-set wildmenu
-set wildmode=longest:full,full                      " First tab to complete longest *common* string
-set wildignorecase
-
-" Completion menu
-set completeopt=longest,menu                        " Don't select first item, but longest common
-
-" Put swap files in one directory. Fallback to working dir.
-silent !mkdir -p ~/.vim/tmp/swap
-set directory=$HOME/.vim/tmp/swap//,.
-
-" Move ~/.viminfo to ~/.vim
-silent !mkdir -p ~/.vim/tmp
-set viminfo+='2000,n~/.vim/tmp/viminfo
-
-augroup behaviour
+augroup rc2dev
   autocmd!
-
-  " Open quickfix automatically (for shellcheck)
-  autocmd QuickFixCmdPost [^l]* nested cwindow
-  autocmd QuickFixCmdPost l* nested lwindow
 
   " Filter temporary git files from :oldfiles and :History
   autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "COMMIT_EDITMSG"')
@@ -201,30 +133,35 @@ augroup behaviour
 augroup END
 
 
-" CODE STYLE AND SPELLING {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Load indentation rules and plugin according to the detected filetype
-filetype plugin indent on
+" vim-plug (needs single quotes)
+call plug#begin('~/.vim/plugged')
 
-" Default indentation
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-
-" Set default languages
-set spelllang=pt_br,en_us,es_es
-
-augroup spellcheck
-  autocmd!
-
-  " Turn on for file types, except on vimdiff
-  autocmd Filetype gitcommit,markdown,text if ! &diff | setlocal spell | endif
-
-  " Set languages for specific files
-  autocmd Filetype gitcommit setlocal spelllang=en_us
-  autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
-augroup END
-
-"}}}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdcommenter'
+Plug 'aperezdc/vim-template'
+Plug 'tpope/vim-fugitive'
+Plug 'ron89/thesaurus_query.vim'
+Plug 'ap/vim-css-color'
+Plug 'ferrine/md-img-paste.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'francoiscabrol/ranger.vim'
+" Dependency for ranger.vim to replace netrw
+Plug 'rbgrouleff/bclose.vim'
+Plug 'airblade/vim-rooter'
+Plug 'embear/vim-localvimrc'
+Plug 'wincent/loupe'
+Plug 'dense-analysis/ale'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-airline/vim-airline'
+" Don't show modes below status line (redundant to Airline)
+set noshowmode
+if hostname() == 'rd'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
+call plug#end()
 
