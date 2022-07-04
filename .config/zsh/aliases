@@ -26,9 +26,7 @@ alias free="free -h"
 
 # Coloured output
 alias grep="grep --color=auto"
-alias egrep="egrep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias rgrep="rgrep --color=auto"
+
 # Accept color escape sequences
 alias less="less -R"
 
@@ -41,8 +39,8 @@ else
 	alias ll="ls -lh"
 fi
 
-# History
-# Show whole history (like bash) and timestamped
+# Shell history
+# Show whole history on zsh (like bash) and timestamped
 alias history="history -i 0"
 # Copy command from history to clipboard
 alias hy="fc -ln 0 | fzf | xclip -selection clipboard"
@@ -63,12 +61,10 @@ take() {
 # Edit
 alias e="$EDITOR"
 alias ef="vim +Rg"
-alias eg="vim +'Files $HOME'"
 alias ep="vim +Files"
 alias et="vim +History"
 # Don't use `ye`, since vim-plug operations fail with those variables set.
 alias ev="e ~/.vimrc"
-alias exp="ye ~/.xprofile"
 alias ey="ye"
 
 # zoxide: make z interactive when run without arguments.
@@ -94,6 +90,8 @@ alias hs="python3 -m http.server"  # HTTP server
 keys() {
 	xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
+alias n="notes"
+alias nn="notes name"
 alias o="xdg-open"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
@@ -101,7 +99,6 @@ alias se="sudo -e"
 alias y="yadm"
 
 # Set default options
-alias caffeinate="caffeinate --socket $XIDLEHOOK_SOCK"
 alias fd="fd $FD_ARGS"
 alias spotdl="spotdl --output-format m4a"
 
@@ -139,10 +136,6 @@ ye() {
 	GIT_DIR=$HOME/.local/share/yadm/repo.git GIT_WORK_TREE=$HOME vim $args
 }
 
-# Notes
-alias n="notes"
-alias nn="notes name"
-
 # Use bat if available
 command -v bat >/dev/null && alias cat="bat"
 
@@ -170,7 +163,6 @@ alias jc="journalctl"
 
 # Package management
 alias aar="sudo apt autoremove -y"
-alias afh="apt-file search"
 alias ah="apt search"
 alias ama="sudo apt-mark auto"
 alias amm="sudo apt-mark manual"
@@ -189,9 +181,7 @@ if [[ -n "$ZSH_VERSION" ]]; then
 	# Global aliases
 	alias -g G="| grep"
 	alias -g L="| less"
-	alias -g LL="|& less"
 	alias -g Y="| xclip -selection clipboard"
-	alias -g P="xclip -selection clipboard -out |"
 fi
 
 # Termux overrides and additions
