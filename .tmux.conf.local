@@ -296,7 +296,7 @@ set -g mouse on
 # move status line to top
 #set -g status-position top
 
-# -- Added by Rafael Cavalcanti -----------------------------------------
+# ---------- Added by Rafael Cavalcanti ----------
 
 # Truecolor support
 set -g default-terminal "xterm-256color"
