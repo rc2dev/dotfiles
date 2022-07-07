@@ -134,6 +134,9 @@ update_vim() {
 update_themes() {
 	log_step "Atualizando ~/.themes e ~/.icons..."
 
+	# Don't output the glob if no directory found.
+	shopt -s nullglob
+
 	for i in $HOME/.themes/*/.git $HOME/.icons/*/.git; do
 		( echo $i; cd $i/..; git pull; )
 	done
