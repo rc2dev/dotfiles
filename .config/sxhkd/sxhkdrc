@@ -33,10 +33,11 @@ super + r
 ~super + shift + r
   xdotool key --clearmodifiers ctrl+l && xdotool key --clearmodifiers ctrl+c && dmenu_url
 
-super + s; {c, C, m, r, w, y}
+super + s; {c, C, e, m, r, w, y}
  { \
   chromium, \
   chromium --temp-profile, \
+  thunderbird, \
   $TERMINAL -n cmus -e cmus, \
   de.haeckerfelix.Shortwave, \
   qimgv $WALLPAPERS, \
