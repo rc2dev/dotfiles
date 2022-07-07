@@ -128,13 +128,6 @@ nnoremap <Leader>gl :Gclog<CR>
 let g:NERDCreateDefaultMappings = 0
 map <leader>/ <plug>NERDCommenterToggle
 
-" thesaurus_query
-" Disable keymappings and set my own
-let g:tq_map_keys = 0
-" <leader>ct is already used
-nnoremap <Leader>cs :ThesaurusQueryReplaceCurrentWord<CR>
-vnoremap <Leader>cs y:ThesaurusQueryReplace <C-r>"<CR>
-
 " fzf.vim
 if $GIT_DIR == "" && $GIT_WORK_TREE == ""
   nnoremap <silent> <C-p> :Files<CR>
@@ -150,6 +143,6 @@ nnoremap <F12> :Goyo<CR>
 inoremap <F12> <C-o>:Goyo<CR>
 
 " loupe
-let g:LoupeClearHighlightMap=1
+" Use this instead of <leader>n.
 nmap <leader>m <Plug>(LoupeClearHighlight)
 

@@ -30,6 +30,7 @@ set completeopt=longest,menu        " Don't select first item, but longest commo
 
 " Interface
 set shortmess+=I                    " Disable startup message
+set noshowmode                      " Don't show modes below status line (redundant to vim-airline)
 set showcmd                         " Show partial command
 set laststatus=2                    " Always show status line
 set showtabline=2                   " Always show tab line
@@ -141,7 +142,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
 Plug 'preservim/nerdcommenter'
 Plug 'aperezdc/vim-template'
 Plug 'tpope/vim-fugitive'
@@ -158,10 +158,5 @@ Plug 'wincent/loupe'
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
-" Don't show modes below status line (redundant to Airline)
-set noshowmode
-if hostname() == 'rd'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-endif
 call plug#end()
 
