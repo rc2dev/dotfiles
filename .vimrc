@@ -139,8 +139,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'preservim/nerdcommenter'
 Plug 'aperezdc/vim-template'

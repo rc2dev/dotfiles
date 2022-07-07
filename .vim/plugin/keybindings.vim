@@ -138,10 +138,6 @@ endif
 nnoremap <silent> <C-f> :Rg<CR>
 nnoremap <silent> <C-t> :History<CR>
 
-" Goyo
-nnoremap <F12> :Goyo<CR>
-inoremap <F12> <C-o>:Goyo<CR>
-
 " loupe
 " Use this instead of <leader>n.
 nmap <leader>m <Plug>(LoupeClearHighlight)
