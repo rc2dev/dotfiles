@@ -8,3 +8,5 @@ OnFailure=status-email@%n.service
 [Service]
 ExecStart=%h/Code/backup-bin/sync-rclone
 Nice=19
+# Lower IO priority to minimium
+IOSchedulingPriority=7
