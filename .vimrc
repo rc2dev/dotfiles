@@ -150,7 +150,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ap/vim-css-color'
 Plug 'ferrine/md-img-paste.vim'
-Plug 'plasticboy/vim-markdown'
+Plug 'preservim/vim-markdown'
 Plug 'francoiscabrol/ranger.vim'
 " Dependency for ranger.vim to replace netrw
 Plug 'rbgrouleff/bclose.vim'
