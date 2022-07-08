@@ -3,7 +3,7 @@
 # Copyright (C) 2020-2021 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
-readonly sep="  ·  "
+readonly sep="  "
 
 truncate() {
   local -r max_len=20
