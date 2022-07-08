@@ -103,6 +103,10 @@ if &term =~ '^st\($\|-\)'
   execute "set <xDown>=\e[1;*B"
   execute "set <xRight>=\e[1;*C"
   execute "set <xLeft>=\e[1;*D"
+
+  " Del
+  nmap [3~ x
+  imap [3~ <C-o>x
 endif
 
 augroup rc2dev
