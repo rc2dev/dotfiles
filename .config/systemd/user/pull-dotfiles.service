@@ -2,8 +2,10 @@
 
 [Unit]
 Description=Pull dotfiles
-After=network.target
+After=network-online.target
+Wants=network-online.target
 OnFailure=status-email@%n.service
+
 
 [Service]
 ExecStart=%h/.local/opt/yadm-project/yadm pull

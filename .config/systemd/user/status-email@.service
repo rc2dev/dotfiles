@@ -2,6 +2,8 @@
 
 [Unit]
 Description=status email for %i to root
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=oneshot

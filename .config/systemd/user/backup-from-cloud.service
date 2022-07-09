@@ -2,7 +2,8 @@
 
 [Unit]
 Description=Backup from cloud
-After=network.target
+After=network-online.target
+Wants=network-online.target
 OnFailure=status-email@%n.service
 
 [Service]

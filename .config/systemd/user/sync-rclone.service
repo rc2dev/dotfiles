@@ -2,7 +2,8 @@
 
 [Unit]
 Description=Sync rclone
-After=network.target
+After=network-online.target
+Wants=network-online.target
 OnFailure=status-email@%n.service
 
 [Service]
