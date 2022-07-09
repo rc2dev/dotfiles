@@ -4,8 +4,11 @@ super + shift + d
 super + b
   dmenu-bluetooth
 
-super + e
-  $TERMINAL -e vim +History
+super + {_, shift} + e
+  { \
+    $TERMINAL -e vim +History, \
+    $TERMINAL -e env GIT_DIR=$HOME/.local/share/yadm/repo.git GIT_WORK_TREE=$HOME vim +GFiles \
+  }
 
 super + f
   $TERMINAL -e ranger
@@ -14,10 +17,7 @@ super + shift + f
   nemo
 
 super + {_, shift} + n
-  { \
-    $TERMINAL -e notes name, \
-    $TERMINAL -e notes dump
-  }
+  $TERMINAL -e notes { name, dump }
 
 super + p
   keepassxc
