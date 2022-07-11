@@ -70,4 +70,4 @@ Print + shift
 
 # Needed for dwm on x220 after bios update.
 {XF86MonBrightnessUp, XF86MonBrightnessDown}
-  xbacklight -time 0 {-inc, -dec} 10
+  xbacklight -time 0 {-inc, -dec} 7
