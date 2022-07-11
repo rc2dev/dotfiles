@@ -27,7 +27,7 @@ Xft.rgba: rgb
 
 /* dmenu, dwm */
 dwm.topbar: 0
-dmenu.topbar: 1
+dmenu.topbar: 0
 dwm.borderpx: 2
 dwm.mfact: 0.5
 dwm.enablegaps: 0
