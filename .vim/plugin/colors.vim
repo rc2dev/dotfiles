@@ -12,16 +12,13 @@ function! s:SetTransparency()
   execute 'hi Terminal guibg=' . l:theme_guibg
 endfunction
 
-augroup appearance
+augroup colorscheme
   autocmd!
 
   autocmd ColorScheme * call <SID>SetTransparency()
 
- " For dracula theme, make tab chars more subtle
- autocmd ColorScheme dracula hi! link SpecialKey DraculaComment
-
-  " Resize splits automatically if VIM is resized
-  autocmd VimResized * execute "normal! \<C-w>="
+  " For dracula theme, make tab chars more subtle
+  autocmd ColorScheme dracula hi! link SpecialKey DraculaComment
 augroup END
 
 " Theme (must come after autocmd for transparency)

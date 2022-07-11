@@ -112,6 +112,9 @@ endif
 augroup rc2dev
   autocmd!
 
+  " Resize splits automatically if VIM is resized
+  autocmd VimResized * execute "normal! \<C-w>="
+
   " Filter temporary git files from :oldfiles and :History
   autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "COMMIT_EDITMSG"')
   autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "rebase-merge"')
