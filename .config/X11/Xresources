@@ -73,7 +73,6 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 *.selfgcolor: c00  /* c00 or c15 */
 dwm.normbordercolor: cbg
 dwm.selbordercolor: c04
-dmenu.highlightcolor: #ff4500  /* acceptable contrast for dark and light */
 
 /* Dunst */
 Dunst.frame_color: c07

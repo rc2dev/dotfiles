@@ -28,8 +28,6 @@ readonly chosen="$(
 		-p "Power menu:" \
 		-nb "$bg_normal" \
 		-sb "$bg_selected" \
-		-nhb "$bg_normal" \
-		-shb "$bg_selected" \
 		-nf "$fg_normal" \
 		-sf "$fg_selected" \
 		"$@"
