@@ -10,8 +10,6 @@ set -euo pipefail
 main() {
 	declare -i step=0
 
-	#force_ssh_passphrase
-
 	# Only run if interactive
 	if [[ -t 0 ]]; then
 		update_distro
@@ -178,15 +176,6 @@ is_osmc() {
 
 is_termux() {
 	[[ "$(hostname)" == "localhost" ]]
-}
-
-# Allow us to prompt for SSH key passphrase early on, if needed.
-force_ssh_passphrase() {
-	local KEY_PATH="$HOME/.ssh/id_rsa"
-	[[ -e $KEY_PATH ]] || return
-	is_termux && return
-
-	ssh-add -l | grep -q "$(ssh-keygen -lf "$KEY_PATH" | awk '{print $2}')" || ssh-add "$KEY_PATH"
 }
 
 has_command() {
