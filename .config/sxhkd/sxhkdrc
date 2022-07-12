@@ -56,6 +56,9 @@ super + {_, shift, ctrl } + period
 super + Return
   $TERMINAL
 
+alt + Tab
+  dswitcher
+
 ctrl + alt + v
   clipmenu
 
@@ -71,3 +74,4 @@ Print + shift
 # Needed for dwm on x220 after bios update.
 {XF86MonBrightnessUp, XF86MonBrightnessDown}
   xbacklight -time 0 {-inc, -dec} 7
+
