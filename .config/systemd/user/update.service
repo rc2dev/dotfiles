@@ -1,11 +1,10 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 [Unit]
-Description=Pull dotfiles
+Description=Automatic user-level updates
 After=network-online.target
 Wants=network-online.target
 OnFailure=status-email@%n.service
 
-
 [Service]
-ExecStart=%h/.local/opt/yadm-project/yadm pull
+ExecStart=%h/.local/bin/update

@@ -2,7 +2,7 @@
 #
 # Commands to update my systems.
 #
-# Copyright (C) 2017-2021 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Copyright (C) 2017-2022 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 
@@ -11,14 +11,18 @@ main() {
 
 	#force_ssh_passphrase
 
-	update_distro
-	update_flatpaks
+	# Only run if interactive
+	if [[ -t 0 ]]; then
+		update_distro
+		update_flatpaks
+		update_vim
+		update_zinit
+		update_submodules
+	fi
+
 	update_ydl
 	update_themes
 	update_dotfiles
-	update_vim
-	update_zinit
-	update_submodules
 
 	log "Script concluído."
 }

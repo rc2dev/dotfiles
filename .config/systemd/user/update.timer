@@ -1,7 +1,7 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 [Unit]
-Description=Pull dotfiles daily
+Description=Daily user-level update
 
 [Timer]
 OnCalendar=daily
