@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Commands to update my systems.
 #
 # Copyright (C) 2017-2022 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
+set -euo pipefail
 
 main() {
 	declare -i step=0
@@ -36,7 +37,7 @@ log_os() {
 }
 
 log_step() {
-	((step++))
+	((step++)) || true
 	log "[ $step ] $*"
 }
 
