@@ -43,7 +43,7 @@ fi
 # Show whole history on zsh (like bash) and timestamped
 alias history="history -i 0"
 # Copy command from history to clipboard
-alias hy="fc -ln 0 | fzf | xclip -selection clipboard"
+alias hy="fc -ln 0 | fzf --tac | xclip -selection clipboard"
 
 # Shell
 alias ..="cd .."
