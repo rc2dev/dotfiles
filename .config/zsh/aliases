@@ -40,13 +40,15 @@ else
 fi
 
 # Shell history
-# Show whole history on zsh (like bash) and timestamped
-alias history="history -i 0"
-# Copy command from history to clipboard
+# Show history timestamped
+alias history="history -i"
+# Copy commands from history to clipboard
+# The awk command remove duplicates, or fzf may be full of them.
 alias hy="
 	fc -ln 0 |
-	fzf --tac --no-preview --height 75% |
-	(xclip -selection clipboard && echo Copied.)
+	awk '!a[\$0]++' |
+	fzf --tac --no-preview --height 90% |
+	xclip -selection clipboard
 "
 
 # Shell
