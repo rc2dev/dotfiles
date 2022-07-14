@@ -139,7 +139,7 @@ alias yst="yadm status"
 alias yw="xdg-open https://rafaelc.org/dotfiles >/dev/null 2>&1 & disown"
 ye() {
 	args=${*:-'+GFiles'}
-	GIT_DIR=$HOME/.local/share/yadm/repo.git GIT_WORK_TREE=$HOME vim $args
+	yadm enter vim $args
 }
 
 # Use bat if available
