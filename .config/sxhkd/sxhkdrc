@@ -4,6 +4,9 @@ super + shift + d
 super + b
   dmenu-bluetooth
 
+super + c
+  gnome-calculator
+
 super + {_, shift} + e
   { \
     $TERMINAL -e vim +History, \
