@@ -102,7 +102,6 @@ alias o="xdg-open"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias se="sudo -e"
-alias y="yadm"
 
 # Set default options
 alias fd="fd $FD_ARGS"
@@ -117,6 +116,7 @@ alias glon="glo --name-only"
 alias gw="gh repo view --web"
 
 # yadm
+alias y="yadm"
 alias ya="yadm add"
 alias yau="yadm add -u"
 alias yc="yadm commit -v"
@@ -139,10 +139,8 @@ alias ysh="yadm show"
 alias ysw="yadm switch"
 alias yst="yadm status"
 alias yw="xdg-open https://rafaelc.org/dotfiles >/dev/null 2>&1 & disown"
-ye() {
-	args=${*:-'+GFiles'}
-	yadm enter vim $args
-}
+alias ye="yadm enter vim +GFiles"
+alias yn="yadm enter"
 
 # Use bat if available
 command -v bat >/dev/null && alias cat="bat"
@@ -153,10 +151,8 @@ alias doq="docker run -it --rm -v ~/Downloads:/share"  # Quickly start an intera
 # mpv and ydl
 # Find and stream audio
 yta() { mpv --no-keep-open --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
-# Find ans stream video
+# Find and stream video
 ytv() { mpv --no-keep-open ytdl://ytsearch:"$*"; }
-# List videos from $1 playlist
-ytl() { yt-dlp --flat-playlist --dump-json "$1" | jq -r '"https://youtu.be/" + .url'; }
 # Download only subtitles
 alias yts="yt-dlp --all-subs --skip-download"
 
@@ -180,16 +176,11 @@ alias au="sudo apt update"
 alias afu="sudo apt update && sudo apt full-upgrade"
 alias aw="apt show"
 
-# Backup vcn
-# Use single quotes so date is defined upon use.
-alias backup-vcn='ssh vcn sudo tar czf - /boot /etc > pi-vcc_$(date +"%Y-%m-%d_%H-%M-%S").tar.gz'
-
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
 	# Global aliases
 	alias -g G="| grep"
 	alias -g L="| less"
-	alias -g Y="| xclip -selection clipboard"
 fi
 
 # Termux overrides and additions
@@ -200,9 +191,8 @@ if [[ "$HOST" == "localhost" ]]; then
 	alias free="free -m"
 	unalias grep
 
-	# Backup Termux
 	# Use single quotes so date is defined upon use.
-	alias backup='tar \
+	alias backup-termux='tar \
 		-C /data/data/com.termux/files \
 		-zcf /sdcard/Sync/termux-backup-$(date +"%Y-%m-%d_%H-%M-%S").tar.gz \
 		home usr'
