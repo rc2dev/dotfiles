@@ -197,14 +197,6 @@ export GROFF_NO_SGR=1         # For konsole and gnome-terminal
 
 source $ALIASES
 
-# Prompt active tmux sessions
-if [[ -z "$TMUX" ]]; then
-  tmux_sessions="$(tmux ls 2>/dev/null | wc -l)"
-  if [[ "$tmux_sessions" != "0" ]]; then
-    printf "Sessões tmux ativas: %s\n" $tmux_sessions
-  fi
-fi
-
 # Automatically start tmux if connected via SSH
 if [[ -z "$TMUX" && -n "$SSH_CLIENT" ]]; then
   tmux attach || tmux >/dev/null 2>&1
