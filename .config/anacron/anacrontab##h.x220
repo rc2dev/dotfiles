@@ -4,4 +4,4 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-@daily 5 notes-rename bash -c 'source ~/.zprofile && cd $NOTES && notes rename-all $NOTES/notes/Dump/20*'
+@daily 5 notes-rename bash -c 'source ~/.zprofile && notes rename-all $NOTES/notes/Dump/20*'
