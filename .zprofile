@@ -6,11 +6,6 @@
 # Set HOST if unset
 export HOST="${HOST:-$(hostname)}"
 
-# Flatpaks
-if [ -d "/var/lib/flatpak/exports/bin" ]; then
-	PATH="/var/lib/flatpak/exports/bin:$PATH"
-fi
-
 # User's private bin
 if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
@@ -24,11 +19,6 @@ fi
 # Cargo's bin
 if [ -d "$HOME/.cargo/bin" ]; then
 	PATH="$HOME/.cargo/bin:$PATH"
-fi
-
-# Anaconda
-if [ -d "$HOME/.local/opt/anaconda3/bin" ]; then
-	PATH="$HOME/.local/opt/anaconda3/bin:$PATH"
 fi
 
 # RVM. Make sure this is the last PATH variable change.
@@ -48,7 +38,7 @@ if [[ "$HOST" == "localhost" && -z "${SSH_AUTH_SOCK:-}" ]]; then
 	ssh-agent -t 1h -a "$SSH_AUTH_SOCK" > /dev/null
 fi
 
-# Termux: if connected via SSH, grab wake-lock
+# Termux: If connected via SSH, grab wake-lock
 if [[ "$HOST" == "localhost" && -n "${SSH_CLIENT:-}" ]]; then
 	printf "Grabbing wake-lock...\n" 1>&2
 	termux-wake-lock
@@ -113,15 +103,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 
 # man: Display the percentage into the document
 export MANPAGER="less -s -M +Gg"
-
-# pgcli
-if [[ "$HOST" == "pi" ]]; then
-	export PGHOST="localhost"
-	export PGUSER="postgres"
-fi
-
-# xidlehook
-export XIDLEHOOK_SOCK="$XDG_RUNTIME_DIR/xidlehook.sock"
 
 # zoxide
 # Automatically accept if one entry and changes from default
