@@ -111,19 +111,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 	--color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
 '
 
-# less: Have less (and man) display colours
-# From: https://unix.stackexchange.com/a/329092 and
-#       https://wiki.archlinux.org/index.php/Color_output_in_console#man
-export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
-export LESS_TERMCAP_md=$'\e[1;33m'     # begin blink
-#export LESS_TERMCAP_so=$'\e[01;44;37m' # begin reverse video
-export LESS_TERMCAP_us=$'\e[01;37m'    # begin underline
-export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
-#export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
-export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
-export GROFF_NO_SGR=1                  # for konsole and gnome-terminals
-
-# man: Dsplay the percentage into the document
+# man: Display the percentage into the document
 export MANPAGER="less -s -M +Gg"
 
 # pgcli
