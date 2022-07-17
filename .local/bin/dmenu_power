@@ -10,10 +10,8 @@ readonly fg_normal="#bbbbbb"
 readonly fg_selected="#eeeeee"
 
 readonly options="$(cat <<-END
-	Htop#$TERMINAL -e htop
-	System monitor#ksysguard
-	Lock#slock
 	Restart dwm#killall -HUP dwm
+	Lock#slock
 	Switch user#dm-tool switch-to-greeter
 	Logout#killall -TERM dwm
 	Suspend#systemctl suspend
