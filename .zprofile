@@ -84,13 +84,10 @@ export FZF_DEFAULT_COMMAND="fd $FD_ARGS"
 # Preview files with bat, directories with tree
 export FZF_DEFAULT_OPTS="
 	--layout=reverse
-	--height 40%
 	--multi
 	--preview '([[ -d {} ]] && tree -C {}) || ([[ -f {} ]] && bat --style=full --color=always --decorations=never {}) || echo {}'
 	--bind 'change:top'
-	--bind 'ctrl-a:select-all'
 	--bind 'ctrl-t:top'
-	--bind 'ctrl-y:execute-silent(echo {+} | xclip -selection clipboard)'
 "
 # Dracula theme
 # Removed bg:#282a36 for transparent bg
