@@ -20,7 +20,7 @@ main() {
 	fi
 
 	update_ydl
-	update_themes
+	update_repos
 	update_dotfiles
 
 	log "Script concluído."
@@ -134,13 +134,18 @@ update_vim() {
 	vim +PlugClean! +PlugUpdate +qa!
 }
 
-update_themes() {
-	log_step "Atualizando ~/.themes e ~/.icons..."
+update_repos() {
+	log_step "Atualizando repos em ~/..."
 
 	# Don't output the glob if no directory found.
 	shopt -s nullglob
 
-	for i in $HOME/.themes/*/.git $HOME/.icons/*/.git; do
+	for i in $HOME/.local/opt/*/.git $HOME/.themes/*/.git $HOME/.icons/*/.git; do
+		# Don't update repo if it's a submodule
+		if [[ ! -d "$i" ]]; then
+			continue
+		fi
+
 		( echo $i; cd $i/..; git pull; )
 	done
 }
