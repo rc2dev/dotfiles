@@ -145,8 +145,8 @@ alias yn="yadm enter"
 # Use bat if available
 command -v bat >/dev/null && alias cat="bat"
 
-# Docker
-alias doq="docker run -it --rm -v ~/Downloads:/share"  # Quickly start an interactive container
+# Docker: quickly start an interactive container
+alias doq="docker run -it --rm -v ~/Downloads:/share"
 
 # mpv and ydl
 # Find and stream audio
