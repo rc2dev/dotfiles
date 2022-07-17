@@ -1,33 +1,33 @@
+! vim: ft=xdefaults
 ! Based on https://terminal.sexy default values
 ! by Rafael Cavalcanti <https://rafaelc.org/dev>
 
 ! First color is normal, second is light.
-
 ! special
-#define cfg #c5c8c6
-#define cbg #1d1f21
+#define foreground #c5c8c6
+#define background #1d1f21
 !*.cursorColor:  #c5c8c6
 ! black
-#define c00 #282a2e
-#define c08 #373b41
+#define color0 #282a2e
+#define color8 #373b41
 ! red
-#define c01 #a54242
-#define c09 #cc6666
+#define color1 #a54242
+#define color9 #cc6666
 ! green
-#define c02 #8c9440
-#define c10 #b5bd68
+#define color2 #8c9440
+#define color10 #b5bd68
 ! yellow
-#define c03 #de935f
-#define c11 #f0c674
+#define color3 #de935f
+#define color11 #f0c674
 ! blue
-#define c04 #5f819d
-#define c12 #81a2be
+#define color4 #5f819d
+#define color12 #81a2be
 ! magenta
-#define c05 #85678f
-#define c13 #b294bb
+#define color5 #85678f
+#define color13 #b294bb
 ! cyan
-#define c06 #5e8d87
-#define c14 #8abeb7
+#define color6 #5e8d87
+#define color14 #8abeb7
 ! white
-#define c07 #707880
-#define c15 #c5c8c6
+#define color7 #707880
+#define color15 #c5c8c6

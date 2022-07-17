@@ -1,31 +1,32 @@
+! vim: ft=xdefaults
 ! Adapted from https://github.com/morhetz/gruvbox-generalized
 ! by Rafael Cavalcanti <https://rafaelc.org/dev>
 
 ! hard contrast: *background: #1d2021
-#define cbg #282828
 ! soft contrast: *background: #32302f
-#define cfg #ebdbb2
+#define background #282828
+#define foreground #ebdbb2
 ! Black + DarkGrey
-#define c00 #282828
-#define c08 #928374
+#define color0 #282828
+#define color8 #928374
 ! DarkRed + Red
-#define c01 #cc241d
-#define c09 #fb4934
+#define color1 #cc241d
+#define color9 #fb4934
 ! DarkGreen + Green
-#define c02 #98971a
-#define c10 #b8bb26
+#define color2 #98971a
+#define color10 #b8bb26
 ! DarkYellow + Yellow
-#define c03 #d79921
-#define c11 #fabd2f
+#define color3 #d79921
+#define color11 #fabd2f
 ! DarkBlue + Blue
-#define c04 #458588
-#define c12 #83a598
+#define color4 #458588
+#define color12 #83a598
 ! DarkMagenta + Magenta
-#define c05 #b16286
-#define c13 #d3869b
+#define color5 #b16286
+#define color13 #d3869b
 ! DarkCyan + Cyan
-#define c06 #689d6a
-#define c14 #8ec07c
+#define color6 #689d6a
+#define color14 #8ecolor7c
 ! LightGrey + White
-#define c07 #a89984
-#define c15 #ebdbb2
+#define color7 #a89984
+#define color15 #ebdbb2

@@ -45,42 +45,41 @@ Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus
 /* Theme */
 #include "themes/dracula"
 
-/* st, slock */
-*.color0: c00
-*.color1: c01
-*.color2: c02
-*.color3: c03
-*.color4: c04
-*.color5: c05
-*.color6: c06
-*.color7: c07
-*.color8: c08
-*.color9: c09
-*.color10: c10
-*.color11: c11
-*.color12: c12
-*.color13: c13
-*.color14: c14
-*.color15: c15
-/* more colors can be added after 255 to use with DefaultXX */
-*.background: cbg
-*.foreground: cfg
+/* Used by st, slock */
+*.color0: color0
+*.color1: color1
+*.color2: color2
+*.color3: color3
+*.color4: color4
+*.color5: color5
+*.color6: color6
+*.color7: color7
+*.color8: color8
+*.color9: color9
+*.color10: color10
+*.color11: color11
+*.color12: color12
+*.color13: color13
+*.color14: color14
+*.color15: color15
+*.background: background
+*.foreground: foreground
 
 /* dmenu and dwm */
-*.normbgcolor: cbg
-*.normfgcolor: c07 /* c07, c12 or cfg */
-*.selbgcolor: c04  /* c04 or c08 */
-*.selfgcolor: c00  /* c00 or c15 */
-dwm.normbordercolor: cbg
-dwm.selbordercolor: c04
+*.normbgcolor: background
+*.normfgcolor: color7 /* 7, 12 or fg */
+*.selbgcolor: color4  /* 4 or 8 */
+*.selfgcolor: color0  /* 0 or 15 */
+dwm.normbordercolor: background
+dwm.selbordercolor: color4
 
-/* Dunst */
-Dunst.frame_color: c07
-Dunst.separator_color: c07
-Dunst.lowbg: cbg
-Dunst.lowfg: c15
-Dunst.normalbg: c08
-Dunst.normalfg: c15
-Dunst.criticalbg: c01
-Dunst.criticalfg: cfg
+/* dunst */
+Dunst.frame_color: color7
+Dunst.separator_color: color7
+Dunst.lowbg: background
+Dunst.lowfg: color15
+Dunst.normalbg: color8
+Dunst.normalfg: color15
+Dunst.criticalbg: color1
+Dunst.criticalfg: foreground
 
