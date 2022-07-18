@@ -1,16 +1,15 @@
 /*
  * Xresources
  *
- * Other places for theming:
- * - ~/.xsettingsd
- * - ~/.xprofile (fzf)
- * - ~/.config/bat/config
- *
  * Author: Rafael Cavalcanti <https://rafaelc.org/dev>
  *
  */
 
-/* Fonts */
+
+/*********************************/
+/*             FONTS             */
+/*********************************/
+
 dmenu.font: Ubuntu:size=11
 /* Use patched font for icons on tags. */
 dwm.font: Ubuntu Nerd Font:size=10:style=Book
@@ -24,6 +23,11 @@ Xft.hintstyle: hintslight
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+
+
+/**********************************/
+/*          APPLICATIONS          */
+/**********************************/
 
 /* dmenu, dwm */
 dwm.topbar: 0
@@ -42,44 +46,4 @@ Dunst.transparency: 4
 Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus-Dark/symbolic/status:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/16x16/apps/
 
 
-/* Theme */
-#include "themes/dracula"
-
-/* Used by st, slock */
-*.color0: color0
-*.color1: color1
-*.color2: color2
-*.color3: color3
-*.color4: color4
-*.color5: color5
-*.color6: color6
-*.color7: color7
-*.color8: color8
-*.color9: color9
-*.color10: color10
-*.color11: color11
-*.color12: color12
-*.color13: color13
-*.color14: color14
-*.color15: color15
-*.background: background
-*.foreground: foreground
-
-/* dmenu and dwm */
-*.normbgcolor: background
-*.normfgcolor: color7 /* 7, 12 or fg */
-*.selbgcolor: color4  /* 4 or 8 */
-*.selfgcolor: color0  /* 0 or 15 */
-dwm.normbordercolor: background
-dwm.selbordercolor: color4
-
-/* dunst */
-Dunst.frame_color: color7
-Dunst.separator_color: color7
-Dunst.lowbg: background
-Dunst.lowfg: color15
-Dunst.normalbg: color8
-Dunst.normalfg: color15
-Dunst.criticalbg: color1
-Dunst.criticalfg: foreground
-
+#include "colors"
