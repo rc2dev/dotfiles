@@ -42,7 +42,7 @@ super + s; {c, C, e, m, r, w, y}
   chromium --temp-profile, \
   thunderbird, \
   $TERMINAL -n cmus -e cmus, \
-  de.haeckerfelix.Shortwave, \
+  dmenu_radio, \
   qimgv $WALLPAPERS, \
   dmenu_yt, \
  }
@@ -56,6 +56,9 @@ super + x
 
 super + {_, shift} + w
   x-www-browser {_, --incognito}
+
+super + z
+  x-www-browser https://www.myfitnesspal.com/pt/food/diary
 
 super + {_, shift, ctrl } + period
   dunstctl { context, close, history-pop }
