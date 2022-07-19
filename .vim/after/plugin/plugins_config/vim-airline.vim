@@ -1,12 +1,6 @@
 " vim-airline config
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-" This speeds up the plugin
-if $SLOW_HOST == '1'
-  let g:airline_extensions = []
-  let g:airline_highlighting_cache = 1
-endif
-
 " Show open buffers on top
 let g:airline#extensions#tabline#enabled = 1
 
