@@ -1,3 +1,4 @@
+" Colors config
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 function! s:SetTransparency()

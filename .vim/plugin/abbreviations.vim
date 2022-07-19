@@ -1,4 +1,4 @@
-" Abbreviations
+" Abbreviations config
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 " Commenting
