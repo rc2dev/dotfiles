@@ -1,2 +1,3 @@
 " New files without extension on bin directories
-autocmd BufNewFile */bin/* if expand('%:t') !~ '\.' | set filetype=sh | endif
+" Also run vim-template.
+autocmd BufNewFile */bin/* if expand('%:t') !~ '\.' | set filetype=sh | execute 'Template *.sh' | endif
