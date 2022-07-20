@@ -63,5 +63,5 @@ set directory=$HOME/.vim/tmp/swap//,.
 
 " Move ~/.viminfo to ~/.vim
 silent !mkdir -p ~/.vim/tmp
-set viminfo+='2000,n~/.vim/tmp/viminfo
+set viminfo+='5000,n~/.vim/tmp/viminfo
 
