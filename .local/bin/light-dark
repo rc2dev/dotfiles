@@ -12,7 +12,7 @@ main() {
 	[ $# -gt 0 ] && usage
 
 	get_config
-	detect_desktop
+	toggle
 }
 
 usage() {
@@ -20,7 +20,7 @@ usage() {
 	exit 1
 }
 
-detect_desktop() {
+toggle() {
 	if pidof xsettingsd > /dev/null; then
 		toggle_xsettingsd
 		return $?
@@ -65,18 +65,18 @@ toggle_gnome() {
 }
 
 toggle_cinnamon() {
-	local -r prop_theme="/org/cinnamon/desktop/interface/gtk-theme"
-	local -r prop_icon="/org/cinnamon/desktop/interface/icon-theme"
-	local -r prop_wm="/org/cinnamon/desktop/wm/preferences/theme"
+	local -r prop_theme="org.cinnamon.desktop.interface gtk-theme"
+	local -r prop_icon="org.cinnamon.desktop.interface icon-theme"
+	local -r prop_wm="org.cinnamon.desktop.wm.preferences theme"
 
-	if [[ "$(dconf read $prop_theme)" == "'$theme_light'" ]]; then
-		dconf write $prop_theme "'$theme_dark'"
-		dconf write $prop_wm "'$wm_dark'"
-		dconf write $prop_icon "'$icon_dark'"
+	if [[ "$(gsettings get $prop_theme)" == "'$theme_light'" ]]; then
+		gsettings set $prop_theme "$theme_dark"
+		gsettings set $prop_wm "$wm_dark"
+		gsettings set $prop_icon "$icon_dark"
 	else
-		dconf write $prop_theme "'$theme_light'"
-		dconf write $prop_wm "'$wm_light'"
-		dconf write $prop_icon "'$icon_light'"
+		gsettings set $prop_theme "$theme_light"
+		gsettings set $prop_wm "$wm_light"
+		gsettings set $prop_icon "$icon_light"
 	fi
 }
 
