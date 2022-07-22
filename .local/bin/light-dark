@@ -5,7 +5,7 @@
 # Copyright (C) 2017-2020 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
-readonly config_path="$HOME/.config/X11/light-dark.conf"
+readonly config_path="$HOME/.config/light-dark.conf"
 readonly config_keys=("theme_light" "theme_dark" "wm_light" "wm_dark" "icon_light" "icon_dark")
 
 main() {
