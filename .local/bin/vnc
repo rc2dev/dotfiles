@@ -36,9 +36,13 @@ set_client() {
 	return 1
 }
 
-main() {
-	trap ' ' SIGINT
+# Args: command - command used to create the tunnel
+close_tunnel() {
+	log "Closing tunnel"
+	pkill -fx "$*" || log "Failed to close tunnel"
+}
 
+main() {
 	check_args "$@"
 	local host="$*"
 
@@ -50,12 +54,10 @@ main() {
 	log "Creating tunnel"
 	local command="ssh $host -L 5900:localhost:5900 -f -N"
 	$command
+	trap "close_tunnel $command" EXIT
 
 	log "Launching VNC client"
 	$client vnc://localhost:5900 2> /dev/null
-
-	log "Closing tunnel"
-	pkill -fx "$command" || log "Failed to close tunnel"
 }
 
 main "$@"
