@@ -31,8 +31,7 @@ ydl() {
 		if yt-dlp '$opts' "$@"; then
 			notify-send --urgency=low "dmenu_url - yt-dlp" "Finished downloading: $@"
 		else
-			echo $(date +"%b %d %H:%M:%S") $@ >> ~/Downloads/ydl_errors.log;
-			notify-send --urgency=critical "dmenu_url - yt-dlp" "Logged error downloading: $@"
+			notify-send --urgency=critical "dmenu_url - yt-dlp" "Error downloading: $@"
 		fi
 	' --	"${urls[@]}"
 }
