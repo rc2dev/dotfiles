@@ -25,12 +25,6 @@ augroup rc2dev
   autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' && expand('%:p:h') =~ '/bin$' | silent !chmod +x <afile>
   autocmd BufWritePost * endif " Workaround, putting this in above line would prevent next autocmds to run
 
-  " Set undo point after very sentence on prose files
-  autocmd Filetype gitcommit,markdown,text inoremap . .<C-g>u
-  autocmd Filetype gitcommit,markdown,text inoremap ! !<C-g>u
-  autocmd Filetype gitcommit,markdown,text inoremap ? ?<C-g>u
-  autocmd Filetype gitcommit,markdown,text inoremap : :<C-g>u
-
   " Turn spell check on for some file types, except on vimdiff
   autocmd Filetype gitcommit,markdown,text if ! &diff | setlocal spell | endif
 
