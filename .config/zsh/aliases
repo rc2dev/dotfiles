@@ -43,7 +43,7 @@ fi
 # Show history timestamped
 alias history="history -i"
 # Copy commands from history to clipboard
-# The awk command remove duplicates, or fzf may be full of them.
+# The awk command removes duplicates, or fzf may be full of them.
 alias hy="
 	fc -ln 0 |
 	awk '!a[\$0]++' |
