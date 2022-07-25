@@ -53,7 +53,7 @@ alias hy="
 
 # Shell
 alias ..="cd .."
-alias c="builtin cd && clear"
+alias c="clear"
 alias q="exit"
 alias :q="exit"
 alias x="exit"
