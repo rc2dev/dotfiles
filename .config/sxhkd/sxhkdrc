@@ -33,8 +33,9 @@ super + r
 
 # Try to copy link from browser before running dmenu_url.
 # Both tilde and --clear-modifiers are a workaround for this to work.
+# Pressing shift+F6 brings the focus back to the webpage.
 ~super + shift + r
-  xdotool key --clearmodifiers ctrl+l && xdotool key --clearmodifiers ctrl+c && dmenu_url
+  xdotool key --clearmodifiers ctrl+l ctrl+c shift+F6 && dmenu_url
 
 super + s; {c, C, e, m, r, v, w, y}
  { \
