@@ -65,3 +65,5 @@ set directory=$HOME/.vim/tmp/swap//,.
 silent !mkdir -p ~/.vim/tmp
 set viminfo+='5000,n~/.vim/tmp/viminfo
 
+" Fix gx hanging VIM until exiting opened file
+let g:netrw_browsex_viewer="gio open"
