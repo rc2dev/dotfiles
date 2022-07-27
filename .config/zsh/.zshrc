@@ -137,6 +137,7 @@ command -v zoxide >/dev/null && eval "$(zoxide init --no-aliases zsh)"
 # fzf
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FD_DIRS"
+export FZF_CTRL_R_OPTS="--no-preview"
 # Rebind ^T to ^P (bring back default bind)
 bindkey "^P" fzf-file-widget
 bindkey "^T" self-insert
