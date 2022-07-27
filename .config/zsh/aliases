@@ -111,6 +111,7 @@ alias spotdl="spotdl --output-format m4a"
 
 # Git
 gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
+alias gai="git add -i"
 alias glo="git log --all --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
 alias glon="glo --name-only"
 alias gw="gh repo view --web"
@@ -118,6 +119,7 @@ alias gw="gh repo view --web"
 # yadm
 alias y="yadm"
 alias ya="yadm add"
+alias yai="yadm add -i"
 alias yau="yadm add -u"
 alias yc="yadm commit -v"
 alias yc!="yadm commit -v --amend"
