@@ -59,7 +59,7 @@ super + x
   "
 
 super + {_, shift} + w
-  x-www-browser {_, --incognito}
+  x-www-browser {_, --private-window}
 
 super + z
   x-www-browser https://www.myfitnesspal.com/pt/food/diary
