@@ -26,10 +26,6 @@ if [[ $# -ne 1 ]]; then
 fi
 
 readonly repo="$1"
-if [ ! -d "${repo}" ]; then
-	printf "Given directory doesn't exist.\n"
-	exit 1
-fi
 
 if [[ -z "${BORG_PASSPHRASE:-}" && -z "${BORG_PASSCOMMAND:-}" && -z "${BORG_PASSPHRASE_FD:-}" ]]; then
 	read -s -p "Enter passphrase: " BORG_PASSPHRASE
