@@ -8,6 +8,7 @@
 set -euo pipefail
 
 # Configuration
+declare -ar file_manager=("$TERMINAL" -e ranger)
 declare -ar options=(-o allow_other)
 declare -ar common_options=()
 
@@ -55,7 +56,7 @@ fi
 
 if [ -n "${DISPLAY:-}" ]; then
 	printf "Opening in file manager...\n\n"
-	xdg-open "${mnt_dir}" >/dev/null 2>&1
+	exec "${file_manager[@]}" "${mnt_dir}" & disown
 fi
 
 read -p "Press enter to umount. "
