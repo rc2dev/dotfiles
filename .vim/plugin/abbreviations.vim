@@ -12,7 +12,8 @@ iab dps depois
 iab Dps Depois
 iab mt muito
 iab Mt Muito
-iab MT muito
+iab pq porque
+iab Pq Porque
 iab tb também
 iab Tb Também
 iab tlvz talvez
