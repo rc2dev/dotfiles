@@ -52,7 +52,7 @@ main() {
 	log "Client set as $client"
 
 	log "Creating tunnel"
-	local command="ssh $host -L 5900:localhost:5900 -f -N"
+	local command="ssh $host -4 -L 5900:localhost:5900 -f -N"
 	$command
 	trap "close_tunnel $command" EXIT
 
