@@ -3,27 +3,27 @@
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 "
 
-" vim-plug (needs single quotes)
-call plug#begin('~/.vim/plugged')
+" This section needs to use single quotes.
+call plug#begin()
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-sleuth'
-Plug 'preservim/nerdcommenter'
-Plug 'aperezdc/vim-template'
-Plug 'tpope/vim-fugitive'
-Plug 'ron89/thesaurus_query.vim'
-Plug 'ap/vim-css-color'
-Plug 'ferrine/md-img-paste.vim'
-Plug 'preservim/vim-markdown'
-Plug 'francoiscabrol/ranger.vim'
-" Dependency for ranger.vim to replace netrw
-Plug 'rbgrouleff/bclose.vim'
 Plug 'airblade/vim-rooter'
-Plug 'embear/vim-localvimrc'
-Plug 'wincent/loupe'
+Plug 'ap/vim-css-color'
+Plug 'aperezdc/vim-template'
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'embear/vim-localvimrc'
+Plug 'ferrine/md-img-paste.vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/vim-markdown'
+Plug 'rbgrouleff/bclose.vim'  " Dependency for ranger.vim to replace netrw
+Plug 'ron89/thesaurus_query.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
 Plug 'vim-airline/vim-airline'
+Plug 'wincent/loupe'
+
 call plug#end()
 
