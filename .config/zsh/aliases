@@ -168,7 +168,7 @@ alias scs="systemctl status"
 alias jc="journalctl"
 
 # Package management
-alias aar="sudo apt autoremove -y"
+alias aar="sudo apt autoremove --purge --yes"
 alias ah="apt search"
 alias ama="sudo apt-mark auto"
 alias amm="sudo apt-mark manual"
