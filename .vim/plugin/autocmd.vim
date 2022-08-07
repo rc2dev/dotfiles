@@ -25,11 +25,7 @@ augroup rc2dev
   autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' && expand('%:p:h') =~ '/bin$' | silent !chmod +x <afile>
   autocmd BufWritePost * endif " Workaround, putting this in above line would prevent next autocmds to run
 
-  " Turn spell check on for some file types, except on vimdiff
-  autocmd Filetype gitcommit,markdown,text if ! &diff | setlocal spell | endif
-
   " Set specific spell check languages for some files
-  autocmd Filetype gitcommit setlocal spelllang=en_us
   autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
 augroup END
 

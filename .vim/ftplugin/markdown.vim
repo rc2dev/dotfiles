@@ -12,6 +12,9 @@ setlocal tabstop=4 shiftwidth=4 expandtab
 " Enable folding
 setlocal foldenable
 
+" Turn spell check on, except on vimdiff
+if ! &diff | setlocal spell | endif
+
 " Set makeprg
 setlocal makeprg=pandoc\ --pdf-engine=xelatex\ '%'\ $*\ \-o\ '/tmp/vim_pandoc.pdf'
 
