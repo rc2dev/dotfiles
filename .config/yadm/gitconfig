@@ -4,5 +4,3 @@
 [filter "flameshot"]
   clean = "sed -E '/^savePath/d; /^draw/d'"
 
-[filter "xsettingsd"]
-  clean = "sed -E 's#^Net/ThemeName .*$#Net/ThemeName \"\"#;s#^Net/IconThemeName .*$#Net/IconThemeName \"\"#'"
