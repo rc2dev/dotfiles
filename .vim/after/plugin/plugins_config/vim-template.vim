@@ -4,7 +4,7 @@
 let g:templates_directory = ['$HOME/.vim/templates']
 
 " Replace colon as Android 11 doesn't like them.
-let g:templates_name_prefix = '.vim-template.'
+let g:templates_name_prefix = '.vim-template_'
 
 let g:templates_no_builtin_templates = 1
 
