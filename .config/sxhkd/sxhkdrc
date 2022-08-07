@@ -53,7 +53,7 @@ super + u
 
 super + x
   $TERMINAL -e bash -c "\
-    fd $FD_ARGS --no-hidden --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources | \
+    fd $FD_ARGS --no-hidden --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources ~/Videos | \
     fzf --height 100% --margin 7%\,5% --no-preview | \
     xargs -r -d'\n' -P 0 -n 1 xdg-open \
   "
