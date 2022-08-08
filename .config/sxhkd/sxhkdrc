@@ -1,11 +1,14 @@
-super + shift + d
-  light-dark
+super + a
+  dmenu_radio
 
 super + b
   dmenu-bluetooth
 
 super + c
   gnome-calculator
+
+super + shift + d
+  light-dark
 
 super + {_, shift} + e
   { \
@@ -29,9 +32,15 @@ super + shift + q
   xkill
 
 super + r
-  dmenu_radio
+  dmenu_url
 
-super + s; {c, C, e, m, v, w, y}
+# Try to copy link from browser before running dmenu_url.
+# Both tilde and --clear-modifiers are a workaround for this to work.
+# Pressing shift+F6 brings the focus back to the webpage.
+~super + shift + r
+  xdotool key --clearmodifiers ctrl+l ctrl+c shift+F6 && dmenu_url
+
+super + s; {c, C, e, m, v, w}
  { \
   chromium, \
   chromium --temp-profile, \
@@ -39,17 +48,7 @@ super + s; {c, C, e, m, v, w, y}
   $TERMINAL -n cmus -e cmus, \
   pavucontrol, \
   qimgv $WALLPAPERS, \
-  dmenu_yt, \
  }
-
-super + u
-  dmenu_url
-
-# Try to copy link from browser before running dmenu_url.
-# Both tilde and --clear-modifiers are a workaround for this to work.
-# Pressing shift+F6 brings the focus back to the webpage.
-~super + shift + u
-  xdotool key --clearmodifiers ctrl+l ctrl+c shift+F6 && dmenu_url
 
 super + x
   $TERMINAL -e bash -c "\
@@ -60,6 +59,9 @@ super + x
 
 super + {_, shift} + w
   x-www-browser {_, --private-window}
+
+super + y
+  dmenu_yt
 
 super + z
   x-www-browser https://www.myfitnesspal.com/pt/food/diary
