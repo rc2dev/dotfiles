@@ -24,11 +24,12 @@ else
   cache_pls &
 fi
 
-readonly pls_json="$(cat "$pls_cache")"
-readarray -t pls_titles < <(jq -r 'select(.title != "Watch Later") | .title' <<< "$pls_json")
-readonly chosen="$((printf "Watch Later\n"; (printf "%s\n" "${pls_titles[@]}" | sort)) | dmenu -p "yt playlists:" "$@")"
+# Read playlist titles but sort "Watch Later" first
+readarray -t pls_titles < <(jq -r 'select(.title != "Watch Later") | .title' < "$pls_cache")
+readonly chosen="$( (printf "Watch Later\n"; (printf "%s\n" "${pls_titles[@]}" | sort)) | dmenu -p "yt playlists:" "$@")"
+
 [[ -z "$chosen" ]] && exit
-readonly url="$(jq -r "select(.title==\"$chosen\") | .url" <<< "$pls_json")"
+readonly url="$(jq -r "select(.title==\"$chosen\") | .url" < "$pls_cache")"
 
 mpv --shuffle "$url"
 
