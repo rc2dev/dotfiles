@@ -17,8 +17,8 @@ augroup rc2dev
   autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
   autocmd BufWritePost $JUMPS silent !gen-jumps
   autocmd BufWritePost sxhkdrc silent !killall -USR1 sxhkd
-  autocmd BufWritePost Xresources silent !xrdb $XRESOURCES
-  autocmd BufWritePost Xresources silent !gen-dunst-theme
+  autocmd BufWritePost $XRESOURCES silent !xrdb %
+  autocmd BufWritePost $XRESOURCES silent !gen-dunst-theme
   autocmd BufWritePost xsettingsd.conf silent !killall -HUP xsettingsd
 
   " Set executable bit to scripts on bin
