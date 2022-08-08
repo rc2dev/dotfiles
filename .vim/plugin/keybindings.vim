@@ -32,9 +32,13 @@ inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
 nnoremap <F5> :w<CR>:!%:p<CR>
 inoremap <F5> <C-o>:w<CR><C-o>:!%:p<CR>
 
+" Run make
+nnoremap <F6> :w<CR>:make<CR>
+inoremap <F6> <C-o>:w<CR><C-o>:make<CR>
+
 " Toggle spellcheck
-nnoremap <F6> :setlocal spell!<CR>
-inoremap <F6> <C-o>:setlocal spell!<CR>
+nnoremap <F7> :setlocal spell!<CR>
+inoremap <F7> <C-o>:setlocal spell!<CR>
 
 " Save or quit
 nnoremap <Leader>w :w<CR>
