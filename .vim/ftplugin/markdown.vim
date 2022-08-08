@@ -16,10 +16,10 @@ setlocal foldenable
 if ! &diff | setlocal spell | endif
 
 " Set makeprg
-setlocal makeprg=pandoc\ --pdf-engine=xelatex\ '%'\ $*\ \-o\ '/tmp/vim_pandoc.pdf'
+setlocal makeprg=pandoc\ --pdf-engine=xelatex\ '%'\ $*\ \-o\ '%:r.pdf'
 
 " Set "run" shortcut
-nnoremap <silent> <F5> :w<CR>:make<CR>:silent !xdg-open '/tmp/vim_pandoc.pdf' &<CR>
+nnoremap <silent> <F5> :w<CR>:make<CR>:silent !xdg-open '%:r.pdf' &<CR>
 
 " Create a markdown link structure with the URL from clipboard.
 nnoremap <Leader>l i[](<C-r>*)<Esc>F[a
