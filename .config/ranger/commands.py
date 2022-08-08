@@ -92,10 +92,10 @@ class fzf_select(Command):
 
         if self.quantifier:
             # match only directories
-            command=f"fd {os.environ['FD_ARGS']} --type d . '{dir_to_search}' | fzf +m"
+            command=f"fd {os.environ['FD_ARGS']} --type d . '{dir_to_search}' | fzf +m --height 100%--margin '4%,5%'"
         else:
             # match files and directories
-            command=f"fd {os.environ['FD_ARGS']} . '{dir_to_search}' | fzf +m"
+            command=f"fd {os.environ['FD_ARGS']} . '{dir_to_search}' | fzf +m --height 100% --margin '4%,5%'"
         fzf = self.fm.execute_command(command, universal_newlines=True, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
