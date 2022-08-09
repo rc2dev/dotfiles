@@ -10,6 +10,10 @@ set -euo pipefail
 main() {
 	declare -i step=0
 
+	update_dotfiles
+	update_repos
+	update_ydl
+
 	# Only run if interactive
 	if [[ -t 0 ]]; then
 		update_distro
@@ -18,10 +22,6 @@ main() {
 		update_zinit
 		update_submodules
 	fi
-
-	update_ydl
-	update_repos
-	update_dotfiles
 
 	log "Concluído."
 }
