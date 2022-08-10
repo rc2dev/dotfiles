@@ -47,7 +47,7 @@ nnoremap <Leader>q :q<CR>
 " Avoid unintentional switch to Ex mode
 nmap Q <nop>
 
-" Edit files
+" Edit vimrc
 nnoremap <Leader>ev :e ~/.vimrc<CR>
 
 " Toggle folding with <Tab>
@@ -68,21 +68,10 @@ inoremap <C-Right> <ESC>:echoe "Use w"<CR>
 inoremap <C-Up>    <ESC>:echoe "Use k"<CR>
 inoremap <C-Down>  <ESC>:echoe "Use j"<CR>
 
-" Use ctrl+jk on completion menu
+" Use ctrl+j/k, Tab on completion menu
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-
-" Use friendlier line navigation on prose files
-augroup navigation
-  autocmd!
-
-  autocmd Filetype markdown,text,taskedit nnoremap <buffer> <expr> j v:count == 0 ? 'gj' : 'j'
-  autocmd Filetype markdown,text,taskedit nnoremap <buffer> <expr> k v:count == 0 ? 'gk' : 'k'
-  autocmd Filetype markdown,text,taskedit nnoremap <buffer> <Down> gj
-  autocmd Filetype markdown,text,taskedit nnoremap <buffer> <Up> gk
-  autocmd Filetype markdown,text,taskedit inoremap <buffer> <expr> <Down> pumvisible() ? "\<Down>" : "\<C-\>\<C-o>gj"
-  autocmd Filetype markdown,text,taskedit inoremap <buffer> <expr> <Up> pumvisible() ? "\<Up>" : "\<C-\>\<C-o>gk"
-augroup END
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " Delete current file
 nnoremap <Leader><Del> :call delete(expand('%')) \| echo "Deleted file."<CR>
@@ -117,7 +106,6 @@ nnoremap <Leader>o <C-w>o
 
 " Save as root and source ~/.vimrc
 cmap w!! w !sudo tee % > /dev/null
-command Sv :so ~/.vimrc
 
 
 " Plugins
