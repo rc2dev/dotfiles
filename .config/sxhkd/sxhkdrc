@@ -20,7 +20,7 @@ super + f
   $TERMINAL -e ranger
 
 super + shift + f
-  nemo
+  nautilus
 
 super + {_, shift} + n
   $TERMINAL -e notes { name, dump }
@@ -42,8 +42,8 @@ super + r
 
 super + s; {c, C, e, m, v, w}
  { \
-  chromium, \
-  chromium --temp-profile, \
+  chromium-browser, \
+  chromium-browser --temp-profile, \
   thunderbird, \
   $TERMINAL -n cmus -e cmus, \
   pavucontrol, \
@@ -52,19 +52,19 @@ super + s; {c, C, e, m, v, w}
 
 super + x
   $TERMINAL -e bash -c "\
-    fd $FD_ARGS --no-hidden --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources ~/Videos | \
+    fd --follow --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources ~/Videos | \
     fzf --height 100% --margin 7%\,5% --no-preview | \
     xargs -r -d'\n' -P 0 -n 1 xdg-open \
   "
 
 super + {_, shift} + w
-  x-www-browser {_, --private-window}
+  $BROWSER {_, --private-window}
 
 super + y
   dmenu_yt
 
 super + z
-  x-www-browser https://www.myfitnesspal.com/pt/food/diary
+  $BROWSER https://www.myfitnesspal.com/pt/food/diary
 
 super + {_, shift, ctrl } + period
   dunstctl { context, close, history-pop }

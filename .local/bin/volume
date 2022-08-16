@@ -7,11 +7,11 @@
 #
 
 notify_id=101
-bar_max_size=24
+bar_max_size=14
 step=5
 
 function get_volume {
-    pamixer --get-volume | cut -f 1 -d ' '
+    pactl get-sink-volume @DEFAULT_SINK@ | awk -F/ '{print $2}' | sed 's/ //g;s/%//g'
 }
 
 function get_volume_icon {
@@ -35,7 +35,6 @@ function volume_notification {
     vol_num="$volume%"
 
     bar_size=$((volume / step))
-    echo $bar_size
     if [[ $bar_size -gt $bar_max_size ]]; then
         bar_size=$bar_max_size
     fi

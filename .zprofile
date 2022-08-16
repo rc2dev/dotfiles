@@ -59,6 +59,7 @@ export XRESOURCES="$HOME/.config/X11/Xresources"
 export WALLPAPERS="$HOME/Pictures/Wallpapers"
 
 # Default applications
+export BROWSER="firefox"
 export EDITOR="vim"
 export TERMINAL="st"
 
@@ -109,3 +110,7 @@ export _ZO_EXCLUDE_DIRS="$HOME:/media/$(whoami):/media/$(whoami)/*"
 # zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
 
+# Workaround as GDM on Fedora 36 doesn't read ~/.xprofile
+if [ "$XDG_SESSION_DESKTOP" = "dwm" ]; then
+	source $HOME/.config/X11/dwmprofile
+fi

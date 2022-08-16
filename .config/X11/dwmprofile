@@ -1,37 +1,22 @@
-# ~/.xprofile
-#
 # Startup commands for dwm
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-source $HOME/.zprofile
 xrdb $XRESOURCES
 
-if [ "$XDG_SESSION_DESKTOP" != "dwm" ]; then
-  return 0
-fi
-
-# Gnome Keyring
-if ! pgrep -u "$USER" gnome-keyring-daemon > /dev/null; then
-  eval $(gnome-keyring-daemon --start)
-  export SSH_AUTH_SOCK
-fi
-
-# Polkit agent - so GUI applications can request privileges
-lxpolkit &
-
 # Basic utilities
+lxpolkit &  # Polkit agent, so GUI applications can request privileges
 xsettingsd &
 remap-kb &
 sxhkd &
 gen-dunst-theme &  # This already calls dunst
 nitrogen --restore &
+/usr/libexec/geoclue-2.0/demos/agent &  # Needed for redshift on Fedora WM
 redshift-gtk &
-compton &
+picom &
 clipmenud &
 nm-applet &
 system-config-printer-applet &
-syncthing-gtk --minimized &
 keepassxc &
 
 # rd specific
