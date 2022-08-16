@@ -9,8 +9,6 @@ function! s:SetTransparency()
 
   let l:theme_guibg = synIDattr(hlID('Normal'), 'bg')
   hi Normal guibg=NONE ctermbg=NONE
-  " Fix :terminal having black background after the above command.
-  execute 'hi Terminal guibg=' . l:theme_guibg
 endfunction
 
 augroup colorscheme
