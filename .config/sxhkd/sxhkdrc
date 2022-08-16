@@ -12,8 +12,8 @@ super + shift + d
 
 super + {_, shift} + e
   { \
-    $TERMINAL -e vim +History, \
-    $TERMINAL -e yadm enter vim +GFiles \
+    $TERMINAL -e nvim +History, \
+    $TERMINAL -e yadm enter nvim +GFiles \
   }
 
 super + f

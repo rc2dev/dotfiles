@@ -14,10 +14,10 @@ has_changed() {
 }
 
 # Update VIM plugins
-if has_changed .vimrc; then
-  echo "\n[Hook] vimrc changed: Installing/cleaning VIM plugins..."
+if has_changed init.vim; then
+  echo "\n[Hook] vimrc changed: Installing/cleaning neovim plugins..."
   # PlugInstall doesn't proceed with GIT_DIR set (https://github.com/junegunn/vim-plug/issues/506).
-  (unset GIT_DIR GIT_WORK_TREE && vim +PlugClean! PlugInstall +qa!)
+  (unset GIT_DIR GIT_WORK_TREE && nvim +PlugClean! PlugInstall +qa!)
 fi
 
 if has_changed yadm/bootstrap; then

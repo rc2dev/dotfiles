@@ -47,9 +47,6 @@ nnoremap <Leader>q :q<CR>
 " Avoid unintentional switch to Ex mode
 nmap Q <nop>
 
-" Edit vimrc
-nnoremap <Leader>ev :e ~/.vimrc<CR>
-
 " Toggle folding with <Tab>
 nnoremap <Tab> za
 

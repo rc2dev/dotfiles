@@ -18,7 +18,7 @@ main() {
 	if [[ -t 0 ]]; then
 		update_distro
 		update_flatpaks
-		update_vim
+		update_nvim
 		update_zinit
 		update_submodules
 	fi
@@ -126,11 +126,11 @@ update_ydl() {
 	pipx upgrade yt-dlp
 }
 
-update_vim() {
-	has_command vim || return 0
+update_nvim() {
+	has_command nvim || return 0
 
-	log_step "Atualizando plugins do VIM..."
-	vim +PlugClean! +PlugUpdate +qa!
+	log_step "Atualizando plugins do Neovim..."
+	nvim +PlugClean! +PlugUpdate +qa!
 }
 
 update_repos() {

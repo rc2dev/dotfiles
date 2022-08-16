@@ -60,7 +60,7 @@ export WALLPAPERS="$HOME/Pictures/Wallpapers"
 
 # Default applications
 export BROWSER="firefox"
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERMINAL="st"
 
 

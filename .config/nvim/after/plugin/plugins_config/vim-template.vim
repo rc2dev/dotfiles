@@ -1,7 +1,7 @@
 " vim-template config
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-let g:templates_directory = ['$HOME/.vim/templates']
+let g:templates_directory = ['$HOME/.config/nvim/templates']
 
 " Replace colon as Android 11 doesn't like them.
 let g:templates_name_prefix = '.vim-template_'

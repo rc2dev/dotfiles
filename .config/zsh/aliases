@@ -66,12 +66,13 @@ take() {
 
 # Edit
 alias e="$EDITOR"
-alias ef="vim +Rg"
-alias ep="vim +Files"
-alias et="vim +History"
+alias ef="nvim +Rg"
+alias ep="nvim +Files"
+alias et="nvim +History"
 # Don't use `ye`, since vim-plug operations fail with those variables set.
-alias ev="e ~/.vimrc"
+alias ev="e ~/.config/nvim/init.vim"
 alias ey="ye"
+alias vim="nvim"
 
 # zoxide: make z interactive when run without arguments.
 # This is the same as "zi", but we define it directly, so we can reuse zi.
@@ -141,7 +142,7 @@ alias ysh="yadm show"
 alias ysw="yadm switch"
 alias yst="yadm status"
 alias yw="xdg-open https://rafaelc.org/dotfiles >/dev/null 2>&1 & disown"
-alias ye="yadm enter vim +GFiles"
+alias ye="yadm enter nvim +GFiles"
 alias yn="yadm enter"
 
 # Use bat if available

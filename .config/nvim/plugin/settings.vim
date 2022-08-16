@@ -57,13 +57,5 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-" Put swap files in one directory. Fallback to working dir.
-silent !mkdir -p ~/.vim/tmp/swap
-set directory=$HOME/.vim/tmp/swap//,.
-
-" Move ~/.viminfo to ~/.vim
-silent !mkdir -p ~/.vim/tmp
-set viminfo+='5000,n~/.vim/tmp/viminfo
-
 " Fix gx hanging VIM until exiting opened file
 let g:netrw_browsex_viewer="gio open"
