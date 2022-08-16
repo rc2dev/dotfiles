@@ -44,10 +44,6 @@ if [[ "$HOST" == "localhost" && -n "${SSH_CLIENT:-}" ]]; then
 	termux-wake-lock
 fi
 
-# Make Qt use GTK style
-# Be sure to install qt5-style-plugins
-export QT_QPA_PLATFORMTHEME=gtk2
-
 # Auto logout on tty if inactive
 if [[ $(tty) =~ /dev\/tty ]]; then TMOUT=120; fi
 
