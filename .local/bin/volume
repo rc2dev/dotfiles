@@ -34,7 +34,7 @@ function volume_notification {
     vol_icon=`get_volume_icon $volume`
     vol_num="$volume%"
 
-    bar_size=$((volume / step))
+    bar_size=$((volume * bar_max_size / 100))
     if [[ $bar_size -gt $bar_max_size ]]; then
         bar_size=$bar_max_size
     fi
