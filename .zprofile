@@ -3,9 +3,6 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-# Set HOST if unset
-export HOST="${HOST:-$(hostname)}"
-
 # User's private bin
 if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
@@ -28,18 +25,6 @@ fi
 
 # Move ~/go to ~/.local
 export GOPATH="$HOME/.local/go"
-
-# Termux: Set runtime dir
-if [[ "$HOST" == "localhost" && -z "${XDG_RUNTIME_DIR:-}" ]]; then
-	export XDG_RUNTIME_DIR="$PREFIX/var/run"
-fi
-
-# Termux: Start OpenSSH agent if needed
-if [[ "$HOST" == "localhost" && -z "${SSH_AUTH_SOCK:-}" ]]; then
-	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
-	rm -f "$SSH_AUTH_SOCK"
-	ssh-agent -t 1h -a "$SSH_AUTH_SOCK" > /dev/null
-fi
 
 # Termux: If connected via SSH, grab wake-lock
 if [[ "$HOST" == "localhost" && -n "${SSH_CLIENT:-}" ]]; then
@@ -102,9 +87,6 @@ export MANPAGER="less -s -M +Gg"
 export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --select-1 --no-multi --preview 'tree {2..}' --height 40%"
 # Resolve symlinks before adding to DB: prevents duplicates
 export _ZO_RESOLVE_SYMLINKS=1
-# $HOME is excluded by default. Also exclude directories with network mount points.
-# Use `whoami` instead of `$USER`, or termux-url-open fails.
-export _ZO_EXCLUDE_DIRS="$HOME:/media/$(whoami):/media/$(whoami)/*"
 
 # zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
