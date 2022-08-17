@@ -1,6 +1,2 @@
 [rebase]
   autoStash = true
-
-[filter "flameshot"]
-  clean = "sed -E '/^savePath/d; /^draw/d'"
-
