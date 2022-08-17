@@ -26,6 +26,9 @@ if [ -d "$HOME/.rvm/bin" ]; then
 	export PATH="$PATH:$HOME/.rvm/bin"
 fi
 
+# Move ~/go to ~/.local
+export GOPATH="$HOME/.local/go"
+
 # Termux: Set runtime dir
 if [[ "$HOST" == "localhost" && -z "${XDG_RUNTIME_DIR:-}" ]]; then
 	export XDG_RUNTIME_DIR="$PREFIX/var/run"
