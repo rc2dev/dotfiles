@@ -10,11 +10,11 @@
 /*             FONTS             */
 /*********************************/
 
-dmenu.font: Ubuntu:size=11
+dmenu.font: Fira Sans:size=11
 /* Use patched font for icons on tags. */
-dwm.font: Ubuntu Nerd Font:size=10:style=Book
-St.font: Ubuntu Mono:pixelsize=18:antialias=true:autohint=true
-Dunst.font: Ubuntu 11
+dwm.font: Fira Sans:size=11:style=Book
+St.font: Fira Mono:pixelsize=17
+Dunst.font: Fira Sans 11
 
 /* Fix font rendering on Wine applications on standalone WMs. */
 Xft.autohint: 0
