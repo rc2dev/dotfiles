@@ -1,2 +1,2 @@
 [Context]
-filesystems=~/.icons/:ro;~/.themes/:ro
+filesystems=~/.local/share/icons/:ro;~/.themes/:ro
