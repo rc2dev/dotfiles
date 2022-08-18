@@ -34,9 +34,8 @@ super + shift + q
 super + r
   dmenu_url
 
-super + s; {c, C, e, m, v, w}
+super + s; {c, e, m, v, w}
  { \
-  chromium-browser, \
   chromium-browser --temp-profile, \
   thunderbird, \
   $TERMINAL -n cmus -e cmus, \
@@ -52,7 +51,7 @@ super + x
   "
 
 super + {_, shift} + w
-  $BROWSER {_, --private-window}
+  $BROWSER {_, --incognito}
 
 super + y
   dmenu_yt
