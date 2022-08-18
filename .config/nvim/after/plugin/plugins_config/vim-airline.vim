@@ -25,3 +25,5 @@ let g:airline#extensions#wordcount#enabled = 0
 " Redifine section z
 let g:airline_section_z = '%p%%%{g:airline_symbols.linenr}%l,%v %#__accent_bold#%{g:airline_symbols.maxlinenr} %L%#__restore__#'
 
+" Fix git branch symbol
+let g:airline_symbols.branch = ''
