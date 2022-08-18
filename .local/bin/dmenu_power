@@ -11,8 +11,6 @@ readonly fg_selected="#eeeeee"
 
 readonly options="$(cat <<-END
 	Restart dwm#killall -HUP dwm
-	Lock#slock
-	Switch user#dm-tool switch-to-greeter
 	Logout#killall -TERM dwm
 	Suspend#systemctl suspend
 	Reboot#systemctl reboot
