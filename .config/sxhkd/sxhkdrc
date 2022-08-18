@@ -34,12 +34,9 @@ super + shift + q
 super + r
   dmenu_url
 
-super + s; {c, e, m, v, w}
+super + s; {m, w}
  { \
-  chromium-browser --temp-profile, \
-  thunderbird, \
   $TERMINAL -n cmus -e cmus, \
-  pavucontrol, \
   qimgv $WALLPAPERS, \
  }
 
