@@ -139,7 +139,10 @@ update_repos() {
 	# Don't output the glob if no directory found.
 	shopt -s nullglob
 
-	for i in $HOME/.local/opt/*/.git $HOME/.themes/*/.git $HOME/.local/share/icons/*/.git; do
+	for i in \
+		$HOME/.local/opt/*/.git \
+		$HOME/.local/share/themes/*/.git \
+		$HOME/.local/share/icons/*/.git; do
 		# Don't update repo if it's a submodule
 		if [[ ! -d "$i" ]]; then
 			continue
