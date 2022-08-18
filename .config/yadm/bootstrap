@@ -11,6 +11,11 @@ readonly script_name=$(basename "${0}")
 readonly script_dir="$(dirname "$(readlink -f "$0")")"
 
 main() {
+  # To hide README and LICENSE
+  log "Setting sparse checkout..."
+  yadm gitconfig core.sparseCheckout true
+  yadm sparse-checkout set '/*' '!/README.md' '!/LICENSE'
+
   # Necessary if submodule remote url changes
   log "Syncing submodules if already present..."
   yadm submodule sync
