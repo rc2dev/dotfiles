@@ -22,8 +22,12 @@ super + f
 super + shift + f
   nautilus
 
-super + {_, shift} + n
-  $TERMINAL -e notes { name, dump }
+super + {_, shift, ctrl} + n
+  { \
+    $TERMINAL -e notes name, \
+    $TERMINAL -e notes dump, \
+    $TERMINAL -n plan -e notes today, \
+  }
 
 super + p
   keepassxc
