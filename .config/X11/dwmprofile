@@ -4,7 +4,6 @@
 
 xrdb $XRESOURCES
 
-# Basic utilities
 lxpolkit &  # Polkit agent, so GUI applications can request privileges
 xsettingsd &
 remap-kb &
@@ -18,6 +17,7 @@ clipmenud &
 nm-applet &
 system-config-printer-applet &
 keepassxc &
+$TERMINAL -n plan -e notes today &
 
 # rd specific
 if [ "$HOST" = "rd" ]; then
