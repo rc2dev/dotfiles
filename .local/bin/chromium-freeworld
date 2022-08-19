@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
 #
 # Wrapper for Chromium to get flags from a file.
-#
 # Lines starting with `#` are ignored.
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-readonly browser="$(basename "$0")"
-
-readonly config_home=${XDG_CONFIG_HOME:-~/.config}
-readonly flags_file="$config_home/chromium/flags.conf"
+readonly flags_file="${XDG_CONFIG_HOME:-$HOME/.config}/chromium/flags.conf"
 
 if [[ -f "$flags_file" ]]; then
    readonly flags="$(sed '/^#/d' "$flags_file")"
 fi
 
-exec /usr/bin/$browser ${flags:-} "$@"
+exec /usr/bin/"$(basename "$0")" ${flags:-} "$@"
