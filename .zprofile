@@ -43,7 +43,7 @@ export XRESOURCES="$HOME/.config/X11/Xresources"
 export WALLPAPERS="$HOME/Pictures/Wallpapers"
 
 # Default applications
-export BROWSER="chromium-browser"
+export BROWSER="chromium-freeworld"
 export EDITOR="nvim"
 export TERMINAL="st"
 
