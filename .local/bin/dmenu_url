@@ -9,15 +9,16 @@ readonly term="$TERMINAL"
 readonly term_instance="sys"
 
 declare -Ar options=(
-	["yt-dlp"]="ydl"
-	["mpv"]="mpv"
-	["Wallabag it"]="to_wallabag"
 	["Brave"]="brave-browser"
 	["Brave (incognito)"]="brave-browser --incognito"
+	["Chromium"]="chromium"
 	["Chromium (incognito)"]="chromium --incognito"
-	["Chromium (temporary)"]="chromium --temp-profile"
+	["Chromium (guest)"]="chromium --guest"
 	["Firefox"]="firefox"
 	["Firefox (incognito)"]="firefox_private"
+	["mpv"]="mpv"
+	["yt-dlp"]="ydl"
+	["Wallabag it"]="to_wallabag"
 )
 
 ydl() {
