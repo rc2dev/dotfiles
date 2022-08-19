@@ -10,7 +10,7 @@ super + c
 super + shift + d
   light-dark
 
-super + {_, shift} + e
+super + e; {t, y}
   { \
     $TERMINAL -e nvim +History, \
     $TERMINAL -e yadm enter nvim +GFiles \
