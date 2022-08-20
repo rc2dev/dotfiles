@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#
+# Copyright (C) 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly unit_name="dmenu_radio_player"
+declare -r streams="\
+  ⏹ Stop
+  -------- MUSIC --------
+  Cadena 100,https://cadena100-cope.flumotion.com/chunks.m3u8
+  Cadena Dial,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENADIAL.mp3
+  Canal Fiesta Radio,https://cdnlive.shooowit.net/rtvalive/smil:channel5.smil/master.m3u8
+  LOS40,https://playerservices.streamtheworld.com/api/livestream-redirect/Los40.mp3
+  Lofi,https://www.youtube.com/watch?v=jfKfPfyJRdk
+  Radio 3,https://rtvelivestream.akamaized.net/segments/rne/rne_r3_main.m3u8
+  Radiolé,https://playerservices.streamtheworld.com/api/livestream-redirect/RADIOLE.mp3
+  ----- GENERALISTAS -----
+  COPE,https://flucast-m04-06.flumotion.com/cope/net1.mp3
+  Cadena SER,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3
+  Radio 5,https://rtvelivestream.akamaized.net/segments/rne/rne_r5_madrid_main.m3u8
+  Radio María,http://dreamsiteradiocp.com:8060/;stream.mp3
+  Radio Nacional,https://rtvelivestream.akamaized.net/segments/rne/rne_r1_main.m3u8
+"
+
+readonly chosen="$(printf "%s" "$streams" | sed -E 's/^\s+//;s/,.*$//' | dmenu -p "radio:" -l 9 -g 7)"
+if [[ -z "$chosen" ]] || [[ "$chosen" =~ --- ]]; then
+  exit
+fi
+
+systemctl --user stop "$unit_name" || true
+if [[ "$chosen" =~ Stop ]]; then
+  exit
+fi
+
+readonly url="$(printf "%s" "$streams" | grep "$chosen" | cut -d, -f 2-)"
+systemd-run --user --collect --unit "$unit_name" mpv --no-video --no-resume-playback --shuffle "$url"
+
