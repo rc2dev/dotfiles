@@ -109,7 +109,7 @@ update_flatpaks() {
 	ask "Atualizar flatpaks?" || return 0
 
 	log_step "Atualizando flatpaks..."
-	flatpak update
+	sudo flatpak update
 }
 
 update_dotfiles() {
