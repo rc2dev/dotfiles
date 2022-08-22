@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Git wrapper and command runner for dotfiles repo.
+#
+# Copyright (C) 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+export GIT_DIR="$HOME/.local/share/dotfiles/repo.git"
+export GIT_WORK_TREE="$HOME"
+
+case $1 in
+  cmd)
+    shift
+    exec "$@"
+    ;;
+  *)
+    git "$@"
+    ;;
+esac

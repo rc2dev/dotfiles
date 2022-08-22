@@ -1,1 +1,0 @@
-/home/rafael/.config/systemd/user/backup-from-cloud.timer

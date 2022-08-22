@@ -20,15 +20,15 @@ if has_changed init.vim; then
   (unset GIT_DIR GIT_WORK_TREE && nvim +PlugClean! PlugInstall +qa!)
 fi
 
-if has_changed yadm/bootstrap; then
-  echo "\n[Hook] yadm's bootstrap changed: Running it again..."
-  yadm bootstrap
+if has_changed dotfiles/install; then
+  echo "\n[Hook] dotfiles install script changed: Running it again..."
+  git install
 fi
 
 if has_changed .gitmodules; then
   echo "\n[Hook] ~/.gitmodules changed: Syncing and initializing submodules..."
-  yadm submodule sync --recursive
-  yadm submodule update --init --recursive
+  git submodule sync --recursive
+  git submodule update --init --recursive
 fi
 
 if has_changed .config/jumps.conf; then

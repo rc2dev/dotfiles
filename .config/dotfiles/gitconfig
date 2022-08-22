@@ -1,0 +1,13 @@
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+[alias]
+  install = ! ~/.config/dotfiles/install
+
+[core]
+  hooksPath = ~/.config/dotfiles/hooks
+
+[rebase]
+  autoStash = true
+
+[status]
+  showUntrackedFiles = no

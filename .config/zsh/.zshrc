@@ -150,9 +150,6 @@ bindkey '^O' fzf-cd-widget
 #####################################################################
 # Completion (should be after loading plugins with zinit)
 #####################################################################
-# Add custom path for completions
-fpath=($HOME/.local/share/zsh/completions $fpath)
-
 autoload -Uz compinit
 compinit -d "$ZSH_CACHE_DIR/zcompdump"
 

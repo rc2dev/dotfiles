@@ -13,7 +13,7 @@ super + shift + d
 super + e; {t, y}
   { \
     $TERMINAL -e nvim +History, \
-    $TERMINAL -e yadm enter nvim +GFiles \
+    $TERMINAL -e dotfiles cmd nvim +GFiles \
   }
 
 super + f

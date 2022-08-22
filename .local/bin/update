@@ -54,11 +54,6 @@ ask() {
 	return 0
 }
 
-# Workaround for syntax error
-yadm() {
-	bash "$HOME/.local/bin/yadm" "$@"
-}
-
 update_distro() {
 	ask "Atualizar pacotes da distro?" || return 0
 
@@ -113,10 +108,19 @@ update_flatpaks() {
 }
 
 update_dotfiles() {
-	has_command yadm || return 0
+	has_command dotfiles || return 0
 
 	log_step "Atualizando dotfiles..."
-	yadm pull
+	dotfiles pull
+}
+
+update_submodules() {
+	has_command dotfiles || return 0
+
+	ask "Atualizar submódulos dos dotfiles?" || return 0
+
+	log_step "Atualizando submódulos dos dotfiles..."
+	dotfiles submodule update --recursive --remote
 }
 
 update_ydl() {
@@ -157,14 +161,6 @@ update_zinit() {
 
 	log_step "Atualizando zsh zinit..."
 	zsh -ic "zinit update --parallel" || true
-}
-
-update_submodules() {
-	has_command yadm || return 0
-	ask "Atualizar submódulos dos dotfiles?" || return 0
-
-	log_step "Atualizando submódulos yadm..."
-	yadm submodule update --recursive --remote
 }
 
 is_osmc() {

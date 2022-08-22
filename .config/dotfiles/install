@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+#
+# Install and setup dotfiles.
+#
+# Copyright (C) 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly remote_repo="https://github.com/rc2dev/dotfiles.git"
+readonly local_repo="$HOME/.local/share/dotfiles/repo.git"
+
+log() {
+  printf "%s\n" "$*" 1>&2
+}
+
+export GIT_DIR="$local_repo"
+export GIT_WORK_TREE="$HOME"
+
+cd "$HOME"
+
+if [[ ! -d "$local_repo" ]]; then
+  git clone --bare "$remote_repo" "$local_repo"
+  git stash
+  git checkout
+fi
+
+# To hide README and LICENSE
+log "Setting sparse checkout..."
+git config core.sparseCheckout true
+git sparse-checkout set '/*' '!/README.md' '!/LICENSE'
+
+# Necessary if submodule remote url changes
+log "Syncing submodules if already present..."
+git submodule sync
+
+log "Initializing submodules..."
+git submodule update --init --recursive
+
+log "Setting path for repository config..."
+git config include.path ~/.config/dotfiles/gitconfig
+
+log "Installing neovim plugins..."
+(unset GIT_DIR && unset GIT_WORK_TREE && nvim +PlugInstall +qa!)
+
+case $(hostname) in
+  rd)
+    log "Enabling system user units for rd..."
+    systemctl --user enable playerctld.service
+    systemctl --user enable backup-from-cloud.timer
+    systemctl --user enable sync-rclone.timer
+    ;;
+  x220)
+    log "Enabling system user units for x220..."
+    systemctl --user enable playerctld.service
+    systemctl --user enable sync-rclone.timer
+    ;;
+esac
+
