@@ -7,6 +7,9 @@ augroup rc2dev
   " Resize splits automatically if VIM is resized
   autocmd VimResized * execute "normal! \<C-w>="
 
+  " nvim: Start terminal on insert mode
+  autocmd TermOpen * startinsert
+
   " Filter temporary git files from :oldfiles and :History
   autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "COMMIT_EDITMSG"')
   autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "rebase-merge"')
