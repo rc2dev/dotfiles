@@ -4,6 +4,10 @@
 
 xrdb $XRESOURCES
 
+# Make Qt applications to be styled as Gtk
+# (needes QGnomePlatform, installed by default on Fedora)
+export QT_QPA_PLATFORMTHEME=gnome
+
 lxpolkit &  # Polkit agent, so GUI applications can request privileges
 xsettingsd &
 remap-kb &
