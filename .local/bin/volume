@@ -44,8 +44,8 @@ function volume_notification {
 }
 
 function mute_notification {
-    muted=$(pamixer --get-mute)
-    if [ $muted == true ]
+    muted="$(pactl get-sink-mute @DEFAULT_SINK@)"
+    if [[ "$muted" == "Mute: yes" ]]
     then
         dunstify -r $notify_id -u low -t 3000 -i audio-volume-muted-symbolic Mute
     else
