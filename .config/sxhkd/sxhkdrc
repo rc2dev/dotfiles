@@ -57,8 +57,11 @@ super + {_, shift} + w
 super + y
   dmenu_yt
 
-super + z
-  $BROWSER https://www.myfitnesspal.com/pt/food/diary
+super + {_, shift} + z
+  { \
+    $BROWSER https://www.myfitnesspal.com/pt/food/diary, \
+    xdg-open ~/Documents/Em.ods, \
+  }
 
 super + {_, shift, ctrl } + period
   dunstctl { context, close, history-pop }
