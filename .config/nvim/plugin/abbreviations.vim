@@ -14,6 +14,7 @@ iab mt muito
 iab Mt Muito
 iab pq porque
 iab Pq Porque
+iab q que
 iab tb também
 iab Tb Também
 iab tlvz talvez
