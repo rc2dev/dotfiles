@@ -18,16 +18,6 @@ truncate() {
   fi
 }
 
-bar_vol() {
-  if [[ "$(pamixer --get-mute)" == "1" ]]; then
-    local -r icon="🔇"
-  else
-    local -r icon="🔊"
-  fi
-
-  printf "%s %3d%%" "${icon}" "$(pamixer --get-volume | cut -f 1 -d ' ')"
-}
-
 bar_player() {
   local -r status="$(playerctl status 2>/dev/null)"
 
