@@ -23,9 +23,10 @@ bar_player() {
 
   [[ "$status" =~ (Playing|Paused) ]] || return 0
 
+  # Reverse to match mpv
   case $status in
-    Playing) local -r icon=;;
-    Paused) local -r icon=;;
+    Playing) local -r icon=;;
+    Paused) local -r icon=;;
   esac
 
   # Calling metadata...
