@@ -6,9 +6,10 @@ ZSH_CACHE_DIR="$HOME/.cache/zsh"
 mkdir -p "$ZSH_CACHE_DIR"
 
 
-####################################################################
-# History
-####################################################################
+############################################################
+### History
+############################################################
+
 HISTFILE="$ZSH_CACHE_DIR/history"
 HISTSIZE=5000
 SAVEHIST=10000
@@ -23,9 +24,10 @@ setopt hist_ignore_space
 setopt share_history
 
 
-#####################################################################
-# Keybindings
-#####################################################################
+############################################################
+### Keybindings
+############################################################
+
 # Use emacs keybindings
 set -o emacs
 
@@ -76,9 +78,10 @@ bindkey "^x" edit-command-line
 bindkey -s "^[[1;3A" 'cd ..^M'
 
 
-######################################################################
-# Behaviour
-######################################################################
+############################################################
+### Behaviour
+############################################################
+
 # Set cursor as bar
 _fix_cursor() {
    echo -ne '\e[5 q'
@@ -96,18 +99,15 @@ zle -N bracketed-paste bracketed-paste-url-magic
 setopt rm_star_silent
 
 
-#####################################################################
-# Plugins framework
-#####################################################################
-# Source zinit
+############################################################
+### Plugins sourcing
+############################################################
+
+# Source plugin framework (zinit)
 declare -A ZINIT
 ZINIT[HOME_DIR]="$HOME/.local/share/zsh/zinit"
 source "$ZINIT[HOME_DIR]/bin/zinit.zsh"
 
-
-#####################################################################
-# Plugins sourcing
-#####################################################################
 # Plugins from robbyrussell's oh-my-zsh
 for plugin in "command-not-found" "git"; do
   zinit snippet OMZ::plugins/$plugin/$plugin.plugin.zsh
@@ -133,9 +133,10 @@ zinit ice wait lucid
 command -v zoxide >/dev/null && eval "$(zoxide init --no-aliases zsh)"
 
 
-#####################################################################
-# Plugins configuration
-#####################################################################
+############################################################
+### Plugins configuration
+############################################################
+
 # fzf
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FD_DIRS"
@@ -149,9 +150,10 @@ zle -N fzf-cd-widget
 bindkey '^O' fzf-cd-widget
 
 
-#####################################################################
-# Completion (should be after loading plugins with zinit)
-#####################################################################
+###########################################################
+### Completion (should be after loading plugins with zinit)
+###########################################################
+
 autoload -Uz compinit
 compinit -d "$ZSH_CACHE_DIR/zcompdump"
 
@@ -178,9 +180,10 @@ zstyle ':completion:*:processes' sort false
 zstyle ':completion:*:processes-names' command ps axh -o cmd
 
 
-######################################################################
-# Non-zsh
-######################################################################
+############################################################
+### Non-zsh
+############################################################
+
 # less: Have less (and man) display colours
 # Based on <https://unix.stackexchange.com/a/147>.
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
