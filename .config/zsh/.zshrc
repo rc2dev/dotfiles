@@ -24,7 +24,7 @@ setopt share_history
 
 
 #####################################################################
-# Interface
+# Keybindings
 #####################################################################
 # Use emacs keybindings
 set -o emacs
@@ -36,16 +36,18 @@ bindkey -M menuselect '^k' vi-up-line-or-history
 bindkey -M menuselect '^l' vi-forward-char
 bindkey -M menuselect '^j' vi-down-line-or-history
 
-# History with arrow up/down and vim's ctrl+jk
+# History with arrow up/down
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[OA" up-line-or-beginning-search
-bindkey "^k" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 bindkey "^[OB" down-line-or-beginning-search
-bindkey "^j" down-line-or-beginning-search
+
+# Use ctrl-b/j instead of alt-b/j
+bindkey "^f" forward-word
+bindkey "^b" backward-word
 
 # Move to beginning/end of words with ctrl
 bindkey "^[[1;5C" forward-word
@@ -68,21 +70,21 @@ bindkey "^[[P" delete-char
 # Add keybinding for editing in text editor
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey "^E" edit-command-line
+bindkey "^x" edit-command-line
 
 # Add keybinding for going to parent dir (Alt+Up)
 bindkey -s "^[[1;3A" 'cd ..^M'
 
+
+######################################################################
+# Behaviour
+######################################################################
 # Set cursor as bar
 _fix_cursor() {
    echo -ne '\e[5 q'
 }
 precmd_functions+=(_fix_cursor)
 
-
-######################################################################
-# Behaviour
-######################################################################
 # Globbing: Use ^ to negate
 setopt extendedglob
 
