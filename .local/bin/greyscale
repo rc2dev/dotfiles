@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Toggles grayscale using compton.
+# Toggles grayscale using picom.
 # Based on https://wiki.archlinux.org/title/Picom#Grayscale
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
@@ -11,12 +11,12 @@ readonly cmd="${1:-}"
 
 case $cmd in
   off)
-    killall compton > /dev/null 2>&1 || true
-    compton -b
+    killall picom > /dev/null 2>&1 || true
+    picom -b
     ;;
   on)
-    killall compton > /dev/null 2>&1 || true
-    compton -b --backend glx --glx-fshader-win "
+    killall picom > /dev/null 2>&1 || true
+    picom -b --backend glx --glx-fshader-win "
       uniform float opacity;
       uniform bool invert_color;
       uniform sampler2D tex;
