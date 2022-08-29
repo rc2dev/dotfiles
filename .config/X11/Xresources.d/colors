@@ -3,8 +3,8 @@
  * Colors for Xresources.
  *
  * Other places for theming:
- * - ~/.xsettingsd, ~/.config/X11/light-dark.conf
- * - ~/.xprofile (fzf)
+ * - ~/.xsettingsd, ~/.config/light-dark.conf
+ * - ~/.zprofile (fzf)
  * - ~/.config/bat/config
  *
  * Author: Rafael Cavalcanti <https://rafaelc.org/dev>
