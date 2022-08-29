@@ -12,7 +12,6 @@ main() {
 
 	update_dotfiles
 	update_git_repos
-	update_ydl
 
 	# Only run if interactive
 	if [[ -t 0 ]]; then
@@ -105,13 +104,6 @@ update_submodules() {
 
 	log_step "Atualizando submódulos dos dotfiles..."
 	dotfiles submodule update --recursive --remote
-}
-
-update_ydl() {
-	(has_command pipx && pipx list | grep -q yt-dlp) || return 0
-
-	log_step "Atualizando pacote yt-dlp do pipx..."
-	pipx upgrade yt-dlp
 }
 
 update_nvim() {
