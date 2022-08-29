@@ -46,4 +46,4 @@ Dunst.transparency: 4
 Dunst.icon_path: /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus-Dark/symbolic/status:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/16x16/apps/
 
 
-#include "colors"
+#include "Xresources.d/colors"

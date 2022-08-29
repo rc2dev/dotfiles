@@ -97,5 +97,5 @@ export ZDOTDIR="$HOME/.config/zsh"
 
 # Workaround as GDM on Fedora 36 doesn't read ~/.xprofile
 if [ "$XDG_SESSION_DESKTOP" = "dwm" ]; then
-	source $HOME/.config/X11/dwmprofile
+	source $HOME/.config/X11/dwm_profile
 fi
