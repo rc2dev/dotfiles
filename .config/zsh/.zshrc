@@ -109,7 +109,7 @@ ZINIT[HOME_DIR]="$HOME/.local/share/zsh/zinit"
 source "$ZINIT[HOME_DIR]/bin/zinit.zsh"
 
 # Plugins from robbyrussell's oh-my-zsh
-for plugin in "command-not-found" "git"; do
+for plugin in "command-not-found"; do
   zinit snippet OMZ::plugins/$plugin/$plugin.plugin.zsh
 done
 

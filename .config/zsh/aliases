@@ -111,11 +111,26 @@ alias go-chromecast="go-chromecast --first --server-port 39951"
 alias spotdl="spotdl --output-format m4a"
 
 # Git
-gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
+alias ga="git add"
 alias gai="git add -i"
+alias gau="git add -u"
+alias gc="git commit -v"
+alias gc!="git commit -v --amend"
+alias gcp="git cherry-pick"
+alias gco="git checkout"
+alias gd="git diff"
+gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
+alias gl="git pull"
 alias glo="git log --all --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
 alias glon="glo --name-only"
-alias gw="gh repo view --web"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias grb="git rebase"
+alias grba="git rebase --abort"
+alias grbc="git rebase --continue"
+alias grbi="git rebase --interactive"
+alias gsh="git show"
+alias gst="git status"
 
 # dotfiles
 alias y="dotfiles"
@@ -124,13 +139,10 @@ alias yai="y add -i"
 alias yau="y add -u"
 alias yc="y commit -v"
 alias yc!="y commit -v --amend"
-alias yca="y commit -v -a"
 alias ycp="y cherry-pick"
 alias yco="y checkout"
 alias yd="y diff"
-yfr() {
-	dotfiles fetch && dotfiles reset --hard origin/$(dotfiles rev-parse --abbrev-ref HEAD)
-}
+yfr() { dotfiles fetch && dotfiles reset --hard origin/$(dotfiles rev-parse --abbrev-ref HEAD); }
 alias yl="y pull"
 alias ylo="y log --all --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
 alias ylon="ylo --name-only"
@@ -139,9 +151,8 @@ alias ypf="y push --force-with-lease"
 alias yrb="y rebase"
 alias yrba="y rebase --abort"
 alias yrbc="y rebase --continue"
-alias yrbi="y rebase -i"
+alias yrbi="y rebase --interactive"
 alias ysh="y show"
-alias ysw="y switch"
 alias yst="y status"
 alias ye="dotfiles cmd nvim +GFiles"
 
