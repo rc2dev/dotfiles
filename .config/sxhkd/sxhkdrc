@@ -2,7 +2,7 @@ super + a
   dmenu_radio
 
 super + b
-  dmenu-bluetooth
+  blueman-manager
 
 super + c
   gnome-calculator
