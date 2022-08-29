@@ -194,21 +194,6 @@ if [[ -n "$ZSH_VERSION" ]]; then
 	alias -g L="| less"
 fi
 
-# Termux overrides and additions
-if [[ "$HOST" == "localhost" ]]; then
-	# Fix aliases that don't work on Busybox
-	alias rm="rm -v"
-	alias ln="ln -v"
-	alias free="free -m"
-	unalias grep
-
-	# Use single quotes so date is defined upon use.
-	alias backup-termux='tar \
-		-C /data/data/com.termux/files \
-		-zcf /sdcard/Sync/termux-backup-$(date +"%Y-%m-%d_%H-%M-%S").tar.gz \
-		home usr'
-fi
-
 # Source jumping aliases
 [[ ! -e "$ZDOTDIR/jumps_auto" ]] && gen-jumps
 source "$ZDOTDIR/jumps_auto"
