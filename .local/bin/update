@@ -17,7 +17,7 @@ main() {
 	if [[ -t 0 ]]; then
 		update_distro
 		update_flatpaks
-		update_nvim
+		update_nvim_plugins
 		update_zinit_plugins
 		update_submodules
 	fi
@@ -106,7 +106,7 @@ update_submodules() {
 	dotfiles submodule update --recursive --remote
 }
 
-update_nvim() {
+update_nvim_plugins() {
 	has_command nvim || return 0
 
 	log_step "Atualizando plugins do Neovim..."
