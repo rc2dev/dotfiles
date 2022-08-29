@@ -40,8 +40,10 @@ git submodule update --init --recursive
 log "Setting path for repository config..."
 git config include.path ~/.config/dotfiles/config
 
-log "Installing neovim plugins..."
-(unset GIT_DIR && unset GIT_WORK_TREE && nvim +PlugInstall +qa!)
+if command -v nvim >/dev/null; then
+  log "Installing neovim plugins..."
+  (unset GIT_DIR && unset GIT_WORK_TREE && nvim +PlugInstall +qa!)
+fi
 
 case $(hostname) in
   rd)
