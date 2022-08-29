@@ -55,7 +55,6 @@ alias hy="
 alias ..="cd .."
 alias c="clear"
 alias q="exit"
-alias :q="exit"
 alias x="exit"
 take() {
 	if ! mkdir -p "$@"; then
@@ -103,6 +102,7 @@ alias o="xdg-open"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias se="sudo -e"
+alias yts="yt-dlp --all-subs --skip-download"  # Download only subtitles
 
 # Set default options
 alias fd="fd $FD_ARGS"
@@ -162,14 +162,6 @@ command -v bat >/dev/null && alias cat="bat"
 # Docker: quickly start an interactive container
 alias doq="docker run -it --rm -v ~/Downloads:/share"
 
-# mpv and ydl
-# Find and stream audio
-yta() { mpv --no-keep-open --ytdl-format=bestaudio ytdl://ytsearch:"$*"; }
-# Find and stream video
-ytv() { mpv --no-keep-open ytdl://ytsearch:"$*"; }
-# Download only subtitles
-alias yts="yt-dlp --all-subs --skip-download"
-
 # systemctl, journalctl
 alias sc="sudo systemctl"
 alias scu="systemctl --user"
@@ -179,7 +171,7 @@ alias scr="sudo systemctl restart"
 alias scs="systemctl status"
 alias jc="journalctl"
 
-# Package management
+# APT
 alias aar="sudo apt autoremove --purge --yes"
 alias ah="apt search"
 alias ama="sudo apt-mark auto"
@@ -189,6 +181,10 @@ alias ap="sudo apt purge"
 alias au="sudo apt update"
 alias afu="sudo apt update && sudo apt full-upgrade"
 alias aw="apt show"
+
+# dnf
+alias dhh="dnf history | head"
+alias dhu="sudo dnf history undo"
 
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
