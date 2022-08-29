@@ -101,9 +101,6 @@ nnoremap <Leader>tv <C-w>t<C-w>H
 " Close all splits but the current one
 nnoremap <Leader>o <C-w>o
 
-" Save as root and source ~/.vimrc
-cmap w!! w !sudo tee % > /dev/null
-
 
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""
