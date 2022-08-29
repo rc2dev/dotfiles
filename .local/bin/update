@@ -57,10 +57,7 @@ ask() {
 update_distro() {
 	ask "Atualizar pacotes da distro?" || return 0
 
-	# Update distro packages - order matters
-	if is_osmc; then
-		update_distro_osmc
-	elif has_command apt; then
+	if has_command apt; then
 		update_distro_apt
 	else
 		log "Atualização de pacotes não disponível para a sua distro."
@@ -80,23 +77,6 @@ update_distro_apt() {
 
 	log_step "Limpando cache do APT..."
 	$sudo apt clean
-}
-
-update_distro_osmc() {
-	PS3="Como atualizar os pacotes? "
-	select option in "Add-on (recomendado)" "APT"; do
-		case $option in
-			"Add-on (recomendado)" )
-				log_step "Solicitando atualização ao add-on do OSMC..."
-				kodi-send --host=127.0.0.1 --action='RunScript(/usr/share/kodi/addons/script.module.osmcsetting.updates/resources/lib/call_parent.py, update)'
-				break
-				;;
-			"APT" )
-				update_distro_apt
-				break
-				;;
-		esac
-	done
 }
 
 update_flatpaks() {
@@ -161,11 +141,6 @@ update_zinit() {
 
 	log_step "Atualizando zsh zinit..."
 	zsh -ic "zinit update --parallel" || true
-}
-
-is_osmc() {
-	# Termux doesn't have this file, so we silence the errors
-	[[ "$(cat /etc/issue 2>/dev/null)" == *"OSMC"* ]]
 }
 
 has_command() {
