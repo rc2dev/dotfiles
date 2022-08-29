@@ -11,7 +11,7 @@ main() {
 	declare -i step=0
 
 	update_dotfiles
-	update_repos
+	update_git_repos
 	update_ydl
 
 	# Only run if interactive
@@ -19,7 +19,7 @@ main() {
 		update_distro
 		update_flatpaks
 		update_nvim
-		update_zinit
+		update_zinit_plugins
 		update_submodules
 	fi
 
@@ -52,6 +52,10 @@ ask() {
 	fi
 
 	return 0
+}
+
+has_command() {
+	command -v "$1" > /dev/null
 }
 
 update_distro() {
@@ -117,7 +121,7 @@ update_nvim() {
 	nvim +PlugClean! +PlugUpdate +qa!
 }
 
-update_repos() {
+update_git_repos() {
 	log_step "Atualizando repos em ~/..."
 
 	# Don't output the glob if no directory found.
@@ -136,15 +140,11 @@ update_repos() {
 	done
 }
 
-update_zinit() {
+update_zinit_plugins() {
 	has_command zsh || return 0
 
 	log_step "Atualizando zsh zinit..."
 	zsh -ic "zinit update --parallel" || true
-}
-
-has_command() {
-	command -v "$1" > /dev/null
 }
 
 main "$@"
