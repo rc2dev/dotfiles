@@ -21,6 +21,8 @@ iab tlvz talvez
 iab Tlvz Talvez
 iab vc você
 iab Vc Você
+iab vcs vocês
+iab Vcs Vocês
 
 " Command mode
 cabbr <expr> %% fnameescape(expand('%:p:h'))
