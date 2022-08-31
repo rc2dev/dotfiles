@@ -113,10 +113,11 @@ for plugin in "command-not-found"; do
   zinit snippet OMZ::plugins/$plugin/$plugin.plugin.zsh
 done
 
-# fzf
-zinit snippet 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh'
-zinit snippet 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh'
-
+if [[ -e "/usr/share/fzf/shell/key-bindings.zsh" ]]; then
+  zinit snippet "/usr/share/fzf/shell/key-bindings.zsh"  # Fedora
+elif [[ -e "/usr/share/doc/fzf/examples/key-bindings.zsh" ]]; then
+  zinit snippet "/usr/share/doc/fzf/examples/key-bindings.zsh"  # Debian
+fi
 zinit light zsh-users/zsh-autosuggestions
 zinit light denysdovhan/spaceship-prompt
 
