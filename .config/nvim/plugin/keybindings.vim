@@ -71,7 +71,15 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " Delete current file
-nnoremap <Leader><Del> :call delete(expand('%')) \| echo "Deleted file."<CR>
+nnoremap <Leader><Del> :call DeleteFile()<CR>
+function! DeleteFile()
+  if confirm("Delete file?", "&Yes\n&No", 2) != 1
+    return
+  endif
+
+  call delete(expand('%'))
+  bdelete!
+endfunction
 
 " Buffer navigation
 nnoremap <Leader><Leader> <C-^>
