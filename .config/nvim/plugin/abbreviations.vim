@@ -23,5 +23,5 @@ iab vc você
 iab Vc Você
 
 " Command mode
-cabbr <expr> %% expand('%:p:h')
+cabbr <expr> %% fnameescape(expand('%:p:h'))
 
