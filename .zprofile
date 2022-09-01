@@ -32,6 +32,9 @@ if [[ "$HOST" == "localhost" && -n "${SSH_CLIENT:-}" ]]; then
 	termux-wake-lock
 fi
 
+# Use ssh-agent started by user's systemd
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # Auto logout on tty if inactive
 if [[ $(tty) =~ /dev\/tty ]]; then TMOUT=120; fi
 
