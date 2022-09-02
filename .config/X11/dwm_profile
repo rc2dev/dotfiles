@@ -22,6 +22,7 @@ nm-applet &
 system-config-printer-applet &
 keepassxc &
 $TERMINAL -n plan -e notes today &
+$TERMINAL -n plan -e notes next &
 
 # rd specific
 if [ "$HOST" = "rd" ]; then
