@@ -132,6 +132,8 @@ alias grb="git rebase"
 alias grba="git rebase --abort"
 alias grbc="git rebase --continue"
 alias grbi="git rebase --interactive"
+alias gs="git stash"
+alias gsp="git stash pop"
 alias gsh="git show"
 alias gst="git status"
 
