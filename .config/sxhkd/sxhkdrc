@@ -45,6 +45,9 @@ super + s; {m, w}
   qimgv $WALLPAPERS, \
  }
 
+super + v
+  pavucontrol
+
 super + x
   $TERMINAL -e bash -c "\
     fd --follow --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources ~/Videos | \
