@@ -23,7 +23,7 @@ declare -Ar options=(
 
 ydl() {
 	$term -n "$term_instance" -e bash -c '
-		mkdir -p ~/Downloads && cd ~/Downloads
+		mkdir -p ~/Downloads/yt-dlp && cd ~/Downloads/yt-dlp
 		printf "Downloading these URLs:\n"
 		printf "%s\n\n" "$@"
 
