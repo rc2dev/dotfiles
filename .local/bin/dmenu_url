@@ -22,14 +22,12 @@ declare -Ar options=(
 )
 
 ydl() {
-	local -r opts="$1"
-
 	$term -n "$term_instance" -e bash -c '
 		mkdir -p ~/Downloads && cd ~/Downloads
 		printf "Downloading these URLs:\n"
 		printf "%s\n\n" "$@"
 
-		if yt-dlp '$opts' "$@"; then
+		if yt-dlp "$@"; then
 			notify-send --urgency=low "dmenu_url - yt-dlp" "Finished downloading: $@"
 		else
 			notify-send --urgency=critical "dmenu_url - yt-dlp" "Error downloading: $@"
