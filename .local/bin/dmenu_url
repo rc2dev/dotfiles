@@ -27,11 +27,7 @@ ydl() {
 		printf "Downloading these URLs:\n"
 		printf "%s\n\n" "$@"
 
-		if yt-dlp "$@"; then
-			notify-send --urgency=low "dmenu_url - yt-dlp" "Finished downloading: $@"
-		else
-			notify-send --urgency=critical "dmenu_url - yt-dlp" "Error downloading: $@"
-		fi
+		printf "%s\0" "$@" | xargs -0 -n 1 -P 5 yt-dlp
 	' --	"${urls[@]}"
 }
 
