@@ -1,0 +1,16 @@
+[Desktop Entry]
+Version=1.0
+Name=WhatsApp
+Comment=Web App
+Exec=chromium-freeworld --app=https://web.whatsapp.com/ --class=WebApp-WhatsApp9708 --user-data-dir=/home/rafael/.local/share/ice/profiles/WhatsApp9708
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=web-whatsapp
+Categories=GTK;Network;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-WhatsApp9708
+StartupNotify=true
+X-WebApp-Browser=Chromium
+X-WebApp-URL=https://web.whatsapp.com/
+X-WebApp-Isolated=true
