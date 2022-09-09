@@ -150,6 +150,10 @@ bindkey -r "^[c"
 zle -N fzf-cd-widget
 bindkey '^O' fzf-cd-widget
 
+# spaceship-prompt
+SPACESHIP_ASYNC_SHOW=false  # Remove async indicator (3-dots)
+SPACESHIP_EXEC_TIME_SHOW=false
+
 
 ###########################################################
 ### Completion (should be after loading plugins with zinit)
