@@ -46,11 +46,7 @@ export XRESOURCES="$HOME/.config/X11/Xresources"
 export WALLPAPERS="$HOME/Pictures/Wallpapers"
 
 # Default applications
-if [[ -e /usr/bin/chromium-freeworld ]]; then
-	export BROWSER="chromium-freeworld"
-else
-	export BROWSER="brave-browser"
-fi
+export BROWSER="chromium-freeworld"
 export EDITOR="nvim"
 export TERMINAL="st"
 
