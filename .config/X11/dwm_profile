@@ -29,7 +29,7 @@ $TERMINAL -n plan -e notes next &
 if [ "$HOST" = "rd" ]; then
   # If -f is not passed, mouse over dwmbar has the same behaviour
   # as it was over the focused window.
-  imwheel -b "4 5" -f &
+  imwheel -b "45" -f &
 
   # Automatically lock and suspend after idle
   xidlehook \
