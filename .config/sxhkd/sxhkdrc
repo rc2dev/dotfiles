@@ -22,12 +22,11 @@ super + f
 super + shift + f
   nautilus
 
-super + {_, shift, ctrl, alt} + n
+super + {_, shift, ctrl} + n
   { \
     $TERMINAL -e notes name, \
     $TERMINAL -e notes dump, \
     $TERMINAL -n plan -e notes today, \
-    $TERMINAL -n plan -e notes next, \
   }
 
 super + p
