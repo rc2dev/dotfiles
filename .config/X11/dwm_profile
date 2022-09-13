@@ -23,25 +23,12 @@ blueman-applet &
 system-config-printer-applet &
 keepassxc &
 $TERMINAL -n plan -e notes today &
-$TERMINAL -n plan -e notes next &
 
 # rd specific
 if [ "$HOST" = "rd" ]; then
   # If -f is not passed, mouse over dwmbar has the same behaviour
   # as it was over the focused window.
   imwheel -b "45" -f &
-
-  # Automatically lock and suspend after idle
-  xidlehook \
-    --detect-sleep \
-    --not-when-fullscreen \
-    --not-when-audio \
-    --socket "$XIDLEHOOK_SOCK" \
-    --timer 120 'slock' '' \
-    --timer 900 'systemctl suspend' '' \
-    &
-
-  kdeconnect-indicator &
 fi
 
 # Statusbar loop
