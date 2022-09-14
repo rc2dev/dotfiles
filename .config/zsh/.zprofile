@@ -95,6 +95,7 @@ export _ZO_RESOLVE_SYMLINKS=1
 export ZDOTDIR="$HOME/.config/zsh"
 
 # Workaround as GDM on Fedora 36 doesn't read ~/.xprofile
-if [ "$XDG_SESSION_DESKTOP" = "dwm" ]; then
+# `-t 0` will test for interactivity, so this isn't source e.g. on tmux.
+if [ "$XDG_SESSION_DESKTOP" = "dwm" ] && ! [ -t 0 ]; then
 	source $HOME/.config/X11/dwm_profile
 fi
