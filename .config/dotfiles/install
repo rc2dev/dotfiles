@@ -9,21 +9,25 @@ set -euo pipefail
 
 readonly remote_repo="https://github.com/rc2dev/dotfiles.git"
 readonly local_repo="$HOME/.local/share/dotfiles/repo.git"
+readonly tmp_dest="$HOME/.dotfiles_tmp"
 
 log() {
   printf "%s\n" "$*" 1>&2
 }
 
+if [[ ! -d "$local_repo" ]]; then
+  mkdir -p "$(dirname "$local_repo")"
+
+  # Clone first to a temporary dir, or git will fail on a non-empty home.
+  git clone --separate-git-dir="$local_repo" "$remote_repo" "$tmp_dest"
+  rsync --recursive --exclude '.git' "$tmp_dest/" "$HOME/"
+  rm --recursive "$tmp_dest"
+fi
+
 export GIT_DIR="$local_repo"
 export GIT_WORK_TREE="$HOME"
 
 cd "$HOME"
-
-if [[ ! -d "$local_repo" ]]; then
-  git clone --bare "$remote_repo" "$local_repo"
-  git stash
-  git checkout
-fi
 
 # To hide README and LICENSE
 log "Setting sparse checkout..."
