@@ -57,5 +57,3 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-" Fix gx hanging VIM until exiting opened file
-let g:netrw_browsex_viewer="gio open"
