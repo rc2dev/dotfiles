@@ -61,8 +61,6 @@ bar_battery() {
     return
   fi
 
-  local -r notify_id=102
-  local -r low_level=20
   local -r status="$(cat "$battery/status")"
   local -r level="$(cat "$battery/capacity")"
 
@@ -79,13 +77,6 @@ bar_battery() {
     "Not charging") icon="🛑" ;;
     "Unknown") icon="" ;;
   esac
-
-  # Low battery notification
-  if [[ "$status" == "Discharging" && $level -lt $low_level ]]; then
-    dunstify --replace "$notify_id" --urgency=critical "Battery low" "Battery level: $level%."
-  else
-    dunstify --close "$notify_id"
-  fi
 
   echo "$icon $level%"
 }
