@@ -1,0 +1,31 @@
+---
+tick_rate: 1
+critical_level: 5
+low_level: 20
+
+critical:
+  summary: Battery
+  body: Critical level
+  icon: battery-caution
+  urgency: Critical
+
+low:
+  summary: Battery
+  body: Low level
+  icon: battery-020
+
+full:
+  summary: Battery
+  body: Full
+  icon: battery-full
+  urgency: Low
+
+charging:
+  summary: Battery
+  body: Charging
+  icon: battery-good-charging
+
+discharging:
+  summary: Battery
+  body: Discharging
+  icon: battery-good

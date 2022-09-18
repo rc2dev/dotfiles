@@ -15,6 +15,7 @@ augroup rc2dev
   autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "rebase-merge"')
 
   " Run these commands whenever these files are updated
+  autocmd BufWritePost bato.yaml silent !killall bato && bato & disown
   autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
   autocmd BufWritePost dwmbar silent !dwmbar
   autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown

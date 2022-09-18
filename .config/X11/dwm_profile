@@ -24,12 +24,18 @@ system-config-printer-applet &
 keepassxc &
 $TERMINAL -n plan -e notes today &
 
-# rd specific
-if [ "$HOST" = "rd" ]; then
-  # If -f is not passed, mouse over dwmbar has the same behaviour
-  # as it was over the focused window.
-  imwheel -b "45" -f &
-fi
+# Host specific
+case "$HOST" in
+  rd)
+    # If -f is not passed, mouse over dwmbar has the same behaviour
+    # as it was over the focused window.
+    imwheel -b "45" -f &
+    ;;
+
+  x220)
+    bato &
+    ;;
+esac
 
 # Statusbar loop
 while true; do
