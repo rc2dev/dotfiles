@@ -15,23 +15,23 @@ has_changed() {
 
 # Update VIM plugins
 if has_changed init.vim; then
-  echo "\n[Hook] vimrc changed: Installing/cleaning neovim plugins..."
+  printf "\n[Hook] vimrc changed: Installing/cleaning neovim plugins...\n"
   # PlugInstall doesn't proceed with GIT_DIR set (https://github.com/junegunn/vim-plug/issues/506).
   (unset GIT_DIR GIT_WORK_TREE && nvim +PlugClean! PlugInstall +qa!)
 fi
 
 if has_changed dotfiles/install; then
-  echo "\n[Hook] dotfiles install script changed: Running it again..."
+  printf "\n[Hook] dotfiles install script changed: Running it again...\n"
   git install
 fi
 
 if has_changed .gitmodules; then
-  echo "\n[Hook] ~/.gitmodules changed: Syncing and initializing submodules..."
+  printf "\n[Hook] ~/.gitmodules changed: Syncing and initializing submodules...\n"
   git submodule sync --recursive
   git submodule update --init --recursive
 fi
 
 if has_changed .config/jumps.conf; then
-  echo "\n[Hook] jumps.conf changed: Re-generating jumps..."
+  printf "\n[Hook] jumps.conf changed: Re-generating jumps...\n"
   gen-jumps
 fi
