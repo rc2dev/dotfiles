@@ -10,8 +10,12 @@ iab rct Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 " Portuguese typing
 iab dps depois
 iab Dps Depois
+iab msm mesmo
+iab Msm Mesmo
 iab mt muito
 iab Mt Muito
+iab ngm ninguém
+iab Ngm Ninguém
 iab pq porque
 iab Pq Porque
 iab q que
