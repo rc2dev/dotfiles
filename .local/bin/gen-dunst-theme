@@ -26,7 +26,7 @@ cat <<END > "$dunst_dir/00-theme.conf"
     font = $(query_xrdb Dunst.font)
     frame_width = $(query_xrdb Dunst.frame_width)
     transparency = $(query_xrdb Dunst.transparency)
-    icon_path = $(query_xrdb Dunst.icon_path)
+    icon_theme = $(query_xrdb Dunst.icon_theme)
 
 [urgency_low]
     background = "$(query_xrdb Dunst.lowbg)"

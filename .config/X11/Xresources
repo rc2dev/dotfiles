@@ -43,7 +43,7 @@ St.alpha: 0.95
 /* Dunst */
 Dunst.frame_width: 1
 Dunst.transparency: 4
-Dunst.icon_path: /home/rafael/.local/share/icons/Dracula/16/panel:/home/rafael/.local/share/icons/Dracula/16/devices
+Dunst.icon_theme: Dracula, Adwaita, hicolor
 
 
 #include "Xresources.d/colors"
