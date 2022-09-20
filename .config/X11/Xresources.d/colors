@@ -50,4 +50,5 @@ Dunst.normalbg: color8
 Dunst.normalfg: color15
 Dunst.criticalbg: color1
 Dunst.criticalfg: foreground
+Dunst.icon_theme: Dracula, Adwaita, hicolor
 
