@@ -87,9 +87,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 export MANPAGER="less -s -M +Gg"
 
 # zoxide
-# Automatically accept if one entry and changes from fzf default
-# (like using the same height as fzf' ^R).
-export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --select-1 --no-multi --preview 'tree {2..}' --height 40%"
+# Automatically accept if one entry, also some changes from fzf default
+# (like using the same height as fzf's ^R).
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --select-1 --no-multi --no-preview --height 40%"
 # Resolve symlinks before adding to DB: prevents duplicates
 export _ZO_RESOLVE_SYMLINKS=1
 

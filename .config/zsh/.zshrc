@@ -133,8 +133,9 @@ zinit ice wait lucid
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && zinit snippet "$HOME/.rvm/scripts/rvm"
 
 zinit ice wait lucid
-# Don't create aliases (z, zi); we'll define later
+# Don't create aliases (z, zi), so we define it manually below
 command -v zoxide >/dev/null && eval "$(zoxide init --no-aliases zsh)"
+alias z="__zoxide_zi"
 
 
 ############################################################
