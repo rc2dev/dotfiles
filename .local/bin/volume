@@ -6,67 +6,71 @@
 # by Rafael Cavalcanti <https://rafaelc.org/dev>
 #
 
-notify_id=101
-bar_max_size=14
-step=5
+set -euo pipefail
+readonly step=5
 
-function get_volume {
-    pactl get-sink-volume @DEFAULT_SINK@ | awk -F/ '{print $2}' | sed 's/ //g;s/%//g'
+get_volume() {
+  pactl get-sink-volume @DEFAULT_SINK@ | awk -F/ '{print $2}' | sed 's/ //g;s/%//g'
 }
 
-function get_volume_icon {
-    if [ "$1" -lt 34 ]
-    then
-        echo -n "audio-volume-low-symbolic"
-    elif [ "$1" -lt 67 ]
-    then
-        echo -n "audio-volume-medium-symbolic"
-    elif [ "$1" -le 100 ]
-    then
-        echo -n "audio-volume-high-symbolic"
-    else
-        echo -n "audio-volume-overamplified-symbolic"
-    fi
+get_volume_icon() {
+  if [[ "$1" -lt 34 ]]; then
+    echo "audio-volume-low-symbolic"
+  elif [[ "$1" -lt 67 ]]; then
+    echo "audio-volume-medium-symbolic"
+  elif [[ "$1" -le 100 ]]; then
+    echo "audio-volume-high-symbolic"
+  else
+    echo "audio-volume-overamplified-symbolic"
+  fi
 }
 
-function volume_notification {
-    volume=`get_volume`
-    vol_icon=`get_volume_icon $volume`
-    vol_num="$volume%"
+volume_notification() {
+  local -r notify_id=101
+  local -r notify_time=3000
+  local -r bar_max_size=14
 
-    bar_size=$((volume * bar_max_size / 100))
-    if [[ $bar_size -gt $bar_max_size ]]; then
-        bar_size=$bar_max_size
-    fi
-    bar=$(seq -s "─" $bar_size | sed 's/[0-9]//g')
+  local -r volume="$(get_volume)"
+  local -r vol_icon="$(get_volume_icon "$volume")"
+  local -r vol_num="$volume%"
 
-    dunstify -r $notify_id -u low -t 3000 -i $vol_icon "$vol_num  $bar"
+  local bar_size=$((volume * bar_max_size / 100))
+  if [[ $bar_size -gt $bar_max_size ]]; then
+    bar_size=$bar_max_size
+  fi
+  local bar=$(seq -s "─" $bar_size | sed 's/[0-9]//g')
+
+  dunstify -r $notify_id -u low -t $notify_time -i "$vol_icon" "$vol_num  $bar"
 }
 
-function mute_notification {
-    muted="$(pactl get-sink-mute @DEFAULT_SINK@)"
-    if [[ "$muted" == "Mute: yes" ]]
-    then
-        dunstify -r $notify_id -u low -t 3000 -i audio-volume-muted-symbolic Mute
-    else
-        dunstify -r $notify_id -u low -t 3000 -i `get_volume_icon $(get_volume)` Unmute
-    fi
+mute_notification() {
+  local -r muted="$(pactl get-sink-mute @DEFAULT_SINK@)"
+
+  if [[ "$muted" == "Mute: yes" ]]; then
+    dunstify -r $notify_id -u low -t 3000 -i audio-volume-muted-symbolic Mute
+  else
+    dunstify -r $notify_id -u low -t 3000 -i "$(get_volume_icon "$(get_volume)")" Unmute
+  fi
 }
 
-case $1 in
+main() {
+  case $1 in
     up)
-        pactl set-sink-volume @DEFAULT_SINK@ +$step%
-        volume_notification
-        ;;
+      pactl set-sink-volume @DEFAULT_SINK@ +$step%
+      volume_notification
+      ;;
     down)
-        pactl set-sink-volume @DEFAULT_SINK@ -$step%
-        volume_notification
-        ;;
+      pactl set-sink-volume @DEFAULT_SINK@ -$step%
+      volume_notification
+      ;;
     mute)
-        pactl set-sink-mute @DEFAULT_SINK@ toggle
-        mute_notification
-        ;;
+      pactl set-sink-mute @DEFAULT_SINK@ toggle
+      mute_notification
+      ;;
     *)
-        echo "Usage: $0 up | down | mute"
-        ;;
-esac
+      echo "Usage: $0 up | down | mute"
+      ;;
+  esac
+}
+
+main "$@"
