@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+#
+# xbacklight wrapper to display notifications.
+#
+# Copyright (C) 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+set -euo pipefail
+
+bar() {
+  local -r bar_max_size=14
+  local -r level="$1"
+
+  local bar_size=$((level * bar_max_size / 100))
+  if [[ $bar_size -gt $bar_max_size ]]; then
+      bar_size=$bar_max_size
+  fi
+
+  local bar=$(seq -s "─" $bar_size | sed 's/[0-9]//g')
+  echo "$bar"
+}
+
+icon() {
+  local -r level="$1"
+
+  if [[ "$level" -lt 15 ]]; then
+    echo "display-brightness-off-symbolic"
+  elif [[ "$level" -lt 35 ]]; then
+    echo "display-brightness-low-symbolic"
+  elif [[ "$level" -lt 80 ]]; then
+    echo "display-brightness-medium-symbolic"
+  elif [[ "$level" -le 100 ]]; then
+    echo "display-brightness-high-symbolic"
+  fi
+}
+
+notify() {
+  local -r id=102
+  local -r timeout=3000
+
+  local -r level="$(xbacklight -get | cut -d. -f 1)"
+  local -r bar="$(bar "$level")"
+  local -r icon="$(icon "$level")"
+
+  dunstify -r $id -u low -t $timeout -i "$icon" "$level% $bar"
+}
+
+main() {
+  xbacklight "$@"
+  notify
+}
+
+main "$@"

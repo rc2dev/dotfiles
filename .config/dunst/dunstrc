@@ -444,6 +444,10 @@
 #    appname = "some_volume_notifiers"
 #    set_stack_tag = "volume"
 
+[brightness]
+    icon = "display-brightness-*"
+    history_ignore = true
+
 [volume]
     icon = "audio-volume-*"
     history_ignore = true
