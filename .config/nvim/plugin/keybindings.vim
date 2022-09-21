@@ -83,8 +83,9 @@ endfunction
 
 " Buffer navigation
 nnoremap <Leader><Leader> <C-^>
-nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>b :Buffers<CR>
+nnoremap ]b :bnext<CR>
+nnoremap [b :bprevious<CR>
 
 " Navigate splits
 nnoremap <silent> <c-k> :wincmd k<cr>
