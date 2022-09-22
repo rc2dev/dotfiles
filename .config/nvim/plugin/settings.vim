@@ -29,7 +29,6 @@ set shortmess+=I                    " Disable startup message
 set noshowmode                      " Don't show modes below status line (redundant to vim-airline)
 set showcmd                         " Show partial command
 set laststatus=2                    " Always show status line
-set showtabline=2                   " Always show tab line
 set splitbelow splitright           " Splitting puts new window right of / below current
 set fillchars=vert:┃                " Solid line for vertical split
 

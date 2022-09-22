@@ -1,9 +1,6 @@
 " vim-airline config
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-" Show open buffers on top
-let g:airline#extensions#tabline#enabled = 1
-
 " Don't display spelling language
 let g:airline_detect_spelllang = 0
 
@@ -24,3 +21,4 @@ let g:airline_section_z = '%p%%%{g:airline_symbols.linenr}%l,%v %#__accent_bold#
 
 " Fix git branch symbol
 let g:airline_symbols.branch = ''
+
