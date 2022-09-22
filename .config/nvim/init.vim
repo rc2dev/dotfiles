@@ -26,4 +26,3 @@ Plug 'vim-airline/vim-airline'
 Plug 'wincent/loupe'
 
 call plug#end()
-

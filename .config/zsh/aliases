@@ -67,10 +67,9 @@ take() {
 # Edit
 alias e="$EDITOR"
 alias ef="nvim +Rg"
+alias eg="nvim +GFiles"
+alias eh="nvim +History"
 alias ep="nvim +Files"
-alias et="nvim +History"
-# Don't use `ye`, since vim-plug operations fail with those variables set.
-alias ev="e ~/.config/nvim/init.vim"
 alias ey="ye"
 alias vim="nvim"
 

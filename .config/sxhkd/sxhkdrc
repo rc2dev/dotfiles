@@ -10,7 +10,7 @@ super + c
 super + shift + d
   light-dark
 
-super + e; {t, y}
+super + e; {h, y}
   { \
     $TERMINAL -e nvim +History, \
     $TERMINAL -e dotfiles cmd nvim +GFiles \

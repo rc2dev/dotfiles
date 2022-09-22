@@ -125,16 +125,15 @@ let g:NERDCreateDefaultMappings = 0
 map <leader>/ <plug>NERDCommenterToggle
 
 " fzf.vim
-if $GIT_DIR == "" && $GIT_WORK_TREE == ""
-  nnoremap <silent> <C-p> :Files<CR>
-else
-  " Useful for bare directories such as dotfiles
-  nnoremap <silent> <C-p> :GFiles<CR>
-endif
-nnoremap <silent> <C-f> :Rg<CR>
-nnoremap <silent> <C-t> :History<CR>
+nnoremap <silent> <leader>ff :Rg<CR>
+nnoremap <silent> <leader>fg :GFiles<CR>
+nnoremap <silent> <leader>fh :History<CR>
+nnoremap <silent> <leader>fp :Files<CR>
 
 " loupe
 " Use this instead of <leader>n.
 nmap <leader>m <Plug>(LoupeClearHighlight)
+
+" ranger.vim
+nnoremap <leader>fr :Ranger<CR>
 
