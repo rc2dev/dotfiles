@@ -24,6 +24,12 @@ system-config-printer-applet &
 keepassxc &
 $TERMINAL -n plan -e notes today &
 
+# Auto-lock screen
+# Trigger slock on inactivity, suspension, hibernation, etc.
+xss-lock slock &
+# Trigger slock after 5 min of inactivity
+{ xset s on; xset s 300; } &
+
 # Host specific
 case "$HOST" in
   rd)
