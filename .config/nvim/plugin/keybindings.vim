@@ -8,20 +8,6 @@ let maplocalleader=","
 " For consistency with C and D
 noremap Y y$
 
-" Delete to black hole
-nnoremap <Leader>d "_d
-vnoremap <Leader>d "_d
-nnoremap <Leader>D "_D
-nnoremap <Leader>x "_x
-nnoremap <Leader>c "_c
-vnoremap <Leader>c "_c
-nnoremap <Leader>C "_C
-nnoremap <Leader>x "_x
-
-" Move selection up/down and re-format
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
 " Toogle paste
 set pastetoggle=<F2>
 
