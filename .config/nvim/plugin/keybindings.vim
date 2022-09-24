@@ -8,7 +8,7 @@ let maplocalleader=","
 " For consistency with C and D
 noremap Y y$
 
-" Toogle paste
+" Toggle paste
 set pastetoggle=<F2>
 
 " Insert current date
