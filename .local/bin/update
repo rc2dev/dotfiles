@@ -62,6 +62,8 @@ update_distro() {
 
 	if has_command apt; then
 		update_distro_apt
+	elif has_command dnf; then
+		update_distro_dnf
 	else
 		log "Atualização de pacotes não disponível para a sua distro."
 	fi
@@ -80,6 +82,11 @@ update_distro_apt() {
 
 	log_step "Limpando cache do APT..."
 	$sudo apt clean
+}
+
+update_distro_dnf() {
+	log_step "Atualizando pacotes do DNF..."
+	sudo dnf upgrade --refresh
 }
 
 update_flatpaks() {
