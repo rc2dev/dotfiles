@@ -31,4 +31,4 @@ nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 
 " md-img-paste
-inoremap <buffer><silent> <C-b> <C-o>:call mdip#MarkdownClipboardImage()<CR>
+nnoremap <buffer><silent> <leader>im :call mdip#MarkdownClipboardImage()<CR>
