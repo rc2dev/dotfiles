@@ -40,7 +40,7 @@ bar_player() {
   local -r artist="$(truncate "${metadata[0]}")"
   local -r title="$(truncate "${metadata[1]}")"
 
-  echo "${icon} ${artist:+$artist -} ${title}"
+  echo "${icon} ${artist:+$artist - }${title}"
 }
 
 bar_time() {
