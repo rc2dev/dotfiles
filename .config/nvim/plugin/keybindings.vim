@@ -8,6 +8,9 @@ let maplocalleader=","
 " For consistency with C and D
 noremap Y y$
 
+" nvim: Easier escape on terminal mode
+tnoremap <C-\><C-\> <C-\><C-n>
+
 " Toggle paste
 set pastetoggle=<F2>
 
