@@ -19,9 +19,11 @@ declare -r streams="\
   ----- GENERALISTAS -----
   COPE,https://flucast-m04-06.flumotion.com/cope/net1.mp3
   Cadena SER,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3
-  Radio 5,https://rtvelivestream.akamaized.net/segments/rne/rne_r5_madrid_main.m3u8
+  Cadena SER Valencia,https://playerservices.streamtheworld.com/api/livestream-redirect/SER_VALENCIA.mp3
   Radio María,http://dreamsiteradiocp.com:8060/;stream.mp3
-  Radio Nacional,https://rtvelivestream.akamaized.net/segments/rne/rne_r1_main.m3u8
+  RNE1,https://rtvelivestream.akamaized.net/segments/rne/rne_r1_main.m3u8
+  RNE1 C. Valenciana,https://crtve-rne1-val.cast.addradio.de/crtve/rne1/val/mp3/high
+  RNE Radio 5,https://rtvelivestream.akamaized.net/segments/rne/rne_r5_madrid_main.m3u8
 "
 
 readonly chosen="$(printf "%s" "$streams" | sed -E 's/^\s+//;s/,.*$//' | dmenu -p "radio:" -l 9 -g 7)"
