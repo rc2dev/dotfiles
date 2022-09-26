@@ -187,6 +187,7 @@ alias afu="sudo apt update && sudo apt full-upgrade"
 alias aw="apt show"
 
 # dnf
+dnf() { command dnf -C "$@"; }
 alias dhh="dnf history | head"
 alias dhu="sudo dnf history undo"
 
