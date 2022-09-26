@@ -10,9 +10,10 @@ augroup rc2dev
   " nvim: Start terminal on insert mode
   autocmd TermOpen * startinsert
 
-  " Filter temporary git files from :oldfiles and :History
+  " Filter temporary git files and term:// from :oldfiles and :History
   autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "COMMIT_EDITMSG"')
   autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "rebase-merge"')
+  autocmd BufEnter * call filter(v:oldfiles, 'v:val !~ "term://"')
 
   " Run these commands whenever these files are updated
   autocmd BufWritePost bato.yaml silent !killall bato && bato & disown
