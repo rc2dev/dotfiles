@@ -99,6 +99,11 @@ nnoremap <Leader>tv <C-w>t<C-w>H
 " Close all splits but the current one
 nnoremap <Leader>o <C-w>o
 
+" Toggle terminal on/off (neovim)
+nnoremap <F12> :call TermToggle(12)<CR>
+inoremap <F12> <Esc>:call TermToggle(12)<CR>
+tnoremap <F12> <C-\><C-n>:call TermToggle(12)<CR>
+
 
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""
