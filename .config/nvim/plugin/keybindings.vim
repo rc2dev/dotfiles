@@ -76,6 +76,9 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
 
+" f bindings
+nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
+
 " Navigate splits
 nnoremap <silent> <c-k> :wincmd k<cr>
 nnoremap <silent> <c-j> :wincmd j<cr>
@@ -123,6 +126,7 @@ nnoremap <silent> <leader>ff :Rg<CR>
 nnoremap <silent> <leader>fg :GFiles<CR>
 nnoremap <silent> <leader>fh :History<CR>
 nnoremap <silent> <leader>fp :Files<CR>
+nnoremap <silent> <leader>f. :Files %:p:h<CR>
 
 " loupe
 " Use this instead of <leader>n.
