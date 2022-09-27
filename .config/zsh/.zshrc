@@ -143,16 +143,21 @@ alias z="__zoxide_zi"
 ############################################################
 
 # fzf
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="$FD_DIRS"
-export FZF_CTRL_R_OPTS="--no-preview"
-# Rebind ^T to ^P (bring back default bind)
-bindkey "^P" fzf-file-widget
-bindkey "^T" self-insert
-# Rebind Alt+C to ^O
-bindkey -r "^[c"
-zle -N fzf-cd-widget
-bindkey '^O' fzf-cd-widget
+# Check if sourced, because system may not have fzf
+if type fzf-file-widget >/dev/null; then
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="$FD_DIRS"
+  export FZF_CTRL_R_OPTS="--no-preview"
+
+  # Rebind ^T to ^P (bring back default bind)
+  bindkey "^P" fzf-file-widget
+  bindkey "^T" self-insert
+
+  # Rebind Alt+C to ^O
+  bindkey -r "^[c"
+  zle -N fzf-cd-widget
+  bindkey '^O' fzf-cd-widget
+fi
 
 # spaceship-prompt
 SPACESHIP_ASYNC_SHOW=false  # Remove async indicator (3-dots)
