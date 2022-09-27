@@ -81,7 +81,7 @@ Print
   flameshot gui
 
 Print + shift
-  flameshot launcher
+  flameshot gui --delay 5000
 
 XF86Calculator
   gnome-calculator
