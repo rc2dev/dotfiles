@@ -5,7 +5,7 @@ super + b
   blueman-manager
 
 super + c
-  gnome-calculator
+  io.elementary.calculator
 
 super + shift + d
   light-dark
