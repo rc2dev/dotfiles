@@ -123,7 +123,7 @@ map <leader>/ <plug>NERDCommenterToggle
 
 " fzf.vim
 nnoremap <silent> <leader>ff :Rg<CR>
-nnoremap <silent> <leader>fg :GFiles<CR>
+nnoremap <silent> <leader>fg :GFiles2<CR>
 nnoremap <silent> <leader>fh :History<CR>
 nnoremap <silent> <leader>fp :Files<CR>
 nnoremap <silent> <leader>f. :Files %:p:h<CR>
