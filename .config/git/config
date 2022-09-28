@@ -7,3 +7,5 @@
 	pushInsteadOf = https://github.com/
 [fetch]
 	prune = true
+[rebase]
+	autoStash = true
