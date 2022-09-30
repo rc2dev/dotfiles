@@ -189,6 +189,7 @@ alias aw="apt show"
 # dnf
 dnf() { command dnf -C "$@"; }
 alias dhh="dnf history | head"
+alias dhr="sudo dnf history rollback"
 alias dhu="sudo dnf history undo"
 
 # Only supported by zsh
