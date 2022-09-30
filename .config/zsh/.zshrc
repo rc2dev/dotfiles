@@ -28,9 +28,6 @@ setopt share_history
 ### Keybindings
 ############################################################
 
-# Use emacs keybindings
-set -o emacs
-
 # Use vim navigation keys in menu completion
 zmodload zsh/complist
 bindkey -M menuselect '^h' vi-backward-char
@@ -47,16 +44,13 @@ bindkey "^[OA" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 bindkey "^[OB" down-line-or-beginning-search
 
-# Use ctrl-b/j instead of alt-b/j
-bindkey "^f" forward-word
-bindkey "^b" backward-word
-
 # Move to beginning/end of words with ctrl
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 # Delete word with ctrl+delete and ctrl+backspace
 bindkey '^H' backward-kill-word
+bindkey '^[[M' kill-word
 bindkey '5~' kill-word
 bindkey ';5~' kill-word
 
@@ -75,7 +69,7 @@ bindkey "^[[3~" delete-char
 # Add keybinding for editing in text editor
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey "^x" edit-command-line
+bindkey "^e" edit-command-line
 
 # Add keybinding for going to parent dir (Alt+Up)
 bindkey -s "^[[1;3A" 'cd ..^M'
