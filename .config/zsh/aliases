@@ -131,6 +131,7 @@ alias grbi="git rebase --interactive"
 alias gsa="git stash"
 alias gsh="git show"
 alias gst="git status"
+alias zg='cd "$(git root)"'
 
 # dotfiles
 alias y="dotfiles"
