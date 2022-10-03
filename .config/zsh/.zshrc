@@ -128,9 +128,16 @@ zinit ice wait lucid
 
 if command -v zoxide >/dev/null; then
   zinit ice wait lucid
-  # Don't create aliases (z, zi), so we define it manually below
-  eval "$(zoxide init --no-aliases zsh)"
-  alias z="__zoxide_zi"
+  # Don't create z, zi, so we define it manually below
+  eval "$(zoxide init --no-cmd zsh)"
+
+  z() {
+    if [[ $# -eq 0 ]]; then
+      __zoxide_zi
+    else
+      __zoxide_z "$@"
+    fi
+  }
 fi
 
 
