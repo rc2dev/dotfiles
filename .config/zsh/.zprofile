@@ -8,6 +8,14 @@ if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Move ~/.go to ~/.local
+export GOPATH="$HOME/.local/go"
+
+# Go's bin
+if [ -d "$GOPATH/bin" ] ; then
+	PATH="$GOPATH/bin:$PATH"
+fi
+
 # Rubygem user's bin
 if command -v ruby >/dev/null; then
 	PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
@@ -17,9 +25,6 @@ fi
 if [ -d "$HOME/.rvm/bin" ]; then
 	export PATH="$PATH:$HOME/.rvm/bin"
 fi
-
-# Move ~/go to ~/.local
-export GOPATH="$HOME/.local/go"
 
 # Termux: If connected via SSH, grab wake-lock
 if [[ "$HOST" == "localhost" && -n "${SSH_CLIENT:-}" ]]; then
