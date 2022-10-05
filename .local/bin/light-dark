@@ -1,15 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
-# Toggle between light and dark themes on several DEs.
+# Toggle between light and dark themes.
 #
-# Copyright (C) 2017-2020 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Copyright (C) 2017-2022 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 readonly config_path="$HOME/.config/light-dark.conf"
-readonly config_keys=("theme_light" "theme_dark" "wm_light" "wm_dark" "icon_light" "icon_dark")
+readonly config_keys=("theme_light" "theme_dark" "icon_light" "icon_dark")
 
 main() {
-	[ $# -gt 0 ] && usage
+	[[ $# -gt 0 ]] && usage
 
 	get_config
 	toggle
@@ -20,90 +20,39 @@ usage() {
 	exit 1
 }
 
+log() {
+	printf "%s\n" "$*" 1>&2
+}
+
+get_config() {
+	[[ -e "$config_path" ]] || create_config
+	source "$config_path"
+	check_config
+}
+
+create_config() {
+	log "Creating config at %s. Edit it and run again.\n" "${config_path/$HOME/\~}"
+	for key in "${config_keys[@]}"; do
+		printf "%s=\n" "$key" >> "$config_path"
+	done
+	exit 1
+}
+
+check_config() {
+	for key in "${config_keys[@]}"; do
+		if [[ -z "${!key}" ]]; then
+			log "%s not found in config file." "$key"
+			exit 1
+		fi
+	done
+}
+
 toggle() {
 	if pidof xsettingsd > /dev/null; then
 		toggle_xsettingsd
-		return $?
-	fi
-
-	case "$XDG_SESSION_DESKTOP" in
-		dwm) toggle_ini;;
-		Deepin) toggle_deepin;;
-		GNOME) toggle_gnome;;
-		ubuntu:GNOME) toggle_gnome;;
-		cinnamon) toggle_cinnamon;;
-		XFCE) toggle_xfce;;
-		*) printf "This desktop is not supported.\n";;
-	esac
-}
-
-toggle_xfce() {
-	local -r cmd_theme="xfconf-query -c xsettings -p /Net/ThemeName"
-	local -r cmd_wm="xfconf-query -c xfwm4 -p /general/theme"
-	local -r cmd_icon="xfconf-query -c xsettings -p /Net/IconThemeName"
-
-	local -r theme="$($cmd_theme)"
-	if [[ "$theme" == "$theme_light" ]]; then
-		$cmd_theme -s "$theme_dark"
-		$cmd_wm -s "$wm_dark"
-		$cmd_icon -s "$icon_dark"
 	else
-		$cmd_theme -s "$light"
-		$cmd_wm -s "$light"
-		$cmd_icon -s "$light_icon"
+		log "This desktop is not supported."
 	fi
-}
-
-toggle_gnome() {
-	local -r prop_theme="org.gnome.desktop.interface gtk-theme"
-
-	if [[ "$(gsettings get $prop_theme)" == "'$theme_light'" ]]; then
-		gsettings set $prop_theme "$theme_dark"
-	else
-		gsettings set $prop_theme "$theme_light"
-	fi
-}
-
-toggle_cinnamon() {
-	local -r prop_theme="org.cinnamon.desktop.interface gtk-theme"
-	local -r prop_icon="org.cinnamon.desktop.interface icon-theme"
-	local -r prop_wm="org.cinnamon.desktop.wm.preferences theme"
-
-	if [[ "$(gsettings get $prop_theme)" == "'$theme_light'" ]]; then
-		gsettings set $prop_theme "$theme_dark"
-		gsettings set $prop_wm "$wm_dark"
-		gsettings set $prop_icon "$icon_dark"
-	else
-		gsettings set $prop_theme "$theme_light"
-		gsettings set $prop_wm "$wm_light"
-		gsettings set $prop_icon "$icon_light"
-	fi
-}
-
-toggle_deepin() {
-	local -r prop_theme="com.deepin.xsettings theme-name"
-	local -r prop_icon="com.deepin.xsettings icon-theme-name"
-
-	if [[ "$(gsettings get $prop_theme)" == "'$theme_light'" ]]; then
-		gsettings set $prop_theme "$theme_dark"
-		gsettings set $prop_icon "$icon_dark"
-	else
-		gsettings set $prop_theme "$theme_light"
-		gsettings set $prop_icon "$icon_light"
-	fi
-}
-
-toggle_ini() {
-	local -r theme_current="$(awk -F= '/gtk-theme-name/ {print $2}' ~/.config/gtk-3.0/settings.ini)"
-
-	if [[ "$theme_current" == "$theme_light" ]]; then
-		local -r theme_new="$theme_dark"
-	else
-		local -r theme_new="$theme_light"
-	fi
-
-	sed -i "s/^gtk-theme-name=.*$/gtk-theme-name=$theme_new/" ~/.config/gtk-3.0/settings.ini
-	sed -i "s/^gtk-theme-name=.*$/gtk-theme-name=\"$theme_new\"/" ~/.gtkrc-2.0
 }
 
 toggle_xsettingsd() {
@@ -113,41 +62,18 @@ toggle_xsettingsd() {
 	if [[ "$theme_current" == "$theme_light" ]]; then
 		local -r theme_new="$theme_dark"
 		local -r icon_new="$icon_dark"
-		gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+		local -r scheme_new="prefer-dark"
 	else
 		local -r theme_new="$theme_light"
 		local -r icon_new="$icon_light"
-
-		gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+		local -r scheme_new="prefer-light"
 	fi
 
 	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" "$config_file"
 	sed -i "s#^Net/IconThemeName .*\$#Net/IconThemeName \"$icon_new\"#" "$config_file"
+	gsettings set org.gnome.desktop.interface color-scheme "'$scheme_new'"
 
 	killall -HUP xsettingsd
-}
-
-get_config() {
-	[ ! -e "$config_path" ] && create_config
-	. "$config_path"
-	check_config
-}
-
-create_config() {
-	printf "Creating config at %s. Edit it and run again.\n" "${config_path/$HOME/\~}"
-	for key in "${config_keys[@]}"; do
-		printf "%s=\n" "$key" >> "$config_path"
-	done
-	exit 1
-}
-
-check_config() {
-	for key in "${config_keys[@]}"; do
-		if [ -z "${!key}" ]; then
-			printf "%s not found in config file.\n" "$key"
-			exit 1
-		fi
-	done
 }
 
 main "$@"
