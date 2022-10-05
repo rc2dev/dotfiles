@@ -86,6 +86,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 # man: Display the percentage into the document
 export MANPAGER="less -s -M +Gg"
 
+# npm: Move from ~/
+export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
+
 # zoxide
 # Some changes from fzf default (like using the same height as fzf's ^R).
 export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --no-multi --no-preview --height 40%"
