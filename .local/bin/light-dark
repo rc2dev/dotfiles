@@ -113,9 +113,12 @@ toggle_xsettingsd() {
 	if [[ "$theme_current" == "$theme_light" ]]; then
 		local -r theme_new="$theme_dark"
 		local -r icon_new="$icon_dark"
+		gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 	else
 		local -r theme_new="$theme_light"
 		local -r icon_new="$icon_light"
+
+		gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
 	fi
 
 	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" "$config_file"
