@@ -7,7 +7,7 @@ Wants=network-online.target
 OnFailure=status-email@%n.service
 
 [Service]
-ExecStart=%h/Code/backup-bin/sync-rclone
+ExecStart=%h/Code/rc2dev/backup-bin/sync-rclone
 Nice=19
 # Lower IO priority to minimium
 IOSchedulingPriority=7

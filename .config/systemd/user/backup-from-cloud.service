@@ -7,5 +7,5 @@ Wants=network-online.target
 OnFailure=status-email@%n.service
 
 [Service]
-ExecStart=%h/Code/backup-bin/backup-from-cloud
+ExecStart=%h/Code/rc2dev/backup-bin/backup-from-cloud
 Nice=19
