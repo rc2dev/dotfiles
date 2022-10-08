@@ -8,6 +8,8 @@
 
 set -euo pipefail
 readonly step=5
+readonly notify_id=101
+readonly notify_time=3000
 
 get_volume() {
   pactl get-sink-volume @DEFAULT_SINK@ | awk -F/ '{print $2}' | sed 's/ //g;s/%//g'
@@ -26,8 +28,6 @@ get_volume_icon() {
 }
 
 volume_notification() {
-  local -r notify_id=101
-  local -r notify_time=3000
   local -r bar_max_size=14
 
   local -r volume="$(get_volume)"
@@ -47,9 +47,9 @@ mute_notification() {
   local -r muted="$(pactl get-sink-mute @DEFAULT_SINK@)"
 
   if [[ "$muted" == "Mute: yes" ]]; then
-    dunstify -r $notify_id -u low -t 3000 -i audio-volume-muted-symbolic Mute
+    dunstify -r $notify_id -u low -t $notify_time -i audio-volume-muted-symbolic Mute
   else
-    dunstify -r $notify_id -u low -t 3000 -i "$(get_volume_icon "$(get_volume)")" Unmute
+    dunstify -r $notify_id -u low -t $notify_time -i "$(get_volume_icon "$(get_volume)")" Unmute
   fi
 }
 
