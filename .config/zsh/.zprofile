@@ -56,10 +56,19 @@ export TERMINAL="st"
 # Applications configuration
 #######################################################
 
+# aws-cli
+# Move from ~/
+export AWS_SHARED_CREDENTIALS_FILE="$HOME/.config/aws/credentials"
+export AWS_CONFIG_FILE="$HOME/.config/aws/config"
+
 # clipmenud
 # This makes history persistent across sessions
 export CM_DIR="$HOME/.cache"
 export CM_IGNORE_WINDOW="KeePassXC"
+
+# Docker
+# Move from ~/
+export DOCKER_CONFIG="$HOME/.config/docker"
 
 # fd
 export FD_ARGS="--follow --hidden --no-ignore-vcs"
