@@ -58,8 +58,6 @@ has_command() {
 }
 
 update_distro() {
-	ask "Atualizar pacotes da distro?" || return 0
-
 	if has_command apt; then
 		update_distro_apt
 	elif has_command dnf; then
@@ -90,9 +88,6 @@ update_distro_dnf() {
 }
 
 update_flatpaks() {
-	has_command flatpak || return 0
-	ask "Atualizar flatpaks?" || return 0
-
 	log_step "Atualizando flatpaks..."
 	sudo flatpak update
 }
