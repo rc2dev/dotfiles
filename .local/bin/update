@@ -73,7 +73,7 @@ update_distro_apt() {
 	has_command sudo && sudo=sudo
 
 	log_step "Atualizando pacotes do APT..."
-	$sudo apt update && $sudo apt full-upgrade -y
+	$sudo apt update && $sudo apt full-upgrade
 
 	log_step "Executando apt autoremove..."
 	$sudo apt autoremove --purge --yes
