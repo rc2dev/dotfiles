@@ -88,6 +88,8 @@ update_distro_dnf() {
 }
 
 update_flatpaks() {
+	has_command flatpak || return 0
+
 	log_step "Atualizando flatpaks..."
 	sudo flatpak update
 }
