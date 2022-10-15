@@ -4,29 +4,21 @@
 
 ! hard contrast: *background: #1d2021
 ! soft contrast: *background: #32302f
-#define background #282828
-#define foreground #ebdbb2
-! Black + DarkGrey
-#define color0 #282828
-#define color8 #928374
-! DarkRed + Red
-#define color1 #cc241d
-#define color9 #fb4934
-! DarkGreen + Green
-#define color2 #98971a
-#define color10 #b8bb26
-! DarkYellow + Yellow
-#define color3 #d79921
-#define color11 #fabd2f
-! DarkBlue + Blue
-#define color4 #458588
-#define color12 #83a598
-! DarkMagenta + Magenta
-#define color5 #b16286
-#define color13 #d3869b
-! DarkCyan + Cyan
-#define color6 #689d6a
-#define color14 #8ecolor7c
-! LightGrey + White
-#define color7 #a89984
-#define color15 #ebdbb2
+#define theme_background #282828
+#define theme_foreground #ebdbb2
+#define theme_color0 #282828
+#define theme_color8 #928374
+#define theme_color1 #cc241d
+#define theme_color9 #fb4934
+#define theme_color2 #98971a
+#define theme_color10 #b8bb26
+#define theme_color3 #d79921
+#define theme_color11 #fabd2f
+#define theme_color4 #458588
+#define theme_color12 #83a598
+#define theme_color5 #b16286
+#define theme_color13 #d3869b
+#define theme_color6 #689d6a
+#define theme_color14 #8ec07c
+#define theme_color7 #a89984
+#define theme_color15 #ebdbb2

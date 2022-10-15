@@ -2,21 +2,21 @@
 ! Adapted from nord patch for st
 ! by Rafael Cavalcanti <https://rafaelc.org/dev>
 
-#define color0     #3b4252
-#define color1     #bf616a
-#define color2     #a3be8c
-#define color3     #ebcb8b
-#define color4     #81a1c1
-#define color5     #b48ead
-#define color6     #88c0d0
-#define color7     #e5e9f0
-#define color8     #4c566a
-#define color9     #bf616a
-#define color10    #a3be8c
-#define color11    #ebcb8b
-#define color12    #81a1c1
-#define color13    #b48ead
-#define color14    #8fbcbb
-#define color15    #eceff4
-#define background #2e3440
-#define foreground #d8dee9
+#define theme_color0     #3b4252
+#define theme_color1     #bf616a
+#define theme_color2     #a3be8c
+#define theme_color3     #ebcb8b
+#define theme_color4     #81a1c1
+#define theme_color5     #b48ead
+#define theme_color6     #88c0d0
+#define theme_color7     #e5e9f0
+#define theme_color8     #4c566a
+#define theme_color9     #bf616a
+#define theme_color10    #a3be8c
+#define theme_color11    #ebcb8b
+#define theme_color12    #81a1c1
+#define theme_color13    #b48ead
+#define theme_color14    #8fbcbb
+#define theme_color15    #eceff4
+#define theme_background #2e3440
+#define theme_foreground #d8dee9
