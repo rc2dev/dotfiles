@@ -2,7 +2,7 @@
  * Colors for Xresources.
  *
  * Other places for theming:
- * - ~/.xsettingsd, ~/.config/light-dark.conf
+ * - ~/.config/xsettingsd, ~/.config/light-dark.conf
  * - ~/.zprofile (fzf)
  * - ~/.config/bat/config
  *
@@ -13,41 +13,41 @@
 #include "themes/dracula"
 
 /* Used by st, slock */
-*.color0: theme_color0
-*.color1: theme_color1
-*.color2: theme_color2
-*.color3: theme_color3
-*.color4: theme_color4
-*.color5: theme_color5
-*.color6: theme_color6
-*.color7: theme_color7
-*.color8: theme_color8
-*.color9: theme_color9
-*.color10: theme_color10
-*.color11: theme_color11
-*.color12: theme_color12
-*.color13: theme_color13
-*.color14: theme_color14
-*.color15: theme_color15
+*.color0:     theme_color0
+*.color1:     theme_color1
+*.color2:     theme_color2
+*.color3:     theme_color3
+*.color4:     theme_color4
+*.color5:     theme_color5
+*.color6:     theme_color6
+*.color7:     theme_color7
+*.color8:     theme_color8
+*.color9:     theme_color9
+*.color10:    theme_color10
+*.color11:    theme_color11
+*.color12:    theme_color12
+*.color13:    theme_color13
+*.color14:    theme_color14
+*.color15:    theme_color15
 *.background: theme_background
 *.foreground: theme_foreground
 
 /* dmenu and dwm */
-*.normbgcolor: theme_background
-*.normfgcolor: theme_color7 /* 7, 12 or fg */
-*.selbgcolor: theme_color4  /* 4 or 8 */
-*.selfgcolor: theme_color0  /* 0 or 15 */
-dwm.normbordercolor: theme_background
-dwm.selbordercolor: theme_color4
+*.normbgcolor:          theme_background
+*.normfgcolor:          theme_color7  /* 7, 12 or fg */
+*.selbgcolor:           theme_color4  /* 4 or 8 */
+*.selfgcolor:           theme_color0  /* 0 or 15 */
+dwm.normbordercolor:    theme_background
+dwm.selbordercolor:     theme_color4
 
 /* dunst */
-Dunst.frame_color: theme_color7
-Dunst.separator_color: theme_color7
-Dunst.lowbg: theme_background
-Dunst.lowfg: theme_color15
-Dunst.normalbg: theme_color8
-Dunst.normalfg: theme_color15
-Dunst.criticalbg: theme_color1
-Dunst.criticalfg: theme_foreground
-Dunst.icon_theme: Dracula, Adwaita, hicolor
+Dunst.frame_color:      theme_color7
+Dunst.separator_color:  theme_color7
+Dunst.lowbg:            theme_background
+Dunst.lowfg:            theme_color15
+Dunst.normalbg:         theme_color8
+Dunst.normalfg:         theme_color15
+Dunst.criticalbg:       theme_color1
+Dunst.criticalfg:       theme_foreground
+Dunst.icon_theme:       Dracula, Adwaita, hicolor
 
