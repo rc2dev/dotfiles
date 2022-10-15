@@ -19,11 +19,11 @@ augroup rc2dev
   autocmd BufWritePost bato.yaml silent !killall bato && bato & disown
   autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
   autocmd BufWritePost dwmbar silent !dwmbar
-  autocmd BufWritePost dunstrc silent !killall dunst && dunst & disown
+  autocmd BufWritePost ~/.config/dunst/* silent !killall dunst && dunst & disown
+  autocmd BufWritePost ~/.config/dunst/*,*Xresources silent !gen-dunst-theme
   autocmd BufWritePost $JUMPS silent !gen-jumps
   autocmd BufWritePost sxhkdrc silent !killall -USR1 sxhkd
-  autocmd BufWritePost $XRESOURCES silent !xrdb %
-  autocmd BufWritePost $XRESOURCES silent !gen-dunst-theme
+  autocmd BufWritePost *Xresources silent !xrdb $XRESOURCES
   autocmd BufWritePost xsettingsd.conf silent !killall -HUP xsettingsd
 
   " Set executable bit to scripts on bin
