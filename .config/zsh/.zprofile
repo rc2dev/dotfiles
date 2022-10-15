@@ -27,18 +27,18 @@ if [ -d "$HOME/.rvm/bin" ]; then
 fi
 
 # Termux: If connected via SSH, grab wake-lock
-if [[ "$HOST" == "localhost" && -n "${SSH_CLIENT:-}" ]]; then
+if [ "$HOST" = "localhost" ] && [ -n "${SSH_CLIENT:-}" ]; then
 	printf "Grabbing wake-lock...\n" 1>&2
 	termux-wake-lock
 fi
 
 # Use ssh-agent started by user's systemd if nothing running
-if [ -z $SSH_AUTH_SOCK ]; then
+if [ -z "$SSH_AUTH_SOCK" ]; then
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
 # Auto logout on tty if inactive
-if [[ $(tty) =~ /dev\/tty ]]; then TMOUT=120; fi
+if tty | grep -q tty; then TMOUT=120; fi
 
 # Paths
 export ALIASES="$HOME/.config/zsh/aliases"
@@ -110,5 +110,5 @@ export ZDOTDIR="$HOME/.config/zsh"
 # Workaround as GDM on Fedora 36 doesn't read ~/.xprofile
 # `-t 0` will test for interactivity, so this isn't source e.g. on tmux.
 if [ "$XDG_SESSION_DESKTOP" = "dwm" ] && ! [ -t 0 ]; then
-	source $HOME/.config/X11/dwm_profile
+	. "$HOME/.config/X11/dwm_profile"
 fi
