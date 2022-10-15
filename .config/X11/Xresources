@@ -40,7 +40,7 @@ dwm.enablegaps: 0
 dwm.smartgaps: 0
 
 /* st */
-St.alpha: 0.95
+St.alpha: 0.97
 
 /* Dunst */
 Dunst.frame_width: 1
