@@ -52,6 +52,7 @@ super + x
   bash -c "\
     fd --follow --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources ~/Videos | \
     sed \"s|$HOME|\~|\" | \
+    sort | \
     dmenu -l 10 -p "open:" | \
     sed \"s|~|$HOME|\" | \
     xargs -r -d'\n' -P 0 -n 1 xdg-open \
