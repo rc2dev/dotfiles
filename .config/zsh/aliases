@@ -156,6 +156,7 @@ alias yrbi="y rebase --interactive"
 alias ysh="y show"
 alias yst="y status"
 alias ye="dotfiles cmd nvim +GFiles"
+alias yh="dotfiles cmd gh"
 
 # Use bat if available
 if command -v bat >/dev/null; then
