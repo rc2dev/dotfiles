@@ -1,0 +1,6 @@
+---
+metadata:
+  author: Rafael Cavalcanti
+pdf-engine: xelatex
+# Set header level 1 as title (<https://github.com/jgm/pandoc/issues/5615>)
+shift-heading-level-by: -1

@@ -21,10 +21,10 @@ nnoremap <F4> i[](<C-r>*)<Esc>F[a
 vnoremap <F4> "ldi[<C-r>l](<C-r>*)
 
 " Set makeprg
-setlocal makeprg=pandoc\ --pdf-engine=xelatex\ '%'\ $*\ \-o\ '%:r.pdf'
+setlocal makeprg=pandoc\ --defaults\ markdown.yml\ '%'\ $*\ \-o\ '%:r.pdf'
 
 " Set "run" shortcut
-nnoremap <silent> <F5> :w<CR>:make<CR>:silent !xdg-open '%:r.pdf' &<CR>
+nnoremap <silent> <F5> :w<CR>:make<CR>:silent !gio open '%:r.pdf'<CR>
 
 " Use friendlier line navigation
 nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
