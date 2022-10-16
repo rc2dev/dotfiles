@@ -7,11 +7,8 @@ super + c
 super + shift + d
   light-dark
 
-super + e; {h, y}
-  { \
-    $TERMINAL -e nvim +History, \
-    $TERMINAL -e dotfiles cmd nvim +GFiles \
-  }
+super + e
+  $TERMINAL -e nvim
 
 super + f
   $TERMINAL -e ranger
@@ -27,7 +24,14 @@ super + {_, shift, ctrl} + n
   }
 
 super + o
-  dmenu_radio
+  bash -c "\
+    fd --follow --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources ~/Videos | \
+    sed \"s|$HOME|\~|\" | \
+    sort | \
+    dmenu -l 10 -p "open:" | \
+    sed \"s|~|$HOME|\" | \
+    xargs -r -d'\n' -P 0 -n 1 xdg-open \
+  "
 
 super + p
   keepassxc
@@ -38,25 +42,18 @@ super + shift + q
 super + r
   dmenu_url
 
-super + s; {m, w, y}
+super + s; {e, i, m, w, r, y}
  { \
+  geary, \
+  gtk-launch webapp-WhatsApp9708.desktop & flatpak run org.telegram.desktop, \
   $TERMINAL -n cmus -e cmus, \
   qimgv $WALLPAPERS, \
+  dmenu_radio, \
   dmenu_yt, \
  }
 
 super + v
   pavucontrol
-
-super + x
-  bash -c "\
-    fd --follow --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources ~/Videos | \
-    sed \"s|$HOME|\~|\" | \
-    sort | \
-    dmenu -l 10 -p "open:" | \
-    sed \"s|~|$HOME|\" | \
-    xargs -r -d'\n' -P 0 -n 1 xdg-open \
-  "
 
 super + {_, shift} + w
   $BROWSER {_, --incognito}
