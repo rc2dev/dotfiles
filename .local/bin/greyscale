@@ -7,33 +7,50 @@
 
 set -euo pipefail
 
-readonly cmd="${1:-}"
+detect_greyscale() {
+  if pgrep -a -x picom | grep -q glx-fshader-win; then
+    echo on
+  else
+    echo off
+  fi
+}
 
-case $cmd in
-  off)
-    killall picom > /dev/null 2>&1 || true
-    picom -b
-    ;;
-  on)
-    killall picom > /dev/null 2>&1 || true
-    picom -b --backend glx --glx-fshader-win "
-      uniform float opacity;
-      uniform bool invert_color;
-      uniform sampler2D tex;
+enable_greyscale() {
+  killall picom > /dev/null 2>&1 || true
 
-      void main() {
-        vec4 c = texture2D(tex, gl_TexCoord[0].xy);
-        float g = (c.r + c.g + c.b) / 3.0;  // EDIT1: Average.
-        c = vec4(vec3(g), c.a);  // EDIT2: Color.
-        if (invert_color)
-          c = vec4(vec3(c.a, c.a, c.a) - vec3(c), c.a);
-        c *= opacity;
-        gl_FragColor = c;
-      }
-    "
-    ;;
-  *)
-    echo "Specify a command: on, off."
-    ;;
-esac
+  picom -b --backend glx --glx-fshader-win "
+    uniform float opacity;
+    uniform bool invert_color;
+    uniform sampler2D tex;
 
+    void main() {
+      vec4 c = texture2D(tex, gl_TexCoord[0].xy);
+      float g = (c.r + c.g + c.b) / 3.0;  // EDIT1: Average.
+      c = vec4(vec3(g), c.a);  // EDIT2: Color.
+      if (invert_color)
+        c = vec4(vec3(c.a, c.a, c.a) - vec3(c), c.a);
+      c *= opacity;
+      gl_FragColor = c;
+    }
+  "
+}
+
+disable_greyscale() {
+  killall picom > /dev/null 2>&1 || true
+  picom -b
+}
+
+main() {
+  local -r greyscale="$(detect_greyscale)"
+
+  case $greyscale in
+    on)
+      disable_greyscale
+      ;;
+    off)
+      enable_greyscale
+      ;;
+  esac
+}
+
+main "$@"
