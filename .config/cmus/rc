@@ -1,0 +1,5 @@
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+# Remove deleted songs, add new songs, upon cmus start.
+
+update-cache
+add ~/Music
