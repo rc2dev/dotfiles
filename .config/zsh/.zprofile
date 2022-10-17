@@ -98,6 +98,11 @@ export MANPAGER="less -s -M +Gg"
 # npm: Move from ~/
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 
+# texlive: Move from ~/
+export TEXMFHOME="$HOME/.local/share/texmf"
+export TEXMFVAR="$HOME/.cache/texlive/texmf-var"
+export TEXMFCONFIG="$HOME/.config/texlive/texmf-config"
+
 # zoxide
 # Some changes from fzf default (like using the same height as fzf's ^R).
 export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --no-multi --no-preview --height 40%"
