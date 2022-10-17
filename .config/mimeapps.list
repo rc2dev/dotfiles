@@ -1,0 +1,22 @@
+[Default Applications]
+audio/mpeg=mpv.desktop
+audio/ogg=mpv.desktop
+image/jpeg=qimgv.desktop
+image/png=qimgv.desktop
+text/markdown=nvim.desktop
+text/plain=nvim.desktop
+text/xml=libreoffice-calc.desktop
+x-scheme-handler/http=chromium-freeworld.desktop
+x-scheme-handler/https=chromium-freeworld.desktop
+x-scheme-handler/webcal=chromium-freeworld.desktop
+application/x-tar=org.gnome.FileRoller.desktop
+application/zip=org.gnome.FileRoller.desktop
+
+[Added Associations]
+application/pdf=org.gnome.Evince.desktop;
+audio/mpeg=mpv.desktop;
+image/jpeg=qimgv.desktop;org.gnome.eog.desktop;
+image/png=qimgv.desktop;
+text/markdown=nvim.desktop;
+text/plain=nvim.desktop;
+video/webm=mpv.desktop;qimgv.desktop;
