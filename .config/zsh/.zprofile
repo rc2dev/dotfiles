@@ -26,12 +26,6 @@ if [ -d "$HOME/.rvm/bin" ]; then
 	export PATH="$PATH:$HOME/.rvm/bin"
 fi
 
-# Termux: If connected via SSH, grab wake-lock
-if [ "$HOST" = "localhost" ] && [ -n "${SSH_CLIENT:-}" ]; then
-	printf "Grabbing wake-lock...\n" 1>&2
-	termux-wake-lock
-fi
-
 # Use ssh-agent started by user's systemd if nothing running
 if [ -z "$SSH_AUTH_SOCK" ]; then
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
