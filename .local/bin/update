@@ -84,14 +84,16 @@ update_distro_apt() {
 
 update_distro_dnf() {
 	log_step "Atualizando pacotes do DNF..."
-	sudo dnf upgrade --refresh
+	# Allow script to continue if user rejects operation
+	sudo dnf upgrade --refresh || if (( $? == 1 )); then return 0; fi
 }
 
 update_flatpaks() {
 	has_command flatpak || return 0
 
 	log_step "Atualizando flatpaks..."
-	sudo flatpak update
+	# Allow script to continue if user rejects operation
+	sudo flatpak update || if (( $? == 1 )); then return 0; fi
 }
 
 update_dotfiles() {
