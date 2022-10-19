@@ -10,8 +10,15 @@ readonly notify_time=10000
 readonly notify_icon="radio"
 readonly unit_name="dmenu_radio_player"
 
+
+if systemctl --user is-active --quiet "$unit_name"; then
+  current="$(systemctl --user show dmenu_radio_player | grep Description= | cut -d= -f2-)"
+else
+  current="not playing"
+fi
+
 declare -r streams="\
-  ⏹ Stop
+  ⏹ Stop: $current
   🎲 Random
   -------- MUSIC --------
   Cadena 100,https://cadena100-cope.flumotion.com/chunks.m3u8
@@ -71,5 +78,9 @@ fi
 
 dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "dmenu_radio" "Playing $chosen..."
 readonly url="$(printf "%s" "$streams" | grep "$chosen" | cut -d, -f 2-)"
-systemd-run --user --collect --unit "$unit_name" mpv --no-video --no-resume-playback --shuffle "$url"
-
+systemd-run \
+  --user \
+  --collect \
+  --unit "$unit_name" \
+  --description "$chosen" \
+  mpv --no-video --no-resume-playback --shuffle "$url"
