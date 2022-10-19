@@ -29,9 +29,32 @@ declare -r streams="\
   RNE1,https://rtvelivestream.akamaized.net/segments/rne/rne_r1_main.m3u8
   RNE1 C. Valenciana,https://crtve-rne1-val.cast.addradio.de/crtve/rne1/val/mp3/high
   RNE Radio 5,https://rtvelivestream.akamaized.net/segments/rne/rne_r5_madrid_main.m3u8
+  ------ SELECTION ------
+  ArtSound FM 92.7,http://119.15.96.188/stream2.mp3
+  Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
+  CDNX 1 - Classic & New Indie Alt,http://svr1.msmn.co:8136
+  CDNX 2 - New & Upfront Indie Alt,http://msmn.co:8118
+  EuropaRadioJazz - 88.3 Smooth Jazz HD,http://109.74.196.76:8021/stream
+  France Culture Live,http://direct.franceculture.fr/live/franceculture-midfi.mp3
+  France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
+  France Musique La Contemporaine,http://direct.francemusique.fr/live/francemusiquelacontemporaine-hifi.mp3
+  France Musique La Jazz,http://direct.francemusique.fr/live/francemusiquelajazz-hifi.mp3
+  Folk Radio UK,http://streaming.radionomy.com/FolkRadioUK
+  Ibiza Sonica,http://95.211.3.65:8136/listen.pls?sid=1
+  KDHX 88.1 FM St. Louis,http://kdhx-ice.streamguys1.com:80/live
+  KEXP 90.3 FM Seattle,http://live-aacplus-64.kexp.org/kexp64.aac
+  KMHD Portland FM 89.1 - Jazz,http://stream1.opb.org/kmhd.mp3
+  NTS Live International,http://stream-relay-geo.ntslive.net/stream2
+  Radio 24 Il Sole 24 Ore,http://shoutcast.radio24.it:8000/
+  Radio Paradise,http://stream-dc1.radioparadise.com/rp_192m.ogg
+  Radio Reload,http://onair15.xdevel.com:7012/1
+  Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
+  Radio Swiss Jazz,http://stream.srg-ssr.ch/m/rsj/aacp_96
+  Radio X London,http://media-sov.musicradio.com:80/RadioXLondonMP3
+  San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
 "
 
-chosen="$(sed -E 's/^\s+//;s/,.*$//' <<< "$streams" | dmenu -p "radio:" -l 9 -g 7)"
+chosen="$(sed -E 's/^\s+//;s/,.*$//' <<< "$streams" | dmenu -p "radio:" -l 9 -g 6)"
 if [[ -z "$chosen" ]] || [[ "$chosen" =~ --- ]]; then
   exit
 fi
