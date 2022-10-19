@@ -5,7 +5,11 @@
 
 set -euo pipefail
 
+readonly notify_id=103
+readonly notify_time=10000
+readonly notify_icon="radio"
 readonly unit_name="dmenu_radio_player"
+
 declare -r streams="\
   ⏹ Stop
   -------- MUSIC --------
@@ -36,6 +40,7 @@ if [[ "$chosen" =~ Stop ]]; then
   exit
 fi
 
+dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "dmenu_radio" "Playing $chosen..."
 readonly url="$(printf "%s" "$streams" | grep "$chosen" | cut -d, -f 2-)"
 systemd-run --user --collect --unit "$unit_name" mpv --no-video --no-resume-playback --shuffle "$url"
 
