@@ -12,6 +12,7 @@ readonly unit_name="dmenu_radio_player"
 
 declare -r streams="\
   ⏹ Stop
+  🎲 Random
   -------- MUSIC --------
   Cadena 100,https://cadena100-cope.flumotion.com/chunks.m3u8
   Cadena Dial,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENADIAL.mp3
@@ -30,7 +31,7 @@ declare -r streams="\
   RNE Radio 5,https://rtvelivestream.akamaized.net/segments/rne/rne_r5_madrid_main.m3u8
 "
 
-readonly chosen="$(printf "%s" "$streams" | sed -E 's/^\s+//;s/,.*$//' | dmenu -p "radio:" -l 9 -g 7)"
+chosen="$(sed -E 's/^\s+//;s/,.*$//' <<< "$streams" | dmenu -p "radio:" -l 9 -g 7)"
 if [[ -z "$chosen" ]] || [[ "$chosen" =~ --- ]]; then
   exit
 fi
@@ -38,6 +39,11 @@ fi
 systemctl --user stop "$unit_name" || true
 if [[ "$chosen" =~ Stop ]]; then
   exit
+fi
+
+if [[ "$chosen" =~ Random ]]; then
+  readonly names_only="$(sed -E 's/^\s+//;s/,.*$//;/^\s*\W/d' <<< "$streams")"
+  chosen="$(shuf -n 1 <<< "$names_only")"
 fi
 
 dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "dmenu_radio" "Playing $chosen..."
