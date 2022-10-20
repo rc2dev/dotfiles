@@ -7,6 +7,7 @@
 
 readonly term="$TERMINAL"
 readonly term_instance="sys"
+readonly url_regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
 
 declare -Ar options=(
 	["Chromium"]="chromium-freeworld"
@@ -58,7 +59,6 @@ encode_url() {
 
 declare -ar clipboard=($(xclip -out -selection clipboard))
 declare -a urls=()
-readonly url_regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
 for url in "${clipboard[@]}"; do
 	[[ $url =~ $url_regex ]] && urls+=("$url")
 done
