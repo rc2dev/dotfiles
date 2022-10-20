@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #
+# dmenu script for playing radio stations.
+#
 # Copyright (C) 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
