@@ -84,7 +84,7 @@ if [[ "$chosen" =~ Random ]]; then
 fi
 
 dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "dmenu_radio" "Playing $chosen..."
-readonly url="$(printf "%s" "$streams" | grep "$chosen" | cut -d, -f 2-)"
+readonly url="$(printf "%s" "$streams" | grep -m 1 "$chosen" | cut -d, -f 2-)"
 systemd-run \
   --user \
   --collect \
