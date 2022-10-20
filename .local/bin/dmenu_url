@@ -9,13 +9,9 @@ readonly term="$TERMINAL"
 readonly term_instance="sys"
 
 declare -Ar options=(
-	["Brave"]="brave"
-	["Brave (incognito)"]="brave --incognito"
 	["Chromium"]="chromium-freeworld"
 	["Chromium (incognito)"]="chromium-freeworld --incognito"
 	["Chromium (guest)"]="chromium-freeworld --guest"
-	["Firefox"]="firefox"
-	["Firefox (incognito)"]="firefox_private"
 	["mpv"]="mpv"
 	["yt-dlp"]="ydl"
 	["Wallabag it"]="to_wallabag"
@@ -29,13 +25,6 @@ ydl() {
 
 		printf "%s\0" "$@" | xargs -0 -n 1 -P 5 yt-dlp
 	' --	"${urls[@]}"
-}
-
-firefox_private() {
-	for url in "${urls[@]}"; do
-		firefox -private-window "$url" &
-		sleep 1s
-	done
 }
 
 to_wallabag() {
