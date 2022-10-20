@@ -42,13 +42,13 @@ super + shift + q
 super + r
   dmenu_url
 
-super + s; {e, i, m, w, r, y}
+super + s; {i, m, w, r, e, y}
  { \
-  geary, \
   gtk-launch webapp-WhatsApp9708.desktop & flatpak run org.telegram.desktop, \
   $TERMINAL -n cmus -e cmus, \
   qimgv $WALLPAPERS, \
   dmenu_radio, \
+  dmenu_radio Random, \
   dmenu_yt, \
  }
 
