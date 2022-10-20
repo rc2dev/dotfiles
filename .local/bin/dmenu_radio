@@ -67,7 +67,7 @@ declare -r streams="\
 chosen="${1:-}"
 
 if [[ -z "$chosen" ]]; then
-  chosen="$(sed -E 's/^\s+//;s/,.*$//' <<< "$streams" | dmenu -p "radio:" -l 9 -g 6)"
+  chosen="$(sed -E 's/^\s+//;s/,.*$//;/^\s*$/d' <<< "$streams" | dmenu -p "radio:" -l 9 -g 6)"
   if [[ -z "$chosen" ]] || [[ "$chosen" =~ --- ]]; then
     exit
   fi
