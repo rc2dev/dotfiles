@@ -1,0 +1,25 @@
+! Adapted from <https://github.com/janoamaral/Xresources-themes>
+! by Rafael Cavalcanti <https://rafaelc.org/dev>
+!
+! Original theme https://github.com/nathanbuchar/atom-one-dark-terminal
+
+#define theme_foreground     #ABB2BF
+#define theme_background     #1E2127
+#define theme_cursorcolor    #5C6370
+#define theme_highlightcolor #3A3F4B
+#define theme_color0         #1E2127
+#define theme_color8         #5C6370
+#define theme_color1         #E06C75
+#define theme_color9         #E06C75
+#define theme_color2         #98C379
+#define theme_color10        #98C379
+#define theme_color3         #D19A66
+#define theme_color11        #D19A66
+#define theme_color4         #61AFEF
+#define theme_color12        #61AFEF
+#define theme_color5         #C678DD
+#define theme_color13        #C678DD
+#define theme_color6         #56B6C2
+#define theme_color14        #56B6C2
+#define theme_color7         #ABB2BF
+#define theme_color15        #FFFFFF

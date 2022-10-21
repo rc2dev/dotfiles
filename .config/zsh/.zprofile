@@ -77,13 +77,11 @@ export FZF_DEFAULT_OPTS="
 	--bind 'change:top'
 	--bind 'ctrl-t:top'
 "
-# Dracula theme
-# Removed bg:#282a36 for transparent bg
+# One Dark theme
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-	--color=fg:#f8f8f2,hl:#bd93f9
-	--color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
-	--color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
-	--color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
+	--color=dark
+	--color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+	--color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
 '
 
 # man: Display the percentage into the document
