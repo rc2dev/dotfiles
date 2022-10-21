@@ -220,7 +220,7 @@ zstyle ':completion:*:processes-names' command ps axh -o cmd
 # less: Have less (and man) display colours
 # Based on <https://unix.stackexchange.com/a/147>.
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
-export LESS_TERMCAP_md=$(tput bold; tput setaf 13)
+export LESS_TERMCAP_md=$(tput bold; tput setaf 11)
 export LESS_TERMCAP_me=$(tput sgr0)
 export LESS_TERMCAP_so=$(tput bold; tput setaf 0; tput setab 15)
 export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
