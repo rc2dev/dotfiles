@@ -29,6 +29,8 @@ nnoremap <silent> <F5> :w<CR>:make<CR>:silent !gio open '%:r.pdf'<CR>
 " Use friendlier line navigation
 nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
+vnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+vnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 
 " md-img-paste
 nnoremap <buffer><silent> <leader>im :call mdip#MarkdownClipboardImage()<CR>
