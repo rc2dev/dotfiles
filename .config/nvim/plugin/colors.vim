@@ -10,7 +10,7 @@ set bg=dark
 
 " We won't have the theme on first run
 try
-  colorscheme dracula
+  colorscheme onedark
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme desert
 endtry

@@ -135,3 +135,6 @@ nmap <leader>m <Plug>(LoupeClearHighlight)
 " ranger.vim
 nnoremap <leader>fr :Ranger<CR>
 
+" goyo.vim
+nnoremap <F11> :Goyo<CR>
+inoremap <F11> <C-o>:Goyo<CR>
