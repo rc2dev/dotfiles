@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.xresources set ft=xdefaults
+autocmd BufRead,BufNewFile *.Xresources set ft=xdefaults
