@@ -121,29 +121,23 @@ declare -A ZINIT
 ZINIT[HOME_DIR]="$HOME/.local/share/zsh/zinit"
 source "$ZINIT[HOME_DIR]/bin/zinit.zsh"
 
-# Plugins from oh-my-zsh
-for plugin in "command-not-found"; do
-  zinit snippet OMZ::plugins/$plugin/$plugin.plugin.zsh
-done
+# Plugins without delay
+zinit light denysdovhan/spaceship-prompt
+zinit light zsh-users/zsh-autosuggestions
+
+# Plugins with delay (turbo mode)
+# highlighting should be last
+zinit wait lucid light-mode for \
+  OMZP::command-not-found \
+  zsh-users/zsh-syntax-highlighting
 
 if [[ -e "/usr/share/fzf/shell/key-bindings.zsh" ]]; then
   zinit snippet "/usr/share/fzf/shell/key-bindings.zsh"  # Fedora
 elif [[ -e "/usr/share/doc/fzf/examples/key-bindings.zsh" ]]; then
   zinit snippet "/usr/share/doc/fzf/examples/key-bindings.zsh"  # Debian
 fi
-zinit light zsh-users/zsh-autosuggestions
-zinit light denysdovhan/spaceship-prompt
-
-# Should be last
-zinit ice wait lucid
-zinit light zsh-users/zsh-syntax-highlighting
-
-# RVM: Load RVM into a shell session *as a function*
-zinit ice wait lucid
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && zinit snippet "$HOME/.rvm/scripts/rvm"
 
 if command -v zoxide >/dev/null; then
-  zinit ice wait lucid
   # Don't create z, zi, so we define it manually below
   eval "$(zoxide init --no-cmd zsh)"
 
@@ -165,7 +159,6 @@ fi
 # Check if sourced, because system may not have fzf
 if type fzf-file-widget >/dev/null; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_ALT_C_COMMAND="$FD_DIRS"
   export FZF_CTRL_R_OPTS="--no-preview"
 
   # Rebind ^T to ^P (bring back default bind)
@@ -173,9 +166,8 @@ if type fzf-file-widget >/dev/null; then
   bindkey "^T" self-insert
 
   # Rebind Alt+C to ^O
-  bindkey -r "^[c"
-  zle -N fzf-cd-widget
   bindkey '^O' fzf-cd-widget
+  bindkey -r "^[c"
 fi
 
 # spaceship-prompt

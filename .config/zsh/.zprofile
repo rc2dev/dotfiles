@@ -16,16 +16,6 @@ if [ -d "$GOPATH/bin" ] ; then
 	PATH="$GOPATH/bin:$PATH"
 fi
 
-# Rubygem user's bin
-if command -v ruby >/dev/null; then
-	PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
-# RVM. Make sure this is the last PATH variable change.
-if [ -d "$HOME/.rvm/bin" ]; then
-	export PATH="$PATH:$HOME/.rvm/bin"
-fi
-
 # Use ssh-agent started by user's systemd if nothing running
 if [ -z "$SSH_AUTH_SOCK" ]; then
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
