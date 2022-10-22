@@ -1,7 +1,7 @@
 ---
 tick_rate: 1
-critical_level: 5
-low_level: 20
+critical_level: 15
+low_level: 30
 
 critical:
   summary: Battery
