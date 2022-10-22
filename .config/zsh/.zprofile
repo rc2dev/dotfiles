@@ -75,7 +75,6 @@ export FZF_DEFAULT_OPTS="
 	--multi
 	--preview '([[ -d {} ]] && tree -C {}) || ([[ -f {} ]] && bat --style=full --color=always --decorations=never {}) || echo {}'
 	--bind 'change:top'
-	--bind 'ctrl-t:top'
 "
 # One Dark theme
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'

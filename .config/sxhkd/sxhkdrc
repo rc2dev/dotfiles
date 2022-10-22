@@ -1,3 +1,7 @@
+# sxhkdrc
+#
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
 super + b
   blueman-manager
 
