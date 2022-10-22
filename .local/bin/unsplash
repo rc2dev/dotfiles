@@ -9,7 +9,7 @@
 # Licensed under GPLv3
 
 readonly script_name="$(basename "$0")"
-readonly dest_dir="$WALLPAPERS/Unsplash"
+readonly dest_dir="$HOME/Pictures/Wallpapers/Unsplash"
 readonly resolution="1920x1080"
 readonly random_url="https://source.unsplash.com/random/${resolution}"
 readonly search_url="https://source.unsplash.com/${resolution}/?"

@@ -9,7 +9,7 @@
 set -euo pipefail
 
 readonly script_name="$(basename "$0")"
-readonly src="$JUMPS"
+readonly src="$HOME/.config/jumps.conf"
 readonly out_shell="$HOME/.config/zsh/jumps_auto"
 readonly out_ranger="$HOME/.config/ranger/jumps_auto"
 

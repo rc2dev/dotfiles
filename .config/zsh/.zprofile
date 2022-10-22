@@ -25,11 +25,8 @@ fi
 if tty | grep -q tty; then TMOUT=120; fi
 
 # Paths
-export ALIASES="$HOME/.config/zsh/aliases"
-export JUMPS="$HOME/.config/jumps.conf"
 export NOTES="$HOME/Documents/Notes"
 export XRESOURCES="$HOME/.config/X11/Xresources"
-export WALLPAPERS="$HOME/Pictures/Wallpapers"
 
 # Default applications
 export BROWSER="chromium-freeworld"
