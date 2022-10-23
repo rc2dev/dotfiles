@@ -193,6 +193,8 @@ dnf() { command dnf -C "$@"; }
 alias dhh="dnf history | head"
 alias dhr="sudo dnf history rollback"
 alias dhu="sudo dnf history undo"
+alias di="sudo dnf install"
+alias ds="dnf -C search"
 
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
