@@ -43,18 +43,14 @@ declare -r streams="\
   Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
   CDNX 1 - Classic & New Indie Alt,http://svr1.msmn.co:8136
   CDNX 2 - New & Upfront Indie Alt,http://msmn.co:8118
-  EuropaRadioJazz - 88.3 Smooth Jazz HD,http://109.74.196.76:8021/stream
   France Culture Live,http://direct.franceculture.fr/live/franceculture-midfi.mp3
   France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
   France Musique La Contemporaine,http://direct.francemusique.fr/live/francemusiquelacontemporaine-hifi.mp3
   France Musique La Jazz,http://direct.francemusique.fr/live/francemusiquelajazz-hifi.mp3
   Folk Radio UK,http://streaming.radionomy.com/FolkRadioUK
-  Ibiza Sonica,http://95.211.3.65:8136/listen.pls?sid=1
   KDHX 88.1 FM St. Louis,http://kdhx-ice.streamguys1.com:80/live
-  KEXP 90.3 FM Seattle,http://live-aacplus-64.kexp.org/kexp64.aac
   KMHD Portland FM 89.1 - Jazz,http://stream1.opb.org/kmhd.mp3
   NTS Live International,http://stream-relay-geo.ntslive.net/stream2
-  Radio 24 Il Sole 24 Ore,http://shoutcast.radio24.it:8000/
   Radio Paradise,http://stream-dc1.radioparadise.com/rp_192m.ogg
   Radio Reload,http://onair15.xdevel.com:7012/1
   Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
