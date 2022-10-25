@@ -7,7 +7,7 @@
 
 readonly term="$TERMINAL"
 readonly term_instance="sys"
-readonly url_regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+readonly url_regex='^(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
 
 declare -Ar options=(
 	["Chromium"]="chromium-freeworld"
