@@ -11,7 +11,7 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline#extensions#wordcount#enabled = 0
 
 " Redefine section z
-let g:airline_section_z = '%p%%%{g:airline_symbols.linenr}%l,%v %#__accent_bold#%{g:airline_symbols.maxlinenr} %L%#__restore__#'
+let g:airline_section_z = '%p%%%{g:airline_symbols.linenr}%l,%v'
 
 " Fix git branch symbol
 let g:airline_symbols.branch = ''
