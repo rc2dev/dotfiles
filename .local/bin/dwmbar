@@ -28,19 +28,9 @@ bar_player() {
     Playing) local -r icon=;;
     Paused) local -r icon=;;
   esac
+  local -r title="$(truncate "$(playerctl metadata --format "{{ title }}")")"
 
-  # Calling metadata...
-  #   - with --format: prevents mixing multiple players
-  #   - only once: prevents racing conditions (mixing prev and next song)
-  local -a metadata
-  local -r NL=$'\n'
-  mapfile -t metadata < <(playerctl metadata --format "{{ artist }}$NL{{ title }}")
-
-  # Truncate long metadata
-  local -r artist="$(truncate "${metadata[0]}")"
-  local -r title="$(truncate "${metadata[1]}")"
-
-  echo "${icon} ${artist:+$artist - }${title}"
+  echo "${icon} ${title}"
 }
 
 bar_time() {
