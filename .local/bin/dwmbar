@@ -6,13 +6,13 @@
 readonly sep="  "
 
 truncate() {
-  local -r max_len=20
+  local -r max_len=23
   local -r str="$*"
 
   if [[ ${#str} -gt $max_len ]]; then
     local trunc="${str::(( max_len - 3 ))}"
     trunc="$(sed -e 's/[[:space:]]*$//' <<< "$trunc")" # Trim trailing space
-    echo "$trunc..."
+    echo "$trunc…"
   else
     echo "$str"
   fi
