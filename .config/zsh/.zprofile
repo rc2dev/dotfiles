@@ -29,7 +29,7 @@ export NOTES="$HOME/Documents/Notes"
 export XRESOURCES="$HOME/.config/X11/Xresources"
 
 # Default applications
-export BROWSER="chromium-freeworld"
+export BROWSER="/var/lib/flatpak/exports/bin/com.brave.Browser"
 export EDITOR="nvim"
 export TERMINAL="st"
 
