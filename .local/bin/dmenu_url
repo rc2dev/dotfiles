@@ -10,12 +10,9 @@ readonly term_instance="sys"
 readonly url_regex='^(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
 
 declare -Ar options=(
-	["Chromium"]="chromium-freeworld"
-	["Chromium (incognito)"]="chromium-freeworld --incognito"
-	["Chromium (guest)"]="chromium-freeworld --guest"
 	["mpv"]="mpv"
 	["yt-dlp"]="ydl"
-	["Wallabag it"]="to_wallabag"
+	["wallabag"]="to_wallabag"
 )
 
 ydl() {
