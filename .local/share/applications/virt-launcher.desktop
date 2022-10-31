@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=virt-launcher
+Icon=virt-manager
+Exec=virt-launcher
+Type=Application
+Terminal=false
+Keywords=vmm;
+Categories=System;
