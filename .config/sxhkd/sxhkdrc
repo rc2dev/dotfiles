@@ -2,6 +2,12 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
+super + {_, shift} + a
+  { \
+    dmenu_radio, \
+    dmenu_radio Random, \
+  }
+
 super + b
   blueman-manager
 
@@ -46,13 +52,10 @@ super + shift + q
 super + r
   dmenu_url
 
-super + s; {i, m, q, r, e, y}
+super + s; {m, q, y}
  { \
-  gtk-launch webapp-WhatsApp9708.desktop & flatpak run org.telegram.desktop, \
   $TERMINAL -n cmus -e cmus, \
   qimgv, \
-  dmenu_radio, \
-  dmenu_radio Random, \
   dmenu_yt, \
  }
 
@@ -77,12 +80,9 @@ alt + Tab
 ctrl + alt + v
   clipmenu
 
-Print
-  flameshot gui
-
-Print + shift
-  flameshot gui --delay 5000
+Print + {_, shift}
+  flameshot gui {_, --delay 5000}
 
 XF86Calculator
-  gnome-calculator
+  io.elementary.calculator
 
