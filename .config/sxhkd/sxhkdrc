@@ -2,12 +2,6 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-super + {_, shift} + a
-  { \
-    dmenu_radio, \
-    dmenu_radio Random, \
-  }
-
 super + b
   blueman-manager
 
@@ -48,6 +42,12 @@ super + p
 
 super + shift + q
   xkill
+
+super + {_, shift} + r
+  { \
+    dmenu_radio, \
+    dmenu_radio Random, \
+  }
 
 super + s; {m, q, y}
  { \
