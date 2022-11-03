@@ -49,9 +49,6 @@ super + p
 super + shift + q
   xkill
 
-super + r
-  dmenu_url
-
 super + s; {m, q, y}
  { \
   $TERMINAL -n cmus -e cmus, \
