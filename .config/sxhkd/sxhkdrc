@@ -11,21 +11,19 @@ super + c
 super + shift + d
   light-dark
 
-super + e
-  $TERMINAL -e nvim
+super + e; {super + e, h, n, y}
+  { \
+    $TERMINAL -e nvim, \
+    $TERMINAL -e nvim +'Telescope oldfiles', \
+    $TERMINAL -d "$NOTES" -e nvim +'Telescope find_files cwd='$NOTES'/notes', \
+    $TERMINAL -e dotfiles cmd nvim +'Telescope git_files' \
+  }
 
 super + f
   $TERMINAL -e ranger
 
 super + shift + f
   nautilus
-
-super + {_, shift, ctrl} + n
-  { \
-    $TERMINAL -e notes name, \
-    $TERMINAL -e notes dump, \
-    $TERMINAL -n plan -e notes today, \
-  }
 
 super + o
   bash -c "\

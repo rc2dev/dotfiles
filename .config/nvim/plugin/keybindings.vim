@@ -72,7 +72,6 @@ endfunction
 
 " Buffer navigation
 nnoremap <Leader><Leader> <C-^>
-nnoremap <Leader>b :Buffers<CR>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
 
@@ -121,12 +120,12 @@ nnoremap <Leader>gl :Gclog<CR>
 let g:NERDCreateDefaultMappings = 0
 map <leader>/ <plug>NERDCommenterToggle
 
-" fzf.vim
-nnoremap <silent> <leader>ff :Rg<CR>
-nnoremap <silent> <leader>fg :GFiles2<CR>
-nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>fp :Files<CR>
-nnoremap <silent> <leader>f. :Files %:p:h<CR>
+" Find files using Telescope command-line sugar.
+nnoremap <leader>fp <cmd>Telescope find_files<CR>
+nnoremap <leader>fg <cmd>Telescope git_files<CR>
+nnoremap <leader>ff <cmd>Telescope live_grep<CR>
+nnoremap <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 
 " loupe
 " Use this instead of <leader>n.

@@ -66,10 +66,8 @@ take() {
 
 # Edit
 alias e="$EDITOR"
-alias ef="nvim +Rg"
-alias eg="nvim +GFiles"
-alias eh="nvim +History"
-alias ep="nvim +Files"
+alias eh="nvim +'Telescope oldfiles'"
+alias ep="nvim +'Telescope find_files'"
 alias ey="ye"
 alias vim="nvim"
 
@@ -155,7 +153,7 @@ alias yrbc="y rebase --continue"
 alias yrbi="y rebase --interactive"
 alias ysh="y show"
 alias yst="y status"
-alias ye="dotfiles cmd nvim +GFiles"
+alias ye="dotfiles cmd nvim +'Telescope git_files'"
 alias yh="dotfiles cmd gh"
 
 # Use bat if available

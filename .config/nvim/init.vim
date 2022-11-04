@@ -14,9 +14,9 @@ Plug 'embear/vim-localvimrc'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'joshdick/onedark.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'nvim-lua/plenary.nvim'  " Dependency for telescope
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/vim-markdown'
 Plug 'rbgrouleff/bclose.vim'  " Dependency for ranger.vim to replace netrw
