@@ -5,7 +5,7 @@
 super + b
   blueman-manager
 
-super + c
+{super + c, XF86Calculator}
   io.elementary.calculator
 
 super + shift + d
@@ -42,10 +42,7 @@ super + shift + q
   xkill
 
 super + {_, shift} + r
-  { \
-    dmenu_radio, \
-    dmenu_radio Random, \
-  }
+  dmenu_radio {_, Random }
 
 super + s; {m, q, y}
  { \
@@ -77,7 +74,3 @@ ctrl + alt + v
 
 Print + {_, shift}
   flameshot gui {_, --delay 5000}
-
-XF86Calculator
-  io.elementary.calculator
-
