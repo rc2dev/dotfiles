@@ -13,6 +13,7 @@ Plug 'dense-analysis/ale'
 Plug 'embear/vim-localvimrc'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'goolord/alpha-nvim'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'nvim-lua/plenary.nvim'  " Dependency for telescope

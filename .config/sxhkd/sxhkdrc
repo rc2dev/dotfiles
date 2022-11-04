@@ -11,13 +11,8 @@ super + b
 super + shift + d
   light-dark
 
-super + e; {super + e, h, n, y}
-  { \
-    $TERMINAL -e nvim, \
-    $TERMINAL -e nvim +'Telescope oldfiles', \
-    $TERMINAL -d "$NOTES" -e nvim +'Telescope find_files cwd='$NOTES'/notes', \
-    $TERMINAL -e dotfiles cmd nvim +'Telescope git_files' \
-  }
+super + e
+  $TERMINAL -e nvim
 
 super + f
   $TERMINAL -e ranger
