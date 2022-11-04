@@ -127,6 +127,11 @@ nnoremap <leader>fg <cmd>Telescope git_files<CR>
 nnoremap <leader>ff <cmd>Telescope live_grep<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
+nnoremap <leader>fn <cmd>Telescope find_files cwd=$NOTES/notes<CR>
+nnoremap <leader>fc <cmd>Telescope find_files cwd=$HOME/Code<CR>
+" Dotfiles
+nnoremap <leader>fy :let $GIT_DIR=$HOME . '/.local/share/dotfiles/repo.git'<CR>:let $GIT_WORK_TREE=$HOME<CR>:Telescope git_files<CR>
+nnoremap <leader>fY :unlet $GIT_DIR<CR>:unlet $GIT_WORK_TREE<CR>
 
 " loupe
 " Use this instead of <leader>n.
