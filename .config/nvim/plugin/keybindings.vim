@@ -57,7 +57,8 @@ inoremap <C-Down>  <ESC>:echoe "Use j"<CR>
 " Use ctrl+j/k, Tab on completion menu
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+cnoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+cnoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Delete current file
 nnoremap <Leader><Del> :call DeleteFile()<CR>
