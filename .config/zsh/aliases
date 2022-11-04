@@ -57,12 +57,6 @@ alias ..="cd .."
 alias c="clear"
 alias q="exit"
 alias x="exit"
-take() {
-	if ! mkdir -p "$@"; then
-		echo "Retrying with sudo..."
-		sudo mkdir -p "$@"
-	fi && cd ${@:$#}
-}
 
 # Edit
 alias e="$EDITOR"
@@ -70,6 +64,14 @@ alias eh="nvim +'Telescope oldfiles'"
 alias ep="nvim +'Telescope find_files'"
 alias ey="ye"
 alias vim="nvim"
+
+# mkdir and cd to dir
+take() {
+	if ! mkdir -p "$@"; then
+		echo "Retrying with sudo..."
+		sudo mkdir -p "$@"
+	fi && cd ${@:$#}
+}
 
 # Create a backup of a file
 bak() {
@@ -91,7 +93,6 @@ keys() {
 	xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 alias n="notes"
-alias nn="notes name"
 alias o="xdg-open"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
@@ -192,7 +193,6 @@ alias dhh="dnf history | head"
 alias dhr="sudo dnf history rollback"
 alias dhu="sudo dnf history undo"
 alias di="sudo dnf install"
-alias ds="dnf -C search"
 
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
