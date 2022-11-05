@@ -39,8 +39,8 @@ super + p
 super + shift + q
   xkill
 
-super + {_, shift} + r
-  dmenu_radio {_, Random }
+super + r
+  dmenu_radio
 
 super + s; {m, q, y}
  { \
