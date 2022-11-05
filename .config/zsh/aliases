@@ -60,7 +60,6 @@ alias x="exit"
 
 # Edit
 alias e="$EDITOR"
-alias ey="ye"
 alias vim="nvim"
 
 # mkdir and cd to dir
@@ -152,7 +151,6 @@ alias yrbc="y rebase --continue"
 alias yrbi="y rebase --interactive"
 alias ysh="y show"
 alias yst="y status"
-alias ye="dotfiles cmd nvim +'Telescope git_files'"
 alias yh="dotfiles cmd gh"
 
 # Use bat if available
