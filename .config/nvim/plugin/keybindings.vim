@@ -126,11 +126,10 @@ nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
-nnoremap <leader>fn <cmd>Telescope find_files cwd=$NOTES/notes<CR>
-nnoremap <leader>fc <cmd>Telescope find_files cwd=$HOME/Code<CR>
-" Dotfiles
-nnoremap <leader>fy :let $GIT_DIR=$HOME . '/.local/share/dotfiles/repo.git'<CR>:let $GIT_WORK_TREE=$HOME<CR>:Telescope git_files<CR>
-nnoremap <leader>fY :unlet $GIT_DIR<CR>:unlet $GIT_WORK_TREE<CR>echo "Dotfiles repo unset."
+nnoremap <leader>fn <cmd>TeNotes<CR>
+nnoremap <leader>fc <cmd>TeCode<CR>
+nnoremap <leader>fy <cmd>TeDotfiles<CR>
+nnoremap <leader>fY <cmd>DotfilesUnset<CR>
 nnoremap <leader>i <cmd>Telescope help_tags<CR>
 
 " alpha
