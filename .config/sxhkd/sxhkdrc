@@ -20,6 +20,9 @@ super + f
 super + shift + f
   nautilus
 
+super + n
+  $TERMINAL -e nvim '+TeNotes'
+
 super + o
   bash -c "\
     fd --follow --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources ~/Videos | \
