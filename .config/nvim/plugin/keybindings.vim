@@ -137,8 +137,8 @@ nnoremap <leader>fY :unlet $GIT_DIR<CR>:unlet $GIT_WORK_TREE<CR>
 " Use this instead of <leader>n.
 nmap <leader>m <Plug>(LoupeClearHighlight)
 
-" ranger.vim
-nnoremap <leader>fr :Ranger<CR>
+" rnvimr
+nnoremap <leader>fr :RnvimrToggle<CR>
 
 " goyo.vim
 nnoremap <F11> :Goyo<CR>
