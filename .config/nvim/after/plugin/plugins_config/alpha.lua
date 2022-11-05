@@ -7,11 +7,12 @@ dashboard = require('alpha.themes.dashboard')
 dashboard.section.buttons.val = {
    dashboard.button( "e", "  New file" , ":ene <BAR> startinsert <CR>"),
    dashboard.button( "h", "  Recent files" , ":Telescope oldfiles<CR>"),
-   dashboard.button( "p", "  Files" , ":Telescope find_files<CR>"),
-   dashboard.button( "f", "  Find text" , ":Telescope live_grep<CR>"),
+   dashboard.button( "f", "  Files" , ":Telescope find_files<CR>"),
+   dashboard.button( "g", "  Grep text" , ":Telescope live_grep<CR>"),
    dashboard.button( "n", "  Notes" , ":Telescope find_files cwd=$NOTES/notes<CR>"),
    dashboard.button( "c", "  Code" , ":Telescope find_files cwd=$HOME/Code<CR>"),
    dashboard.button( "y", "  Dotfiles" , ":let $GIT_DIR=$HOME . '/.local/share/dotfiles/repo.git'<CR>:let $GIT_WORK_TREE=$HOME<CR>:Telescope git_files<CR>"),
+   dashboard.button( "i", "？ Help" , ":Telescope help_tags<CR>"),
    dashboard.button( "q", "  Quit NVIM" , ":qa<CR>"),
 }
 -- Footer
