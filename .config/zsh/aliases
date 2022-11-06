@@ -60,6 +60,8 @@ alias x="exit"
 
 # Edit
 alias e="$EDITOR"
+alias eh="nvim +'Telescope oldfiles'"
+alias ey="nvim +TeDotfiles"
 alias vim="nvim"
 
 # mkdir and cd to dir
