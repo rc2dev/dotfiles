@@ -7,5 +7,5 @@ if exists('b:did_ftplugin')
 let b:did_ftplugin = 1
 
 nnoremap <buffer> pp :Git push<CR>
-nnoremap <buffer> pf :Git push --force-with-lease<CR>
+nnoremap <buffer> pf :Git push --force<CR>
 nnoremap <buffer> p<space> :Git push<space>
