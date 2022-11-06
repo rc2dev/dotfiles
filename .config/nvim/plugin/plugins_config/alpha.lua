@@ -12,7 +12,7 @@ dashboard.section.buttons.val = {
    dashboard.button( 'n', '  Notes' , ':TeNotes<CR>'),
    dashboard.button( 'c', '  Code' , ':TeCode<CR>'),
    dashboard.button( 'y', '  Dotfiles' , ':TeDotfiles<CR>'),
-   dashboard.button( 'i', '？ Help' , ':Telescope help_tags<CR>'),
+   dashboard.button( '?', '？ Help' , ':Telescope help_tags<CR>'),
    dashboard.button( 'q', '  Quit NVIM' , ':qa<CR>'),
 }
 -- Footer

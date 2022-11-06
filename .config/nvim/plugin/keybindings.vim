@@ -130,7 +130,7 @@ nnoremap <leader>fn <cmd>TeNotes<CR>
 nnoremap <leader>fc <cmd>TeCode<CR>
 nnoremap <leader>fy <cmd>TeDotfiles<CR>
 nnoremap <leader>fY <cmd>DotfilesUnset<CR>
-nnoremap <leader>i <cmd>Telescope help_tags<CR>
+nnoremap <leader>? <cmd>Telescope help_tags<CR>
 
 " alpha
 nnoremap ga :Alpha<CR>
