@@ -24,5 +24,11 @@ dashboard.section.footer.opts.hl = 'Function'
 require('alpha').setup(dashboard.config)
 
 -- Hide status line
-vim.cmd[[autocmd FileType alpha set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2]]
+vim.cmd[[
+   augroup rc2dev_alpha
+      autocmd!
+      autocmd FileType alpha set laststatus=0 noruler
+      autocmd BufUnload <buffer> set laststatus=2 ruler
+   augroup END
+]]
 
