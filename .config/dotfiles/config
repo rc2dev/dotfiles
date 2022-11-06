@@ -5,6 +5,8 @@
 
 [core]
   hooksPath = ~/.config/dotfiles/hooks
+  # Needed for creating vim-fugitive's command
+  worktree = ~
 
 [rebase]
   autoStash = true

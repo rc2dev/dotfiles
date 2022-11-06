@@ -113,6 +113,7 @@ tnoremap <F12> <C-\><C-n>:call TermToggle(12)<CR>
 
 " vim-fugitive
 nnoremap <Leader>gs :Git<CR>
+nnoremap <Leader>ys :Dotfiles<CR>
 nnoremap <Leader>gm :GMove <C-R>=expand('%')<CR>
 nnoremap <Leader>gl :Gclog<CR>
 
