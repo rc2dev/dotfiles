@@ -20,9 +20,15 @@ require('telescope').setup{
 
 require('telescope').load_extension('fzf')
 
+function search_dotfiles()
+  require('telescope.builtin').find_files {
+    find_command = {'dotfiles', 'ls-files'},
+    cwd = '$HOME',
+    prompt_title = 'Dotfiles',
+  }
+end
+
 -- Create commands for DRY code
-vim.api.nvim_create_user_command('TeNotes', 'Telescope find_files cwd=$NOTES/notes', {})
-vim.api.nvim_create_user_command('TeCode', 'Telescope find_files cwd=$HOME/Code', {})
--- Dotfiles
-vim.api.nvim_create_user_command('TeDotfiles', 'let $GIT_DIR=$HOME . "/.local/share/dotfiles/repo.git" | let $GIT_WORK_TREE=$HOME | Telescope git_files', {})
-vim.api.nvim_create_user_command('DotfilesUnset', 'unlet $GIT_DIR | unlet $GIT_WORK_TREE | echo "Dotfiles repo unset."', {})
+vim.api.nvim_create_user_command('TeNotes', 'Telescope find_files cwd=$NOTES/notes prompt_title=Notes', {})
+vim.api.nvim_create_user_command('TeCode', 'Telescope find_files cwd=$HOME/Code prompt_title=Code', {})
+vim.api.nvim_create_user_command('TeDotfiles', search_dotfiles, {})
