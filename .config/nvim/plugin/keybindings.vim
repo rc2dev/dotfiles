@@ -127,6 +127,7 @@ map <leader>/ <plug>NERDCommenterToggle
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <leader>b <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <leader>fn <cmd>TeNotes<CR>
 nnoremap <leader>fc <cmd>TeCode<CR>
