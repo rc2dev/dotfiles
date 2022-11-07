@@ -61,6 +61,7 @@ alias x="exit"
 # Edit
 alias e="$EDITOR"
 alias eh="nvim +'Telescope oldfiles'"
+alias en="nvim +TeNotes"
 alias ey="nvim +TeDotfiles"
 alias vim="nvim"
 
