@@ -66,9 +66,9 @@ alias vim="nvim"
 
 # mkdir and cd to dir
 take() {
-	if ! mkdir -p "$@"; then
+	if ! mkdir -pv "$@"; then
 		echo "Retrying with sudo..."
-		sudo mkdir -p "$@"
+		sudo mkdir -pv "$@"
 	fi && cd ${@:$#}
 }
 
