@@ -37,8 +37,7 @@ class compress(Command):
         extension = ['.zip', '.tar.gz', '.rar', '.7z']
         return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
 
-# Copied from https://github.com/ranger/ranger/wiki/Custom-Commands
-# Rename mkcd -> take
+# Adapted from <https://github.com/ranger/ranger/wiki/Custom-Commands> (mkcd)
 class take(Command):
     """
     :take <dirname>
@@ -53,7 +52,10 @@ class take(Command):
 
         dirname = join(self.fm.thisdir.path, expanduser(self.rest(1)))
         if not lexists(dirname):
-            makedirs(dirname)
+            try:
+                makedirs(dirname)
+            except PermissionError:
+                self.fm.execute_command(f"sudo mkdir -p {dirname}")
 
             match = re.search('^/|^~[^/]*/', dirname)
             if match:
