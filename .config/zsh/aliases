@@ -96,7 +96,6 @@ alias o="xdg-open"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias se="sudo -e"
-alias yts="yt-dlp --all-subs --skip-download"  # Download only subtitles
 
 # Set default options
 alias fd="fd $FD_ARGS"
