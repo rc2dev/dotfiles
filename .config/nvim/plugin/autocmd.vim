@@ -22,6 +22,7 @@ augroup rc2dev
   autocmd BufWritePost ~/.config/dunst/* silent !killall dunst && dunst & disown
   autocmd BufWritePost ~/.config/dunst/*,*Xresources silent !gen-dunst-theme
   autocmd BufWritePost ~/.config/jumps.conf silent !gen-jumps
+  autocmd BufWritePost ~/.config/nvim/init.vim source % | PlugClean! | PlugInstall
   autocmd BufWritePost sxhkdrc silent !killall -USR1 sxhkd
   autocmd BufWritePost *Xresources silent !xrdb $XRESOURCES
   autocmd BufWritePost xsettingsd.conf silent !killall -HUP xsettingsd
