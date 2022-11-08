@@ -25,7 +25,6 @@ blueman-applet &
 system-config-printer-applet &
 keepassxc &
 notes gen-next-watch &
-$TERMINAL -n plan -e notes today &
 
 # Auto-lock screen
 # Trigger slock on inactivity, suspension, hibernation, etc.
