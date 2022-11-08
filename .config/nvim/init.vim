@@ -17,6 +17,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 Plug 'nvim-lua/plenary.nvim'  " Dependency for telescope
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }  " Extension for telescope to use fzf as fuzzy finder
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'preservim/nerdcommenter'
@@ -24,7 +25,7 @@ Plug 'preservim/vim-markdown'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
-Plug 'vim-airline/vim-airline'
 Plug 'wincent/loupe'
 
 call plug#end()
+
