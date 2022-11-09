@@ -9,6 +9,7 @@ dashboard.section.buttons.val = {
    dashboard.button( 'h', '  Recent files' , ':Telescope oldfiles<CR>'),
    dashboard.button( 'f', '  Files' , ':Telescope find_files<CR>'),
    dashboard.button( 'g', '  Grep text' , ':Telescope live_grep<CR>'),
+   dashboard.button( 'r', '  Ranger' , ':RnvimrToggle<CR>'),
    dashboard.button( 'n', '  Notes' , ':TeNotes<CR>'),
    dashboard.button( 'c', '  Code' , ':TeCode<CR>'),
    dashboard.button( 'y', '  Dotfiles' , ':TeDotfiles<CR>'),
