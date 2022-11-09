@@ -83,7 +83,6 @@ bak() {
 }
 
 # Easier commands
-alias fbl="find . -xtype l"  # Find broken links
 alias cx="chmod +x"
 alias ex="atool --extract --each --"
 alias f="ranger"
@@ -101,7 +100,6 @@ alias se="sudo -e"
 alias fd="fd $FD_ARGS"
 # Set fixed port because of firewall
 alias go-chromecast="go-chromecast --first --server-port 39951"
-alias spotdl="spotdl --output-format m4a"
 
 # Git
 alias g="git"
@@ -189,7 +187,6 @@ dnf() { command dnf -C "$@"; }
 alias dhh="dnf history | head"
 alias dhr="sudo dnf history rollback"
 alias dhu="sudo dnf history undo"
-alias di="sudo dnf install"
 
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
