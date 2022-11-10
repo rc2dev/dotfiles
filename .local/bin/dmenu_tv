@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+#
+# dmenu script for playing TV stations.
+#
+# Features:
+# - Most watched streams (history).
+# - Automatically refresh (re-download) playlists.
+#
+# Copyright (C) 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+set -euo pipefail
+readonly streams_dir="$HOME/.local/share/dmenu_tv"
+readonly history_file="$HOME/.cache/dmenu_tv/history"
+readonly history_max_store=10000
+readonly history_max_show=100
+
+# Download streams if needed
+if [[ "$(find "$streams_dir" -mtime 1 -type f -iname "*.m3u" | wc -l)" == "0" ]]; then
+  notify-send "dmenu_tv" "Stream files are old. Downloading again..."
+  "$streams_dir/download"
+fi
+
+# Make sure history exists
+mkdir -p "$(dirname "$history_file")"
+touch "$history_file"
+
+# Build options
+readonly names="$(grep -h '^#EXTINF' $streams_dir/* | sed 's/^#.*",//' | sort | uniq)"
+readonly history_options="$(sort "$history_file" | uniq -c | sort -nr | cut -c 9- | head -$history_max_show)"
+readonly options="
+  ---- MOST WATCHED ----
+  $history_options
+  ------ STREAMS ------
+  $names
+"
+
+# Choose stream
+readonly chosen="$(echo "$options" | sed -E 's/^\s+//;/^\s*$/d' | dmenu -p "tv:" -g 6 -l 8)"
+if [[ -z "$chosen" || "$chosen" =~ ^--- ]]; then
+  exit 0
+fi
+
+# Save to history
+readonly history_text="$(echo "$chosen"; head -$history_max_store "$history_file")"
+echo "$history_text" > "$history_file"
+
+readonly url="$(grep -h -A1 -F "$chosen" "$streams_dir"/* | tail -n +2)"
+mpv --no-resume-playback "$url"

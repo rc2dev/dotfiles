@@ -42,8 +42,11 @@ super + p
 super + shift + q
   xkill
 
-super + r
-  dmenu_radio
+super + {_, shift} + r
+  { \
+    dmenu_radio, \
+    dmenu_tv \
+  }
 
 super + s; {m, q, y}
  { \
