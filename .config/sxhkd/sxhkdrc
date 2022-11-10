@@ -11,8 +11,11 @@ super + b
 super + shift + d
   light-dark
 
-super + e
-  $TERMINAL -e nvim
+super + {_, shift} + e
+  { \
+    wmctrl -l | sed -nE 's/^(0x[0-9a-f]+)\s+[0-9]+\s+\w+\s+nvim$/\1/ip' | xargs wmctrl -i -a || $TERMINAL -e nvim, \
+    $TERMINAL -e nvim \
+  }
 
 super + f
   $TERMINAL -e ranger
