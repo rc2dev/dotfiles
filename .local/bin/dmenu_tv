@@ -3,7 +3,8 @@
 # dmenu script for playing TV stations.
 #
 # Features:
-# - Most watched streams (history).
+# - History: recently watched and most watched.
+# - Favorite streams.
 # - Automatically refresh (re-download) playlists.
 #
 # Copyright (C) 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
@@ -11,22 +12,25 @@
 
 set -euo pipefail
 readonly cache_dir="$HOME/.cache/dmenu_tv"
-readonly playlists_conf="$HOME/.config/dmenu_tv/playlists.conf"
+readonly config_dir="$HOME/.config/dmenu_tv"
+readonly playlists_conf="$config_dir/playlists.conf"
 readonly playlists_dir="$cache_dir/playlists"
 readonly history_file="$cache_dir/history"
+readonly favorites_file="$config_dir/favorites"
 readonly history_max_store=10000
-readonly most_watched_max=100
-readonly recent_max=5
+readonly most_watched_max=10
+readonly recent_max=10
 
 if [[ ! -e "$playlists_conf" ]]; then
   notify_send "dmenu_tv" "Configure playlists first."
   exit 0
 fi
 
-# Make sure history file and directories exist
+# Make sure files and directories exist
 mkdir -p "$cache_dir"
 mkdir -p "$playlists_dir"
 touch "$history_file"
+touch "$favorites_file"
 
 # Check if downloading streams is needed
 if [[ "$(find "$playlists_dir" -mtime -1 -type f -iname "*.m3u" | wc -l)" == "0" ]]; then
@@ -45,22 +49,35 @@ if [[ -n "${download_msg:-}" ]]; then
   done <<< "$(sed '/^#/d; /^\s*$/d' "$playlists_conf")"
 fi
 
-# Build options
+# Build menu
 readonly all_streams="$(grep -h '^#EXTINF' $playlists_dir/* | sed 's/^#.*",//' | sort | uniq)"
 readonly most_watched="$(sort "$history_file" | uniq -c | sort -nr | cut -c 9- | head -$most_watched_max)"
 readonly recent="$(uniq "$history_file" | head -n $recent_max)"
+readonly last="$(head -n 1 "$history_file")"
+readonly favorites="$(cat "$favorites_file")"
 readonly menu="
-  ------- RECENT -------
-  $recent
-  ---- MOST WATCHED ----
+  $(if ! grep -q "$last" <<< "$favorites"; then echo "Add to favorites: $last"; fi)
+  ----- MOST WATCHED -----
   $most_watched
-  ------- STREAMS -------
+  -------- RECENT --------
+  $recent
+  ------- FAVORITES -------
+  "$favorites"
+  --------- ALL ----------
   $all_streams
 "
 
 # Choose stream
 readonly chosen="$(echo "$menu" | sed -E 's/^\s+//;/^\s*$/d' | dmenu -p "tv:" -g 6 -l 8)"
 if [[ -z "$chosen" || "$chosen" =~ ^--- ]]; then
+  exit 0
+fi
+
+# Add to favorites
+if [[ "$chosen" =~ ^Add ]]; then
+  echo hello
+  echo "$last" >> "$favorites_file"
+  sort "$favorites_file" -o "$favorites_file"
   exit 0
 fi
 
