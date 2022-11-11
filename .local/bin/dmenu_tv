@@ -6,6 +6,7 @@
 # - History: recently watched and most watched.
 # - Favorite streams.
 # - Automatically refresh (re-download) playlists.
+# - Optional local playlist.
 #
 # Copyright (C) 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
@@ -16,6 +17,7 @@ readonly config_dir="$HOME/.config/dmenu_tv"
 readonly playlists_conf="$config_dir/playlists.conf"
 readonly playlists_dir="$cache_dir/playlists"
 readonly history_file="$cache_dir/history"
+readonly local_m3u_file="$config_dir/local.m3u"
 readonly favorites_file="$config_dir/favorites"
 readonly history_max_store=10000
 readonly most_watched_max=40
@@ -48,6 +50,10 @@ if [[ -n "${download_msg:-}" ]]; then
   while read -r url; do
     (cd "$playlists_dir"; curl -O "$url")
   done <<< "$(sed '/^#/d; /^\s*$/d' "$playlists_conf")"
+
+  if [[ -e "$local_m3u_file" ]]; then
+    cp "$local_m3u_file" "$playlists_dir"
+  fi
 fi
 
 # Get streams
