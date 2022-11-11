@@ -18,8 +18,9 @@ readonly playlists_dir="$cache_dir/playlists"
 readonly history_file="$cache_dir/history"
 readonly favorites_file="$config_dir/favorites"
 readonly history_max_store=10000
-readonly most_watched_max=10
+readonly most_watched_max=40
 readonly recent_max=10
+readonly -a dmenu_opts=(-g 5 -l 8)
 
 if [[ ! -e "$playlists_conf" ]]; then
   notify_send "dmenu_tv" "Configure playlists first."
@@ -49,31 +50,41 @@ if [[ -n "${download_msg:-}" ]]; then
   done <<< "$(sed '/^#/d; /^\s*$/d' "$playlists_conf")"
 fi
 
-# Build menu
+# Get streams
 readonly all_streams="$(grep -h '^#EXTINF' $playlists_dir/* | sed 's/^#.*",//' | sort | uniq)"
 readonly most_watched="$(sort "$history_file" | uniq -c | sort -nr | cut -c 9- | head -$most_watched_max)"
 readonly recent="$(uniq "$history_file" | head -n $recent_max)"
 readonly last="$(head -n 1 "$history_file")"
 readonly favorites="$(cat "$favorites_file")"
-readonly menu="
-  $(if ! grep -q "$last" <<< "$favorites"; then echo "Add to favorites: $last"; fi)
-  ----- MOST WATCHED -----
-  $most_watched
-  -------- RECENT --------
-  $recent
-  ------- FAVORITES -------
-  "$favorites"
-  --------- ALL ----------
+
+# Main menu
+readonly main_menu="
+  $(if ! grep -qF "$last" <<< "$favorites"; then echo "Add to favorites: $last"; fi)
+  MOST WATCHED
+  FAVORITES
+  RECENT
+  ------------- ALL --------------
   $all_streams
 "
 
 # Choose stream
-readonly chosen="$(echo "$menu" | sed -E 's/^\s+//;/^\s*$/d' | dmenu -p "tv:" -g 6 -l 8)"
+chosen="$(echo "$main_menu" | sed -E 's/^\s+//;/^\s*$/d' | dmenu -p "tv:" "${dmenu_opts[@]}")"
+
+# Invalid options
 if [[ -z "$chosen" || "$chosen" =~ ^--- ]]; then
   exit 0
 fi
 
-# Add to favorites
+# Option: sub-menus
+if [[ "$chosen" == "MOST WATCHED" ]]; then
+  chosen="$(echo "$most_watched" | dmenu -p "most watched:" "${dmenu_opts[@]}")"
+elif [[ "$chosen" == "RECENT" ]]; then
+  chosen="$(echo "$recent" | dmenu -p "recent:" "${dmenu_opts[@]}")"
+elif [[ "$chosen" == "FAVORITES" ]]; then
+  chosen="$(echo "$favorites" | dmenu -p "favorites:" "${dmenu_opts[@]}")"
+fi
+
+# Option: Add to favorites
 if [[ "$chosen" =~ ^Add ]]; then
   echo hello
   echo "$last" >> "$favorites_file"
