@@ -8,6 +8,11 @@
 # - Automatically refresh (re-download) playlists.
 # - Optional local playlist.
 #
+# Configuration:
+# - ~/.config/dmenu_tv/playlists.conf: One M3U playlist URL per line.
+#   Blank lines and lines starting with # are ignored.
+# - ~/.config/dmenu_tv/local.m3u: Local playlist file (optional).
+#
 # Copyright (C) 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
