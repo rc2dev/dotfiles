@@ -10,23 +10,42 @@
 # Licensed under GPLv3
 
 set -euo pipefail
-readonly streams_dir="$HOME/.local/share/dmenu_tv"
-readonly history_file="$HOME/.cache/dmenu_tv/history"
+readonly cache_dir="$HOME/.cache/dmenu_tv"
+readonly playlists_conf="$HOME/.config/dmenu_tv/playlists.conf"
+readonly playlists_dir="$cache_dir/playlists"
+readonly history_file="$cache_dir/history"
 readonly history_max_store=10000
 readonly history_max_show=100
 
-# Download streams if needed
-if [[ "$(find "$streams_dir" -mtime 1 -type f -iname "*.m3u" | wc -l)" == "0" ]]; then
-  notify-send "dmenu_tv" "Stream files are old. Downloading again..."
-  "$streams_dir/download"
+if [[ ! -e "$playlists_conf" ]]; then
+  notify_send "dmenu_tv" "Configure playlists first."
+  exit 0
 fi
 
-# Make sure history exists
-mkdir -p "$(dirname "$history_file")"
+# Make sure history file and directories exist
+mkdir -p "$cache_dir"
+mkdir -p "$playlists_dir"
 touch "$history_file"
 
+# Check if downloading streams is needed
+if [[ "$(find "$playlists_dir" -mtime -1 -type f -iname "*.m3u" | wc -l)" == "0" ]]; then
+  download_msg="Stream files are old. Downloading again..."
+elif [[ "$playlists_conf" -nt "$playlists_dir" ]]; then
+  download_msg="Playlists configuration was modified. Downloading again..."
+fi
+
+# Download streams if needed
+if [[ -n "${download_msg:-}" ]]; then
+  notify-send "dmenu_tv" "$download_msg"
+
+  rm -f "$playlists_dir"/*
+  while read -r url; do
+    (cd "$playlists_dir"; curl -O "$url")
+  done <<< "$(sed '/^#/d; /^\s*$/d' "$playlists_conf")"
+fi
+
 # Build options
-readonly names="$(grep -h '^#EXTINF' $streams_dir/* | sed 's/^#.*",//' | sort | uniq)"
+readonly names="$(grep -h '^#EXTINF' $playlists_dir/* | sed 's/^#.*",//' | sort | uniq)"
 readonly history_options="$(sort "$history_file" | uniq -c | sort -nr | cut -c 9- | head -$history_max_show)"
 readonly options="
   ---- MOST WATCHED ----
@@ -45,5 +64,5 @@ fi
 readonly history_text="$(echo "$chosen"; head -$history_max_store "$history_file")"
 echo "$history_text" > "$history_file"
 
-readonly url="$(grep -h -A1 -F "$chosen" "$streams_dir"/* | tail -n +2)"
+readonly url="$(grep -h -A1 -F "$chosen" "$playlists_dir"/* | tail -n +2)"
 mpv --no-resume-playback "$url"
