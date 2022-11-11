@@ -15,7 +15,8 @@ readonly playlists_conf="$HOME/.config/dmenu_tv/playlists.conf"
 readonly playlists_dir="$cache_dir/playlists"
 readonly history_file="$cache_dir/history"
 readonly history_max_store=10000
-readonly history_max_show=100
+readonly most_watched_max=100
+readonly recent_max=5
 
 if [[ ! -e "$playlists_conf" ]]; then
   notify_send "dmenu_tv" "Configure playlists first."
@@ -45,17 +46,20 @@ if [[ -n "${download_msg:-}" ]]; then
 fi
 
 # Build options
-readonly names="$(grep -h '^#EXTINF' $playlists_dir/* | sed 's/^#.*",//' | sort | uniq)"
-readonly history_options="$(sort "$history_file" | uniq -c | sort -nr | cut -c 9- | head -$history_max_show)"
-readonly options="
+readonly all_streams="$(grep -h '^#EXTINF' $playlists_dir/* | sed 's/^#.*",//' | sort | uniq)"
+readonly most_watched="$(sort "$history_file" | uniq -c | sort -nr | cut -c 9- | head -$most_watched_max)"
+readonly recent="$(uniq "$history_file" | head -n $recent_max)"
+readonly menu="
+  ------- RECENT -------
+  $recent
   ---- MOST WATCHED ----
-  $history_options
-  ------ STREAMS ------
-  $names
+  $most_watched
+  ------- STREAMS -------
+  $all_streams
 "
 
 # Choose stream
-readonly chosen="$(echo "$options" | sed -E 's/^\s+//;/^\s*$/d' | dmenu -p "tv:" -g 6 -l 8)"
+readonly chosen="$(echo "$menu" | sed -E 's/^\s+//;/^\s*$/d' | dmenu -p "tv:" -g 6 -l 8)"
 if [[ -z "$chosen" || "$chosen" =~ ^--- ]]; then
   exit 0
 fi
