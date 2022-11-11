@@ -68,29 +68,34 @@ readonly main_menu="
 "
 
 # Choose stream
-chosen="$(echo "$main_menu" | sed -E 's/^\s+//;/^\s*$/d' | dmenu -p "tv:" "${dmenu_opts[@]}")"
+while true; do
+  chosen="$(echo "$main_menu" | sed -E 's/^\s+//;/^\s*$/d' | dmenu -p "tv:" "${dmenu_opts[@]}")"
 
-# Invalid options
-if [[ -z "$chosen" || "$chosen" =~ ^--- ]]; then
-  exit 0
-fi
+  # Invalid options
+  if [[ -z "$chosen" || "$chosen" =~ ^--- ]]; then
+    exit 0
+  fi
 
-# Option: sub-menus
-if [[ "$chosen" == "MOST WATCHED" ]]; then
-  chosen="$(echo "$most_watched" | dmenu -p "most watched:" "${dmenu_opts[@]}")"
-elif [[ "$chosen" == "RECENT" ]]; then
-  chosen="$(echo "$recent" | dmenu -p "recent:" "${dmenu_opts[@]}")"
-elif [[ "$chosen" == "FAVORITES" ]]; then
-  chosen="$(echo "$favorites" | dmenu -p "favorites:" "${dmenu_opts[@]}")"
-fi
+  # Option: sub-menus
+  if [[ "$chosen" == "MOST WATCHED" ]]; then
+    chosen="$(printf "..\n%s" "$most_watched" | dmenu -p "most watched:" "${dmenu_opts[@]}")"
+  elif [[ "$chosen" == "RECENT" ]]; then
+    chosen="$(printf "..\n%s" "$recent" | dmenu -p "recent:" "${dmenu_opts[@]}")"
+  elif [[ "$chosen" == "FAVORITES" ]]; then
+    chosen="$(printf "..\n%s" "$favorites" | dmenu -p "favorites:" "${dmenu_opts[@]}")"
+  fi
 
-# Option: Add to favorites
-if [[ "$chosen" =~ ^Add ]]; then
-  echo hello
-  echo "$last" >> "$favorites_file"
-  sort "$favorites_file" -o "$favorites_file"
-  exit 0
-fi
+  # Option: Add to favorites
+  if [[ "$chosen" =~ ^Add ]]; then
+    echo "$last" >> "$favorites_file"
+    sort "$favorites_file" -o "$favorites_file"
+    exit 0
+  fi
+
+  if [[ "$chosen" != ".." ]]; then
+    break
+  fi
+done
 
 # Save to history
 readonly history_text="$(echo "$chosen"; head -$history_max_store "$history_file")"
