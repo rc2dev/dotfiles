@@ -28,9 +28,10 @@ readonly history_max_store=10000
 readonly most_watched_max=40
 readonly recent_max=10
 readonly -a dmenu_opts=(-g 5 -l 8)
+readonly notify_title="dmenu_tv"
 
 if [[ ! -e "$playlists_conf" ]]; then
-  notify_send "dmenu_tv" "Configure playlists first."
+  notify-send "$notify_title" "Configure playlists first."
   exit 0
 fi
 
@@ -49,7 +50,7 @@ fi
 
 # Download streams if needed
 if [[ -n "${download_msg:-}" ]]; then
-  notify-send "dmenu_tv" "$download_msg"
+  notify-send "$notify_title" "$download_msg"
 
   rm -f "$playlists_dir"/*
   while read -r url; do
