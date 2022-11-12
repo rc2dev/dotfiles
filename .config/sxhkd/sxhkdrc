@@ -23,6 +23,9 @@ super + f
 super + shift + f
   nautilus
 
+super + g
+  dmenu_tv
+
 super + n
   $TERMINAL -e nvim '+TeNotes'
 
@@ -42,11 +45,8 @@ super + p
 super + shift + q
   xkill
 
-super + {_, shift} + r
-  { \
-    dmenu_radio, \
-    dmenu_tv \
-  }
+super + r
+  dmenu_radio
 
 super + s; {m, q, y}
  { \
