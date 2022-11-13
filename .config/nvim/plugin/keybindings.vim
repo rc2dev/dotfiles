@@ -145,6 +145,7 @@ nmap <leader>m <Plug>(LoupeClearHighlight)
 
 " rnvimr
 nnoremap <leader>fr :RnvimrToggle<CR>
+tnoremap <silent> <C-i> <C-\><C-n>:RnvimrResize<CR>
 
 " goyo.vim
 nnoremap <F11> :Goyo<CR>
