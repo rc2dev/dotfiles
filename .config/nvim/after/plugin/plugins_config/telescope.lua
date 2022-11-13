@@ -29,6 +29,6 @@ function search_dotfiles()
 end
 
 -- Create commands for DRY code
-vim.api.nvim_create_user_command('TeNotes', 'Telescope find_files cwd=$NOTES/notes prompt_title=Notes', {})
-vim.api.nvim_create_user_command('TeCode', 'Telescope find_files cwd=$HOME/Code prompt_title=Code', {})
+vim.api.nvim_create_user_command('TeNotes', 'Telescope find_files cwd=$NOTES/notes prompt_title=Notes hidden=true', {})
+vim.api.nvim_create_user_command('TeCode', 'Telescope find_files cwd=$HOME/Code prompt_title=Code hidden=true', {})
 vim.api.nvim_create_user_command('TeDotfiles', search_dotfiles, {})
