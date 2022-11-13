@@ -126,6 +126,8 @@ map <leader>/ <plug>NERDCommenterToggle
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
+nnoremap <leader>fG <cmd>Telescope live_grep search_dirs=%:p:h prompt_title=Live\ grep\ buffer\ directory<CR>
+nnoremap <leader>fB <cmd>Telescope live_grep grep_open_files=true prompt_title=Live\ grep\ open\ buffers<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>b <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
