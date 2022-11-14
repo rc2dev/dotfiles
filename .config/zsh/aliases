@@ -173,14 +173,8 @@ alias jc="journalctl"
 
 # APT
 alias aar="sudo apt autoremove --purge --yes"
-alias ah="apt search"
 alias ama="sudo apt-mark auto"
 alias amm="sudo apt-mark manual"
-alias ai="sudo apt install"
-alias ap="sudo apt purge"
-alias au="sudo apt update"
-alias afu="sudo apt update && sudo apt full-upgrade"
-alias aw="apt show"
 
 # dnf
 dnf() { command dnf -C "$@"; }
