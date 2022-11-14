@@ -48,7 +48,6 @@ declare -r streams="\
   France Musique La Contemporaine,http://direct.francemusique.fr/live/francemusiquelacontemporaine-hifi.mp3
   France Musique La Jazz,http://direct.francemusique.fr/live/francemusiquelajazz-hifi.mp3
   Folk Radio UK,http://streaming.radionomy.com/FolkRadioUK
-  KDHX 88.1 FM St. Louis,http://kdhx-ice.streamguys1.com:80/live
   KMHD Portland FM 89.1 - Jazz,http://stream1.opb.org/kmhd.mp3
   NTS Live International,http://stream-relay-geo.ntslive.net/stream2
   Radio Paradise,http://stream-dc1.radioparadise.com/rp_192m.ogg
