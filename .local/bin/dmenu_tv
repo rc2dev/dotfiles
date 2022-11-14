@@ -43,7 +43,7 @@ touch "$favorites_file"
 
 # Check if downloading streams is needed
 if [[ "$(find "$playlists_dir" -mtime -1 -type f -iname "*.m3u" | wc -l)" == "0" ]]; then
-  download_msg="Stream files are old. Downloading again..."
+  download_msg="Stream files are old or absent. Downloading..."
 elif [[ "$playlists_conf" -nt "$playlists_dir" ]]; then
   download_msg="Playlists configuration was modified. Downloading again..."
 elif [[ "$local_m3u_file" -nt "$playlists_dir/$(basename "$local_m3u_file")" ]]; then
