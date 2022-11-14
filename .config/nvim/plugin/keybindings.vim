@@ -126,8 +126,8 @@ let g:NERDCreateDefaultMappings = 0
 map <leader>/ <plug>NERDCommenterToggle
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files hidden=true<CR>
-nnoremap <leader>f. <cmd>Telescope find_files hidden=true cwd=%:p:h prompt_title=Find\ Files\ in\ buffer\ directory<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>f. <cmd>Telescope find_files cwd=%:p:h prompt_title=Find\ Files\ in\ buffer\ directory<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fG <cmd>Telescope live_grep search_dirs=%:p:h prompt_title=Live\ Grep\ buffer\ directory<CR>
 nnoremap <leader>fB <cmd>Telescope live_grep grep_open_files=true prompt_title=Live\ Grep\ open\ buffers<CR>
