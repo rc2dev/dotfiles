@@ -55,11 +55,13 @@ inoremap <C-Right> <ESC>:echoe "Use w"<CR>
 inoremap <C-Up>    <ESC>:echoe "Use k"<CR>
 inoremap <C-Down>  <ESC>:echoe "Use j"<CR>
 
-" Use ctrl+j/k, Tab on completion menu
+" Use ctrl+j/k on completion menu
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 cnoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 cnoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+" Accept first unselected completion with Tab
+inoremap <expr> <Tab> pumvisible() ? "<C-n><C-y>" : "<Tab>"
 
 " Delete current file
 nnoremap <Leader><Del> :call DeleteFile()<CR>
