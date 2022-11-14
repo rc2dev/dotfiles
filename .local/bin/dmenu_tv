@@ -46,6 +46,9 @@ if [[ "$(find "$playlists_dir" -mtime -1 -type f -iname "*.m3u" | wc -l)" == "0"
   download_msg="Stream files are old. Downloading again..."
 elif [[ "$playlists_conf" -nt "$playlists_dir" ]]; then
   download_msg="Playlists configuration was modified. Downloading again..."
+elif [[ "$local_m3u_file" -nt "$playlists_dir/$(basename "$local_m3u_file")" ]]; then
+  # Copy local m3u if changed
+  cp -f "$local_m3u_file" "$playlists_dir"
 fi
 
 # Download streams if needed
