@@ -6,7 +6,7 @@ super + b
   blueman-manager
 
 {super + c, XF86Calculator}
-  io.elementary.calculator
+  deepin-calculator
 
 super + shift + d
   light-dark
@@ -19,9 +19,6 @@ super + {_, shift} + e
 
 super + f
   $TERMINAL -e ranger
-
-super + shift + f
-  nautilus
 
 super + g
   dmenu_tv
