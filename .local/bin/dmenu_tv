@@ -39,7 +39,7 @@ touch "$history_file"
 touch "$favorites_file"
 
 # Check if downloading streams is needed
-if [[ "$(find "$playlists_dir" -mtime -1 -type f -iname "*.m3u" | wc -l)" == "0" ]]; then
+if [[ "$(find "$playlists_dir" -mtime -1 -type f | wc -l)" == "0" ]]; then
   download_msg="Stream files are old or absent. Downloading..."
 elif [[ "$playlists_conf" -nt "$playlists_dir" ]]; then
   download_msg="Playlists configuration was modified. Downloading again..."
@@ -51,7 +51,8 @@ if [[ -n "${download_msg:-}" ]]; then
 
   rm -f "$playlists_dir"/*
   while read -r url; do
-    (cd "$playlists_dir"; curl -O "$url")
+    # Use different filename as many playlists can be named the same.
+    curl -o "$(mktemp -p "$playlists_dir" "XXXX")" "$url"
   done <<< "$(sed '/^#/d; /^\s*$/d' "$playlists_conf")"
 fi
 
