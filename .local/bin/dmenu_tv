@@ -6,12 +6,10 @@
 # - History: recently watched and most watched.
 # - Favorite streams.
 # - Automatically refresh (re-download) playlists.
-# - Optional local playlist.
 #
 # Configuration:
 # - ~/.config/dmenu_tv/playlists.conf: One M3U playlist URL per line.
 #   Blank lines and lines starting with # are ignored.
-# - ~/.config/dmenu_tv/local.m3u: Local playlist file (optional).
 #
 # Copyright (C) 2022 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
@@ -22,7 +20,6 @@ readonly config_dir="$HOME/.config/dmenu_tv"
 readonly playlists_conf="$config_dir/playlists.conf"
 readonly playlists_dir="$cache_dir/playlists"
 readonly history_file="$cache_dir/history"
-readonly local_m3u_file="$config_dir/local.m3u"
 readonly favorites_file="$config_dir/favorites"
 readonly history_max_store=1000
 readonly most_watched_max=40
@@ -46,9 +43,6 @@ if [[ "$(find "$playlists_dir" -mtime -1 -type f -iname "*.m3u" | wc -l)" == "0"
   download_msg="Stream files are old or absent. Downloading..."
 elif [[ "$playlists_conf" -nt "$playlists_dir" ]]; then
   download_msg="Playlists configuration was modified. Downloading again..."
-elif [[ "$local_m3u_file" -nt "$playlists_dir/$(basename "$local_m3u_file")" ]]; then
-  # Copy local m3u if changed
-  cp -f "$local_m3u_file" "$playlists_dir"
 fi
 
 # Download streams if needed
@@ -59,10 +53,6 @@ if [[ -n "${download_msg:-}" ]]; then
   while read -r url; do
     (cd "$playlists_dir"; curl -O "$url")
   done <<< "$(sed '/^#/d; /^\s*$/d' "$playlists_conf")"
-
-  if [[ -e "$local_m3u_file" ]]; then
-    cp "$local_m3u_file" "$playlists_dir"
-  fi
 fi
 
 # Get streams
