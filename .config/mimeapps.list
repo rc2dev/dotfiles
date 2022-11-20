@@ -11,6 +11,8 @@ x-scheme-handler/https=com.brave.Browser.desktop
 x-scheme-handler/webcal=chromium-freeworld.desktop
 application/x-tar=org.gnome.FileRoller.desktop
 application/zip=org.gnome.FileRoller.desktop
+audio/x-hx-aac-adts=mpv.desktop
+inode/directory=nemo.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
