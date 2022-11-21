@@ -1,18 +1,18 @@
 [Default Applications]
+application/x-tar=org.gnome.FileRoller.desktop
+application/zip=org.gnome.FileRoller.desktop
 audio/mpeg=mpv.desktop
 audio/ogg=mpv.desktop
+audio/x-hx-aac-adts=mpv.desktop
 image/jpeg=qimgv.desktop
 image/png=qimgv.desktop
+inode/directory=nemo.desktop
 text/markdown=nvim.desktop
 text/plain=nvim.desktop
 text/xml=libreoffice-calc.desktop
 x-scheme-handler/http=com.brave.Browser.desktop
 x-scheme-handler/https=com.brave.Browser.desktop
 x-scheme-handler/webcal=chromium-freeworld.desktop
-application/x-tar=org.gnome.FileRoller.desktop
-application/zip=org.gnome.FileRoller.desktop
-audio/x-hx-aac-adts=mpv.desktop
-inode/directory=nemo.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
