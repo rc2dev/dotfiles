@@ -13,7 +13,6 @@ Plug 'dense-analysis/ale'
 Plug 'klen/nvim-config-local'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'goolord/alpha-nvim'
-Plug 'joshdick/onedark.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 Plug 'nvim-lua/plenary.nvim'  " Dependency for telescope
@@ -26,6 +25,12 @@ Plug 'ron89/thesaurus_query.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'wincent/loupe'
+
+" Colorschemes
+Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
