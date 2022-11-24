@@ -79,18 +79,15 @@ nnoremap <Leader><Leader> <C-^>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
 
-" f bindings
-nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
-
 " Navigate splits
 nnoremap <silent> <c-k> :wincmd k<cr>
 nnoremap <silent> <c-j> :wincmd j<cr>
 nnoremap <silent> <c-h> :wincmd h<cr>
 nnoremap <silent> <c-l> :wincmd l<cr>
-tnoremap <silent> <expr> <c-k> &filetype == "fzf" ? "<c-k>" : "<c-w>k"
-tnoremap <silent> <expr> <c-j> &filetype == "fzf" ? "<c-j>" : "<c-w>j"
-tnoremap <silent> <expr> <c-h> &filetype == "fzf" ? "<c-h>" : "<c-w>h"
-tnoremap <silent> <expr> <c-l> &filetype == "fzf" ? "<c-l>" : "<c-w>l"
+tnoremap <silent> <c-k> <c-w>k
+tnoremap <silent> <c-j> <c-w>j
+tnoremap <silent> <c-h> <c-w>h
+tnoremap <silent> <c-l> <c-w>l
 
 " Resize splits
 nnoremap <silent> <C-Left> :vertical resize -3<CR>
@@ -125,7 +122,7 @@ nnoremap <Leader>gl :Gclog<CR>
 let g:NERDCreateDefaultMappings = 0
 map <leader>/ <plug>NERDCommenterToggle
 
-" Find files using Telescope command-line sugar.
+" Find files using Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>f. <cmd>Telescope find_files cwd=%:p:h prompt_title=Find\ Files\ in\ buffer\ directory<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
@@ -137,7 +134,10 @@ nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <leader>fn <cmd>TeNotes<CR>
 nnoremap <leader>fc <cmd>TeCode<CR>
 nnoremap <leader>fy <cmd>TeDotfiles<CR>
+nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
 nnoremap <leader>? <cmd>Telescope help_tags<CR>
+nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
+nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
 
 " alpha
 nnoremap ga :Alpha<CR>
@@ -148,7 +148,7 @@ nmap <leader>m <Plug>(LoupeClearHighlight)
 
 " rnvimr
 nnoremap <leader>fr :RnvimrToggle<CR>
-tnoremap <silent> <C-i> <C-\><C-n>:RnvimrResize<CR>
+tnoremap <silent> <expr> <C-i> &filetype == "rnvimr" ? "<C-\><C-n>:RnvimrResize<CR>" : "<C-i>"
 
 " goyo.vim
 nnoremap <F11> :Goyo<CR>
