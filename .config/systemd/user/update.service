@@ -2,10 +2,9 @@
 
 [Unit]
 Description=Automatic user-level updates
-After=network-online.target
-Wants=network-online.target
 OnFailure=status-email@%n.service
 
 [Service]
 Environment=PATH=%h/.local/bin:%h/.local/share/zsh/zinit/polaris/bin:/usr/local/bin:/usr/bin
+ExecStartPre=/usr/bin/nm-online -q
 ExecStart=%h/.local/bin/update

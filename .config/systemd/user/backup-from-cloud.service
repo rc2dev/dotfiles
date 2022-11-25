@@ -2,10 +2,9 @@
 
 [Unit]
 Description=Backup from cloud
-After=network-online.target
-Wants=network-online.target
 OnFailure=status-email@%n.service
 
 [Service]
+ExecStartPre=/usr/bin/nm-online -q
 ExecStart=%h/Code/rc2dev/backup-bin/backup-from-cloud
 Nice=19

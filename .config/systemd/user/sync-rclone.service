@@ -2,11 +2,10 @@
 
 [Unit]
 Description=Sync rclone
-After=network-online.target
-Wants=network-online.target
 OnFailure=status-email@%n.service
 
 [Service]
+ExecStartPre=/usr/bin/nm-online -q
 ExecStart=%h/Code/rc2dev/backup-bin/sync-rclone
 Nice=19
 # Lower IO priority to minimium
