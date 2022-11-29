@@ -24,7 +24,6 @@ nm-applet &
 blueman-applet &
 system-config-printer-applet &
 keepassxc &
-n gen-dashboard-watch &
 
 # Auto-lock screen
 # Trigger slock on inactivity, suspension, hibernation, etc.
