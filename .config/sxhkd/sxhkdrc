@@ -58,9 +58,6 @@ super + v
 super + {_, shift} + w
   $BROWSER {_, --incognito}
 
-super + z
-  $BROWSER https://www.myfitnesspal.com/pt/food/diary
-
 super + {_, shift, ctrl } + period
   dunstctl { context, close, history-pop }
 
