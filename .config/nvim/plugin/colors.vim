@@ -9,8 +9,9 @@ autocmd ColorScheme * if ! has('gui_running') && &bg == "dark" | hi Normal guibg
 set termguicolors
 set bg=dark
 
-" onedark theme: Enable italics (must precede theme setting)
+" themes: Enable italics (must precede theme setting)
 let g:onedark_terminal_italics=1
+let g:gruvbox_italic=1
 
 " We won't have the theme on first run
 try
