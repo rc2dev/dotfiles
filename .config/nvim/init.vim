@@ -10,11 +10,12 @@ Plug 'airblade/vim-rooter'
 Plug 'ap/vim-css-color'
 Plug 'aperezdc/vim-template'
 Plug 'dense-analysis/ale'
-Plug 'klen/nvim-config-local'
 Plug 'ferrine/md-img-paste.vim'
+Plug 'Glench/Vim-Jinja2-Syntax'  " Syntax highlight for njk files
 Plug 'goolord/alpha-nvim'
 Plug 'junegunn/goyo.vim'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'klen/nvim-config-local'
 Plug 'nvim-lua/plenary.nvim'  " Dependency for telescope
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }  " Extension for telescope to use fzf as fuzzy finder
