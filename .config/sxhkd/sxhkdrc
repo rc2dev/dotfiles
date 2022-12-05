@@ -61,7 +61,7 @@ super + {_, shift} + w
 super + {_, shift, ctrl } + period
   dunstctl { context, close, history-pop }
 
-super + Return
+super + a
   $TERMINAL
 
 alt + Tab

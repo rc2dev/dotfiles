@@ -12,7 +12,6 @@ export QT_QPA_PLATFORMTHEME=gnome
 
 lxpolkit &  # Polkit agent, so GUI applications can request privileges
 xsettingsd &
-remap-kb &
 sxhkd &
 gen-dunst-theme &  # This already calls dunst
 nitrogen --restore &
