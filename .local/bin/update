@@ -18,6 +18,7 @@ main() {
 		update_distro
 		update_flatpaks
 		update_nvim_plugins
+		update_tmux_plugins
 		update_zinit_plugins
 		update_submodules
 	fi
@@ -119,6 +120,12 @@ update_nvim_plugins() {
 	nvim +PlugClean! +PlugUpdate +qa!
 }
 
+update_tmux_plugins() {
+	has_command tmux || return 0
+
+	log_step "Atualizando plugins do tmux..."
+	$HOME/.config/tmux/plugins/tpm/bin/update_plugins all
+}
 update_git_repos() {
 	log_step "Atualizando repos em ~/..."
 
