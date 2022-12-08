@@ -26,7 +26,6 @@ set wildignorecase
 set completeopt=longest,menu        " Don't select first item, but longest common
 
 " Interface
-set shortmess+=I                    " Disable startup message
 set noshowmode                      " Don't show modes below status line (redundant to vim-airline)
 set showcmd                         " Show partial command
 set laststatus=2                    " Always show status line
