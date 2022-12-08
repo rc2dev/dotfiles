@@ -23,7 +23,7 @@ super + f
 super + g
   dmenu_tv
 
-super + n
+super + {_, shift} + n
   $TERMINAL -e nvim '+TeNotes'
 
 super + o
@@ -57,6 +57,9 @@ super + v
 
 super + {_, shift} + w
   $BROWSER {_, --incognito}
+
+super + z
+  $TERMINAL -e n tmux-plan
 
 super + {_, shift, ctrl } + period
   dunstctl { context, close, history-pop }
