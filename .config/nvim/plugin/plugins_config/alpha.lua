@@ -5,7 +5,7 @@
 dashboard = require('alpha.themes.dashboard')
 -- Buttons
 dashboard.section.buttons.val = {
-   dashboard.button( 'e', '  New file' , ':ene <BAR> startinsert <CR>'),
+   dashboard.button( 'e', '  Edit new file' , ':ene <BAR> startinsert <CR>'),
    dashboard.button( 'h', '  Recent files' , ':Telescope oldfiles<CR>'),
    dashboard.button( 'f', '  Files' , ':Telescope find_files<CR>'),
    dashboard.button( 'g', '  Grep text' , ':Telescope live_grep<CR>'),
