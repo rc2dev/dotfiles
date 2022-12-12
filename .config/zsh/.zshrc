@@ -116,25 +116,16 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 ### Plugins sourcing
 ############################################################
 
-# Source plugin framework (zinit)
-declare -A ZINIT
-ZINIT[HOME_DIR]="$HOME/.local/share/zsh/zinit"
-source "$ZINIT[HOME_DIR]/bin/zinit.zsh"
+# Source plugin framework
+source "$ZDOTDIR/.antidote/antidote.zsh"
 
-# Plugins without delay
-zinit light denysdovhan/spaceship-prompt
-zinit light zsh-users/zsh-autosuggestions
-
-# Plugins with delay (turbo mode)
-# highlighting should be last
-zinit wait lucid light-mode for \
-  OMZP::command-not-found \
-  zsh-users/zsh-syntax-highlighting
+# initialize plugins from .zsh_plugins.txt
+antidote load
 
 if [[ -e "/usr/share/fzf/shell/key-bindings.zsh" ]]; then
-  zinit snippet "/usr/share/fzf/shell/key-bindings.zsh"  # Fedora
+  source "/usr/share/fzf/shell/key-bindings.zsh"  # Fedora
 elif [[ -e "/usr/share/doc/fzf/examples/key-bindings.zsh" ]]; then
-  zinit snippet "/usr/share/doc/fzf/examples/key-bindings.zsh"  # Debian
+  source "/usr/share/doc/fzf/examples/key-bindings.zsh"  # Debian
 fi
 
 if command -v zoxide >/dev/null; then
@@ -176,7 +167,7 @@ SPACESHIP_EXEC_TIME_SHOW=false
 
 
 ###########################################################
-### Completion (should be after loading plugins with zinit)
+### Completion (should be after loading plugins)
 ###########################################################
 
 autoload -Uz compinit

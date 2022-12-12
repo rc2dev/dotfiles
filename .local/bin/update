@@ -19,7 +19,7 @@ main() {
 		update_flatpaks
 		update_nvim_plugins
 		update_tmux_plugins
-		update_zinit_plugins
+		update_zsh_plugins
 		update_submodules
 	fi
 
@@ -145,11 +145,11 @@ update_git_repos() {
 	done
 }
 
-update_zinit_plugins() {
+update_zsh_plugins() {
 	has_command zsh || return 0
 
-	log_step "Atualizando zsh zinit..."
-	zsh -ic "zinit update --parallel" || true
+	log_step "Atualizando plugins do zsh..."
+	zsh -ic "antidote update --bundles" || true
 }
 
 main "$@"

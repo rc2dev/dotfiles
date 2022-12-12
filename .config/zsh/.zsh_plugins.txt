@@ -1,0 +1,13 @@
+# vim:syntax=conf
+#
+# Plugin list for antidote.
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+# Plugins that can't be  delayed
+denysdovhan/spaceship-prompt
+zsh-users/zsh-autosuggestions
+
+# Plugins that can be delayed
+# highlighting should be last
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+zsh-users/zsh-syntax-highlighting
