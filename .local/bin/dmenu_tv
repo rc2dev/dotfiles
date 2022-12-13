@@ -21,9 +21,8 @@ readonly playlists_conf="$config_dir/playlists.conf"
 readonly playlists_dir="$cache_dir/playlists"
 readonly history_file="$cache_dir/history"
 readonly favorites_file="$config_dir/favorites"
-readonly history_max_store=1000
-readonly most_watched_max=40
-readonly recent_max=10
+readonly history_max_store=100
+readonly recent_max=15
 readonly -a dmenu_opts=(-g 5 -l 8)
 readonly notify_title="dmenu_tv"
 
@@ -58,7 +57,6 @@ fi
 
 # Get streams
 readonly all_streams="$(grep -h '^#EXTINF' $playlists_dir/* | sed 's/^#.*",//' | sort | uniq)"
-readonly most_watched="$(sort "$history_file" | uniq -c | sort -nr | cut -c 9- | head -$most_watched_max)"
 readonly recent="$(uniq "$history_file" | head -n $recent_max)"
 readonly last="$(head -n 1 "$history_file")"
 readonly favorites="$(cat "$favorites_file")"
@@ -66,7 +64,6 @@ readonly favorites="$(cat "$favorites_file")"
 # Main menu
 readonly main_menu="
   $(if ! grep -qF "$last" <<< "$favorites"; then echo "Add to favorites: $last"; fi)
-  MOST WATCHED
   FAVORITES
   RECENT
   ------------- ALL --------------
@@ -83,9 +80,7 @@ while true; do
   fi
 
   # Option: sub-menus
-  if [[ "$chosen" == "MOST WATCHED" ]]; then
-    chosen="$(printf "..\n%s" "$most_watched" | dmenu -p "most watched:" "${dmenu_opts[@]}")"
-  elif [[ "$chosen" == "RECENT" ]]; then
+  if [[ "$chosen" == "RECENT" ]]; then
     chosen="$(printf "..\n%s" "$recent" | dmenu -p "recent:" "${dmenu_opts[@]}")"
   elif [[ "$chosen" == "FAVORITES" ]]; then
     chosen="$(printf "..\n%s" "$favorites" | dmenu -p "favorites:" "${dmenu_opts[@]}")"
