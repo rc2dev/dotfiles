@@ -45,11 +45,10 @@ super + shift + q
 super + r
   dmenu_radio
 
-super + s; {m, q, y}
+super + s; {m, q}
  { \
   $TERMINAL -n cmus -e cmus, \
-  qimgv, \
-  dmenu_yt, \
+  qimgv,
  }
 
 super + v
