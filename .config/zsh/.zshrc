@@ -210,4 +210,3 @@ source "$ZDOTDIR/aliases"
 if [[ -z "$TMUX" && -n "$SSH_CLIENT" ]]; then
   tmux attach || tmux >/dev/null 2>&1
 fi
-

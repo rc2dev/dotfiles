@@ -88,6 +88,12 @@ export TEXMFCONFIG="$HOME/.config/texlive/texmf-config"
 # zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
 
+# zsh-z
+export ZSHZ_DATA="$HOME/.local/share/zsh-z/z"
+mkdir -p "$(dirname "$ZSHZ_DATA")"
+# For ranger plugin
+export ZSHZ_SRC="$HOME/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-agkozak-SLASH-zsh-z/zsh-z.plugin.zsh"
+
 # Workaround as GDM on Fedora 36 doesn't read ~/.xprofile
 # `-t 0` will test for interactivity, so this isn't source e.g. on tmux.
 if [ "$XDG_SESSION_DESKTOP" = "dwm" ] && ! [ -t 0 ]; then
