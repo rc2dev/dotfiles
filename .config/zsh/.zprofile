@@ -94,7 +94,7 @@ mkdir -p "$(dirname "$ZSHZ_DATA")"
 # For ranger plugin
 export ZSHZ_SRC="$HOME/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-agkozak-SLASH-zsh-z/zsh-z.plugin.zsh"
 
-# Workaround as GDM on Fedora 36 doesn't read ~/.xprofile
+# Workaround as some DM's don't source ~/.xprofile.
 # `-t 0` will test for interactivity, so this isn't source e.g. on tmux.
 if [ "$XDG_SESSION_DESKTOP" = "dwm" ] && ! [ -t 0 ]; then
 	. "$HOME/.config/X11/dwm_profile"
