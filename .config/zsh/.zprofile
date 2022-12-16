@@ -85,12 +85,6 @@ export TEXMFHOME="$HOME/.local/share/texmf"
 export TEXMFVAR="$HOME/.cache/texlive/texmf-var"
 export TEXMFCONFIG="$HOME/.config/texlive/texmf-config"
 
-# zoxide
-# Some changes from fzf default (like using the same height as fzf's ^R).
-export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --no-multi --no-preview --height 40%"
-# Resolve symlinks before adding to DB: prevents duplicates
-export _ZO_RESOLVE_SYMLINKS=1
-
 # zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
 

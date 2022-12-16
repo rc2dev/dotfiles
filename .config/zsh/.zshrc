@@ -128,19 +128,6 @@ elif [[ -e "/usr/share/doc/fzf/examples/key-bindings.zsh" ]]; then
   source "/usr/share/doc/fzf/examples/key-bindings.zsh"  # Debian
 fi
 
-if command -v zoxide >/dev/null; then
-  # Don't create z, zi, so we define it manually below
-  eval "$(zoxide init --no-cmd zsh)"
-
-  z() {
-    if [[ $# -eq 0 ]]; then
-      __zoxide_zi
-    else
-      __zoxide_z "$@"
-    fi
-  }
-fi
-
 
 ############################################################
 ### Plugins configuration
