@@ -53,8 +53,6 @@ alias hy="
 "
 
 # Shell
-alias ..="cd .."
-alias c="clear"
 alias q="exit"
 alias x="exit"
 
@@ -108,8 +106,6 @@ alias gai="git add -i"
 alias gau="git add -u"
 alias gc="git commit -v"
 alias gc!="git commit -v --amend"
-alias gca="git commit -v --all"
-alias gca!="git commit -v --all --amend"
 alias gcl="git clone"
 alias gcp="git cherry-pick"
 alias gco="git checkout"
@@ -124,10 +120,8 @@ alias grb="git rebase"
 alias grba="git rebase --abort"
 alias grbc="git rebase --continue"
 alias grbi="git rebase --interactive"
-alias gsa="git stash"
 alias gsh="git show"
 alias gst="git status"
-alias zg='cd "$(git root)"'
 
 # dotfiles
 alias y="dotfiles"
@@ -136,7 +130,6 @@ alias yai="y add -i"
 alias yau="y add -u"
 alias yc="y commit -v"
 alias yc!="y commit -v --amend"
-alias yca="y commit -v --all"
 alias ycp="y cherry-pick"
 alias yco="y checkout"
 alias yd="y diff"
@@ -152,6 +145,7 @@ alias yrbi="y rebase --interactive"
 alias ysh="y show"
 alias yst="y status"
 alias yh="dotfiles cmd gh"
+alias ytig="dotfiles cmd tig"
 
 # Use bat if available
 if command -v bat >/dev/null; then
