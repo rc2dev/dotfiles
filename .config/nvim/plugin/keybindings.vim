@@ -148,7 +148,6 @@ nmap <leader>m <Plug>(LoupeClearHighlight)
 
 " rnvimr
 nnoremap <leader>fr :RnvimrToggle<CR>
-tnoremap <silent> <expr> <C-i> &filetype == "rnvimr" ? "<C-\><C-n>:RnvimrResize<CR>" : "<C-i>"
 
 " goyo.vim
 nnoremap <F11> :Goyo<CR>
