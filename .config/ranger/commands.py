@@ -6,7 +6,7 @@ from ranger.api.commands import Command
 from ranger.ext import spawn
 from subprocess import CalledProcessError
 
-# Copied from https://wiki.archlinux.org/index.php/Ranger#Compression
+# Copied from <https://wiki.archlinux.org/index.php/Ranger#Compression>.
 class compress(Command):
     def execute(self):
         """ Compress marked files to current directory """
@@ -37,7 +37,7 @@ class compress(Command):
         extension = ['.zip', '.tar.gz', '.rar', '.7z']
         return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
 
-# Adapted from <https://github.com/ranger/ranger/wiki/Custom-Commands> (mkcd)
+# Adapted from <https://github.com/ranger/ranger/wiki/Custom-Commands> (mkcd).
 class take(Command):
     """
     :take <dirname>
@@ -74,7 +74,7 @@ class take(Command):
             self.fm.notify("file/directory exists!", bad=True)
 
 
-# Based on https://github.com/ranger/ranger/wiki/Custom-Commands
+# Based on <https://github.com/ranger/ranger/wiki/Custom-Commands>.
 class fzf_select(Command):
     """
     :fzf_select
