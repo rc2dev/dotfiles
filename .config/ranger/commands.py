@@ -79,9 +79,7 @@ class fzf_select(Command):
     """
     :fzf_select
 
-    Find a file in the repository root using fzf. If not in a repository, use the current directory.
-
-    With a prefix argument select only directories.
+    Find a file in the current repository using fzf. If not in a repository, use the current directory.
     """
     def execute(self):
         import subprocess
@@ -92,13 +90,11 @@ class fzf_select(Command):
         except CalledProcessError:
             dir_to_search="."
 
-        if self.quantifier:
-            # match only directories
-            # cd so displayed names are cleaner
-            command=f"cd '{dir_to_search}' && fd {os.environ['FD_ARGS']} --type d . | fzf +m --height 100%--margin '4%,5%'"
-        else:
-            # match files and directories
-            command=f"cd '{dir_to_search}' && fd {os.environ['FD_ARGS']} . | fzf +m --height 100% --margin '4%,5%'"
+        # cd so displayed names are cleaner
+        command=f"cd '{dir_to_search}' \
+                && fd --follow --hidden --no-ignore-vcs . \
+                | fzf +m --height 100% --margin '4%,5%'"
+
         fzf = self.fm.execute_command(command, universal_newlines=True, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:

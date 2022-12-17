@@ -98,7 +98,6 @@ alias s="ssh"
 alias se="sudo -e"
 
 # Set default options
-alias fd="fd $FD_ARGS"
 # Set fixed port because of firewall
 alias go-chromecast="go-chromecast --first --server-port 39951"
 

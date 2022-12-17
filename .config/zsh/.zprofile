@@ -51,11 +51,7 @@ export CM_IGNORE_WINDOW="KeePassXC"
 # Move from ~/
 export DOCKER_CONFIG="$HOME/.config/docker"
 
-# fd
-export FD_ARGS="--follow --hidden --no-ignore-vcs"
-
 # fzf
-export FZF_DEFAULT_COMMAND="fd $FD_ARGS"
 # Preview files with bat, directories with tree
 export FZF_DEFAULT_OPTS="
 	--layout=reverse

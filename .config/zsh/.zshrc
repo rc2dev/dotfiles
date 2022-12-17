@@ -129,8 +129,7 @@ fi
 # fzf
 # Check if sourced, because system may not have fzf
 if type fzf-file-widget >/dev/null; then
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_CTRL_R_OPTS="--no-preview"
+  FZF_CTRL_R_OPTS="--no-preview"
 
   # Rebind Alt+C to ^Y
   bindkey '^Y' fzf-cd-widget
