@@ -40,9 +40,7 @@ autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[OA" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
-bindkey "^[OB" down-line-or-beginning-search
 
 # Move to beginning/end of words with ctrl
 bindkey "^[[1;5C" forward-word
@@ -51,25 +49,20 @@ bindkey "^[[1;5D" backward-word
 # Delete word with ctrl+delete and ctrl+backspace
 bindkey '^H' backward-kill-word
 bindkey '^[[M' kill-word
-bindkey '5~' kill-word
-bindkey ';5~' kill-word
 
 # Move to beginning/end of line with Home/End
 bindkey "^[[H" beginning-of-line
-bindkey "^[[1~" beginning-of-line
-bindkey "^[[F" end-of-line
 bindkey "^[[4~" end-of-line
 
 # Fix delete key
-# Termux
-bindkey "^[[P" delete-char
-# tmux
-bindkey "^[[3~" delete-char
+bindkey "^[[P" delete-char  # st
+bindkey "^[[3~" delete-char  # tmux
 
 # Add keybinding for editing in text editor
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey "^e" edit-command-line
+bindkey -a "^e" edit-command-line  # On vim's normal mode
 
 # Add keybinding for going to parent dir (Alt+Up)
 bindkey -s "^[[1;3A" 'cd ..^M'
@@ -139,12 +132,8 @@ if type fzf-file-widget >/dev/null; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_CTRL_R_OPTS="--no-preview"
 
-  # Rebind ^T to ^P (bring back default bind)
-  bindkey "^P" fzf-file-widget
-  bindkey "^T" self-insert
-
-  # Rebind Alt+C to ^O
-  bindkey '^O' fzf-cd-widget
+  # Rebind Alt+C to ^Y
+  bindkey '^Y' fzf-cd-widget
   bindkey -r "^[c"
 fi
 
