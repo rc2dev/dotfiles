@@ -109,6 +109,9 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 ### Plugins sourcing
 ############################################################
 
+# Move spaceship config (needs to be before sourcing)
+export SPACESHIP_CONFIG="$ZDOTDIR/spaceship/config.zsh"
+
 # Source plugin framework
 source "$ZDOTDIR/.antidote/antidote.zsh"
 
@@ -135,10 +138,6 @@ if type fzf-file-widget >/dev/null; then
   bindkey '^Y' fzf-cd-widget
   bindkey -r "^[c"
 fi
-
-# spaceship-prompt
-SPACESHIP_ASYNC_SHOW=false  # Remove async indicator (3-dots)
-SPACESHIP_EXEC_TIME_SHOW=false
 
 
 ###########################################################
