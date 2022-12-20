@@ -2,15 +2,17 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 
-ZSH_CACHE_DIR="$HOME/.cache/zsh"
-mkdir -p "$ZSH_CACHE_DIR"
+# Create directories
+ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+ZSH_STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
+mkdir -p "$ZSH_CACHE_DIR" "$ZSH_STATE_DIR"
 
 
 ############################################################
 ### History
 ############################################################
 
-HISTFILE="$ZSH_CACHE_DIR/history"
+HISTFILE="${ZSH_STATE_DIR}/history"
 HISTSIZE=5000
 SAVEHIST=10000
 
@@ -145,7 +147,7 @@ fi
 ###########################################################
 
 autoload -Uz compinit
-compinit -d "$ZSH_CACHE_DIR/zcompdump"
+compinit -d "${ZSH_CACHE_DIR}/zcompdump-$ZSH_VERSION"
 
 # Show hidden files on completion
 setopt globdots
