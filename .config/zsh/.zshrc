@@ -162,14 +162,16 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # Small letters to match small and capital letters
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-# Complete ssh hosts with ~/.ssh/config
-zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
-zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
-
 # Complete all processes with kill and killall
 zstyle ':completion:*:processes' command ps axh -o user,pid,%cpu,%mem,start,cmd
 zstyle ':completion:*:processes' sort false
 zstyle ':completion:*:processes-names' command ps axh -o cmd
+
+# ssh, rsync...
+# Disable login name completion
+zstyle ':completion:*:(rsh|scp|sftp|ssh|rsync):*' users
+# Remove localhost from completion
+zstyle ':completion:*:(rsh|scp|sftp|ssh|rsync):*:hosts' ignored-patterns 'localhost|localhost[46.]*'
 
 
 ############################################################
