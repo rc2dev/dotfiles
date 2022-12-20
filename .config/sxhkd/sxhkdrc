@@ -20,9 +20,6 @@ super + {_, shift} + e
 super + f
   $TERMINAL -e ranger
 
-super + g
-  dmenu_tv
-
 super + n
   $TERMINAL -e n tmux-plan
 
