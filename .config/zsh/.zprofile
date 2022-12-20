@@ -85,8 +85,8 @@ export TEXMFCONFIG="$HOME/.config/texlive/texmf-config"
 export ZDOTDIR="$HOME/.config/zsh"
 
 # zsh-z
-export ZSHZ_DATA="$HOME/.local/share/zsh-z/z"
-mkdir -p "$(dirname "$ZSHZ_DATA")"
+# Move from ~/
+export ZSHZ_DATA="$HOME/.local/state/zsh/z"
 # For ranger plugin
 export ZSHZ_SRC="$HOME/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-agkozak-SLASH-zsh-z/zsh-z.plugin.zsh"
 
