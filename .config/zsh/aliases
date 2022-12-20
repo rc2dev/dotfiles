@@ -185,5 +185,5 @@ if [[ -n "$ZSH_VERSION" ]]; then
 fi
 
 # Source jumping aliases
-[[ ! -e "$ZDOTDIR/jumps_auto" ]] && gen-jumps
-source "$ZDOTDIR/jumps_auto"
+[[ ! -e "$HOME/.cache/gen-jumps/shell" ]] && gen-jumps
+source "$HOME/.cache/gen-jumps/shell"
