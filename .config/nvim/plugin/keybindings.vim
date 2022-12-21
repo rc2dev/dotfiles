@@ -5,12 +5,6 @@
 let mapleader="\<Space>"
 let maplocalleader=","
 
-" For consistency with C and D
-noremap Y y$
-
-" nvim: Easier escape on terminal mode
-tnoremap <C-\><C-\> <C-\><C-n>
-
 " Toggle paste
 set pastetoggle=<F2>
 
@@ -29,19 +23,27 @@ inoremap <F6> <C-o>:w<CR><C-o>:make<CR>
 nnoremap <F7> :setlocal spell!<CR>
 inoremap <F7> <C-o>:setlocal spell!<CR>
 
-" Save or quit
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <expr> q (&modifiable == 1) ? "q" : ":q<CR>"
+" Toggle terminal on/off (neovim)
+nnoremap <F12> :call TermToggle(12)<CR>
+inoremap <F12> <Esc>:call TermToggle(12)<CR>
+tnoremap <F12> <C-\><C-n>:call TermToggle(12)<CR>
 
-" Repeat last macro with return
-nnoremap <cr> @@
+" For consistency with C and D
+noremap Y y$
 
 " Avoid unintentional switch to Ex mode
 nmap Q <nop>
 
 " Toggle folding with <Tab>
 nnoremap <Tab> za
+
+" Repeat last macro with return
+nnoremap <cr> @@
+
+" Save or quit
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <expr> q (&modifiable == 1) ? "q" : ":q<CR>"
 
 " Try to prevent using the arrow keys for movement.
 nnoremap <Left>  :echoe "Use h"<CR>
@@ -105,10 +107,8 @@ nnoremap <Leader>tv <C-w>t<C-w>H
 " Close all splits but the current one
 nnoremap <Leader>o <C-w>o
 
-" Toggle terminal on/off (neovim)
-nnoremap <F12> :call TermToggle(12)<CR>
-inoremap <F12> <Esc>:call TermToggle(12)<CR>
-tnoremap <F12> <C-\><C-n>:call TermToggle(12)<CR>
+" nvim: Easier escape on terminal mode
+tnoremap <C-\><C-\> <C-\><C-n>
 
 
 " Plugins
