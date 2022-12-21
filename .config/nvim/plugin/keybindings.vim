@@ -34,6 +34,9 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <expr> q (&modifiable == 1) ? "q" : ":q<CR>"
 
+" Repeat last macro with return
+nnoremap <cr> @@
+
 " Avoid unintentional switch to Ex mode
 nmap Q <nop>
 
