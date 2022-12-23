@@ -32,12 +32,6 @@ xss-lock slock &
 
 # Host specific
 case "$HOST" in
-  rd)
-    # If -f is not passed, mouse over dwmbar has the same behaviour
-    # as it was over the focused window.
-    imwheel -b "45" -f &
-    ;;
-
   x220)
     bato &
     ;;

@@ -50,14 +50,9 @@ if command -v nvim >/dev/null; then
 fi
 
 case $(hostname) in
-  rd)
-    log "Enabling system user units for rd..."
-    systemctl --user enable playerctld.service
-    systemctl --user enable ssh-agent.service
-    systemctl --user enable sync-rclone.timer
-    ;;
-  x220)
-    log "Enabling system user units for x220..."
+  rd|x220)
+    log "Enabling system user units for rd or x220..."
+    systemctl --user enable imwheel.service
     systemctl --user enable playerctld.service
     systemctl --user enable ssh-agent.service
     systemctl --user enable sync-rclone.timer
