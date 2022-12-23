@@ -20,9 +20,6 @@ super + {_, shift} + e
 super + f
   $TERMINAL -e ranger
 
-super + n
-  $TERMINAL -e n tmux-plan
-
 super + o
   bash -c "\
     fd --follow --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources ~/Videos | \
