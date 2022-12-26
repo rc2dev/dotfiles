@@ -87,6 +87,7 @@ export ZDOTDIR="$HOME/.config/zsh"
 # zsh-z
 # Move from ~/
 export ZSHZ_DATA="$HOME/.local/state/zsh/z"
+export ZSHZ_EXCLUDE_DIRS=( "/mnt" )
 export ZSHZ_TILDE=1
 # For ranger plugin
 export ZSHZ_SRC="$HOME/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-agkozak-SLASH-zsh-z/zsh-z.plugin.zsh"
