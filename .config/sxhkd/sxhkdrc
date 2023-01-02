@@ -20,6 +20,9 @@ super + {_, shift} + e
 super + f
   $TERMINAL -e ranger
 
+super + i
+  qimgv
+
 super + o
   bash -c "\
     fd --follow --exclude 'Cursos/' --exclude 'Notes/' . ~/Documents ~/Downloads $NOTES/resources ~/Videos | \
@@ -39,11 +42,8 @@ super + shift + q
 super + r
   dmenu_radio
 
-super + s; {m, q}
- { \
-  $TERMINAL -n cmus -e cmus, \
-  qimgv,
- }
+super + u
+  $TERMINAL -n cmus -e cmus
 
 super + v
   pavucontrol
