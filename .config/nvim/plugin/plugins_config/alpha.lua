@@ -11,6 +11,7 @@ dashboard.section.buttons.val = {
    dashboard.button( 'g', '  Grep text' , ':Telescope live_grep<CR>'),
    dashboard.button( 'r', '  Ranger' , ':RnvimrToggle<CR>'),
    dashboard.button( 'n', '  Notes' , ':TeNotes<CR>'),
+   dashboard.button( 't', '🗸  Tasks' , ':e ' .. os.getenv('NOTES') .. '/notes/Tasks/0. Home.md<CR>'),
    dashboard.button( 'c', '  Code' , ':TeCode<CR>'),
    dashboard.button( 'y', '  Dotfiles' , ':TeDotfiles<CR>'),
    dashboard.button( 'q', '  Quit NVIM' , ':qa<CR>'),
