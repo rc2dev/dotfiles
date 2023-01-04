@@ -21,7 +21,7 @@ set -g status-left ' #S  '
 set -g status-left-style 'bold italics'
 set -g status-left-length 20
 
-set -g status-right '#[fg=red]#{pomodoro_status} #[italic]#[fg=default]#(whoami)@#H'
+set -g status-right '#[italic]#[fg=default]#(whoami)@#H'
 set -g status-right-style 'bold italics'
 set -g status-right-length 50
 
