@@ -20,11 +20,11 @@ inoremap <F4> [](<C-r>*)<Esc>F[a
 nnoremap <F4> i[](<C-r>*)<Esc>F[a
 vnoremap <F4> "ldi[<C-r>l](<C-r>*)
 
-" Set makeprg
-setlocal makeprg=pandoc\ --defaults\ markdown.yml\ '%'\ $*\ \-o\ '%:r.pdf'
+" Set pandoc shortcut
+nnoremap <buffer><silent> <leader>mp :w<CR>:silent !pandoc --defaults markdown.yml '%' -o '%:r.pdf'<CR>:silent !gio open '%:r.pdf'<CR>
 
-" Set "run" shortcut
-nnoremap <silent> <F5> :w<CR>:make<CR>:silent !gio open '%:r.pdf'<CR>
+" Set browser shortcut
+nnoremap <buffer><silent> <leader>mw :w<CR>:silent !$BROWSER '%' &<CR>
 
 " Use friendlier line navigation
 nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
@@ -33,4 +33,4 @@ vnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 vnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 
 " md-img-paste
-nnoremap <buffer><silent> <leader>im :call mdip#MarkdownClipboardImage()<CR>
+nnoremap <buffer><silent> <leader>mi :call mdip#MarkdownClipboardImage()<CR>

@@ -11,14 +11,6 @@ set pastetoggle=<F2>
 " Insert current date
 inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
 
-" Run current file (overwritten per filetype)
-nnoremap <F5> :w<CR>:!%:p<CR>
-inoremap <F5> <C-o>:w<CR><C-o>:!%:p<CR>
-
-" Run make
-nnoremap <F6> :w<CR>:make<CR>
-inoremap <F6> <C-o>:w<CR><C-o>:make<CR>
-
 " Toggle spellcheck
 nnoremap <F7> :setlocal spell!<CR>
 inoremap <F7> <C-o>:setlocal spell!<CR>
@@ -144,10 +136,6 @@ nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<C
 
 " alpha
 nnoremap ga :Alpha<CR>
-
-" loupe
-" Use this instead of <leader>n.
-nmap <leader>m <Plug>(LoupeClearHighlight)
 
 " rnvimr
 nnoremap <leader>fr :RnvimrToggle<CR>
