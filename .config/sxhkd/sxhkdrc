@@ -11,17 +11,11 @@ super + b
 super + shift + d
   light-dark
 
-super + {_, shift} + e
-  { \
-    wmctrl -l | sed -nE 's/^(0x[0-9a-f]+)\s+[0-9]+\s+\w+\s+nvim$/\1/ip' | xargs wmctrl -i -a || $TERMINAL -e nvim, \
-    $TERMINAL -e nvim \
-  }
+super + e
+  wmctrl -l | grep -qE '^(0x[0-9a-f]+)\s+[0-9]+\s+\w+\s+nvim$' || $TERMINAL -e nvim & sleep 0.2; wmctrl -a nvim
 
 super + f
   $TERMINAL -e ranger
-
-super + i
-  qimgv
 
 super + o
   bash -c "\
