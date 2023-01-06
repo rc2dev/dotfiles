@@ -84,6 +84,9 @@ zle -N bracketed-paste bracketed-paste-url-magic
 # Don't prompt on `rm *` (rm is already aliased to do it)
 setopt rm_star_silent
 
+# Allow comments in interactive shells
+setopt interactivecomments
+
 
 ############################################################
 ### Cursor: Change shape for different vi modes
