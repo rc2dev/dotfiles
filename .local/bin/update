@@ -6,6 +6,7 @@
 # Licensed under GPLv3
 
 set -euo pipefail
+readonly submodules_host="x220"
 
 main() {
 	declare -i step=0
@@ -107,7 +108,7 @@ update_dotfiles() {
 update_submodules() {
 	has_command dotfiles || return 0
 
-	ask "Atualizar submódulos dos dotfiles?" || return 0
+	[[ "$(hostname)" == "$submodules_host" ]] || return 0
 
 	log_step "Atualizando submódulos dos dotfiles..."
 	dotfiles submodule update --recursive --remote
