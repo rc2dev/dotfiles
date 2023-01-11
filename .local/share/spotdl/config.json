@@ -1,0 +1,43 @@
+{
+    "load_config": true,
+    "log_level": "INFO",
+    "simple_tui": false,
+    "cache_path": "/home/rafael/.local/share/spotdl/.spotipy",
+    "audio_providers": [
+        "youtube-music"
+    ],
+    "lyrics_providers": [
+        "genius",
+        "azlyrics",
+        "musixmatch"
+    ],
+    "ffmpeg": "ffmpeg",
+    "bitrate": null,
+    "ffmpeg_args": null,
+    "format": "m4a",
+    "save_file": null,
+    "m3u": null,
+    "output": "{artists}/{title}.{output-ext}",
+    "overwrite": "skip",
+    "client_id": "5f573c9620494bae87890c0f08a60293",
+    "client_secret": "212476d9b0f3472eaa762d90b19b0ba8",
+    "auth_token": null,
+    "user_auth": false,
+    "search_query": null,
+    "filter_results": true,
+    "threads": 4,
+    "no_cache": false,
+    "cookie_file": null,
+    "headless": false,
+    "restrict": false,
+    "print_errors": false,
+    "sponsor_block": false,
+    "preload": false,
+    "archive": null,
+    "port": 8800,
+    "host": "localhost",
+    "keep_alive": false,
+    "allowed_origins": null,
+    "playlist_numbering": false,
+    "preserve_original_audio": false
+}
