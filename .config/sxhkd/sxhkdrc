@@ -51,9 +51,6 @@ super + {_, shift, ctrl } + period
 super + Return
   $TERMINAL
 
-alt + Tab
-  dswitcher
-
 ctrl + alt + v
   clipmenu
 
