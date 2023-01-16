@@ -127,6 +127,7 @@ nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>b <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <leader>fn <cmd>TeNotes<CR>
+nnoremap <leader>fj :e $NOTES/notes/Journal/<C-r>=strftime('%Y-%m/%Y-%m-%d %a')<cr>.md<cr>
 nnoremap <leader>fc <cmd>TeCode<CR>
 nnoremap <leader>fy <cmd>TeDotfiles<CR>
 nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
