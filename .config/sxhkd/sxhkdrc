@@ -45,7 +45,7 @@ super + v
 super + {_, shift} + w
   $BROWSER {_, --incognito}
 
-super + {_, shift, ctrl } + period
+super + {_, shift, ctrl } + n
   dunstctl { context, close, history-pop }
 
 super + Return
