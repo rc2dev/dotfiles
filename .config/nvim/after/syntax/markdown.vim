@@ -6,10 +6,16 @@
 
 syntax case match
 
-syn match mkdTodo /TODO:\?/ containedin=htmlH[2-6],mkdNonListItemBlock,mkdListItemLine
+syn match mkdTodo /\v<TODO>:?/ containedin=htmlH[2-6],mkdNonListItemBlock,mkdListItemLine
 hi def link mkdTodo  Todo
 
-syn match mkdDone /DONE:\?/ containedin=htmlH[2-6],mkdNonListItemBlock,mkdListItemLine
+syn match mkdDone /\v<DONE>:?/ containedin=htmlH[2-6],mkdNonListItemBlock,mkdListItemLine
 hi def link mkdDone  Comment
+
+syn match mkdBrackets /\v\[.{-}\]($|\s)/ containedin=htmlH[1-6],mkdNonListItemBlock,mkdListItemLine
+hi def link mkdBrackets  Label
+
+syn match mkdTags /\v(^|\s)\@\w+/ containedin=htmlH[1-6],mkdNonListItemBlock,mkdListItemLine
+hi def link mkdTags  Label
 
 syntax case ignore
