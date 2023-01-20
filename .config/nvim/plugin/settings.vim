@@ -10,6 +10,7 @@ set notimeout                       " Wait to complete typing (slow typing on Te
 set formatoptions+=j                " Remove comment leader when joining comment lines
 set spelllang=pt_br,en_us,es_es
 set shada=!,'500,<50,s10,h          " nvim: Increase oldfiles size
+language time pt_BR.utf-8           " Show week days and month names in this language
 
 " Search
 set ignorecase                      " Do case insensitive matching
