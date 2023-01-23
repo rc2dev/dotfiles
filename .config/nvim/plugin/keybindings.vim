@@ -141,6 +141,10 @@ nnoremap ga :Alpha<CR>
 " rnvimr
 nnoremap <leader>fr :RnvimrToggle<CR>
 
+" nvimtree
+nnoremap <leader>ft :NvimTreeFindFile<CR>
+nnoremap <leader>fT :NvimTreeToggle<CR>
+
 " goyo.vim
 nnoremap <F11> :Goyo<CR>
 inoremap <F11> <C-o>:Goyo<CR>

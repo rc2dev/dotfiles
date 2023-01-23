@@ -20,6 +20,8 @@ Plug 'nvim-lua/plenary.nvim'  " Dependency for telescope
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }  " Extension for telescope to use fzf as fuzzy finder
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-tree/nvim-web-devicons'  " Optional dependency for nvim-tree, for file icons
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/vim-markdown'
 Plug 'ron89/thesaurus_query.vim'
