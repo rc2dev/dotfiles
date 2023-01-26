@@ -16,11 +16,6 @@ if [ -d "$GOPATH/bin" ] ; then
 	PATH="$GOPATH/bin:$PATH"
 fi
 
-# Use ssh-agent started by user's systemd if nothing running
-if [ -z "$SSH_AUTH_SOCK" ]; then
-	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-fi
-
 # Auto logout on tty if inactive
 if tty | grep -q tty; then TMOUT=120; fi
 
