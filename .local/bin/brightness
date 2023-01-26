@@ -8,7 +8,7 @@
 set -euo pipefail
 
 bar() {
-  local -r bar_max_size=14
+  local -r bar_max_size=23
   local -r level="$1"
 
   local bar_size=$((level * bar_max_size / 100))
