@@ -25,6 +25,7 @@ export XRESOURCES="$HOME/.config/X11/Xresources"
 
 # Default applications
 export BROWSER="/var/lib/flatpak/exports/bin/com.brave.Browser"
+export DMENU="rofi -dmenu -i"
 export EDITOR="nvim"
 export TERMINAL="st"
 
@@ -41,6 +42,7 @@ export AWS_CONFIG_FILE="$HOME/.config/aws/config"
 # This makes history persistent across sessions
 export CM_DIR="$HOME/.cache"
 export CM_IGNORE_WINDOW="KeePassXC"
+export CM_LAUNCHER="rofi"
 
 # Docker
 # Move from ~/

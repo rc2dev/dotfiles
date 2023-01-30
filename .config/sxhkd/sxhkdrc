@@ -44,8 +44,10 @@ super + {_, shift, ctrl } + n
 super + Return
   $TERMINAL
 
+# -i is unneded with patched dmenu to case insensitve,
+# but necessary using rofi.
 ctrl + alt + v
-  clipmenu
+  clipmenu -i
 
 Print + {_, shift}
   flameshot gui {_, --delay 5000}

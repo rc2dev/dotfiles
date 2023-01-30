@@ -7,11 +7,18 @@
 
 set -euo pipefail
 
+readonly dmenu="${DMENU:-dmenu}"
+readonly dmenu_prompt="Radio"
+declare dmenu_opts=""
 readonly notify_id=103
 readonly notify_time=10000
 readonly notify_icon="radio"
 readonly unit_name="dmenu_radio_player"
 
+
+if [[ $dmenu =~ ^dmenu.* ]]; then
+  dmenu_opts="-l 9 -g 5"
+fi
 
 if systemctl --user is-active --quiet "$unit_name"; then
   current="$(systemctl --user show dmenu_radio_player | grep Description= | cut -d= -f2-)"
@@ -62,7 +69,7 @@ declare -r streams="\
 chosen="${1:-}"
 
 if [[ -z "$chosen" ]]; then
-  chosen="$(sed -E 's/^\s+//;s/,.*$//;/^\s*$/d' <<< "$streams" | dmenu -p "radio:" -l 9 -g 5)"
+  chosen="$(sed -E 's/^\s+//;s/,.*$//;/^\s*$/d' <<< "$streams" | $dmenu -p "$dmenu_prompt" $dmenu_opts)"
   if [[ -z "$chosen" ]] || [[ "$chosen" =~ --- ]]; then
     exit
   fi

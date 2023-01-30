@@ -4,6 +4,9 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
+set -euo pipefail
+readonly dmenu="${DMENU:-dmenu}"
+readonly prompt="Power menu"
 readonly bg_normal="#730a0a"
 readonly bg_selected="#c20000"
 readonly fg_normal="#bbbbbb"
@@ -20,8 +23,8 @@ END
 
 readonly chosen="$(
 	cut -d# -f1 <(printf "%s" "$options") |
-	dmenu \
-		-p "Power menu:" \
+	$dmenu \
+		-p "$prompt" \
 		-nb "$bg_normal" \
 		-sb "$bg_selected" \
 		-nf "$fg_normal" \
