@@ -12,10 +12,13 @@ super + shift + d
   light-dark
 
 super + e
-  wmctrl -l | grep -qE '^(0x[0-9a-f]+)\s+[0-9]+\s+\w+\s+nvim$' || $TERMINAL -e nvim & sleep 0.2; wmctrl -a nvim
+  wmctrl -a nvim || $TERMINAL -e nvim
 
 super + f
   $TERMINAL -e ranger
+
+super + {_, shift, ctrl } + n
+  dunstctl { context, close, history-pop }
 
 super + o
   dmenu_document
@@ -38,8 +41,8 @@ super + v
 super + {_, shift} + w
   $BROWSER {_, --incognito}
 
-super + {_, shift, ctrl } + n
-  dunstctl { context, close, history-pop }
+super + y
+  mpv --shuffle "https://www.youtube.com/playlist?list=WL"
 
 super + Return
   $TERMINAL
