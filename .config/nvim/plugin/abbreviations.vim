@@ -19,6 +19,7 @@ iab Ngm Ninguém
 iab pq porque
 iab Pq Porque
 iab q que
+iab qq qualquer
 iab tb também
 iab Tb Também
 iab tlvz talvez
