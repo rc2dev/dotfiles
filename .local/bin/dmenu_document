@@ -8,7 +8,7 @@ set -euo pipefail
 readonly dmenu="${DMENU:-dmenu}"
 readonly prompt="Open"
 
-fd --follow --exclude "Cursos/" --exclude "Notes/" . ~/Documents ~/Downloads "$NOTES"/resources ~/Videos |
+fd --follow --exclude "Cursos/" --exclude "Notes/" . ~/Documents ~/Downloads "$NOTES"/resources ~/Sync ~/Videos |
   sed "s|$HOME|\~|" |
   sort |
   $dmenu -p "$prompt" |
