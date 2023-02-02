@@ -6,7 +6,7 @@
 
 syntax case match
 
-syn match mkdBrackets /\v\[.{-}\]($|\s)/ containedin=htmlH[1-6],mkdNonListItemBlock,mkdListItemLine
+syn match mkdBrackets /\v\[.{-}\]($|\s|:)/ containedin=htmlH[1-6],mkdNonListItemBlock,mkdListItemLine
 hi def link mkdBrackets  Label
 
 syn match mkdTodo /\v<TODO>:?/ containedin=htmlH[2-6],mkdNonListItemBlock,mkdListItemLine
