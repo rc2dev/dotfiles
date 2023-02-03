@@ -34,7 +34,7 @@ configuration {
   // case-sensitive: false;
   // cycle: true;
      sidebar-mode: true;
-  // hover-select: false;
+  hover-select: true;
   // eh: 1;
   // auto-select: false;
   // parse-hosts: false;
@@ -145,8 +145,8 @@ configuration {
   // ml-row-right: "ScrollRight";
   // ml-row-up: "ScrollUp";
   // ml-row-down: "ScrollDown";
-  // me-select-entry: "MousePrimary";
-  // me-accept-entry: "MouseDPrimary";
+  me-select-entry: "MouseDPrimary";
+  me-accept-entry: "MousePrimary";
   // me-accept-custom: "Control+MouseDPrimary";
   timeout {
       action: "kb-cancel";
