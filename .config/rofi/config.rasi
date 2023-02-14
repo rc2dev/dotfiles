@@ -34,7 +34,7 @@ configuration {
   // case-sensitive: false;
   // cycle: true;
      sidebar-mode: true;
-  hover-select: true;
+  // hover-select: true;
   // eh: 1;
   // auto-select: false;
   // parse-hosts: false;
