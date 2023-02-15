@@ -52,5 +52,8 @@ super + Return
 ctrl + alt + v
   clipmenu -i
 
+ctrl + alt + m
+  rofimoji
+
 Print + {_, shift}
   flameshot gui {_, --delay 5000}
