@@ -18,6 +18,7 @@ main() {
 	if [[ -t 0 ]]; then
 		update_distro
 		update_flatpaks
+		update_pipx_packages
 		update_nvim_plugins
 		update_tmux_plugins
 		update_zsh_plugins
@@ -151,6 +152,13 @@ update_zsh_plugins() {
 
 	log_step "Atualizando plugins do zsh..."
 	zsh -ic "antidote update --bundles" || true
+}
+
+update_pipx_packages() {
+	has_command pipx || return 0
+
+	log_step "Atualizando pacotes do pipx..."
+	pipx upgrade-all
 }
 
 main "$@"
