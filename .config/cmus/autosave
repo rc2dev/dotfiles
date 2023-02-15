@@ -126,9 +126,9 @@ bind browser space win-activate
 bind browser u win-update
 bind common ! push shell 
 bind common + vol +10%
-bind common , seek -1m
+bind common , player-prev
 bind common - vol -10%
-bind common . seek +1m
+bind common . player-next
 bind common / search-start
 bind common 1 view tree
 bind common 2 view sorted
@@ -137,6 +137,7 @@ bind common 4 view queue
 bind common 5 view browser
 bind common 6 view filters
 bind common 7 view settings
+bind common ; player-pause
 bind common = vol +10%
 bind common ? search-b-start
 bind common C toggle continue
