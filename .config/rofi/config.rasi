@@ -2,7 +2,7 @@
 
 configuration {
   // Default modes
-     modes: "combi,ssh";
+     modes: "combi";
      combi-modes: "window,drun";
      display-combi: "Application";
 
@@ -33,7 +33,7 @@ configuration {
   // sorting-method: "normal";
   // case-sensitive: false;
   // cycle: true;
-     sidebar-mode: true;
+  // sidebar-mode: true;
   // hover-select: true;
   // eh: 1;
   // auto-select: false;
