@@ -1,7 +1,0 @@
-#!/bin/sh
-#
-# Rename DCIM images to a saner format.
-#
-# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
-
-prename -v 's/^IMG_(\d{2})-(\d{2})-(\d{4})_(\d{2})-(\d{2})-(\d{2})_[\.\d]+(.*)(\..*)/cam_\3-\2-\1_\4\5\6\7\8\9/' -- "$@"
