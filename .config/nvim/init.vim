@@ -28,6 +28,7 @@ Plug 'ron89/thesaurus_query.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'wincent/loupe'
+Plug 'gioele/vim-autoswap'
 
 " Colorschemes
 Plug 'joshdick/onedark.vim'

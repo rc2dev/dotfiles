@@ -32,6 +32,7 @@ set showcmd                         " Show partial command
 set laststatus=2                    " Always show status line
 set splitbelow splitright           " Splitting puts new window right of / below current
 set fillchars=vert:┃                " Solid line for vertical split
+set title titlestring=              " Needed for vim-autoswap plugin
 
 " Editor appearance
 syntax on                           " Enable syntax highlighting
