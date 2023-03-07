@@ -19,6 +19,11 @@ fi
 # Auto logout on tty if inactive
 if tty | grep -q tty; then TMOUT=120; fi
 
+# ssh-agent
+if [ -z "$SSH_AUTH_SOCK" ]; then
+	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
+
 # Paths
 export NOTES="$HOME/Documents/Notes"
 export XRESOURCES="$HOME/.config/X11/Xresources"
