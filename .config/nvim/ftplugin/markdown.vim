@@ -16,9 +16,9 @@ setlocal foldenable
 if ! &diff | setlocal spell | endif
 
 " Create a markdown link structure with the URL from clipboard.
-inoremap <F4> [](<C-r>*)<Esc>F[a
-nnoremap <F4> i[](<C-r>*)<Esc>F[a
-vnoremap <F4> "ldi[<C-r>l](<C-r>*)
+inoremap <F4> [](<C-o>p)<Esc>F[a
+nnoremap <F4> i[](<C-o>p)<Esc>F[a
+vnoremap <F4> "ldi[<C-r>l](<C-o>p)
 
 " Set pandoc shortcut
 nnoremap <buffer><silent> <leader>mp :w<CR>:silent !pandoc --defaults markdown.yml '%' -o '%:r.pdf'<CR>:silent !gio open '%:r.pdf'<CR>
