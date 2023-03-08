@@ -7,7 +7,6 @@ autocmd ColorScheme * if ! has('gui_running') && &bg == "dark" | hi Normal guibg
 
 " Use truecolors
 set termguicolors
-set bg=dark
 
 " themes: Enable italics (must precede theme setting)
 let g:onedark_terminal_italics=1
@@ -19,3 +18,4 @@ try
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme desert
 endtry
+set bg=dark
