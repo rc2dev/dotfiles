@@ -6,7 +6,7 @@ super + b
   blueman-manager
 
 {super + c, XF86Calculator}
-  deepin-calculator
+  gnome-calculator
 
 super + shift + d
   light-dark
