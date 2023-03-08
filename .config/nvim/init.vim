@@ -34,7 +34,6 @@ Plug 'gioele/vim-autoswap'
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
