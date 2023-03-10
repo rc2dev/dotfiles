@@ -13,6 +13,9 @@ fi
 
 xrdb "$XRESOURCES"
 
+# Set keyboard options
+setxkbmap -option "caps:escape,eurosign:e"
+
 # Make Qt applications to be styled as Gtk
 # (needes QGnomePlatform, installed by default on Fedora)
 export QT_QPA_PLATFORMTHEME=gnome
