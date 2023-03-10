@@ -1,9 +1,9 @@
 " Colors config
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-" Transparency
+" Uncomment this for transparency
 " Only apply on dark themes. Don't do it on gvim as it will get messed up.
-autocmd ColorScheme * if ! has('gui_running') && &bg == "dark" | hi Normal guibg=NONE ctermbg=NONE | endif
+"autocmd ColorScheme * if ! has('gui_running') && &bg == "dark" | hi Normal guibg=NONE ctermbg=NONE | endif
 
 " Use truecolors
 set termguicolors
