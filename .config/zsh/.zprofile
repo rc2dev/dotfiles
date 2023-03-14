@@ -8,14 +8,6 @@ if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Move ~/.go to ~/.local
-export GOPATH="$HOME/.local/go"
-
-# Go's bin
-if [ -d "$GOPATH/bin" ] ; then
-	PATH="$GOPATH/bin:$PATH"
-fi
-
 # Auto logout on tty if inactive
 if tty | grep -q tty; then TMOUT=120; fi
 

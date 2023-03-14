@@ -95,10 +95,6 @@ alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
 alias s="ssh"
 alias se="sudo -e"
 
-# Set default options
-# Set fixed port because of firewall
-alias go-chromecast="go-chromecast --first --server-port 39951"
-
 # Git
 alias g="git"
 alias ga="git add"
