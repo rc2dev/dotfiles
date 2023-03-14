@@ -60,8 +60,14 @@ has_command() {
 	command -v "$1" > /dev/null
 }
 
+is_termux() {
+	echo "${PREFIX:-}" | grep -q "com.termux"
+}
+
 update_distro() {
-	if has_command apt; then
+	if is_termux; then
+		update_distro_termux
+	elif has_command apt; then
 		update_distro_apt
 	elif has_command dnf; then
 		update_distro_dnf
@@ -70,19 +76,20 @@ update_distro() {
 	fi
 }
 
-update_distro_apt() {
-	# Termux doesn't have sudo
-	local sudo
-	has_command sudo && sudo=sudo
+update_distro_termux() {
+	log_step "Atualizando pacotes do Termux..."
+	pkg upgrade
+}
 
+update_distro_apt() {
 	log_step "Atualizando pacotes do APT..."
-	$sudo apt update && $sudo apt full-upgrade
+	sudo apt update && sudo apt full-upgrade
 
 	log_step "Executando apt autoremove..."
-	$sudo apt autoremove --purge --yes
+	sudo apt autoremove --purge --yes
 
 	log_step "Limpando cache do APT..."
-	$sudo apt clean
+	sudo apt clean
 }
 
 update_distro_dnf() {
