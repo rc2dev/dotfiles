@@ -2,7 +2,7 @@
 #
 # Commands to update my systems.
 #
-# Copyright (C) 2017-2022 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Copyright (C) 2017-2023 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 set -euo pipefail
@@ -66,36 +66,21 @@ is_termux() {
 
 update_distro() {
 	if is_termux; then
-		update_distro_termux
+		log_step "Atualizando pacotes do Termux..."
+		pkg upgrade
+
 	elif has_command apt; then
-		update_distro_apt
+		log_step "Atualizando pacotes do APT..."
+		sudo apt update && sudo apt upgrade
+
 	elif has_command dnf; then
-		update_distro_dnf
+		log_step "Atualizando pacotes do DNF..."
+		# Allow script to continue if user rejects operation
+		sudo dnf upgrade --refresh || if (( $? == 1 )); then return 0; fi
+
 	else
 		log "Atualização de pacotes não disponível para a sua distro."
 	fi
-}
-
-update_distro_termux() {
-	log_step "Atualizando pacotes do Termux..."
-	pkg upgrade
-}
-
-update_distro_apt() {
-	log_step "Atualizando pacotes do APT..."
-	sudo apt update && sudo apt full-upgrade
-
-	log_step "Executando apt autoremove..."
-	sudo apt autoremove --purge --yes
-
-	log_step "Limpando cache do APT..."
-	sudo apt clean
-}
-
-update_distro_dnf() {
-	log_step "Atualizando pacotes do DNF..."
-	# Allow script to continue if user rejects operation
-	sudo dnf upgrade --refresh || if (( $? == 1 )); then return 0; fi
 }
 
 update_flatpaks() {
@@ -135,6 +120,7 @@ update_tmux_plugins() {
 	log_step "Atualizando plugins do tmux..."
 	$HOME/.config/tmux/plugins/tpm/bin/update_plugins all
 }
+
 update_git_repos() {
 	log_step "Atualizando repos em ~/..."
 
