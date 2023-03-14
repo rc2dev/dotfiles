@@ -75,6 +75,8 @@ try:
         output += '\n'
         if 'sectionHeading' in elem.attrs['class']:
             output += f'## {elem.text.strip()}\n'
+        elif elem.text.strip().startswith('Bookmark '):
+            output += f'- {elem.text.strip()}\n'
         else:
             text_elem = text_elements.pop(0)
             output += f'- {text_elem.text.strip()}\n'
