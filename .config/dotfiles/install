@@ -20,7 +20,7 @@ if [[ ! -d "$local_repo" ]]; then
 
   # Clone first to a temporary dir, or git will fail on a non-empty home.
   git clone --separate-git-dir="$local_repo" "$remote_repo" "$tmp_dest"
-  rsync --recursive --exclude '.git' "$tmp_dest/" "$HOME/"
+  rsync --recursive --links --exclude '.git' "$tmp_dest/" "$HOME/"
   rm --recursive "$tmp_dest"
 fi
 
