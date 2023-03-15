@@ -13,17 +13,13 @@ main() {
 
 	update_dotfiles
 	update_git_repos
-
-	# Only run if interactive
-	if [[ -t 0 ]]; then
-		update_distro
-		update_flatpaks
-		update_pipx_packages
-		update_nvim_plugins
-		update_tmux_plugins
-		update_zsh_plugins
-		update_submodules
-	fi
+	update_distro
+	update_flatpaks
+	update_pipx_packages
+	update_nvim_plugins
+	update_tmux_plugins
+	update_zsh_plugins
+	update_submodules
 
 	log "Concluído."
 }

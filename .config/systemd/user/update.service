@@ -5,6 +5,5 @@ Description=Automatic user-level updates
 OnFailure=status-email@%n.service
 
 [Service]
-Environment=PATH=%h/.local/bin:%h/.local/share/zsh/zinit/polaris/bin:/usr/local/bin:/usr/bin
 ExecStartPre=/bin/bash -c "until host example.com; do sleep 1; done"
-ExecStart=%h/.local/bin/update
+ExecStart=%h/.local/bin/dotfiles pull
