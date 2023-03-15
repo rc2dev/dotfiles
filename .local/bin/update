@@ -39,23 +39,6 @@ log_step() {
 	log "[ $step ] $*"
 }
 
-# args: prompt
-# exit codes: 0 if yes, 1 if no
-ask() {
-	local -r prompt="$1"
-
-	printf "\n"
-	read -r -n 1 -p "> $prompt " answer
-	printf "\n"
-
-	if [[ ! "$answer" =~ [yYsS] ]]; then
-		log "Pulando..."
-		return 1
-	fi
-
-	return 0
-}
-
 has_command() {
 	command -v "$1" > /dev/null
 }
