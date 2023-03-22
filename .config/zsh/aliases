@@ -163,7 +163,7 @@ alias scs="systemctl status"
 alias jc="journalctl"
 
 # APT
-alias aar="sudo apt autoremove --purge --yes"
+alias aar="sudo apt autoremove --purge"
 alias ama="sudo apt-mark auto"
 alias amm="sudo apt-mark manual"
 
