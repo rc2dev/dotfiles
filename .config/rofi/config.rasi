@@ -6,7 +6,7 @@ configuration {
      combi-modes: "window,drun";
      display-combi: "Application";
 
-     font: "Fira Mono 12";
+     font: "Hack Nerd Font 12";
   // location: 0;
   // yoffset: 0;
   // xoffset: 0;

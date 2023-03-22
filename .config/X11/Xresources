@@ -12,11 +12,11 @@
 /*             FONTS             */
 /*********************************/
 
-dmenu.font: Fira Sans:size=11
+dmenu.font: IBM Plex Sans:size=11
 /* Use patched font for icons on tags. */
-dwm.font: Fira Mono:size=9:style=Book
-St.font: Fira Mono:pixelsize=17
-Dunst.font: Fira Mono 11
+dwm.font: Blex Mono Nerd Font:size=9
+St.font: SauceCodePro Nerd Font:size=13
+Dunst.font: Blex Mono Nerd Font 11
 
 /* Fix font rendering on Wine applications on standalone WMs. */
 Xft.autohint: 0

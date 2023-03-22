@@ -30,19 +30,19 @@ bar_player() {
   esac
   local -r title="$(truncate "$(playerctl metadata --format "{{ title }}")")"
 
-  echo "${icon} ${title}"
+  echo "${icon}  ${title}"
 }
 
 bar_time() {
-  echo " $(date +"%a %m-%d, %R")"
+  echo "  $(date +"%a %m-%d, %R")"
 }
 
 bar_mem() {
-  echo " $(free -h | awk '/^Mem:/ {print $3}')"
+  echo "  $(free -h | awk '/^Mem:/ {print $3}')"
 }
 
 bar_temp() {
-  echo " $(sensors | awk '/^Package/ {print substr($4, 2)}')"
+  echo "  $(sensors | awk '/^Package/ {print substr($4, 2)}')"
 }
 
 bar_battery() {
@@ -68,7 +68,7 @@ bar_battery() {
     "Unknown") icon="" ;;
   esac
 
-  echo "$icon $level%"
+  echo "$icon  $level%"
 }
 
 declare -ar elements=(
