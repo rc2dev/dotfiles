@@ -8,9 +8,12 @@
 #include "colors.Xresources"
 
 
-/*********************************/
-/*             FONTS             */
-/*********************************/
+/*******************************************/
+/*                  FONTS                  */
+/*                                         */
+/* Other places to set:                    */
+/* xsettingsd, mpv, rofi, ansible's dwm_*. */
+/*******************************************/
 
 dmenu.font: IBM Plex Sans:size=11
 /* Use patched font for icons on tags. */
@@ -27,9 +30,9 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 
-/**********************************/
-/*          APPLICATIONS          */
-/**********************************/
+/*******************************************/
+/*               APPLICATIONS              */
+/*******************************************/
 
 /* dmenu, dwm */
 dwm.topbar: 0
