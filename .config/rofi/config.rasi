@@ -6,7 +6,8 @@ configuration {
      combi-modes: "window,drun";
      display-combi: "Application";
 
-     font: "Hack Nerd Font 12";
+  // Overriden by theme
+  // font: "Hack Nerd Font 12";
   // location: 0;
   // yoffset: 0;
   // xoffset: 0;
@@ -157,13 +158,5 @@ configuration {
       sorting-method: "name";
   }
 }
-@theme "/usr/share/rofi/themes/android_notification.rasi"
 
-window {
-  width: 800px;
-}
-
-// Increase spacing between options
-listview {
-  spacing: 0.5em;
-}
+@theme "murz.rasi"
