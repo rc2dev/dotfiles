@@ -160,5 +160,10 @@ configuration {
 @theme "/usr/share/rofi/themes/android_notification.rasi"
 
 window {
-  width: 65%;
+  width: 800px;
+}
+
+// Increase spacing between options
+listview {
+  spacing: 0.5em;
 }
