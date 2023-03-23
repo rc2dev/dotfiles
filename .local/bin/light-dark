@@ -71,9 +71,15 @@ toggle_xsettingsd() {
 
 	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" "$config_file"
 	sed -i "s#^Net/IconThemeName .*\$#Net/IconThemeName \"$icon_new\"#" "$config_file"
-	gsettings set org.gnome.desktop.interface color-scheme "'$scheme_new'"
-
 	killall -HUP xsettingsd
+
+	# Set theme on gnome
+	# This is relevant on dwm because:
+	# - prefer-dark sets some gnome applications to dark.
+	# - gtk-theme (used for theming "legacy" apps) sets Qt
+	# applications dark, since we are using qgnomeplatform.
+	gsettings set org.gnome.desktop.interface gtk-theme "'$theme_new'"
+	gsettings set org.gnome.desktop.interface color-scheme "'$scheme_new'"
 }
 
 main "$@"
