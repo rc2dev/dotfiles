@@ -1,14 +1,15 @@
 /*
  * ROFI color theme
  *
- * Based on Something Found in the Internet
+ * Based on <https://github.com/Murzchnvok/rofi-collection>
+ * with modifications by Rafael Cavalcanti <https://rafaelc.org/dev>
  *
  * User: Contributors
  * Copyright: *!
  */
 
 configuration {
-  font: "Iosevka Nerd Font Medium 12";
+  font: "IBM Plex Mono Medium 12";
 
   timeout {
     delay: 10;
@@ -32,10 +33,16 @@ configuration {
 }
 
 window {
-  border: 2px;
+  border-right: 2px;
   border-color: @fg-alt;
   padding: 6px;
   transparency: "real";
+  width: 700px;
+
+  /* Sidebar */
+  location: west;
+  anchor: west;
+  height: 100%;
 }
 
 mainbox {
