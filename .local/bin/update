@@ -17,7 +17,6 @@ main() {
 	update_flatpaks
 	update_pipx_packages
 	update_nvim_plugins
-	update_tmux_plugins
 	update_zsh_plugins
 	update_submodules
 
@@ -91,13 +90,6 @@ update_nvim_plugins() {
 
 	log_step "Atualizando plugins do Neovim..."
 	nvim +PlugClean! +PlugUpdate +qa!
-}
-
-update_tmux_plugins() {
-	has_command tmux || return 0
-
-	log_step "Atualizando plugins do tmux..."
-	$HOME/.config/tmux/plugins/tpm/bin/update_plugins all
 }
 
 update_git_repos() {
