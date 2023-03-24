@@ -1,22 +1,27 @@
 #!/usr/bin/env bash
 #
-# Toggle between light and dark themes.
+# Set or toggle light/dark themes on desktops with xsettingsd.
 #
-# Copyright (C) 2017-2022 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Copyright (C) 2017-2023 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 readonly config_path="$HOME/.config/light-dark.conf"
 readonly config_keys=("theme_light" "theme_dark")
+readonly xsettingsd_config="$HOME/.config/xsettingsd/xsettingsd.conf"
 
 main() {
-	[[ $# -gt 0 ]] && usage
+	if [[ $# -ne 1 ]]; then
+		usage
+	fi
 
+	check_desktop
 	get_config
-	toggle
+	set_target "$1"
+	apply
 }
 
 usage() {
-	printf "Usage: %s\n" "$(basename "$0")"
+	printf "Usage: %s<light|dark|toggle>\n" "$(basename "$0")"
 	exit 1
 }
 
@@ -47,27 +52,42 @@ check_config() {
 	done
 }
 
-toggle() {
-	if pidof xsettingsd > /dev/null; then
-		toggle_xsettingsd
-	else
+check_desktop() {
+	if ! pidof xsettingsd > /dev/null; then
 		log "This desktop is not supported."
 	fi
 }
 
-toggle_xsettingsd() {
-	local -r xsettingsd_config="$HOME/.config/xsettingsd/xsettingsd.conf"
+set_target() {
+	case "${1:-}" in
+		light)
+			readonly target_theme="$theme_light"
+			readonly target_scheme="prefer-light"
+			;;
+  	dark)
+			readonly target_theme="$theme_dark"
+			readonly target_scheme="prefer-dark"
+			;;
+		toggle)
+			set_target_toggle
+			;;
+		*)
+		usage
+	esac
+}
+
+set_target_toggle() {
 	local -r theme_current="$(awk -F' ' '/^Net\/ThemeName / {gsub("\"","", $2); print $2}' "$xsettingsd_config")"
 
-	if [[ "$theme_current" == "$theme_light" ]]; then
-		local -r theme_new="$theme_dark"
-		local -r scheme_new="prefer-dark"
-	else
-		local -r theme_new="$theme_light"
-		local -r scheme_new="prefer-light"
-	fi
+	case "$theme_current" in
+		$theme_light) set_target "dark" ;;
+		$theme_dark) set_target "light" ;;
+	esac
+}
 
-	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" "$xsettingsd_config"
+apply() {
+	# xsettingsd
+	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$target_theme\"#" "$xsettingsd_config"
 	killall -HUP xsettingsd
 
 	# Set theme on gnome
@@ -75,8 +95,8 @@ toggle_xsettingsd() {
 	# - prefer-dark sets some gnome applications to dark.
 	# - gtk-theme (used for theming "legacy" apps) sets Qt
 	# applications dark, since we are using qgnomeplatform.
-	gsettings set org.gnome.desktop.interface gtk-theme "'$theme_new'"
-	gsettings set org.gnome.desktop.interface color-scheme "'$scheme_new'"
+	gsettings set org.gnome.desktop.interface gtk-theme "'$target_theme'"
+	gsettings set org.gnome.desktop.interface color-scheme "'$target_scheme'"
 }
 
 main "$@"

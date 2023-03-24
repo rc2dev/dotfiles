@@ -9,7 +9,7 @@ super + b
   gnome-calculator
 
 super + shift + d
-  light-dark
+  light-dark toggle
 
 super + e
   wmctrl -a nvim || $TERMINAL -e nvim
