@@ -56,8 +56,8 @@ toggle() {
 }
 
 toggle_xsettingsd() {
-	local -r config_file="$HOME/.config/xsettingsd/xsettingsd.conf"
-	local -r theme_current="$(awk -F' ' '/^Net\/ThemeName / {gsub("\"","", $2); print $2}' "$config_file")"
+	local -r xsettingsd_config="$HOME/.config/xsettingsd/xsettingsd.conf"
+	local -r theme_current="$(awk -F' ' '/^Net\/ThemeName / {gsub("\"","", $2); print $2}' "$xsettingsd_config")"
 
 	if [[ "$theme_current" == "$theme_light" ]]; then
 		local -r theme_new="$theme_dark"
@@ -67,7 +67,7 @@ toggle_xsettingsd() {
 		local -r scheme_new="prefer-light"
 	fi
 
-	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" "$config_file"
+	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" "$xsettingsd_config"
 	killall -HUP xsettingsd
 
 	# Set theme on gnome
