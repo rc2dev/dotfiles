@@ -30,7 +30,8 @@ nmap Q <nop>
 nnoremap <Tab> za
 
 " Repeat last macro with return
-nnoremap <cr> @@
+" Check if modifiable, as fugitive buffer uses <cr>
+nnoremap <expr> <cr> (&modifiable == 1) ? "@@" : "<cr>"
 
 " Save or quit
 nnoremap <Leader>w :w<CR>
