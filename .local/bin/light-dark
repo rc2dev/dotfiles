@@ -6,7 +6,7 @@
 # Licensed under GPLv3
 
 readonly config_path="$HOME/.config/light-dark.conf"
-readonly config_keys=("theme_light" "theme_dark" "icon_light" "icon_dark")
+readonly config_keys=("theme_light" "theme_dark")
 
 main() {
 	[[ $# -gt 0 ]] && usage
@@ -61,16 +61,13 @@ toggle_xsettingsd() {
 
 	if [[ "$theme_current" == "$theme_light" ]]; then
 		local -r theme_new="$theme_dark"
-		local -r icon_new="$icon_dark"
 		local -r scheme_new="prefer-dark"
 	else
 		local -r theme_new="$theme_light"
-		local -r icon_new="$icon_light"
 		local -r scheme_new="prefer-light"
 	fi
 
 	sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$theme_new\"#" "$config_file"
-	sed -i "s#^Net/IconThemeName .*\$#Net/IconThemeName \"$icon_new\"#" "$config_file"
 	killall -HUP xsettingsd
 
 	# Set theme on gnome
