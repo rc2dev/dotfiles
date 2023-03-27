@@ -12,7 +12,7 @@ super + shift + d
   light-dark toggle
 
 super + e
-  wmctrl -a nvim || $TERMINAL -e nvim
+  $TERMINAL -e nvim
 
 super + f
   $TERMINAL -e ranger
