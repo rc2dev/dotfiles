@@ -29,11 +29,11 @@ super + p
 super + shift + q
   xkill
 
-super + r
-  dmenu_radio
-
-super + u
-  $TERMINAL -n cmus -e cmus
+super + {_, shift} + r
+  { \
+    dmenu_radio, \
+    $TERMINAL -n cmus -e cmus \
+  }
 
 super + v
   pavucontrol
