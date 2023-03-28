@@ -13,3 +13,6 @@
 
 [status]
   showUntrackedFiles = no
+
+[filter "cleanXsettingsd"]
+  clean = "sed -E 's#^Net/ThemeName .*#Net/ThemeName \"\"#'"
