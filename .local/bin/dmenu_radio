@@ -27,7 +27,7 @@ else
 fi
 
 declare -r streams="\
-  🎲 Random
+  ⚄ Random
   ⏹ Stop: $current
   ---------- MUSIC -----------
   Cadena 100,https://cadena100-cope.flumotion.com/chunks.m3u8
