@@ -80,8 +80,9 @@ set_target_toggle() {
   local -r theme_current="$(awk -F' ' '/^Net\/ThemeName / {gsub("\"","", $2); print $2}' "$xsettingsd_config")"
 
   case "$theme_current" in
-    $theme_light) set_target "dark" ;;
-    $theme_dark) set_target "light" ;;
+    "$theme_dark") set_target "light" ;;
+    "$theme_light") set_target "dark" ;;
+    *) set_target "dark" ;;
   esac
 }
 
