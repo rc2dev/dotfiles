@@ -34,11 +34,14 @@ declare -r streams="\
   Cadena Dial,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENADIAL.mp3
   Canal Fiesta Radio,https://cdnlive.shooowit.net/rtvalive/smil:channel5.smil/master.m3u8
   LOS40,https://playerservices.streamtheworld.com/api/livestream-redirect/Los40.mp3
-  Lofi,https://www.youtube.com/watch?v=jfKfPfyJRdk
   Radio 3,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r3_main.m3u8
   Radiolé,https://playerservices.streamtheworld.com/api/livestream-redirect/RADIOLE.mp3
+  --------- YOUTUBE ----------
+  Chopin,https://www.youtube.com/watch?v=Jn09UdSb3aA
+  Gregorian Chants, https://www.youtube.com/watch?v=rly1kJOaUxs
+  Lofi,--no-resume-playback https://www.youtube.com/watch?v=jfKfPfyJRdk
   ------- GENERALISTAS -------
-  COPE,https://flucast-m04-06.flumotion.com/cope/net1.mp3
+  COPE,https://flucast24-h-cloud.flumotion.com/cope/net1.mp3
   Cadena SER,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3
   Cadena SER Valencia,https://playerservices.streamtheworld.com/api/livestream-redirect/SER_VALENCIA.mp3
   Radio María,http://dreamsiteradiocp.com:8060/;stream.mp3
@@ -92,4 +95,4 @@ systemd-run \
   --collect \
   --unit "$unit_name" \
   --description "$chosen" \
-  mpv --no-video --no-resume-playback --shuffle "$url"
+  mpv --no-video $url  # Don't double quote as url can include mpv options.
