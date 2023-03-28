@@ -68,14 +68,9 @@ declare -r streams="\
   San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
 "
 
-# Optionally Get station name from CLI
-chosen="${1:-}"
-
-if [[ -z "$chosen" ]]; then
-  chosen="$(sed -E 's/^\s+//;s/,.*$//;/^\s*$/d' <<< "$streams" | $dmenu -p "$dmenu_prompt" $dmenu_opts)"
-  if [[ -z "$chosen" ]] || [[ "$chosen" =~ --- ]]; then
-    exit
-  fi
+chosen="$(sed -E 's/^\s+//;s/,.*$//;/^\s*$/d' <<< "$streams" | $dmenu -p "$dmenu_prompt" $dmenu_opts)"
+if [[ -z "$chosen" ]] || [[ "$chosen" =~ --- ]]; then
+  exit
 fi
 
 systemctl --user stop "$unit_name" || true
