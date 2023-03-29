@@ -52,7 +52,6 @@ fi
 case $(hostname) in
   rd|x220)
     log "Enabling system user units for rd or x220..."
-    systemctl --user enable playerctld.service
     systemctl --user enable ssh-agent.service
     ;;
 esac
