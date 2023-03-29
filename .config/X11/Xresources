@@ -34,18 +34,16 @@ Xft.rgba: rgb
 /*               APPLICATIONS              */
 /*******************************************/
 
-/* dmenu, dwm */
 dwm.topbar: 0
-dmenu.topbar: 1
 dwm.borderpx: 2
 dwm.mfact: 0.5
 dwm.enablegaps: 0
 dwm.smartgaps: 0
 
-/* st */
+dmenu.topbar: 1
+
 St.alpha: 1
 
-/* Dunst */
 Dunst.frame_width: 1
 Dunst.transparency: 4
 
