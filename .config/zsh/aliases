@@ -33,11 +33,11 @@ alias less="less -R"
 
 # ls
 if command -v exa > /dev/null; then
-	alias ls="exa --color=auto -aF --group-directories-first"
-	alias ll="ls -lg --git"
+  alias ls="exa --color=auto -aF --group-directories-first"
+  alias ll="ls -lg --git"
 else
-	alias ls="ls --color=auto -AF --group-directories-first"
-	alias ll="ls -lh"
+  alias ls="ls --color=auto -AF --group-directories-first"
+  alias ll="ls -lh"
 fi
 
 # Shell history
@@ -46,10 +46,10 @@ alias history="history -i"
 # Copy commands from history to clipboard
 # The awk command removes duplicates, or fzf may be full of them.
 alias hy="
-	fc -ln 0 |
-	awk '!a[\$0]++' |
-	fzf --tac --no-preview --height 90% |
-	xclip -selection clipboard
+  fc -ln 0 |
+  awk '!a[\$0]++' |
+  fzf --tac --no-preview --height 90% |
+  xclip -selection clipboard
 "
 
 # Shell
@@ -62,19 +62,19 @@ alias vim="nvim"
 
 # mkdir and cd to dir
 take() {
-	if ! mkdir -pv "$@"; then
-		echo "Retrying with sudo..."
-		sudo mkdir -pv "$@"
-	fi && cd ${@:$#}
+  if ! mkdir -pv "$@"; then
+    echo "Retrying with sudo..."
+    sudo mkdir -pv "$@"
+  fi && cd ${@:$#}
 }
 
 # Create a backup of a file
 bak() {
-	if [[ "$(stat --format '%u' "$1")" == "$UID" ]]; then
-		cp "$1"{,.bak}
-	else
-		sudo cp "$1"{,.bak}
-	fi
+  if [[ "$(stat --format '%u' "$1")" == "$UID" ]]; then
+    cp "$1"{,.bak}
+  else
+    sudo cp "$1"{,.bak}
+  fi
 }
 
 # Easier commands
@@ -83,7 +83,7 @@ alias ex="atool --extract --each --"
 alias f="ranger"
 alias fn="find . -iname"
 keys() {
-	xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
+  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 alias o="xdg-open"
 alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
@@ -137,9 +137,9 @@ alias ytig="dotfiles cmd tig"
 
 # Use bat if available
 if command -v bat >/dev/null; then
-	alias cat="bat"
+  alias cat="bat"
 elif command -v batcat >/dev/null; then
-	alias cat="batcat"
+  alias cat="batcat"
 fi
 
 # systemctl, journalctl
@@ -163,9 +163,9 @@ alias dhu="sudo dnf history undo"
 
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
-	# Global aliases
-	alias -g G="| grep"
-	alias -g L="| less"
+  # Global aliases
+  alias -g G="| grep"
+  alias -g L="| less"
 fi
 
 # Source jumping aliases
