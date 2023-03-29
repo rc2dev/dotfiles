@@ -82,7 +82,6 @@ alias cx="chmod +x"
 alias ex="atool --extract --each --"
 alias f="ranger"
 alias fn="find . -iname"
-alias hs="python3 -m http.server"  # HTTP server
 keys() {
 	xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
@@ -102,10 +101,8 @@ alias gcl="git clone"
 alias gcp="git cherry-pick"
 alias gco="git checkout"
 alias gd="git diff"
-gfr() { git fetch && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); }
 alias gl="git pull"
 alias glo="git log --all --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
-alias glon="glo --name-only"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
 alias grb="git rebase"
@@ -127,7 +124,6 @@ alias yco="y checkout"
 alias yd="y diff"
 alias yl="y pull"
 alias ylo="y log --all --graph --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n'"
-alias ylon="ylo --name-only"
 alias yp="y push"
 alias ypf="y push --force"
 alias yrb="y rebase"
@@ -146,9 +142,6 @@ elif command -v batcat >/dev/null; then
 	alias cat="batcat"
 fi
 
-# Docker: quickly start an interactive container
-alias doq="docker run -it --rm -v ~/Downloads:/share"
-
 # systemctl, journalctl
 alias sc="sudo systemctl"
 alias scu="systemctl --user"
@@ -164,7 +157,6 @@ alias ama="sudo apt-mark auto"
 alias amm="sudo apt-mark manual"
 
 # dnf
-dnf() { command dnf -C "$@"; }
 alias dhh="dnf history | head"
 alias dhr="sudo dnf history rollback"
 alias dhu="sudo dnf history undo"
