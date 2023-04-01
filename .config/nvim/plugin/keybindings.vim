@@ -5,7 +5,7 @@
 let mapleader="\<Space>"
 let maplocalleader=","
 
-" Toggle paste
+" Toggle paste. Still useful in tmux.
 set pastetoggle=<F2>
 
 " Insert current date
