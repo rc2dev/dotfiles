@@ -1,0 +1,12 @@
+/*
+ * Layout config for Xresources.
+ *
+ * Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+ *
+ */
+
+dwm.topbar: 0
+dwm.mfact: 0.5
+dwm.enablegaps: 0
+dwm.smartgaps: 0
+dmenu.topbar: 1

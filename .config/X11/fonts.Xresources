@@ -1,0 +1,26 @@
+/*
+ * Fonts for Xresources.
+ *
+ * Other places to set:
+ * - xsettingsd
+ * - mpv
+ * - rofi
+ *
+ * Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+ *
+ */
+
+dmenu.font: IBM Plex Sans:size=11
+/* Use patched font for icons on tags. */
+dwm.font: Blex Mono Nerd Font:size=9
+St.font: SauceCodePro Nerd Font:size=13
+Dunst.font: Blex Mono Nerd Font 11
+
+/* Fix font rendering on Wine applications on standalone WMs. */
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
