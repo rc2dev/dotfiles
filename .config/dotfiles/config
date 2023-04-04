@@ -1,18 +1,14 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-[alias]
-  install = ! ~/.config/dotfiles/install
-
 [core]
+  worktree = ~  # Needed for creating vim-fugitive's command
   hooksPath = ~/.config/dotfiles/hooks
-  # Needed for creating vim-fugitive's command
-  worktree = ~
-
-[rebase]
-  autoStash = true
 
 [status]
   showUntrackedFiles = no
+
+[alias]
+  install = ! ~/.config/dotfiles/install
 
 [filter "cleanXsettingsd"]
   clean = "sed -E 's#^Net/ThemeName .*#Net/ThemeName \"\"#'"

@@ -41,10 +41,6 @@ export CM_DIR="$HOME/.cache"
 export CM_IGNORE_WINDOW="KeePassXC"
 export CM_LAUNCHER="rofi"
 
-# Docker
-# Move from ~/
-export DOCKER_CONFIG="$HOME/.config/docker"
-
 # fzf
 # Preview files with bat, directories with tree
 export FZF_DEFAULT_OPTS="
