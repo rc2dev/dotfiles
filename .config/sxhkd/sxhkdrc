@@ -18,7 +18,11 @@ super + f
   $TERMINAL -e ranger
 
 super + {_, shift, ctrl } + n
-  dunstctl { context, close, history-pop }
+  dunstctl { \
+    context; dunstctl close, \
+    close, \
+    history-pop \
+  }
 
 super + o
   dmenu_document
