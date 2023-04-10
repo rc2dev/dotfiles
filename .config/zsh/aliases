@@ -86,7 +86,7 @@ keys() {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 alias o="xdg-open"
-alias reb="reboot || { echo 'Trying sudo...'; sudo reboot; }"
+alias reb="systemctl reboot"
 alias s="ssh"
 alias se="sudo -e"
 
