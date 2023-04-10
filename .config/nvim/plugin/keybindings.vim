@@ -53,14 +53,6 @@ inoremap <C-Right> <ESC>:echoe "Use w"<CR>
 inoremap <C-Up>    <ESC>:echoe "Use k"<CR>
 inoremap <C-Down>  <ESC>:echoe "Use j"<CR>
 
-" Use ctrl+j/k on completion menu
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-cnoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-cnoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-" Accept first unselected completion with Tab
-inoremap <expr> <Tab> pumvisible() ? "<C-n><C-y>" : "<Tab>"
-
 " Delete current file
 nnoremap <Leader><Del> :call DeleteFile()<CR>
 function! DeleteFile()
@@ -77,19 +69,24 @@ nnoremap <Leader><Leader> <C-^>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
 
-" Navigate splits
+" Navigate splits and completion menus with C-jk
 nnoremap <silent> <c-k> :wincmd k<cr>
 nnoremap <silent> <c-j> :wincmd j<cr>
 nnoremap <silent> <c-h> :wincmd h<cr>
 nnoremap <silent> <c-l> :wincmd l<cr>
-inoremap <silent> <c-k> <Esc>:wincmd k<cr>
-inoremap <silent> <c-j> <Esc>:wincmd j<cr>
+inoremap <silent> <expr> <c-k> pumvisible() ? "<c-p>" : "<Esc>:wincmd k<cr>"
+inoremap <silent> <expr> <c-j> pumvisible() ? "<c-n>" : "<Esc>:wincmd j<cr>"
+cnoremap <expr> <C-j> pumvisible() ? "<C-n>" : "<C-j>"
+cnoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
 inoremap <silent> <c-h> <Esc>:wincmd h<cr>
 inoremap <silent> <c-l> <Esc>:wincmd l<cr>
 tnoremap <silent> <c-k> <c-w>k
 tnoremap <silent> <c-j> <c-w>j
 tnoremap <silent> <c-h> <c-w>h
 tnoremap <silent> <c-l> <c-w>l
+
+" Accept first unselected completion with Tab
+inoremap <expr> <Tab> pumvisible() ? "<C-y>" : "<Tab>"
 
 " Resize splits
 nnoremap <silent> <C-Left> :vertical resize -3<CR>
