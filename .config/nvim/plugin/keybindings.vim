@@ -138,9 +138,6 @@ nnoremap <leader>? <cmd>Telescope help_tags<CR>
 nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
 nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
 
-" alpha
-nnoremap ga :Alpha<CR>
-
 " rnvimr
 nnoremap <leader>fr :RnvimrToggle<CR>
 

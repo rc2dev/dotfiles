@@ -12,7 +12,6 @@ Plug 'aperezdc/vim-template'
 Plug 'dense-analysis/ale'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'  " Syntax highlight for njk files
-Plug 'goolord/alpha-nvim'
 Plug 'junegunn/goyo.vim'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 Plug 'klen/nvim-config-local'
