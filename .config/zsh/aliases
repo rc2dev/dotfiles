@@ -49,7 +49,7 @@ alias hy="
   fc -ln 0 |
   awk '!a[\$0]++' |
   fzf --tac --no-preview --height 90% |
-  xclip -selection clipboard
+  xsel --clipboard
 "
 
 # Shell
@@ -98,7 +98,6 @@ alias gau="git add -u"
 alias gc="git commit -v"
 alias gc!="git commit -v --amend"
 alias gcl="git clone"
-alias gcp="git cherry-pick"
 alias gco="git checkout"
 alias gd="git diff"
 alias gl="git pull"
@@ -119,7 +118,6 @@ alias yai="y add -i"
 alias yau="y add -u"
 alias yc="y commit -v"
 alias yc!="y commit -v --amend"
-alias ycp="y cherry-pick"
 alias yco="y checkout"
 alias yd="y diff"
 alias yl="y pull"
