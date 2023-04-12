@@ -41,6 +41,10 @@ git submodule sync
 log "Initializing submodules..."
 git submodule update --init --recursive
 
+# Needed for vim-fugitive's command
+log "Setting worktree..."
+git config core.worktree "$HOME"
+
 log "Setting path for repository config..."
 git config include.path ~/.config/dotfiles/config
 
