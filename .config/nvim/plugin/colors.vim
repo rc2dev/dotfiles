@@ -14,7 +14,7 @@ let g:gruvbox_italic=1
 
 " We won't have the theme on first run
 try
-  colorscheme onedark
+  colorscheme gruvbox
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme desert
 endtry
