@@ -8,14 +8,17 @@ super + b
 {super + c, XF86Calculator}
   gnome-calculator
 
+super + e
+  nemo
+
 super + shift + d
   light-dark toggle
 
-super + e
-  $TERMINAL -e nvim
-
-super + f
-  $TERMINAL -e ranger
+super + {_, shift} + i
+  { \
+    dmenu_radio, \
+    $TERMINAL -n cmus -e cmus \
+  }
 
 super + {_, shift, ctrl } + n
   dunstctl { \
@@ -33,14 +36,14 @@ super + p
 super + shift + q
   xkill
 
-super + {_, shift} + r
-  { \
-    dmenu_radio, \
-    $TERMINAL -n cmus -e cmus \
-  }
+super + r
+  $TERMINAL -e ranger
+
+super + u
+  pavucontrol
 
 super + v
-  pavucontrol
+  $TERMINAL -e nvim
 
 super + {_, shift} + w
   $BROWSER {_, --incognito}

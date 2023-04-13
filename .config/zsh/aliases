@@ -57,7 +57,7 @@ alias q="exit"
 alias x="exit"
 
 # Edit
-alias e="$EDITOR"
+alias v="$EDITOR"
 alias vim="nvim"
 
 # mkdir and cd to dir
@@ -80,12 +80,11 @@ bak() {
 # Easier commands
 alias cx="chmod +x"
 alias ex="atool --extract --each --"
-alias f="ranger"
 alias fn="find . -iname"
 keys() {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
-alias o="xdg-open"
+alias r="ranger"
 alias reb="systemctl reboot"
 alias s="ssh"
 alias se="sudo -e"
