@@ -2,9 +2,9 @@
 
 configuration {
   // Default modes
-     modes: "combi";
-     combi-modes: "window,drun";
-     display-combi: "Application";
+     modes: "drun";
+  // combi-modes: "window,drun";
+  // display-combi: "Application";
 
   // Overriden by theme
   // font: "Hack Nerd Font 12";
