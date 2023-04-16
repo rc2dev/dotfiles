@@ -26,6 +26,7 @@ alias df="df -h"
 alias free="free -h"
 
 # Coloured output
+alias diff="diff --color=auto"
 alias grep="grep --color=auto"
 
 # Accept color escape sequences
