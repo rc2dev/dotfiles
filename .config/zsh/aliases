@@ -59,7 +59,6 @@ alias x="exit"
 
 # Edit
 alias v="$EDITOR"
-alias vim="nvim"
 
 # mkdir and cd to dir
 take() {
