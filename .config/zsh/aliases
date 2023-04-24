@@ -154,7 +154,7 @@ alias ama="sudo apt-mark auto"
 alias amm="sudo apt-mark manual"
 
 # dnf
-alias dhh="dnf history | head"
+alias dhh="dnf history | head -15"
 alias dhr="sudo dnf history rollback"
 alias dhu="sudo dnf history undo"
 
