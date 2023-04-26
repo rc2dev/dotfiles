@@ -70,10 +70,6 @@ local function on_attach(bufnr)
   -- remove <BS> (defined below as h)
   vim.keymap.del('n', '<BS>', { buffer = bufnr })
 
-  -- move system_open from s to o
-  vim.keymap.del('n', 's', { buffer = bufnr })
-  vim.keymap.set('n', 'o', api.node.run.system, opts('Run System'))
-
   -- move preview from Tab to p
   vim.keymap.del('n', '<Tab>', { buffer = bufnr })
   vim.keymap.set('n', 'p', api.node.open.preview, opts('Open Preview'))
