@@ -41,13 +41,6 @@ xss-lock slock &
 # Trigger slock after 5 min of inactivity
 { xset s on; xset s 300; } &
 
-# Host specific
-case "$HOST" in
-  x220)
-    bato &
-    ;;
-esac
-
 # Statusbar loop
 while true; do
   dwmbar
