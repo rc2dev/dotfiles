@@ -56,8 +56,7 @@ export MANPAGER="less -s -M +Gg"
 # npm: Move from ~/
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 
-# ranger
-# Use two spaces instead of one.
+# ranger: Make devicons use two spaces instead of one.
 export RANGER_DEVICONS_SEPARATOR="  "
 
 # texlive: Move from ~/
