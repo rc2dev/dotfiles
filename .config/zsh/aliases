@@ -13,7 +13,7 @@ alias watch="watch "
 
 # Increase verbosity and prompt before overwriting (for rm, prompt
 # before removing directory or more than 3 files)
-alias cp="cp -vir"
+alias cp="cp -vi"
 alias mv="mv -vi"
 alias rm="rm -vI"
 alias ln="ln -vi"
@@ -58,7 +58,9 @@ alias q="exit"
 alias x="exit"
 
 # Edit
-alias v="$EDITOR"
+alias e="$EDITOR"
+alias v="nvim"
+alias vim="nvim"
 
 # mkdir and cd to dir
 take() {

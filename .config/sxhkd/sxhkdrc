@@ -2,6 +2,9 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
+super + a
+  xdg-open ~/Sync/pessoal/horários.pdf
+
 super + b
   blueman-manager
 
@@ -9,23 +12,23 @@ super + b
   gnome-calculator
 
 super + e
-  nemo
+  $TERMINAL -e nvim
 
 super + shift + d
   light-dark toggle
 
-super + {_, shift} + i
-  { \
-    dmenu_radio, \
-    $TERMINAL -n cmus -e cmus \
+super + f
+  nemo
+
+super + {_, shift, ctrl } + i
+  dunstctl { \
+    close, \
+    history-pop, \
+    context; dunstctl close \
   }
 
-super + {_, shift, ctrl } + n
-  dunstctl { \
-    context; dunstctl close, \
-    close, \
-    history-pop \
-  }
+super + n
+  $TERMINAL -e nvim +TeNotes
 
 super + o
   dmenu_document
@@ -39,11 +42,14 @@ super + shift + q
 super + r
   $TERMINAL -e ranger
 
-super + u
-  pavucontrol
+super + {_, shift} + u
+  { \
+    dmenu_radio, \
+    $TERMINAL -n cmus -e cmus \
+  }
 
 super + v
-  $TERMINAL -e nvim
+  pavucontrol
 
 super + {_, shift} + w
   $BROWSER {_, --incognito}
