@@ -14,6 +14,7 @@ readonly notify_id=103
 readonly notify_time=10000
 readonly notify_icon="radio"
 readonly unit_name="dmenu_radio_player"
+readonly section_prefix="➤"
 
 
 if [[ $dmenu =~ ^dmenu.* ]]; then
@@ -29,18 +30,21 @@ fi
 declare -r streams="\
   ⚄ Random
   ⏹ Stop: $current
-  ---------- MUSIC -----------
+
+  ➤ YOUTUBE
+  Chopin,https://www.youtube.com/watch?v=Jn09UdSb3aA
+  Gregorian Chants, https://www.youtube.com/watch?v=rly1kJOaUxs
+  Lofi,--no-resume-playback https://www.youtube.com/watch?v=jfKfPfyJRdk
+
+  ➤ MUSIC
   Cadena 100,https://cadena100-cope.flumotion.com/chunks.m3u8
   Cadena Dial,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENADIAL.mp3
   Canal Fiesta Radio,https://cdnlive.shooowit.net/rtvalive/smil:channel5.smil/master.m3u8
   LOS40,https://playerservices.streamtheworld.com/api/livestream-redirect/Los40.mp3
   Radio 3,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r3_main.m3u8
   Radiolé,https://playerservices.streamtheworld.com/api/livestream-redirect/RADIOLE.mp3
-  --------- YOUTUBE ----------
-  Chopin,https://www.youtube.com/watch?v=Jn09UdSb3aA
-  Gregorian Chants, https://www.youtube.com/watch?v=rly1kJOaUxs
-  Lofi,--no-resume-playback https://www.youtube.com/watch?v=jfKfPfyJRdk
-  ------- GENERALISTAS -------
+
+  ➤ GENERALISTAS
   COPE,https://flucast24-h-cloud.flumotion.com/cope/net1.mp3
   Cadena SER,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3
   Cadena SER Valencia,https://playerservices.streamtheworld.com/api/livestream-redirect/SER_VALENCIA.mp3
@@ -48,7 +52,8 @@ declare -r streams="\
   RNE1,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r1_main.m3u8
   RNE1 C. Valenciana,https://dispatcher.rndfnk.com/crtve/rne1/val/mp3/high
   RNE Radio 5,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r5_madrid_main.m3u8
-  -------- SELECTION --------
+
+  ➤ SELECTION
   ArtSound FM 92.7,http://119.15.96.188/stream2.mp3
   Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
   CDNX 1 - Classic & New Indie Alt,http://svr1.msmn.co:8136
@@ -67,8 +72,8 @@ declare -r streams="\
   San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
 "
 
-chosen="$(sed -E 's/^\s+//;s/,.*$//;/^\s*$/d' <<< "$streams" | $dmenu -p "$dmenu_prompt" $dmenu_opts)"
-if [[ -z "$chosen" ]] || [[ "$chosen" =~ --- ]]; then
+chosen="$(sed -E 's/^\s+//;s/,.*$//' <<< "$streams" | $dmenu -p "$dmenu_prompt" $dmenu_opts)"
+if [[ -z "$chosen" ]] || [[ "$chosen" =~ $section_prefix ]]; then
   exit
 fi
 
