@@ -32,12 +32,12 @@ declare -r streams="\
   ⚄ Random
   ⏹ Stop: $current
   $section_separator
-  ➤ YOUTUBE
+  $section_prefix YOUTUBE
   Chopin,https://www.youtube.com/watch?v=Jn09UdSb3aA
   Gregorian Chants, https://www.youtube.com/watch?v=rly1kJOaUxs
   Lofi,--no-resume-playback https://www.youtube.com/watch?v=jfKfPfyJRdk
   $section_separator
-  ➤ MUSIC
+  $section_prefix MUSIC
   Cadena 100,https://cadena100-cope.flumotion.com/chunks.m3u8
   Cadena Dial,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENADIAL.mp3
   Canal Fiesta Radio,https://cdnlive.shooowit.net/rtvalive/smil:channel5.smil/master.m3u8
@@ -45,7 +45,7 @@ declare -r streams="\
   Radio 3,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r3_main.m3u8
   Radiolé,https://playerservices.streamtheworld.com/api/livestream-redirect/RADIOLE.mp3
   $section_separator
-  ➤ GENERALISTAS
+  $section_prefix GENERALISTAS
   COPE,https://flucast24-h-cloud.flumotion.com/cope/net1.mp3
   Cadena SER,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3
   Cadena SER Valencia,https://playerservices.streamtheworld.com/api/livestream-redirect/SER_VALENCIA.mp3
@@ -54,7 +54,7 @@ declare -r streams="\
   RNE1 C. Valenciana,https://dispatcher.rndfnk.com/crtve/rne1/val/mp3/high
   RNE Radio 5,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r5_madrid_main.m3u8
   $section_separator
-  ➤ SELECTION
+  $section_prefix SELECTION
   ArtSound FM 92.7,http://119.15.96.188/stream2.mp3
   Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
   CDNX 1 - Classic & New Indie Alt,http://svr1.msmn.co:8136
