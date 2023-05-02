@@ -37,7 +37,7 @@ window {
   border-color: @fg-alt;
   padding: 6px;
   transparency: "real";
-  width: 700px;
+  width: 550px;
 
   /* Sidebar */
   location: west;
