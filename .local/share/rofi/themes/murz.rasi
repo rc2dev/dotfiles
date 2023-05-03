@@ -23,19 +23,18 @@ configuration {
   padding: 0;
   spacing: 0;
 
-  bg: #18181B;
-  bg-alt: #20212C;
+  /* Transparency */
+  bg: #18181Bfc;
+  bg-alt: #20212Cfc;
   fg: #A0A0AB;
   fg-alt: #5D5E72;
 
-  background-color: @bg;
+  background-color: rgba(0, 0, 0, 0);
   text-color: @fg-alt;
 }
 
 window {
-  border-right: 2px;
   border-color: @fg-alt;
-  padding: 6px;
   transparency: "real";
   width: 550px;
 
@@ -43,6 +42,7 @@ window {
   location: west;
   anchor: west;
   height: 100%;
+  background-color: @bg;
 }
 
 mainbox {
@@ -54,7 +54,7 @@ inputbar {
 }
 
 entry {
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 listview {
@@ -73,7 +73,7 @@ element {
 }
 
 element-text {
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 element-text selected {
