@@ -55,7 +55,6 @@ alias hy="
 
 # Shell
 alias q="exit"
-alias x="exit"
 
 # Edit
 alias e="$EDITOR"
