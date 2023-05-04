@@ -18,11 +18,10 @@ set -g status-justify left
 set -g status-style 'bg=#373b41 fg=colour4'
 
 set -g status-left ' #S  '
-set -g status-left-style 'bold italics'
+set -g status-left-style 'bold'
 set -g status-left-length 20
 
-set -g status-right '#[italic]#[fg=default]#(whoami)@#H'
-set -g status-right-style 'bold italics'
+set -g status-right '#[fg=default]#H'
 set -g status-right-length 50
 
 setw -g window-status-current-style 'fg=colour7 bg=colour21 bold'
