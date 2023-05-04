@@ -9,6 +9,7 @@ call plug#begin()
 Plug 'airblade/vim-rooter'
 Plug 'ap/vim-css-color'
 Plug 'aperezdc/vim-template'
+Plug 'christoomey/vim-tmux-navigator'  " Needs plugin also on tmux.
 Plug 'dense-analysis/ale'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'  " Syntax highlight for njk files
