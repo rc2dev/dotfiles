@@ -1,36 +1,54 @@
 # tmux theming
+# vim:ft=tmux
 #
-# Based on <https://github.com/hamvocke/dotfiles/tree/master/tmux>
-# by Rafael Cavalcanti <https://rafaelc.org/dev>
+# Based on
+# <https://github.com/egel/tmux-gruvbox/blob/main/tmux-gruvbox-dark.conf>
+# with modifications by Rafael Cavalcanti <https://rafaelc.org/dev>.
 
+set-option -g status "on"
 
-# modes
-setw -g clock-mode-colour colour5
-setw -g mode-style 'fg=colour1 bg=colour18 bold'
+# default statusbar color
+set-option -g status-style bg=colour237,fg=colour223 # bg=bg1, fg=fg1
 
-# panes
-set -g pane-border-style 'fg=colour21 bg=colour0'
-set -g pane-active-border-style 'bg=colour0 fg=colour5'
+# default window title colors
+set-window-option -g window-status-style bg=colour214,fg=colour237 # bg=yellow, fg=bg1
 
-# statusbar
-set -g status-position bottom
-set -g status-justify left
-set -g status-style 'bg=#373b41 fg=colour4'
+# default window with an activity alert
+set-window-option -g window-status-activity-style bg=colour237,fg=colour248 # bg=bg1, fg=fg3
 
-set -g status-left ' #S  '
-set -g status-left-style 'bold'
-set -g status-left-length 20
+# active window title colors
+set-window-option -g window-status-current-style bg=red,fg=colour237 # fg=bg1
 
-set -g status-right '#[fg=default]#H'
-set -g status-right-length 50
+# pane border
+set-option -g pane-active-border-style fg=colour250 #fg2
+set-option -g pane-border-style fg=colour237 #bg1
 
-setw -g window-status-current-style 'fg=colour7 bg=colour21 bold'
-setw -g window-status-current-format ' #I:#[fg=colour7]#W#F '
+# message infos
+set-option -g message-style bg=colour239,fg=colour223 # bg=bg2, fg=fg1
 
-setw -g window-status-style 'fg=colour250 bg=default'
-setw -g window-status-format ' #I:#W#[fg=colour245]#F '
+# writing commands inactive
+set-option -g message-command-style bg=colour239,fg=colour223 # bg=fg3, fg=bg1
 
-setw -g window-status-bell-style 'fg=colour255 bg=colour1 bold'
+# pane number display
+set-option -g display-panes-active-colour colour250 #fg2
+set-option -g display-panes-colour colour237 #bg1
 
-# messages
-set -g message-style 'fg=colour18 bg=colour4 bold'
+# clock
+set-window-option -g clock-mode-colour colour109 #blue
+
+# bell
+set-window-option -g window-status-bell-style bg=colour167,fg=colour235 # bg=red, fg=bg
+
+## Theme settings mixed with colors (unfortunately, but there is no cleaner way)
+set-option -g status-justify "left"
+set-option -g status-left-style none
+set-option -g status-left-length "80"
+set-option -g status-right-style none
+set-option -g status-right-length "80"
+set-window-option -g window-status-separator ""
+
+set-option -g status-left "#[bg=colour241,fg=colour248] #S #[bg=colour237,fg=colour241,nobold,noitalics,nounderscore]"
+set-option -g status-right "#[bg=colour237,fg=colour239 nobold, nounderscore, noitalics]#[bg=colour239,fg=colour246] #{cpu_icon} #{cpu_percentage}   #{df_percent} #[bg=colour239,fg=colour248,nobold,noitalics,nounderscore]#[bg=colour248,fg=colour237] #h "
+
+set-window-option -g window-status-current-format "#[bg=colour214,fg=colour237,nobold,noitalics,nounderscore]#[bg=colour214,fg=colour239] #I #[bg=colour214,fg=colour239,bold] #W#{?window_zoomed_flag,*Z,} #[bg=colour237,fg=colour214,nobold,noitalics,nounderscore]"
+set-window-option -g window-status-format "#[bg=colour239,fg=colour237,noitalics]#[bg=colour239,fg=colour223] #I #[bg=colour239,fg=colour223] #W #[bg=colour237,fg=colour239,noitalics]"
