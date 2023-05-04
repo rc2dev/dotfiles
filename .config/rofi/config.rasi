@@ -159,4 +159,4 @@ configuration {
   }
 }
 
-@theme "murz.rasi"
+@theme "~/.local/share/rofi/themes/murz-rc2dev.razi"
