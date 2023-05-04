@@ -23,6 +23,9 @@ inoremap <F4> [](<C-o>p)<Esc>F[a
 nnoremap <F4> i[](<C-o>p)<Esc>F[a
 vnoremap <F4> "ldi[<C-r>l](<C-o>p)
 
+" Set Toc shortcut
+nnoremap <buffer><silent> <leader>mt :Toc<CR>
+
 " Set pandoc shortcut
 nnoremap <buffer><silent> <leader>mp :w<CR>:silent !pandoc --defaults markdown.yml '%' -o '%:r.pdf'<CR>:silent !gio open '%:r.pdf'<CR>
 
