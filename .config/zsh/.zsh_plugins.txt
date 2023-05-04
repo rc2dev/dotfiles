@@ -1,14 +1,10 @@
-# vim:syntax=conf
+# vim:ft=conf
 #
 # Plugin list for antidote.
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-# Plugins that can't be delayed
 romkatv/powerlevel10k
 zsh-users/zsh-autosuggestions
-
-# Plugins that can be delayed
-# highlighting should be last
 ohmyzsh/ohmyzsh path:plugins/command-not-found
 agkozak/zsh-z
-zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-syntax-highlighting  # highlighting should be last
