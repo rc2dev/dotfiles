@@ -4,7 +4,7 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 # Plugins that can't be delayed
-denysdovhan/spaceship-prompt
+romkatv/powerlevel10k
 zsh-users/zsh-autosuggestions
 
 # Plugins that can be delayed

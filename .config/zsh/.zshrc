@@ -7,6 +7,13 @@ ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 ZSH_STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
 mkdir -p "$ZSH_CACHE_DIR" "$ZSH_STATE_DIR"
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 
 ############################################################
 ### History
@@ -114,14 +121,15 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 ### Plugins sourcing
 ############################################################
 
-# Move spaceship config (needs to be before sourcing)
-export SPACESHIP_CONFIG="$ZDOTDIR/spaceship/config.zsh"
-
 # Source plugin framework
 source "$ZDOTDIR/.antidote/antidote.zsh"
 
 # initialize plugins from .zsh_plugins.txt
 antidote load
+
+# powerlevel10k prompt
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 if [[ -e "/usr/share/fzf/shell/key-bindings.zsh" ]]; then
   source "/usr/share/fzf/shell/key-bindings.zsh"  # Fedora
@@ -204,3 +212,4 @@ source "$ZDOTDIR/aliases"
 if [[ -z "$TMUX" && -n "$SSH_CLIENT" ]]; then
   tmux attach || tmux >/dev/null 2>&1
 fi
+
