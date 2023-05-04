@@ -74,7 +74,19 @@ bindkey "^e" edit-command-line
 bindkey -a "^e" edit-command-line  # On vim's normal mode
 
 # Add keybinding for going to parent dir (Alt+Up)
-bindkey -s "^[[1;3A" 'cd ..^M'
+# for p10k prompt
+redraw-prompt() {
+  local f
+  for f in chpwd "${chpwd_functions[@]}" precmd "${precmd_functions[@]}"; do
+    [[ "${+functions[$f]}" == 0 ]] || "$f" &>/dev/null || true
+  done
+  p10k display -r
+}
+up-directory() {
+  builtin cd .. && redraw-prompt
+}
+zle -N up-directory
+bindkey '^[[1;3A' up-directory
 
 
 ############################################################
