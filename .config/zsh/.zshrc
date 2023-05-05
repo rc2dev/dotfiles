@@ -139,30 +139,14 @@ source "$ZDOTDIR/.antidote/antidote.zsh"
 # initialize plugins from .zsh_plugins.txt
 antidote load
 
-# powerlevel10k prompt
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
-if [[ -e "/usr/share/fzf/shell/key-bindings.zsh" ]]; then
-  source "/usr/share/fzf/shell/key-bindings.zsh"  # Fedora
-elif [[ -e "/usr/share/doc/fzf/examples/key-bindings.zsh" ]]; then
-  source "/usr/share/doc/fzf/examples/key-bindings.zsh"  # Debian
-fi
-
 
 ############################################################
 ### Plugins configuration
 ############################################################
 
-# fzf
-# Check if sourced, because system may not have fzf
-if type fzf-file-widget >/dev/null; then
-  FZF_CTRL_R_OPTS="--no-preview"
-
-  # Rebind Alt+C to ^Y
-  bindkey '^Y' fzf-cd-widget
-  bindkey -r "^[c"
-fi
+# powerlevel10k prompt
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 
 ###########################################################
