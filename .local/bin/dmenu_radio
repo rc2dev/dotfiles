@@ -14,6 +14,7 @@ readonly notify_id=103
 readonly notify_time=10000
 readonly notify_icon="radio"
 readonly unit_name="dmenu_radio_player"
+readonly last_file="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_radio_last"
 readonly section_prefix="➤"
 readonly section_separator="―――――――――――――――――――――――――――――――――――――――――"
 
@@ -22,16 +23,7 @@ if [[ $dmenu =~ ^dmenu.* ]]; then
   dmenu_opts="-l 9"
 fi
 
-if systemctl --user is-active --quiet "$unit_name"; then
-  current="$(systemctl --user show dmenu_radio_player | grep Description= | cut -d= -f2-)"
-else
-  current="not playing"
-fi
-
 declare -r streams="\
-  ⚄ Random
-  ⏹ Stop: $current
-  $section_separator
   $section_prefix YOUTUBE
   Chopin,https://www.youtube.com/watch?v=Jn09UdSb3aA
   Gregorian Chants, https://www.youtube.com/watch?v=rly1kJOaUxs
@@ -72,7 +64,22 @@ declare -r streams="\
   San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
 "
 
-chosen="$(sed -E 's/^\s+//;s/,.*$//;/^\s*$/d' <<< "$streams" | $dmenu -p "$dmenu_prompt" $dmenu_opts)"
+if systemctl --user is-active --quiet "$unit_name"; then
+  state="⏹ Stop: $(systemctl --user show dmenu_radio_player | grep Description= | cut -d= -f2-)"
+elif [[ -f "$last_file" ]]; then
+  state=" Play last: $(cat "$last_file")"
+else
+  state=
+fi
+
+declare -r menu="\
+  ⚄ Random
+  $state
+  $section_separator
+  $streams
+"
+
+chosen="$(sed -E 's/^\s+//;s/,.*$//;/^\s*$/d' <<< "$menu" | $dmenu -p "$dmenu_prompt" $dmenu_opts)"
 if [[ -z "$chosen" ]] || [[ "$chosen" =~ $section_prefix ]] || [[ "$chosen" =~ $section_separator ]]; then
   exit
 fi
@@ -82,12 +89,16 @@ if [[ "$chosen" =~ Stop ]]; then
   exit
 fi
 
-if [[ "$chosen" =~ Random ]]; then
+if [[ "$chosen" =~ Play\ last ]]; then
+  chosen="$(cat "$last_file")"
+elif [[ "$chosen" =~ Random ]]; then
   readonly names_only="$(sed -E 's/^\s+//;s/,.*$//;/^\s*\W/d' <<< "$streams")"
   chosen="$(shuf -n 1 <<< "$names_only")"
 fi
 
+printf "%s" "$chosen" > "$last_file"
 dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "dmenu_radio" "Playing $chosen..."
+
 readonly url="$(printf "%s" "$streams" | grep -m 1 "$chosen" | cut -d, -f 2-)"
 systemd-run \
   --user \
