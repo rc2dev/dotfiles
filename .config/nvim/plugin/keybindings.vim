@@ -70,6 +70,8 @@ nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
 
 " Navigate splits and completion menus with C-jk
+" Most of this is probably redundant to vim-tmux-navigator, but works well
+" with or without the plugin.
 nnoremap <silent> <c-k> :wincmd k<cr>
 nnoremap <silent> <c-j> :wincmd j<cr>
 nnoremap <silent> <c-h> :wincmd h<cr>
@@ -122,12 +124,11 @@ map <leader>/ <plug>NERDCommenterToggle
 
 " Find files using Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
-nnoremap <leader>f. <cmd>Telescope find_files cwd=%:p:h prompt_title=Find\ Files\ in\ buffer\ directory<CR>
+nnoremap <leader>fF <cmd>Telescope find_files cwd=%:p:h prompt_title=Find\ Files\ in\ buffer\ directory<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fG <cmd>Telescope live_grep search_dirs=%:p:h prompt_title=Live\ Grep\ buffer\ directory<CR>
-nnoremap <leader>fB <cmd>Telescope live_grep grep_open_files=true prompt_title=Live\ Grep\ open\ buffers<CR>
-nnoremap <leader>fb <cmd>Telescope buffers<CR>
-nnoremap <leader>b <cmd>Telescope buffers<CR>
+nnoremap <leader>bg <cmd>Telescope live_grep grep_open_files=true prompt_title=Live\ Grep\ open\ buffers<CR>
+nnoremap <leader>bb <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <leader>fn <cmd>TeNotes<CR>
 nnoremap <leader>fj :e $NOTES/notes/Journal/<C-r>=strftime('%Y-%m/%Y-%m-%d %a')<cr>.md<cr>
