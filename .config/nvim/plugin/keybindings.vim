@@ -85,8 +85,9 @@ tnoremap <silent> <c-j> <c-w>j
 tnoremap <silent> <c-h> <c-w>h
 tnoremap <silent> <c-l> <c-w>l
 
-" Accept first unselected completion with Tab
-inoremap <expr> <Tab> pumvisible() ? "<C-y>" : "<Tab>"
+" Cycle completion with Tab
+inoremap <expr> <Tab> pumvisible() ? "<C-n>" : "<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "<C-p>" : "<S-Tab>"
 
 " Resize splits
 nnoremap <silent> <C-Left> :vertical resize -3<CR>
