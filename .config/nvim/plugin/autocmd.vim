@@ -27,8 +27,8 @@ augroup rc2dev
   autocmd BufWritePost *Xresources silent !xrdb $XRESOURCES
   autocmd BufWritePost xsettingsd.conf silent !killall -HUP xsettingsd
 
-  " Set executable bit to scripts on bin
-  autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' && expand('%:p:h') =~ '/bin$' | silent !chmod +x <afile> | endif
+  " Set executable bit to scripts with shebang
+  autocmd BufWritePost * if getline(1) =~ '^#!\(/usr\)\?/bin/' | silent !chmod +x <afile> | endif
 
   " Set specific spell check languages for some files
   autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
