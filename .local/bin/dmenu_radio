@@ -80,15 +80,19 @@ declare -r menu="\
 "
 
 chosen="$(sed -E 's/^\s+//;s/,.*$//;/^\s*$/d' <<< "$menu" | $dmenu -p "$dmenu_prompt" $dmenu_opts)"
+
+# Exit if nothing chosen.
 if [[ -z "$chosen" ]] || [[ "$chosen" =~ $section_prefix ]] || [[ "$chosen" =~ $section_separator ]]; then
   exit
 fi
 
+# Chosen value is valid. Stop if playing.
 systemctl --user stop "$unit_name" || true
 if [[ "$chosen" =~ Stop ]]; then
   exit
 fi
 
+# If chosen value is special, reassign it.
 if [[ "$chosen" =~ Play\ last ]]; then
   chosen="$(cat "$last_file")"
 elif [[ "$chosen" =~ Random ]]; then
@@ -96,9 +100,12 @@ elif [[ "$chosen" =~ Random ]]; then
   chosen="$(shuf -n 1 <<< "$names_only")"
 fi
 
+# We should have a stream name now. Record it and notify user to start
+# playback.
 printf "%s" "$chosen" > "$last_file"
 dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "dmenu_radio" "Playing $chosen..."
 
+# Grep url and play.
 readonly url="$(printf "%s" "$streams" | grep -m 1 "$chosen" | cut -d, -f 2-)"
 systemd-run \
   --user \
