@@ -12,7 +12,7 @@ mkdir -p "$ZSH_CACHE_DIR" "$ZSH_STATE_DIR"
 ### Cursor: Change shape for different vi modes
 ############################################################
 
-function zle-keymap-select () {
+function zle-keymap-select() {
   case $KEYMAP in
     vicmd) echo -ne '\e[1 q';; # block
     viins|main) echo -ne '\e[5 q';; # beam
@@ -61,6 +61,24 @@ setopt share_history
 
 
 ############################################################
+### Behaviour
+############################################################
+
+# Globbing: Use ^ to negate
+setopt extendedglob
+
+# Automatically quote pasted URLs
+autoload -Uz bracketed-paste-url-magic
+zle -N bracketed-paste bracketed-paste-url-magic
+
+# Don't prompt on `rm *` (rm is already aliased to do it)
+setopt rm_star_silent
+
+# Allow comments in interactive shells
+setopt interactivecomments
+
+
+############################################################
 ### Keybindings
 ############################################################
 
@@ -101,7 +119,7 @@ bindkey "^e" edit-command-line
 bindkey -a "^e" edit-command-line  # On vim's normal mode
 
 # Add keybinding for going to parent dir (Alt+Up)
-# for p10k prompt
+# Redraw powerlevel10k prompt.
 redraw-prompt() {
   local f
   for f in chpwd "${chpwd_functions[@]}" precmd "${precmd_functions[@]}"; do
@@ -114,24 +132,6 @@ up-directory() {
 }
 zle -N up-directory
 bindkey '^[[1;3A' up-directory
-
-
-############################################################
-### Behaviour
-############################################################
-
-# Globbing: Use ^ to negate
-setopt extendedglob
-
-# Automatically quote pasted URLs
-autoload -Uz bracketed-paste-url-magic
-zle -N bracketed-paste bracketed-paste-url-magic
-
-# Don't prompt on `rm *` (rm is already aliased to do it)
-setopt rm_star_silent
-
-# Allow comments in interactive shells
-setopt interactivecomments
 
 
 ############################################################
