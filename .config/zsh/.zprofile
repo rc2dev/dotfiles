@@ -68,6 +68,7 @@ export TEXMFCONFIG="$HOME/.config/texlive/texmf-config"
 export ZDOTDIR="$HOME/.config/zsh"
 
 # zsh-z
+export ZSHZ_CASE=smart
 # Move from ~/
 export ZSHZ_DATA="$HOME/.local/state/zsh/z"
 export ZSHZ_EXCLUDE_DIRS=( "/mnt" )
