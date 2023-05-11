@@ -28,6 +28,8 @@ iab vc você
 iab Vc Você
 iab vcs vocês
 iab Vcs Vocês
+iab vdd verdade
+iab Vdd Verdade
 
 " Command mode
 cabbr <expr> %% fnameescape(expand('%:p:h'))
