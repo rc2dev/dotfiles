@@ -32,7 +32,6 @@ declare -r streams="\
   $section_prefix MUSIC
   Cadena 100,https://cadena100-cope.flumotion.com/chunks.m3u8
   Cadena Dial,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENADIAL.mp3
-  Canal Fiesta Radio,https://cdnlive.shooowit.net/rtvalive/smil:channel5.smil/master.m3u8
   LOS40,https://playerservices.streamtheworld.com/api/livestream-redirect/Los40.mp3
   Radio 3,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r3_main.m3u8
   Radiolé,https://playerservices.streamtheworld.com/api/livestream-redirect/RADIOLE.mp3
@@ -51,7 +50,6 @@ declare -r streams="\
   Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
   CDNX 1 - Classic & New Indie Alt,http://svr1.msmn.co:8136
   CDNX 2 - New & Upfront Indie Alt,http://msmn.co:8118
-  France Culture Live,http://direct.franceculture.fr/live/franceculture-midfi.mp3
   France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
   France Musique La Jazz,http://direct.francemusique.fr/live/francemusiquelajazz-hifi.mp3
   Folk Radio UK,http://streaming.radionomy.com/FolkRadioUK
