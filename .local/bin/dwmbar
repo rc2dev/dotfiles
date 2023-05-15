@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2020-2021 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Copyright (C) 2020-2023 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 readonly sep="  ┇  "
@@ -75,7 +75,6 @@ declare -ar elements=(
   "$(bar_player)"
   "$(bar_battery)"
   "$(bar_temp)"
-  "$(bar_mem)"
   "$(bar_time)"
 )
 
