@@ -101,7 +101,7 @@ fi
 # We should have a stream name now. Record it and notify user to start
 # playback.
 printf "%s" "$chosen" > "$last_file"
-dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "dmenu_radio" "Playing $chosen..."
+dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "Playing" "<i>$chosen</i>"
 
 # Grep url and play.
 readonly url="$(printf "%s" "$streams" | grep -m 1 "$chosen" | cut -d, -f 2-)"
