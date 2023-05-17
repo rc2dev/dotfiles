@@ -2,6 +2,12 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 
+# Automatically start tmux if connected via SSH
+# Must come before p10k instant prompt.
+if [[ -z "$TMUX" && -n "$SSH_CLIENT" ]]; then
+  tmux attach || tmux >/dev/null 2>&1
+fi
+
 # Create directories
 ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 ZSH_STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
@@ -212,9 +218,4 @@ export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1         # For konsole and gnome-terminal
 
 source "$ZDOTDIR/aliases"
-
-# Automatically start tmux if connected via SSH
-if [[ -z "$TMUX" && -n "$SSH_CLIENT" ]]; then
-  tmux attach || tmux >/dev/null 2>&1
-fi
 
