@@ -28,7 +28,7 @@ super + {_, shift, ctrl } + i
   }
 
 super + n
-  $TERMINAL -e nvim +TeNotes
+  $TERMINAL -e ranger $NOTES/notes
 
 super + o
   dmenu_document
