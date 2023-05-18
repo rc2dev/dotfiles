@@ -69,6 +69,8 @@ export ZDOTDIR="$HOME/.config/zsh"
 
 # zsh-z
 export ZSHZ_CASE=smart
+# Use my custom cd (with ls)
+export ZSHZ_CD="cd"
 # Move from ~/
 export ZSHZ_DATA="$HOME/.local/state/zsh/z"
 export ZSHZ_EXCLUDE_DIRS=( "/mnt" )
