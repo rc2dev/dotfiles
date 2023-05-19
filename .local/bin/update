@@ -83,7 +83,7 @@ update_submodules() {
 	[[ "$(hostname)" == "$submodules_host" ]] || return 0
 
 	log_step "Atualizando submódulos dos dotfiles..."
-	dotfiles submodule update --recursive --remote
+	dotfiles submodule update --remote
 }
 
 update_nvim_plugins() {
