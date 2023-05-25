@@ -34,6 +34,7 @@ declare -r streams="\
   Cadena Dial,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENADIAL.mp3
   LOS40,https://playerservices.streamtheworld.com/api/livestream-redirect/Los40.mp3
   Radio 3,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r3_main.m3u8
+  Radio Clásica,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r2_main.m3u8
   Radiolé,https://playerservices.streamtheworld.com/api/livestream-redirect/RADIOLE.mp3
   $section_separator
   $section_prefix GENERALISTAS
