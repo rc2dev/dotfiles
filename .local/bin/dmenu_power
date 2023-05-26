@@ -14,9 +14,9 @@ readonly fg_selected="#eeeeee"
 
 readonly options="$(cat <<-END
 	 Restart dwm#killall -HUP dwm
-	 Logout#killall -TERM dwm
+	󰍃 Logout#killall -TERM dwm
 	 Suspend#systemctl suspend
-	 Reboot#systemctl reboot
+	 Reboot#systemctl reboot
 	 Poweroff#systemctl poweroff
 END
 )"
