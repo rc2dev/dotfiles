@@ -33,6 +33,7 @@
 *.color15:    theme_color15
 *.background: theme_background
 *.foreground: theme_foreground
+*.cursorColor: theme_color12
 
 /* dmenu and dwm */
 *.normbgcolor:          theme_background
