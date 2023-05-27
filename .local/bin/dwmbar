@@ -30,7 +30,7 @@ bar_player() {
   esac
   local -r title="$(truncate "$(playerctl metadata --format "{{ title }}")")"
 
-  echo "${icon}  ${title}"
+  echo "${icon} ${title}"
 }
 
 bar_time() {
@@ -38,11 +38,11 @@ bar_time() {
 }
 
 bar_mem() {
-  echo "  $(free -h | awk '/^Mem:/ {print $3}')"
+  echo " $(free -h | awk '/^Mem:/ {print $3}')"
 }
 
 bar_temp() {
-  echo "  $(sensors | awk '/^Package/ {print substr($4, 2)}')"
+  echo " $(sensors | awk '/^Package/ {print substr($4, 2)}')"
 }
 
 bar_battery() {
@@ -56,11 +56,11 @@ bar_battery() {
 
   local icon
   case "$status" in
-    "Full") icon="" ;;
+    "Full") icon="󰁹" ;;
     "Discharging")
-      if [[ $level -gt 50 ]]; then icon=""
-      elif [[ $level -gt 15 ]]; then icon=""
-      else icon=""
+      if [[ $level -gt 50 ]]; then icon="󰂀"
+      elif [[ $level -gt 15 ]]; then icon="󰁼"
+      else icon="󱃍"
       fi
       ;;
     "Charging") icon="⚡" ;;
@@ -68,7 +68,7 @@ bar_battery() {
     "Unknown") icon="" ;;
   esac
 
-  echo "$icon  $level%"
+  echo "$icon $level%"
 }
 
 declare -ar elements=(
