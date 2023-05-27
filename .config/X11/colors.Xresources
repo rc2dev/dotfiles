@@ -14,49 +14,49 @@
 #define adwaita_sel1 #424242
 #define adwaita_sel2 #15539e
 
-/* Used by st, slock */
-*.color0:     theme_color0
-*.color1:     theme_color1
-*.color2:     theme_color2
-*.color3:     theme_color3
-*.color4:     theme_color4
-*.color5:     theme_color5
-*.color6:     theme_color6
-*.color7:     theme_color7
-*.color8:     theme_color8
-*.color9:     theme_color9
-*.color10:    theme_color10
-*.color11:    theme_color11
-*.color12:    theme_color12
-*.color13:    theme_color13
-*.color14:    theme_color14
-*.color15:    theme_color15
-*.background: theme_background
-*.foreground: theme_foreground
-*.cursorColor: theme_color12
+/* st, slock */
+*.color0:              theme_color0
+*.color1:              theme_color1
+*.color2:              theme_color2
+*.color3:              theme_color3
+*.color4:              theme_color4
+*.color5:              theme_color5
+*.color6:              theme_color6
+*.color7:              theme_color7
+*.color8:              theme_color8
+*.color9:              theme_color9
+*.color10:             theme_color10
+*.color11:             theme_color11
+*.color12:             theme_color12
+*.color13:             theme_color13
+*.color14:             theme_color14
+*.color15:             theme_color15
+*.background:          theme_background
+*.foreground:          theme_foreground
+*.cursorColor:         theme_color12
 
-/* dmenu and dwm */
-*.normbgcolor:          theme_background
-*.normfgcolor:          theme_color7  /* 7, 12 or fg */
-*.selbgcolor:           adwaita_sel1  /* 4 or 8 */
-*.selfgcolor:           theme_color15  /* 0 or 15 */
-dwm.normbordercolor:    theme_background
-dwm.selbordercolor:     adwaita_sel2  /* 4 or 8 */
-dwm.borderpx:           2
+/* dmenu, dwm */
+*.normbgcolor:         theme_background
+*.normfgcolor:         theme_color7  /* 7, 12 or fg */
+*.selbgcolor:          adwaita_sel1  /* 4 or 8 */
+*.selfgcolor:          theme_color15  /* 0 or 15 */
+dwm.normbordercolor:   theme_background
+dwm.selbordercolor:    adwaita_sel2  /* 4 or 8 */
+dwm.borderpx:          2
 
 /* dunst */
 /* Papirus-Dark goes better with dunst, as its background colors are dark. */
-Dunst.icon_theme:       Papirus-Dark, Adwaita, hicolor
-Dunst.transparency:     4
-Dunst.frame_width:      1
-Dunst.frame_color:      theme_color7
-Dunst.separator_color:  theme_color7
-Dunst.lowbg:            theme_background
-Dunst.lowfg:            theme_color15
-Dunst.normalbg:         theme_color8
-Dunst.normalfg:         theme_color15
-Dunst.criticalbg:       theme_color1
-Dunst.criticalfg:       theme_foreground
+Dunst.icon_theme:      Papirus-Dark, Adwaita, hicolor
+Dunst.transparency:    4
+Dunst.frame_width:     1
+Dunst.frame_color:     theme_color7
+Dunst.separator_color: theme_color7
+Dunst.lowbg:           theme_background
+Dunst.lowfg:           theme_color15
+Dunst.normalbg:        theme_color8
+Dunst.normalfg:        theme_color15
+Dunst.criticalbg:      theme_color1
+Dunst.criticalfg:      theme_foreground
 
 /* Other */
-St.alpha: 1
+St.alpha:              1
