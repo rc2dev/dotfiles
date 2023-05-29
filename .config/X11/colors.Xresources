@@ -57,6 +57,3 @@ Dunst.normalbg:        theme_color8
 Dunst.normalfg:        theme_color15
 Dunst.criticalbg:      theme_color1
 Dunst.criticalfg:      theme_foreground
-
-/* Other */
-St.alpha:              1
