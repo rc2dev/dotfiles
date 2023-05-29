@@ -34,10 +34,10 @@ alias less="less -R"
 
 # ls
 if command -v exa > /dev/null; then
-  alias ls="exa --color=auto -aF --group-directories-first"
+  alias ls="exa --color=auto -aaF --group-directories-first"
   alias ll="ls -lg --git"
 else
-  alias ls="ls --color=auto -AF --group-directories-first"
+  alias ls="ls --color=auto -aF --group-directories-first"
   alias ll="ls -lh"
 fi
 
