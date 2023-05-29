@@ -50,7 +50,6 @@ declare -r streams="\
   ArtSound FM 92.7,http://119.15.96.188/stream2.mp3
   Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
   CDNX 1 - Classic & New Indie Alt,http://svr1.msmn.co:8136
-  CDNX 2 - New & Upfront Indie Alt,http://msmn.co:8118
   France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
   France Musique La Jazz,http://direct.francemusique.fr/live/francemusiquelajazz-hifi.mp3
   Folk Radio UK,http://streaming.radionomy.com/FolkRadioUK
