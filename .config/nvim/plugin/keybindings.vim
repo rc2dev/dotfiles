@@ -33,6 +33,9 @@ nnoremap <Tab> za
 " Check if modifiable, as fugitive buffer uses <cr>
 nnoremap <expr> <cr> (&modifiable == 1) ? "@@" : "<cr>"
 
+" New buffer
+nnoremap <Leader>e :enew<CR>
+
 " Save or quit
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
