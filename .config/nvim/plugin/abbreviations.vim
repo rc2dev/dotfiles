@@ -10,6 +10,10 @@ iab rct Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 " Portuguese typing
 iab dps depois
 iab Dps Depois
+iab fzer fazer
+iab Fzer Fazer
+iab fzndo fazendo
+iab Fzndo Fazendo
 iab msm mesmo
 iab Msm Mesmo
 iab mt muito
@@ -19,6 +23,7 @@ iab Ngm Ninguém
 iab pq porque
 iab Pq Porque
 iab q que
+iab qdo quando
 iab qq qualquer
 iab tb também
 iab Tb Também
