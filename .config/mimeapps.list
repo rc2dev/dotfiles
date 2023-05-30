@@ -12,12 +12,11 @@ text/plain=nvim.desktop
 text/xml=libreoffice-calc.desktop
 x-scheme-handler/http=com.brave.Browser.desktop
 x-scheme-handler/https=com.brave.Browser.desktop
-x-scheme-handler/webcal=chromium-freeworld.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
 audio/mpeg=mpv.desktop;
-image/jpeg=qimgv.desktop;org.gnome.eog.desktop;
+image/jpeg=qimgv.desktop;
 image/png=qimgv.desktop;
 text/markdown=nvim.desktop;
 text/plain=nvim.desktop;
