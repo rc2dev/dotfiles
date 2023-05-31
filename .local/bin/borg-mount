@@ -29,7 +29,7 @@ fi
 readonly repo="$1"
 
 if [[ -z "${BORG_PASSPHRASE:-}" && -z "${BORG_PASSCOMMAND:-}" && -z "${BORG_PASSPHRASE_FD:-}" ]]; then
-	read -s -p "Enter passphrase: " BORG_PASSPHRASE
+	read -sr -p "Enter passphrase: " BORG_PASSPHRASE
 	printf "\n"
 	export BORG_PASSPHRASE
 fi
