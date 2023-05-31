@@ -21,3 +21,4 @@ image/png=qimgv.desktop;
 text/markdown=nvim.desktop;
 text/plain=nvim.desktop;
 video/webm=mpv.desktop;qimgv.desktop;
+text/calendar=mozilla-thunderbird.desktop;
