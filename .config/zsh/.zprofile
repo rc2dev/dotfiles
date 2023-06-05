@@ -64,6 +64,9 @@ export TEXMFHOME="$HOME/.local/share/texmf"
 export TEXMFVAR="$HOME/.cache/texlive/texmf-var"
 export TEXMFCONFIG="$HOME/.config/texlive/texmf-config"
 
+# w3m: Move from ~/
+export W3M_DIR="$XDG_STATE_HOME/w3m"
+
 # zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
 
