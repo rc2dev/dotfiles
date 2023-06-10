@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# dmenu script for running tmuxinator projects
+#
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+set -euo pipefail
+readonly dmenu="${DMENU:-dmenu}"
+readonly prompt="Projects"
+
+ls -1 ~/.config/tmuxinator | sed 's/.yml$//' |
+  $dmenu -p "$prompt" |
+  xargs -r -d'\n' -P 0 -n 1 $TERMINAL -e tmuxinator

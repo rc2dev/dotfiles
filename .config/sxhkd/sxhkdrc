@@ -42,6 +42,9 @@ super + shift + q
 super + r
   $TERMINAL -e ranger
 
+super + s
+  dmenu_tmuxinator
+
 super + {_, shift} + u
   { \
     dmenu_radio, \
