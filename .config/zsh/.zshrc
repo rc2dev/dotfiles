@@ -168,6 +168,9 @@ antidote load
 ### Completion (should be after loading plugins)
 ###########################################################
 
+# Add custom path for completions
+fpath=($HOME/.local/share/zsh/completions $fpath)
+
 autoload -Uz compinit
 compinit -d "${ZSH_CACHE_DIR}/zcompdump-$ZSH_VERSION"
 
