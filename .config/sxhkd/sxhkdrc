@@ -3,7 +3,7 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 super + a
-  xdg-open ~/Sync/pessoal/horários.pdf
+  xdg-open ~/Sync/pessoal/dia-a-dia.pdf
 
 super + b
   blueman-manager
