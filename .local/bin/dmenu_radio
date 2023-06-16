@@ -55,7 +55,6 @@ declare -r streams="\
   Folk Radio UK,http://streaming.radionomy.com/FolkRadioUK
   KMHD Portland FM 89.1 - Jazz,http://stream1.opb.org/kmhd.mp3
   NTS Live International,http://stream-relay-geo.ntslive.net/stream2
-  Radio Reload,http://onair15.xdevel.com:7012/1
   Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
   Radio Swiss Jazz,http://stream.srg-ssr.ch/m/rsj/aacp_96
   Radio X London,http://media-sov.musicradio.com:80/RadioXLondonMP3
