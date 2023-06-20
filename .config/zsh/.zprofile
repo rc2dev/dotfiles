@@ -42,11 +42,9 @@ export CM_IGNORE_WINDOW="KeePassXC"
 export CM_LAUNCHER="rofi"
 
 # fzf
-# Preview files with bat, directories with tree
 export FZF_DEFAULT_OPTS="
 	--layout=reverse
 	--multi
-	--preview '([[ -d {} ]] && tree -C {}) || ([[ -f {} ]] && bat --style=full --color=always --decorations=never {}) || echo {}'
 	--bind 'change:top'
 "
 
