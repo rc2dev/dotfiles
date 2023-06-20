@@ -12,7 +12,7 @@ configuration {
   // yoffset: 0;
   // xoffset: 0;
   // fixed-num-lines: true;
-     show-icons: true;
+  // show-icons: false;
   // terminal: "rofi-sensible-terminal";
   // ssh-client: "ssh";
   // ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
@@ -159,4 +159,4 @@ configuration {
   }
 }
 
-@theme "~/.local/share/rofi/themes/murz-rc2dev.razi"
+@theme "/usr/share/rofi/themes/DarkBlue.rasi"
