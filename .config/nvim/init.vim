@@ -29,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'wincent/loupe'
 Plug 'gioele/vim-autoswap'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Colorschemes
 Plug 'joshdick/onedark.vim'
