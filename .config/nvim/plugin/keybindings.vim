@@ -140,14 +140,18 @@ nnoremap <leader>bg <cmd>Telescope live_grep grep_open_files=true prompt_title=L
 nnoremap <leader>bb <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <leader>fn <cmd>TeNotes<CR>
-nnoremap <leader>fj :e $NOTES/notes/Journal/<C-r>=strftime('%Y-%m/%Y-%m-%d %a')<cr>.md<cr>
-nnoremap <leader>fJ :e $NOTES/notes/Journal/<C-r>=trim(system("date -d yesterday +'%Y-%m/%Y-%m-%d %a'"))<cr>.md<cr>
 nnoremap <leader>fc <cmd>TeCode<CR>
 nnoremap <leader>fy <cmd>TeDotfiles<CR>
 nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>
 nnoremap <leader>? <cmd>Telescope help_tags<CR>
 nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
 nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
+
+" Journal
+command! -nargs=0 Journal :execute ":edit $NOTES/notes/Journal/" . strftime('%Y-%m/%Y-%m-%d %a') . ".md"
+command! -nargs=0 JournalYesterday :execute ":edit $NOTES/notes/Journal/" . trim(system("date -d yesterday +'%Y-%m/%Y-%m-%d %a'")) . ".md"
+nnoremap <leader>fj :Journal<cr>
+nnoremap <leader>fJ :JournalYesterday<cr>
 
 " rnvimr
 nnoremap <leader>fr :RnvimrToggle<CR>
