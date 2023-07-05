@@ -76,7 +76,7 @@ declare -r menu="\
 chosen="$(sed -E 's/^\s+//;s/,.*$//;/^\s*$/d' <<< "$menu" | $dmenu -p "$dmenu_prompt" $dmenu_opts)"
 
 # Exit if nothing chosen.
-if [[ -z "$chosen" ]] || [[ "$chosen" =~ $section_prefix ]] || [[ "$chosen" =~ $section_separator ]]; then
+if [[ -z "$chosen" ]] || [[ "$chosen" =~ ^$section_prefix ]] || [[ "$chosen" =~ ^$section_separator$ ]]; then
   exit
 fi
 
