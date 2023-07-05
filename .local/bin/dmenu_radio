@@ -62,10 +62,6 @@ declare -r streams="\
   Chopin,https://www.youtube.com/watch?v=Jn09UdSb3aA
   Gregorian Chants, https://www.youtube.com/watch?v=rly1kJOaUxs
   Lofi,--no-resume-playback https://www.youtube.com/watch?v=jfKfPfyJRdk
-  $section_separator
-  $section_prefix WEB
-  WEB: Classical Radio,https://www.classicalradio.com/
-  WEB: Rainy Cafe,https://rainycafe.com/
 "
 
 if systemctl --user is-active --quiet "$unit_name"; then
@@ -107,12 +103,6 @@ fi
 # We should have a stream name now. Record it and get the url.
 printf "%s" "$chosen" > "$last_file"
 readonly url="$(printf "%s" "$streams" | grep -m 1 "$chosen" | cut -d, -f 2-)"
-
-# If chosen value is a website, just open browser with it.
-if [[ "$chosen" =~ ^WEB ]]; then
-  xdg-open "$url" & disown
-  exit
-fi
 
 # Notify and play.
 dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "Playing" "<i>$chosen</i>"
