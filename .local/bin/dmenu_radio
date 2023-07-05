@@ -49,19 +49,13 @@ declare -r streams="\
   France Musique La Jazz,http://direct.francemusique.fr/live/francemusiquelajazz-hifi.mp3
   Folk Radio UK,http://streaming.radionomy.com/FolkRadioUK
   KMHD Portland FM 89.1 - Jazz,http://stream1.opb.org/kmhd.mp3
-  NTS Live International,http://stream-relay-geo.ntslive.net/stream2
   Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
   Radio Swiss Jazz,http://stream.srg-ssr.ch/m/rsj/aacp_96
   Radio X London,http://media-sov.musicradio.com:80/RadioXLondonMP3
   San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
   $section_separator
   $section_prefix OTHER
-  ABC Lounge, https://listen.openstream.co/3139/audio
-  $section_separator
-  $section_prefix YOUTUBE
-  Chopin,https://www.youtube.com/watch?v=Jn09UdSb3aA
-  Gregorian Chants, https://www.youtube.com/watch?v=rly1kJOaUxs
-  Lofi,--no-resume-playback https://www.youtube.com/watch?v=jfKfPfyJRdk
+  Lofi (YouTube),https://www.youtube.com/watch?v=jfKfPfyJRdk
 "
 
 if systemctl --user is-active --quiet "$unit_name"; then
@@ -111,4 +105,4 @@ systemd-run \
   --collect \
   --unit "$unit_name" \
   --description "$chosen" \
-  mpv --no-video $url  # Don't double quote as url can include mpv options.
+  mpv --no-video --no-resume-playback $url  # Don't double quote as url can include mpv options.
