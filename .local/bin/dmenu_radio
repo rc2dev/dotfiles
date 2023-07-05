@@ -16,7 +16,7 @@ readonly notify_icon="radio"
 readonly unit_name="dmenu_radio_player"
 readonly last_file="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_radio_last"
 readonly section_prefix="➤"
-readonly section_separator="/////////////////////////////////////////"
+readonly section_separator="-"
 
 
 if [[ $dmenu =~ ^dmenu.* ]]; then
