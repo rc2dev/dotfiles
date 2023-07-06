@@ -55,6 +55,7 @@ check_config() {
 check_desktop() {
   if ! pidof xsettingsd > /dev/null; then
     log "This desktop is not supported."
+    exit 1
   fi
 }
 
