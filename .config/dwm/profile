@@ -5,26 +5,23 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 #
 
-# For Flatpak
-systemctl --user import-environment DISPLAY XAUTHORITY
-if command -v dbus-update-activation-environment >/dev/null 2>&1; then
-   dbus-update-activation-environment DISPLAY XAUTHORITY
-fi
-
 xrdb "$XRESOURCES"
 
 # Make Qt applications to be styled as Gtk
 # (needes QGnomePlatform, installed by default on Fedora)
 export QT_QPA_PLATFORMTHEME=gnome
 
+# Applications
 lxpolkit &  # Polkit agent, so GUI applications can request privileges
 xsettingsd &
 sxhkd &
 gen-dunst-theme &  # This already calls dunst
 nitrogen --restore &
-/usr/libexec/geoclue-2.0/demos/agent &  # Needed for redshift on Fedora WM
+# Needed for redshift on WM due to a bug
+# (<https://wiki.archlinux.org/title/Redshift#Automatic_location_based_on_GeoClue2>)
+/usr/libexec/geoclue-2.0/demos/agent &
 redshift-gtk &
-picom &
+picom --experimental-backends &  # --experimental-backends enables vsync on xrender
 clipmenud &
 playerctld daemon &
 nm-applet &

@@ -17,7 +17,6 @@ augroup rc2dev
 
   " Run these commands whenever these files are updated
   autocmd BufWritePost bato.yaml silent !killall bato && bato & disown
-  autocmd BufWritePost compton.conf silent !killall compton && compton --daemon
   autocmd BufWritePost dwmbar silent !dwmbar
   autocmd BufWritePost ~/.config/dunst/* silent !killall dunst && dunst & disown
   autocmd BufWritePost ~/.config/dunst/*,*Xresources silent !gen-dunst-theme

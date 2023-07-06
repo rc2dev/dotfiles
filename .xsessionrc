@@ -1,0 +1,6 @@
+# Needed for LightDM on Debian, as it doesn't source ~/.zprofile nor
+# ~/.profile.
+#
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+. $HOME/.zprofile

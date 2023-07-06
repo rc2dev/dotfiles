@@ -2,7 +2,7 @@
 
 configuration {
   // Default modes
-     modes: "drun";
+     modi: "drun";
   // combi-modes: "window,drun";
   // display-combi: "Application";
 
@@ -97,11 +97,9 @@ configuration {
   // kb-mode-complete: "Control+l";
   // kb-row-left: "Control+Page_Up";
   // kb-row-right: "Control+Page_Down";
-  // kb-row-up: "Up,Control+p";
-  // kb-row-down: "Down,Control+n";
-  // kb-row-tab: "";
-     kb-element-next: "Ctrl+j";
-     kb-element-prev: "Ctrl+k";
+     kb-row-up: "Up,Ctrl+k,Control+p";
+     kb-row-down: "Down,Ctrl+j,Control+n";
+     kb-row-tab: "";
      kb-page-prev: "Ctrl+u,Page_Up";
      kb-page-next: "Ctrl+d,Page_Down";
      kb-row-first: "Ctrl+t,Home,KP_Home";
