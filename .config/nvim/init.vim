@@ -6,8 +6,7 @@
 " This section needs to use single quotes.
 call plug#begin()
 
-Plug 'Glench/Vim-Jinja2-Syntax'  " Syntax highlight for njk files
-Plug 'airblade/vim-rooter'
+Plug 'ahmedkhalf/project.nvim'
 Plug 'ap/vim-css-color'
 Plug 'aperezdc/vim-template'
 Plug 'christoomey/vim-tmux-navigator'  " Needs plugin also on tmux.
@@ -15,6 +14,7 @@ Plug 'dense-analysis/ale'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'gioele/vim-autoswap'
+Plug 'Glench/Vim-Jinja2-Syntax'  " Syntax highlight for njk files
 Plug 'goolord/alpha-nvim'
 Plug 'junegunn/goyo.vim'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
@@ -38,4 +38,3 @@ Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
-

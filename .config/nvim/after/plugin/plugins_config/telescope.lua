@@ -36,6 +36,7 @@ require('telescope').setup{
 }
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('projects')
 
 function search_dotfiles()
   require('telescope.builtin').find_files {

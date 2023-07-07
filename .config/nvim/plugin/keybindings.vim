@@ -136,6 +136,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fF <cmd>Telescope find_files cwd=%:p:h prompt_title=Find\ Files\ in\ buffer\ directory<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fG <cmd>Telescope live_grep search_dirs=%:p:h prompt_title=Live\ Grep\ buffer\ directory<CR>
+nnoremap <leader>fp <cmd>Telescope projects<CR>
 nnoremap <leader>bg <cmd>Telescope live_grep grep_open_files=true prompt_title=Live\ Grep\ open\ buffers<CR>
 nnoremap <leader>bb <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
