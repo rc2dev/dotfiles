@@ -31,5 +31,8 @@ augroup rc2dev
 
   " Set specific spell check languages for some files
   autocmd BufRead,BufNewFile */Code/* setlocal spelllang=en_us
+
+  " alpha: Hide statusline
+  autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2
 augroup END
 
