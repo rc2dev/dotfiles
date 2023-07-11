@@ -13,6 +13,7 @@ text/xml=libreoffice-calc.desktop
 x-scheme-handler/http=com.brave.Browser.desktop
 x-scheme-handler/https=com.brave.Browser.desktop
 application/vnd.oasis.opendocument.text=libreoffice-writer.desktop
+application/pdf=org.gnome.Evince.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
