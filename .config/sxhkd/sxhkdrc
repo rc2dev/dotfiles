@@ -27,9 +27,6 @@ super + {_, shift, ctrl } + i
     context; dunstctl close \
   }
 
-super + n
-  $TERMINAL -e ranger $NOTES/notes
-
 super + o
   dmenu_document
 
