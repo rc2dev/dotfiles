@@ -21,7 +21,7 @@ main() {
 }
 
 usage() {
-  printf "Usage: %s<light|dark|toggle>\n" "$(basename "$0")"
+  printf "Usage: %s <light|dark|toggle>\n" "$(basename "$0")"
   exit 1
 }
 
