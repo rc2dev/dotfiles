@@ -12,7 +12,6 @@ main() {
 	declare -i step=0
 
 	update_dotfiles
-	update_git_repos
 	update_distro
 	update_flatpaks
 	update_pipx_packages
@@ -98,25 +97,6 @@ update_tmux_plugins() {
 
 	log_step "Atualizando plugins do tmux..."
 	~/.config/tmux/plugins/tpm/bin/update_plugins all
-}
-
-update_git_repos() {
-	log_step "Atualizando repos em ~/..."
-
-	# Don't output the glob if no directory found.
-	shopt -s nullglob
-
-	for i in \
-		$HOME/.local/opt/*/.git \
-		$HOME/.local/share/themes/*/.git \
-		$HOME/.local/share/icons/*/.git; do
-		# Don't update repo if it's a submodule
-		if [[ ! -d "$i" ]]; then
-			continue
-		fi
-
-		( echo $i; cd $i/..; git pull; )
-	done
 }
 
 update_zsh_plugins() {
