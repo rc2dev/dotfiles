@@ -49,11 +49,3 @@ dwm.borderpx:          2
 Dunst.icon_theme:      Papirus-Dark, Adwaita, hicolor
 Dunst.transparency:    4
 Dunst.frame_width:     1
-Dunst.frame_color:     theme_color7
-Dunst.separator_color: theme_color7
-Dunst.lowbg:           theme_background
-Dunst.lowfg:           theme_color15
-Dunst.normalbg:        theme_color8
-Dunst.normalfg:        theme_color15
-Dunst.criticalbg:      theme_color1
-Dunst.criticalfg:      theme_foreground
