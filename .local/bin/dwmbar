@@ -64,7 +64,7 @@ bar_battery() {
       fi
       ;;
     "Charging") icon="⚡" ;;
-    "Not charging") icon="🛑" ;;
+    "Not charging") icon="󰙦" ;;
     "Unknown") icon="" ;;
   esac
 
