@@ -14,6 +14,7 @@ x-scheme-handler/http=com.brave.Browser.desktop
 x-scheme-handler/https=com.brave.Browser.desktop
 application/vnd.oasis.opendocument.text=libreoffice-writer.desktop
 application/pdf=org.gnome.Evince.desktop
+x-scheme-handler/webcal=thunderbird.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
@@ -23,4 +24,4 @@ image/png=qimgv.desktop;
 text/markdown=nvim.desktop;
 text/plain=nvim.desktop;
 video/webm=mpv.desktop;qimgv.desktop;
-text/calendar=mozilla-thunderbird.desktop;
+text/calendar=thunderbird.desktop;
