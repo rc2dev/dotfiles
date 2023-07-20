@@ -5,7 +5,7 @@
 
 # User's private bin
 if [ -d "$HOME/.local/bin" ] ; then
-	PATH="$HOME/.local/bin:$PATH"
+  PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Auto logout on tty if inactive
@@ -13,7 +13,7 @@ if tty | grep -q tty; then TMOUT=120; fi
 
 # ssh-agent
 if [ -z "$SSH_AUTH_SOCK" ]; then
-	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
 # Paths
@@ -43,9 +43,9 @@ export CM_LAUNCHER="rofi"
 
 # fzf
 export FZF_DEFAULT_OPTS="
-	--layout=reverse
-	--multi
-	--bind 'change:top'
+  --layout=reverse
+  --multi
+  --bind 'change:top'
 "
 
 # man: Display the percentage into the document
