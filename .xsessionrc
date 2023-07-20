@@ -1,6 +1,9 @@
-# Needed for LightDM on Debian, as it doesn't source ~/.zprofile nor
-# ~/.profile.
-#
+# ~/.xsessionrc
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
+# LightDM on Debian doesn't source ~/.zprofile nor ~/.profile.
 . $HOME/.zprofile
+
+if [ "$XDG_SESSION_DESKTOP" = "dwm" ] && ! [ -t 0 ]; then
+  . "$HOME/.config/dwm/profile"
+fi

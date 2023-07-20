@@ -77,9 +77,3 @@ export ZSHZ_DATA="$HOME/.local/state/zsh/z"
 export ZSHZ_TILDE=1
 # For ranger plugin
 export ZSHZ_SRC="$HOME/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-agkozak-SLASH-zsh-z/zsh-z.plugin.zsh"
-
-# Workaround as some DM's don't source ~/.xprofile.
-# `-t 0` will test for interactivity, so this isn't sourced e.g. on tmux.
-if [ "$XDG_SESSION_DESKTOP" = "dwm" ] && ! [ -t 0 ]; then
-	. "$HOME/.config/dwm/profile"
-fi
