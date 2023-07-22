@@ -154,6 +154,11 @@ source "$ZDOTDIR/.antidote/antidote.zsh"
 # initialize plugins from .zsh_plugins.txt
 antidote load
 
+# apt's command-not-found
+if [[ -e "/etc/zsh_command_not_found" ]]; then
+  source "/etc/zsh_command_not_found"
+fi
+
 
 ############################################################
 ### Plugins configuration

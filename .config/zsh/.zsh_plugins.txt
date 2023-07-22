@@ -3,8 +3,7 @@
 # Plugin list for antidote.
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
+agkozak/zsh-z
 romkatv/powerlevel10k
 zsh-users/zsh-autosuggestions
-ohmyzsh/ohmyzsh path:plugins/command-not-found
-agkozak/zsh-z
 zsh-users/zsh-syntax-highlighting  # highlighting should be last
