@@ -72,9 +72,9 @@ take() {
 # Create a backup of a file
 bak() {
   if [[ "$(stat --format '%u' "$1")" == "$UID" ]]; then
-    cp "$1"{,.bak}
+    cp -r "$1"{,.bak}
   else
-    sudo cp "$1"{,.bak}
+    sudo cp -r "$1"{,.bak}
   fi
 }
 
