@@ -22,9 +22,9 @@ tnoremap <F12> <C-\><C-n>:call TermToggle(12)<CR>
 
 " Open terminal in new window
 " This is useful because it opens in the current directory.
-nnoremap <F24> :silent !sh -c "$TERMINAL & disown"<CR>
-inoremap <F24> <Esc>:silent !sh -c "$TERMINAL & disown"<CR>
-tnoremap <F24> <C-\><C-n>:silent !sh -c "$TERMINAL & disown"<CR>
+nnoremap <F24> :silent !$TERMINAL & disown<CR>
+inoremap <F24> <Esc>:silent !$TERMINAL & disown<CR>
+tnoremap <F24> <C-\><C-n>:silent !$TERMINAL & disown<CR>
 
 " For consistency with C and D
 noremap Y y$
