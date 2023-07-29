@@ -66,7 +66,7 @@ update_flatpaks() {
 
 	log_step "Atualizando flatpaks..."
 	# Allow script to continue if user rejects operation
-	sudo flatpak update || if (( $? == 1 )); then return 0; fi
+	flatpak update || if (( $? == 1 )); then return 0; fi
 }
 
 update_dotfiles() {
