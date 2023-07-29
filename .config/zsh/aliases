@@ -11,8 +11,8 @@ cd() { builtin cd "$@" && eval "ls"; }
 alias sudo="sudo "
 alias watch="watch "
 
-# Increase verbosity and prompt before overwriting (for rm, prompt
-# before removing directory or more than 3 files)
+# Increase verbosity and prompt before overwriting.
+# For rm, prompt before removing directory or more than 3 files.
 alias cp="cp -vi"
 alias mv="mv -vi"
 alias rm="rm -vI"
@@ -41,6 +41,11 @@ else
   alias ll="ls -lh"
 fi
 
+# Use bat if available
+if command -v batcat >/dev/null; then
+  alias cat="batcat"
+fi
+
 # Shell history
 # Show history timestamped
 alias history="history -i"
@@ -53,14 +58,6 @@ alias hy="
   xsel --clipboard
 "
 
-# Shell
-alias q="exit"
-
-# Edit
-alias e="$EDITOR"
-alias v="nvim"
-alias vim="nvim"
-
 # mkdir and cd to dir
 take() {
   if ! mkdir -pv "$@"; then
@@ -69,7 +66,7 @@ take() {
   fi && cd ${@:$#}
 }
 
-# Create a backup of a file
+# Create backup of file or directory
 bak() {
   if [[ "$(stat --format '%u' "$1")" == "$UID" ]]; then
     cp -r "$1"{,.bak}
@@ -80,16 +77,15 @@ bak() {
 
 # Easier commands
 alias cx="chmod +x"
+alias e="$EDITOR"
 alias ex="atool --extract --each --"
 alias fn="find . -iname"
-keys() {
-  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
-}
 alias mux="tmuxinator"
+alias q="exit"
 alias r="ranger"
-alias reb="systemctl reboot"
 alias s="ssh"
 alias se="sudo -e"
+alias vim="nvim"
 
 # Git
 alias g="git"
@@ -133,13 +129,6 @@ alias ysh="y show"
 alias yst="y status"
 alias yh="dotfiles cmd gh"
 alias ytig="dotfiles cmd tig"
-
-# Use bat if available
-if command -v bat >/dev/null; then
-  alias cat="bat"
-elif command -v batcat >/dev/null; then
-  alias cat="batcat"
-fi
 
 # systemctl, journalctl
 alias sc="sudo systemctl"
