@@ -6,7 +6,6 @@ configuration {
   // combi-modes: "window,drun";
   // display-combi: "Application";
 
-  // Overriden by theme
   // font: "Hack Nerd Font 12";
   // location: 0;
   // yoffset: 0;

@@ -11,13 +11,18 @@ readonly submodules_host="x220"
 main() {
 	declare -i step=0
 
-	update_dotfiles
+	# Packages
 	update_distro
 	update_flatpaks
 	update_pipx_packages
+
+	# Plugins
 	update_nvim_plugins
 	update_tmux_plugins
 	update_zsh_plugins
+
+	# Dotfiles
+	update_dotfiles
 	update_submodules
 
 	log "Concluído."
