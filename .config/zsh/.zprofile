@@ -16,6 +16,9 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
   export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
+# Used by mpv.conf
+export HOSTNAME="$(hostname)"
+
 # Paths
 export NOTES="$HOME/Documents/Notes"
 export XRESOURCES="$HOME/.config/X11/Xresources"
