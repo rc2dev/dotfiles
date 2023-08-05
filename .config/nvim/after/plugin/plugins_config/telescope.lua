@@ -48,5 +48,5 @@ end
 
 -- Create commands for DRY code
 vim.api.nvim_create_user_command('TeNotes', 'Telescope find_files cwd=$NOTES prompt_title=Notes hidden=true', {})
-vim.api.nvim_create_user_command('TeCode', 'Telescope find_files cwd=$HOME/Code prompt_title=Code hidden=true', {})
+vim.api.nvim_create_user_command('TeCode', 'Telescope find_files cwd=$HOME/dev prompt_title=Dev hidden=true', {})
 vim.api.nvim_create_user_command('TeDotfiles', search_dotfiles, {})
