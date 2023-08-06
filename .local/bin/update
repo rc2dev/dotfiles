@@ -108,7 +108,7 @@ update_zsh_plugins() {
 	has_command zsh || return 0
 
 	log_step "Atualizando plugins do zsh..."
-	zsh -ic "antidote update --bundles" || true
+	zsh "$ZDOTDIR/.antidote/antidote" update --bundles
 }
 
 update_pipx_packages() {
