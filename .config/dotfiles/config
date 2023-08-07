@@ -10,4 +10,4 @@
   install = ! ~/.config/dotfiles/install
 
 [filter "cleanXsettingsd"]
-  clean = "sed -E 's#^Net/ThemeName .*#Net/ThemeName \"\"#'"
+  clean = "sed -E 's#^Net/ThemeName .*#Net/ThemeName \"\"#;s#^Net/IconThemeName .*#Net/IconThemeName  \"\"#'"
