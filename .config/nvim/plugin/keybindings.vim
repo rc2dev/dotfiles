@@ -155,8 +155,8 @@ command! -nargs=0 JournalYesterday :execute ":edit $NOTES/notes/Journal/" . trim
 nnoremap <leader>fj :Journal<cr>
 nnoremap <leader>fJ :JournalYesterday<cr>
 
-" rnvimr
-nnoremap <leader>fr :RnvimrToggle<CR>
+" lf.vim
+nnoremap <leader>fr :Lf<CR>
 
 " nvimtree
 " Also close goyo if open.

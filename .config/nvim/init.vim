@@ -28,8 +28,6 @@ Plug 'goolord/alpha-nvim'
 
 Plug 'junegunn/goyo.vim'
 
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-
 Plug 'klen/nvim-config-local'
 
 Plug 'nvim-lualine/lualine.nvim'
@@ -45,6 +43,9 @@ Plug 'preservim/nerdcommenter'
 
 Plug 'preservim/vim-markdown'
 
+Plug 'ptzz/lf.vim'
+  Plug 'voldikss/vim-floaterm'  " Must come after.
+
 Plug 'ron89/thesaurus_query.vim'
 
 Plug 'tpope/vim-fugitive'
@@ -59,3 +60,4 @@ Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
+

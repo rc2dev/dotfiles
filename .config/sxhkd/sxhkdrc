@@ -37,7 +37,7 @@ super + shift + q
   xkill
 
 super + r
-  $TERMINAL -e ranger
+  $TERMINAL -e lf
 
 super + s
   dmenu_tmuxinator
