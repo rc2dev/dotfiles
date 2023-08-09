@@ -57,9 +57,6 @@ export MANPAGER="less -s -M +Gg"
 # npm: Move from ~/
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 
-# ranger: Make devicons use two spaces instead of one.
-export RANGER_DEVICONS_SEPARATOR="  "
-
 # texlive: Move from ~/
 export TEXMFHOME="$HOME/.local/share/texmf"
 export TEXMFVAR="$HOME/.cache/texlive/texmf-var"
@@ -78,5 +75,5 @@ export ZSHZ_CD="cd"
 # Move from ~/
 export ZSHZ_DATA="$HOME/.local/state/zsh/z"
 export ZSHZ_TILDE=1
-# For ranger plugin
+# For lf / ranger integration
 export ZSHZ_SRC="$HOME/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-agkozak-SLASH-zsh-z/zsh-z.plugin.zsh"
