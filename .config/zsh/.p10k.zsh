@@ -21,6 +21,11 @@
 # `p10k configure` and pick "Lean" style. This will give you slick minimalist prompt while taking
 # advantage of Powerlevel10k features that aren't present in Pure.
 
+# Add this and the lf segment to a prompt
+function prompt_lf() {
+    p10k segment -f 208 -i '📂' -t "$LF_LEVEL" -c "$LF_LEVEL"
+}
+
 # Temporarily change options.
 'builtin' 'local' '-a' 'p10k_config_opts'
 [[ ! -o 'aliases'         ]] || p10k_config_opts+=('aliases')
@@ -67,6 +72,7 @@
     # context                 # user@host
     # time                    # current time
     # =========================[ Line #2 ]=========================
+    lf
     newline                   # \n
   )
 
