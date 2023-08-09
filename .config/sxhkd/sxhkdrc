@@ -45,7 +45,7 @@ super + s
 super + {_, shift} + u
   { \
     dmenu_radio, \
-    $TERMINAL -n cmus -e cmus \
+    rhythmbox \
   }
 
 super + v
