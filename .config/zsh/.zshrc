@@ -13,6 +13,7 @@ ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 ZSH_STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
 mkdir -p "$ZSH_CACHE_DIR" "$ZSH_STATE_DIR"
 
+neofetch
 
 ############################################################
 ### Cursor: Change shape for different vi modes
