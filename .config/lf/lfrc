@@ -1,0 +1,140 @@
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+# Set internal field separator (IFS) to "\n" for shell commands.
+set ifs "\n"
+
+# Previewer.
+set previewer ~/.config/lf/previewer.sh
+# Needed for image preview with ueberzug.
+set cleaner ~/.config/lf/previewer_img/clear_img.sh
+# Make "i" use the previewer output.
+map i $~/.config/lf/previewer $f | less -R
+
+# Multiple appearance options.
+set icons
+set drawbox
+set number
+set relativenumber
+
+# Show file size and file count for directory.
+set info size
+set dircounts
+
+# Leave some space at the top and the bottom of the screen.
+set scrolloff 10
+
+# Automatic refresh.
+set period 1
+
+
+#########################
+# COMMANDS AND MAPPINGS #
+#########################
+
+map <enter> open
+
+# Copied from
+# <https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files>.
+cmd bulk-rename ${{
+    old="$(mktemp)"
+    new="$(mktemp)"
+    if [ -n "$fs" ]; then
+        fs="$(basename -a $fs)"
+    else
+        fs="$(ls)"
+    fi
+    printf '%s\n' "$fs" >"$old"
+    printf '%s\n' "$fs" >"$new"
+    $EDITOR "$new"
+    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+    paste "$old" "$new" | while IFS= read -r names; do
+        src="$(printf '%s' "$names" | cut -f1)"
+        dst="$(printf '%s' "$names" | cut -f2)"
+        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+            continue
+        fi
+        mv -- "$src" "$dst"
+    done
+    rm -- "$old" "$new"
+    lf -remote "send $id unselect"
+}}
+
+# Choose bulk or default rename commands automatically.
+cmd smart-rename &{{
+    set -- $fx
+    selected=$#
+    if [ $selected -gt 1 ]; then
+        lf -remote "send $id bulk-rename"
+    else
+        lf -remote "send $id rename"
+    fi
+}}
+map A smart-rename
+map <f-2> smart-rename
+map r #unmap
+
+# Send to trash or confirm delete, depending on availability.
+cmd trash &{{
+    if command -v gio >/dev/null; then
+        gio trash $fx &> /dev/null
+    else
+        lf -remote "send $id delete"
+    fi
+}}
+map <delete> trash
+
+# File opener actions.
+map L $mimeopen --ask $f
+
+# Define a custom 'open' command.
+# Uses an editor for text files and a file opener for the rest.
+cmd open &{{
+    case $(file --mime-type -Lb $f) in
+        text/*) lf -remote "send $id \$$EDITOR \$fx";;
+
+        # Useful to touch files and open with lf.vim.
+        inode/x-empty) lf -remote "send $id \$$EDITOR \$fx";;
+
+        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+# Move copy mapping so we can set more mappings starting with "y".
+map y
+map yy copy
+
+# Copy path to clipboard.
+cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
+cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+cmd yank-basename $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+map yd yank-dirname
+map yp yank-path
+map yb yank-basename
+
+# Edit and reload config.
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+map C edit-config
+
+# zsh-z integration.
+cmd z %{{
+    z_src="$ZSHZ_SRC"
+    result=$(zsh -c "source $z_src && zshz -e $@")
+    lf -remote "send $id cd \"$result\""
+}}
+map zz push :z<space>
+
+# Create touch command.
+cmd touch &{{
+    IFS=' '
+    touch "$*"
+    lf -remote "send $id select \"$*\""
+}}
+map i push :touch<space>
+
+# Create mkdir command.
+cmd mkdir %mkdir "$@"
+map I push :mkdir<space>
+
