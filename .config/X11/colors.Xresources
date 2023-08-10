@@ -10,7 +10,7 @@
  *
  */
 
-#include "colors/gruvbox-dark.Xresources"
+#include "colors/onedark.Xresources"
 #define adwaita_sel1 #424242
 #define adwaita_sel2 #15539e
 
