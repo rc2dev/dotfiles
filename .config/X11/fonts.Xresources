@@ -10,11 +10,11 @@
  *
  */
 
+/* dwm: Use patched font for icons on dwmbar. */
 dmenu.font: IBM Plex Sans:size=11
 Dunst.font: Blex Mono Nerd Font 11
-/* Use patched font for icons on dwmbar. */
-dwm.font: Blex Mono Nerd Font:size=9
-St.font: SauceCodePro Nerd Font:size=13
+dwm.font:   Blex Mono Nerd Font:size=9
+St.font:    Blex Mono Nerd Font:size=13
 
 /* Fix font rendering on Wine applications on standalone WMs. */
 Xft.autohint: 0
