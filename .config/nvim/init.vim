@@ -57,7 +57,6 @@ Plug 'wincent/loupe'
 " Colorschemes
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
-Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
