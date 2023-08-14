@@ -144,7 +144,7 @@ nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <leader>fn <cmd>TeNotes<CR>
 nnoremap <leader>fc <cmd>TeCode<CR>
 nnoremap <leader>fy <cmd>TeDotfiles<CR>
-nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>
+nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
 nnoremap <leader>? <cmd>Telescope help_tags<CR>
 nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
 nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
@@ -166,3 +166,6 @@ nnoremap <leader>fT :Goyo!<CR>:NvimTreeToggle<CR>
 " goyo.vim
 nnoremap <F11> :Goyo<CR>
 inoremap <F11> <C-o>:Goyo<CR>
+
+" vim-template
+nnoremap <leader>te :Template<CR>
