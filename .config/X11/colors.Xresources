@@ -49,3 +49,6 @@ dwm.borderpx:          2
 Dunst.icon_theme:      Papirus-Dark, Adwaita, hicolor
 Dunst.transparency:    4
 Dunst.frame_width:     1
+
+/* st */
+St.alpha:              0.95
