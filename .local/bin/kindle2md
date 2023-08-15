@@ -6,7 +6,7 @@
 # Instructions:
 # 1. Download this script.
 # 2. Be sure to have python installed.
-# 3. Install python dependencies: pip3 install --user beautifulsoup4
+# 3. Install required python modules: beautifulsoup4
 # 4. Run the script: python3 kindle2md YOUR_FILE.html
 #
 # Copyright (C) 2021-2022 Rafael Cavalcanti <https://rafaelc.org/dev>
