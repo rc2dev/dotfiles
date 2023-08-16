@@ -31,7 +31,15 @@ set period 1
 # COMMANDS AND MAPPINGS #
 #########################
 
+# Map ctrl+backspace
+cmap <backspace> cmd-delete-unix-word
+
+# Also use enter to open
 map <enter> open
+
+# Move shell mapping
+map w
+map S $$SHELL
 
 # Copied from
 # <https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files>.
@@ -116,7 +124,7 @@ cmd edit-config ${{
     $EDITOR ~/.config/lf/lfrc
     lf -remote "send $id source ~/.config/lf/lfrc"
 }}
-map C edit-config
+map E edit-config
 
 # zsh-z integration.
 cmd z %{{
