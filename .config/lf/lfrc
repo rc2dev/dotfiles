@@ -69,16 +69,21 @@ cmd bulk-rename ${{
 
 # Choose bulk or default rename commands automatically.
 cmd smart-rename &{{
+    cursor_cmd="$1"
     set -- $fx
     selected=$#
     if [ $selected -gt 1 ]; then
         lf -remote "send $id bulk-rename"
     else
-        lf -remote "send $id rename"
+        lf -remote "send $id :rename; $cursor_cmd"
     fi
 }}
-map A smart-rename
+
+# Maps for renaming.
 map <f-2> smart-rename
+map A smart-rename
+map C smart-rename "cmd-delete-home"
+map I smart-rename "cmd-home"
 map r #unmap
 
 # Send to trash or confirm delete, depending on availability.
@@ -140,9 +145,8 @@ cmd touch &{{
     touch "$*"
     lf -remote "send $id select \"$*\""
 }}
-map i push :touch<space>
+map a push :touch<space>
 
 # Create mkdir command.
 cmd mkdir %mkdir "$@"
-map I push :mkdir<space>
 
