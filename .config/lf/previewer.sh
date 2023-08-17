@@ -24,6 +24,10 @@ case "$MIME" in
     *application/x-compressed-tar*|*application/x-*-compressed-tar*)
         tar -tvf "$1"
         ;;
+    # libreoffice
+    *application/vnd.oasis.opendocument.*)
+        $PREVIEWER_IMG "$@"
+        ;;
     # .rar
     *application/vnd.rar*)
         unrar l "$1"

@@ -22,8 +22,8 @@ file="$1"
 shift
 
 if [ -n "$FIFO_UEBERZUG" ]; then
-  case "$(file -Lb --mime-type -- "$file")" in
-    image/*)
+  case "$(mimetype --all --brief "$file")" in
+    *image/*)
       orientation="$(identify -format '%[EXIF:Orientation]\n' -- "$file")"
       if [ -n "$orientation" ] && [ "$orientation" != 1 ]; then
         cache="$(hash "$file").jpg"
@@ -34,16 +34,26 @@ if [ -n "$FIFO_UEBERZUG" ]; then
         draw "$file" "$@"
       fi
       ;;
-    video/*)
+
+    *video/*)
       cache="$(hash "$file").jpg"
       cache "$cache" "$@"
       ffmpegthumbnailer -i "$file" -o "$cache" -s 0
       draw "$cache" "$@"
       ;;
-    application/pdf)
+
+    *application/pdf*)
       cache="$(hash "$file").jpg"
       cache "$cache" "$@"
       gs -o "$cache" -sDEVICE=pngalpha -dLastPage=1 "$file" > /dev/null
+      draw "$cache" "$@"
+      ;;
+
+    *application/vnd.oasis.opendocument.*)
+      cache="$(hash "$file").jpg"
+      cache "$cache" "$@"
+      libreoffice --convert-to png --outdir /tmp "$file" > /dev/null
+      mv "/tmp/$(basename "${file%.*}").png" "$cache"
       draw "$cache" "$@"
       ;;
   esac
