@@ -42,7 +42,6 @@ declare -r streams="\
   RNE Radio 5,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r5_madrid_main.m3u8
   $section_separator
   $section_prefix SELECTION
-  ArtSound FM 92.7,http://119.15.96.188/stream2.mp3
   Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
   France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
   France Musique La Jazz,http://direct.francemusique.fr/live/francemusiquelajazz-hifi.mp3
