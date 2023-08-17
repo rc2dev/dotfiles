@@ -23,7 +23,7 @@
 
 # Add this and the lf segment to a prompt
 function prompt_lf() {
-    p10k segment -f 208 -i '📂' -t "$LF_LEVEL" -c "$LF_LEVEL"
+    p10k segment -f 208 -i '📂' -t "[lf]" -c "$LF_LEVEL"
 }
 
 # Temporarily change options.
@@ -57,6 +57,7 @@ function prompt_lf() {
     context                   # user@host
     dir                       # current directory
     vcs                       # git status
+    lf
     # command_execution_time  # previous command duration
     # =========================[ Line #2 ]=========================
     newline                   # \n
@@ -72,7 +73,6 @@ function prompt_lf() {
     # context                 # user@host
     # time                    # current time
     # =========================[ Line #2 ]=========================
-    lf
     newline                   # \n
   )
 
