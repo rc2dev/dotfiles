@@ -8,7 +8,7 @@ draw() {
 }
 
 hash() {
-  printf '%s/.cache/lf/%s' "$HOME" \
+  printf '%s/.cache/lf/previews/%s' "$HOME" \
     "$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | awk '{print $1}')"
 }
 

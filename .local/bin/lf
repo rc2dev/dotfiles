@@ -19,8 +19,8 @@ if [ -n "$DISPLAY" ]; then
   exec 3>"$FIFO_UEBERZUG"
   trap cleanup EXIT
 
-  if ! [ -d "$HOME/.cache/lf" ]; then
-    mkdir -p "$HOME/.cache/lf"
+  if ! [ -d "$HOME/.cache/lf/previews" ]; then
+    mkdir -p "$HOME/.cache/lf/previews"
   fi
 
   $lf_cmd "$@" 3>&-
