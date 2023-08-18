@@ -150,3 +150,5 @@ map a push :touch<space>
 # Create mkdir command.
 cmd mkdir %mkdir "$@"
 
+# Run command on current file
+map @ push !<space>$fx<home>
