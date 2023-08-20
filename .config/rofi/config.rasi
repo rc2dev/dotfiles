@@ -2,7 +2,7 @@
 
 configuration {
   // Default modes
-     modi: "drun";
+  // modi: "drun";
   // combi-modes: "window,drun";
   // display-combi: "Application";
 
@@ -21,7 +21,7 @@ configuration {
      run-shell-command: "{terminal} -e bash -c '{cmd}; read'";
   // window-command: "wmctrl -i -R {window}";
   // window-match-fields: "all";
-     icon-theme: "Dracula";
+     icon-theme: "Papirus-Dark";
   // drun-match-fields: "name,generic,exec,categories,keywords";
   // drun-categories: ;
   // drun-show-actions: false;
@@ -146,10 +146,6 @@ configuration {
   me-select-entry: "MouseDPrimary";
   me-accept-entry: "MousePrimary";
   // me-accept-custom: "Control+MouseDPrimary";
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
   filebrowser {
       directories-first: true;
       sorting-method: "name";
