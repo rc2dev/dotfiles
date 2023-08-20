@@ -152,4 +152,4 @@ configuration {
   }
 }
 
-@theme "/usr/share/rofi/themes/android_notification.rasi"
+@theme "murz-rc2dev"
