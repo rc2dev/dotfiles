@@ -32,15 +32,16 @@ configuration {
 }
 
 window {
-  border-color: @fg-alt;
   border: 3px;
-  transparency: "real";
-  width: 700px;
+  border-color: @fg-alt;
+  border-radius: 8px;
 
+  transparency: "real";
+  background-color: @bg;
+  max-height: 80%;
+  width: 500px;
   location: center;
   anchor: center;
-  height: 80%;
-  background-color: @bg;
 
   /* To set aswsidebar:
    * - change anchor and location to center
@@ -53,15 +54,22 @@ mainbox {
 }
 
 inputbar {
-  children: [entry];
+  children: [prompt, entry];
+}
+
+prompt {
+  padding: 10px;
+  margin-right: 0px;
 }
 
 entry {
-  padding: 10px 20px;
+  padding: 10px 5px;
 }
 
 listview {
-  lines: 10;
+  lines: 14;
+  fixed-height: false;
+  dynamic: false;
   scrollbar: true;
 }
 
