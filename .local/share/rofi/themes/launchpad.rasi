@@ -1,13 +1,12 @@
-/*******************************************************************************
- * MACOS LAUNCHPAD LIKE THEME FOR ROFI 
- * User                 : LR-Tech               
- * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
- *******************************************************************************/
+/* Downloaded from
+ * <https://github.com/newmanls/rofi-themes-collection/blob/master/themes/launchpad.rasi>.
+ *
+ * Modified by Author: Rafael Cavalcanti <https://rafaelc.org/dev>. */
 
 * {
-    font: "Montserrat 9";
+    font: "IBM Plex Sans 10";
 
-    bg0:  #24242480;
+    bg0:  #242424f0;
     bg1:  #363636;
     bg2:  #f5f5f520;
     bg3:  #f5f5f540;
