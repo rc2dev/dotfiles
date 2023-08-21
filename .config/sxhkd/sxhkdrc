@@ -39,8 +39,11 @@ super + shift + q
 super + r
   $TERMINAL -e lf
 
-super + s
-  dmenu_tmuxinator
+super + {_, shift} + s
+  { \
+    rofi -show ssh, \
+    dmenu_tmuxinator \
+  }
 
 super + {_, shift} + u
   { \
