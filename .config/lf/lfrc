@@ -148,7 +148,11 @@ cmd touch &{{
 map a push :touch<space>
 
 # Create mkdir command.
-cmd mkdir %mkdir "$@"
+cmd mkdir &{{
+    IFS=' '
+    mkdir "$*"
+    lf -remote "send $id select \"$*\""
+}}
 
 # Run command on current file
 map @ push !<space>$fx<home>
