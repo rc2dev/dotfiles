@@ -27,7 +27,7 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = 280
 
     # The maximum height of a single notification, excluding the frame.
     height = 100
@@ -71,7 +71,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 4
+    transparency = 5
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -80,7 +80,7 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 12
+    padding = 10
 
     # Horizontal padding.
     horizontal_padding = 10
@@ -90,7 +90,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
     frame_color = "#aaaaaa"
