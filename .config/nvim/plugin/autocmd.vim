@@ -19,7 +19,6 @@ augroup rc2dev
   autocmd BufWritePost bato.yaml silent !killall bato && bato & disown
   autocmd BufWritePost dwmbar silent !dwmbar
   autocmd BufWritePost ~/.config/dunst/* silent !killall dunst && dunst & disown
-  autocmd BufWritePost ~/.config/dunst/*,*Xresources silent !gen-dunst-theme
   autocmd BufWritePost ~/.config/jumps.conf silent !gen-jumps
   autocmd BufWritePost ~/.config/nvim/init.vim source % | PlugClean! | PlugInstall
   autocmd BufWritePost sxhkdrc silent !killall -USR1 sxhkd

@@ -2,9 +2,10 @@
  * Fonts for Xresources.
  *
  * Other places to set:
- * - xsettingsd
+ * - dunst
  * - mpv
  * - rofi
+ * - xsettingsd
  *
  * Author: Rafael Cavalcanti <https://rafaelc.org/dev>
  *
@@ -12,7 +13,6 @@
 
 /* dwm: Use patched font for icons on dwmbar. */
 dmenu.font: IBM Plex Sans:size=11
-Dunst.font: Blex Mono Nerd Font 11
 dwm.font:   Blex Mono Nerd Font:size=9
 St.font:    Blex Mono Nerd Font:size=13
 

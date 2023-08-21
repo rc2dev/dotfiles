@@ -15,7 +15,6 @@ export QT_QPA_PLATFORMTHEME=gnome
 lxpolkit &  # Polkit agent, so GUI applications can request privileges
 xsettingsd &
 sxhkd &
-gen-dunst-theme &  # This already calls dunst
 nitrogen --restore &
 # Needed for redshift on WM due to a bug
 # (<https://wiki.archlinux.org/title/Redshift#Automatic_location_based_on_GeoClue2>)
