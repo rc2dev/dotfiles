@@ -66,10 +66,11 @@ super + {_, shift} + y
 super + Return
   $TERMINAL
 
-# -i is unneded with patched dmenu to case insensitve,
-# but necessary using rofi.
+# Arguments:
+# -i: unneded with patched dmenu to case insensitve, but necessary using rofi.
+# -theme-str: to larger width.
 ctrl + alt + v
-  clipmenu -i
+  clipmenu -i -theme-str "window \{ width: 900px; \}"
 
 ctrl + alt + m
   rofimoji
