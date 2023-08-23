@@ -57,11 +57,8 @@ super + v
 super + {_, shift} + w
   $BROWSER {_, --incognito}
 
-super + {_, shift} + y
-  mpv --shuffle { \
-    "https://www.youtube.com/playlist?list=WL", \
-    "https://www.youtube.com/playlist?list=PLG0ys6U09lfnoVWU2iV-6RW2l6IQBlPX8" \
-  }
+super + y
+  mpv --shuffle "https://www.youtube.com/playlist?list=WL"
 
 super + Return
   $TERMINAL
