@@ -8,11 +8,6 @@
 
 configuration {
   font: "IBM Plex Mono Medium 12";
-
-  timeout {
-    delay: 10;
-    action: "kb-cancel";
-  }
 }
 
 * {
