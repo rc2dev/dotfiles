@@ -9,7 +9,6 @@ set -euo pipefail
 
 readonly dmenu="${DMENU:-dmenu}"
 readonly dmenu_prompt="Radio"
-declare dmenu_opts=""
 readonly notify_id=103
 readonly notify_time=10000
 readonly notify_icon="radio"
@@ -19,7 +18,9 @@ readonly section_prefix="➤"
 
 
 if [[ $dmenu =~ ^dmenu.* ]]; then
-  dmenu_opts="-l 9"
+  launcher_opts=(-l 9)
+else
+  launcher_opts=()
 fi
 
 readonly streams="$(cat <<-END
@@ -71,7 +72,7 @@ readonly menu="$(cat <<-END
 END
 )"
 
-chosen="$(sed -E 's/^\s+//;s/,.*$//' <<< "$menu" | $dmenu -p "$dmenu_prompt" $dmenu_opts)"
+chosen="$(sed -E 's/^\s+//;s/,.*$//' <<< "$menu" | $dmenu -p "$dmenu_prompt" "${launcher_opts[@]}")"
 
 # Exit if nothing chosen.
 if [[ -z "$chosen" ]] || [[ "$chosen" =~ ^$section_prefix ]]; then
