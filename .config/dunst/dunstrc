@@ -26,7 +26,7 @@
 
     # dynamic width from 0 to 300
     # width = (0, 300)
-    # constant width of 300
+    # constant width
     width = 280
 
     # The maximum height of a single notification, excluding the frame.
@@ -121,7 +121,7 @@
 
     ### Text ###
 
-    font = Blex Mono Nerd Font 11
+    font = IBM Plex Sans 11
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
