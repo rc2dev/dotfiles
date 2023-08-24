@@ -11,3 +11,6 @@
 
 [filter "cleanXsettingsd"]
   clean = "sed -E 's#^Net/ThemeName .*#Net/ThemeName \"\"#;s#^Net/IconThemeName .*#Net/IconThemeName  \"\"#'"
+
+[filter "cleanFlameshot"]
+  clean = "sed -E '/^savePath=/d'"

@@ -1,1 +1,2 @@
 .config/xsettingsd/xsettingsd.conf filter=cleanXsettingsd
+.config/flameshot/flameshot.ini filter=cleanFlameshot
