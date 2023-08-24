@@ -36,6 +36,9 @@ case "$MIME" in
     *application/zip*)
         unzip -l "$1"
         ;;
+    *audio/*)
+        mediainfo "$1" | sed -E 's/\s+\:/:/' | column --separator=':' --table --keep-empty-lines | grep -v '^Complete name'
+        ;;
     # any plain text file that doesn't have a specific handler
     *text/plain*)
         # return false to always repaint, in case terminal size changes
