@@ -16,14 +16,14 @@ main() {
 	update_flatpaks
 	update_pipx_packages
 
+	# Dotfiles
+	update_dotfiles
+	update_submodules
+
 	# Plugins
 	update_nvim_plugins
 	update_tmux_plugins
 	update_zsh_plugins
-
-	# Dotfiles
-	update_dotfiles
-	update_submodules
 
 	log "Concluído."
 }
