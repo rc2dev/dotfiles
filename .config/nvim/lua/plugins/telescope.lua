@@ -17,21 +17,14 @@ return {
 
   config = function()
     local actions = require('telescope.actions')
-    local config = require('telescope.config')
-
-    -- Grep hidden files, except .git
-    local vimgrep_arguments = { unpack(config.values.vimgrep_arguments) }
-    table.insert(vimgrep_arguments, '--hidden')
-    table.insert(vimgrep_arguments, '--glob')
-    table.insert(vimgrep_arguments, '!.git/*')
 
     require('telescope').setup({
       defaults = {
+        file_ignore_patterns =  { '.git/' },
         layout_config = {
           prompt_position = 'top',
         },
         sorting_strategy = 'ascending',
-        vimgrep_arguments = vimgrep_arguments,
         mappings = {
           i = {
             ['<C-j>'] = actions.move_selection_next,
