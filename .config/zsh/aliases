@@ -35,7 +35,11 @@ alias less="less -R"
 # ls
 if command -v exa > /dev/null; then
   alias ls="exa --color=auto -aaF --group-directories-first"
-  alias ll="ls -lg --git"
+  if [[ -n $PREFIX ]]; then  # termux
+    alias ll="ls -l --git --icons --no-user"
+  else
+    alias ll="ls -l --git --icons --group"
+  fi
 else
   alias ls="ls --color=auto -aF --group-directories-first"
   alias ll="ls -lh"
