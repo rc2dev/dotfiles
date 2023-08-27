@@ -6,7 +6,7 @@
 # Licensed under GPLv3
 
 set -euo pipefail
-readonly submodules_host="x220"
+readonly dev_host="x220"
 
 main() {
 	declare -i step=0
@@ -83,8 +83,7 @@ update_dotfiles() {
 
 update_submodules() {
 	has_command dotfiles || return 0
-
-	[[ "$(hostname)" == "$submodules_host" ]] || return 0
+	[[ "$(hostname)" == "$dev_host" ]] || return 0
 
 	log_step "Atualizando submódulos dos dotfiles..."
 	dotfiles submodule update --remote
@@ -92,6 +91,7 @@ update_submodules() {
 
 update_nvim_plugins() {
 	has_command nvim || return 0
+	[[ "$(hostname)" == "$dev_host" ]] || return 0
 
 	log_step "Atualizando plugins do Neovim..."
 	nvim +"lua if vim.g.lazy_did_setup then require('lazy').update({wait=true}) end" +qa
