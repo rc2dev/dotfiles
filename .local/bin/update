@@ -94,7 +94,7 @@ update_nvim_plugins() {
 	has_command nvim || return 0
 
 	log_step "Atualizando plugins do Neovim..."
-	nvim +PlugClean! +PlugUpdate +qa!
+	nvim +"lua if vim.g.lazy_did_setup then require('lazy').update({wait=true}) end" +qa
 }
 
 update_tmux_plugins() {

@@ -1,10 +1,6 @@
 " Keybindings config
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-" Remap leader keys (Space must be in double quotes)
-let mapleader="\<Space>"
-let maplocalleader=","
-
 " Toggle paste. Still useful in tmux.
 set pastetoggle=<F2>
 

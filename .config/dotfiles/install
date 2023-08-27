@@ -48,11 +48,6 @@ git config core.worktree "$HOME"
 log "Setting path for repository config..."
 git config include.path ~/.config/dotfiles/config
 
-if command -v nvim >/dev/null; then
-  log "Installing neovim plugins..."
-  (unset GIT_DIR && unset GIT_WORK_TREE && nvim +PlugInstall +qa!)
-fi
-
 case $(hostname) in
   rd|x220)
     log "Enabling system user units for rd or x220..."

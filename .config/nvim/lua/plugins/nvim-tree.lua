@@ -1,14 +1,12 @@
 -- nvim-tree config
 -- Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')
 
   local function opts(desc)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
-
 
   -- Default mappings
   vim.keymap.set('n', '<C-]>', api.tree.change_root_to_node,          opts('CD'))
@@ -94,6 +92,16 @@ local function on_attach(bufnr)
   end, opts('Up and preview'))
 end
 
-require("nvim-tree").setup({
-  on_attach = on_attach,
-})
+return {
+  'nvim-tree/nvim-tree.lua',
+
+  dependencies = {
+    -- Optional dependency, for file icons
+    { 'nvim-tree/nvim-web-devicons' }
+  },
+
+  opts = {
+    on_attach = on_attach,
+  }
+}
+
