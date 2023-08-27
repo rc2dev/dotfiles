@@ -62,14 +62,6 @@ alias hy="
   xsel --clipboard
 "
 
-# mkdir and cd to dir
-take() {
-  if ! mkdir -pv "$@"; then
-    echo "Retrying with sudo..."
-    sudo mkdir -pv "$@"
-  fi && cd ${@:$#}
-}
-
 # Create backup of file or directory
 bak() {
   if [[ "$(stat --format '%u' "$1")" == "$UID" ]]; then
