@@ -16,6 +16,5 @@ let g:gruvbox_italic=1
 try
   colorscheme gruvbox
 catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme desert
 endtry
 set bg=dark
