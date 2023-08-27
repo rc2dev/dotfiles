@@ -52,6 +52,9 @@ export FZF_DEFAULT_OPTS="
   --bind 'change:top'
 "
 
+# go: Move from ~/
+export GOPATH="$XDG_DATA_HOME"/go
+
 # man: Display the percentage into the document
 export MANPAGER="less -s -M +Gg"
 
