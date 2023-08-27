@@ -103,7 +103,7 @@ map L $mimeopen --ask $f
 # Uses an editor for text files and a file opener for the rest.
 cmd open &{{
     case $(file --mime-type -Lb $f) in
-        text/plain) lf -remote "send $id \$$EDITOR \$fx";;
+        text/*) lf -remote "send $id \$$EDITOR \$fx";;
 
         # Useful to touch files and open with lf.vim.
         inode/x-empty) lf -remote "send $id \$$EDITOR \$fx";;
