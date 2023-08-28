@@ -116,6 +116,12 @@ tnoremap <C-\><C-\> <C-\><C-n>
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" lazy.nvim
+nnoremap <leader>l :Lazy<CR>
+
+" alpha.nvim
+nnoremap <leader>a :Alpha<CR>
+
 " vim-fugitive
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gm :GMove <C-R>=expand('%')<CR>
