@@ -4,7 +4,7 @@
 
 set -e
 
-lf_cmd="/usr/bin/lf"
+lf_cmd="${PREFIX%/usr}/usr/bin/lf"
 
 if [ -n "$DISPLAY" ]; then
   export FIFO_UEBERZUG="${TMPDIR:-/tmp}/lf-ueberzug-$$"
