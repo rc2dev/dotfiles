@@ -7,4 +7,9 @@ return {
   config = function()
     require 'darkman'.setup()
   end,
+
+  -- Only load in graphical environments.
+  cond = function()
+    return os.getenv("DISPLAY") ~= nil
+  end,
 }
