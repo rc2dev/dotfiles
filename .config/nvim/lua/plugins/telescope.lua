@@ -3,6 +3,7 @@
 
 return {
   'nvim-telescope/telescope.nvim',
+  cmd = {'Telescope', 'TeCode', 'TeNotes', 'TeDotfiles'},
   tag = '0.1.2',
   dependencies = {
     { 'nvim-lua/plenary.nvim' },

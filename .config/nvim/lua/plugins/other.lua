@@ -5,14 +5,26 @@ return {
 
   "aperezdc/vim-template",
 
-  -- Needs plugin also on tmux.
-  "christoomey/vim-tmux-navigator",
+  -- This also needs a plugin on tmux.
+  {
+    "christoomey/vim-tmux-navigator",
+    -- Only load if in TMUX.
+    cond = function()
+      return os.getenv("TMUX") ~= nil
+    end,
+  },
 
   "dense-analysis/ale",
 
-  "dhruvasagar/vim-table-mode",
+  {
+    "dhruvasagar/vim-table-mode",
+    ft = "markdown",
+  },
 
-  "ferrine/md-img-paste.vim",
+  {
+    "ferrine/md-img-paste.vim",
+    ft = "markdown",
+  },
 
   "gioele/vim-autoswap",
 

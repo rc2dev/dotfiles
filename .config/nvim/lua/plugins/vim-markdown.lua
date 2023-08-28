@@ -3,6 +3,8 @@
 
 return {
   "preservim/vim-markdown",
+  ft = "markdown",
+
   init = function ()
     vim.g.vim_markdown_toc_autofit = 1
     vim.g.vim_markdown_frontmatter = 1

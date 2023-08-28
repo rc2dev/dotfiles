@@ -3,6 +3,7 @@
 
 return {
   "junegunn/goyo.vim",
+  cmd = "Goyo",
 
   init = function ()
     -- Hide lualine

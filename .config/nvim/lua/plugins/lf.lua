@@ -4,6 +4,7 @@
 return {
   {
     "ptzz/lf.vim",
+    cmd = "Lf",
     init = function ()
       vim.g.lf_map_keys = 0  -- Don't map keys
       vim.g.lf_height = 0.9

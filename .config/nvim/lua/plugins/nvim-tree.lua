@@ -94,6 +94,7 @@ end
 
 return {
   'nvim-tree/nvim-tree.lua',
+  cmd = 'NvimTreeFindFile',
 
   dependencies = {
     -- Optional dependency, for file icons
