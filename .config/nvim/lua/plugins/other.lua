@@ -6,12 +6,9 @@ return {
   "aperezdc/vim-template",
 
   -- This also needs a plugin on tmux.
+  -- Load even outside tmux, as some keybindings call it.
   {
     "christoomey/vim-tmux-navigator",
-    -- Only load if in TMUX.
-    cond = function()
-      return os.getenv("TMUX") ~= nil
-    end,
   },
 
   "dense-analysis/ale",

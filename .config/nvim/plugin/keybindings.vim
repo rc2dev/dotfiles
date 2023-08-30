@@ -77,20 +77,20 @@ nnoremap [b :bprevious<CR>
 " Navigate splits and completion menus with C-jk
 " Most of this is probably redundant to vim-tmux-navigator, but works well
 " with or without the plugin.
-nnoremap <silent> <c-k> :wincmd k<cr>
-nnoremap <silent> <c-j> :wincmd j<cr>
-nnoremap <silent> <c-h> :wincmd h<cr>
-nnoremap <silent> <c-l> :wincmd l<cr>
-inoremap <silent> <expr> <c-k> pumvisible() ? "<c-p>" : "<Esc>:wincmd k<cr>"
-inoremap <silent> <expr> <c-j> pumvisible() ? "<c-n>" : "<Esc>:wincmd j<cr>"
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+inoremap <silent> <c-h> <Esc><c-h>
+inoremap <silent> <c-l> <Esc><c-l>
+inoremap <silent> <expr> <c-k> pumvisible() ? "<c-p>" : "<Esc><c-k>"
+inoremap <silent> <expr> <c-j> pumvisible() ? "<c-n>" : "<Esc><c-j>"
 cnoremap <expr> <C-j> pumvisible() ? "<C-n>" : "<C-j>"
 cnoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
-inoremap <silent> <c-h> <Esc>:wincmd h<cr>
-inoremap <silent> <c-l> <Esc>:wincmd l<cr>
-tnoremap <silent> <c-k> <c-w>k
-tnoremap <silent> <c-j> <c-w>j
-tnoremap <silent> <c-h> <c-w>h
-tnoremap <silent> <c-l> <c-w>l
+tnoremap <silent> <c-k> <c-\><c-n>TmuxNavigateUp<cr>
+tnoremap <silent> <c-j> <c-\><c-n>:TmuxNavigateDown<cr>
+tnoremap <silent> <c-h> <c-\><c-n>:TmuxNavigateLeft<cr>
+tnoremap <silent> <c-l> <c-\><c-n>:TmuxNavigateRight<cr>
 
 " Cycle completion with Tab
 inoremap <expr> <Tab> pumvisible() ? "<C-n>" : "<Tab>"
