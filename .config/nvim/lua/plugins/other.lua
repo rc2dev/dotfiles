@@ -34,8 +34,5 @@ return {
 
   "wincent/loupe",
 
-  -- Colorschemes
-  "joshdick/onedark.vim",
-  "morhetz/gruvbox",
 }
 
