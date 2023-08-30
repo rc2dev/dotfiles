@@ -17,4 +17,9 @@ try
   colorscheme gruvbox
 catch /^Vim\%((\a\+)\)\=:E185/
 endtry
-set bg=dark
+
+lua << EOF
+if type(vim.g.DarkmanSetup) == nil then
+  vim.opt.bg = dark
+end
+EOF
