@@ -78,7 +78,6 @@ alias ex="atool --extract --each --"
 alias fn="find . -iname"
 alias mux="tmuxinator"
 alias q="exit"
-alias s="ssh"
 alias se="sudo -e"
 alias vim="nvim"
 
