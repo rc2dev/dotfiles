@@ -4,8 +4,8 @@
  * Other places for theming:
  * - bat
  * - dunst
- * - light-dark.conf
  * - nvim
+ * - theme-mode
  * - xsettingsd.conf
  *
  * Author: Rafael Cavalcanti <https://rafaelc.org/dev>

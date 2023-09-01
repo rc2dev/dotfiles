@@ -17,19 +17,19 @@ fi
 
 case "$3" in
     daytime)
-       light-dark light
+       theme-mode light
        notify light
        ;;
     night)
-       light-dark dark
+       theme-mode dark
        notify dark
        ;;
     transition)
        if [[ "$(date +%H)" -lt 12 ]]; then
-         light-dark light
+         theme-mode light
          notify light
        else
-         light-dark dark
+         theme-mode dark
          notify dark
        fi
        ;;

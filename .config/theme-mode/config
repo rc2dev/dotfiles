@@ -1,6 +1,6 @@
 # vim: syntax=sh
 #
-# light-dark configuration file
+# theme-mode configuration file
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 theme_light="Adwaita"

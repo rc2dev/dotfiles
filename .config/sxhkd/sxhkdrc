@@ -15,7 +15,7 @@ super + e
   $TERMINAL -e nvim
 
 super + shift + d
-  light-dark toggle
+  theme-mode toggle
 
 super + f
   nemo
