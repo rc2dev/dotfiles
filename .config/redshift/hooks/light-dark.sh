@@ -7,6 +7,10 @@
 
 set -euo pipefail
 
+notify() {
+   notify-send --urgency=low --icon=redshift "Redshift" "Theme set to $1."
+}
+
 if [[ "$1" != "period-changed" ]]; then
    exit
 fi
@@ -14,15 +18,19 @@ fi
 case "$3" in
     daytime)
        light-dark light
+       notify light
        ;;
     night)
        light-dark dark
+       notify dark
        ;;
     transition)
        if [[ "$(date +%H)" -lt 12 ]]; then
          light-dark light
+         notify light
        else
          light-dark dark
+         notify dark
        fi
        ;;
 esac
