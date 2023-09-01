@@ -8,7 +8,7 @@
 set -euo pipefail
 
 notify() {
-   notify-send --urgency=low --icon=redshift "Redshift" "Theme set to $1."
+   notify-send --urgency=low --icon=gammastep "Gammastep" "Theme set to $1."
 }
 
 if [[ "$1" != "period-changed" ]]; then

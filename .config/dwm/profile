@@ -16,10 +16,10 @@ lxpolkit &  # Polkit agent, so GUI applications can request privileges
 xsettingsd &
 sxhkd &
 nitrogen --restore &
-# Needed for redshift on WM due to a bug
+# Needed for redshift/gammastep on WM due to a bug
 # (<https://wiki.archlinux.org/title/Redshift#Automatic_location_based_on_GeoClue2>)
 /usr/libexec/geoclue-2.0/demos/agent &
-redshift-gtk &
+gammastep-indicator &
 picom --experimental-backends &  # --experimental-backends enables vsync on xrender
 clipmenud &
 playerctld daemon &
