@@ -6,7 +6,6 @@
 # Licensed under GPLv3
 
 readonly config_path="$HOME/.config/theme-mode/config"
-readonly config_keys=("theme_light" "theme_dark")
 readonly xsettingsd_config="$HOME/.config/xsettingsd/xsettingsd.conf"
 
 main() {
@@ -30,26 +29,11 @@ log() {
 }
 
 get_config() {
-  [[ -e "$config_path" ]] || create_config
+  if [[ ! -e "$config_path" ]]; then
+    printf "Config not found at %s.\n" "$config_path"
+    exit 1
+  fi
   source "$config_path"
-  check_config
-}
-
-create_config() {
-  log "Creating config at %s. Edit it and run again.\n" "${config_path/$HOME/\~}"
-  for key in "${config_keys[@]}"; do
-    printf "%s=\n" "$key" >> "$config_path"
-  done
-  exit 1
-}
-
-check_config() {
-  for key in "${config_keys[@]}"; do
-    if [[ -z "${!key}" ]]; then
-      log "%s not found in config file." "$key"
-      exit 1
-    fi
-  done
 }
 
 check_desktop() {
