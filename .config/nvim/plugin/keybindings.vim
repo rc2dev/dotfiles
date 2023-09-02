@@ -117,6 +117,20 @@ nnoremap <Leader>o <C-w>o
 " nvim: Easier escape on terminal mode
 tnoremap <C-\><C-\> <C-\><C-n>
 
+" Journal
+function! Journal(date)
+  let l:dir_cmd="date -d " . a:date . " +'%Y-%m'"
+  let l:dir=expand("$NOTES/notes/Journal/" . trim(system(l:dir_cmd)))
+  call mkdir(l:dir, "p")
+
+  let l:file_cmd="date -d " . a:date . " +'%Y-%m-%d %a' "
+  let l:file=l:dir . "/" . trim(system(l:file_cmd)) . ".md"
+
+  execute "edit " . l:file
+endfunction
+nnoremap <leader>fj :call Journal("today")<cr>
+nnoremap <leader>fJ :call Journal("yesterday")<cr>
+
 
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,12 +169,6 @@ nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
 nnoremap <leader>? <cmd>Telescope help_tags<CR>
 nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
 nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
-
-" Journal
-command! -nargs=0 Journal :execute ":edit $NOTES/notes/Journal/" . strftime('%Y-%m/%Y-%m-%d %a') . ".md"
-command! -nargs=0 JournalYesterday :execute ":edit $NOTES/notes/Journal/" . trim(system("date -d yesterday +'%Y-%m/%Y-%m-%d %a'")) . ".md"
-nnoremap <leader>fj :Journal<cr>
-nnoremap <leader>fJ :JournalYesterday<cr>
 
 " lf.vim
 nnoremap <leader>fr :Lf<CR>
