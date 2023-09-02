@@ -21,7 +21,7 @@ augroup rc2dev
   autocmd BufWritePost ~/.config/dunst/* silent !killall dunst && dunst & disown
   autocmd BufWritePost ~/.config/jumps.conf silent !gen-jumps
   autocmd BufWritePost sxhkdrc silent !killall -USR1 sxhkd
-  autocmd BufWritePost *Xresources silent !xrdb $XRESOURCES
+  autocmd BufWritePost *Xresources silent !xrdb $XRESOURCES && killall -USR1 st
   autocmd BufWritePost xsettingsd.conf silent !killall -HUP xsettingsd
 
   " Set executable bit to scripts with shebang

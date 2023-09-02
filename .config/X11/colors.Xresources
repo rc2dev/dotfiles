@@ -47,4 +47,4 @@ dwm.selbordercolor:    adwaita_sel2  /* 4 or 8 */
 dwm.borderpx:          2
 
 /* st */
-St.alpha:              0.95
+st.alpha:              0.95
