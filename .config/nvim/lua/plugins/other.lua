@@ -31,6 +31,5 @@ return {
   "tpope/vim-sleuth",
 
   "wincent/loupe",
-
 }
 
