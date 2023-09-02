@@ -61,6 +61,11 @@ inoremap <C-Down>  <ESC>:echoe "Use j"<CR>
 " Delete current file
 nnoremap <Leader><Del> :call DeleteFile()<CR>
 function! DeleteFile()
+  if expand("%") == ""
+    echo "File is not saved."
+    return
+  endif
+
   if confirm("Delete file?", "&Yes\n&No", 2) != 1
     return
   endif
