@@ -1,8 +1,6 @@
 -- Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 return {
-  "ap/vim-css-color",
-
   "aperezdc/vim-template",
 
   -- This also needs a plugin on tmux.
