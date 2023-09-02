@@ -44,35 +44,21 @@ nnoremap <Leader>q :q<CR>
 nnoremap <expr> q (&modifiable == 1) ? "q" : ":q<CR>"
 
 " Try to prevent using the arrow keys for movement.
-nnoremap <Left>  :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up>    :echoe "Use k"<CR>
-nnoremap <Down>  :echoe "Use j"<CR>
+nnoremap <Left>    :echoe "Use h"<CR>
+nnoremap <Right>   :echoe "Use l"<CR>
+nnoremap <Up>      :echoe "Use k"<CR>
+nnoremap <Down>    :echoe "Use j"<CR>
 " ...and in insert mode
-inoremap <Left>  <ESC>:echoe "Use h"<CR>
-inoremap <Right> <ESC>:echoe "Use l"<CR>
-inoremap <Up>    <ESC>:echoe "Use k"<CR>
-inoremap <Down>  <ESC>:echoe "Use j"<CR>
+inoremap <Left>    <ESC>:echoe "Use h"<CR>
+inoremap <Right>   <ESC>:echoe "Use l"<CR>
+inoremap <Up>      <ESC>:echoe "Use k"<CR>
+inoremap <Down>    <ESC>:echoe "Use j"<CR>
 inoremap <C-Left>  <ESC>:echoe "Use b"<CR>
 inoremap <C-Right> <ESC>:echoe "Use w"<CR>
 inoremap <C-Up>    <ESC>:echoe "Use k"<CR>
 inoremap <C-Down>  <ESC>:echoe "Use j"<CR>
 
-" Delete current file
-nnoremap <Leader><Del> :call DeleteFile()<CR>
-function! DeleteFile()
-  if expand("%") == ""
-    echo "File is not saved."
-    return
-  endif
-
-  if confirm("Delete file?", "&Yes\n&No", 2) != 1
-    return
-  endif
-
-  call delete(expand('%'))
-  bdelete!
-endfunction
+nnoremap <Leader><Del> :call DelCurrentFile()<CR>
 
 " Buffer navigation
 nnoremap <Leader><Leader> <C-^>
@@ -117,17 +103,10 @@ nnoremap <Leader>o <C-w>o
 " nvim: Easier escape on terminal mode
 tnoremap <C-\><C-\> <C-\><C-n>
 
+" Colorscheme
+nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
+
 " Journal
-function! Journal(date)
-  let l:dir_cmd="date -d " . a:date . " +'%Y-%m'"
-  let l:dir=expand("$NOTES/notes/Journal/" . trim(system(l:dir_cmd)))
-  call mkdir(l:dir, "p")
-
-  let l:file_cmd="date -d " . a:date . " +'%Y-%m-%d %a' "
-  let l:file=l:dir . "/" . trim(system(l:file_cmd)) . ".md"
-
-  execute "edit " . l:file
-endfunction
 nnoremap <leader>fj :call Journal("today")<cr>
 nnoremap <leader>fJ :call Journal("yesterday")<cr>
 
@@ -153,7 +132,7 @@ nnoremap <Leader>ya :Dotfiles add %<CR>
 let g:NERDCreateDefaultMappings = 0
 map <leader>/ <plug>NERDCommenterToggle
 
-" Find files using Telescope
+" Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fF <cmd>Telescope find_files cwd=%:p:h prompt_title=Find\ Files\ in\ buffer\ directory<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
@@ -168,7 +147,6 @@ nnoremap <leader>fy <cmd>TeDotfiles<CR>
 nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
 nnoremap <leader>? <cmd>Telescope help_tags<CR>
 nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
-nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
 
 " lf.vim
 nnoremap <leader>fr :Lf<CR>
