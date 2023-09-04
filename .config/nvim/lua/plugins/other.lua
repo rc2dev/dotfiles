@@ -1,8 +1,6 @@
 -- Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 return {
-  "aperezdc/vim-template",
-
   "dense-analysis/ale",
 
   {
@@ -19,8 +17,6 @@ return {
 
   -- Syntax highlighting for njk files
   "Glench/Vim-Jinja2-Syntax",
-
-  "preservim/nerdcommenter",
 
   "tpope/vim-sleuth",
 

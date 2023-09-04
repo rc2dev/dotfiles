@@ -1,4 +1,4 @@
-" Settings
+" Options
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 " Misc options

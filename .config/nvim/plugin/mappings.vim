@@ -1,4 +1,4 @@
-" Keybindings config
+" Mappings
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 " Toggle paste. Still useful in tmux.
@@ -128,8 +128,6 @@ nnoremap <Leader>ys :Dotfiles<CR>
 nnoremap <Leader>ya :Dotfiles add %<CR>
 
 " NERDCommenter
-" Disable default mappings and add mine
-let g:NERDCreateDefaultMappings = 0
 map <leader>/ <plug>NERDCommenterToggle
 
 " Telescope

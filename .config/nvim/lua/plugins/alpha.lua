@@ -3,6 +3,7 @@
 
 return  {
   "goolord/alpha-nvim",
+
   config = function()
     --require("alpha").setup(require("alpha.themes.startify").config)
     local alpha = require("alpha")
@@ -23,6 +24,13 @@ return  {
     startify.section.mru.val = { { type = "padding", val = 0 } }
 
     alpha.setup(startify.config)
-  end
+  end,
+
+  init = function ()
+    -- Hide statusline
+    vim.cmd [[
+      autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2
+    ]]
+  end,
 }
 
