@@ -3,12 +3,6 @@
 return {
   "aperezdc/vim-template",
 
-  -- This also needs a plugin on tmux.
-  -- Load even outside tmux, as some keybindings call it.
-  {
-    "christoomey/vim-tmux-navigator",
-  },
-
   "dense-analysis/ale",
 
   {
