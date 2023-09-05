@@ -81,3 +81,11 @@ export ZSHZ_DATA="$HOME/.local/state/zsh/z"
 export ZSHZ_TILDE=1
 # For lf / ranger integration
 export ZSHZ_SRC="$HOME/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-agkozak-SLASH-zsh-z/zsh-z.plugin.zsh"
+
+
+# Autostart X11 on tty1
+#######################################################
+
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx &> /dev/null
+fi

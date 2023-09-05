@@ -5,6 +5,7 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 #
 
+# Placed at custom path.
 xrdb "$XRESOURCES"
 
 # Make Qt applications to be styled as Gtk
