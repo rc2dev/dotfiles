@@ -1,10 +1,73 @@
 /*
  * Xresources
- *
  * Author: Rafael Cavalcanti <https://rafaelc.org/dev>
  *
  */
 
-#include "colors.Xresources"
-#include "fonts.Xresources"
-#include "layout.Xresources"
+
+/*******************/
+/*****  FONTS  *****/
+/*******************/
+
+/* Other places to set fonts:
+ * dunst, mpv, rofi, xsettingsd. */
+
+dmenu.font: IBM Plex Sans:size=11
+dwm.font:   Blex Mono Nerd Font:size=9
+st.font:    Blex Mono Nerd Font:size=13
+
+
+/********************/
+/*****  LAYOUT  *****/
+/********************/
+
+dwm.topbar:     0
+dwm.mfact:      0.5
+dwm.enablegaps: 0
+dwm.smartgaps:  0
+dmenu.topbar:   1
+
+
+/********************/
+/*****  COLORS  *****/
+/********************/
+
+/* Other places for theming:
+/* bat, dunst, nvim, theme-mode, xsettingsd. */
+
+#include "themes/onedark.Xresources"
+#define adwaita_sel1 #424242
+#define adwaita_sel2 #15539e
+
+/* st, slock */
+*.color0:              theme_color0
+*.color1:              theme_color1
+*.color2:              theme_color2
+*.color3:              theme_color3
+*.color4:              theme_color4
+*.color5:              theme_color5
+*.color6:              theme_color6
+*.color7:              theme_color7
+*.color8:              theme_color8
+*.color9:              theme_color9
+*.color10:             theme_color10
+*.color11:             theme_color11
+*.color12:             theme_color12
+*.color13:             theme_color13
+*.color14:             theme_color14
+*.color15:             theme_color15
+*.background:          theme_background
+*.foreground:          theme_foreground
+*.cursorColor:         theme_color12
+
+/* dmenu, dwm */
+*.normbgcolor:         theme_background
+*.normfgcolor:         theme_color7  /* 7, 12 or fg */
+*.selbgcolor:          adwaita_sel1  /* 4 or 8 */
+*.selfgcolor:          theme_color15  /* 0 or 15 */
+dwm.normbordercolor:   theme_background
+dwm.selbordercolor:    adwaita_sel2  /* 4 or 8 */
+dwm.borderpx:          2
+
+/* st */
+st.alpha:              0.95
