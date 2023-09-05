@@ -53,7 +53,7 @@ export FZF_DEFAULT_OPTS="
 "
 
 # go: Move from ~/
-export GOPATH="$XDG_DATA_HOME"/go
+export GOPATH="$HOME/.local/share/go"
 
 # man: Display the percentage into the document
 export MANPAGER="less -s -M +Gg"

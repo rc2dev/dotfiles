@@ -1,6 +1,6 @@
 # vim:ft=sh
 #
-# Startup commands for dwm
+# Startup commands for dwm.
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 #
@@ -8,8 +8,7 @@
 # Placed at custom path.
 xrdb "$XRESOURCES"
 
-# Make Qt applications to be styled as Gtk
-# (needes QGnomePlatform, installed by default on Fedora)
+# Make Qt applications to be styled as Gtk (needs QGnomePlatform).
 export QT_QPA_PLATFORMTHEME=gnome
 
 # Applications
