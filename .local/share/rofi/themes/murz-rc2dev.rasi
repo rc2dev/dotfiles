@@ -27,21 +27,26 @@ configuration {
 }
 
 window {
-  border: 3px;
-  border-color: @fg-alt;
-  border-radius: 8px;
+  //border: 3px;
+  //border-color: @fg-alt;
+  //border-radius: 8px;
 
   transparency: "real";
   background-color: @bg;
-  max-height: 80%;
+  height: 100%;
   width: 500px;
-  location: center;
-  anchor: center;
+  location: west;
+  anchor: west;
 
-  /* To set aswsidebar:
-   * - change anchor and location to center
-   * - height to 100%
-   * - remove border */
+  /* To set as sidebar:
+   * - anchor and location: west
+   * - height: 100%
+   * - comment borders */
+
+  /* To set as center:
+   * - anchor and location: center
+   * - max-height: 80%
+   * - uncomment borders */
 }
 
 mainbox {
