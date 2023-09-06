@@ -18,7 +18,7 @@ bar_player() {
     Playing) local -r icon=;;
     Paused) local -r icon=;;
   esac
-  local -r title="$(playerctl metadata --format "{{ trunc(title, 20) }}")"
+  local -r title="$(playerctl metadata --format "[{{ playerName }}] {{ trunc(title, 20) }}")"
 
   echo "${icon} ${title}"
 }
