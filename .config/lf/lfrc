@@ -41,6 +41,9 @@ map <enter> open
 map w
 map S $$SHELL
 
+# Map for setting wallpaper
+map w &set-wallpaper $f
+
 # Copied from
 # <https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files>.
 cmd bulk-rename ${{

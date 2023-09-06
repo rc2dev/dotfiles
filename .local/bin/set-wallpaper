@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#
+# Copyright (C) 2023 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+set -euo pipefail
+
+readonly script_name="$(basename "$0")"
+readonly wallpaper_store="$HOME/.cache/wallpaper"
+
+case $# in
+  0)
+    if [[ ! -e "$wallpaper_store" ]]; then
+      echo "No wallpaper defined."
+      exit
+    fi
+
+    xwallpaper --zoom "$(<"$wallpaper_store")"
+    ;;
+
+  1)
+    wallpaper="$(realpath "$1")"
+    xwallpaper --zoom "$wallpaper"
+    echo "$wallpaper" > "$wallpaper_store"
+    ;;
+
+  *)
+    echo "Usage:"
+    echo "$script_name: Set current wallpaper."
+    echo "$script_name <file>: Set file as wallpaper."
+esac
+
