@@ -4,6 +4,7 @@
 # Licensed under GPLv3
 
 readonly script_name="$(basename "$0")"
+readonly pid_file="/var/run/user/$UID/$script_name.pid"
 readonly sep=" ｜ "
 readonly interval="5s"
 
@@ -81,22 +82,21 @@ update() {
   xsetroot -name "$output"
 }
 
+ensure_one_instance() {
+  if [[ -f "$pid_file" ]]; then
+    kill "$(cat "$pid_file")" 2> /dev/null || true
+  fi
+
+  echo $$ > "$pid_file"
+}
+
 main() {
-  case $1 in
-    --once)
-      update
-      ;;
-    --loop)
-      while true; do
-        update
-        sleep "$interval"
-      done
-      ;;
-    *)
-      echo "Usage: $script_name <cmd>"
-      echo "cmd: --once, --loop"
-      exit 1
-  esac
+  ensure_one_instance
+
+  while true; do
+    update
+    sleep "$interval"
+  done
 }
 
 main "$@"
