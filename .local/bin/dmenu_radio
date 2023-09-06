@@ -23,7 +23,7 @@ else
   launcher_opts=()
 fi
 
-readonly streams="$(cat <<-END
+readonly streams="$(sed -E 's/^\s+//' <<-END
   $section_prefix 🇪🇸 MUSIC
   Cadena 100,https://cadena100-cope.flumotion.com/chunks.m3u8
   Cadena Dial,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENADIAL.mp3
@@ -64,7 +64,7 @@ else
   state=
 fi
 
-readonly menu="$(cat <<-END
+readonly menu="$(sed -E 's/^\s+//' <<-END
   🎲 Random
   $state
 
@@ -72,7 +72,7 @@ readonly menu="$(cat <<-END
 END
 )"
 
-chosen="$(sed -E 's/^\s+//;s/,.*$//' <<< "$menu" | $dmenu -p "$dmenu_prompt" "${launcher_opts[@]}")"
+chosen="$(sed -E 's/,.*$//' <<< "$menu" | $dmenu -p "$dmenu_prompt" "${launcher_opts[@]}")"
 
 # Exit if nothing chosen.
 if [[ -z "$chosen" ]] || [[ "$chosen" =~ ^$section_prefix ]]; then
@@ -89,7 +89,7 @@ fi
 if [[ "$chosen" =~ Play\ last ]]; then
   chosen="$(cat "$last_file")"
 elif [[ "$chosen" =~ Random ]]; then
-  readonly names_only="$(sed -E 's/^\s+//;s/,.*$//;/^\s*\W/d' <<< "$streams")"
+  readonly names_only="$(sed -E 's/,.*$//;/^\s*\W/d;/^\s*$/d' <<< "$streams")"
   chosen="$(shuf -n 1 <<< "$names_only")"
 fi
 
