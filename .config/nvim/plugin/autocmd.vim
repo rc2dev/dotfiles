@@ -8,7 +8,7 @@ augroup rc2dev
   autocmd VimResized * execute "normal! \<C-w>="
 
   " Run these commands whenever these files are updated
-  autocmd BufWritePost dwmbar silent !dwmbar
+  autocmd BufWritePost dwmbar silent !dwmbar --once
   autocmd BufWritePost ~/.config/dunst/* silent !killall dunst && dunst & disown
   autocmd BufWritePost ~/.config/jumps.conf silent !gen-jumps
   autocmd BufWritePost sxhkdrc silent !killall -USR1 sxhkd

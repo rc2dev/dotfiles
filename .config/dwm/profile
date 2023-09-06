@@ -26,16 +26,11 @@ playerctld daemon &
 nm-applet &
 blueman-applet &
 keepassxc &
+dwmbar --loop &
 
 # Auto-lock screen
 # Trigger slock on inactivity, suspension, hibernation, etc.
 xss-lock slock &
 # Trigger slock after 5 min of inactivity
 { xset s on; xset s 300; } &
-
-# Statusbar loop
-while true; do
-  dwmbar
-  sleep 10s
-done &
 
