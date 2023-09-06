@@ -5,7 +5,7 @@
 
 readonly script_name="$(basename "$0")"
 readonly sep=" ｜ "
-readonly interval="10s"
+readonly interval="5s"
 
 bar_player() {
   local -r status="$(playerctl status 2>/dev/null)"
