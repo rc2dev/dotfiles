@@ -21,11 +21,12 @@ st.font:    Blex Mono Nerd Font:size=13
 /*****  LAYOUT  *****/
 /********************/
 
-dwm.topbar:     1
-dwm.mfact:      0.5
-dwm.enablegaps: 0
-dwm.smartgaps:  0
-dmenu.topbar:   1
+dwm.topbar:      1
+dwm.mfact:       0.5
+dwm.enablegaps:  0
+dwm.smartgaps:   0
+dwm.showsystray: 0
+dmenu.topbar:    1
 
 
 /********************/
