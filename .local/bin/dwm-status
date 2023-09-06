@@ -31,7 +31,8 @@ bar_mem() {
 }
 
 bar_temp() {
-  echo " $(sensors | awk '/^Package/ {print substr($4, 2)}')"
+  local -r raw="/sys/class/thermal/thermal_zone0/temp"
+  echo " $(cut -c1-2 < "$raw")°C"
 }
 
 bar_battery() {
