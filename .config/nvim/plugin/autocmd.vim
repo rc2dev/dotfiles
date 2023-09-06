@@ -9,7 +9,7 @@ augroup rc2dev
 
   " Run these commands whenever these files are updated
   autocmd BufWritePost dwm-status silent !dwm-status & disown
-  autocmd BufWritePost ~/.config/dunst/* silent !killall dunst && dunst & disown
+  autocmd BufWritePost ~/.config/dunst/* silent !killall dunst
   autocmd BufWritePost ~/.config/jumps.conf silent !gen-jumps
   autocmd BufWritePost sxhkdrc silent !killall -USR1 sxhkd
   autocmd BufWritePost *Xresources silent !xrdb $XRESOURCES && killall -USR1 st
