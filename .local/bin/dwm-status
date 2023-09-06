@@ -7,19 +7,6 @@ readonly script_name="$(basename "$0")"
 readonly sep=" ｜ "
 readonly interval="10s"
 
-truncate() {
-  local -r max_len=23
-  local -r str="$*"
-
-  if [[ ${#str} -gt $max_len ]]; then
-    local trunc="${str::(( max_len - 3 ))}"
-    trunc="$(sed -e 's/[[:space:]]*$//' <<< "$trunc")" # Trim trailing space
-    echo "$trunc…"
-  else
-    echo "$str"
-  fi
-}
-
 bar_player() {
   local -r status="$(playerctl status 2>/dev/null)"
 
@@ -30,13 +17,13 @@ bar_player() {
     Playing) local -r icon=;;
     Paused) local -r icon=;;
   esac
-  local -r title="$(truncate "$(playerctl metadata --format "{{ title }}")")"
+  local -r title="$(playerctl metadata --format "{{ trunc(title, 20) }}")"
 
   echo "${icon} ${title}"
 }
 
 bar_time() {
-  echo "$(date +"%a %d %R")"
+  date +"%a %d %R"
 }
 
 bar_mem() {
