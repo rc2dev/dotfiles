@@ -26,7 +26,7 @@ playerctld daemon &
 nm-applet &
 blueman-applet &
 keepassxc &
-dwmbar --loop &
+dwm-status --loop &
 
 # Auto-lock screen
 # Trigger slock on inactivity, suspension, hibernation, etc.
