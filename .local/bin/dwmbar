@@ -71,21 +71,24 @@ bar_battery() {
   echo "$icon $level%"
 }
 
-declare -ar elements=(
-  "$(bar_player)"
-  "$(bar_battery)"
-  "$(bar_temp)"
-  "$(bar_time)"
-)
+update() {
+  declare -ar elements=(
+    "$(bar_player)"
+    "$(bar_battery)"
+    "$(bar_temp)"
+    "$(bar_time)"
+  )
 
-# Generate output string
-output="$(printf "\t%s" "${elements[@]}")"
-# Remove separator from beginning and duplicated
-output="$(sed -E 's/^\t*//; s/\t+/\t/g' <<< ${output})"
-# Place chosen separator
-output="$(sed "s/\t/$sep/g" <<< ${output})"
-# Add space to the end
-output="$output "
+  # Generate output string
+  output="$(printf "\t%s" "${elements[@]}")"
+  # Remove separator from beginning and duplicated
+  output="$(sed -E 's/^\t*//; s/\t+/\t/g' <<< ${output})"
+  # Place chosen separator
+  output="$(sed "s/\t/$sep/g" <<< ${output})"
+  # Add space to the end
+  output="$output "
 
-xsetroot -name "$output"
+  xsetroot -name "$output"
+}
 
+update
