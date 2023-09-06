@@ -16,6 +16,6 @@ augroup rc2dev
   autocmd BufWritePost xsettingsd.conf silent !killall -HUP xsettingsd
 
   " Set specific spell check languages for some files
-  autocmd BufRead,BufNewFile */dev/* setlocal spelllang=en_us
+  autocmd BufRead,BufNewFile */dev/default/* setlocal spelllang=en_us
 augroup END
 
