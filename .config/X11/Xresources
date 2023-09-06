@@ -13,7 +13,7 @@
  * dunst, mpv, rofi, xsettingsd. */
 
 dmenu.font: IBM Plex Sans:size=11
-dwm.font:   Blex Mono Nerd Font:size=9
+dwm.font:   Iosevka Nerd Font:size=10
 st.font:    Blex Mono Nerd Font:size=13
 
 
@@ -21,7 +21,7 @@ st.font:    Blex Mono Nerd Font:size=13
 /*****  LAYOUT  *****/
 /********************/
 
-dwm.topbar:     0
+dwm.topbar:     1
 dwm.mfact:      0.5
 dwm.enablegaps: 0
 dwm.smartgaps:  0
