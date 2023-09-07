@@ -16,10 +16,14 @@ configuration {
      kb-page-next: "Ctrl+d,Page_Down";
      kb-remove-to-sol: "";
 
-     kb-row-first: "Ctrl+t,Home,KP_Home";
-     kb-row-last: "Ctrl+b,End,KP_End";
+     kb-row-first: "Ctrl+t";
+     kb-row-last: "Ctrl+b";
      kb-move-char-back: "Left";
      kb-remove-char-forward: "Delete";
+
+     kb-move-front: "Home,KP_Home,Control+a";
+
+     kb-move-end: "End,KP_End,Control+e";
 
 
      //    MOUSE SHORTCUTS   //
