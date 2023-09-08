@@ -1,8 +1,8 @@
 set aaa_mode=all
-set altformat_current= %F 
-set altformat_playlist= %f%= %d 
+set altformat_current= %F
+set altformat_playlist= %f%= %d
 set altformat_title=%f
-set altformat_trackwin= %f%= %d 
+set altformat_trackwin= %f%= %d %X
 set auto_expand_albums_follow=true
 set auto_expand_albums_search=true
 set auto_expand_albums_selcur=true
@@ -60,14 +60,14 @@ set dsp.jack.resampling_quality=2
 set dsp.jack.server_name=
 set follow=true
 set format_clipped_text=…
-set format_current= %a - %l -%3n. %t%= %y 
+set format_current= %a - %l -%3n. %t%= %y
 set format_playlist= %-21%a %3n. %t%= %y %d %{?X!=0?%3X ?    }
 set format_playlist_va= %-21%A %3n. %t (%a)%= %y %d %{?X!=0?%3X ?    }
-set format_statusline= %{status} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }}- %{total} %{?bpm>0?at %{bpm} BPM }%{?volume>=0?vol: %{?lvolume!=rvolume?%{lvolume},%{rvolume} ?%{volume} }}%{?stream?buf: %{buffer} }%{?show_current_bitrate & bitrate>=0? %{bitrate} kbps }%=%{?repeat_current?repeat current?%{?play_library?%{playlist_mode} from %{?play_sorted?sorted }library?playlist}} | %1{continue}%1{follow}%1{repeat}%1{shuffle} 
+set format_statusline= %{status} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }}- %{total} %{?bpm>0?at %{bpm} BPM }%{?volume>=0?vol: %{?lvolume!=rvolume?%{lvolume},%{rvolume} ?%{volume} }}%{?stream?buf: %{buffer} }%{?show_current_bitrate & bitrate>=0? %{bitrate} kbps }%=%{?repeat_current?repeat current?%{?play_library?%{playlist_mode} from %{?play_sorted?sorted }library?playlist}} | %1{continue}%1{follow}%1{repeat}%1{shuffle}
 set format_title=%a - %l - %t (%y)
-set format_trackwin=%3n. %t%= %y %d 
-set format_trackwin_album= %l %= %{albumduration} 
-set format_trackwin_va=%3n. %t (%a)%= %y %d 
+set format_trackwin=%3n. %t%= %y %d
+set format_trackwin_album= %l %= %{albumduration}
+set format_trackwin_va=%3n. %t (%a)%= %y %d
 set format_treewin=  %l
 set format_treewin_artist=%a
 set icecast_default_charset=ISO-8859-1
@@ -128,7 +128,7 @@ bind browser backspace browser-up
 bind browser i toggle show_hidden
 bind browser space win-activate
 bind browser u win-update
-bind common ! push shell 
+bind common ! push shell
 bind common + vol +10%
 bind common , player-prev
 bind common - vol -10%
@@ -147,10 +147,10 @@ bind common ? search-b-start
 bind common C toggle continue
 bind common D win-remove
 bind common E win-add-Q
-bind common F push filter 
+bind common F push filter
 bind common G win-bottom
 bind common I echo {}
-bind common L push live-filter 
+bind common L push live-filter
 bind common M toggle play_library
 bind common N search-prev
 bind common P win-mv-before
@@ -201,10 +201,7 @@ bind common t toggle show_remaining_time
 bind common tab win-next
 bind common u update-cache
 bind common up win-up
-bind common v player-stop
-bind common x player-next
 bind common y win-add-p
-bind common z player-prev
 bind common { vol -1% -0
 bind common } vol -0 -1%
 fset 90s=date>=1990&date<2000
