@@ -16,7 +16,7 @@ else
   launcher_opts=()
 fi
 
-fd \
+fdfind \
   --follow \
   --exclude "backups" --exclude "Cursos/" --exclude "Notes/" \
   . ~/Documents ~/Downloads "$NOTES"/resources ~/Sync ~/Videos |
