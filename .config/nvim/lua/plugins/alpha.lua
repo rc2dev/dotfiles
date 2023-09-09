@@ -20,9 +20,6 @@ return  {
       startify.button( "n", "  Quick Note" , ":e $NOTES/notes/Quick Note.md<CR>"),
     }
 
-    -- disable MRU
-    startify.section.mru.val = { { type = "padding", val = 0 } }
-
     alpha.setup(startify.config)
   end,
 
