@@ -12,7 +12,6 @@
 /* Other places to set fonts:
  * dunst, mpv, rofi, xsettingsd. */
 
-dmenu.font: IBM Plex Sans:size=11
 dwm.font:   Iosevka Nerd Font:size=10
 st.font:    Blex Mono Nerd Font:size=13
 
@@ -26,7 +25,6 @@ dwm.mfact:       0.5
 dwm.enablegaps:  0
 dwm.smartgaps:   0
 dwm.showsystray: 0
-dmenu.topbar:    1
 
 
 /********************/
