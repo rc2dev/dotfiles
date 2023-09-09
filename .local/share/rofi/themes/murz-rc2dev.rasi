@@ -7,7 +7,7 @@
  */
 
 configuration {
-  font: "IBM Plex Mono Medium 12";
+  font: "Noto Mono 12";
 }
 
 * {
@@ -34,7 +34,7 @@ window {
   transparency: "real";
   background-color: @bg;
   height: 100%;
-  width: 500px;
+  width: 400px;
   location: west;
   anchor: west;
 
