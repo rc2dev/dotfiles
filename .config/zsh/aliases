@@ -58,7 +58,7 @@ alias history="history -i"
 alias hy="
   fc -ln 0 |
   awk '!a[\$0]++' |
-  fzf --tac --no-preview --height 90% |
+  fzf --header 'Copy history' --no-preview --height 70% |
   xsel --clipboard
 "
 
