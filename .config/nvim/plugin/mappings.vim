@@ -2,7 +2,8 @@
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 " Toggle paste. Still useful in tmux.
-set pastetoggle=<F2>
+nnoremap <F2> :set paste!<CR>
+inoremap <F2> <C-o>:set paste!<CR>
 
 " Insert current date
 inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
