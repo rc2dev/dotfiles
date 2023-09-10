@@ -159,3 +159,17 @@ cmd mkdir &{{
 
 # Run command on current file
 map @ push !<space>$fx<home>
+
+cmd fzf_jump ${{
+    res="$(fdfind . | fzf --header='Jump to...')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
+    fi
+}}
+map f :fzf_jump
