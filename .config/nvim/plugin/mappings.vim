@@ -32,6 +32,9 @@ nmap Q <nop>
 " Toggle folding with <Tab>
 nnoremap <Tab> za
 
+" Clear search highlight
+nnoremap <leader>nh :nohlsearch<CR>
+
 " Repeat last macro with return
 " Check if modifiable, as fugitive buffer uses <cr>
 nnoremap <expr> <cr> (&modifiable == 1) ? "@@" : "<cr>"

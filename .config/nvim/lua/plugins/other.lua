@@ -19,7 +19,5 @@ return {
   "Glench/Vim-Jinja2-Syntax",
 
   "tpope/vim-sleuth",
-
-  "wincent/loupe",
 }
 
