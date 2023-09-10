@@ -167,14 +167,12 @@ bind common ^R toggle repeat_current
 bind common ^U win-half-page-up
 bind common ^Y win-scroll-up
 bind common a win-add-l
-bind common b player-next
-bind common c player-pause
 bind common delete run gio trash {}
 bind common down win-down
 bind common e win-add-q
 bind common end win-bottom
 bind common enter win-activate
-bind common f toggle follow
+bind common f push factivate
 bind common g win-top
 bind common h seek -5
 bind common home win-top
@@ -201,12 +199,14 @@ bind common t toggle show_remaining_time
 bind common tab win-next
 bind common u update-cache
 bind common up win-up
+bind common w toggle follow
 bind common y win-add-p
 bind common { vol -1% -0
 bind common } vol -0 -1%
 fset 90s=date>=1990&date<2000
 fset classical=genre="Classical"
 fset missing-tag=!stream&(artist=""|album=""|title=""|tracknumber=-1|date=-1)
+fset most-heard=play_count>=2
 fset mp3=filename="*.mp3"
 fset ogg=filename="*.ogg"
 fset ogg-or-mp3=ogg|mp3
