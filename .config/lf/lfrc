@@ -70,17 +70,8 @@ map tl cd ~/.local/share/Trash/files
 
 
 #########################
-# COMMANDS AND MAPPINGS #
+#       RENAMING        #
 #########################
-
-# Map ctrl+backspace
-cmap <backspace> cmd-delete-unix-word
-
-# Also use enter to open
-map <enter> open
-
-# Map for setting wallpaper
-map W &set-wallpaper $f
 
 # Copied from
 # <https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files>.
@@ -127,6 +118,24 @@ map C smart-rename "cmd-delete-home"
 map I smart-rename "cmd-home"
 map r #unmap
 
+
+#########################
+# COMMANDS AND MAPPINGS #
+#########################
+
+# Map ctrl+backspace.
+cmap <backspace> cmd-delete-unix-word
+
+# Edit and reload config.
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+map E edit-config
+
+# Also use enter to open.
+map <enter> open
+
 # File opener actions.
 map L $mimeopen --ask $f
 
@@ -155,12 +164,26 @@ map yd yank-dirname
 map yp yank-path
 map yb yank-basename
 
-# Edit and reload config.
-cmd edit-config ${{
-    $EDITOR ~/.config/lf/lfrc
-    lf -remote "send $id source ~/.config/lf/lfrc"
+# Run command on current file
+map @ push !<space>$fx<home>
+
+# Map for setting wallpaper.
+map W &set-wallpaper $f
+
+# Find file or dir with fzf.
+cmd fzf_jump ${{
+    res="$(fdfind . | fzf --header='Jump to...')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
+    fi
 }}
-map E edit-config
+map f :fzf_jump
 
 # zsh-z integration.
 cmd z %{{
@@ -184,20 +207,3 @@ cmd mkdir &{{
     mkdir "$*"
     lf -remote "send $id select \"$*\""
 }}
-
-# Run command on current file
-map @ push !<space>$fx<home>
-
-cmd fzf_jump ${{
-    res="$(fdfind . | fzf --header='Jump to...')"
-    if [ -n "$res" ]; then
-        if [ -d "$res" ]; then
-            cmd="cd"
-        else
-            cmd="select"
-        fi
-        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
-        lf -remote "send $id $cmd \"$res\""
-    fi
-}}
-map f :fzf_jump
