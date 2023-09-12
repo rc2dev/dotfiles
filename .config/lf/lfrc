@@ -26,6 +26,9 @@ set scrolloff 10
 # Automatic refresh.
 set period 1
 
+# Enable mouse.
+set mouse
+
 
 #########################
 # COMMANDS AND MAPPINGS #
