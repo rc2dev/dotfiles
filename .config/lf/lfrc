@@ -40,12 +40,8 @@ cmap <backspace> cmd-delete-unix-word
 # Also use enter to open
 map <enter> open
 
-# Move shell mapping
-map w
-map S $$SHELL
-
 # Map for setting wallpaper
-map w &set-wallpaper $f
+map W &set-wallpaper $f
 
 # Copied from
 # <https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files>.
