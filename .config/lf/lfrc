@@ -3,6 +3,9 @@
 # Set internal field separator (IFS) to "\n" for shell commands.
 set ifs "\n"
 
+# Run commands on bash.
+set shell bash
+
 # Previewer.
 set previewer ~/.config/lf/previewer.sh
 # Needed for image preview with ueberzug.
@@ -28,6 +31,42 @@ set period 1
 
 # Enable mouse.
 set mouse
+
+
+#########################
+#         TRASH         #
+#########################
+
+# Move bind so t is available.
+map t
+map tt tag-toggle
+
+# Send to trash or confirm delete, depending on availability.
+cmd trash &{{
+    if command -v gio >/dev/null; then
+        gio trash $fx &> /dev/null
+    else
+        lf -remote "send $id delete"
+    fi
+}}
+map <delete> trash
+
+cmd trash-restore %{{
+  set -f
+  trash_path="/home/rafael/.local/share/Trash/files/"
+
+  if [[ $fx != $trash_path* ]]; then
+      echo "Not in trash."
+  else
+      ft=$(basename -a $fx|sed -e 's/^/trash:\/\/\//')
+      gio trash --restore $ft
+      echo "Restored $(basename -a $fx)"
+  fi
+}}
+map tr trash-restore
+
+map te %gio trash --empty && echo "Trash emptied."
+map tl cd ~/.local/share/Trash/files
 
 
 #########################
@@ -87,16 +126,6 @@ map A smart-rename
 map C smart-rename "cmd-delete-home"
 map I smart-rename "cmd-home"
 map r #unmap
-
-# Send to trash or confirm delete, depending on availability.
-cmd trash &{{
-    if command -v gio >/dev/null; then
-        gio trash $fx &> /dev/null
-    else
-        lf -remote "send $id delete"
-    fi
-}}
-map <delete> trash
 
 # File opener actions.
 map L $mimeopen --ask $f
