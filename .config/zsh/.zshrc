@@ -13,7 +13,11 @@ ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 ZSH_STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
 mkdir -p "$ZSH_CACHE_DIR" "$ZSH_STATE_DIR"
 
-neofetch
+# Only run on ssh connections
+if [[ -n "$SSH_TTY" ]]; then
+  neofetch
+fi
+
 
 ############################################################
 ### Cursor: Change shape for different vi modes
