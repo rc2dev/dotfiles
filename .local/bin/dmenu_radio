@@ -44,11 +44,9 @@ readonly streams="$(sed -E 's/^\s+//' <<-END
   $section_prefix SELECTION
   Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
   France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
-  France Musique La Jazz,http://direct.francemusique.fr/live/francemusiquelajazz-hifi.mp3
   Folk Radio UK,http://streaming.radionomy.com/FolkRadioUK
   Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
   Radio Swiss Jazz,http://stream.srg-ssr.ch/m/rsj/aacp_96
-  Radio X London,http://media-sov.musicradio.com:80/RadioXLondonMP3
   San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
 
   $section_prefix OTHER
