@@ -159,10 +159,10 @@ map yy copy
 # Copy path to clipboard.
 cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
 cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
-cmd yank-basename $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+cmd yank-name $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
 map yd yank-dirname
 map yp yank-path
-map yb yank-basename
+map yn yank-name
 
 # Run command on current file
 map @ push !<space>$fx<home>
