@@ -65,7 +65,9 @@ cmd trash-restore %{{
 }}
 map tr trash-restore
 
-map te %gio trash --empty && echo "Trash emptied."
+# Force reload, or trash directory counting is not updated.
+map te %gio trash --empty && echo "Trash emptied." && lf -remote "send $id reload"
+
 map tl cd ~/.local/share/Trash/files
 
 
