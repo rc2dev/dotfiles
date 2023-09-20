@@ -100,6 +100,11 @@ update_nvim_plugins() {
 update_tmux_plugins() {
 	has_command tmux || return 0
 
+	# Return if no plugin is installed, to avoid error message
+	if [[ $(find ~/.config/tmux/plugins -maxdepth 1 -type d | wc -l) -le 1 ]]; then
+		return 0
+	fi
+
 	log_step "Atualizando plugins do tmux..."
 	~/.config/tmux/plugins/tpm/bin/update_plugins all
 }
