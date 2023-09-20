@@ -60,11 +60,9 @@ alias hy="
 
 # Create backup of file or directory
 bak() {
-  if [[ "$(stat --format '%u' "$1")" == "$UID" ]]; then
-    cp -r "$1"{,.bak}
-  else
-    sudo cp -r "$1"{,.bak}
-  fi
+  local _sudo=sudo
+  if [[ "$(stat --format '%u' "$1")" == "$UID" ]]; then _sudo=; fi
+  $_sudo cp -r "$1"{,.bak}
 }
 
 # Easier commands
@@ -130,9 +128,10 @@ alias scs="systemctl status"
 alias jc="journalctl"
 
 # APT
-alias aar="sudo apt autoremove --purge"
-alias ama="sudo apt-mark auto"
-alias amm="sudo apt-mark manual"
+if [[ -n "$TERMUX_VERSION" ]]; then _sudo= else _sudo=sudo; fi
+alias aar="$_sudo apt autoremove --purge"
+alias ama="$_sudo apt-mark auto"
+alias amm="$_sudo apt-mark manual"
 
 # Only supported by zsh
 if [[ -n "$ZSH_VERSION" ]]; then
