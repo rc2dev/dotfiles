@@ -44,7 +44,7 @@ has_command() {
 }
 
 is_termux() {
-	echo "${PREFIX:-}" | grep -q "com.termux"
+	[[ -n "${TERMUX_VERSION:-}" ]]
 }
 
 update_distro() {
