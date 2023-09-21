@@ -17,7 +17,8 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 fi
 
 # Used by mpv.conf
-export HOSTNAME="$(hostname)"
+# Mute errors as in distrobox this command may not be available.
+export HOSTNAME="$(hostname 2>/dev/null)"
 
 # Paths
 export NOTES="$HOME/Documents/Notes"
