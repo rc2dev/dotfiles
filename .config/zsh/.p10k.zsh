@@ -61,6 +61,7 @@ function prompt_lf() {
     # command_execution_time  # previous command duration
     # =========================[ Line #2 ]=========================
     newline                   # \n
+    toolbox                   # toolbox/distrobox
     virtualenv                # python virtual environment
     prompt_char               # prompt symbol
   )
