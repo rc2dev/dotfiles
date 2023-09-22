@@ -2,6 +2,7 @@
 
 configuration {
      icon-theme: "Papirus-Dark";
+     normalize-match: true;
 
 
      //   SHORTCUTS   //
