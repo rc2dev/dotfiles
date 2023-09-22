@@ -33,7 +33,7 @@ nmap Q <nop>
 nnoremap <Tab> za
 
 " Clear search highlight
-nnoremap <leader>nh :nohlsearch<CR>
+nnoremap <leader>hn :nohlsearch<CR>
 
 " Repeat last macro with return
 " Check if modifiable, as fugitive buffer uses <cr>
