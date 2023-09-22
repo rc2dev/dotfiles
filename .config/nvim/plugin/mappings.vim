@@ -111,8 +111,8 @@ tnoremap <C-\><C-\> <C-\><C-n>
 nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
 
 " Journal
-nnoremap <leader>fj :call Journal("today")<cr>
-nnoremap <leader>fJ :call Journal("yesterday")<cr>
+nnoremap <leader>fj :execute "edit " . trim(system("journal path today"))<cr>
+nnoremap <leader>fJ :execute "edit " . trim(system("journal path yesterday"))<cr>
 
 
 " Plugins
