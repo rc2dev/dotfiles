@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# This can't be a symlink as Termux doesn't support it.
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+exec bash "$NOTES/bin/journal" "$@"
+
