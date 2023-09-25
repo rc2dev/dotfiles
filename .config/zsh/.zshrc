@@ -188,7 +188,6 @@ setopt globdots
 zstyle ':completion:*' menu select
 
 # Use colors
-eval "$(dircolors)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # Small letters to match small and capital letters

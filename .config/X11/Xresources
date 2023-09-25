@@ -32,9 +32,9 @@ dwm.showsystray: 0
 /********************/
 
 /* Other places for theming:
-/* bat, dunst, nvim, theme-mode, xsettingsd. */
+/* bat, dunst, nvim, theme-mode, xsettingsd, zprofile (LSCOLORS). */
 
-#include "themes/onedark.Xresources"
+#include "themes/gruvbox-dark.Xresources"
 #define adwaita_sel1 #424242
 #define adwaita_sel2 #15539e
 
