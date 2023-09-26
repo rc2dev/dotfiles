@@ -68,7 +68,6 @@ bak() {
 # Easier commands
 alias cx="chmod +x"
 alias e="$EDITOR"
-alias ex="atool --extract --each --"
 alias fn="find . -iname"
 alias mux="tmuxinator"
 alias q="exit"
