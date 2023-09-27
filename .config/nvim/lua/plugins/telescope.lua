@@ -3,7 +3,7 @@
 
 return {
   'nvim-telescope/telescope.nvim',
-  cmd = {'Telescope', 'TeCode', 'TeNotes', 'TeDotfiles'},
+  cmd = {'Telescope', 'TeNotes', 'TeDotfiles'},
   tag = '0.1.2',
   dependencies = {
     { 'nvim-lua/plenary.nvim' },
@@ -55,7 +55,6 @@ return {
       }
     end
     vim.api.nvim_create_user_command('TeNotes', 'Telescope find_files cwd=$NOTES prompt_title=Notes hidden=true', {})
-    vim.api.nvim_create_user_command('TeCode', 'Telescope find_files cwd=$HOME/dev prompt_title=Dev hidden=true', {})
     vim.api.nvim_create_user_command('TeDotfiles', search_dotfiles, {})
   end,
 }
