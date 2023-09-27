@@ -29,6 +29,8 @@ fi
 # Paths
 export NOTES="$HOME/Documents/Notes"
 export XRESOURCES="$HOME/.config/X11/Xresources"
+# Move from ~/. Note this doesn't work on some DM's.
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # Default applications
 export BROWSER="/var/lib/flatpak/exports/bin/com.brave.Browser"
