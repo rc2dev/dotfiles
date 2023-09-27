@@ -62,10 +62,10 @@ dwm.showsystray: 0
 /* dmenu, dwm */
 *.normbgcolor:         theme_background
 *.normfgcolor:         theme_color7  /* 7, 12 or fg */
-*.selbgcolor:          adwaita_sel1  /* 4 or 8 */
+*.selbgcolor:          adwaita_sel1
 *.selfgcolor:          theme_color15  /* 0 or 15 */
 dwm.normbordercolor:   theme_background
-dwm.selbordercolor:    adwaita_sel2  /* 4 or 8 */
+dwm.selbordercolor:    adwaita_sel2
 dwm.borderpx:          2
 
 /* st */

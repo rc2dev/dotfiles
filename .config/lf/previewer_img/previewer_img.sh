@@ -1,6 +1,8 @@
 #!/bin/sh
 # Needed for image preview with ueberzug.
-# Based on <https://github.com/gokcehan/lf/wiki/Previews>.
+#
+# Based on <https://github.com/gokcehan/lf/wiki/Previews>
+# by Rafael Cavalcanti <https://rafaelc.org/dev>.
 
 draw() {
   ~/.config/lf/previewer_img/draw_img.sh "$@"
