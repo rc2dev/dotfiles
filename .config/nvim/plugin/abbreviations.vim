@@ -23,6 +23,7 @@ iab Ngm Ninguém
 iab pq porque
 iab Pq Porque
 iab q que
+iab Qdo Quando
 iab qdo quando
 iab qq qualquer
 iab tb também
