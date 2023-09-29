@@ -26,6 +26,14 @@ if command -v vivid > /dev/null; then
   export LS_COLORS="$(vivid generate nord)"
 fi
 
+# XDG base directories
+# Setting this isn't necessary, except config and data for moving less files
+# from ~/ when using less version 590. No longer needed on version 600.
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 # Paths
 export NOTES="$HOME/Documents/Notes"
 export XRESOURCES="$HOME/.config/X11/Xresources"
