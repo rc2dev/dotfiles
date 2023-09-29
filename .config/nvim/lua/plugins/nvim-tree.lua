@@ -8,6 +8,15 @@ local function on_attach(bufnr)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
+  local function move_file_to()
+    local node = api.tree.get_node_under_cursor()
+    local file_src = node['absolute_path']
+    local file_out = vim.fn.input("MOVE TO: ", file_src, "file")
+    local dir = vim.fn.fnamemodify(file_out, ":h")
+    vim.fn.system { 'mkdir', '-p', dir }
+    vim.fn.system { 'mv',  file_src, file_out }
+  end
+
   -- Default mappings
   vim.keymap.set('n', '<C-]>', api.tree.change_root_to_node,          opts('CD'))
   vim.keymap.set('n', '<C-e>', api.node.open.replace_tree_buffer,     opts('Open: In Place'))
@@ -90,6 +99,9 @@ local function on_attach(bufnr)
     api.node.navigate.sibling.prev()
     api.node.open.preview()
   end, opts('Up and preview'))
+
+  -- add move file
+  vim.keymap.set('n', 'X', move_file_to, opts('Move File To'))
 end
 
 return {
