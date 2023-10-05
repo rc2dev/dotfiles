@@ -77,12 +77,13 @@ local function on_attach(bufnr)
   -- remove <BS> (defined below as h)
   vim.keymap.del('n', '<BS>', { buffer = bufnr })
 
-  -- move preview from Tab to p
+  -- move preview from Tab to P
   vim.keymap.del('n', '<Tab>', { buffer = bufnr })
-  vim.keymap.set('n', 'p', api.node.open.preview, opts('Open Preview'))
+  vim.keymap.set('n', 'P', api.node.open.preview, opts('Open Preview'))
 
-  -- swap d and D
-  vim.keymap.set('n', 'd', api.fs.trash, opts('Trash'))
+  -- change trash, delete and cut bindings
+  vim.keymap.set('n', 'd', api.fs.cut, opts('Cut'))
+  vim.keymap.set('n', '<Delete>', api.fs.trash, opts('Trash'))
   vim.keymap.set('n', 'D', api.fs.remove, opts('Delete'))
 
   --  hjkl navigation (<https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#h-j-k-l-style-navigation-and-editing>)
