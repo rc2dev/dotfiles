@@ -203,7 +203,7 @@
     min_icon_size = 16
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 64
+    max_icon_size = 48
 
     # Allow use of `icon_theme`.
     enable_recursive_icon_lookup = true
