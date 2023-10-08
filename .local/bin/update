@@ -58,8 +58,7 @@ update_distro() {
 
 	elif has_command dnf; then
 		log_step "Atualizando pacotes do DNF..."
-		# Allow script to continue if user rejects operation
-		sudo dnf upgrade --refresh || if (( $? == 1 )); then return 0; fi
+		sudo dnf upgrade --refresh
 
 	else
 		log "Atualização de pacotes não disponível para a sua distro."
@@ -70,8 +69,7 @@ update_flatpaks() {
 	has_command flatpak || return 0
 
 	log_step "Atualizando flatpaks..."
-	# Allow script to continue if user rejects operation
-	flatpak update || if (( $? == 1 )); then return 0; fi
+	flatpak update
 }
 
 update_dotfiles() {
