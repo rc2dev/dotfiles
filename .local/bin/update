@@ -8,56 +8,63 @@
 set -euo pipefail
 readonly dev_host="x220"
 
-# Whiptail theme
-export NEWT_COLORS="
-    root=white,black
-    border=black,lightgray
-    window=lightgray,lightgray
-    title=black,lightgray
-    button=black,cyan
-    actbutton=white,cyan
-    compactbutton=black,lightgray
-    checkbox=black,lightgray
-    actcheckbox=lightgray,cyan
-    entry=black,lightgray
-    disentry=gray,lightgray
-    label=black,lightgray
-    emptyscale=,gray
-    fullscale=,cyan
-    helpline=white,black
-    roottext=lightgrey,black
-"
-
-declare -a choices=(
-	distro        " " ON
-	flatpaks      " " ON
-	pipx_packages " " ON
-
-	dotfiles      " " ON
-	submodules    " " $(if [[ "$(hostname)" == "$dev_host" ]]; then echo ON; else echo OFF; fi)
-
-	nvim_plugins  " " ON
-	tmux_plugins  " " ON
-	zsh_plugins   " " ON
-)
-
 main() {
-	# Whiptail
-	local -r title="update"
-	local -r prompt="Choose what to update:"
-	local -r chosen="$(whiptail --title "$title" --checklist "$prompt" 15 50 8 "${choices[@]}" 3>&2 2>&1 1>&3-)"
-
 	# Run selected updates
-	for cmd in $chosen; do
+	for cmd in $(chose); do
 		eval "update_$cmd"
 	done
 }
 
+chose() {
+	if ! has_command whiptail; then
+		log "Install whiptail before running this script."
+		exit 1
+	fi
+
+	local choices=(
+		distro        " " ON
+		flatpaks      " " ON
+		pipx_packages " " ON
+
+		dotfiles      " " ON
+		submodules    " " $(if [[ "$(hostname)" == "$dev_host" ]]; then echo ON; else echo OFF; fi)
+
+		nvim_plugins  " " ON
+		tmux_plugins  " " ON
+		zsh_plugins   " " ON
+	)
+
+	# Whiptail theme
+	export NEWT_COLORS="
+	    root=white,black
+	    border=black,lightgray
+	    window=lightgray,lightgray
+	    title=black,lightgray
+	    button=black,cyan
+	    actbutton=white,cyan
+	    compactbutton=black,lightgray
+	    checkbox=black,lightgray
+	    actcheckbox=lightgray,cyan
+	    entry=black,lightgray
+	    disentry=gray,lightgray
+	    label=black,lightgray
+	    emptyscale=,gray
+	    fullscale=,cyan
+	    helpline=white,black
+	    roottext=lightgrey,black
+	"
+
+	local -r title="update"
+	local -r prompt="Choose what to update:"
+
+	whiptail --title "$title" --checklist "$prompt" 15 50 8 "${choices[@]}" 3>&2 2>&1 1>&3-
+}
+
 log() {
 	local -r bold=$(tput bold)
-	local -r underline=$(tput smul)
 	local -r green=$(tput setaf 2)
 	local -r normal=$(tput sgr0)
+
 	printf "\n$bold$green➝ [update] %s$normal\n" "$*" 1>&2
 }
 
