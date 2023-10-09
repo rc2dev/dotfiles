@@ -9,9 +9,8 @@ set -euo pipefail
 readonly dev_host="x220"
 
 main() {
-	# Run selected updates
-	for cmd in $(chose); do
-		eval "update_$cmd"
+	for chosen in $(chose); do
+		eval "update_$chosen"
 	done
 }
 
