@@ -13,7 +13,7 @@ vim.opt.termguicolors = true
 vim.cmd [[
   " We won't have the theme on first run
   try
-    colorscheme gruvbox
+    colorscheme catppuccin
   catch /^Vim\%((\a\+)\)\=:E185/
   endtry
 ]]

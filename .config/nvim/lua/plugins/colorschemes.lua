@@ -8,6 +8,7 @@ return {
       -- Enable italics (must precede theme setting)
       vim.g.onedark_terminal_italics = 1
     end,
+    enabled = false,
   },
 
   {
@@ -16,5 +17,12 @@ return {
       -- Enable italics (must precede theme setting)
       vim.g.gruvbox_italic=1
     end,
-  }
+    enabled = false,
+  },
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000
+  },
 }
