@@ -4,8 +4,8 @@
 return {
   'klen/nvim-config-local',
 
-   opts = {
-      lookup_parents = true,
-      silent = true,
-   }
+  opts = {
+    lookup_parents = true,
+    silent = true,
+  }
 }
