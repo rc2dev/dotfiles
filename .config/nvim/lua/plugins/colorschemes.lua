@@ -1,5 +1,8 @@
--- colorscheme plugins config
+-- colorscheme config
 -- Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+-- Use truecolors
+vim.opt.termguicolors = true
 
 return {
   {
@@ -23,6 +26,12 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000
+    priority = 1000,
+    opts = {
+      transparent_background = true,
+    },
+    init = function ()
+      vim.cmd.colorscheme("catppuccin")
+    end,
   },
 }
