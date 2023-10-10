@@ -3,8 +3,8 @@
 # theme-mode configuration file
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-theme_light="Adwaita"
-theme_dark="Adwaita-dark"
+theme_light="Catppuccin-Latte-Standard-Blue-Light"
+theme_dark="Catppuccin-Macchiato-Standard-Blue-Dark"
 
 icon_light="Papirus"
 icon_dark="Papirus-Dark"
