@@ -34,38 +34,36 @@ dwm.showsystray: 0
 /* Other places for theming:
 /* bat, dunst, nvim, theme-mode, xsettingsd, zprofile (LSCOLORS). */
 
-#include "themes/gruvbox-dark.Xresources"
-#define adwaita_sel1 #424242
-#define adwaita_sel2 #15539e
+#include "themes/catppuccin-macchiato.Xresources"
 
 /* st, slock */
-*.color0:              theme_color0
-*.color1:              theme_color1
-*.color2:              theme_color2
-*.color3:              theme_color3
-*.color4:              theme_color4
-*.color5:              theme_color5
-*.color6:              theme_color6
-*.color7:              theme_color7
-*.color8:              theme_color8
-*.color9:              theme_color9
-*.color10:             theme_color10
-*.color11:             theme_color11
-*.color12:             theme_color12
-*.color13:             theme_color13
-*.color14:             theme_color14
-*.color15:             theme_color15
 *.background:          theme_background
 *.foreground:          theme_foreground
 *.cursorColor:         theme_color12
+*.color0:              theme_color0      /* black */
+*.color8:              theme_color8
+*.color1:              theme_color1      /* red */
+*.color9:              theme_color9
+*.color2:              theme_color2      /* green */
+*.color10:             theme_color10
+*.color3:              theme_color3      /* yellow */
+*.color11:             theme_color11
+*.color4:              theme_color4      /* blue */
+*.color12:             theme_color12
+*.color5:              theme_color5      /* magenta */
+*.color13:             theme_color13
+*.color6:              theme_color6      /* cyan */
+*.color14:             theme_color14
+*.color7:              theme_color7      /* white */
+*.color15:             theme_color15
 
 /* dmenu, dwm */
 *.normbgcolor:         theme_background
-*.normfgcolor:         theme_color7  /* 7, 12 or fg */
-*.selbgcolor:          adwaita_sel1
-*.selfgcolor:          theme_color15  /* 0 or 15 */
+*.normfgcolor:         theme_color7
+*.selbgcolor:          #23365c
+*.selfgcolor:          theme_color15
 dwm.normbordercolor:   theme_background
-dwm.selbordercolor:    adwaita_sel2
+dwm.selbordercolor:    theme_color4
 dwm.borderpx:          2
 
 /* st */

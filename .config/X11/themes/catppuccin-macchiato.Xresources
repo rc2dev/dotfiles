@@ -1,0 +1,22 @@
+! Adapted from
+! <https://github.com/catppuccin/xresources/blob/main/macchiato.Xresources>
+! by Rafael Cavalcanti <https://rafaelc.org/dev>
+
+#define theme_background #24273A
+#define theme_foreground #CAD3F5
+#define theme_color0     #494D64
+#define theme_color8     #5B6078
+#define theme_color1     #ED8796
+#define theme_color9     #ED8796
+#define theme_color2     #A6DA95
+#define theme_color10    #A6DA95
+#define theme_color3     #EED49F
+#define theme_color11    #EED49F
+#define theme_color4     #8AADF4
+#define theme_color12    #8AADF4
+#define theme_color5     #F5BDE6
+#define theme_color13    #F5BDE6
+#define theme_color6     #8BD5CA
+#define theme_color14    #8BD5CA
+#define theme_color7     #B8C0E0
+#define theme_color15    #A5ADCB
