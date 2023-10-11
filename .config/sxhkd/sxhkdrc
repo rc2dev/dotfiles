@@ -2,9 +2,6 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-super + a
-  dmenu_orgprod
-
 super + b
   blueman-manager
 
@@ -23,6 +20,9 @@ super + shift + d
 super + f
   firefox-esr
 
+super + g
+  dmenu_orgprod
+
 super + {_, shift, ctrl } + n
   dunstctl { \
     close, \
@@ -30,8 +30,11 @@ super + {_, shift, ctrl } + n
     context; dunstctl close \
   }
 
-super + o
-  dmenu_document
+super + {_, shift} + o
+  { \
+    dmenu_document, \
+    dmenu_tmuxinator, \
+  }
 
 super + p
   keepassxc
@@ -42,11 +45,8 @@ super + shift + q
 super + r
   $TERMINAL -e lf
 
-super + {_, shift} + s
-  { \
-    rofi -show ssh, \
-    dmenu_tmuxinator \
-  }
+super + s
+  rofi -show ssh
 
 super + {_, shift} + u
   { \
