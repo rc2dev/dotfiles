@@ -60,8 +60,8 @@ dwm.showsystray: 0
 /* dmenu, dwm */
 *.normbgcolor:         theme_background
 *.normfgcolor:         theme_color7
-*.selbgcolor:          #23365c
-*.selfgcolor:          theme_color15
+*.selbgcolor:          #363a4f  /* from neovim theme */
+*.selfgcolor:          theme_foreground
 dwm.normbordercolor:   theme_background
 dwm.selbordercolor:    theme_color4
 dwm.borderpx:          2
