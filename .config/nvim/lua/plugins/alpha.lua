@@ -22,12 +22,5 @@ return  {
 
     alpha.setup(startify.config)
   end,
-
-  init = function ()
-    -- Hide statusline
-    vim.cmd [[
-      autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2
-    ]]
-  end,
 }
 

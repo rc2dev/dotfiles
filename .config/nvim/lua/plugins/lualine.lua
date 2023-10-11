@@ -5,6 +5,10 @@ return {
   'nvim-lualine/lualine.nvim',
 
   opts = {
+    options = {
+      disabled_filetypes = { 'NvimTree', 'alpha' },
+    },
+
     sections = {
       lualine_a = {
         -- Add paste mode section. Still useful in tmux.
