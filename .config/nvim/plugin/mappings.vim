@@ -154,12 +154,13 @@ nnoremap <leader>fr :Lf<CR>
 
 " nvimtree
 " Also close goyo if open.
-nnoremap <leader>ft :Goyo!<CR>:NvimTreeFindFile<CR>
-nnoremap <leader>fT :Goyo!<CR>:NvimTreeToggle<CR>
-
-" goyo.vim
-nnoremap <F11> :Goyo<CR>
-inoremap <F11> <C-o>:Goyo<CR>
+nnoremap <leader>ft :NvimTreeFindFile<CR>
+nnoremap <leader>fT :NvimTreeToggle<CR>
 
 " vim-template
 nnoremap <leader>te :Template<CR>
+
+" zen-mode
+nnoremap <F11> :ZenMode<CR>
+inoremap <F11> <C-o>:ZenMode<CR>
+
