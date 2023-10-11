@@ -16,11 +16,17 @@ configuration {
   padding: 0;
   spacing: 0;
 
-  /* Transparency */
-  bg: #18181Bfc;
-  bg-alt: #20212Cfc;
-  fg: #A0A0AB;
-  fg-alt: #5D5E72;
+  /* Catppuccin-macchiato colors */
+  bg: #24273afa;  /* Transparency set here */
+  bg-alt: #363a4f;
+  fg: #cad3f5;
+  fg-alt: #a5adcb;
+
+  /* Default colors */
+  //bg: #18181Bfc; /* Transparency set here. */
+  //bg-alt: #20212Cfc;
+  //fg: #A0A0AB;
+  //fg-alt: #5D5E72;
 
   background-color: rgba(0, 0, 0, 0);
   text-color: @fg-alt;
