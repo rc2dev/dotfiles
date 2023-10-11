@@ -29,6 +29,9 @@ return {
     priority = 1000,
     opts = {
       transparent_background = true,
+      dim_inactive = {
+        enabled = true,
+      },
     },
     init = function ()
       vim.cmd.colorscheme("catppuccin")
