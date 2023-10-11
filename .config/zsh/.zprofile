@@ -41,7 +41,10 @@ export XRESOURCES="$HOME/.config/X11/Xresources"
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # Default applications
-export BROWSER="/var/lib/flatpak/exports/bin/com.brave.Browser"
+# Setting this on Termux breaks opening urls from gh.
+if [[ -z "${TERMUX_VERSION:-}" ]]; then
+  export BROWSER="/var/lib/flatpak/exports/bin/com.brave.Browser"
+fi
 export DMENU="rofi -dmenu -i"
 export EDITOR="nvim"
 export TERMINAL="st"
