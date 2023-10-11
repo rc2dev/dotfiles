@@ -33,26 +33,22 @@ configuration {
 }
 
 window {
-  //border: 3px;
-  //border-color: @fg-alt;
-  //border-radius: 8px;
-
   transparency: "real";
   background-color: @bg;
-  height: 100%;
   width: 400px;
+
+  /* Set as sidebar: */
   location: west;
   anchor: west;
+  height: 100%;
 
-  /* To set as sidebar:
-   * - anchor and location: west
-   * - height: 100%
-   * - comment borders */
-
-  /* To set as center:
-   * - anchor and location: center
-   * - max-height: 80%
-   * - uncomment borders */
+  /* Set as center: */
+  // location: center;
+  // anchor: center;
+  // max-height: 80%;
+  // border: 3px;
+  // border-color: @fg-alt;
+  // border-radius: 8px;
 }
 
 mainbox {
