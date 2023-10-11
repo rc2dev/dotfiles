@@ -4,7 +4,7 @@
  * Modified by Author: Rafael Cavalcanti <https://rafaelc.org/dev>. */
 
 * {
-    font: "IBM Plex Sans 10";
+    font: "Noto Sans 9.5";
 
     bg0:  #242424fb;
     bg1:  #363636;

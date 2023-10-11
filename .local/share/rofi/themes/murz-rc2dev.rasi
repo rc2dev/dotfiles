@@ -7,7 +7,7 @@
  */
 
 configuration {
-  font: "Noto Mono 12";
+  font: "Blex Mono Nerd Font 12";
 }
 
 * {
