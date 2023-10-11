@@ -23,7 +23,7 @@ st.font:    Blex Mono Nerd Font:size=13
 dwm.topbar:      0
 dwm.mfact:       0.5
 dwm.enablegaps:  1
-dwm.smartgaps:   1
+dwm.smartgaps:   0
 dwm.showsystray: 0
 
 
