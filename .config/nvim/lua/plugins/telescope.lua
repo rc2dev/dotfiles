@@ -32,6 +32,9 @@ return {
             ['<C-k>'] = actions.move_selection_previous,
             ['<C-u>'] = false,  -- clear input
             ['<esc>'] = actions.close,
+
+            -- Send selected to quickfix list and open
+            ["<C-o>"] = function(p_bufnr) require("telescope.actions").send_selected_to_qflist(p_bufnr) vim.cmd.cfdo("edit") end,
           },
         },
       },
