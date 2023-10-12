@@ -3,7 +3,7 @@
 
 return {
   'nvim-telescope/telescope.nvim',
-  cmd = {'Telescope', 'TeNotes', 'TeDotfiles'},
+  cmd = {'Telescope'},
   tag = '0.1.2',
   dependencies = {
     { 'nvim-lua/plenary.nvim' },
@@ -48,16 +48,5 @@ return {
     -- Extensions
     require('telescope').load_extension('fzf')
     require('telescope').load_extension('projects')
-
-    -- Create commands for DRY code
-    function search_dotfiles()
-      require('telescope.builtin').find_files {
-        find_command = {'dotfiles', 'ls-files'},
-        cwd = '$HOME',
-        prompt_title = 'Dotfiles',
-      }
-    end
-    vim.api.nvim_create_user_command('TeNotes', 'Telescope find_files cwd=$NOTES prompt_title=Notes hidden=true', {})
-    vim.api.nvim_create_user_command('TeDotfiles', search_dotfiles, {})
-  end,
+  end
 }

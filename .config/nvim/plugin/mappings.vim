@@ -136,18 +136,18 @@ map <leader>/ <plug>NERDCommenterToggle
 
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
-nnoremap <leader>fF <cmd>Telescope find_files cwd=%:p:h prompt_title=Find\ Files\ in\ buffer\ directory<CR>
+nnoremap <leader>fF <cmd>Telescope find_files prompt_title=Find\ Files\ in\ buffer\ directory cwd=%:p:h <CR>
+nnoremap <leader>fn <cmd>Telescope find_files prompt_title=Notes cwd=$NOTES hidden=true<CR>
+nnoremap <leader>fy <cmd>Telescope find_files prompt_title=Dotfiles cwd=$HOME find_command=dotfiles,ls-files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
-nnoremap <leader>fG <cmd>Telescope live_grep search_dirs=%:p:h prompt_title=Live\ Grep\ buffer\ directory<CR>
+nnoremap <leader>fG <cmd>Telescope live_grep prompt_title=Live\ Grep\ buffer\ directory search_dirs=%:p:h<CR>
 nnoremap <leader>fp <cmd>Telescope projects<CR>
-nnoremap <leader>bg <cmd>Telescope live_grep grep_open_files=true prompt_title=Live\ Grep\ open\ buffers<CR>
-nnoremap <leader>bb <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
-nnoremap <leader>fn <cmd>TeNotes<CR>
-nnoremap <leader>fy <cmd>TeDotfiles<CR>
 nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
-nnoremap <leader>? <cmd>Telescope help_tags<CR>
+nnoremap <leader>bb <cmd>Telescope buffers<CR>
+nnoremap <leader>bg <cmd>Telescope live_grep prompt_title=Live\ Grep\ open\ buffers grep_open_files=true <CR>
 nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
+nnoremap <leader>? <cmd>Telescope help_tags<CR>
 
 " lf.vim
 nnoremap <leader>fr :Lf<CR>
