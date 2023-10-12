@@ -17,6 +17,9 @@ nnoremap <F12> :call TermToggle(12)<CR>
 inoremap <F12> <Esc>:call TermToggle(12)<CR>
 tnoremap <F12> <C-\><C-n>:call TermToggle(12)<CR>
 
+" Open terminal full screen
+nnoremap <leader>tt :terminal<CR>
+
 " Open terminal in new window
 " This is useful because it opens in the current directory.
 nnoremap <F24> :silent !$TERMINAL & disown<CR>
@@ -40,7 +43,7 @@ nnoremap <leader>hn :nohlsearch<CR>
 nnoremap <expr> <cr> (&modifiable == 1) ? "@@" : "<cr>"
 
 " New buffer
-nnoremap <Leader>e :enew<CR>
+nnoremap <Leader>n :enew<CR>
 
 " Save or quit
 nnoremap <Leader>w :w<CR>
@@ -147,7 +150,7 @@ nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
 nnoremap <leader>bb <cmd>Telescope buffers<CR>
 nnoremap <leader>bg <cmd>Telescope live_grep prompt_title=Live\ Grep\ open\ buffers grep_open_files=true <CR>
 nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
-nnoremap <leader>? <cmd>Telescope help_tags<CR>
+nnoremap g? <cmd>Telescope help_tags<CR>
 
 " lf.vim
 nnoremap <leader>fr :Lf<CR>

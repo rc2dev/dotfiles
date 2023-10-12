@@ -16,8 +16,8 @@ return  {
 
     -- Add quick note button
     startify.section.top_buttons.val = {
-      startify.button( "e", "  New file" , ":ene <BAR> startinsert <CR>"),
-      startify.button( "n", "  Quick Note" , ":e $NOTES/notes/Quick Note.md<CR>"),
+      startify.button( "n", "  New file" , ":ene <BAR> startinsert <CR>"),
+      startify.button( "u", "  Quick Note" , ":e $NOTES/notes/Quick Note.md<CR>"),
     }
 
     alpha.setup(startify.config)
