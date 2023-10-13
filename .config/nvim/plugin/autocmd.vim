@@ -7,6 +7,9 @@ augroup rc2dev
   " Resize splits automatically if VIM is resized
   autocmd VimResized * execute "normal! \<C-w>="
 
+  " Start terminal on insert mode
+  autocmd TermOpen * startinsert
+
   " Run these commands whenever these files are updated
   autocmd BufWritePost dwm-status silent !dwm-status & disown
   autocmd BufWritePost ~/.config/dunst/* silent !killall dunst
