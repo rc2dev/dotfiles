@@ -55,15 +55,15 @@ END
 )"
 
 if systemctl --user is-active --quiet "$unit_name"; then
-  state="⏹️ Stop: $(systemctl --user show dmenu_radio_player | grep Description= | cut -d= -f2-)"
+  state=" Stop: $(systemctl --user show dmenu_radio_player | grep Description= | cut -d= -f2-)"
 elif [[ -f "$last_file" ]]; then
-  state="▶️ Play last: $(cat "$last_file")"
+  state=" Play last: $(cat "$last_file")"
 else
   state=
 fi
 
 readonly menu="$(sed -E 's/^\s+//' <<-END
-  🎲 Random
+   Random
   $state
 
   $streams
