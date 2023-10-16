@@ -195,17 +195,18 @@ cmd z %{{
 }}
 map zz push :z<space>
 
-# Create touch command.
-cmd touch &{{
+# Create files and directories, similar to nvim-tree.
+cmd create &{{
     IFS=' '
-    touch "$*"
-    lf -remote "send $id select \"$*\""
-}}
-map a push :touch<space>
+    path="$*"
 
-# Create mkdir command.
-cmd mkdir &{{
-    IFS=' '
-    mkdir "$*"
+    if [[ "${path:0-1}" == "/" ]]; then
+        mkdir -p "$path"
+    else
+        touch "$path"
+    fi
+
     lf -remote "send $id select \"$*\""
 }}
+map a push :create<space>
+
