@@ -23,7 +23,7 @@
 
 # Add this and the lf segment to a prompt
 function prompt_lf() {
-    p10k segment -f 208 -i '📂' -t "lf" -c "$LF_LEVEL"
+    p10k segment -f 208 -i '📂' -t "lf-$LF_LEVEL" -c "$LF_LEVEL"
 }
 
 # Temporarily change options.
