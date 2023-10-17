@@ -1,10 +1,10 @@
 /* Downloaded from
  * <https://github.com/newmanls/rofi-themes-collection/blob/master/themes/launchpad.rasi>.
  *
- * Modified by Author: Rafael Cavalcanti <https://rafaelc.org/dev>. */
+ * Modified by Rafael Cavalcanti <https://rafaelc.org/dev>. */
 
 * {
-    font: "Noto Sans 9.5";
+    font: "Noto Sans 10";
 
     // bg0:  #242424fb; /* Default */
     bg0: #24273afa;  /* Catppuccin-macchiato color */
@@ -36,8 +36,8 @@ inputbar {
   background-color: @bg2;
 
   margin:   0px calc( 50% - 120px );
-  padding:  2px 4px;
-  spacing:  4px;
+  padding:  4px 8px;
+  spacing:  10px;
 
   border:         1px;
   border-radius:  2px;
@@ -62,8 +62,8 @@ entry {
 }
 
 listview {
-  margin:   48px calc( 50% - 560px );
-  spacing:  48px;
+  margin:   38px calc( 50% - 560px );
+  spacing:  38px;
   columns:  6;
   fixed-columns: true;
 }
