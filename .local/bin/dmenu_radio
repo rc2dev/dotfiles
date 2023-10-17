@@ -24,33 +24,24 @@ else
 fi
 
 readonly streams="$(sed -E 's/^\s+//' <<-END
-  $section_prefix 🇪🇸 MUSIC
-  Cadena 100,https://cadena100-cope.flumotion.com/chunks.m3u8
-  Cadena Dial,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENADIAL.mp3
-  LOS40,https://playerservices.streamtheworld.com/api/livestream-redirect/Los40.mp3
-  Radio 3,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r3_main.m3u8
-  Radio Clásica,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r2_main.m3u8
-  Radiolé,https://playerservices.streamtheworld.com/api/livestream-redirect/RADIOLE.mp3
-
-  $section_prefix 🇪🇸 GENERALISTAS
-  COPE,https://flucast24-h-cloud.flumotion.com/cope/net1.mp3
-  Cadena SER,https://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3
-  Cadena SER Valencia,https://playerservices.streamtheworld.com/api/livestream-redirect/SER_VALENCIA.mp3
-  Radio María,http://dreamsiteradiocp.com:8060/;stream.mp3
-  RNE1,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r1_main.m3u8
-  RNE1 C. Valenciana,https://dispatcher.rndfnk.com/crtve/rne1/val/mp3/high
-  RNE Radio 5,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r5_madrid_main.m3u8
-
-  $section_prefix SELECTION
+  $section_prefix CLASSICAL
   Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
   France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
   Folk Radio UK,http://streaming.radionomy.com/FolkRadioUK
+  Radio Clásica,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r2_main.m3u8
   Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
+
+  $section_prefix JAZZ
   Radio Swiss Jazz,http://stream.srg-ssr.ch/m/rsj/aacp_96
   San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
 
-  $section_prefix OTHER
+  $section_prefix CONCENTRATION
   Lofi (YouTube),https://www.youtube.com/watch?v=jfKfPfyJRdk
+  Binaural 40 Hz (YouTube),https://www.youtube.com/watch?v=4SUK0tkhmVg
+  Brown noise 1 (YouTube),https://www.youtube.com/watch?v=ca3fBRmmrBA
+  Brown noise 2 (YouTube),https://www.youtube.com/watch?v=GSaJXDsb3N8
+  White noise 1 (YouTube),https://www.youtube.com/watch?v=ArwcHjmsw3A
+  White noise 2 (YouTube),https://www.youtube.com/watch?v=yLOM8R6lbzg
 END
 )"
 
