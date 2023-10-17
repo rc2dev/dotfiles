@@ -6,7 +6,7 @@
 set -euo pipefail
 
 readonly script_name="$(basename "$0")"
-readonly wallpaper_store="$HOME/.cache/wallpaper"
+readonly wallpaper_store="$HOME/.config/wallpaper"
 
 case $# in
   0)
