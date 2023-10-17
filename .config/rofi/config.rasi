@@ -3,6 +3,7 @@
 configuration {
      icon-theme: "Papirus-Dark";
      normalize-match: true;
+     drun-display-format: "{name}";  // hide generic names
 
 
      //   SHORTCUTS   //
