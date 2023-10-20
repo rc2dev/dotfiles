@@ -188,12 +188,14 @@ cmd fzf_jump ${{
 map f :fzf_jump
 
 # zsh-z integration.
-cmd z %{{
+# lf doesn't seem to support completion, so we'll use fzf.
+cmd z ${{
     z_src="$ZSHZ_SRC"
-    result=$(zsh -c "source $z_src && zshz -e $@")
+    options=$(zsh -c "source $z_src && zshz -l")
+    result="$(awk '{print $2}' <<< "$options" | fzf --header='z to directory...')"
     lf -remote "send $id cd \"$result\""
 }}
-map zz push :z<space>
+map zz :z
 
 # Create files and directories, similar to nvim-tree.
 cmd create &{{
