@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
-# Volume notification: Pulseaudio and dunst
+# Control system volume while displaying notifications.
 #
 # Adapted from https://gist.github.com/Liblor/b01549fef2d3d56247ff0292034a3ad6
-# by Rafael Cavalcanti <https://rafaelc.org/dev>
+# by Rafael Cavalcanti <https://rafaelc.org/dev>.
 #
 
 set -euo pipefail
