@@ -173,8 +173,9 @@ map @ push !<space>$fx<home>
 map W &set-wallpaper $f
 
 # Find file or dir with fzf.
+# Args: extra arguments for fd.
 cmd fzf_jump ${{
-    res="$(fdfind . | fzf --header='Jump to...')"
+    res="$(fdfind . "$@" | fzf --header='Jump to...')"
     if [ -n "$res" ]; then
         if [ -d "$res" ]; then
             cmd="cd"
@@ -185,7 +186,9 @@ cmd fzf_jump ${{
         lf -remote "send $id $cmd \"$res\""
     fi
 }}
-map f :fzf_jump
+map f  # unmap
+map ff :fzf_jump
+map fd :fzf_jump --type d
 
 # zsh-z integration.
 # lf doesn't seem to support completion, so we'll use fzf.
@@ -195,7 +198,7 @@ cmd z ${{
     result="$(awk '{print $2}' <<< "$options" | fzf --header='z to directory...')"
     lf -remote "send $id cd \"$result\""
 }}
-map zz :z
+map fz :z
 
 # Create files and directories, similar to nvim-tree.
 cmd create &{{
