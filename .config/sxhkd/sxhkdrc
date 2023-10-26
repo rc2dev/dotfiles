@@ -54,8 +54,11 @@ super + {_, shift} + u
     $TERMINAL -n cmus -e cmus \
   }
 
-super + v
-  pavucontrol
+super + {_, shift} + v
+  { \
+    mpv "$(xclip -o)", \
+    pavucontrol \
+  }
 
 super + w
   $BROWSER
