@@ -15,7 +15,6 @@ map i $~/.config/lf/previewer.sh $f | less -R
 
 # Multiple appearance options.
 set icons
-set drawbox
 set number
 set relativenumber
 
