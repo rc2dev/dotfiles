@@ -43,7 +43,7 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 # Default applications
 # Setting this on Termux breaks opening urls from gh.
 if [[ -z "${TERMUX_VERSION:-}" ]]; then
-  export BROWSER="/var/lib/flatpak/exports/bin/com.brave.Browser"
+  export BROWSER="thorium-browser"
 fi
 export DMENU="rofi -dmenu -i"
 export EDITOR="nvim"
