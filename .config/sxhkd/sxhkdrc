@@ -30,11 +30,8 @@ super + {_, shift, ctrl } + n
     context; dunstctl close \
   }
 
-super + {_, shift} + o
-  { \
-    dmenu_document, \
-    dmenu_tmuxinator, \
-  }
+super + o
+  dmenu_document
 
 super + p
   keepassxc
