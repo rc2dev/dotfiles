@@ -35,14 +35,14 @@ icon() {
 }
 
 notify() {
-  local -r id=102
+  local -r hint="string:x-dunst-stack-tag:brightness"
   local -r timeout=3000
 
   local -r level="$(xbacklight -get | cut -d. -f 1)"
   local -r bar="$(bar "$level")"
   local -r icon="$(icon "$level")"
 
-  dunstify -r $id -u low -t $timeout -i "$icon" "$level% $bar"
+  dunstify -h $hint -u low -t $timeout -i "$icon" "$level% $bar"
 }
 
 main() {
