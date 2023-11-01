@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#
+# Try to skip Spotify ads automatically. Mute if not possible.
+#
+# Copyright (C) 2023 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+set -euo pipefail
+
+notify() {
+  local -r hint="string:x-dunst-stack-tag:spotify-ad-skipper"
+  dunstify --hints=$hint --urgency=low "Spotify ad skipper" "$*"
+}
+
+echo "Listening..."
+
+while true; do
+  # playerctl returns non-zero when player is not found
+  title="$(playerctl -p spotify metadata title || true)"
+  if [[ "$title" == "Advertisement" ]]; then
+    notify "Ad found. Trying to skip..."
+
+    # playerctl returns non-zero when ad is not currently skippable
+    if ! playerctl -p spotify next 2>/dev/null; then
+      pactl set-sink-mute @DEFAULT_SINK@ 1
+    else
+      pactl set-sink-mute @DEFAULT_SINK@ 0
+    fi
+  fi
+
+  sleep 1s
+done
