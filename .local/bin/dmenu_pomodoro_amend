@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# dmenu script for amending pomodoros on openpomodoro-cli.
+#
+# Copyright (C) 2023 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+# Constants
+set -euo pipefail
+readonly dmenu="${DMENU:-dmenu}"
+declare -a rofi_opts=(-theme-str "window { width: 400px; height: 0; location: center; anchor: center; border: 2px; border-color: @fg-alt; border-radius: 8px; }")
+
+# Add current_desc to rofi
+current_desc="$(pomodoro status --format "%d")"
+readonly current_desc
+rofi_opts+=(-filter "$current_desc")
+
+# Set options specific to launcher
+if [[ $dmenu =~ ^rofi ]]; then
+  launcher_opts=("${rofi_opts[@]}")
+else
+  launcher_opts=()
+fi
+
+# Get new description
+desc="$($dmenu "${launcher_opts[@]}" -l 0 -p "Amend pomo:")"
+readonly desc
+if [[ -z "$desc" ]]; then
+  exit 0
+fi
+
+# Set new description
+if pomodoro amend "$desc"; then
+  notify-send -i tomato "Pomodoro" "Description set."
+else
+  notify-send -i tomato "Pomodoro" -u critical "Description not set."
+fi

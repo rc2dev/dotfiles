@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Check if pomodoro is done, notify and finish it.
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+set -euo pipefail
+
+readonly done_tune="$HOME/.pomodoro/check-for-done/done.ogg"
+
+while true; do
+  status="$(pomodoro status --format "%r")"
+
+  if [[ "$status" == "0:00" ]]; then
+    pomodoro finish
+    mpv --no-config "$done_tune"
+    exit
+  fi
+
+  sleep 1s
+done
