@@ -16,7 +16,7 @@ return  {
 
     -- Add quick note button
     startify.section.top_buttons.val = {
-      startify.button( "n", "  New file" , ":ene <BAR> startinsert <CR>"),
+      startify.button( "n", "  New file" , ":enew<CR>"),
       startify.button( "u", "  Quick Note" , ":e $NOTES/notes/Quick Note.md<CR>"),
     }
 

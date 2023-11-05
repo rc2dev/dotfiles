@@ -147,6 +147,7 @@ nnoremap <leader>fG <cmd>Telescope live_grep prompt_title=Live\ Grep\ buffer\ di
 nnoremap <leader>fp <cmd>Telescope projects<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
+nnoremap <leader>ft <cmd>Telescope filetypes<CR>
 nnoremap <leader>bb <cmd>Telescope buffers<CR>
 nnoremap <leader>bg <cmd>Telescope live_grep prompt_title=Live\ Grep\ open\ buffers grep_open_files=true <CR>
 nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
@@ -158,8 +159,8 @@ nnoremap <leader>fr :Lf<CR>
 
 " nvimtree
 " Also close goyo if open.
-nnoremap <leader>ft :NvimTreeFindFile<CR>
-nnoremap <leader>fT :NvimTreeToggle<CR>
+nnoremap <leader>fs :NvimTreeFindFile<CR>
+nnoremap <leader>fS :NvimTreeToggle<CR>
 
 " vim-template
 nnoremap <leader>te :Template<CR>
