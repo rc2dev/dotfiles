@@ -150,6 +150,7 @@ nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
 nnoremap <leader>bb <cmd>Telescope buffers<CR>
 nnoremap <leader>bg <cmd>Telescope live_grep prompt_title=Live\ Grep\ open\ buffers grep_open_files=true <CR>
 nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
+nnoremap <leader>p <cmd>Telescope registers<CR>
 nnoremap g? <cmd>Telescope help_tags<CR>
 
 " lf.vim
