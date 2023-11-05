@@ -8,7 +8,6 @@ set mouse=a                         " Enable the use of the mouse
 set clipboard=unnamedplus           " Use system clipboard
 set notimeout                       " Wait to complete typing (slow typing on Termux)
 set formatoptions+=j                " Remove comment leader when joining comment lines
-set spelllang=pt_br,en_us,es_es
 set shada=!,'500,<50,s10,h          " nvim: Increase oldfiles size
 
 " Search
