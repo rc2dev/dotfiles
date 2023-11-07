@@ -189,15 +189,19 @@ map f  # unmap
 map ff :fzf_jump
 map fd :fzf_jump --type d
 
-# zsh-z integration.
+# zsh-z integration to jump directories.
 # lf doesn't seem to support completion, so we'll use fzf.
 cmd z ${{
-    z_src="$ZSHZ_SRC"
-    options=$(zsh -c "source $z_src && zshz -l")
+    options=$(zsh -c "source $ZSHZ_SRC && zshz -l")
     result="$(awk '{print $2}' <<< "$options" | fzf --header='z to directory...')"
     lf -remote "send $id cd \"$result\""
 }}
 map fz :z
+
+cmd on-cd &{{
+    # Hook for zsh-z on cd.
+    zsh -c "source $ZSHZ_SRC && zshz --add \"$PWD\""
+}}
 
 # Create files and directories, similar to nvim-tree.
 cmd create &{{
