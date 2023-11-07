@@ -3,5 +3,4 @@
 
 set -euo pipefail
 
-systemctl --user stop "pomodoro-check-for-done"
 notify-send -i "tomato" "Pomodoro" "Pomodoro stopped."
