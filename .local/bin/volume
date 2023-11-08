@@ -8,9 +8,11 @@
 
 set -euo pipefail
 readonly step=5
+readonly notify_hint="string:x-dunst-stack-tag:volume"
+readonly notify_time=3000
 
 get_volume() {
-  pactl get-sink-volume @DEFAULT_SINK@ | awk -F/ '{print $2}' | sed 's/ //g;s/%//g'
+  echo "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/.* //') * 100" | bc | sed 's/\..*//'
 }
 
 get_volume_icon() {
@@ -26,8 +28,6 @@ get_volume_icon() {
 }
 
 volume_notification() {
-  local -r hint="string:x-dunst-stack-tag:volume"
-  local -r time=3000
   local -r bar_max_size=21
 
   local -r volume="$(get_volume)"
@@ -40,31 +40,31 @@ volume_notification() {
   fi
   local bar=$(seq -s "─" $bar_size | sed 's/[0-9]//g')
 
-  dunstify -h $hint -u low -t $time -i "$vol_icon" "$vol_num  $bar"
+  dunstify -h $notify_hint -u low -t $notify_time -i "$vol_icon" "$vol_num  $bar"
 }
 
 mute_notification() {
-  local -r muted="$(pactl get-sink-mute @DEFAULT_SINK@)"
+  local -r status="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
 
-  if [[ "$muted" == "Mute: yes" ]]; then
-    dunstify -r $notify_id -u low -t $notify_time -i audio-volume-muted-symbolic Mute
+  if [[ $status == *MUTED* ]]; then
+    dunstify -h $notify_hint -u low -t $notify_time -i audio-volume-muted-symbolic Mute
   else
-    dunstify -r $notify_id -u low -t $notify_time -i "$(get_volume_icon "$(get_volume)")" Unmute
+    dunstify -h $notify_hint -u low -t $notify_time -i "$(get_volume_icon "$(get_volume)")" Unmute
   fi
 }
 
 main() {
   case $1 in
     up)
-      pactl set-sink-volume @DEFAULT_SINK@ +$step%
+      wpctl set-volume @DEFAULT_AUDIO_SINK@ $step%+
       volume_notification
       ;;
     down)
-      pactl set-sink-volume @DEFAULT_SINK@ -$step%
+      wpctl set-volume @DEFAULT_AUDIO_SINK@ $step%-
       volume_notification
       ;;
     mute)
-      pactl set-sink-mute @DEFAULT_SINK@ toggle
+      wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       mute_notification
       ;;
     *)
