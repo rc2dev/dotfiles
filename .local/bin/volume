@@ -7,6 +7,7 @@
 #
 
 set -euo pipefail
+readonly script_name="$(basename "$0")"
 readonly step=5
 readonly notify_hint="string:x-dunst-stack-tag:volume"
 readonly notify_time=3000
@@ -68,7 +69,7 @@ main() {
       mute_notification
       ;;
     *)
-      echo "Usage: $0 up | down | mute"
+      echo "Usage: $script_name up | down | mute"
       ;;
   esac
 }
