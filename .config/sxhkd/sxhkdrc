@@ -2,6 +2,9 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
+super + a
+  dmenu_pomodoro
+
 super + b
   blueman-manager
 
@@ -19,9 +22,6 @@ super + shift + d
 
 super + f
   firefox-esr
-
-super + g
-  dmenu_orgprod
 
 super + {_, shift, ctrl } + n
   dunstctl { \
@@ -43,7 +43,7 @@ super + r
   $TERMINAL -e lf
 
 super + s
-  rofi -show ssh
+  dmenu_ticktask
 
 super + {_, shift} + u
   { \
