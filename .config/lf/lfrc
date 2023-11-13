@@ -219,4 +219,13 @@ cmd create &{{
 map a push :create<space>
 
 cmd extract $atool --extract --each -- $fx
-map x :extract
+
+cmd compress ${{
+    # Get relative path from selected files
+    declare -a files
+    for f in $fx; do
+        files+=( "${f#$PWD/}" )
+    done
+
+    atool --add "$1" -- "${files[@]}"
+}}
