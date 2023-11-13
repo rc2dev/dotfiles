@@ -219,6 +219,7 @@ cmd create &{{
 map a push :create<space>
 
 cmd extract $atool --extract --each -- $fx
+map zx extract
 
 cmd compress ${{
     # Get relative path from selected files
@@ -229,3 +230,4 @@ cmd compress ${{
 
     atool --add "$1" -- "${files[@]}"
 }}
+map zc push :compress<space>
