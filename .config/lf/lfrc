@@ -218,5 +218,5 @@ cmd create &{{
 }}
 map a push :create<space>
 
-cmd extract $atool --extract --each -- "$fx"
+cmd extract $atool --extract --each -- $fx
 map x :extract
