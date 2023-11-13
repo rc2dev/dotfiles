@@ -17,6 +17,7 @@ application/pdf=org.gnome.Evince.desktop
 x-scheme-handler/webcal=thunderbird.desktop
 audio/mp4=mpv.desktop
 image/svg+xml=qimgv.desktop
+audio/x-opus+ogg=mpv.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
@@ -27,3 +28,4 @@ text/markdown=nvim.desktop;
 text/plain=nvim.desktop;
 video/webm=mpv.desktop;qimgv.desktop;
 text/calendar=thunderbird.desktop;
+audio/x-opus+ogg=mpv.desktop;
