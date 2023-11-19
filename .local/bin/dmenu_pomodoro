@@ -11,10 +11,12 @@ main_menu() {
   local -r prompt="🍅 Pomodoro"
   local -r options="$(sed -E 's/\s\s//' <<-END
     Start,pomodoro start & amend_menu
+    Start ago,start_ago_menu && amend_menu
     Amend,amend_menu
     Cancel,pomodoro cancel
     Finish,pomodoro finish
     Repeat,pomodoro repeat
+    Total,$TERMINAL -e sh -c 'pomodoro-total; read _'
 END
   )"
 
@@ -28,6 +30,27 @@ END
 
   local -r cmd="$(grep "$chosen," <(printf "%s" "$options") | cut -d, -f2)"
   eval "$cmd"
+}
+
+start_ago_menu() {
+  local -a rofi_opts=(-theme-str "window { width: 400px; height: 0; location: center; anchor: center; border: 2px; border-color: @fg-alt; border-radius: 8px; }")
+
+  # Set options specific to launcher
+  local launcher_opts
+  if [[ $dmenu =~ ^rofi ]]; then
+    launcher_opts=("${rofi_opts[@]}")
+  else
+    launcher_opts=()
+  fi
+
+  # Get ago duration
+  local -r duration="$($dmenu "${launcher_opts[@]}" -l 0 -p "Duration:")"
+  if [[ -z "$duration" ]]; then
+    exit 0
+  fi
+
+  # Start pomodoro
+  pomodoro start --ago "$duration"
 }
 
 amend_menu() {
