@@ -10,13 +10,13 @@ readonly dmenu="${DMENU:-dmenu}"
 main_menu() {
   local -r prompt="🍅 Pomodoro"
   local -r options="$(sed -E 's/\s\s//' <<-END
-    Start,pomodoro start & amend_menu
-    Start ago,start_ago_menu && amend_menu
-    Amend,amend_menu
-    Cancel,pomodoro cancel
-    Finish,pomodoro finish
-    Repeat,pomodoro repeat
-    Total,$TERMINAL -e sh -c 'pomodoro-total; read _'
+    󰅕 Start,pomodoro start & amend_menu
+     Start ago,start_ago_menu && amend_menu
+    󰑕 Amend,amend_menu
+    󰜺 Cancel,pomodoro cancel
+    󰈼 Finish,pomodoro finish
+     Repeat,pomodoro repeat
+     Total,$TERMINAL -e sh -c 'pomodoro-total; read _'
 END
   )"
 
