@@ -197,6 +197,7 @@ cmd z ${{
     lf -remote "send $id cd \"$result\""
 }}
 map fz :z
+map zz :z
 
 cmd on-cd &{{
     # Hook for zsh-z on cd.
