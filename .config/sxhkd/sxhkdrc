@@ -3,7 +3,7 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 super + a
-  dmenu_pomodoro
+  dmenu_ticktask
 
 super + b
   blueman-manager
@@ -43,7 +43,7 @@ super + r
   $TERMINAL -e lf
 
 super + s
-  dmenu_ticktask
+  dmenu_pomodoro
 
 super + {_, shift} + u
   { \
@@ -53,8 +53,8 @@ super + {_, shift} + u
 
 super + {_, shift} + v
   { \
-    mpv "$(xclip -o)", \
-    pavucontrol \
+    pavucontrol, \
+    mpv "$(xclip -o)" \
   }
 
 super + w
