@@ -20,7 +20,6 @@ return {
       -- Enable italics (must precede theme setting)
       vim.g.gruvbox_italic = 1
     end,
-    enabled = false,
   },
 
   {
