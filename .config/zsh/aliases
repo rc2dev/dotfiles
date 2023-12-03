@@ -138,7 +138,3 @@ if [[ -n "$ZSH_VERSION" ]]; then
   alias -g G="| grep"
   alias -g L="| less"
 fi
-
-# Source jumping aliases
-#[[ ! -e "$HOME/.cache/gen-jumps/shell" ]] && gen-jumps
-#source "$HOME/.cache/gen-jumps/shell"
