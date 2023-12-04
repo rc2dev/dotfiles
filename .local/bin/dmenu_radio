@@ -33,7 +33,6 @@ readonly streams="$(sed -E 's/^\s+//' <<-END
   Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
 
   $section_prefix JAZZ
-  France Musique La Jazz,http://direct.francemusique.fr/live/francemusiquelajazz-hifi.mp3
   Naim Jazz (FLAC),http://mscp3.live-streams.nl:8340/jazz-flac.flac
   RadioJAZZ.FM,https://radiojazz.out.airtime.pro/radiojazz_a
   Radio Swiss Jazz,http://stream.srg-ssr.ch/m/rsj/aacp_96
@@ -45,7 +44,6 @@ readonly streams="$(sed -E 's/^\s+//' <<-END
 
   $section_prefix CONCENTRATION
   Lofi (YouTube),https://www.youtube.com/watch?v=jfKfPfyJRdk
-  Binaural 40 Hz (YouTube),https://www.youtube.com/watch?v=4SUK0tkhmVg
   Brown noise 1 (YouTube),https://www.youtube.com/watch?v=ca3fBRmmrBA
   Brown noise 2 (YouTube),https://www.youtube.com/watch?v=GSaJXDsb3N8
   White noise 1 (YouTube),https://www.youtube.com/watch?v=ArwcHjmsw3A
