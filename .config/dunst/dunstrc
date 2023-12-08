@@ -71,7 +71,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 5
+    transparency = 6
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -313,7 +313,11 @@
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#285577"
+    # Original: background = "#285577"
+    # From rofi's "arc-dark-transparent" theme:
+    #background = "#2d303b"
+    # dwm's current selbg
+    background = "#363a4f"
     foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
