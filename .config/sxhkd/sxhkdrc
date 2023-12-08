@@ -77,3 +77,20 @@ ctrl + alt + m
 
 Print + {_, shift}
   flameshot gui {_, --delay 5000}
+
+
+######################
+##   DWM SPECIFIC   ##
+######################
+
+super + d
+  rofi -show drun
+
+super + shift + r
+  killall -HUP dwm
+
+{super + shift + BackSpace, XF86ScreenSaver }
+  slock
+
+ctrl + alt + Delete
+  dmenu_power
