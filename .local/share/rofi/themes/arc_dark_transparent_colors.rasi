@@ -1,5 +1,5 @@
 /*******************************************************
- * Based on ROFI Arch Dark Transparent colors for EndeavourOS
+ * Theme based on ROFI Arch Dark Transparent colors for EndeavourOS
  * by Rafael Cavalcanti <https://rafaelc.org/dev>.
  *******************************************************/
 * {
@@ -34,9 +34,11 @@
 }
 
 window {
+  font: "Iosevka Nerd Font 13";
   background-color: @background;
   border: 0;
   padding: 30;
+  width: 800px;
 }
 
 listview {
@@ -71,6 +73,7 @@ listview {
 element {
   border: 0;
   padding: 1px;
+  //margin: 0px 15px 0px 0px;
 }
 
 element-text {
