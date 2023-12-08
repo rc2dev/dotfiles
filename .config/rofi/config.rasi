@@ -34,4 +34,4 @@ configuration {
      me-accept-custom: "Control+MouseDPrimary";
 }
 
-@theme "murz-rc2dev"
+@theme "arc_dark_transparent_colors.rasi"
