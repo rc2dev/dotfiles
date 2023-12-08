@@ -68,9 +68,9 @@ super + Return
 
 # Arguments:
 # -i: unneded with patched dmenu to case insensitve, but necessary using rofi.
-# -theme-str: to larger width.
+# -theme-str: configure rofi theme.
 ctrl + alt + v
-  clipmenu -i -theme-str "window \{ width: 900px; \}"
+  clipmenu -i -theme-str "listview \{ columns: 1; \}"
 
 ctrl + alt + m
   rofimoji

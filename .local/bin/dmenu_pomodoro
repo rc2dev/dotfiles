@@ -33,7 +33,7 @@ END
 }
 
 start_ago_menu() {
-  local -a rofi_opts=(-theme-str "window { width: 400px; height: 0; location: center; anchor: center; border: 2px; border-color: @fg-alt; border-radius: 8px; }")
+#  local -a rofi_opts=(-theme-str "window { width: 400px; height: 0; location: center; anchor: center; border: 2px; border-color: @fg-alt; border-radius: 8px; }")
 
   # Set options specific to launcher
   local launcher_opts
@@ -44,7 +44,7 @@ start_ago_menu() {
   fi
 
   # Get ago duration
-  local -r duration="$($dmenu "${launcher_opts[@]}" -l 0 -p "Duration:")"
+  local -r duration="$($dmenu "${launcher_opts[@]}" -l 0 -p "Duration")"
   if [[ -z "$duration" ]]; then
     exit 0
   fi
@@ -54,7 +54,7 @@ start_ago_menu() {
 }
 
 amend_menu() {
-  local -a rofi_opts=(-theme-str "window { width: 400px; height: 0; location: center; anchor: center; border: 2px; border-color: @fg-alt; border-radius: 8px; }")
+  #local -a rofi_opts=(-theme-str "window { width: 400px; height: 0; location: center; anchor: center; border: 2px; border-color: @fg-alt; border-radius: 8px; }")
 
   # Add current_desc to rofi
   local current_desc="$(pomodoro status --format "%d")"
@@ -70,7 +70,7 @@ amend_menu() {
   fi
 
   # Get new description
-  local desc="$($dmenu "${launcher_opts[@]}" -l 0 -p "Amend pomo:")"
+  local desc="$($dmenu "${launcher_opts[@]}" -l 0 -p "Amend pomo")"
   readonly desc
   if [[ -z "$desc" ]]; then
     exit 0

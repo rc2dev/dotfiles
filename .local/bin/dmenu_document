@@ -7,7 +7,7 @@
 set -euo pipefail
 readonly dmenu="${DMENU:-dmenu}"
 readonly prompt="Open"
-declare -ar rofi_opts=(-theme-str "window { width: 900px; }")
+declare -ar rofi_opts=(-theme-str "listview { columns: 1; }")
 
 
 if [[ $dmenu =~ ^rofi ]]; then

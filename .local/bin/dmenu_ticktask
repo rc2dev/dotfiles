@@ -7,15 +7,8 @@
 
 set -euo pipefail
 readonly dmenu="${DMENU:-dmenu}"
-declare -ar rofi_opts=(-theme-str "window { width: 900px; height: 0; location: center; anchor: center; border: 2px; border-color: @fg-alt; border-radius: 8px; }")
 
-if [[ $dmenu =~ ^rofi ]]; then
-  launcher_opts=("${rofi_opts[@]}")
-else
-  launcher_opts=()
-fi
-
-readonly task="$($dmenu "${launcher_opts[@]}" -l 0 -p "Add to TickTick")"
+readonly task="$($dmenu -l 0 -p "Add to TickTick")"
 if [[ -z "$task" ]]; then
   exit 0
 fi
