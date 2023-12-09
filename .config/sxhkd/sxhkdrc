@@ -6,7 +6,7 @@ super + a
   dmenu_ticktask
 
 super + b
-  blueman-manager
+  rofi-bluetooth -i
 
 {super + c, XF86Calculator}
   gnome-calculator
