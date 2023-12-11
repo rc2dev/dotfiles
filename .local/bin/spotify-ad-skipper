@@ -9,7 +9,7 @@ set -euo pipefail
 
 notify() {
   local -r hint="string:x-dunst-stack-tag:spotify-ad-skipper"
-  dunstify --hints=$hint --urgency=low "Spotify ad skipper" "$*"
+  dunstify --hints=$hint --urgency=low --icon spotify "Spotify ad skipper" "$*"
 }
 
 echo "Listening..."
