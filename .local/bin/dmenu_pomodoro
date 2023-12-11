@@ -17,7 +17,7 @@ main_menu() {
     󰈼 Finish,pomodoro finish
      Repeat,pomodoro repeat
      Edit,xdg-open "$HOME/.pomodoro/history"
-     Total,$TERMINAL -e sh -c 'pomodoro-total; read _'
+     Total,$TERMINAL -e pomodoro-total
 END
   )"
 
