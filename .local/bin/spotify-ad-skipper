@@ -17,7 +17,7 @@ echo "Listening..."
 while true; do
   # playerctl returns non-zero when player is not found
   title="$(playerctl -p spotify metadata title || true)"
-  if [[ "$title" == "Advertisement" ]]; then
+  if [[ "$title" == "Advertisement" || "$title" == "Spotify" ]]; then
     notify "Ad found. Trying to skip..."
 
     # playerctl returns non-zero when ad is not currently skippable
