@@ -16,35 +16,41 @@ Note: Day starts/ends at 06:00.
 yyyy-mm-dd
 
 END
-read -r -p "Enter date: " date
 
-# Default
-if [[ -z "$date" ]]; then
-  date="today"
-fi
+while true; do
+  read -r -p "Enter date: " date
 
-if [[ "$date" =~ ^t ]]; then
-  date="$(date +%Y-%m-%d)"
-elif [[ "$date" =~ ^y ]]; then
-  date="$(date -d yesterday +%Y-%m-%d)"
-elif [[ "$date" =~ ^b ]]; then
-  date="$(date -d "today - 2 days" +%Y-%m-%d)"
-fi
-date_next="$(date -d "$date +1 days" +%Y-%m-%d)"
+  # Default
+  if [[ -z "$date" ]]; then
+    date="today"
+  fi
 
-readonly entries_for_day="$(pomodoro history | \
-  awk \
-  -v begin=$date"T06:00:00" \
-  -v end=$date_next"T06:00:00" \
-  '{key=$1}
-  key >=begin {p=1}
-  key >=end {exit} p'
-)"
+  if [[ "$date" =~ ^t ]]; then
+    date="$(date +%Y-%m-%d)"
+  elif [[ "$date" =~ ^y ]]; then
+    date="$(date -d yesterday +%Y-%m-%d)"
+  elif [[ "$date" =~ ^b ]]; then
+    date="$(date -d "today - 2 days" +%Y-%m-%d)"
+  fi
+  date_next="$(date -d "$date +1 days" +%Y-%m-%d)"
 
-readonly equation="$(sed 's/.*duration=//' <<< "$entries_for_day" | tr '\n' '+') 0"
-readonly total=$(( equation ))
-readonly pomos=$(echo "scale=1; $total / 25" | bc -l)
+  entries_for_day="$(pomodoro history | \
+    awk \
+    -v begin=$date"T06:00:00" \
+    -v end=$date_next"T06:00:00" \
+    '{key=$1}
+    key >=begin {p=1}
+    key >=end {exit} p'
+  )"
 
-echo
-date -d "$date" "+%a %Y-%m-%d"
-echo "$total min · $pomos pomos"
+  equation="$(sed 's/.*duration=//' <<< "$entries_for_day" | tr '\n' '+') 0"
+  total=$(( equation ))
+  pomos=$(echo "scale=1; $total / 25" | bc -l)
+
+  yellow=$(tput setaf 3)
+  bold=$(tput bold)
+  normal=$(tput sgr0)
+  echo "$yellow$bold$(date -d "$date" "+%a %Y-%m-%d")$normal"
+  echo "$yellow$total min · $pomos pomos$normal"
+  echo
+done
