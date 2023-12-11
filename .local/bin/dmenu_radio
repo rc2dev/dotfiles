@@ -33,7 +33,6 @@ readonly streams="$(sed -E 's/^\s+//' <<-END
   Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
 
   $section_prefix JAZZ
-  Naim Jazz (FLAC),http://mscp3.live-streams.nl:8340/jazz-flac.flac
   RadioJAZZ.FM,https://radiojazz.out.airtime.pro/radiojazz_a
   Radio Swiss Jazz,http://stream.srg-ssr.ch/m/rsj/aacp_96
   San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
