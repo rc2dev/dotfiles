@@ -43,7 +43,7 @@ nnoremap <leader>hn :nohlsearch<CR>
 nnoremap <expr> <cr> (&modifiable == 1) ? "@@" : "<cr>"
 
 " New buffer
-nnoremap <Leader>n :enew<CR>
+nnoremap <Leader>e :enew<CR>
 
 " Save or quit
 nnoremap <Leader>w :w<CR>
@@ -113,9 +113,11 @@ tnoremap <C-\><C-\> <C-\><C-n>
 " Colorscheme
 nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
 
-" Journal
+" notes
 nnoremap <leader>fj :execute "edit " . trim(system("journal path today"))<cr>
 nnoremap <leader>fJ :execute "edit " . trim(system("journal path yesterday"))<cr>
+nnoremap <leader>nn :execute "edit $NOTES/notes/" . strftime("%Y-%m-%d %T") . ".md"<cr>
+nnoremap <leader>nu :edit $NOTES/notes/Quick Note.md<cr>
 
 
 " Plugins
