@@ -6,6 +6,7 @@
 # Licensed under GPLv3
 
 set -euo pipefail
+readonly WAIT_START_SEC=10
 
 notify() {
   local -r hint="string:x-dunst-stack-tag:spotify-ad-skipper"
@@ -15,6 +16,12 @@ notify() {
 echo "Listening..."
 
 while true; do
+  # Check if spotify is running
+  if ! pgrep spotify >/dev/null && [[ $SECONDS -gt $WAIT_START_SEC ]]; then
+    echo "Spotify doesn't seem to be running. Quitting..."
+    exit
+  fi
+
   # playerctl returns non-zero when player is not found
   title="$(playerctl -p spotify metadata title || true)"
   if [[ "$title" == "Advertisement" || "$title" == "Spotify" ]]; then
