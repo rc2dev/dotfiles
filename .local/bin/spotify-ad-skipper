@@ -13,17 +13,17 @@ notify() {
   dunstify --hints=$hint --urgency=low --icon spotify "Spotify ad skipper" "$*"
 }
 
-echo "Listening..."
+notify "Listening..."
 
 while true; do
   # Check if spotify is running
   if ! pgrep spotify >/dev/null && [[ $SECONDS -gt $WAIT_START_SEC ]]; then
-    echo "Spotify doesn't seem to be running. Quitting..."
+    notify "Spotify doesn't seem to be running. Quitting..."
     exit
   fi
 
   # playerctl returns non-zero when player is not found
-  title="$(playerctl -p spotify metadata title || true)"
+  title="$(playerctl -p spotify metadata title 2>/dev/null || true)"
   if [[ "$title" == "Advertisement" || "$title" == "Spotify" ]]; then
     notify "Ad found. Trying to skip..."
 
