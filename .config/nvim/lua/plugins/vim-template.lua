@@ -18,12 +18,17 @@ return {
       return expand('%:t:r')
     endfunction
 
+    function GetFileDir()
+      return expand('%:p:h:t')
+    endfunction
+
     function GetFullDate()
       return strftime('%Y-%m-%d %T %z')
     endfunction
     ]]
 
     vim.g.templates_user_variables = {
+       {'DIR', 'GetFileDir'},
        {'FILE1', 'GetFileNoExt'},
        {'FDATE1', 'GetFullDate'}
      }
