@@ -19,6 +19,7 @@ audio/mp4=mpv.desktop
 image/svg+xml=qimgv.desktop
 audio/x-opus+ogg=mpv.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+application/epub+zip=com.github.johnfactotum.Foliate.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
