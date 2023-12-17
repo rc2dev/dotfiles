@@ -9,5 +9,3 @@
 	prune = true
 [rebase]
 	autoStash = true
-[alias]
-	root = rev-parse --show-toplevel
