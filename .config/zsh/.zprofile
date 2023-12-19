@@ -35,7 +35,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # Paths
-export NOTES="$HOME/Documents/Notes"
+export NOTES="$HOME/Documents/notes"
 export XRESOURCES="$HOME/.config/X11/Xresources"
 # Move from ~/. Note this doesn't work on some DM's.
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
