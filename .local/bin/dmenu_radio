@@ -27,7 +27,6 @@ readonly streams="$(sed -E 's/^\s+//' <<-END
   $section_prefix CLASSICAL
   Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
   France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
-  Folk Radio UK,http://streaming.radionomy.com/FolkRadioUK
   Naim Classical (FLAC),http://mscp3.live-streams.nl:8250/class-flac.flac
   Radio Clásica,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r2_main.m3u8
   Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
