@@ -52,14 +52,14 @@ END
 if systemctl --user is-active --quiet "$unit_name"; then
   state=" Stop: $(systemctl --user show "$unit_name" | grep Description= | cut -d= -f2-)"
 elif [[ -f "$last_file" ]]; then
-  state=" Play last: $(cat "$last_file")"
+  state=" Last: $(cat "$last_file")"
 else
   state=
 fi
 
 readonly menu="$(sed -E 's/^\s+//' <<-END
-   Random
   $state
+   Random
 
   $streams
 END
@@ -79,7 +79,7 @@ if [[ "$chosen" =~ Stop ]]; then
 fi
 
 # If chosen value is special, reassign it.
-if [[ "$chosen" =~ Play\ last ]]; then
+if [[ "$chosen" =~ Last ]]; then
   chosen="$(cat "$last_file")"
 elif [[ "$chosen" =~ Random ]]; then
   readonly names_only="$(sed -E 's/,.*$//;/^\s*\W/d;/^\s*$/d' <<< "$streams")"
