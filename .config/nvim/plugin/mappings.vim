@@ -9,8 +9,8 @@ inoremap <F2> <C-o>:set paste!<CR>
 inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
 
 " Toggle spellcheck
-nnoremap <F7> :setlocal spell!<CR>
-inoremap <F7> <C-o>:setlocal spell!<CR>
+nnoremap <F7> :call ToggleSpell()<CR>
+inoremap <F7> <C-o>:call ToggleSpell()<CR>
 
 " Toggle terminal on/off (neovim)
 nnoremap <F12> :call TermToggle(12)<CR>
