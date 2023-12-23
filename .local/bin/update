@@ -6,6 +6,7 @@
 # Licensed under GPLv3
 
 set -euo pipefail
+readonly script_name="$(basename "$0")"
 readonly dev_host="x220"
 
 main() {
@@ -53,7 +54,7 @@ chose() {
 	    roottext=lightgrey,black
 	"
 
-	local -r title="update"
+	local -r title="$script_name"
 	local -r prompt="Choose what to update:"
 
 	whiptail --title "$title" --checklist "$prompt" 15 50 8 "${choices[@]}" 3>&2 2>&1 1>&3-
@@ -64,7 +65,7 @@ log() {
 	local -r green=$(tput setaf 2)
 	local -r normal=$(tput sgr0)
 
-	printf "\n$bold$green➝ [update] %s$normal\n" "$*" 1>&2
+	printf "\n$bold$green➝ [$script_name] %s$normal\n" "$*" 1>&2
 }
 
 has_command() {
