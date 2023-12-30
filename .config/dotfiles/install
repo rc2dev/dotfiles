@@ -34,6 +34,9 @@ log "Setting sparse checkout..."
 git config core.sparseCheckout true
 git sparse-checkout set '/*' '!/README.md' '!/LICENSE'
 
+log "Running workaround if sparse checkout failed..."
+git read-tree -mu HEAD
+
 # Necessary if submodule remote url changes
 log "Syncing submodules if already present..."
 git submodule sync
