@@ -1,9 +1,6 @@
 [submodule "/home/rafael/.config/zsh/.antidote"]
 	path = .config/zsh/.antidote
 	url = https://github.com/mattmc3/antidote.git
-[submodule ".config/ranger/plugins/ranger-zshz"]
-	path = .config/ranger/plugins/ranger-zshz
-	url = https://github.com/rc2dev/ranger-zshz
 [submodule "/home/rafael/.config/tmux/plugins/tpm"]
 	path = .config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
