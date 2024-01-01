@@ -1,70 +1,71 @@
 /*
  * Xresources
  * Author: Rafael Cavalcanti <https://rafaelc.org/dev>
- *
  */
 
 
-/*******************/
-/*****  FONTS  *****/
-/*******************/
-
-/* Other places to set fonts:
- * dunst, mpv, rofi, xsettingsd. */
+/********************************/
+/***********  FONTS  ************/
+/********************************/
 
 dwm.font:   Iosevka Nerd Font:size=10
 st.font:    Blex Mono Nerd Font:size=13
 
+/* Other places to set fonts: dunst, mpv, rofi, xsettingsd. */
 
-/********************/
-/*****  LAYOUT  *****/
-/********************/
+
+/********************************/
+/***********  COLORS  ***********/
+/********************************/
+
+/* st, slock colors are defined by the variables below. */
+/* Theme: catppuccin-macchiato */
+*.background: #24273a
+*.foreground: #cad3f5
+! black
+*.color0:     #494d64
+*.color8:     #5b6078
+! red
+*.color1:     #ed8796
+*.color9:     #ed8796
+! green
+*.color2:     #a6da95
+*.color10:    #a6da95
+! yellow
+*.color3:     #eed49f
+*.color11:    #eed49f
+! blue
+*.color4:     #8aadf4
+*.color12:    #8aadf4
+! magenta
+*.color5:     #f5bde6
+*.color13:    #f5bde6
+! cyan
+*.color6:     #8bd5ca
+*.color14:    #8bd5ca
+! white
+*.color7:     #b8c0e0
+*.color15:    #a5adcb
+
+/* dmenu, dwm */
+*.normbgcolor:         #24273a  /* background */
+*.normfgcolor:         #b8c0e0  /* color7 */
+*.selbgcolor:          #363a4f  /* from neovim theme */
+*.selfgcolor:          #cad3f5  /* foreground */
+dwm.normbordercolor:   #24273a  /* background */
+dwm.selbordercolor:    #8aadf4  /* color4 */
+
+/* Other places for colors: dunst, nvim, theme-mode, xsettingsd, zprofile (LSCOLORS). */
+
+
+/********************************/
+/*****  GENERAL APPEARANCE  *****/
+/********************************/
 
 dwm.topbar:      0
 dwm.mfact:       0.5
 dwm.enablegaps:  0
 dwm.smartgaps:   0
 dwm.showsystray: 0
-
-
-/********************/
-/*****  COLORS  *****/
-/********************/
-
-/* Other places for theming:
-/* bat, dunst, nvim, theme-mode, xsettingsd, zprofile (LSCOLORS). */
-
-#include "themes/catppuccin-macchiato.Xresources"
-
-/* st, slock */
-*.background:          theme_background
-*.foreground:          theme_foreground
-*.cursorColor:         theme_color12
-*.color0:              theme_color0      /* black */
-*.color8:              theme_color8
-*.color1:              theme_color1      /* red */
-*.color9:              theme_color9
-*.color2:              theme_color2      /* green */
-*.color10:             theme_color10
-*.color3:              theme_color3      /* yellow */
-*.color11:             theme_color11
-*.color4:              theme_color4      /* blue */
-*.color12:             theme_color12
-*.color5:              theme_color5      /* magenta */
-*.color13:             theme_color13
-*.color6:              theme_color6      /* cyan */
-*.color14:             theme_color14
-*.color7:              theme_color7      /* white */
-*.color15:             theme_color15
-
-/* dmenu, dwm */
-*.normbgcolor:         theme_background
-*.normfgcolor:         theme_color7
-*.selbgcolor:          #363a4f  /* from neovim theme */
-*.selfgcolor:          theme_foreground
-dwm.normbordercolor:   theme_background
-dwm.selbordercolor:    theme_color4
-dwm.borderpx:          2
-
-/* st */
-st.alpha:              0.95
+dwm.borderpx:    2
+st.alpha :       0.95
