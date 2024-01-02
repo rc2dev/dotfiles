@@ -44,7 +44,8 @@ st.font:    Blex Mono Nerd Font:size=13
 *.color6:     #8bd5ca
 *.color14:    #8bd5ca
 ! white
-*.color7:     #b8c0e0
+! color7 on this theme was #b8c0e0, but contrast on dialog application was too low.
+*.color7:     #ffffff
 *.color15:    #a5adcb
 
 /* dmenu, dwm */
