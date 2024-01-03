@@ -11,17 +11,14 @@ super + b
 {super + c, XF86Calculator}
   gnome-calculator
 
-super + {_, shift } + e
-  { \
-    $TERMINAL -e nvim, \
-    thunderbird, \
-  }
-
 super + shift + d
   theme-mode toggle
 
+super + e
+  $TERMINAL -e nvim
+
 super + f
-  firefox-esr
+  $TERMINAL -e lf
 
 super + {_, shift, ctrl } + n
   dunstctl { \
@@ -40,16 +37,13 @@ super + shift + q
   xkill
 
 super + r
-  $TERMINAL -e lf
+    dmenu_radio
 
 super + s
   dmenu_pomodoro
 
-super + {_, shift} + u
-  { \
-    dmenu_radio, \
-    $TERMINAL -n cmus -e cmus \
-  }
+super + u
+  $TERMINAL -n cmus -e cmus
 
 super + {_, shift} + v
   { \
@@ -57,8 +51,11 @@ super + {_, shift} + v
     mpv "$(xclip -o)" \
   }
 
-super + w
-  $BROWSER
+super + {_, shift} + w
+  { \
+    $BROWSER, \
+    firefox-esr, \
+  }
 
 super + y
   mpv --shuffle "https://www.youtube.com/playlist?list=WL"
