@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+#
+# dmenu script for selecting one of your yt playlists and playing it on
+# shuffle. Be sure to give access to your account.
+#
+# Changes on your list of playlists or changing the user logged on may not be
+# reflected immediately because of caching. Run the script more than once or
+# remove the cache files to get the update.
+#
+# Copyright (C) 2024 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+readonly script_name="$(basename "$0")"
+readonly playlists_cache="$HOME/.cache/dmenu_yt/playlists.json"
+readonly channel_id_cache="$HOME/.cache/dmenu_yt/channel_id"
+readonly dmenu="${DMENU:-dmenu}"
+
+cache_channel_id() {
+  readonly channel_id="$(yt-dlp --print playlist_uploader_id --playlist-items 1 "https://www.youtube.com/playlist?list=WL")"
+  mkdir -p "$(dirname "$channel_id_cache")"
+  echo "$channel_id" > "$channel_id_cache"
+}
+
+# Don't wait for getting playlists from remote server
+cache_playlists() {
+  # User created playlists
+  local -r playlists_url="https://www.youtube.com/$channel_id/playlists?view=1"
+  playlists_json="$(yt-dlp --flat-playlist --dump-json "$playlists_url")"
+  # Add missing "Watch Later"
+  playlists_json+=' {"url": "https://www.youtube.com/playlist?list=WL", "title": "Watch Later"}'
+
+  mkdir -p "$(dirname "$playlists_cache")"
+  echo "$playlists_json" > "$playlists_cache"
+}
+
+if [[ ! -e "$channel_id_cache" || ! -e "$playlists_cache" ]]; then
+  notify-send --icon youtube "$script_name" "No cache found. Retrieving data..."
+  cache_channel_id
+  cache_playlists
+else
+  (cache_channel_id && cache_playlists) &
+fi
+
+# Read playlist titles but sort "Watch Later" first
+readarray -t playlists_titles < <(jq -r 'select(.title != "Watch Later") | .title' < "$playlists_cache")
+readonly chosen="$( (printf "Watch Later\n"; (printf "%s\n" "${playlists_titles[@]}" | sort)) | $dmenu -p "󰗃 Playlists" "$@")"
+
+[[ -z "$chosen" ]] && exit
+readonly url="$(jq -r "select(.title==\"$chosen\") | .url" < "$playlists_cache")"
+
+mpv --shuffle "$url"

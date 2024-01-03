@@ -58,7 +58,7 @@ super + {_, shift} + w
   }
 
 super + y
-  mpv --shuffle "https://www.youtube.com/playlist?list=WL"
+  dmenu_yt
 
 super + Return
   $TERMINAL
