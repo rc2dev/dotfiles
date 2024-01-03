@@ -367,5 +367,6 @@ Vagrantfile             
 # other formats
 *.epub  
 *.odt   󰈭
+*.fodt  󰈭
 *.pdf   
 *.txt   
