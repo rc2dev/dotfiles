@@ -193,7 +193,7 @@ map fd :fzf_jump --type d
 # lf doesn't seem to support completion, so we'll use fzf.
 cmd z ${{
     options=$(zsh -c "source $ZSHZ_SRC && zshz -l")
-    result="$(awk '{print $2}' <<< "$options" | fzf --header='z to directory...')"
+    result="$(cut -c 12- <<< "$options" | fzf --header='z to directory...')"
     lf -remote "send $id cd \"$result\""
 }}
 map fz :z
