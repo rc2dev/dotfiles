@@ -25,7 +25,6 @@ clipmenud &
 playerctld daemon &
 nm-applet &
 blueman-applet &
-syncthing-gtk --minimized &
 keepassxc &
 dwm-status --loop &
 
