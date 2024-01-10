@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
-
-set -euo pipefail
-
-notify-send -i "tomato" "Pomodoro" "Pomodoro stopped."
