@@ -11,6 +11,12 @@ xrdb "$XRESOURCES"
 # Make Qt applications to be styled as Gtk (needs QGnomePlatform).
 export QT_QPA_PLATFORMTHEME=gnome
 
+# Keyboard overrides
+kb_overrides="$HOME/.config/X11/overrides-`hostname`.xmodmap"
+if [ -e "$kb_overrides" ]; then
+  xmodmap "$kb_overrides"
+fi
+
 # Applications
 lxpolkit &  # Polkit agent, so GUI applications can request privileges
 xsettingsd &

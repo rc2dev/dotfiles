@@ -1,0 +1,14 @@
+! Override keys for k68 on rd. Based on br,us layout.
+! Run with xmodmap.
+!
+! Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+! Use Esc as the keys acessible via Fn
+keycode  9 = apostrophe quotedbl dead_grave dead_tilde grave asciitilde
+
+! Swap PgDown and End
+keycode 115 = Next NoSymbol Next
+keycode 117 = End NoSymbol End
+
+! Place missing bar (pipe) on br layout on altgr+0.
+keycode  19 = 0 parenright 0 parenright bar degree rightsinglequotemark dead_abovering
