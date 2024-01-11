@@ -6,6 +6,7 @@
 set -euo pipefail
 readonly script_name="$(basename "$0")"
 readonly pid_file="/var/run/user/$UID/$script_name.pid"
+readonly cache_dir="$HOME/.cache/dwm-status"
 readonly sep=" ｜ "
 readonly interval="5s"
 
@@ -67,10 +68,23 @@ bar_pomodoro() {
   pomodoro status --format "🍅 %!R' %d"
 }
 
+bar_btc() {
+  # Use a cache so we don't ping the website too often.
+  local -r cache_btc="$cache_dir/btc"
+
+  # Cache doesn't exist or old.
+  if [[ ! -e "$cache_btc" || "$(find "$cache_btc" -mmin +1 | wc -l)" == "1" ]]; then
+    echo " $(curl --silent 'rate.sx/?T' | awk '($4=="BTC"){print $6}')" > "$cache_btc"
+  fi
+
+  cat "$cache_btc"
+}
+
 update() {
   declare -ar elements=(
     "$(bar_player)"
     "$(bar_pomodoro)"
+    "$(bar_btc)"
     "$(bar_battery)"
     "$(bar_temp)"
     "$(bar_time)"
@@ -98,6 +112,7 @@ ensure_one_instance() {
 
 main() {
   ensure_one_instance
+  mkdir -p "$cache_dir"
 
   while true; do
     update
