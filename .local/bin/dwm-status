@@ -72,8 +72,11 @@ bar_btc() {
   # Use a cache so we don't ping the website too often.
   local -r cache_btc="$cache_dir/btc"
 
-  # Cache doesn't exist or old.
-  if [[ ! -e "$cache_btc" || "$(find "$cache_btc" -mmin +1 | wc -l)" == "1" ]]; then
+  if [[
+      ! -e "$cache_btc" ||  # no cache
+      "$(find "$cache_btc" -mmin +1 | wc -l)" == "1" ||  # cache is old
+      "$(wc --chars < "$cache_btc")" -le 3   # cache is empty
+      ]]; then
     echo " $(curl --silent 'rate.sx/?T' | awk '($4=="BTC"){print $6}')" > "$cache_btc"
   fi
 
