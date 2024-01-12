@@ -77,7 +77,9 @@ bar_btc() {
       "$(find "$cache_btc" -mmin +1 | wc -l)" == "1" ||  # cache is old
       "$(wc --chars < "$cache_btc")" -le 3   # cache is empty
       ]]; then
-    echo " $(curl --silent 'rate.sx/?T' | awk '($4=="BTC"){print $6}')" > "$cache_btc"
+
+    # Set max-time, or whole status will become outdated waiting for this section.
+    echo " $(curl --silent --max-time 5 'rate.sx/?T' | awk '($4=="BTC"){print $6}')" > "$cache_btc"
   fi
 
   cat "$cache_btc"
