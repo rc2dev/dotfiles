@@ -64,10 +64,6 @@ bar_battery() {
   echo "$icon $level%"
 }
 
-bar_pomodoro() {
-  pomodoro status --format "🍅 %!R' %d"
-}
-
 bar_btc() {
   # Use a cache so we don't ping the website too often.
   local -r cache_btc="$cache_dir/btc"
@@ -88,7 +84,6 @@ bar_btc() {
 update() {
   declare -ar elements=(
     "$(bar_player)"
-    "$(bar_pomodoro)"
     "$(bar_btc)"
     "$(bar_battery)"
     "$(bar_temp)"

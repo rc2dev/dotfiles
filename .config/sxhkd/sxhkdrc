@@ -39,9 +39,6 @@ super + shift + q
 super + r
     dmenu_radio
 
-super + s
-  dmenu_pomodoro
-
 super + u
   $TERMINAL -n cmus -e cmus
 
