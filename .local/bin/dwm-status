@@ -69,7 +69,7 @@ bar_btc() {
   local -r cache_btc="$cache_dir/btc"
   local -r cache_min_size=4
   local -r cache_max_min="+1"
-  local -r curl_max_sec=5
+  local -r curl_max_sec=4
 
   if [[
       ! -e "$cache_btc" ||  # no cache
