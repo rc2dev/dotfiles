@@ -13,7 +13,16 @@ readonly interval="5s"
 bar_player() {
   [[ "$(playerctl status 2>/dev/null)" =~ (Playing|Paused) ]] || return 0
 
-  playerctl metadata --format "{{ playerName }} {{ emoji(status) }} {{ trunc(title, 20) }}"
+  local player_icon
+  local -r player_name="$(playerctl metadata --format "{{ playerName }}")"
+  case "$player_name" in
+    chromium) player_icon= ;;
+    mpv)      player_icon= ;;
+    spotify)  player_icon= ;;
+    *)        player_icon="$player_name" ;;
+  esac
+
+  playerctl metadata --format "$player_icon {{ emoji(status) }} {{ trunc(title, 20) }}"
 }
 
 bar_time() {
