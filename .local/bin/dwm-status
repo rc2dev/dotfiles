@@ -11,18 +11,9 @@ readonly sep=" ｜ "
 readonly interval="5s"
 
 bar_player() {
-  local -r status="$(playerctl status 2>/dev/null)"
+  [[ "$(playerctl status 2>/dev/null)" =~ (Playing|Paused) ]] || return 0
 
-  [[ "$status" =~ (Playing|Paused) ]] || return 0
-
-  # Reverse to match mpv
-  case $status in
-    Playing) local -r icon=;;
-    Paused) local -r icon=;;
-  esac
-  local -r title="$(playerctl metadata --format "[{{ playerName }}] {{ trunc(title, 20) }}")"
-
-  echo "${icon} ${title}"
+  playerctl metadata --format "{{ playerName }} {{ emoji(status) }} {{ trunc(title, 20) }}"
 }
 
 bar_time() {
