@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2020-2023 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Copyright (C) 2020-2024 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 set -euo pipefail
@@ -22,9 +22,14 @@ main() {
   btc_get_loop &
 
   while true; do
+    log "Updating bar..."
     update
     sleep "$interval"
   done
+}
+
+log() {
+  printf "[%s] %s\n" "$(date +"%b %d %H:%M:%S")" "$*"
 }
 
 bar_player() {
@@ -101,8 +106,10 @@ btc_get_loop() {
   fi
 
   while true; do
+    log "BTC: Getting value from network..."
     value="$(curl --silent --max-time "$curl_max_sec" 'rate.sx/?T' | awk '($4=="BTC"){print $6}')"
     echo " ${value:-}" > "$cache_btc"
+    log "BTC: Done."
 
     if [[ -z "${value// }" ]]; then
       sleep "$interval_error"
@@ -135,6 +142,7 @@ update() {
 
 ensure_one_instance() {
   if [[ -f "$pid_file" ]]; then
+    log "Killing existing instance..."
     kill "$(cat "$pid_file")" 2> /dev/null || true
   fi
 
