@@ -142,8 +142,9 @@ update() {
 
 ensure_only_instance() {
   if [[ -f "$pid_file" ]]; then
-    log "Killing existing instance..."
-    kill "$(cat "$pid_file")" 2> /dev/null || true
+    local -r pid="$(cat "$pid_file")"
+    log "Killing existing instance ($pid)..."
+    kill "$pid" 2> /dev/null || true
   fi
 
   echo $$ > "$pid_file"
