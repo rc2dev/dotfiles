@@ -7,8 +7,25 @@ set -euo pipefail
 readonly script_name="$(basename "$0")"
 readonly pid_file="/var/run/user/$UID/$script_name.pid"
 readonly cache_dir="$HOME/.cache/dwm-status"
+readonly cache_btc="$cache_dir/btc"
 readonly sep=" ｜ "
 readonly interval="5s"
+
+# Kill subprocesses on exit
+trap "kill 0" EXIT
+
+main() {
+  ensure_one_instance
+  mkdir -p "$cache_dir"
+
+  # Background workers
+  btc_get_loop &
+
+  while true; do
+    update
+    sleep "$interval"
+  done
+}
 
 bar_player() {
   [[ "$(playerctl status 2>/dev/null)" =~ (Playing|Paused) ]] || return 0
@@ -65,23 +82,34 @@ bar_battery() {
 }
 
 bar_btc() {
-  # Use a cache so we don't ping the website too often.
-  local -r cache_btc="$cache_dir/btc"
-  local -r cache_min_size=4
-  local -r cache_max_min="+1"
+  # Use a background loop for getting the value, so:
+  # - so we don't ping the website too often.
+  # - rendering the bar doesn't wait for remote server.
+  cat "$cache_btc"
+}
+
+btc_get_loop() {
+  local -r interval_normal="60s"
+  local -r interval_error="10s"
+  local -r cache_startup_max_min="+2"
   local -r curl_max_sec=4
+  local value
 
-  if [[
-      ! -e "$cache_btc" ||  # no cache
-      "$(find "$cache_btc" -mmin "$cache_max_min" | wc -l)" == "1" ||  # cache is old
-      "$(wc --chars < "$cache_btc")" -lt $cache_min_size   # cache is empty
-      ]]; then
-
-    # Set max-time, or whole status will become outdated waiting for this section.
-    echo " $(curl --silent --max-time "$curl_max_sec" 'rate.sx/?T' | awk '($4=="BTC"){print $6}')" > "$cache_btc"
+  # Remove value from cache if too old
+  if [[ "$(find "$cache_btc" -mmin "$cache_startup_max_min" | wc -l)" == "1" ]]; then
+    echo " Starting..." > "$cache_btc"
   fi
 
-  cat "$cache_btc"
+  while true; do
+    value="$(curl --silent --max-time "$curl_max_sec" 'rate.sx/?T' | awk '($4=="BTC"){print $6}')"
+    echo " ${value:-}" > "$cache_btc"
+
+    if [[ -z "${value// }" ]]; then
+      sleep "$interval_error"
+    else
+      sleep "$interval_normal"
+    fi
+  done
 }
 
 update() {
@@ -111,16 +139,6 @@ ensure_one_instance() {
   fi
 
   echo $$ > "$pid_file"
-}
-
-main() {
-  ensure_one_instance
-  mkdir -p "$cache_dir"
-
-  while true; do
-    update
-    sleep "$interval"
-  done
 }
 
 main "$@"
