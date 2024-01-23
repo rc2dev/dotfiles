@@ -15,7 +15,7 @@ readonly interval="5s"
 trap "kill 0" EXIT
 
 main() {
-  ensure_one_instance
+  ensure_only_instance
   mkdir -p "$cache_dir"
 
   # Background workers
@@ -140,7 +140,7 @@ update() {
   xsetroot -name "$output"
 }
 
-ensure_one_instance() {
+ensure_only_instance() {
   if [[ -f "$pid_file" ]]; then
     log "Killing existing instance..."
     kill "$(cat "$pid_file")" 2> /dev/null || true
