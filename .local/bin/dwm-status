@@ -120,7 +120,7 @@ btc_get_loop() {
 
   while true; do
     log "BTC: Getting value from network..."
-    value="$(curl --silent --max-time "$curl_max_sec" 'rate.sx/?T' | awk '($4=="BTC"){print $6}')"
+    value="$(curl --silent --connect-timeout "$curl_max_sec" --max-time "$curl_max_sec" 'rate.sx/?T' | awk '($4=="BTC"){print $6}')"
     echo " ${value:-}" > "$cache_btc"
     log "BTC: Done."
 
