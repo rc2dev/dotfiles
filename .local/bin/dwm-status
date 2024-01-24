@@ -10,16 +10,13 @@ readonly cache_dir="$HOME/.cache/dwm-status"
 readonly cache_btc="$cache_dir/btc"
 readonly sep=" ｜ "
 readonly interval="5s"
-
-# Kill subprocesses on exit
-trap "kill 0" EXIT
+declare bg_pids
 
 main() {
   ensure_only_instance
   mkdir -p "$cache_dir"
 
-  # Background workers
-  btc_get_loop &
+  run_bg_loops
 
   while true; do
     log "Updating bar..."
@@ -47,6 +44,16 @@ update() {
   output="$output "
 
   xsetroot -name "$output"
+}
+
+run_bg_loops() {
+  for cmd in bg_get_btc; do
+    $cmd &
+    bg_pids="${bg_pids:-} $!"
+  done
+
+  # Kill background workers on exit
+  trap "kill ${bg_pids:-}; exit" EXIT
 }
 
 bar_player() {
@@ -113,7 +120,7 @@ bar_btc() {
   cat "$cache_btc"
 }
 
-btc_get_loop() {
+bg_get_btc() {
   local -r interval_normal="60s"
   local -r interval_error="10s"
   local -r curl_max_sec=4
