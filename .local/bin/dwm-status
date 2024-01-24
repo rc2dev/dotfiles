@@ -128,7 +128,7 @@ bg_get_btc() {
 
   while true; do
     log "BTC: Getting value from network..."
-    value="$(curl --silent --connect-timeout "$curl_max_sec" --max-time "$curl_max_sec" 'rate.sx/?T' | awk '($4=="BTC"){print $6}')"
+    value="$( (curl --silent --connect-timeout "$curl_max_sec" --max-time "$curl_max_sec" 'rate.sx/?T' || true) | awk '($4=="BTC"){print $6}')"
     log "BTC: Done."
 
     if [[ -z "${value:-// }" ]]; then
