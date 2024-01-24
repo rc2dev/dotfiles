@@ -131,7 +131,7 @@ bg_get_btc() {
     value="$( (curl --silent --connect-timeout "$curl_max_sec" --max-time "$curl_max_sec" 'rate.sx/?T' || true) | awk '($4=="BTC"){print $6}')"
     log "BTC: Done."
 
-    if [[ -z "${value:-// }" ]]; then
+    if [[ -z "${value:-}" ]]; then
       sleep "$interval_error"
     else
       echo " ${value}" > "$cache_btc"
