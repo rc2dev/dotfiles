@@ -28,8 +28,25 @@ main() {
   done
 }
 
-log() {
-  printf "[%s] %s\n" "$(date +"%b %d %H:%M:%S")" "$*"
+update() {
+  declare -ar elements=(
+    "$(bar_player)"
+    "$(bar_btc)"
+    "$(bar_battery)"
+    "$(bar_temp)"
+    "$(bar_time)"
+  )
+
+  # Generate output string
+  output="$(printf "\t%s" "${elements[@]}")"
+  # Remove separator from beginning and duplicated
+  output="$(sed -E 's/^\t*//; s/\t+/\t/g' <<< ${output})"
+  # Place chosen separator
+  output="$(sed "s/\t/$sep/g" <<< ${output})"
+  # Add space to the end
+  output="$output "
+
+  xsetroot -name "$output"
 }
 
 bar_player() {
@@ -49,10 +66,6 @@ bar_player() {
 
 bar_time() {
   date +"%a %d %R"
-}
-
-bar_mem() {
-  echo " $(free -h | awk '/^Mem:/ {print $3}')"
 }
 
 bar_temp() {
@@ -119,27 +132,6 @@ btc_get_loop() {
   done
 }
 
-update() {
-  declare -ar elements=(
-    "$(bar_player)"
-    "$(bar_btc)"
-    "$(bar_battery)"
-    "$(bar_temp)"
-    "$(bar_time)"
-  )
-
-  # Generate output string
-  output="$(printf "\t%s" "${elements[@]}")"
-  # Remove separator from beginning and duplicated
-  output="$(sed -E 's/^\t*//; s/\t+/\t/g' <<< ${output})"
-  # Place chosen separator
-  output="$(sed "s/\t/$sep/g" <<< ${output})"
-  # Add space to the end
-  output="$output "
-
-  xsetroot -name "$output"
-}
-
 ensure_only_instance() {
   if [[ -f "$pid_file" ]]; then
     local -r pid="$(cat "$pid_file")"
@@ -148,6 +140,10 @@ ensure_only_instance() {
   fi
 
   echo $$ > "$pid_file"
+}
+
+log() {
+  printf "[%s] %s\n" "$(date +"%b %d %H:%M:%S")" "$*"
 }
 
 main "$@"
