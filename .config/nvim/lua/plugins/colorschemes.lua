@@ -6,15 +6,6 @@ vim.opt.termguicolors = true
 
 return {
   {
-    "joshdick/onedark.vim",
-    init = function ()
-      -- Enable italics (must precede theme setting)
-      vim.g.onedark_terminal_italics = 1
-    end,
-    enabled = false,
-  },
-
-  {
     "morhetz/gruvbox",
     init = function ()
       -- Enable italics (must precede theme setting)
