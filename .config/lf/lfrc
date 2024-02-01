@@ -189,19 +189,17 @@ map f  # unmap
 map ff :fzf_jump
 map fd :fzf_jump --type d
 
-# zsh-z integration to jump directories.
-# lf doesn't seem to support completion, so we'll use fzf.
+# zoxide integration to jump directories.
 cmd z ${{
-    options=$(zsh -c "source $ZSHZ_SRC && zshz -l")
-    result="$(cut -c 12- <<< "$options" | fzf --header='z to directory...')"
+    result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
     lf -remote "send $id cd \"$result\""
 }}
 map fz :z
 map zz :z
 
 cmd on-cd &{{
-    # Hook for zsh-z on cd.
-    zsh -c "source $ZSHZ_SRC && zshz --add \"$PWD\""
+    # Hook for zoxide on cd.
+    zoxide add "$PWD"
 
     # display git repository status in the prompt
     source /etc/bash_completion.d/git-prompt

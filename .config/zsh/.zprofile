@@ -89,16 +89,6 @@ export TEXMFCONFIG="$HOME/.config/texlive/texmf-config"
 # zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
 
-# zsh-z
-export ZSHZ_CASE=smart
-# Use my custom cd (with ls)
-export ZSHZ_CD="cd"
-# Move from ~/
-export ZSHZ_DATA="$HOME/.local/state/zsh/z"
-export ZSHZ_TILDE=1
-# For lf / ranger integration
-export ZSHZ_SRC="$HOME/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-agkozak-SLASH-zsh-z/zsh-z.plugin.zsh"
-
 
 # Autostart X11 on tty1
 #######################################################

@@ -221,5 +221,8 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1         # For konsole and gnome-terminal
 
+# Enable zoxide
+eval "$(zoxide init zsh)"
+
 source "$ZDOTDIR/aliases"
 
