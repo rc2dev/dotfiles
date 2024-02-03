@@ -9,4 +9,9 @@ return  {
   opts = {
     colorscheme = { dark = "catppuccin-mocha", light = "gruvbox" }
   },
+
+  -- Only load in graphical environments.
+  cond = function()
+    return os.getenv("DISPLAY") ~= nil
+  end,
 }
