@@ -88,6 +88,7 @@ setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME PUSHD_IGNORE_DUPS
 alias d='dirs -v && read index && let "index=$index+0" && cd ~"$index" \
   && let "index=$index+1" && popd -q +"$index"'
 
+
 ############################################################
 ### Keybindings
 ############################################################
@@ -145,12 +146,15 @@ bindkey '^[[1;3A' up-directory
 
 
 ############################################################
-### Plugins sourcing
+### Sourcing and plugins
 ############################################################
 
 # powerlevel10k prompt
 if [[ -e "$HOME/.local/share/zsh/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
   source "$HOME/.local/share/zsh/powerlevel10k/powerlevel10k.zsh-theme"
+
+  # To customize prompt, run `p10k configure` or edit $ZDOTDIR/.p10k.zsh.
+  [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
 fi
 
 # apt's command-not-found
@@ -158,14 +162,11 @@ if [[ -e "/etc/zsh_command_not_found" ]]; then
   source "/etc/zsh_command_not_found"
 fi
 
+# zoxide
+eval "$(zoxide init zsh)"
 
-############################################################
-### Plugins configuration
-############################################################
-
-# powerlevel10k prompt
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# aliases
+source "$ZDOTDIR/aliases"
 
 
 ###########################################################
@@ -219,9 +220,4 @@ export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1         # For konsole and gnome-terminal
-
-# Enable zoxide
-eval "$(zoxide init zsh)"
-
-source "$ZDOTDIR/aliases"
 
