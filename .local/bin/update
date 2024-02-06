@@ -31,7 +31,6 @@ chose() {
 
 		nvim_plugins  " " ON
 		tmux_plugins  " " ON
-		zsh_plugins   " " ON
 	)
 
 	# Whiptail theme
@@ -148,16 +147,6 @@ update_tmux_plugins() {
 
 	log "Atualizando plugins do tmux..."
 	~/.config/tmux/plugins/tpm/bin/update_plugins all
-}
-
-update_zsh_plugins() {
-	if ! has_command zsh; then
-		log "Skipping zsh plugins update: zsh not installed."
-		return 0
-	fi
-
-	log "Atualizando plugins do zsh..."
-	zsh "$ZDOTDIR/.antidote/antidote" update --bundles
 }
 
 update_pipx_packages() {

@@ -1,6 +1,0 @@
-# vim:ft=conf
-#
-# Plugin list for antidote.
-# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
-
-romkatv/powerlevel10k

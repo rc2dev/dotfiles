@@ -148,11 +148,10 @@ bindkey '^[[1;3A' up-directory
 ### Plugins sourcing
 ############################################################
 
-# Source plugin framework
-source "$ZDOTDIR/.antidote/antidote.zsh"
-
-# initialize plugins from .zsh_plugins.txt
-antidote load
+# powerlevel10k prompt
+if [[ -e "$HOME/.local/share/zsh/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
+  source "$HOME/.local/share/zsh/powerlevel10k/powerlevel10k.zsh-theme"
+fi
 
 # apt's command-not-found
 if [[ -e "/etc/zsh_command_not_found" ]]; then
