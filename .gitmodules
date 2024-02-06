@@ -1,3 +1,6 @@
 [submodule "/home/rafael/.config/tmux/plugins/tpm"]
 	path = .config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule ".local/share/zsh/powerlevel10k"]
+	path = .local/share/zsh/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
