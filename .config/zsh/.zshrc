@@ -77,11 +77,6 @@ setopt rm_star_silent
 # Allow comments in interactive shells
 setopt interactivecomments
 
-# Pushd
-setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME PUSHD_IGNORE_DUPS
-alias d='dirs -v && read index && let "index=$index+0" && cd ~"$index" \
-  && let "index=$index+1" && popd -q +"$index"'
-
 
 ############################################################
 ### Keybindings
