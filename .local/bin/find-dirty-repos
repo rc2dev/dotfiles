@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Adapted from <https://gist.github.com/jaz303/7089132>
+# by Rafael Cavalcanti <https://rafaelc.org/dev>.
+
+readonly script_name="$(basename "$0")"
+
+if [[ "$#" -ne 1 ]]; then
+  printf "Usage: %s dir_path\n" "$script_name" >&2
+  exit 1
+fi
+
+target="$1"
+if [[ ! -d "$target" ]]; then
+  printf "Directory doesn't exist.\n" >&2
+  exit 1
+fi
+
+for dir in $(find "$target" -name '.git' -type d)
+do
+  dir=$(dirname $dir)
+  cd $dir
+
+  STATE=""
+
+  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+    STATE="untracked-files ${STATE}"
+  fi
+
+  if ! git diff --quiet 2> /dev/null; then
+    STATE="modified ${STATE}"
+  fi
+
+  if ! git diff --cached --quiet 2> /dev/null; then
+    STATE="staged ${STATE}"
+  fi
+
+  if [[ -n $STATE ]]; then
+    echo "${dir}: ${STATE}"
+  fi
+
+  cd - > /dev/null
+done
