@@ -14,4 +14,4 @@ curl -L https://rafaelc.org/dotfiles | bash
 
 Licensed under [GPLv3](LICENSE)
 
-Copyright (C) 2018-2022 [Rafael Cavalcanti](https://rafaelc.org/dev)
+Copyright (C) 2018-2024 [Rafael Cavalcanti](https://rafaelc.org/dev)
