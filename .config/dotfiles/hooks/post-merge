@@ -23,8 +23,3 @@ if has_changed .gitmodules; then
   git submodule sync --recursive
   git submodule update --init --recursive
 fi
-
-if has_changed .config/jumps.conf; then
-  printf "\n[Hook] jumps.conf changed: Re-generating jumps...\n"
-  gen-jumps
-fi
