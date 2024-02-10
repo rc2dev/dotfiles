@@ -1,9 +1,0 @@
-# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
-
-[Unit]
-Description=Automatic user-level updates
-OnFailure=status-email@%n.service
-
-[Service]
-ExecStartPre=/bin/bash -c "until host example.com; do sleep 1; done"
-ExecStart=%h/.local/bin/dotfiles pull
