@@ -69,7 +69,6 @@ bak() {
 alias cx="chmod +x"
 alias e="$EDITOR"
 alias fn="find . -iname"
-alias mux="tmuxinator"
 alias q="exit"
 alias se="sudo -e"
 alias vim="nvim"
