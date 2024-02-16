@@ -39,6 +39,9 @@ super + shift + q
 super + r
     dmenu_radio
 
+super + s
+  flatpak run md.obsidian.Obsidian
+
 super + u
   $TERMINAL -n cmus -e cmus
 
