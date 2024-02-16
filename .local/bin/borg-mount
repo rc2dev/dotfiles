@@ -6,15 +6,14 @@
 # Licensed under GPLv3
 
 set -euo pipefail
+IFS=$'\n'
+readonly script_name="$(basename "$0")"
 
 # Configuration
 declare -ar file_manager=("$TERMINAL" -e lf)
 declare -ar options=(-o allow_other)
 declare -ar common_options=()
 
-
-readonly script_name="$(basename "$0")"
-IFS=$'\n'
 
 if ! command -v borg >/dev/null; then
 	printf "Please install Borg.\n"
