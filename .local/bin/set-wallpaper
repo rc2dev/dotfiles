@@ -6,7 +6,7 @@
 set -euo pipefail
 
 readonly script_name="$(basename "$0")"
-readonly wallpaper_store="$HOME/.config/wallpaper"
+readonly wallpaper_store="$(systemd-path user-configuration)/set-wallpaper/wallpaper"
 
 case $# in
   0)
