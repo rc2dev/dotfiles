@@ -2,9 +2,6 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-super + a
-  dmenu_ticktask
-
 super + b
   rofi-bluetooth -i
 
