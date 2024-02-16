@@ -3,8 +3,12 @@
 
 return {
   "ahmedkhalf/project.nvim",
-  config = function()
-    require("project_nvim").setup()
-  end,
+
+  opts = {
+    -- Detect obsidian vaults
+    patterns = { ".obsidian" }
+  },
+
+  name = "project_nvim"
 }
 
