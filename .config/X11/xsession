@@ -3,5 +3,5 @@
 # This is executed when starting a X session with startx.
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-. "$HOME/.config/dwm/profile"
+. "$HOME/.config/X11/xsession-dwm"
 exec dwm
