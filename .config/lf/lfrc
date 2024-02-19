@@ -174,7 +174,7 @@ map W &set-wallpaper $f
 # Find file or dir with fzf.
 # Args: extra arguments for fd.
 cmd fzf_jump ${{
-    res="$(fdfind . "$@" | fzf --header='Jump to...')"
+    res="$(fdfind --no-ignore . "$@" | fzf --header='Jump to...')"
     if [ -n "$res" ]; then
         if [ -d "$res" ]; then
             cmd="cd"
