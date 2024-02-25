@@ -20,6 +20,7 @@ image/svg+xml=qimgv.desktop
 audio/x-opus+ogg=mpv.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
 application/epub+zip=com.github.johnfactotum.Foliate.desktop
+video/mp4=mpv.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
@@ -32,3 +33,4 @@ video/webm=mpv.desktop;qimgv.desktop;
 text/calendar=thunderbird.desktop;
 audio/x-opus+ogg=mpv.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+video/mp4=mpv.desktop;
