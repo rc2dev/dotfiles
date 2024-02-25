@@ -50,13 +50,11 @@ fi
 # Show history timestamped
 alias history="history -i"
 # Copy commands from history to clipboard
-# The awk command removes duplicates, or fzf may be full of them.
-alias hy="
-  fc -ln 0 |
-  awk '!a[\$0]++' |
-  fzf --header 'Copy history' --no-preview --height 70% |
-  xsel --clipboard
-"
+# The awk command removes duplicates.
+hy() {
+  local -r entry="$(fc -ln 0 | awk '!a[$0]++' | fzf --tac --multi --header 'Copy history')"
+  [[ -n "$entry" ]] && xsel --clipboard >/dev/null && echo "Copied to clipboard." >&2
+}
 
 # Create backup of file or directory
 bak() {
