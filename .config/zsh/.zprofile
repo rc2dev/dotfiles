@@ -68,7 +68,6 @@ export CM_HISTLENGTH=14  # set same value as rofi's theme
 # fzf
 export FZF_DEFAULT_OPTS="
   --layout=reverse
-  --multi
   --bind 'change:top'
 "
 
