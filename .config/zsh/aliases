@@ -53,7 +53,7 @@ alias history="history -i"
 # The awk command removes duplicates.
 hy() {
   local -r entry="$(fc -ln 0 | awk '!a[$0]++' | fzf --tac --multi --header 'Copy history')"
-  [[ -n "$entry" ]] && xsel --clipboard >/dev/null && echo "Copied to clipboard." >&2
+  [[ -n "$entry" ]] && xsel --clipboard <<< "$entry" >/dev/null && echo "Copied to clipboard." >&2
 }
 
 # Create backup of file or directory
