@@ -66,7 +66,7 @@
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
-    indicate_hidden = yes
+    indicate_hidden = true
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
@@ -110,7 +110,7 @@
     separator_color = frame
 
     # Sort messages by urgency.
-    sort = yes
+    sort = true
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -182,7 +182,7 @@
 
     # Ignore newlines '\n' in notifications.
     # This removes chromium blank line in body.
-    ignore_newline = yes
+    ignore_newline = true
 
     # Stack together notifications with the same content
     stack_duplicates = true
@@ -191,7 +191,7 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = true
 
     ### Icons ###
 
@@ -216,7 +216,7 @@
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
-    sticky_history = yes
+    sticky_history = true
 
     # Maximum amount of notifications kept in history
     history_length = 20
