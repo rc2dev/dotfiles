@@ -27,10 +27,10 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width
-    width = 280
+    width = 300
 
     # The maximum height of a single notification, excluding the frame.
-    height = 90
+    height = 100
 
     # Position the notification in the top right corner
     origin = top-right
@@ -181,7 +181,8 @@
     ellipsize = end
 
     # Ignore newlines '\n' in notifications.
-    ignore_newline = no
+    # This removes chromium blank line in body.
+    ignore_newline = yes
 
     # Stack together notifications with the same content
     stack_duplicates = true
@@ -460,10 +461,5 @@
 [volume]
     icon = "audio-volume-*"
     history_ignore = true
-
-[whatsapp]
-    body = "*web.whatsapp.com*"
-    # Prevent title to wrap, which would make the message body absent.
-    word_wrap = false
 
 # vim: ft=cfg

@@ -29,7 +29,7 @@ get_volume_icon() {
 }
 
 volume_notification() {
-  local -r bar_max_size=28
+  local -r bar_max_size=31
 
   local -r volume="$(get_volume)"
   local -r vol_icon="$(get_volume_icon "$volume")"
