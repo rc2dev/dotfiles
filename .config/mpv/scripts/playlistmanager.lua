@@ -1,7 +1,4 @@
 local settings = {
-
-  -- #### FUNCTIONALITY SETTINGS
-
   --navigation keybindings force override only while playlist is visible
   --if "no" then you can display the playlist by any of the navigation keys
   dynamic_binds = true,
@@ -129,8 +126,6 @@ local settings = {
   --allow the playlist cursor to loop from end to start and vice versa
   loop_cursor = true,
 
-  --youtube-dl executable for title resolving if enabled, probably "youtube-dl" or "yt-dlp", can be absolute path
-  youtube_dl_executable = "youtube-dl",
 
   -- allow playlistmanager to write watch later config when navigating between files
   allow_write_watch_later_config = true,
@@ -139,10 +134,11 @@ local settings = {
   reset_cursor_on_close = true,
   reset_cursor_on_open = true,
 
-  --####  VISUAL SETTINGS
-
   --prefer to display titles for following files: "all", "url", "none". Sorting still uses filename.
   prefer_titles = "url",
+
+  --youtube-dl executable for title resolving if enabled, probably "youtube-dl" or "yt-dlp", can be absolute path
+  youtube_dl_executable = "yt-dlp",
 
   --call youtube-dl to resolve the titles of urls in the playlist
   resolve_url_titles = false,
@@ -173,10 +169,10 @@ local settings = {
   --\\q2 style is recommended since filename wrapping may lead to unexpected rendering
   --\\an7 style is recommended to align to top left otherwise, osd-align-x/y is respected
   style_ass_tags = "{\\q2\\an7}",
-  --paddings for left right and top bottom, depends on alignment
+  --paddings for left right and top bottom, depends on alignment 
   text_padding_x = 30,
   text_padding_y = 60,
-
+  
   --screen dim when menu is open 0.0 - 1.0 (0 is no dim, 1 is black)
   curtain_opacity=0.0,
 
@@ -252,13 +248,13 @@ end
 if settings.showamount == -1 then
   -- same as draw_playlist() height
   local h = 720
-
+  
   local playlist_h = h
   -- both top and bottom with same padding
   playlist_h = playlist_h - settings.text_padding_y * 2
-
+  
   -- osd-font-size is based on 720p height
-  -- see https://mpv.io/manual/stable/#options-osd-font-size
+  -- see https://mpv.io/manual/stable/#options-osd-font-size 
   -- details in https://mpv.io/manual/stable/#options-sub-font-size
   -- draw_playlist() is based on 720p, need some conversion
   local fs = mp.get_property_native('osd-font-size') * h / 720
@@ -269,9 +265,9 @@ if settings.showamount == -1 then
       fs = tonumber(ass_fs_tag:match('%d+'))
     end
   end
-
+ 
   settings.showamount = math.floor(playlist_h / fs)
-
+  
   -- exclude the header line
   if settings.playlist_header ~= "" then
     settings.showamount = settings.showamount - 1
@@ -283,7 +279,7 @@ if settings.showamount == -1 then
       settings.showamount = settings.showamount - 1
     end
   end
-
+  
   msg.info('auto showamount: ' .. settings.showamount)
 end
 
@@ -362,11 +358,11 @@ if settings.system == "windows" then
   if ffiok then
     ffi.cdef[[
       int MultiByteToWideChar(unsigned int CodePage, unsigned long dwFlags, const char *lpMultiByteStr, int cbMultiByte, wchar_t *lpWideCharStr, int cchWideChar);
-      int StrCmpLogicalW(const wchar_t * psz1, const wchar_t * psz2);
+      int StrCmpLogicalW(const wchar_t * psz1, const wchar_t * psz2);        
     ]]
-
+   
     local shlwapi = ffi.load("shlwapi.dll")
-
+    
     function MultiByteToWideChar(MultiByteStr)
       local UTF8_CODEPAGE = 65001
       if MultiByteStr then
@@ -380,11 +376,11 @@ if settings.system == "windows" then
       end
       return ""
     end
-
+    
     winapisort = function (a, b)
       return shlwapi.StrCmpLogicalW(MultiByteToWideChar(a), MultiByteToWideChar(b)) < 0
     end
-
+    
   end
 end
 ----- winapi end -----
@@ -394,7 +390,7 @@ local sort_modes = {
     id="name-asc",
     title="name ascending",
     sort_fn=function (a, b, playlist)
-      if winapisort ~= nil then
+      if winapisort ~= nil then 
         return winapisort(playlist[a].string, playlist[b].string)
       end
       return alphanumsort(playlist[a].string, playlist[b].string)
@@ -404,7 +400,7 @@ local sort_modes = {
     id="name-desc",
     title="name descending",
     sort_fn=function (a, b, playlist)
-      if winapisort ~= nil then
+      if winapisort ~= nil then 
         return winapisort(playlist[b].string, playlist[a].string)
       end
       return alphanumsort(playlist[b].string, playlist[a].string)
@@ -462,7 +458,6 @@ function on_file_loaded()
   if is_protocol(path) and not title_table[path] and path ~= media_title then
     title_table[path] = media_title
   end
-
 
   strippedname = stripfilename(mp.get_property('media-title'))
   if settings.show_title_on_file_load then
@@ -574,17 +569,10 @@ function get_name_from_index(i, notitle)
   local name = mp.get_property('playlist/'..i..'/filename')
 
   local should_use_title = settings.prefer_titles == 'all' or is_protocol(name) and settings.prefer_titles == 'url'
-  --check if file has a media title stored or as property
-  if not title and should_use_title then
-    local mtitle = mp.get_property('media-title')
-    if i == pos and mp.get_property('filename') ~= mtitle then
-      if not title_table[name] then
-        title_table[name] = mtitle
-      end
-      title = mtitle
-    elseif title_table[name] then
-      title = title_table[name]
-    end
+  
+  --check if file has a media title stored
+  if not title and should_use_title and title_table[name] then
+    title = title_table[name]
   end
 
   --if we have media title use a more conservative strip
@@ -656,7 +644,7 @@ end
 function draw_playlist()
   refresh_globals()
   local ass = assdraw.ass_new()
-
+	
   local _, _, a = mp.get_osd_size()
   local h = 720
   local w = math.ceil(h * a)
@@ -670,7 +658,7 @@ function draw_playlist()
     ass:draw_stop()
     ass:new_event()
   end
-
+	
   ass:append(settings.style_ass_tags)
 
   -- align from mpv.conf
@@ -1049,8 +1037,8 @@ function playlist(force_dir)
   else
     table.sort(files, alphanumsort)
   end
-
-
+  
+  
   if files == nil then
     msg.verbose("no files in directory")
     return
@@ -1475,10 +1463,10 @@ function resolve_titles()
       and not requested_titles[filename]
     then
       requested_titles[filename] = true
-      if filename:match('^https?://') then
+      if filename:match('^https?://') and settings.resolve_url_titles then
         url_titles_to_fetch.push(filename)
         added_urls = true
-      elseif settings.prefer_titles == "all" then
+      elseif settings.prefer_titles == "all" and settings.resolve_local_titles then
         local_titles_to_fetch.push(filename)
         added_local = true
       end
