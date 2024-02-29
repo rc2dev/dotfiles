@@ -13,9 +13,12 @@ readonly notify_id=103
 readonly notify_time=10000
 readonly notify_icon="radio"
 readonly unit_name="dmenu_radio_player"
-readonly last_file="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_radio_last"
+readonly cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_radio"
+readonly last_file="${cache_dir}/last"
 readonly section_prefix="➤"
 
+
+mkdir -p "$cache_dir"
 
 if [[ $dmenu =~ ^dmenu.* ]]; then
   launcher_opts=(-l 9)
