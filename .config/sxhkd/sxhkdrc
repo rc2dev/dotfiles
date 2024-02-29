@@ -77,7 +77,7 @@ Print + {_, shift}
 ##   DWM SPECIFIC   ##
 ######################
 
-super + d
+super + space
   rofi -show drun
 
 super + shift + r
