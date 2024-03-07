@@ -18,8 +18,8 @@ fi
 
 fdfind \
   --follow \
-  --exclude "backups" --exclude "Cursos/" --exclude "Notes/" \
-  . ~/Documents ~/Downloads "$NOTES"/resources ~/Sync ~/Videos 2>/dev/null |
+  --exclude "backups" --exclude "Cursos/" \
+  . ~/Documents ~/Downloads ~/Sync ~/Videos 2>/dev/null |
   sed "s|$HOME|\~|" |
   sort |
   $dmenu "${launcher_opts[@]}" -p "$prompt"  |
