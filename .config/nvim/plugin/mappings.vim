@@ -113,12 +113,6 @@ tnoremap <C-\><C-\> <C-\><C-n>
 " Colorscheme
 nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
 
-" notes
-nnoremap <leader>fj :execute "edit " . trim(system("journal path today"))<cr>
-nnoremap <leader>fJ :execute "edit " . trim(system("journal path yesterday"))<cr>
-nnoremap <leader>nn :execute "edit $NOTES/notes/" . strftime("%Y-%m-%d %T") . ".md"<cr>
-nnoremap <leader>nu :edit $NOTES/notes/Quick Note.md<cr>
-
 
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -142,7 +136,6 @@ map <leader>/ <plug>NERDCommenterToggle
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fF <cmd>Telescope find_files prompt_title=Find\ Files\ in\ buffer\ directory cwd=%:p:h <CR>
-nnoremap <leader>fn <cmd>Telescope find_files prompt_title=Notes cwd=$NOTES hidden=true<CR>
 nnoremap <leader>fy <cmd>Telescope find_files prompt_title=Dotfiles cwd=$HOME find_command=dotfiles,ls-files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fG <cmd>Telescope live_grep prompt_title=Live\ Grep\ buffer\ directory search_dirs=%:p:h<CR>
