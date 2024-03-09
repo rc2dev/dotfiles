@@ -25,7 +25,7 @@ super + {_, shift, ctrl } + n
   }
 
 super + o
-  dmenu_document
+  dmenu-document
 
 super + p
   keepassxc
@@ -34,7 +34,7 @@ super + shift + q
   xkill
 
 super + r
-    dmenu_radio
+  dmenu-radio
 
 super + s
   flatpak run md.obsidian.Obsidian
@@ -55,7 +55,7 @@ super + {_, shift} + w
   }
 
 super + y
-  dmenu_yt
+  dmenu-yt
 
 super + Return
   $TERMINAL
@@ -87,4 +87,4 @@ super + shift + r
   slock
 
 ctrl + alt + Delete
-  dmenu_power
+  dmenu-power

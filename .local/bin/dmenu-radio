@@ -12,8 +12,8 @@ readonly dmenu_prompt="Radio"
 readonly notify_id=103
 readonly notify_time=10000
 readonly notify_icon="radio"
-readonly unit_name="dmenu_radio_player"
-readonly cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu_radio"
+readonly unit_name="dmenu-radio-player"
+readonly cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu-radio"
 readonly last_file="${cache_dir}/last"
 readonly section_prefix="➤"
 

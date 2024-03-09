@@ -11,8 +11,8 @@
 # Licensed under GPLv3
 
 readonly script_name="$(basename "$0")"
-readonly playlists_cache="$HOME/.cache/dmenu_yt/playlists.json"
-readonly channel_id_cache="$HOME/.cache/dmenu_yt/channel_id"
+readonly playlists_cache="$HOME/.cache/dmenu-yt/playlists.json"
+readonly channel_id_cache="$HOME/.cache/dmenu-yt/channel_id"
 readonly dmenu="${DMENU:-dmenu}"
 
 cache_channel_id() {
