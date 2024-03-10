@@ -8,3 +8,7 @@ theme_dark="Adwaita-dark"
 
 icon_light="Papirus"
 icon_dark="Papirus-Dark"
+
+# Optional
+wallpaper_light="$HOME/Pictures/wallpapers/unsplash/1707151302.jpg"
+wallpaper_dark="$HOME/Pictures/wallpapers/0-stored/pexels-nicolas-postiglioni-421129.jpg"

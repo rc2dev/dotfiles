@@ -49,11 +49,13 @@ set_target() {
       readonly target_theme="$theme_light"
       readonly target_icon="$icon_light"
       readonly target_scheme="prefer-light"
+      readonly target_wallpaper="${wallpaper_light:-}"
       ;;
     dark)
       readonly target_theme="$theme_dark"
       readonly target_icon="$icon_dark"
       readonly target_scheme="prefer-dark"
+      readonly target_wallpaper="${wallpaper_dark:-}"
       ;;
     toggle)
       set_target_toggle
@@ -74,7 +76,7 @@ set_target_toggle() {
 }
 
 apply() {
-  # xsettingsd
+  # Set on xsettingsd
   sed -i "s#^Net/ThemeName .*\$#Net/ThemeName \"$target_theme\"#" "$xsettingsd_config"
   sed -i "s#^Net/IconThemeName .*\$#Net/IconThemeName \"$target_icon\"#" "$xsettingsd_config"
   killall -HUP xsettingsd
@@ -86,6 +88,11 @@ apply() {
   # applications dark, since we are using qgnomeplatform.
   gsettings set org.gnome.desktop.interface gtk-theme "'$target_theme'"
   gsettings set org.gnome.desktop.interface color-scheme "'$target_scheme'"
+
+  # Set wallpaper
+  if [[ -n "${target_wallpaper:-}" ]]; then
+    set-wallpaper "$target_wallpaper"
+  fi
 }
 
 main "$@"
