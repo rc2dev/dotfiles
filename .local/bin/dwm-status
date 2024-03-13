@@ -8,7 +8,7 @@ readonly script_name="$(basename "$0")"
 readonly pid_file="/var/run/user/$UID/$script_name.pid"
 readonly cache_dir="$HOME/.cache/dwm-status"
 readonly cache_btc="$cache_dir/btc"
-readonly sep=" ｜ "
+readonly sep="   "
 readonly interval="5s"
 declare bg_pids
 
