@@ -20,12 +20,6 @@ fi
 # Mute errors as in distrobox this command may not be available.
 export HOSTNAME="$(hostname 2>/dev/null)"
 
-# Set colors on ls, lf, zsh completion (set on zshrc)... Change exa colors from
-# defaults.
-if command -v vivid > /dev/null; then
-  export LS_COLORS="$(vivid generate nord)"
-fi
-
 # XDG base directories
 # Setting this isn't necessary, except config and data for moving less files
 # from ~/ when using less version 590. No longer needed on version 600.
