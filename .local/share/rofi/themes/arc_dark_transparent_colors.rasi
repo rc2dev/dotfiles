@@ -43,7 +43,7 @@ window {
 
 listview {
   lines: 10;
-  columns: 3;
+  columns: 2;
 }
 
 mainbox {
@@ -79,6 +79,10 @@ element {
 element-text {
   background-color: inherit;
   text-color: inherit;
+}
+
+element-icon {
+  margin: 0 10px 0 0;
 }
 
 element.normal.normal {
