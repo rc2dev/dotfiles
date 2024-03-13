@@ -77,8 +77,11 @@ Print + {_, shift}
 ##   DWM SPECIFIC   ##
 ######################
 
+alt + Tab
+  rofi -show window -show-icons
+
 super + space
-  rofi -show drun
+  rofi -show drun -show-icons
 
 super + shift + r
   killall -HUP dwm
