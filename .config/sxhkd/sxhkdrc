@@ -14,8 +14,11 @@ super + shift + d
 super + e
   $TERMINAL -e nvim
 
-super + f
-  $TERMINAL -e lf
+super + {_, shift} + f
+  { \
+    $TERMINAL -e lf, \
+    nemo \
+  }
 
 super + {_, shift, ctrl } + n
   dunstctl { \
@@ -77,8 +80,13 @@ Print + {_, shift}
 ##   DWM SPECIFIC   ##
 ######################
 
+# Arguments:
+# - Allow cycling with alt+(shift+)tab
+# - Auto accept after delay
 alt + Tab
-  rofi -show window -show-icons
+  rofi -show window -show-icons \
+    -kb-row-down "Alt+Tab" -kb-row-up "Alt+ISO_Left_Tab" \
+    -timeout-delay 1 -timeout-action "kb-accept-entry"
 
 super + space
   rofi -show drun -show-icons
