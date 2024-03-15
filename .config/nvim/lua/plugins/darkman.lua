@@ -7,7 +7,7 @@ return  {
   build = "go build -o bin/darkman.nvim",
 
   opts = {
-    colorscheme = { dark = "catppuccin-mocha", light = "gruvbox" }
+    colorscheme = { dark = "catppuccin-mocha", light = "catppuccin-latte" }
   },
 
   -- Only load in graphical environments.
