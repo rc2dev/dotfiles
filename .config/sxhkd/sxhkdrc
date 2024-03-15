@@ -82,11 +82,9 @@ Print + {_, shift}
 
 # Arguments:
 # - Allow cycling with alt+(shift+)tab
-# - Auto accept after delay
 alt + Tab
   rofi -show window -show-icons \
-    -kb-row-down "Alt+Tab" -kb-row-up "Alt+ISO_Left_Tab" \
-    -timeout-delay 1 -timeout-action "kb-accept-entry"
+    -kb-row-down "Alt+Tab,Ctrl+j,Down" -kb-row-up "Alt+ISO_Left_Tab,Ctrl+k,Up"
 
 super + space
   rofi -show drun -show-icons
