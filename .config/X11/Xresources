@@ -69,4 +69,4 @@ dwm.enablegaps:  0
 dwm.smartgaps:   0
 dwm.showsystray: 0
 dwm.borderpx:    2
-st.alpha :       0.95
+st.alpha :       0.92
