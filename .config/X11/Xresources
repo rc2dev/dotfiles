@@ -50,11 +50,11 @@ st.font:    Blex Mono Nerd Font:size=13
 
 /* dmenu, dwm */
 *.normbgcolor:         #24273a  /* background */
-*.normfgcolor:         #b8c0e0  /* color7 */
+*.normfgcolor:         #a6b0d8  /* color7 with less L */
 *.selbgcolor:          #363a4f  /* from neovim theme */
-*.selfgcolor:          #cad3f5  /* foreground */
+*.selfgcolor:          #ffffff
 dwm.normbordercolor:   #24273a  /* background */
-dwm.selbordercolor:    #8aadf4  /* color4 */
+dwm.selbordercolor:    #888888
 
 /* Other places for colors: dunst, nvim, theme-mode, xsettingsd, zprofile (LSCOLORS). */
 
