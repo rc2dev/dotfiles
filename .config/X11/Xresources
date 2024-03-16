@@ -65,8 +65,8 @@ dwm.selbordercolor:    #888888
 
 dwm.topbar:      0
 dwm.mfact:       0.5
-dwm.enablegaps:  0
-dwm.smartgaps:   0
+dwm.enablegaps:  1
+dwm.smartgaps:   1
 dwm.showsystray: 0
-dwm.borderpx:    2
+dwm.borderpx:    0
 st.alpha :       0.92
