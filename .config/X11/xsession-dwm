@@ -32,7 +32,6 @@ playerctld daemon &
 nm-applet &
 blueman-applet &
 keepassxc &
-syncthingtray --wait &
 dwm-status --loop &
 
 # Auto-lock screen
