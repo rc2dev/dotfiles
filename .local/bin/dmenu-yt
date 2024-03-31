@@ -26,8 +26,9 @@ cache_playlists() {
   # User created playlists
   local -r playlists_url="https://www.youtube.com/$channel_id/playlists?view=1"
   playlists_json="$(yt-dlp --flat-playlist --dump-json "$playlists_url")"
-  # Add missing "Watch Later"
-  playlists_json+=' {"url": "https://www.youtube.com/playlist?list=WL", "title": "Watch Later"}'
+  # Add missing playlists
+  playlists_json+=' {"url": "https://www.youtube.com/playlist?list=WL", "title": "0 - Watch Later"}'
+  playlists_json+=' {"url": "https://www.youtube.com/playlist?list=LL", "title": "1 - Liked Videos"}'
 
   mkdir -p "$(dirname "$playlists_cache")"
   echo "$playlists_json" > "$playlists_cache"
@@ -41,9 +42,9 @@ else
   (cache_channel_id && cache_playlists) &
 fi
 
-# Read playlist titles but sort "Watch Later" first
-readarray -t playlists_titles < <(jq -r 'select(.title != "Watch Later") | .title' < "$playlists_cache")
-readonly chosen="$( (printf "Watch Later\n"; (printf "%s\n" "${playlists_titles[@]}" | sort)) | $dmenu -p "󰗃 Playlists" "$@")"
+# Read playlist titles and sort
+readarray -t playlists_titles < <(jq -r '.title' < "$playlists_cache")
+readonly chosen="$(printf "%s\n" "${playlists_titles[@]}" | sort | $dmenu -p "󰗃 Playlists" "$@")"
 
 [[ -z "$chosen" ]] && exit
 readonly url="$(jq -r "select(.title==\"$chosen\") | .url" < "$playlists_cache")"
