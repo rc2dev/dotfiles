@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2155,SC2001
+#
+# dmenu script to copy/paste emojis.
+#
+# Based on Luke Smith's "dmenuunicode"
+# (<https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/dmenuunicode>)
+# by Rafael Cavalcanti <https://rafaelc.org/dev>.
+
+set -euo pipefail
+
+readonly dmenu="${DMENU:-dmenu}"
+readonly recents_file="$HOME/.cache/dmenu-emoji/recents"
+readonly max_recents=10
+
+# Ensure recents file exist
+mkdir -p "$(dirname "$recents_file")"
+touch "$recents_file"
+
+# Get user selection via dmenu from emoji file.
+readonly chosen=$( (cat "$recents_file"; cut -d ';' -f1 ~/.local/share/dmenu-emoji/emojis) | $dmenu -p "emoji")
+
+# Exit if none chosen.
+[[ -z "$chosen" ]] && exit
+
+# Add to recents
+readonly new_recents="$(printf "%s\n%s\n" "$chosen" "$(cat "$recents_file")" | awk '!a[$0]++' | head -n "$max_recents")"
+echo "$new_recents" > "$recents_file"
+
+readonly chosen_emoji="$(echo "$chosen" | sed "s/ .*//")"
+
+# If you run this command with an argument, it will automatically insert the
+# character. Otherwise, show a message that the emoji has been copied.
+if [[ -n "${1:-}" ]]; then
+	xdotool type "$chosen_emoji"
+else
+	printf "%s" "$chosen_emoji" | xclip -selection clipboard
+	notify-send "'$chosen_emoji' copied to clipboard." &
+fi

@@ -70,7 +70,7 @@ ctrl + alt + v
   clipmenu -i -theme-str "listview \{ columns: 1; \}"
 
 ctrl + alt + m
-  rofimoji
+  dmenu-emoji insert
 
 Print + {_, shift}
   flameshot gui {_, --delay 5000}
