@@ -8,12 +8,15 @@
 set -euo pipefail
 IFS=$'\n'
 readonly script_name="$(basename "$0")"
+readonly runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$UID}/$script_name"
 
 # Configuration
 declare -ar file_manager=("$TERMINAL" -e lf)
 declare -ar options=(-o allow_other)
 declare -ar common_options=()
 
+
+mkdir -p "$runtime_dir"
 
 if ! command -v borg >/dev/null; then
 	printf "Please install Borg.\n"
@@ -53,23 +56,23 @@ while true; do
 		src="${repo}::${archive}"
 	fi
 
-	mnt_dir=$(mktemp -d)
-	printf "Mounting at %s...\n" "${mnt_dir}"
-	if ! borg "${common_options[@]}" mount "${options[@]}" "${src}" "${mnt_dir}"; then
+	mountpoint=$(mktemp "$runtime_dir/mount.XXXXX" -d)
+	printf "Mounting at %s...\n" "${mountpoint}"
+	if ! borg "${common_options[@]}" mount "${options[@]}" "${src}" "${mountpoint}"; then
 		printf "Error mounting.\n"
 		exit 1
 	fi
 
 	if [ -n "${DISPLAY:-}" ]; then
 		printf "Opening in file manager...\n\n"
-		exec "${file_manager[@]}" "${mnt_dir}" > /dev/null 2>&1 & disown
+		exec "${file_manager[@]}" "${mountpoint}" > /dev/null 2>&1 & disown
 	fi
 
 	read -p "Press enter to umount. "
-	while ! fusermount -u "${mnt_dir}"; do
+	while ! fusermount -u "${mountpoint}"; do
 		read -p "Press enter to try again. "
 	done
-	rmdir "$mnt_dir"
+	rmdir "$mountpoint"
 
 	printf "\n"
 	read -r -n 1 -p "Press any key to mount another archive. Press q to exit. " loop
