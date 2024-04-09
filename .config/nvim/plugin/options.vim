@@ -15,6 +15,7 @@ set shada=!,'500,<50,s10,h          " nvim: Increase oldfiles size
 set ignorecase                      " Do case insensitive matching
 set smartcase                       " Do smart case matching
 set incsearch                       " Incremental search
+set hlsearch
 
 " Command completion
 set history=500                     " Number of command lines remembered
