@@ -20,6 +20,9 @@ super + {_, shift} + f
     nemo \
   }
 
+super + g
+  networkmanager_dmenu
+
 super + {_, shift, ctrl } + n
   dunstctl { \
     close, \
@@ -61,7 +64,7 @@ super + y
   dmenu-yt
 
 super + Return
-  $TERMINAL
+  $TERMINAL -e tmux new -A
 
 # Arguments:
 # -i: unneded with patched dmenu to case insensitve, but necessary using rofi.
