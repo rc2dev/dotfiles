@@ -10,5 +10,5 @@ icon_light="Papirus"
 icon_dark="Papirus-Dark"
 
 # Optional
-wallpaper_light="$HOME/Documents/sync/desktop-wallpapers/0-stored/Zorin.jpg"
-wallpaper_dark="$HOME/Documents/sync/desktop-wallpapers/0-stored/Zorin-Dark.jpg"
+#wallpaper_light=
+#wallpaper_dark=
