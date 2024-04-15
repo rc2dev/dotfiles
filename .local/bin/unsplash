@@ -9,7 +9,7 @@
 # Licensed under GPLv3
 
 readonly script_name="$(basename "$0")"
-readonly dest_dir="$(systemd-path user-pictures)/wallpapers/unsplash"
+readonly dest_dir="$HOME/Documents/sync/wallpapers-desktop/unsplash"
 readonly resolution="1920x1080"
 readonly random_url="https://source.unsplash.com/all/${resolution}"
 readonly search_url="https://source.unsplash.com/${resolution}/?"
