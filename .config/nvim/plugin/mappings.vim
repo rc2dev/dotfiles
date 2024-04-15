@@ -152,11 +152,6 @@ nnoremap g? <cmd>Telescope help_tags<CR>
 " lf.vim
 nnoremap <leader>fr :Lf<CR>
 
-" nvimtree
-" Also close goyo if open.
-nnoremap <leader>fs :NvimTreeFindFile<CR>
-nnoremap <leader>fS :NvimTreeToggle<CR>
-
 " vim-template
 nnoremap <leader>te :Template<CR>
 
