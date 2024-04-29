@@ -14,13 +14,14 @@ x-scheme-handler/http=-chromium.desktop
 x-scheme-handler/https=chromium.desktop
 application/vnd.oasis.opendocument.text=libreoffice-writer.desktop
 application/pdf=org.gnome.Evince.desktop
-x-scheme-handler/webcal=thunderbird.desktop
+x-scheme-handler/webcal=chromium.desktop
 audio/mp4=mpv.desktop
 image/svg+xml=qimgv.desktop
 audio/x-opus+ogg=mpv.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
 application/epub+zip=com.github.johnfactotum.Foliate.desktop
 video/mp4=mpv.desktop
+image/webp=qimgv.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
