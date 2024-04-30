@@ -85,9 +85,9 @@ Print + {_, shift}
 
 # Arguments:
 # - Allow cycling with alt+(shift+)tab
-alt + Tab
+{alt, super} + Tab
   rofi -show window -show-icons \
-    -kb-row-down "Alt+Tab,Ctrl+j,Down" -kb-row-up "Alt+ISO_Left_Tab,Ctrl+k,Up"
+    -kb-row-down "Alt+Tab,Super+Tab,Ctrl+j,Down" -kb-row-up "Alt+ISO_Left_Tab,Super+ISO_Left_Tab,Ctrl+k,Up"
 
 super + space
   rofi -show drun -show-icons
