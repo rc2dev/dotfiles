@@ -81,9 +81,15 @@ export TEXMFCONFIG="$HOME/.config/texlive/texmf-config"
 # zsh: Move from ~/
 export ZDOTDIR="$HOME/.config/zsh"
 
-# zoxide: Keep queries sorted by score when typing on interactive mode
+# zoxide:
+# - Keep queries sorted by score when typing on interactive mode
 # (<https://github.com/ajeetdsouza/zoxide/issues/102)
-export _ZO_FZF_OPTS="--no-sort $FZF_DEFAULT_OPTS"
+# - Add preview window
+export _ZO_FZF_OPTS="
+  --no-sort
+  --height 70%
+  --preview 'exa -1 --icons {2..}' --preview-window 40% $FZF_DEFAULT_OPTS
+"
 
 
 # Autostart X11 on tty1
