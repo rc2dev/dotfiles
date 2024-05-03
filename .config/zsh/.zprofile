@@ -56,7 +56,6 @@ export AWS_CONFIG_FILE="$HOME/.config/aws/config"
 export CM_DIR="$HOME/.cache"
 export CM_IGNORE_WINDOW="KeePassXC"
 export CM_LAUNCHER="rofi"
-export CM_HISTLENGTH=14  # set same value as rofi's theme
 
 # fzf
 export FZF_DEFAULT_OPTS="
