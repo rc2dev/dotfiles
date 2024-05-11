@@ -63,8 +63,11 @@ super + {_, shift} + w
 super + y
   dmenu-yt
 
-super + Return
-  wmctrl -a tmux || $TERMINAL -n tmux -e tmux new -A
+super + {_, shift} + Return
+  { \
+    wmctrl -a tmux || $TERMINAL -n tmux -e tmux new -A, \
+    $TERMINAL \
+  }
 
 # Arguments:
 # -i: unneded with patched dmenu to case insensitve, but necessary using rofi.
