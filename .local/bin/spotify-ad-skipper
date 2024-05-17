@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 #
 # Try to skip Spotify ads automatically. Mute if not possible.
+# Dependencies:
+# - dunstify
+# - pactl
+# - playerctl
 #
 # Copyright (C) 2023 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
