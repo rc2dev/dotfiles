@@ -93,7 +93,12 @@ printf "%s" "$chosen" > "$last_file"
 readonly url="$(printf "%s" "$streams" | grep -m 1 "$chosen" | cut -d, -f 2-)"
 
 # Notify and play.
-dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "Playing" "<i>$chosen</i>"
+if command -v dunstify >/dev/null; then
+  dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "Playing" "<i>$chosen</i>"
+else
+  printf "Playing: %s\n" "$chosen"
+fi
+
 systemd-run \
   --user \
   --collect \
