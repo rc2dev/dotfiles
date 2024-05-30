@@ -8,6 +8,9 @@ set -euo pipefail
 readonly script_name="$(basename "$0")"
 readonly wallpaper_store="$(systemd-path user-configuration)/set-wallpaper/wallpaper"
 
+# Make sure directory exists
+mkdir -p "$(dirname "$wallpaper_store")"
+
 case $# in
   0)
     if [[ ! -e "$wallpaper_store" ]]; then
