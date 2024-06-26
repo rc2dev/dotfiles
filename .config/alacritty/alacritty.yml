@@ -23,7 +23,7 @@ colors:
     white:      '#828997' # mono-2
 
 window:
-  opacity: 0.92
+  opacity: 1
   padding:
     x: 5
     y: 5
@@ -44,7 +44,7 @@ font:
     #family: Fira Mono
     #style: Bold Italic
 
-  size: 10.0
+  size: 12.5
 
 hints:
   enabled:
