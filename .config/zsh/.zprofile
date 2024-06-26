@@ -46,6 +46,15 @@ fi
 export EDITOR="nvim"
 export TERMINAL="st"
 
+# For Qt applications under GNOME Wayland
+if [[ "$XDG_SESSION_TYPE" == "wayland" && "$XDG_SESSION_DESKTOP" == "gnome" ]]; then
+  # Fix cursor size and window decorations
+  export QT_QPA_PLATFORMTHEME=gnome
+
+  # Disable window decoration
+  export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+fi
+
 
 # Applications configuration
 #######################################################
