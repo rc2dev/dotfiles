@@ -38,7 +38,11 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 if [[ -z "${TERMUX_VERSION:-}" ]]; then
   export BROWSER="chromium"
 fi
-export DMENU="rofi -dmenu -i"
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+  export DMENU="wofi -dmenu -i"
+else
+  export DMENU="rofi -dmenu -i"
+fi
 export EDITOR="nvim"
 export TERMINAL="st"
 
