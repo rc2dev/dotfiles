@@ -27,6 +27,12 @@ window:
   padding:
     x: 5
     y: 5
+  startup_mode: Maximized
+  # Workaround for <https://github.com/alacritty/alacritty/issues/6397>
+  # present on Debian 12.
+  dimensions:
+    columns: 240
+    lines: 160
 
 font:
   normal:
