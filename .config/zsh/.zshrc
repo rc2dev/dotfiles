@@ -118,6 +118,9 @@ zle -N edit-command-line
 bindkey "^e" edit-command-line
 bindkey -a "^e" edit-command-line  # On vim's normal mode
 
+# Use emacs style reverse search
+bindkey '^R' history-incremental-search-backward
+
 # Add keybinding for going to parent dir (Alt+Up)
 # Redraw powerlevel10k prompt.
 redraw-prompt() {
