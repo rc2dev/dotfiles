@@ -23,6 +23,7 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoff
 application/epub+zip=com.github.johnfactotum.Foliate.desktop
 video/mp4=mpv.desktop
 image/webp=qimgv.desktop
+application/vnd.debian.binary-package=gnome-software-local-file-packagekit.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
@@ -38,3 +39,4 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoff
 video/mp4=mpv.desktop;
 x-scheme-handler/http=chromium.desktop;
 text/html=chromium.desktop;
+application/vnd.debian.binary-package=gnome-software-local-file-packagekit.desktop;
