@@ -1,10 +1,24 @@
 #!/bin/sh
 # Wrapper for lf needed for image preview with ueberzug.
-# Adapted from <https://github.com/gokcehan/lf/wiki/Previews>.
+# Adapted from <https://github.com/gokcehan/lf/wiki/Previews>
+# by Rafael Cavalcanti <https://rafaelc.org/dev>.
 
 set -e
 
-lf_cmd="${PREFIX%/usr}/usr/bin/lf"
+lf_paths="
+  /usr/bin/lf
+  /usr/local/bin/lf
+"
+
+for path in $lf_paths; do
+  if command -v "$path" >/dev/null; then
+    lf_cmd="$path"
+  fi
+done
+if [ -z "$lf_cmd" ]; then
+  echo "lf not found."
+  exit 1
+fi
 
 if [ -n "$DISPLAY" ] && [ "$XDG_SESSION_TYPE" = "x11" ]; then
   export FIFO_UEBERZUG="${TMPDIR:-/tmp}/lf-ueberzug-$$"
