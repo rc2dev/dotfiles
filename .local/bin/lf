@@ -6,7 +6,7 @@ set -e
 
 lf_cmd="${PREFIX%/usr}/usr/bin/lf"
 
-if [ -n "$DISPLAY" ]; then
+if [ -n "$DISPLAY" ] && [ "$XDG_SESSION_TYPE" = "x11" ]; then
   export FIFO_UEBERZUG="${TMPDIR:-/tmp}/lf-ueberzug-$$"
 
   cleanup() {
