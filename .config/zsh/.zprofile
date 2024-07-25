@@ -53,6 +53,9 @@ if [[ "$XDG_SESSION_TYPE" == "wayland" && "$XDG_SESSION_DESKTOP" == "gnome" ]]; 
 
   # Disable window decoration
   export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+  # Fix cursor size on some applications
+  export XCURSOR_SIZE="$(gsettings get org.gnome.desktop.interface cursor-size)"
 fi
 
 
