@@ -28,34 +28,27 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# Paths
-export XRESOURCES="$HOME/.config/X11/Xresources"
 # Move from ~/. Note this doesn't work on some DM's.
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # Default applications
-# Setting this on Termux breaks opening urls from gh.
-if [[ -z "${TERMUX_VERSION:-}" ]]; then
-  export BROWSER="chromium"
-fi
 if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
   export DMENU="wofi -dmenu -i"
 else
   export DMENU="rofi -dmenu -i"
 fi
 export EDITOR="nvim"
-export TERMINAL="st"
 
 # For Qt applications under GNOME Wayland
 if [[ "$XDG_SESSION_TYPE" == "wayland" && "$XDG_SESSION_DESKTOP" == "gnome" ]]; then
   # Fix cursor size and window decorations
   export QT_QPA_PLATFORMTHEME=gnome
 
-  # Disable window decoration
-  export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-
   # Fix cursor size on some applications
   export XCURSOR_SIZE="$(gsettings get org.gnome.desktop.interface cursor-size)"
+
+  # Disable window decoration
+  export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 fi
 
 

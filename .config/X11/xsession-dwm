@@ -5,6 +5,11 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 #
 
+# Paths and default applications
+export XRESOURCES="$HOME/.config/X11/Xresources"
+export BROWSER="chromium"
+export TERMINAL="st"
+
 # Placed at custom path.
 xrdb "$XRESOURCES"
 
