@@ -29,14 +29,6 @@ export GIT_WORK_TREE="$HOME"
 
 cd "$HOME"
 
-# To hide README and LICENSE
-log "Setting sparse checkout..."
-git config core.sparseCheckout true
-git sparse-checkout set '/*' '!/README.md' '!/LICENSE'
-
-log "Running workaround if sparse checkout failed..."
-git read-tree -mu HEAD
-
 # Necessary if submodule remote url changes
 log "Syncing submodules if already present..."
 git submodule sync
@@ -50,6 +42,14 @@ git config core.worktree "$HOME"
 
 log "Setting path for repository config..."
 git config include.path ~/.config/dotfiles/config
+
+# To hide README and LICENSE
+log "Setting sparse checkout..."
+git config core.sparseCheckout true
+git sparse-checkout set '/*' '!/README.md' '!/LICENSE'
+
+log "Running workaround if sparse checkout failed..."
+git read-tree -mu HEAD
 
 case $(hostname) in
   rd|x220)
