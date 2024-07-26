@@ -46,14 +46,21 @@ if command -v batcat >/dev/null; then
   alias cat="batcat"
 fi
 
-# Shell history
 # Show history timestamped
 alias history="history -i"
+
 # Copy commands from history to clipboard
 # The awk command removes duplicates.
 hy() {
+  local copy_cmd
+  case "$XDG_SESSION_TYPE" in
+    x11)     copy_cmd="xsel --clipboard" ;;
+    wayland) copy_cmd="wl-copy" ;;
+    *) echo "Session type not detected."; return ;;
+  esac
+
   local -r entry="$(fc -ln 0 | awk '!a[$0]++' | fzf --tac --multi --header 'Copy history')"
-  [[ -n "$entry" ]] && xsel --clipboard <<< "$entry" >/dev/null && echo "Copied to clipboard." >&2
+  [[ -n "$entry" ]] && $copy_cmd <<< "$entry" >/dev/null && echo "Copied to clipboard." >&2
 }
 
 # Create backup of file or directory
