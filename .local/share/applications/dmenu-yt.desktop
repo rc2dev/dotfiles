@@ -1,0 +1,12 @@
+[Desktop Entry]
+Comment=
+Exec=dmenu-yt
+Name=dmenu-yt
+NoDisplay=false
+Path=
+StartupNotify=false
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

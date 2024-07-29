@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Exec=dmenu-radio
+Icon=audio-radio-symbolic
+Name=dmenu-radio
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
