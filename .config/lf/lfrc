@@ -158,12 +158,22 @@ map y
 map yy copy
 
 # Copy path to clipboard.
-cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
-cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
-cmd yank-name $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
-map yd yank-dirname
-map yp yank-path
-map yn yank-name
+cmd yank-path &{{
+    case "$XDG_SESSION_TYPE" in
+        wayland) cmd="wl-copy" ;;
+        x11) cmd="xsel --clipboard" ;;
+        *) echo "Clipboard unavailable." && exit ;;
+    esac
+
+    case $1 in
+        path) printf '%s' "$fx" | $cmd ;;
+        name) basename -a -- $fx | head -c-1 | $cmd ;;
+        dirname) dirname -- "$f" | head -c-1 | $cmd ;;
+    esac
+}}
+map yd yank-path "dirname"
+map yp yank-path "path"
+map yn yank-path "name"
 
 # Run command on current file
 map @ push !<space>$fx<home>
