@@ -95,6 +95,8 @@ readonly url="$(printf "%s" "$streams" | grep -m 1 "$chosen" | cut -d, -f 2-)"
 # Notify and play.
 if command -v dunstify >/dev/null; then
   dunstify -r $notify_id -t "$notify_time" -i "$notify_icon" "Playing" "<i>$chosen</i>"
+elif command -v notify-send >/dev/null; then
+  notify-send -i "$notify_icon" "Playing" "$chosen"
 else
   printf "Playing: %s\n" "$chosen"
 fi
