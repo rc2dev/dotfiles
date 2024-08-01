@@ -11,7 +11,7 @@ readonly script_name="$(basename "$0")"
 readonly runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$UID}/$script_name"
 
 # Configuration
-declare -ar file_manager=("$TERMINAL" -e lf)
+declare -ar file_manager=("${TERMINAL:-konsole}" -e lf)
 declare -ar options=(-o allow_other)
 declare -ar common_options=()
 
