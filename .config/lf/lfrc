@@ -42,32 +42,19 @@ map tt tag-toggle
 
 # Send to trash or confirm delete, depending on availability.
 cmd trash &{{
-    if command -v gio >/dev/null; then
-        gio trash $fx &> /dev/null
+    if command -v trash >/dev/null; then
+        trash $fx &> /dev/null
     else
         lf -remote "send $id delete"
     fi
 }}
 map <delete> trash
 
-cmd trash-restore %{{
-  set -f
-  trash_path="/home/rafael/.local/share/Trash/files/"
-
-  if [[ $fx != $trash_path* ]]; then
-      echo "Not in trash."
-  else
-      ft=$(basename -a $fx|sed -e 's/^/trash:\/\/\//')
-      gio trash --restore $ft
-      echo "Restored $(basename -a $fx)"
-  fi
-}}
-map tr trash-restore
+map tl !trash-list
+map tr $trash-restore
 
 # Force reload, or trash directory counting is not updated.
-map te %gio trash --empty && lf -remote "send $id reload" && echo "Trash emptied."
-
-map tl cd ~/.local/share/Trash/files
+map te %trash-empty && lf -remote "send $id reload" && echo "Trash emptied."
 
 
 #########################
