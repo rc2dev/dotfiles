@@ -156,6 +156,6 @@ nnoremap <leader>fr :Lf<CR>
 nnoremap <leader>te :Template<CR>
 
 " zen-mode
-nnoremap <F11> :ZenMode<CR>
-inoremap <F11> <C-o>:ZenMode<CR>
+nnoremap <F10> :ZenMode<CR>
+inoremap <F10> <C-o>:ZenMode<CR>
 
