@@ -238,3 +238,6 @@ cmd compress ${{
     atool --add "$1" -- "${files[@]}"
 }}
 map zc push :compress<space>
+
+# Workaround for not setting zsh as user's default shell
+map w $zsh
