@@ -75,9 +75,12 @@ while true; do
 	rmdir "$mountpoint"
 
 	printf "\n"
-	read -r -n 1 -p "Press any key to mount another archive. Press q to exit. " loop
-	printf "\n"
-	if [[ "${loop,,}" == "q" ]]; then
-		break
-	fi
+	action=
+	while [[ "${action,,}" != "o" ]]; do
+		read -r -n 1 -p "Mount an(o)ther archive or (q)uit? " action
+		printf "\n"
+		if [[ "${action,,}" == "q" ]]; then
+			exit
+		fi
+	done
 done
