@@ -7,6 +7,8 @@
 
 # Paths and default applications
 export XRESOURCES="$HOME/.config/X11/Xresources"
+# Use non-default path, so KDE Plasma doesn't override it.
+export XSETTINGS_CONFIG="$HOME/.config/xsettingsd/xsettingsd-dwm.conf"
 export BROWSER="chromium"
 export TERMINAL="st"
 
@@ -24,7 +26,7 @@ fi
 
 # Applications
 lxpolkit &  # Polkit agent, so GUI applications can request privileges
-xsettingsd &
+xsettingsd --config="$XSETTINGS_CONFIG" &
 sxhkd &
 set-wallpaper &
 # Needed for redshift/gammastep on WM due to a bug

@@ -6,7 +6,7 @@
 # Licensed under GPLv3
 
 readonly config_path="$HOME/.config/theme-mode/config"
-readonly xsettingsd_config="$HOME/.config/xsettingsd/xsettingsd.conf"
+readonly xsettingsd_config="$XSETTINGS_CONFIG"
 
 main() {
   if [[ $# -ne 1 ]]; then
