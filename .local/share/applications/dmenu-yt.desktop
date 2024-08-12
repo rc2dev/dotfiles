@@ -1,6 +1,7 @@
 [Desktop Entry]
 Comment=
 Exec=dmenu-yt
+Icon=im-youtube
 Name=dmenu-yt
 NoDisplay=false
 Path=
