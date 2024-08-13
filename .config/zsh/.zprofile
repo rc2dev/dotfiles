@@ -96,7 +96,7 @@ export ZDOTDIR="$HOME/.config/zsh"
 export _ZO_FZF_OPTS="
   --no-sort
   --height 70%
-  --preview 'exa -1 --icons {2..}' --preview-window 40% $FZF_DEFAULT_OPTS
+  --preview 'ls -1 --color {2..}' --preview-window 40% $FZF_DEFAULT_OPTS
 "
 
 
