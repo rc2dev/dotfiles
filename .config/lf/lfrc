@@ -121,7 +121,10 @@ cmd edit-config ${{
 }}
 map E edit-config
 
-# Also use enter to open.
+# Add "reload" mapping
+map r reload
+
+# Also using enter to open.
 map <enter> open
 
 # File opener actions.
