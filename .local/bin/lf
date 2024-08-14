@@ -5,9 +5,10 @@
 
 set -e
 
+# $PREFIX is used by Termux.
 lf_paths="
-  /usr/bin/lf
-  /usr/local/bin/lf
+  ${PREFIX:-/usr}/bin/lf
+  ${PREFIX:-/usr}/local/bin/lf
 "
 
 for path in $lf_paths; do
