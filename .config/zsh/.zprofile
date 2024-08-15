@@ -33,7 +33,7 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # Default applications
 if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-  export DMENU="wofi -dmenu -i"
+  export DMENU="wofi --cache-file=/dev/null -dmenu -i"
 else
   export DMENU="rofi -dmenu -i"
 fi
