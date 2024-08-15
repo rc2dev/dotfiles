@@ -32,10 +32,11 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # Default applications
-if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-  export DMENU="wofi --cache-file=/dev/null -dmenu -i"
-else
+if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
   export DMENU="rofi -dmenu -i"
+# Workaround as we are not getting that varible under Wayland+sddm+Plasma
+else
+  export DMENU="wofi --cache-file=/dev/null -dmenu -i"
 fi
 export EDITOR="nvim"
 
