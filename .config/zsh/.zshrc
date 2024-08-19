@@ -115,8 +115,8 @@ bindkey "^[[3~" delete-char  # tmux
 # Add keybinding for editing in text editor
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey "^e" edit-command-line
-bindkey -a "^e" edit-command-line  # On vim's normal mode
+bindkey -M viins "^x^e" edit-command-line
+bindkey -M vicmd "E" edit-command-line
 
 # Use emacs style reverse search
 bindkey '^R' history-incremental-search-backward
