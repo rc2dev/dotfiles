@@ -24,6 +24,7 @@ chose() {
 		distro        " " ON
 		flatpaks      " " ON
 		pipx_packages " " ON
+		repos         " " ON
 
 		dotfiles      " " ON
 		submodules    " " ON
@@ -151,6 +152,38 @@ update_pipx_packages() {
 
 	log "Atualizando pacotes do pipx..."
 	pipx upgrade-all
+}
+
+update_repos() {
+	local -r repos_dir="$HOME/.local/src"
+	local found_repos=0
+
+	if ! [[ -d "$repos_dir" ]]; then
+		log "Repos directory doesn't exist: $repos_dir. Skipping..."
+		return
+	fi
+
+	for repo in "$repos_dir"/*; do
+		cd "$repo"
+
+		# Not a git repo
+		if ! [[ -d ".git" ]]; then
+			continue
+		fi
+		((found_repos++)) || true
+
+		if [[ "$(git rev-parse --abbrev-ref HEAD)" == "HEAD" ]]; then
+			log "Repo $repo: Not on a branch. Skipping..."
+			continue
+		fi
+
+		log "Updating repo: $repo"
+		git pull
+	done
+
+	if (( found_repos == 0 )); then
+		log "No repo to update was found."
+	fi
 }
 
 main "$@"
