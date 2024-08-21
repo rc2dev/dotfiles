@@ -7,7 +7,6 @@
 
 set -euo pipefail
 readonly script_name="$(basename "$0")"
-readonly dev_host="x220"
 
 main() {
 	for chosen in $(chose); do
@@ -27,7 +26,7 @@ chose() {
 		pipx_packages " " ON
 
 		dotfiles      " " ON
-		submodules    " " $(if [[ "$(hostname)" == "$dev_host" ]]; then echo ON; else echo OFF; fi)
+		submodules    " " ON
 
 		nvim_plugins  " " ON
 		tmux_plugins  " " ON
