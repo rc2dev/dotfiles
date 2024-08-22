@@ -3,5 +3,8 @@
 # This is executed when starting a X session with startx.
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
+# Automatically set as "tty"
+export XDG_SESSION_TYPE=x11
+
 . "$HOME/.config/X11/xsession-dwm"
 exec dwm
