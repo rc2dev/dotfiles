@@ -70,8 +70,13 @@ bak() {
   $_sudo cp -r "$1"{,.bak}
 }
 
+# Fix ctop tmux compatibility
+# (<https://github.com/bcicen/ctop/issues/263>)
+alias ctop='TERM="${TERM/#tmux/screen}" ctop'
+
 # Easier commands
 alias cx="chmod +x"
+alias dc="docker compose"
 alias e="$EDITOR"
 alias fn="find . -iname"
 alias q="exit"
