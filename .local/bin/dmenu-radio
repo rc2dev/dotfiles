@@ -2,7 +2,7 @@
 #
 # dmenu script for playing radio stations.
 #
-# Copyright (C) 2022-2023 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Copyright (C) 2022-2024 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
 set -euo pipefail
@@ -14,11 +14,11 @@ readonly notify_time=10000
 readonly notify_icon="radio"
 readonly unit_name="dmenu-radio-player"
 readonly cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu-radio"
+readonly config_dir="${XDG_config_HOME:-$HOME/.config}/dmenu-radio"
 readonly last_file="${cache_dir}/last"
-readonly section_prefix="➤"
+readonly streams_file="${config_dir}/streams"
+readonly section_prefix="\n➤"
 
-
-mkdir -p "$cache_dir"
 
 if [[ $dmenu =~ ^dmenu.* ]]; then
   launcher_opts=(-l 9)
@@ -26,30 +26,25 @@ else
   launcher_opts=()
 fi
 
-readonly streams="$(sed -E 's/^\s+//' <<-END
-  $section_prefix CLASSICAL
-  Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
-  France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
-  Naim Classical (FLAC),http://mscp3.live-streams.nl:8250/class-flac.flac
-  Radio Clásica,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r2_main.m3u8
-  Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
+mkdir -p "$cache_dir"
 
-  $section_prefix JAZZ
-  RadioJAZZ.FM,https://radiojazz.out.airtime.pro/radiojazz_a
-  Radio Swiss Jazz,http://stream.srg-ssr.ch/m/rsj/aacp_96
-  San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
-
-  $section_prefix OTHER
-  ArtSound FM 92.7,http://119.15.96.188/stream2.mp3
-
-  $section_prefix CONCENTRATION
-  Lofi (YouTube),https://www.youtube.com/watch?v=jfKfPfyJRdk
-  Brown noise 1 (YouTube),https://www.youtube.com/watch?v=ca3fBRmmrBA
-  Brown noise 2 (YouTube),https://www.youtube.com/watch?v=GSaJXDsb3N8
-  White noise 1 (YouTube),https://www.youtube.com/watch?v=ArwcHjmsw3A
-  White noise 2 (YouTube),https://www.youtube.com/watch?v=yLOM8R6lbzg
+if [[ ! -e "$streams_file" ]]; then
+  cat <<END
+Streams file not found at $streams_file.
+Create one following the syntax described in the script.
 END
-)"
+  exit 1
+fi
+
+# Syntax for streams file:
+# - List streams one per line: name,url
+# - Lines starting with $section_prefix are section titles
+# - Lines that are blank or starting with # are ignored
+readonly streams="$(sed \
+  -e '/^#/d' \
+  -e '/^\s*$/d' \
+  -e "s/\$section_prefix/${section_prefix}/" \
+  < "$streams_file")"
 
 if systemctl --user is-active --quiet "$unit_name"; then
   state=" Stop: $(systemctl --user show "$unit_name" | grep Description= | cut -d= -f2-)"
@@ -62,7 +57,6 @@ fi
 readonly menu="$(sed -E 's/^\s+//' <<-END
   $state
    Random
-
   $streams
 END
 )"

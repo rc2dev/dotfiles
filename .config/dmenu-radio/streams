@@ -1,0 +1,36 @@
+# Streams config for dmenu-radio.
+# Syntax is described in the script.
+#
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+$section_prefix CLASSICAL
+Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
+France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
+Naim Classical (FLAC),http://mscp3.live-streams.nl:8250/class-flac.flac
+Radio Clásica,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r2_main.m3u8
+Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
+
+$section_prefix WQXR
+WQXR 105.9 FM,https://stream.wqxr.org/wqxr-web
+WQXR New Sounds,https://q2stream.wqxr.org/q2-web
+WQXR New Standards,https://tjc.wnyc.org/js-stream.aac
+WQXR Operavore,https://opera-stream.wqxr.org/operavore-web
+WQXR Holiday Channel,https://stream.wqxr.org/qxr-special.aac
+WQXR Holiday Standards,https://specialstream.wnyc.org/wnyc-special
+WNYC 93.9 FM,https://fm939.wnyc.org/wnycfm
+WNYC AM 820,https://am820.wnyc.org/wnycam-web
+
+$section_prefix JAZZ
+RadioJAZZ.FM,https://radiojazz.out.airtime.pro/radiojazz_a
+Radio Swiss Jazz,http://stream.srg-ssr.ch/m/rsj/aacp_96
+San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
+
+$section_prefix OTHER
+ArtSound FM 92.7,http://119.15.96.188/stream2.mp3
+
+$section_prefix CONCENTRATION
+Lofi (YouTube),https://www.youtube.com/watch?v=jfKfPfyJRdk
+Brown noise 1 (YouTube),https://www.youtube.com/watch?v=ca3fBRmmrBA
+Brown noise 2 (YouTube),https://www.youtube.com/watch?v=GSaJXDsb3N8
+White noise 1 (YouTube),https://www.youtube.com/watch?v=ArwcHjmsw3A
+White noise 2 (YouTube),https://www.youtube.com/watch?v=yLOM8R6lbzg
