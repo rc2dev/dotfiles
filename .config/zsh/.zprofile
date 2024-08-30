@@ -36,7 +36,7 @@ if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
   export DMENU="rofi -dmenu -i"
 # Workaround as we are not getting that varible under Wayland+sddm+Plasma
 else
-  export DMENU="wofi --cache-file=/dev/null -dmenu -i"
+  export DMENU="wofi --cache-file=/dev/null --show=dmenu --insensitive"
 fi
 export EDITOR="nvim"
 
