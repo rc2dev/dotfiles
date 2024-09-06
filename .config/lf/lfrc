@@ -171,6 +171,12 @@ map @ push !<space>$fx<home>
 # Map for setting wallpaper.
 map W &set-wallpaper $f
 
+# Open directory on graphical file manager
+map w $xdg-open `dirname -- "$f"`
+
+# Remap open shell
+map S $$SHELL
+
 # Find file or dir with fzf.
 # Args: extra arguments for fd.
 cmd fzf_jump ${{
@@ -241,6 +247,3 @@ cmd compress ${{
     atool --add "$1" -- "${files[@]}"
 }}
 map zc push :compress<space>
-
-# Workaround for not setting zsh as user's default shell
-map w $zsh
