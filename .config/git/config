@@ -9,3 +9,6 @@
 	prune = true
 [rebase]
 	autoStash = true
+[safe]
+	# Termux
+	directory = /storage/emulated/0/Documents/obsidian-main
