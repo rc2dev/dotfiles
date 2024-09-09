@@ -55,8 +55,8 @@ else
 fi
 
 readonly menu="$(sed -E 's/^\s+//' <<-END
-  $state
    Random
+  $state
   $streams
 END
 )"
