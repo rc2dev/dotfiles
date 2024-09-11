@@ -60,7 +60,7 @@ hy() {
   esac
 
   local -r entry="$(fc -ln 0 | awk '!a[$0]++' | fzf --tac --multi --header 'Copy history')"
-  [[ -n "$entry" ]] && $copy_cmd <<< "$entry" >/dev/null && echo "Copied to clipboard." >&2
+  [[ -n "$entry" ]] && eval $copy_cmd <<< "$entry" >/dev/null && echo "Copied to clipboard." >&2
 }
 
 # Create backup of file or directory
