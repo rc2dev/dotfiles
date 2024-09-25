@@ -92,7 +92,7 @@ Print + {_, shift}
   rofi -show window -show-icons \
     -kb-row-down "Alt+Tab,Super+Tab,Ctrl+j,Down" -kb-row-up "Alt+ISO_Left_Tab,Super+ISO_Left_Tab,Ctrl+k,Up"
 
-super + space
+super + d
   rofi -show drun -show-icons
 
 super + shift + r
