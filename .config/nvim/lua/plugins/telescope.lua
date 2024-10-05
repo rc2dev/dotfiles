@@ -25,6 +25,7 @@ return {
         layout_config = {
           prompt_position = 'top',
         },
+        path_display = { 'smart' },
         sorting_strategy = 'ascending',
         mappings = {
           i = {
