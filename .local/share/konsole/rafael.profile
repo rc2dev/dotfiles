@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=Gruvbox
+ColorScheme=Dracula
 Font=BlexMono Nerd Font Mono,13,-1,5,50,0,0,0,0,0
 
 [General]
