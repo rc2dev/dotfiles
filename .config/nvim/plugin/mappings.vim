@@ -136,7 +136,6 @@ nnoremap <leader>fF <cmd>Telescope find_files prompt_title=Find\ Files\ in\ buff
 nnoremap <leader>fy <cmd>Telescope find_files prompt_title=Dotfiles cwd=$HOME find_command=dotfiles,ls-files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fG <cmd>Telescope live_grep prompt_title=Live\ Grep\ buffer\ directory search_dirs=%:p:h<CR>
-nnoremap <leader>fp <cmd>Telescope projects<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
 nnoremap <leader>st <cmd>Telescope filetypes<CR>

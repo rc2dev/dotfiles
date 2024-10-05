@@ -1,15 +1,8 @@
 -- Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 return {
-  "dense-analysis/ale",
-
   {
     "dhruvasagar/vim-table-mode",
-    ft = "markdown",
-  },
-
-  {
-    "ferrine/md-img-paste.vim",
     ft = "markdown",
   },
 
