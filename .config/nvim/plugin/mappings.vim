@@ -32,9 +32,6 @@ noremap Y y$
 " Avoid unintentional switch to Ex mode
 nmap Q <nop>
 
-" Toggle folding with <Tab>
-nnoremap <Tab> za
-
 " Clear search highlight
 nnoremap <leader>hn :nohlsearch<CR>
 
@@ -69,8 +66,8 @@ nnoremap <Leader><Del> :call DelCurrentFile()<CR>
 
 " Buffer navigation
 nnoremap <Leader><Leader> <C-^>
-nnoremap ]b :bnext<CR>
-nnoremap [b :bprevious<CR>
+nnoremap <Tab> :bnext<cr>
+nnoremap <S-Tab> :bprevious<cr>
 
 " Navigate splits and completion menus with C-jk
 " Most of this is probably redundant to vim-tmux-navigator, but works well
