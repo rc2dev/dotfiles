@@ -13,18 +13,9 @@ nnoremap <F7> :call ToggleSpell()<CR>
 inoremap <F7> <C-o>:call ToggleSpell()<CR>
 
 " Toggle terminal on/off (neovim)
-nnoremap <F12> :call TermToggle(12)<CR>
-inoremap <F12> <Esc>:call TermToggle(12)<CR>
-tnoremap <F12> <C-\><C-n>:call TermToggle(12)<CR>
-
-" Open terminal full screen
-nnoremap <leader>tt :terminal<CR>
-
-" Open terminal in new window
-" This is useful because it opens in the current directory.
-nnoremap <F24> :silent !$TERMINAL & disown<CR>
-inoremap <F24> <Esc>:silent !$TERMINAL & disown<CR>
-tnoremap <F24> <C-\><C-n>:silent !$TERMINAL & disown<CR>
+nnoremap <F9> :call TermToggle(12)<CR>
+inoremap <F9> <Esc>:call TermToggle(12)<CR>
+tnoremap <F9> <C-\><C-n>:call TermToggle(12)<CR>
 
 " For consistency with C and D
 noremap Y y$
@@ -107,7 +98,7 @@ nnoremap <Leader>o <C-w>o
 " nvim: Easier escape on terminal mode
 tnoremap <C-\><C-\> <C-\><C-n>
 
-" Colorscheme
+" Toggle colorscheme
 nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<CR>"
 
 
@@ -117,18 +108,14 @@ nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<C
 " lazy.nvim
 nnoremap <leader>l :Lazy<CR>
 
-" alpha.nvim
-nnoremap <leader>a :Alpha<CR>
-
 " vim-fugitive
 nnoremap <Leader>gs :Git<CR>
-nnoremap <Leader>gm :GMove <C-R>=expand('%')<CR>
 nnoremap <Leader>gl :Gclog<CR>
 nnoremap <Leader>ys :Dotfiles<CR>
 nnoremap <Leader>ya :Dotfiles add %<CR>
 
 " NERDCommenter
-map <leader>/ <plug>NERDCommenterToggle
+map <leader>cc <plug>NERDCommenterToggle
 
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
@@ -139,11 +126,11 @@ nnoremap <leader>fG <cmd>Telescope live_grep prompt_title=Live\ Grep\ buffer\ di
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
 nnoremap <leader>st <cmd>Telescope filetypes<CR>
-nnoremap <leader>bb <cmd>Telescope buffers<CR>
-nnoremap <leader>bg <cmd>Telescope live_grep prompt_title=Live\ Grep\ open\ buffers grep_open_files=true <CR>
-nnoremap <leader>cc <cmd>Telescope colorscheme<CR>
+nnoremap <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <leader>fB <cmd>Telescope live_grep prompt_title=Live\ Grep\ open\ buffers grep_open_files=true <CR>
+nnoremap <leader>cs <cmd>Telescope colorscheme<CR>
 nnoremap <leader>p <cmd>Telescope registers<CR>
-nnoremap g? <cmd>Telescope help_tags<CR>
+nnoremap <leader>hh <cmd>Telescope help_tags<CR>
 
 " lf.vim
 nnoremap <leader>fr :Lf<CR>
@@ -154,4 +141,3 @@ nnoremap <leader>te :Template<CR>
 " zen-mode
 nnoremap <F10> :ZenMode<CR>
 inoremap <F10> <C-o>:ZenMode<CR>
-
