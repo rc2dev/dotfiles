@@ -57,8 +57,11 @@ nnoremap <Leader><Del> :call DelCurrentFile()<CR>
 
 " Buffer navigation
 nnoremap <Leader><Leader> <C-^>
-nnoremap <Tab> :bnext<cr>
-nnoremap <S-Tab> :bprevious<cr>
+nnoremap ]b :bnext<cr>
+nnoremap [b :bprevious<cr>
+
+" Toggle fold
+nnoremap <Tab> za
 
 " Navigate splits and completion menus with C-jk
 " Most of this is probably redundant to vim-tmux-navigator, but works well
@@ -127,6 +130,7 @@ nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
 nnoremap <leader>st <cmd>Telescope filetypes<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <leader>bb <cmd>Telescope buffers<CR>
 nnoremap <leader>fB <cmd>Telescope live_grep prompt_title=Live\ Grep\ open\ buffers grep_open_files=true <CR>
 nnoremap <leader>cs <cmd>Telescope colorscheme<CR>
 nnoremap <leader>p <cmd>Telescope registers<CR>
