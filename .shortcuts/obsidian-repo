@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# Copyright (C) 2024 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+cat << "EOF"
+       _         _     _ _
+  ___ | |__  ___(_) __| (_) __ _ _ __
+ / _ \| '_ \/ __| |/ _` | |/ _` | '_ \
+| (_) | |_) \__ \ | (_| | | (_| | | | |
+ \___/|_.__/|___/_|\__,_|_|\__,_|_| |_|
+
+
+ _ __ ___ _ __   ___
+| '__/ _ \ '_ \ / _ \
+| | |  __/ |_) | (_) |
+|_|  \___| .__/ \___/
+         |_|
+
+
+
+EOF
+
+readonly repo_dir="$HOME/Documents/obsidian-main"
+
+if [[ ! -d "$repo_dir" ]]; then
+  printf "Repo not found. Exiting.\n"
+  exit
+fi
+
+cd "$repo_dir"
+
+while true; do
+  chosen="$(printf "Pull\nCommit and push\nQuit" | fzf --height=6 --layout=reverse)"
+  case ${chosen} in
+    "Pull")
+      git pull
+      ;;
+    "Commit and push")
+      git add .
+      git commit --edit --message="Update on Termux"
+      git push
+      ;;
+    *)
+      exit
+  esac
+done
