@@ -36,11 +36,14 @@ while true; do
     "Pull")
       git pull
       ;;
+
     "Commit and push")
       git add .
-      git commit --edit --message="Update on Termux"
+      readonly device_name="$(getprop ro.product.brand) $(getprop ro.product.device)"
+      git commit --stat --message="Update on ${device_name:-Termux}"
       git push
       ;;
+
     *)
       exit
   esac
