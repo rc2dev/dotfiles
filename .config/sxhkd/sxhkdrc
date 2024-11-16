@@ -54,11 +54,8 @@ super + {_, shift} + v
     mpv "$(xclip -o)" \
   }
 
-super + {_, shift} + w
-  { \
-    $BROWSER, \
-    firefox-esr, \
-  }
+super + w
+  $BROWSER
 
 super + y
   dmenu-yt
