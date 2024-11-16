@@ -32,12 +32,11 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # Default applications
-if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
-  export DMENU="rofi -dmenu -i"
-# Workaround as we are not getting that varible under Wayland+sddm+Plasma
-else
-  export DMENU="wofi --cache-file=/dev/null --show=dmenu --insensitive"
-fi
+case $XDG_SESSION_TYPE in
+  x11|tty) export DMENU="rofi -dmenu -i" ;;
+  # Workaround as we are not getting that varible under Wayland+sddm+Plasma
+  *) export DMENU="wofi --cache-file=/dev/null --show=dmenu --insensitive" ;;
+esac
 export EDITOR="nvim"
 
 # For Qt applications under GNOME Wayland
