@@ -40,7 +40,7 @@ while true; do
     "Commit and push")
       git add .
       readonly device_name="$(getprop ro.product.brand) $(getprop ro.product.device)"
-      git commit --stat --message="Update on ${device_name:-Termux}"
+      git commit --stat --message="Update on ${device_name:-Termux}: $(date '+%Y-%m-%d %H:%M:%S')"
       git push
       ;;
 
