@@ -46,10 +46,12 @@ readonly streams="$(sed \
   -e "s/\$section_prefix/${section_prefix}/" \
   < "$streams_file")"
 
+readonly last="$(cat "$last_file")"
+
 if systemctl --user is-active --quiet "$unit_name"; then
   state=" Stop: $(systemctl --user show "$unit_name" | grep Description= | cut -d= -f2-)"
 elif [[ -f "$last_file" ]]; then
-  state=" Last: $(cat "$last_file")"
+  state=" Last: $last"
 else
   state=
 fi
@@ -76,10 +78,15 @@ fi
 
 # If chosen value is special, reassign it.
 if [[ "$chosen" =~ Last ]]; then
-  chosen="$(cat "$last_file")"
+  chosen="$last"
+
 elif [[ "$chosen" =~ Random ]]; then
   readonly names_only="$(sed -E 's/,.*$//;/^\s*\W/d;/^\s*$/d' <<< "$streams")"
-  chosen="$(shuf -n 1 <<< "$names_only")"
+
+  # Don't choose last played
+  readonly filtered_names="$(grep -vFx "$last" <<< "$names_only")"
+
+  chosen="$(shuf -n 1 <<< "$filtered_names")"
 fi
 
 # We should have a stream name now. Record it and get the url.
