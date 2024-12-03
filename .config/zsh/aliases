@@ -77,8 +77,6 @@ alias ctop='TERM="${TERM/#tmux/screen}" ctop'
 # Easier commands
 alias cx="chmod +x"
 alias dc="docker compose"
-alias e="$EDITOR"
-alias fn="find . -iname"
 alias q="exit"
 alias se="sudo -e"
 alias vim="nvim"
@@ -140,10 +138,3 @@ if [[ -n "$TERMUX_VERSION" ]]; then _sudo= else _sudo=sudo; fi
 alias aar="$_sudo apt autoremove --purge"
 alias ama="$_sudo apt-mark auto"
 alias amm="$_sudo apt-mark manual"
-
-# Only supported by zsh
-if [[ -n "$ZSH_VERSION" ]]; then
-  # Global aliases
-  alias -g G="| grep"
-  alias -g L="| less"
-fi
