@@ -8,6 +8,25 @@ log() {
   echo -e "\033[1m${upper_text}\033[0m"
 }
 
+get_device_name() {
+  # Hostname available
+  local -r hostname="$(hostname)"
+  if [[ -n "$hostname" ]] && [[ "$hostname" != "localhost" ]]; then
+    echo $hostname
+    return
+  fi
+
+  # Can't get Android device and no hostname available
+  if ! command -v getprop > /dev/null; then
+    echo "Unknown host"
+    return
+  fi
+
+  # Android device, fallback to Termux
+  local -r android_device="$(getprop ro.product.brand) $(getprop ro.product.device)"
+  echo ${android_device:-Termux}
+}
+
 cat << "EOF"
        _         _     _ _
   ___ | |__  ___(_) __| (_) __ _ _ __
@@ -41,6 +60,5 @@ git pull
 
 log "Commiting and pushing..."
 git add .
-readonly device_name="$(getprop ro.product.brand) $(getprop ro.product.device)"
-git commit --stat --message="Update on ${device_name:-Termux}: $(date '+%Y-%m-%d %H:%M:%S')"
+git commit --stat --message="Update on $(get_device_name): $(date '+%Y-%m-%d %H:%M:%S')"
 git push
