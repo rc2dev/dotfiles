@@ -30,21 +30,19 @@ fi
 
 cd "$repo_dir"
 
-while true; do
-  chosen="$(printf "Pull\nCommit and push\nQuit" | fzf --height=6 --layout=reverse)"
-  case ${chosen} in
-    "Pull")
-      git pull
-      ;;
+chosen="$(printf "Pull\nCommit and push\nQuit" | fzf --height=6 --layout=reverse)"
+case ${chosen} in
+  "Pull")
+    git pull
+    ;;
 
-    "Commit and push")
-      git add .
-      readonly device_name="$(getprop ro.product.brand) $(getprop ro.product.device)"
-      git commit --stat --message="Update on ${device_name:-Termux}: $(date '+%Y-%m-%d %H:%M:%S')"
-      git push
-      ;;
+  "Commit and push")
+    git add .
+    readonly device_name="$(getprop ro.product.brand) $(getprop ro.product.device)"
+    git commit --stat --message="Update on ${device_name:-Termux}: $(date '+%Y-%m-%d %H:%M:%S')"
+    git push
+    ;;
 
-    *)
-      exit
-  esac
-done
+  *)
+    exit
+esac
