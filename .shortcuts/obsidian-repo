@@ -3,6 +3,11 @@
 # Copyright (C) 2024 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
+log() {
+  local -r upper_text="${*^^}"
+  echo -e "\033[1m${upper_text}\033[0m"
+}
+
 cat << "EOF"
        _         _     _ _
   ___ | |__  ___(_) __| (_) __ _ _ __
@@ -17,7 +22,7 @@ cat << "EOF"
 |_|  \___| .__/ \___/
          |_|
 
-
+This will sync your obsidian local repo (pull, commit and push).
 
 EOF
 
@@ -30,19 +35,12 @@ fi
 
 cd "$repo_dir"
 
-chosen="$(printf "Pull\nCommit and push\nQuit" | fzf --height=6 --layout=reverse)"
-case ${chosen} in
-  "Pull")
-    git pull
-    ;;
 
-  "Commit and push")
-    git add .
-    readonly device_name="$(getprop ro.product.brand) $(getprop ro.product.device)"
-    git commit --stat --message="Update on ${device_name:-Termux}: $(date '+%Y-%m-%d %H:%M:%S')"
-    git push
-    ;;
+log "Pulling..."
+git pull
 
-  *)
-    exit
-esac
+log "Commiting and pushing..."
+git add .
+readonly device_name="$(getprop ro.product.brand) $(getprop ro.product.device)"
+git commit --stat --message="Update on ${device_name:-Termux}: $(date '+%Y-%m-%d %H:%M:%S')"
+git push
