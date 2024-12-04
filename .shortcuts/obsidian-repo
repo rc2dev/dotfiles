@@ -5,6 +5,7 @@
 
 log() {
   local -r upper_text="${*^^}"
+  echo
   echo -e "\033[1m${upper_text}\033[0m"
 }
 
