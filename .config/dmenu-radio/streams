@@ -3,19 +3,6 @@
 #
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
-$section_prefix CLASSICAL
-Classic FM,http://vis.media-ice.musicradio.com/ClassicFMMP3
-France Musique Classique Plus,http://direct.francemusique.fr/live/francemusiqueclassiqueplus-hifi.mp3
-Naim Classical (FLAC),http://mscp3.live-streams.nl:8250/class-flac.flac
-Radio Clásica,https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r2_main.m3u8
-Radio Swiss Classic,http://stream.srg-ssr.ch/m/rsc_de/aacp_96
-
-$section_prefix JAZZ
-101 Smooth Jazz,http://www.101smoothjazz.com/101-smoothjazz.m3u
-RadioJAZZ.FM,https://radiojazz.out.airtime.pro/radiojazz_a
-Radio Swiss Jazz,http://stream.srg-ssr.ch/m/rsj/aacp_96
-San Diego Jazz 88.3,http://listen.jazz88.org/ksds.mp3
-
 $section_prefix CONCENTRATION
 Lofi (YouTube),https://www.youtube.com/watch?v=jfKfPfyJRdk
 Brown noise 1 (YouTube),https://www.youtube.com/watch?v=ca3fBRmmrBA
