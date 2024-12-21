@@ -1,0 +1,10 @@
+# Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+[Unit]
+Description=status email for %i to root
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/systemd-email root %i
+DynamicUser=yes
+Group=systemd-journal
