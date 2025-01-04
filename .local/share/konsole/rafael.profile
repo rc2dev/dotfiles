@@ -1,6 +1,7 @@
 [Appearance]
-ColorScheme=Dracula
+ColorScheme=Breeze
 Font=BlexMono Nerd Font Mono,13,-1,5,50,0,0,0,0,0
+UseFontLineChararacters=false
 
 [General]
 Name=rafael
