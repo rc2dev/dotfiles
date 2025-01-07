@@ -3,6 +3,17 @@
 # Copyright (C) 2024 Rafael Cavalcanti <https://rafaelc.org/dev>
 # Licensed under GPLv3
 
+readonly git_dir="$HOME/obsidian-main-git"
+readonly work_tree="$HOME/storage/shared/Documents/obsidian-main"
+readonly repo_url="ssh://git@192.168.1.201:222/rafael/obsidian-main"
+
+
+# Place git in Termux's internal storage as workaround to
+# <https://github.com/termux/termux-app/issues/3385>.
+git_cmd() {
+  git --git-dir "$git_dir" --work-tree "$work_tree" "$@"
+}
+
 log() {
   local -r upper_text="${*^^}"
   echo
@@ -46,20 +57,26 @@ This will sync your obsidian local repo (pull, commit and push).
 
 EOF
 
-readonly repo_dir="$HOME/Documents/obsidian-main"
 
-if [[ ! -d "$repo_dir" ]]; then
-  printf "Repo not found. Exiting.\n"
-  exit
+if [[ ! -d "$git_dir" || ! -d "$work_tree" ]] then
+  printf "Repo not found. Cloning...\n"
+
+  # Might make it faster
+  termux-wake-lock
+
+  mkdir "$git_dir"
+  git_cmd clone "$repo_url"
+
+  termux-wake-unlock
 fi
 
 cd "$repo_dir"
 
 
 log "Pulling..."
-git pull
+git_cmd pull
 
 log "Commiting and pushing..."
-git add .
-git commit --stat --message="Update on $(get_device_name): $(date '+%Y-%m-%d %H:%M:%S')"
-git push
+git_cmd add .
+git_cmd commit --stat --message="Update on $(get_device_name): $(date '+%Y-%m-%d %H:%M:%S')"
+git_cmd push
