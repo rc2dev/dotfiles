@@ -111,11 +111,8 @@ nnoremap <expr> <leader>cd &bg == "dark" ? ":set bg=light<CR>" : ":set bg=dark<C
 " lazy.nvim
 nnoremap <leader>l :Lazy<CR>
 
-" vim-fugitive
-nnoremap <Leader>gs :Git<CR>
-nnoremap <Leader>gl :Gclog<CR>
-nnoremap <Leader>ys :Dotfiles<CR>
-nnoremap <Leader>ya :Dotfiles add %<CR>
+" lazygit
+nnoremap <Leader>gg :LazyGit<CR>
 
 " NERDCommenter
 map <leader>cc <plug>NERDCommenterToggle
