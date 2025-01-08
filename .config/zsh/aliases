@@ -101,6 +101,7 @@ alias grbc="git rebase --continue"
 alias grbi="git rebase --interactive"
 alias gsh="git show"
 alias gst="git status"
+alias gg="lazygit"
 
 # dotfiles
 alias y="dotfiles"
@@ -122,7 +123,7 @@ alias yrbi="y rebase --interactive"
 alias ysh="y show"
 alias yst="y status"
 alias yh="dotfiles cmd gh"
-alias ytig="dotfiles cmd tig"
+alias yg="dotfiles cmd lazygit"
 
 # systemctl, journalctl
 alias sc="sudo systemctl"
