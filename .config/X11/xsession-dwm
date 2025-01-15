@@ -12,6 +12,11 @@ export XSETTINGS_CONFIG="$HOME/.config/xsettingsd/xsettingsd-dwm.conf"
 export BROWSER="chromium"
 export TERMINAL="st"
 
+# Use KDE Wallet to store SSH key passphrases
+# (<https://wiki.archlinux.org/title/KDE_Wallet#Using_the_KDE_Wallet_to_store_ssh_key_passphrases>)
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS_REQUIRE=prefer
+
 # Placed at custom path.
 xrdb "$XRESOURCES"
 
@@ -32,13 +37,13 @@ set-wallpaper &
 # Needed for redshift/gammastep on WM due to a bug
 # (<https://wiki.archlinux.org/title/Redshift#Automatic_location_based_on_GeoClue2>)
 /usr/libexec/geoclue-2.0/demos/agent &
+kwalletd5 &
 gammastep-indicator &
 picom --experimental-backends &  # --experimental-backends enables vsync on xrender
 clipmenud &
 playerctld daemon &
 nm-applet &
 blueman-applet &
-keepassxc &
 dwm-status --loop &
 
 # Auto-lock screen
