@@ -54,6 +54,7 @@ cat << "EOF"
          |_|
 
 This will sync your obsidian local repo (pull, commit and push).
+Designed to be used on mobile devices, but should work on any device.
 
 EOF
 
