@@ -124,13 +124,10 @@ nnoremap <leader>fy <cmd>Telescope find_files prompt_title=Dotfiles cwd=$HOME fi
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fG <cmd>Telescope live_grep prompt_title=Live\ Grep\ buffer\ directory search_dirs=%:p:h<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
-nnoremap <Leader>fe :e <C-r>=fnameescape(expand('%:p:h'))<cr>/
 nnoremap <leader>st <cmd>Telescope filetypes<CR>
-nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>bb <cmd>Telescope buffers<CR>
-nnoremap <leader>fB <cmd>Telescope live_grep prompt_title=Live\ Grep\ open\ buffers grep_open_files=true <CR>
 nnoremap <leader>cs <cmd>Telescope colorscheme<CR>
-nnoremap <leader>p <cmd>Telescope registers<CR>
+nnoremap <leader>rr <cmd>Telescope registers<CR>
 nnoremap <leader>hh <cmd>Telescope help_tags<CR>
 
 " lf.vim
