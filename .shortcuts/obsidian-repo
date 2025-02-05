@@ -67,6 +67,7 @@ if [[ ! -d "$git_dir" || ! -d "$work_tree" ]] then
 
   mkdir "$git_dir"
   git_cmd clone "$repo_url"
+  echo "gitdir: $git_dir" > "$work_tree/.git"
 
   termux-wake-unlock
 fi
