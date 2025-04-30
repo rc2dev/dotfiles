@@ -77,6 +77,7 @@ alias ctop='TERM="${TERM/#tmux/screen}" ctop'
 # Easier commands
 alias cx="chmod +x"
 alias dc="docker compose"
+alias ob="~/.shortcuts/obsidian-repo"
 alias q="exit"
 alias se="sudo -e"
 alias vim="nvim"
