@@ -7,6 +7,11 @@
 
 set -euo pipefail
 
+if [[ "${XDG_CURRENT_DESKTOP}" != "KDE" ]]; then
+  echo "Not running in KDE Plasma. Exiting."
+  exit 1
+fi
+
 readonly current="$(grep "ColorScheme=" ~/.config/kdeglobals | cut -d= -f2)"
 
 if [[ "$current" == "BreezeDark" ]]; then
