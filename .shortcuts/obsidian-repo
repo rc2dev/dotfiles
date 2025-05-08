@@ -78,7 +78,12 @@ cd "$repo_dir"
 log "Pulling..."
 git_cmd pull
 
+log "Manual staging..."
+echo "Press ENTER to stage files in lazygit."
+echo "Don't commit or push: it'll be done automatically."
+read
+lazygit --git-dir "$git_dir" --work-tree "$work_tree"
+
 log "Commiting and pushing..."
-git_cmd add .
-git_cmd commit --stat --edit --verbose --message="Update on $(get_device_name): $(date '+%Y-%m-%d %H:%M:%S')"
+git_cmd commit --stat --verbose --message="Update on $(get_device_name): $(date '+%Y-%m-%d %H:%M:%S')"
 git_cmd push
