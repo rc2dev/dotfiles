@@ -12,9 +12,9 @@ if [[ "${XDG_CURRENT_DESKTOP}" != "KDE" ]]; then
   exit 1
 fi
 
-readonly current="$(grep "ColorScheme=" ~/.config/kdeglobals | cut -d= -f2)"
+readonly current="$(plasma-apply-colorscheme --list-schemes | grep "(current color scheme)" | cut -d' ' -f 3)"
 
-if [[ "$current" == "BreezeDark" ]]; then
+if [[ "${current:-}" == "BreezeDark" ]]; then
   plasma-apply-colorscheme BreezeLight
 else
   plasma-apply-colorscheme BreezeDark
