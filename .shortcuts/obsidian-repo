@@ -65,8 +65,7 @@ if [[ ! -d "$git_dir" || ! -d "$work_tree" ]] then
   # Might make it faster
   termux-wake-lock
 
-  mkdir "$git_dir"
-  git_cmd clone "$repo_url"
+  git clone --separate-git-dir="$git_dir" "$repo_url" "$work_tree"
   echo "gitdir: $git_dir" > "$work_tree/.git"
 
   termux-wake-unlock
