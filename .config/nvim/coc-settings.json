@@ -1,0 +1,15 @@
+{
+  "prettier.singleQuote": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "astro",
+    "html",
+    "js",
+    "jsx",
+    "lua"
+  ],
+  "markdownlint.config": {
+    "line_length": false
+  }
+}
