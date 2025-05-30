@@ -1,0 +1,9 @@
+session_name: website
+start_directory: ~/dev/website/rafaelc.org
+windows:
+  - window_name: dev server
+    shell_command_before: npm run dev
+  - window_name: nvim
+    shell_command_before: nvim
+    focus: true
+  - window_name: shell
