@@ -9,8 +9,8 @@ inoremap <F2> <C-o>:set paste!<CR>
 inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
 
 " Toggle spellcheck
-nnoremap <F7> :call ToggleSpell()<CR>
-inoremap <F7> <C-o>:call ToggleSpell()<CR>
+nnoremap <F6> :call ToggleSpell()<CR>
+inoremap <F6> <C-o>:call ToggleSpell()<CR>
 
 " Toggle terminal on/off (neovim)
 nnoremap <F9> :call TermToggle(12)<CR>
@@ -24,7 +24,7 @@ noremap Y y$
 nmap Q <nop>
 
 " Clear search highlight
-nnoremap <leader>hn :nohlsearch<CR>
+nnoremap <F7> :nohlsearch<CR>
 
 " Repeat last macro with return
 " Check if modifiable, as fugitive buffer uses <cr>
