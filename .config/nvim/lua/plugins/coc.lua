@@ -6,8 +6,17 @@ return {
   -- (<https://github.com/neoclide/coc.nvim#example-vim-configuration>)
   config = function()
     vim.cmd([[
-      " Testing json, git, tsserver, makdownlint
-      let g:coc_global_extensions = [ 'coc-json', 'coc-git', 'coc-prettier', '@yaegassy/coc-tailwindcss3', 'coc-tsserver', 'coc-markdownlint', '@yaegassy/coc-astro']
+      " Testing json, git, tsserver, makdownlint, pyright
+      let g:coc_global_extensions = [
+      \ '@yaegassy/coc-astro',
+      \ '@yaegassy/coc-tailwindcss3',
+      \ 'coc-git',
+      \ 'coc-json',
+      \ 'coc-markdownlint',
+      \ 'coc-prettier',
+      \ 'coc-pyright',
+      \ 'coc-tsserver',
+      \ ]
 
       " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
       " delays and poor user experience

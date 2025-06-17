@@ -1,13 +1,14 @@
 {
   "prettier.singleQuote": true,
   "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
     "astro",
+    "css",
     "html",
     "js",
     "jsx",
-    "lua"
+    "lua",
+    "markdown",
+    "python"
   ],
   "markdownlint.config": {
     "line_length": false
