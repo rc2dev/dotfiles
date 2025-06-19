@@ -53,9 +53,22 @@ map <delete> trash
 map tl !trash-list
 map tr $trash-restore
 
-# Force reload, or trash directory counting is not updated.
-map te %trash-empty && lf -remote "send $id reload" && echo "Trash emptied."
+cmd empty-trash ${{
+    read -p "Empty trash? " -n 1 confirm
+    echo
 
+    if [[ "${confirm,,}" != "y" ]]; then
+        exit
+    fi
+
+    trash-empty 
+    # Force reload, or trash directory counting is not updated.
+    lf -remote "send $id reload"
+
+    echo "Trash emptied."
+    echo
+}}
+map te empty-trash
 
 #########################
 #       RENAMING        #
