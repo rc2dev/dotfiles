@@ -38,7 +38,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <expr> q (&modifiable == 1) ? "q" : ":q<CR>"
 
-nnoremap <Leader><Del> :call DelCurrentFile()<CR>
+nnoremap <Leader><Del> :call TrashFile()<CR>
 
 " Buffer navigation
 nnoremap <Leader><Leader> <C-^>
