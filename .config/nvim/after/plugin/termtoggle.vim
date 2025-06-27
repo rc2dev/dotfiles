@@ -1,8 +1,6 @@
 " Copied from
-" <https://reddit.com/r/vim/comments/8n5bzs/using_neovim_is_there_a_way_to_display_a_terminal/dzt3fix/?context=3>
-" by Rafael Cavalcanti <https://rafaelc.org/dev>
+" <https://reddit.com/r/vim/comments/8n5bzs/using_neovim_is_there_a_way_to_display_a_terminal/dzt3fix/?context=3>.
 
-" Terminal Function
 let g:term_buf = 0
 let g:term_win = 0
 function! TermToggle(height)
