@@ -71,9 +71,6 @@ if [[ ! -d "$git_dir" || ! -d "$work_tree" ]] then
   termux-wake-unlock
 fi
 
-cd "$repo_dir"
-
-
 log "Pulling..."
 git_cmd pull
 
