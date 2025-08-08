@@ -9,52 +9,77 @@ set -euo pipefail
 
 readonly remote_repo="https://github.com/rc2dev/dotfiles.git"
 readonly local_repo="$HOME/.local/share/dotfiles/repo.git"
-readonly tmp_dest="$HOME/.dotfiles_tmp"
+
+dotfiles() {
+  git --git-dir="$local_repo" --work-tree="$HOME" "$@"
+}
 
 log() {
   printf "%s\n" "$*" 1>&2
 }
 
-if [[ ! -d "$local_repo" ]]; then
+main() {
+  cd "$HOME"
+
+  clone_repo
+  config_repo
+  setup_sparse_checkout
+  setup_submodules
+  enable_services
+}
+
+clone_repo() {
+  if [[ -d "$local_repo" ]]; then
+    return
+  fi
+
+  local -r tmp_dest="$(mktemp -d)"
+  trap 'rm -rf "$tmp_dest"' EXIT
+
   mkdir -p "$(dirname "$local_repo")"
 
   # Clone first to a temporary dir, or git will fail on a non-empty home.
   git clone --separate-git-dir="$local_repo" "$remote_repo" "$tmp_dest"
   rsync --recursive --links --exclude '.git' "$tmp_dest/" "$HOME/"
-  rm --recursive "$tmp_dest"
-fi
+}
 
-export GIT_DIR="$local_repo"
-export GIT_WORK_TREE="$HOME"
+config_repo() {
+  log "Setting worktree..."
+  dotfiles config core.worktree "$HOME"
 
-cd "$HOME"
+  log "Setting path for repository config..."
+  local -r config_path="$HOME/.config/dotfiles/config"
+  if [[ ! -e "$config_path" ]]; then
+    log "Config not found at $config_path. Exiting..."
+    exit 1
+  fi
+  dotfiles config include.path "$config_path"
+}
 
-# Necessary if submodule remote url changes
-log "Syncing submodules if already present..."
-git submodule sync
+setup_sparse_checkout() {
+  # Hide README and LICENSE
+  log "Setting sparse checkout..."
+  dotfiles config core.sparseCheckout true
+  printf "/*\n!README.md\n!LICENSE\n" > "$local_repo/info/sparse-checkout"
+  dotfiles read-tree -mu HEAD
+}
 
-log "Initializing submodules..."
-git submodule update --init --recursive
+setup_submodules() {
+  # Necessary if submodule remote url changes
+  log "Syncing submodules if already present..."
+  dotfiles submodule sync
 
-# Needed for vim-fugitive's command
-log "Setting worktree..."
-git config core.worktree "$HOME"
+  log "Initializing submodules..."
+  dotfiles submodule update --init --recursive
+}
 
-log "Setting path for repository config..."
-git config include.path ~/.config/dotfiles/config
+enable_services() {
+  case $(hostname) in
+    rd|x220)
+      log "Enabling system user units for rd or x220..."
+      systemctl --user enable ssh-agent.service
+      ;;
+  esac
+}
 
-# To hide README and LICENSE
-log "Setting sparse checkout..."
-git config core.sparseCheckout true
-git sparse-checkout set '/*' '!/README.md' '!/LICENSE'
-
-log "Running workaround if sparse checkout failed..."
-git read-tree -mu HEAD
-
-case $(hostname) in
-  rd|x220)
-    log "Enabling system user units for rd or x220..."
-    systemctl --user enable ssh-agent.service
-    ;;
-esac
-
+main "$@"
