@@ -1,6 +1,3 @@
 [submodule ".local/share/zsh/powerlevel10k"]
 	path = .local/share/zsh/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
-[submodule ".config/mpv/script-repos/mpv-playlistmanager"]
-	path = .config/mpv/script-repos/mpv-playlistmanager
-	url = https://github.com/jonniek/mpv-playlistmanager

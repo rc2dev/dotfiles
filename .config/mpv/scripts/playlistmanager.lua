@@ -1,1 +1,0 @@
-../script-repos/mpv-playlistmanager/playlistmanager.lua
