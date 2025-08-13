@@ -88,6 +88,10 @@ update_distro() {
 		log "Atualizando pacotes do DNF..."
 		sudo dnf upgrade --refresh
 
+	elif has_command pacman; then
+		log "Atualizando pacotes do pacman..."
+		sudo pacman -Syu
+
 	else
 		log "Atualização de pacotes não disponível para a sua distro."
 	fi
