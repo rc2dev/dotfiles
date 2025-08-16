@@ -8,7 +8,7 @@
 set -euo pipefail
 IFS=$'\n'
 readonly script_name="$(basename "$0")"
-readonly runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$UID}/$script_name"
+readonly runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$UID/}$script_name"
 
 # Configuration
 declare -ar file_manager=("${TERMINAL:-konsole}" -e lf)
