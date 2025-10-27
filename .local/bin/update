@@ -25,6 +25,7 @@ chose() {
 		flatpaks      " " ON
 		pipx_packages " " ON
 		repos         " " ON
+		winget        " " ON
 
 		dotfiles      " " ON
 		submodules    " " ON
@@ -95,6 +96,18 @@ update_distro() {
 	else
 		log "Atualização de pacotes não disponível para a sua distro."
 	fi
+
+}
+
+# WSL
+update_winget() {
+	if ! has_command winget.exe; then
+		log "Skipping winget update: not installed."
+		return 0
+	fi
+
+	log "Atualizando com winget..."
+	winget.exe upgrade --all
 }
 
 update_flatpaks() {
