@@ -54,6 +54,11 @@ map tl !trash-list
 map tr $trash-restore
 
 cmd empty-trash ${{
+    if ! command -v trash-empty >/dev/null; then
+       lf -remote "send $id echoerr Trash command unavailable." 
+       exit    
+    fi
+
     read -p "Empty trash? " -n 1 confirm
     echo
 
