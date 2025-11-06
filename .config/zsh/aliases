@@ -140,3 +140,7 @@ if [[ -n "$TERMUX_VERSION" ]]; then _sudo= else _sudo=sudo; fi
 alias aar="$_sudo apt autoremove --purge"
 alias ama="$_sudo apt-mark auto"
 alias amm="$_sudo apt-mark manual"
+
+if [[ -e "$HOME/.config/zsh/aliases_secrets" ]]; then
+  source "$HOME/.config/zsh/aliases_secrets"
+fi
