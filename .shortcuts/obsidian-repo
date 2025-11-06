@@ -74,7 +74,7 @@ fi
 log "Pulling..."
 git_cmd pull
 
-if git_cmd diff --quiet; then
+if [[ -z "$(git_cmd status --porcelain)" ]]; then
   log "Repositório limpo. Commit não é necessário."
 else
   log "Manual staging..."
