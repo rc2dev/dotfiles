@@ -4,13 +4,11 @@
 # by Rafael Cavalcanti <https://rafaelc.org/dev>.
 
 MIME=$(mimetype --all --brief "$1")
-PREVIEWER_IMG="$HOME/.config/lf/previewer_img/previewer_img.sh"
 
 case "$MIME" in
     # .pdf
     *application/pdf*)
-        $PREVIEWER_IMG "$@"
-        # Alternatively, just text: pdftotext "$1" -
+        pdftotext "$1" -
         ;;
     # .7z
     *application/x-7z-compressed*)
@@ -23,10 +21,6 @@ case "$MIME" in
     # .tar.*
     *application/x-compressed-tar*|*application/x-*-compressed-tar*)
         tar -tvf "$1"
-        ;;
-    # libreoffice
-    *application/vnd.oasis.opendocument.*)
-        $PREVIEWER_IMG "$@"
         ;;
     # .rar
     *application/vnd.rar*)
@@ -43,12 +37,6 @@ case "$MIME" in
     *text/plain*)
         # return false to always repaint, in case terminal size changes
         batcat --color always --decorations never "$1" && false
-        ;;
-    *image/*)
-        "$PREVIEWER_IMG" "$@"
-        ;;
-    *video/*)
-        "$PREVIEWER_IMG" "$@"
         ;;
     *)
         echo "No preview for this format."

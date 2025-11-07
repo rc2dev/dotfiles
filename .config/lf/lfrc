@@ -8,8 +8,6 @@ set shell bash
 
 # Previewer.
 set previewer ~/.config/lf/previewer.sh
-# Needed for image preview with ueberzug.
-set cleaner ~/.config/lf/previewer_img/clear_img.sh
 # Make "i" use the previewer output.
 map i $~/.config/lf/previewer.sh $f | less -R
 
