@@ -42,8 +42,8 @@ else
 fi
 
 # Use bat if available
-if command -v batcat >/dev/null; then
-  alias cat="batcat"
+if command -v "$BAT_CMD" >/dev/null; then
+  alias cat="$BAT_CMD"
 fi
 
 # Show history timestamped

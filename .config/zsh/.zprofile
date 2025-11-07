@@ -52,6 +52,12 @@ if [[ "$XDG_SESSION_TYPE" == "wayland" && "$XDG_SESSION_DESKTOP" == "gnome" ]]; 
 fi
 
 
+# Applications with varing binaries accross distros
+#######################################################
+if command -v bat >/dev/null; then export BAT_CMD=bat;
+elif command -v batcat >/dev/null; then export BAT_CMD=batcat; fi
+
+
 # Applications configuration
 #######################################################
 

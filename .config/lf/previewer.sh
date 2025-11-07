@@ -36,7 +36,7 @@ case "$MIME" in
     # any plain text file that doesn't have a specific handler
     *text/plain*)
         # return false to always repaint, in case terminal size changes
-        batcat --color always --decorations never "$1" && false
+        ${BAT_CMD:-bat} --color always --decorations never "$1" && false
         ;;
     *)
         echo "No preview for this format."
