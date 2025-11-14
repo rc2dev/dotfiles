@@ -165,16 +165,10 @@ map yy copy
 
 # Copy path to clipboard.
 cmd yank-path &{{
-    case "$XDG_SESSION_TYPE" in
-        wayland) cmd="wl-copy" ;;
-        x11) cmd="xsel --clipboard" ;;
-        *) echo "Clipboard unavailable." && exit ;;
-    esac
-
     case $1 in
-        path) printf '%s' "$fx" | $cmd ;;
-        name) basename -a -- $fx | head -c-1 | $cmd ;;
-        dirname) dirname -- "$f" | head -c-1 | $cmd ;;
+        path) printf '%s' "$fx" | clipcopy ;;
+        name) basename -a -- $fx | head -c-1 | clipcopy ;;
+        dirname) dirname -- "$f" | head -c-1 | clipcopy ;;
     esac
 }}
 map yd yank-path "dirname"
