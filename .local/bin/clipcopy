@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+#
+# Copy stdin to clipboard, using the right tool for the current
+# environment. 
+# This is a standalone script as it's used in many places in my dotfiles.
+#
+# Copyright (C) 2025 Rafael Cavalcanti <https://rafaelc.org/dev>
+# Licensed under GPLv3
+
+set -euo pipefail
+
+declare -Ar commands=(
+  [x11]="xsel --clipboard"
+  [wayland]="wl-copy"
+  [termux]="termux-clipboard-set"
+  [wsl]="win32yank.exe -i"
+)
+
+main() {
+  local -r input="$(cat)"
+
+  local -r environment="$(detect_environment)"
+  if [[ -z "${environment:-}" ]]; then
+    echo "Environment not detected."
+    exit 1
+  fi
+
+  local -r cmd="${commands[${environment}]}"
+  check_cmd "$cmd"
+
+  $cmd <<< "$input"
+}
+
+detect_environment() {
+  if grep -qEi "(Microsoft|WSL)" /proc/version; then
+    echo wsl
+  elif [[ -n "${TERMUX_VERSION:-}" ]]; then
+    echo termux
+  elif [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
+    echo x11
+  elif [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+    echo wayland
+  fi
+}
+
+check_cmd() {
+  local -r cmd="$1"
+  local -r cmd_bin="${cmd%% *}"
+
+  if ! command -v "$cmd_bin" > /dev/null; then
+    echo "Command not available: $cmd_bin"
+    exit 1
+  fi
+}
+
+main "$@"
