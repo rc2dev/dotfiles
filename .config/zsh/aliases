@@ -129,7 +129,7 @@ alias scs="systemctl status"
 alias jc="journalctl"
 
 # APT
-if [[ -n "$TERMUX_VERSION" ]]; then _sudo= else _sudo=sudo; fi
+if [[ -n "$TERMUX_VERSION" ]]; then _sudo=; else _sudo=sudo; fi
 alias aar="$_sudo apt autoremove --purge"
 alias ama="$_sudo apt-mark auto"
 alias amm="$_sudo apt-mark manual"
