@@ -5,9 +5,6 @@
 nnoremap <F2> :set paste!<CR>
 inoremap <F2> <C-o>:set paste!<CR>
 
-" Insert current date
-inoremap <F3> <C-R>=strftime('%Y-%m-%d')<CR>
-
 " Toggle spellcheck
 nnoremap <F6> :call ToggleSpell()<CR>
 inoremap <F6> <C-o>:call ToggleSpell()<CR>

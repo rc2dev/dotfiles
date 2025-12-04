@@ -2,10 +2,13 @@
 " Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 " Commenting
-iab rca [RC added]
 iab rcc [RC]
-iab rcp Copyright (C) <C-r>=strftime('%Y')<CR> Rafael Cavalcanti <https://rafaelc.org/dev><CR>Licensed under GPLv3<CR>
-iab rct Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+iab rccop Copyright (C) <C-r>=strftime('%Y')<CR> Rafael Cavalcanti <https://rafaelc.org/dev><CR>Licensed under GPLv3<CR>
+iab rcaut Author: Rafael Cavalcanti <https://rafaelc.org/dev>
+
+" Insert time
+iab <expr> ato strftime("%Y-%m-%d")
+iab <expr> ati strftime("%Y-%m-%d %H:%M:%S")
 
 " Portuguese typing
 iab dps depois
