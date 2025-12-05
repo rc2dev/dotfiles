@@ -2,6 +2,12 @@ return {
   "neoclide/coc.nvim",
   branch = "release",
 
+  -- We don't need it on every host.
+  -- For now, we'll disable on SSH.
+  cond = function() 
+    return vim.env.SSH_TTY == nil
+  end,
+
   -- Configuration based on documentation from coc.nvim
   -- (<https://github.com/neoclide/coc.nvim#example-vim-configuration>)
   config = function()
