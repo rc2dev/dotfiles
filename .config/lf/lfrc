@@ -146,17 +146,23 @@ map <enter> open
 # File opener actions.
 map L $mimeopen --ask $f
 
-# Define a custom 'open' command.
-# Uses an editor for text files and a file opener for the rest.
+# Define a custom "open" command.
 cmd open &{{
-    case $(file --mime-type -Lb $f) in
-        text/*) lf -remote "send $id \$$EDITOR \$fx";;
+    mime=$(file --mime-type -Lb "$f")
 
-        # Useful to touch files and open with lf.vim.
-        inode/x-empty) lf -remote "send $id \$$EDITOR \$fx";;
+    # Open text on $EDITOR.
+    # Matching empty is useful to touch files and open with lf.vim.
+    if [[ $mime == text/* || $mime == inode/x-empty ]]; then
+        lf -remote "send $id \$$EDITOR \$fx"
 
-        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
-    esac
+    # On WSL: Open files on Windows host.
+    elif grep -qEi "(Microsoft|WSL)" /proc/version; then
+        # explorer.exe doesn't like the full path.
+        explorer.exe "$(basename -- $f)"
+
+    else
+        $OPENER $f > /dev/null 2> /dev/null
+    fi
 }}
 
 # Move copy mapping so we can set more mappings starting with "y".
