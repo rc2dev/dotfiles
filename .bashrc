@@ -46,7 +46,9 @@ if ! shopt -oq posix; then
 fi
 
 # zoxide
-eval "$(zoxide init bash)"
+if command -v zoxide > /dev/null; then
+  eval "$(zoxide init bash)"
+fi
 
 # aliases
 source "$HOME/.config/zsh/aliases"
