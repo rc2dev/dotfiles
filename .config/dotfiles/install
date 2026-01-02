@@ -7,6 +7,7 @@
 
 set -euo pipefail
 
+declare -ar deps=(git rsync)
 readonly remote_repo="https://github.com/rc2dev/dotfiles.git"
 readonly local_repo="$HOME/.local/share/dotfiles/repo.git"
 
@@ -21,11 +22,21 @@ log() {
 main() {
   cd "$HOME"
 
+  check_deps
   clone_repo
   config_repo
   setup_sparse_checkout
   setup_submodules
   enable_services
+}
+
+check_deps() {
+  for dep in "${deps[@]}"; do
+    if ! command -v "$dep" > /dev/null; then
+      log "Please install the dependency before proceeding: $dep"
+      exit 1
+    fi
+  done
 }
 
 clone_repo() {
