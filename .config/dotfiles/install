@@ -11,6 +11,22 @@ declare -ar deps=(git rsync)
 readonly remote_repo="https://github.com/rc2dev/dotfiles.git"
 readonly local_repo="$HOME/.local/share/dotfiles/repo.git"
 
+printf '
+     _       _    __ _ _           
+  __| | ___ | |_ / _(_) | ___  ___ 
+ / _` |/ _ \| __| |_| | |/ _ \/ __|
+| (_| | (_) | |_|  _| | |  __/\__ \
+ \__,_|\___/ \__|_| |_|_|\___||___/
+                                   
+
+This will install the dotfiles to the user.
+Remote URL: %s
+
+--------------------------------------------
+
+' "$remote_repo"
+
+
 dotfiles() {
   git --git-dir="$local_repo" --work-tree="$HOME" "$@"
 }
@@ -41,8 +57,10 @@ check_deps() {
 
 clone_repo() {
   if [[ -d "$local_repo" ]]; then
+    log "Repo is already cloned: $local_repo"
     return
   fi
+  log "Cloning repo..."
 
   local -r tmp_dest="$(mktemp -d)"
   trap 'rm -rf "$tmp_dest"' EXIT
