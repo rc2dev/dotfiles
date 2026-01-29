@@ -51,14 +51,13 @@ clone_repo() {
 
 stage() {
   if [[ -z "$(git_cmd status --porcelain)" ]]; then
-    log "Repositório limpo. Staging não é necessário."
+    log "Repo is clean."
     return
   fi
 
   log "Staging:"
-  echo "Press ENTER to stage files in lazygit."
+  echo "We'll enter lazygit to stage files."
   echo "Don't commit or push: it'll be done automatically."
-  read
   lazygit --git-dir "$git_dir" --work-tree "$work_tree"
 }
 
