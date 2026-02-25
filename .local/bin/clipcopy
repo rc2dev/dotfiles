@@ -32,7 +32,7 @@ main() {
 }
 
 detect_environment() {
-  if grep -qEi "(Microsoft|WSL)" /proc/version; then
+  if [[ -f /proc/version ]] && grep -qEi "(Microsoft|WSL)" /proc/version; then
     echo wsl
   elif [[ -n "${TERMUX_VERSION:-}" ]]; then
     echo termux
