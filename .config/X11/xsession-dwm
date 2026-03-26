@@ -9,8 +9,8 @@
 export XRESOURCES="$HOME/.config/X11/Xresources"
 # Use non-default path, so KDE Plasma doesn't override it.
 export XSETTINGS_CONFIG="$HOME/.config/xsettingsd/xsettingsd-dwm.conf"
-export BROWSER="chromium"
-export TERMINAL="st"
+export BROWSER="brave-browser"
+export TERMINAL="alacritty"
 
 # Use KDE Wallet to store SSH key passphrases
 # (<https://wiki.archlinux.org/title/KDE_Wallet#Using_the_KDE_Wallet_to_store_ssh_key_passphrases>)
