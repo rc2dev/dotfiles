@@ -3,13 +3,13 @@
 # Author: Rafael Cavalcanti <https://rafaelc.org/dev>
 
 super + b
-  rofi-bluetooth -i
+  blueman-manager
 
 {super + c, XF86Calculator}
   gnome-calculator
 
 super + shift + d
-  theme-mode toggle
+  theme-mode-xsettingsd toggle
 
 super + e
   $TERMINAL -e nvim
@@ -43,15 +43,18 @@ super + r
   dmenu-radio
 
 super + s
-  flatpak run md.obsidian.Obsidian
+  obsidian
 
 super + u
   $TERMINAL -n cmus -e cmus
 
+# Arguments:
+# -i: unneded with patched dmenu to case insensitve, but necessary using rofi.
+# -theme-str: configure rofi theme.
 super + {_, shift} + v
   { \
-    pavucontrol, \
-    mpv "$(xclip -o)" \
+    clipmenu -i -theme-str "listview \{ columns: 1; \}", \
+    dmenu-emoji insert \
   }
 
 super + w
@@ -60,20 +63,8 @@ super + w
 super + y
   dmenu-yt
 
-super + {_, shift} + Return
-  { \
-    wmctrl -a tmux || $TERMINAL -n tmux -e tmux new -A, \
-    $TERMINAL \
-  }
-
-# Arguments:
-# -i: unneded with patched dmenu to case insensitve, but necessary using rofi.
-# -theme-str: configure rofi theme.
-ctrl + alt + v
-  clipmenu -i -theme-str "listview \{ columns: 1; \}"
-
-ctrl + alt + m
-  dmenu-emoji insert
+super + Return
+  $TERMINAL
 
 Print + {_, shift}
   flameshot gui {_, --delay 5000}
@@ -82,12 +73,6 @@ Print + {_, shift}
 ######################
 ##   DWM SPECIFIC   ##
 ######################
-
-# Arguments:
-# - Allow cycling with alt+(shift+)tab
-{alt, super} + Tab
-  rofi -show window -show-icons \
-    -kb-row-down "Alt+Tab,Super+Tab,Ctrl+j,Down" -kb-row-up "Alt+ISO_Left_Tab,Super+ISO_Left_Tab,Ctrl+k,Up"
 
 super + d
   rofi -show drun -show-icons
