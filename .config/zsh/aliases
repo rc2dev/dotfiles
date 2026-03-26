@@ -29,17 +29,8 @@ alias grep="grep --color=auto"
 alias less="less -R"
 
 # ls
-if command -v exa > /dev/null; then
-  alias ls="exa --color=auto -aaF --group-directories-first"
-  if [[ -n "$TERMUX_VERSION" ]]; then
-    alias ll="ls -l --git --icons --no-user"
-  else
-    alias ll="ls -l --git --icons --group"
-  fi
-else
-  alias ls="ls --color=auto -aF --group-directories-first"
-  alias ll="ls -lh"
-fi
+alias ls="ls --color=auto -aF --group-directories-first"
+alias ll="ls -lh"
 
 # Use bat if available
 if command -v "$BAT_CMD" >/dev/null; then
