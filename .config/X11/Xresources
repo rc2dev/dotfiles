@@ -67,6 +67,6 @@ dwm.topbar:      0
 dwm.mfact:       0.5
 dwm.enablegaps:  1
 dwm.smartgaps:   1
-dwm.showsystray: 0
+dwm.showsystray: 1
 dwm.borderpx:    0
 st.alpha :       0.92
