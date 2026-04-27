@@ -213,3 +213,6 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1         # For konsole and gnome-terminal
 
+# Try to remove background color on NTFS mounts by "ls"/"ls -l" under WSL (NTFS mounts are other-writable).
+# It made it unreadable.
+export LS_COLORS="$LS_COLORS:ow=01;34"
