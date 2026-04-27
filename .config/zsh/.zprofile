@@ -61,11 +61,6 @@ elif command -v batcat >/dev/null; then export BAT_CMD=batcat; fi
 # Applications configuration
 #######################################################
 
-# aws-cli
-# Move from ~/
-export AWS_SHARED_CREDENTIALS_FILE="$HOME/.config/aws/credentials"
-export AWS_CONFIG_FILE="$HOME/.config/aws/config"
-
 # clipmenud
 # This makes history persistent across sessions
 export CM_DIR="$HOME/.cache"
