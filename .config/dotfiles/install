@@ -88,9 +88,7 @@ config_repo() {
 setup_sparse_checkout() {
   # Hide README and LICENSE
   log "Setting sparse checkout..."
-  dotfiles config core.sparseCheckout true
-  printf "/*\n!README.md\n!LICENSE\n" > "$local_repo/info/sparse-checkout"
-  dotfiles read-tree -mu HEAD
+  dotfiles sparse-checkout set --no-cone '/*' '!README.md' '!LICENSE'
 }
 
 setup_submodules() {
