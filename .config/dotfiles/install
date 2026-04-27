@@ -101,7 +101,7 @@ setup_submodules() {
 }
 
 enable_services() {
-  case $(hostname) in
+  case $HOSTNAME in
     rd|x220)
       log "Enabling system user units for rd or x220..."
       systemctl --user enable ssh-agent.service
