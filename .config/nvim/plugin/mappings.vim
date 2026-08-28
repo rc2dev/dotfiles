@@ -10,9 +10,9 @@ nnoremap <F6> :call ToggleSpell()<CR>
 inoremap <F6> <C-o>:call ToggleSpell()<CR>
 
 " Toggle terminal on/off (neovim)
-nnoremap <F9> :call TermToggle(12)<CR>
-inoremap <F9> <Esc>:call TermToggle(12)<CR>
-tnoremap <F9> <C-\><C-n>:call TermToggle(12)<CR>
+nnoremap <F12> :call TermToggle(12)<CR>
+inoremap <F12> <Esc>:call TermToggle(12)<CR>
+tnoremap <F12> <C-\><C-n>:call TermToggle(12)<CR>
 
 " For consistency with C and D
 noremap Y y$
@@ -96,10 +96,8 @@ map <leader>cc <plug>NERDCommenterToggle
 
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
-nnoremap <leader>fF <cmd>Telescope find_files prompt_title=Find\ Files\ in\ buffer\ directory cwd=%:p:h <CR>
 nnoremap <leader>fy <cmd>Telescope find_files prompt_title=Dotfiles cwd=$HOME find_command=dotfiles,ls-files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
-nnoremap <leader>fG <cmd>Telescope live_grep prompt_title=Live\ Grep\ buffer\ directory search_dirs=%:p:h<CR>
 nnoremap <leader>fh <cmd>Telescope oldfiles<CR>
 nnoremap <leader>st <cmd>Telescope filetypes<CR>
 nnoremap <leader>bb <cmd>Telescope buffers<CR>
