@@ -15,9 +15,6 @@ setlocal foldenable
 " Turn spell check on, except on vimdiff
 if ! &diff | setlocal spell | endif
 
-" Center cursor
-autocmd InsertLeave,InsertEnter * normal zz
-
 " Create a markdown link structure with the URL from clipboard.
 nnoremap <buffer> <leader>ml i[](<C-o>p)<Esc>F[a
 
